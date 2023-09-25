@@ -1,0 +1,14 @@
+<Configuration>
+  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+    <encoder>
+      <pattern>[%d{HH:mm:ss}] [%level] %msg%n</pattern>
+    </encoder>
+  </appender>
+  <logger name="org.reflections" level="OFF"/>
+  <logger name="org.eclipse.jetty" level="OFF" />
+  <logger name="de.bwaldvogel" level="ERROR" />
+  <logger name="io.javalin" level="ERROR" />
+  <root level="INFO">
+    <appender-ref ref="STDOUT" />
+  </root>
+</Configuration>

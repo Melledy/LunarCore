@@ -1,0 +1,27 @@
+[
+    {
+        "id": 1001,
+        "gachaType": "Normal",
+        "beginTime": 0,
+        "endTime": 0,
+        "rateUpItems5": [],
+        "rateUpItems4": []
+    },
+    {
+        "id": 2009,
+        "gachaType": "AvatarUp",
+        "beginTime": 0,
+        "endTime": 1924992000,
+        "rateUpItems5": [1213],
+        "rateUpItems4": [1207, 1001, 1009]
+    },
+    {
+        "id": 3009,
+        "gachaType": "WeaponUp",
+        "beginTime": 0,
+        "endTime": 1924992000,
+        "eventChance": 75,
+        "rateUpItems5": [1208],
+        "rateUpItems4": [1106, 1109, 1110]
+    }
+]

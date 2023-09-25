@@ -1,0 +1,283 @@
+package emu.lunarcore.game.gacha;
+
+import java.io.FileReader;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.ThreadLocalRandom;
+
+import emu.lunarcore.LunarRail;
+import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.excel.ItemExcel;
+import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.inventory.GameItem;
+import emu.lunarcore.game.inventory.ItemMainType;
+import emu.lunarcore.game.inventory.ItemRarity;
+import emu.lunarcore.game.player.Player;
+import emu.lunarcore.proto.GachaItemOuterClass.GachaItem;
+import emu.lunarcore.proto.GetGachaInfoScRspOuterClass.GetGachaInfoScRsp;
+import emu.lunarcore.proto.ItemListOuterClass.ItemList;
+import emu.lunarcore.server.game.BaseGameService;
+import emu.lunarcore.server.game.GameServer;
+import emu.lunarcore.server.packet.send.PacketDoGachaScRsp;
+import emu.lunarcore.util.JsonUtils;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
+import it.unimi.dsi.fastutil.ints.IntList;
+
+public class GachaService extends BaseGameService {
+    private final Int2ObjectMap<GachaBanner> gachaBanners;
+    private GetGachaInfoScRsp cachedProto;
+
+    private int[] yellowAvatars = new int[] {1003, 1004, 1101, 1107, 1104, 1209, 1211};
+    private int[] yellowWeapons = new int[] {23000, 23002, 23003, 23004, 23005, 23012, 23013};
+    private int[] purpleAvatars = new int[] {1001, 1002, 1008, 1009, 1013, 1103, 1105, 1106, 1108, 1109, 1111, 1201, 1202, 1206, 1207};
+    private int[] purpleWeapons = new int[] {21000, 21001, 21002, 21003, 21004, 21005, 21006, 21007, 21008, 21009, 21010, 21011, 21012, 21013, 21014, 21015, 21016, 21017, 21018, 21019, 21020};
+    private int[] blueWeapons = new int[] {20000, 20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012, 20013, 20014, 20015, 20016, 20017, 20018, 20019, 20020};
+
+    private static int starglitterId = 251;
+    private static int stardustId = 252;
+
+    public GachaService(GameServer server) {
+        super(server);
+        this.gachaBanners = new Int2ObjectOpenHashMap<>();
+        this.load();
+    }
+
+    public Int2ObjectMap<GachaBanner> getGachaBanners() {
+        return gachaBanners;
+    }
+
+    public int randomRange(int min, int max) {
+        return ThreadLocalRandom.current().nextInt(max - min + 1) + min;
+    }
+
+    public int getRandom(int[] array) {
+        return array[randomRange(0, array.length - 1)];
+    }
+
+    public synchronized void load() {
+        try (FileReader fileReader = new FileReader(LunarRail.getConfig().getDataDir() + "/Banners.json")) {
+            List<GachaBanner> banners = JsonUtils.loadToList(fileReader, GachaBanner.class);
+            for (GachaBanner banner : banners) {
+                getGachaBanners().put(banner.getId(), banner);
+            }
+        } catch (Exception e) {
+            // TODO Auto-generated catch block
+            LunarRail.getLogger().warn("No gacha banners loaded!");
+        }
+    }
+
+    public synchronized void doPulls(Player player, int gachaId, int times) {
+        // Sanity check
+        if (times != 10 && times != 1) {
+            return;
+        }
+        if (player.getInventory().getInventoryTab(ItemMainType.Equipment).getSize() + times > player.getInventory().getInventoryTab(ItemMainType.Equipment).getMaxCapacity()) {
+            player.sendPacket(new PacketDoGachaScRsp());
+            return;
+        }
+
+        // Get banner
+        GachaBanner banner = this.getGachaBanners().get(gachaId);
+        if (banner == null) {
+            player.sendPacket(new PacketDoGachaScRsp());
+            return;
+        }
+
+        // Spend currency
+        if (banner.getGachaType().getCostItem() > 0) {
+            GameItem costItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(banner.getGachaType().getCostItem());
+            if (costItem == null || costItem.getCount() < times) {
+                return;
+            }
+
+            player.getInventory().removeItem(costItem, times);
+        }
+
+        // Roll
+        PlayerGachaBannerInfo gachaInfo = player.getGachaInfo().getBannerInfo(banner.getGachaType());
+        IntList wonItems = new IntArrayList(times);
+
+        for (int i = 0; i < times; i++) {
+            int random = this.randomRange(1, 10000);
+            int itemId = 0;
+
+            int bonusYellowChance = gachaInfo.getPity5() >= 74 ? 100 * (gachaInfo.getPity5() - 73): 0;
+            int yellowChance = 60 + (int) Math.floor(100f * (gachaInfo.getPity5() / 73f)) + bonusYellowChance;
+            int purpleChance = 10000 - (510 + (int) Math.floor(790f * (gachaInfo.getPity4() / 8f)));
+
+            if (random <= yellowChance || gachaInfo.getPity5() >= 89) {
+                if (banner.getRateUpItems5().length > 0) {
+                    int eventChance = this.randomRange(1, 100);
+
+                    if (eventChance <= banner.getEventChance() || gachaInfo.getFailedFeaturedItemPulls() >= 1) {
+                        itemId = getRandom(banner.getRateUpItems5());
+                        gachaInfo.setFailedFeaturedItemPulls(0);
+                    } else {
+                        // Lost the 50/50... rip
+                        gachaInfo.addFailedFeaturedItemPulls(1);
+                    }
+                }
+
+                if (itemId == 0) {
+                    int typeChance = this.randomRange(banner.getGachaType().getMinItemType(), banner.getGachaType().getMaxItemType());
+                    if (typeChance == 1) {
+                        itemId = getRandom(this.yellowAvatars);
+                    } else {
+                        itemId = getRandom(this.yellowWeapons);
+                    }
+                }
+
+                // Pity
+                gachaInfo.addPity4(1);
+                gachaInfo.setPity5(0);
+            } else if (random >= purpleChance || gachaInfo.getPity4() >= 9) {
+                if (banner.getRateUpItems4().length > 0) {
+                    int eventChance = this.randomRange(1, 100);
+
+                    if (eventChance >= 50) {
+                        itemId = getRandom(banner.getRateUpItems4());
+                    }
+                }
+
+                if (itemId == 0) {
+                    int typeChance = this.randomRange(banner.getGachaType().getMinItemType(), banner.getGachaType().getMaxItemType());
+                    if (typeChance == 1) {
+                        itemId = getRandom(this.purpleAvatars);
+                    } else {
+                        itemId = getRandom(this.purpleWeapons);
+                    }
+                }
+
+                // Pity
+                gachaInfo.addPity5(1);
+                gachaInfo.setPity4(0);
+            } else {
+                itemId = getRandom(this.blueWeapons);
+
+                // Pity
+                gachaInfo.addPity4(1);
+                gachaInfo.addPity5(1);
+            }
+
+            // Add winning item
+            wonItems.add(itemId);
+        }
+
+        // Add to character
+        List<GachaItem> list = new ArrayList<>();
+        int stardust = 0, starglitter = 0;
+
+        for (int itemId : wonItems) {
+            ItemExcel itemData = GameData.getItemExcelMap().get(itemId);
+            if (itemData == null) {
+                continue;
+            }
+
+            // Create gacha item
+            GachaItem gachaItem = GachaItem.newInstance();
+            int addStardust = 0, addStarglitter = 0;
+
+            // Dupe check
+            if (itemData.getItemMainType() == ItemMainType.AvatarCard) {
+                int avatarId = itemData.getId();
+                GameAvatar avatar = player.getAvatars().getAvatarById(avatarId);
+                if (avatar != null) {
+                    int constLevel = avatar.getRank();
+                    int constItemId = avatarId + 10000; // Hacky. TODO optimize by using AvatarRankExcel
+                    GameItem constItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(constItemId);
+                    if (constItem != null) {
+                        constLevel += constItem.getCount();
+                    }
+
+                    if (constLevel < 6) {
+                        // Not max const
+                        addStarglitter = 2;
+                        // Add 1 const
+                        //gachaItem.addTransferItems(GachaTransferItem.newBuilder().setItem(ItemParam.newBuilder().setItemId(constItemId).setCount(1)).setIsTransferItemNew(constItem == null));
+                        //gachaItem.addTokenItemList(ItemParam.newBuilder().setItemId(constItemId).setCount(1));
+                        player.getInventory().addItem(constItemId, 1);
+                    } else {
+                        // Is max const
+                        addStarglitter = 5;
+                    }
+
+                    if (itemData.getRarity() == ItemRarity.SuperRare) {
+                        addStarglitter *= 5;
+                    }
+                } else {
+                    // New
+                    gachaItem.setIsNew(true);
+                }
+            } else {
+                // Is weapon
+                switch (itemData.getRarity()) {
+                case SuperRare:
+                    addStarglitter = 10;
+                    break;
+                case VeryRare:
+                    addStarglitter = 2;
+                    break;
+                case Rare:
+                    addStardust = 15;
+                    break;
+                default:
+                    break;
+                }
+            }
+
+            // Create item
+            GameItem item = new GameItem(itemData);
+            gachaItem.setGachaItem(item.toProto());
+            gachaItem.setUnk1(ItemList.newInstance());
+            gachaItem.setUnk2(ItemList.newInstance());
+            player.getInventory().addItem(item);
+
+            stardust += addStardust;
+            starglitter += addStarglitter;
+
+            /*
+			if (addStardust > 0) {
+				gachaItem.addTokenItemList(ItemParam.newBuilder().setItemId(stardustId).setCount(addStardust));
+			} if (addStarglitter > 0) {
+				ItemParam starglitterParam = ItemParam.newBuilder().setItemId(starglitterId).setCount(addStarglitter).build();
+				if (isTransferItem) {
+					gachaItem.addTransferItems(GachaTransferItem.newBuilder().setItem(starglitterParam));
+				}
+				gachaItem.addTokenItemList(starglitterParam);
+			}
+             */
+
+            list.add(gachaItem.newInstance());
+        }
+
+        // Add stardust/starglitter
+        if (stardust > 0) {
+            player.getInventory().addItem(stardustId, stardust);
+        } if (starglitter > 0) {
+            player.getInventory().addItem(starglitterId, starglitter);
+        }
+
+        // Packets
+        player.sendPacket(new PacketDoGachaScRsp(banner, times, list));
+    }
+
+    private synchronized GetGachaInfoScRsp createProto() {
+        var proto = GetGachaInfoScRsp.newInstance();
+
+        for (GachaBanner banner : getGachaBanners().values()) {
+            proto.addGachaInfoList(banner.toProto());
+        }
+
+        return proto;
+    }
+
+    public GetGachaInfoScRsp toProto() {
+        if (this.cachedProto == null) {
+            this.cachedProto = createProto();
+        }
+
+        return this.cachedProto;
+    }
+}

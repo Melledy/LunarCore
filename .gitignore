@@ -1,0 +1,75 @@
+# Compiled class file
+*.class
+
+#idea
+*.idea
+# Log file
+*.log
+
+# BlueJ files
+*.ctxt
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.war
+*.nar
+*.ear
+*.zip
+*.gz
+*.rar
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Ignore Gradle project-specific cache directory
+.gradle
+
+# Ignore Gradle build output directory
+build/
+out/
+
+# Ignore Gradle properties
+gradle.properties
+
+# Eclipse
+.project
+.classpath
+.settings
+.metadata
+.properties
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+.loadpath
+.recommenders
+
+# VSCode
+.vscode
+
+# lombok
+/.apt_generated/
+
+# macOS
+.DS_Store
+.directory
+
+# Lunar Rail generated/resource/log folders
+src/generated
+/resources
+/logs
+
+# Lunar Rail compiled
+/*.jar
+/*.sh
+
+# Lunar Rail extra
+Star Rail Handbook.txt
+config.json
+*.mv
+*.exe
+Test.java

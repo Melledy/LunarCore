@@ -1,0 +1,51 @@
+package emu.lunarcore.server.packet.send;
+
+import java.util.Collection;
+
+import emu.lunarcore.game.scene.GameEntity;
+import emu.lunarcore.proto.SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo;
+import emu.lunarcore.proto.SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo;
+import emu.lunarcore.proto.SceneGroupRefreshScNotifyOuterClass.SceneGroupRefreshScNotify;
+import emu.lunarcore.server.packet.BasePacket;
+import emu.lunarcore.server.packet.CmdId;
+
+public class PacketSceneGroupRefreshScNotify extends BasePacket {
+
+    public PacketSceneGroupRefreshScNotify(GameEntity toAdd, GameEntity toRemove) {
+        super(CmdId.SceneGroupRefreshScNotify);
+
+        var group = SceneGroupRefreshInfo.newInstance().setGroupId(toAdd.getGroupId());
+
+        if (toAdd != null) {
+            group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setAddEntity(toAdd.toSceneEntityProto()));
+        }
+
+        if (toRemove != null) {
+            group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setDelEntity(toRemove.getEntityId()));
+        }
+
+        var data = SceneGroupRefreshScNotify.newInstance()
+                .addGroupRefreshInfo(group);
+
+        this.setData(data);
+    }
+
+    public PacketSceneGroupRefreshScNotify(Collection<? extends GameEntity> toAdd, Collection<? extends GameEntity> toRemove) {
+        super(CmdId.SceneGroupRefreshScNotify);
+
+        var group = SceneGroupRefreshInfo.newInstance();
+
+        for (var entity : toAdd) {
+            group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setAddEntity(entity.toSceneEntityProto()));
+        }
+
+        for (var entity : toRemove) {
+            group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setDelEntity(entity.getEntityId()));
+        }
+
+        var data = SceneGroupRefreshScNotify.newInstance()
+                .addGroupRefreshInfo(group);
+
+        this.setData(data);
+    }
+}

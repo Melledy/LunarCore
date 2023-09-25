@@ -1,0 +1,108 @@
+package emu.lunarcore.util;
+
+import dev.morphia.annotations.Entity;
+import emu.lunarcore.proto.VectorOuterClass.Vector;
+
+@Entity(useDiscriminator = false)
+public class Position {
+    private int x;
+    private int y;
+    private int z;
+
+    public Position() {
+
+    }
+
+    public Position(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public Position(Position position) {
+        this.x = position.getX();
+        this.y = position.getY();
+        this.z = position.getZ();
+    }
+
+    public int getX() {
+        return x;
+    }
+
+    public void setX(int x) {
+        this.x = x;
+    }
+
+    public int getY() {
+        return y;
+    }
+
+    public void setY(int y) {
+        this.y = y;
+    }
+
+    public int getZ() {
+        return z;
+    }
+
+    public void setZ(int z) {
+        this.z = z;
+    }
+
+    public void set(Position pos) {
+        this.x = pos.getX();
+        this.y = pos.getY();
+        this.z = pos.getZ();
+    }
+
+    public void set(int x, int y, int z) {
+        this.x = x;
+        this.y = y;
+        this.z = z;
+    }
+
+    public Position add(int x, int y, int z) {
+        this.x += x;
+        this.y += y;
+        this.z += z;
+        return this;
+    }
+
+    // Operations TODO
+
+    public double get2dDist(Position pos) {
+        int x = this.getX() - pos.getX();
+        int y = this.getY() - pos.getY();
+        return Math.sqrt((x * x) + (y * y));
+    }
+
+    public int getFast2dDist(Position pos) {
+        int x = this.getX() - pos.getX();
+        int y = this.getY() - pos.getY();
+        return (x * x) + (y * y);
+    }
+
+    public Vector toProto() {
+        return Vector.newInstance().setX(x).setY(y).setZ(z);
+    }
+
+    // Overrides
+
+    @Override
+    public Position clone() {
+        return new Position(getX(), getY(), getZ());
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o instanceof Position pos) {
+            return getX() == pos.getX() && getY() == pos.getY() && getZ() == pos.getZ();
+        }
+        return false;
+    }
+
+    @Override
+    public String toString() {
+        return "[ " + this.getX() + " , " + this.getY() + " ]";
+    }
+}
