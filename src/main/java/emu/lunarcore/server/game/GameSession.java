@@ -116,7 +116,9 @@ public class GameSession {
                 }
 
                 // Log packet
-                logPacket("RECV", opcode, data);
+                if (LunarRail.getConfig().logPackets) {
+                    logPacket("RECV", opcode, data);
+                }
 
                 // Handle
                 getServer().getPacketHandler().handle(this, opcode, header, data);
@@ -139,7 +141,9 @@ public class GameSession {
         this.send(packet.build());
 
         // Log
-        logPacket("SEND", packet.getOpcode(), packet.getData());
+        if (LunarRail.getConfig().logPackets) {
+            logPacket("SEND", packet.getOpcode(), packet.getData());
+        }
     }
 
     /**

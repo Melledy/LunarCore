@@ -19,6 +19,8 @@ public class Config {
 
     public String resourceDir = "./resources";
     public String dataDir = "./data";
+    
+    public boolean logPackets = false;
 
     @Getter
     public static class DatabaseInfo {
