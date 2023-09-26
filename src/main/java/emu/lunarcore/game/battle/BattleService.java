@@ -1,8 +1,11 @@
 package emu.lunarcore.game.battle;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.EntityMonster;
@@ -25,36 +28,71 @@ public class BattleService extends BaseGameService {
     }
 
     public void onBattleStart(Player player, int attackerId, RepeatedInt attackedList) {
-        // Setup variables
-        int entityId = attackedList.get(0);
-        GameEntity entity = null;
-
+        //
+        List<GameEntity> entities = new ArrayList<>();
+        List<EntityMonster> monsters = new ArrayList<>();
+        
         // Check if attacker is the player or not
         if (player.getScene().getAvatarEntityIds().contains(attackerId)) {
-            entity = player.getScene().getEntities().get(entityId);
-        } else if (player.getScene().getAvatarEntityIds().contains(entityId)) {
-            entity = player.getScene().getEntities().get(attackerId);
-        }
-
-        if (entity != null) {
-            if (entity instanceof EntityMonster) {
-                player.sendPacket(new PacketSceneCastSkillScRsp(player, (EntityMonster) entity));
-                return;
-            } else if (entity instanceof EntityProp) {
-                player.sendPacket(new PacketSceneCastSkillScRsp(0));
-                return;
+            // Attacker is the player
+            for (int entityId : attackedList) {
+                GameEntity entity = player.getScene().getEntities().get(entityId);
+                
+                if (entity != null) {
+                    entities.add(entity);
+                }
+            }
+        } else {
+            // Player is ambushed
+            GameEntity entity = player.getScene().getEntities().get(attackerId);
+            
+            if (entity != null) {
+                entities.add(entity);
             }
         }
         
-        player.sendPacket(new PacketSceneCastSkillScRsp(1));
+        // Give the client an error if not attacked entities detected
+        if (entities.size() == 0) {
+            player.sendPacket(new PacketSceneCastSkillScRsp(1));
+            return;
+        }
+        
+        // Destroy props
+        var it = entities.iterator();
+        while (it.hasNext()) {
+            GameEntity entity = it.next();
+            
+            if (entity instanceof EntityMonster monster) {
+                monsters.add(monster);
+            } else if (entity instanceof EntityProp) {
+                it.remove();
+            }
+        }
+
+        // Start battle
+        if (monsters.size() > 0) {
+            // Create battle and add npc monsters to it
+            Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), GameData.getStageExcelMap().get(1));
+            battle.getNpcMonsters().addAll(monsters);
+            // Set battle and send rsp packet
+            player.setBattle(battle);
+            player.sendPacket(new PacketSceneCastSkillScRsp(player, battle));
+            return;
+        }
+        
+        // Send packet
+        player.sendPacket(new PacketSceneCastSkillScRsp(0));
     }
 
     public void onBattleResult(Player player, BattleEndStatus result, RepeatedMessage<AvatarBattleInfo> battleAvatars) {
-        // Lose
-        if (result == BattleEndStatus.BATTLE_END_LOSE) {
-
+        // Sanity
+        if (!player.isInBattle()) {
+            return;
         }
-
+        
+        // Get battle object
+        Battle battle = player.getBattle();
+        
         // Set health/energy
         for (var battleAvatar : battleAvatars) {
             GameAvatar avatar = player.getAvatarById(battleAvatar.getId());
@@ -70,7 +108,15 @@ public class BattleService extends BaseGameService {
         }
 
         // Sync with player
-        player.sendPacket(new PacketSyncLineupNotify(player.getLineupManager().getCurrentLineup()));
+        player.sendPacket(new PacketSyncLineupNotify(battle.getLineup()));
+        
+        // Delete enemies if the player won
+        if (result == BattleEndStatus.BATTLE_END_WIN) {
+
+        }
+        
+        // Done - Clear battle object from player
+        player.setBattle(null);
     }
 
 }

@@ -14,6 +14,7 @@ import emu.lunarcore.data.excel.MapEntranceExcel;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.scene.Scene;
@@ -48,6 +49,7 @@ public class Player {
     private int hcoin; // Jade
     private int mcoin; // Crystals
 
+    private transient Battle battle;
     private transient Scene scene;
     private Position pos;
     private int planeId;
@@ -205,6 +207,14 @@ public class Player {
 
     public int getDisplayExp() {
         return this.exp - GameData.getPlayerExpRequired(this.level);
+    }
+    
+    public boolean isInBattle() {
+        return this.battle != null;
+    }
+    
+    public void setBattle(Battle battle) {
+        this.battle = battle;
     }
     
     public void enterScene(int entryId, int teleportId) {

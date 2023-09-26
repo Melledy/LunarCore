@@ -1,6 +1,7 @@
 package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.EntityMonster;
@@ -28,40 +29,13 @@ public class PacketSceneCastSkillScRsp extends BasePacket {
     }
 
     // TODO
-    public PacketSceneCastSkillScRsp(Player player, EntityMonster monster) {
+    public PacketSceneCastSkillScRsp(Player player, Battle battle) {
         super(CmdId.SceneCastSkillScRsp);
-
-        var wave = SceneMonsterWave.newInstance()
-                .setStageId(monster.getStage().getId());
-
-        int[] monsters = {101203002, 100202003, 100204007, 100205006};
-
-        for (int i = 0; i < 5; i++) {
-            var m = SceneMonster.newInstance()
-                    .setMonsterId(Utils.randomElement(monsters));
-
-            wave.addMonsterList(m);
-        }
-
-        var battle = SceneBattleInfo.newInstance()
-                .setStageId(monster.getStage().getId())
-                .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
-                .addMonsterWaveList(wave)
-                .setWorldLevel(player.getWorldLevel());
-
-        // Avatars
-        PlayerLineup lineup = player.getLineupManager().getCurrentLineup();
-        for (int i = 0; i < lineup.getAvatars().size(); i++) {
-            GameAvatar avatar = player.getAvatarById(lineup.getAvatars().get(i));
-            if (avatar == null) continue;
-
-            battle.addBattleAvatarList(avatar.toBattleProto(i));
-        }
 
         // Build data
         var data = SceneCastSkillScRsp.newInstance()
-                .setAttackedGroupId(monster.getGroupId())
-                .setBattleInfo(battle);
+                //.setAttackedGroupId(monster.getGroupId())
+                .setBattleInfo(battle.toProto());
 
         this.setData(data);
     }
