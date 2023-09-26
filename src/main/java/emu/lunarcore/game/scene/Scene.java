@@ -176,11 +176,18 @@ public class Scene {
         this.entities.put(entity.getEntityId(), entity);
     }
     
+    public synchronized void removeEntity(GameEntity entity) {
+        removeEntity(entity.getEntityId());
+    }
+    
     public synchronized void removeEntity(int entityId) {
         GameEntity entity = this.entities.remove(entityId);
-        // TODO send packet
-    }
 
+        if (entity != null) {
+            player.sendPacket(new PacketSceneGroupRefreshScNotify(null, entity));
+        }
+    }
+    
     public SceneInfo toProto() {
         // Proto
         var proto = SceneInfo.newInstance()

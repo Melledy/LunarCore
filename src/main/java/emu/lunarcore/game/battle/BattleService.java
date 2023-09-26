@@ -66,6 +66,7 @@ public class BattleService extends BaseGameService {
                 monsters.add(monster);
             } else if (entity instanceof EntityProp) {
                 it.remove();
+                player.getScene().removeEntity(entity);
             }
         }
 
@@ -112,7 +113,10 @@ public class BattleService extends BaseGameService {
         
         // Delete enemies if the player won
         if (result == BattleEndStatus.BATTLE_END_WIN) {
-
+            // Could optimize it a little better
+            for (var monster : battle.getNpcMonsters()) {
+                player.getScene().removeEntity(monster);
+            }
         }
         
         // Done - Clear battle object from player

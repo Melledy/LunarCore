@@ -14,13 +14,13 @@ public class PacketSceneGroupRefreshScNotify extends BasePacket {
     public PacketSceneGroupRefreshScNotify(GameEntity toAdd, GameEntity toRemove) {
         super(CmdId.SceneGroupRefreshScNotify);
 
-        var group = SceneGroupRefreshInfo.newInstance().setGroupId(toAdd.getGroupId());
+        var group = SceneGroupRefreshInfo.newInstance();
 
         if (toAdd != null) {
+            group.setGroupId(toAdd.getGroupId());
             group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setAddEntity(toAdd.toSceneEntityProto()));
-        }
-
-        if (toRemove != null) {
+        } else if (toRemove != null) {
+            group.setGroupId(toRemove.getGroupId());
             group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setDelEntity(toRemove.getEntityId()));
         }
 
