@@ -3,6 +3,7 @@ package emu.lunarcore.game.scene;
 import java.util.ArrayList;
 import java.util.List;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.GroupInfo;
@@ -184,7 +185,7 @@ public class Scene {
         // Proto
         var proto = SceneInfo.newInstance()
                 .setWorldId(301)
-                .setLCMMECNPOBA(2)
+                .setLCMMECNPOBA(this.getPlaneId() == GameConstants.HOME_PLANE_ID ? 3 : 2)
                 .setPlaneId(this.getPlaneId())
                 .setFloorId(this.getFloorId())
                 .setEntryId(this.getEntryId());
