@@ -5,11 +5,8 @@ import java.util.List;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.config.FloorInfo;
-import emu.lunarcore.data.config.GroupInfo;
+import emu.lunarcore.data.config.*;
 import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
-import emu.lunarcore.data.config.MonsterInfo;
-import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
@@ -17,7 +14,6 @@ import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
-import emu.lunarcore.server.packet.send.PacketSceneEntityUpdateScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -76,7 +72,7 @@ public class Scene {
             }
             
             // Add monsters
-            if (group.getMonsterList() != null || group.getMonsterList().size() > 0) {
+            if (group.getMonsterList() != null && group.getMonsterList().size() > 0) {
                 for (MonsterInfo monsterInfo : group.getMonsterList()) {
                     // Get excels from game data
                     NpcMonsterExcel excel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
@@ -96,15 +92,8 @@ public class Scene {
             }
             
             // Add props
-            if (group.getPropList() != null || group.getPropList().size() > 0) {
+            if (group.getPropList() != null && group.getPropList().size() > 0) {
                 for (PropInfo propInfo : group.getPropList()) {
-                    // Dont add deleted props?
-                    /*
-                    if (propInfo.isIsDelete()) {
-                        continue;
-                    }
-                    */
-                    
                     // Create prop from prop info
                     EntityProp prop = new EntityProp(propInfo.getPropID(), propInfo.clonePos());
                     //prop.setState(propInfo.getState());
@@ -118,6 +107,35 @@ public class Scene {
                     
                     // Add to monsters
                     this.addEntity(prop);
+                }
+            }
+            
+            // Add npcs
+            if (group.getNPCList() != null && group.getNPCList().size() > 0) {
+                for (NpcInfo npcInfo : group.getNPCList()) {
+                    // Sanity check
+                    if (!GameData.getNpcExcelMap().containsKey(npcInfo.getNPCID())) {
+                        continue;
+                    }
+                    
+                    // Dont spawn duplicate NPCs
+                    boolean haseDuplicateNpcId = false;
+                    for (GameEntity entity : this.getEntities().values()) {
+                        if (entity instanceof EntityNpc eNpc && eNpc.getNpcId() == npcInfo.getNPCID()) {
+                            haseDuplicateNpcId = true;
+                            break;
+                        }
+                    }
+                    if (haseDuplicateNpcId) continue;
+                    
+                    // Create npc from npc info
+                    EntityNpc npc = new EntityNpc(npcInfo.getNPCID(), npcInfo.clonePos());
+                    npc.getRot().setY((int) (npcInfo.getRotY() * 1000f));
+                    npc.setInstId(npcInfo.getID());
+                    npc.setGroupId(group.getId());
+                    
+                    // Add to monsters
+                    this.addEntity(npc);
                 }
             }
         }
@@ -201,7 +219,10 @@ public class Scene {
         PlayerLineup lineup = getPlayer().getLineupManager().getCurrentLineup();
         int leaderAvatarId = lineup.getAvatars().get(getPlayer().getLineupManager().getCurrentLeader());
 
-        // Scene group
+        // Sort entities into groups
+        var groups = new Int2ObjectOpenHashMap<SceneEntityGroupInfo>();
+        
+        // Create player group
         var playerGroup = SceneEntityGroupInfo.newInstance();
 
         for (var avatar : avatars.values()) {
@@ -212,14 +233,12 @@ public class Scene {
             }
         }
 
-        proto.addEntityGroupList(playerGroup);
+        groups.put(0, playerGroup);
 
-        // Sort entities into groups
-        var groups = new Int2ObjectOpenHashMap<SceneEntityGroupInfo>();
-
-        for (var monster : entities.values()) {
-            var group = groups.computeIfAbsent(monster.getGroupId(), i -> SceneEntityGroupInfo.newInstance().setGroupId(i));
-            group.addEntityList(monster.toSceneEntityProto());
+        // Add rest of the entities to groups
+        for (var entity : entities.values()) {
+            var group = groups.computeIfAbsent(entity.getGroupId(), i -> SceneEntityGroupInfo.newInstance().setGroupId(i));
+            group.addEntityList(entity.toSceneEntityProto());
         }
 
         for (var group : groups.values()) {
