@@ -6,6 +6,7 @@ import java.util.List;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.EntityMonster;
+import emu.lunarcore.game.scene.EntityProp;
 import emu.lunarcore.game.scene.GameEntity;
 import emu.lunarcore.proto.AvatarBattleInfoOuterClass.AvatarBattleInfo;
 import emu.lunarcore.proto.AvatarPropertyOuterClass.AvatarProperty;
@@ -38,6 +39,9 @@ public class BattleService extends BaseGameService {
         if (entity != null) {
             if (entity instanceof EntityMonster) {
                 player.sendPacket(new PacketSceneCastSkillScRsp(player, (EntityMonster) entity));
+                return;
+            } else if (entity instanceof EntityProp) {
+                player.sendPacket(new PacketSceneCastSkillScRsp(0));
                 return;
             }
         }
