@@ -14,6 +14,7 @@ import lombok.Getter;
 public class PlayerLineup {
     private transient Player owner;
     private transient int index;
+    private transient int extraLineupType;
 
     private String name;
     private List<Integer> avatars;
@@ -22,15 +23,30 @@ public class PlayerLineup {
     public PlayerLineup() {
 
     }
-
+    
     public PlayerLineup(int index) {
-        this.name = "Squad " + (index + 1);
+        this(index, 0);
+    }
+
+    public PlayerLineup(int index, int extraLineupType) {
+        this.extraLineupType = extraLineupType;
         this.avatars = new ArrayList<>(GameConstants.MAX_AVATARS_IN_TEAM);
+        
+        // Set team name if not an extra lineup
+        if (!this.isExtraLineup()) {
+            this.name = "Squad " + (index + 1);
+        } else {
+            this.name = "";
+        }
     }
 
     protected void setOwnerAndIndex(Player player, int index) {
         this.owner = player;
         this.index = index;
+    }
+    
+    public boolean isExtraLineup() {
+        return this.extraLineupType != 0;
     }
 
     public void setName(String name) {

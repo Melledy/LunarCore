@@ -23,7 +23,7 @@ public class HandlerReplaceLineupCsReq extends PacketHandler {
             lineupList.add(slot.getId());
         }
 
-        session.getPlayer().getLineupManager().replaceLineup(req.getIndex(), lineupList);
+        session.getPlayer().getLineupManager().replaceLineup(req.getIndex(), req.getExtraLineupType().getNumber(), lineupList);
         session.send(new BasePacket(CmdId.ReplaceLineupScRsp));
     }
 

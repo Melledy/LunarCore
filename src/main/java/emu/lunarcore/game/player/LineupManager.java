@@ -6,6 +6,8 @@ import dev.morphia.annotations.Entity;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
 
 @Entity(useDiscriminator = false) @Getter
@@ -15,10 +17,14 @@ public class LineupManager {
     private PlayerLineup[] lineups;
     private int currentIndex;
     private int currentLeader;
+    
+    // Extra lineups for challenges/simulated universe/etc
+    private transient int currentExtraLineup;
+    private transient Int2ObjectMap<PlayerLineup> extraLineups;
 
-    @Deprecated
+    @Deprecated // Morphia only!
     public LineupManager() {
-        // Morphia only!
+        this.extraLineups = new Int2ObjectOpenHashMap<>();
     }
 
     public LineupManager(Player player) {
@@ -26,7 +32,19 @@ public class LineupManager {
 
         this.validate(player);
     }
+    
+    public PlayerLineup getLineup(int index, int extraLineup) {
+        // Sanity
+        if (extraLineup > 0) {
+            return getExtraLineup(extraLineup);
+        } else {
+            return getLineup(index);
+        }
+    }
 
+    /*
+     * Get player lineup by index. Only normal lineups are returned
+     */
     public PlayerLineup getLineup(int index) {
         // Sanity
         if (index < 0 || index >= this.getLineups().length) {
@@ -35,9 +53,26 @@ public class LineupManager {
 
         return this.lineups[index];
     }
+    
+    /**
+     * Gets player lineup by ExtraLineupType. Creates a lineup for the player if it doesnt exist.
+     * @param extraLineupType
+     * @return
+     */
+    private PlayerLineup getExtraLineup(int extraLineupType) {
+        PlayerLineup lineup = this.extraLineups.get(extraLineupType);
+        
+        if (lineup == null) {
+            lineup = new PlayerLineup(0, extraLineupType);
+            lineup.setOwnerAndIndex(this.getPlayer(), 0);
+            this.extraLineups.put(extraLineupType, lineup);
+        }
+        
+        return lineup;
+    }
 
     public PlayerLineup getCurrentLineup() {
-        return getLineup(this.currentIndex);
+        return this.getLineup(this.currentIndex, this.getCurrentExtraLineup());
     }
     
     public GameAvatar getCurrentLeaderAvatar() {
@@ -164,15 +199,15 @@ public class LineupManager {
         return true;
     }
 
-    public boolean replaceLineup(int index, List<Integer> lineupList) {
+    public boolean replaceLineup(int index, int extraLineupType, List<Integer> lineupList) {
+        // Get lineup
+        PlayerLineup lineup = this.getLineup(index, extraLineupType);
+        if (lineup == null) return false;
+        
         // Sanity - Make sure player cant remove all avatars from the current lineup
-        if (index == this.currentIndex && lineupList.size() == 0) {
+        if (lineup == this.getCurrentLineup() && lineupList.size() == 0) {
             return false;
         }
-
-        // Get lineup
-        PlayerLineup lineup = this.getLineup(index);
-        if (lineup == null) return false;
 
         // Clear
         lineup.getAvatars().clear();
