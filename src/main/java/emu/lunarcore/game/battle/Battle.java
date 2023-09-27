@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.excel.MazeBuffExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
@@ -20,13 +21,29 @@ public class Battle {
     private final Player player;
     private final PlayerLineup lineup;
     private final List<EntityMonster> npcMonsters;
+    private final List<MazeBuff> buffs;
     private StageExcel stage;
 
     public Battle(Player player, PlayerLineup lineup, StageExcel stage) {
         this.player = player;
         this.lineup = lineup;
         this.npcMonsters = new ArrayList<>();
+        this.buffs = new ArrayList<>();
         this.stage = stage;
+    }
+    
+    public MazeBuff addBuff(int buffId, int ownerId) {
+        return addBuff(buffId, ownerId, 0xffffffff);
+    }
+    
+    public MazeBuff addBuff(int buffId, int ownerId, int waveFlag) {
+        MazeBuffExcel excel = GameData.getMazeBuffExcel(buffId, 1);
+        if (excel == null) return null;
+        
+        MazeBuff buff = new MazeBuff(excel, ownerId, waveFlag);
+        this.buffs.add(buff);
+        
+        return buff;
     }
     
     public SceneBattleInfo toProto() {
@@ -47,6 +64,11 @@ public class Battle {
                 .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
                 .addMonsterWaveList(wave)
                 .setWorldLevel(player.getWorldLevel());
+        
+        // Buffs
+        for (MazeBuff buff : this.getBuffs()) {
+            proto.addBuffList(buff.toProto());
+        }
         
         // Avatars
         for (int i = 0; i < lineup.getAvatars().size(); i++) {

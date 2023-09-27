@@ -28,9 +28,11 @@ public class BattleService extends BaseGameService {
     }
 
     public void onBattleStart(Player player, int attackerId, RepeatedInt attackedList) {
-        //
+        // Setup variables
         List<GameEntity> entities = new ArrayList<>();
         List<EntityMonster> monsters = new ArrayList<>();
+        
+        boolean isPlayerCaster = false; // Set true if the player is the one casting
         
         // Check if attacker is the player or not
         if (player.getScene().getAvatarEntityIds().contains(attackerId)) {
@@ -42,6 +44,8 @@ public class BattleService extends BaseGameService {
                     entities.add(entity);
                 }
             }
+            //
+            isPlayerCaster = true;
         } else {
             // Player is ambushed
             GameEntity entity = player.getScene().getEntities().get(attackerId);
@@ -75,6 +79,16 @@ public class BattleService extends BaseGameService {
             // Create battle and add npc monsters to it
             Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), GameData.getStageExcelMap().get(1));
             battle.getNpcMonsters().addAll(monsters);
+            // Add weakness buff to battle
+            if (isPlayerCaster) {
+                GameAvatar avatar = player.getLineupManager().getCurrentLeaderAvatar();
+                if (avatar != null) {
+                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), 0);
+                    if (buff != null) {
+                        buff.addDynamicValue("SkillIndex", 1);
+                    }
+                }
+            }
             // Set battle and send rsp packet
             player.setBattle(battle);
             player.sendPacket(new PacketSceneCastSkillScRsp(player, battle));

@@ -39,6 +39,15 @@ public class LineupManager {
     public PlayerLineup getCurrentLineup() {
         return getLineup(this.currentIndex);
     }
+    
+    public GameAvatar getCurrentLeaderAvatar() {
+        try {
+            int avatarId = this.getCurrentLineup().getAvatars().get(currentLeader);
+            return this.getPlayer().getAvatarById(avatarId);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     // Lineup functions
 
