@@ -12,6 +12,6 @@ public class PropInfo extends ObjectInfo {
     private int AnchorID;
     private int PropID;
     private int EventID;
-    private PropState State;
+    private PropState State = PropState.Closed;
     private boolean IsDelete;
 }

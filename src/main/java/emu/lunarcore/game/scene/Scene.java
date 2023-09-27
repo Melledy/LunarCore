@@ -96,7 +96,7 @@ public class Scene {
                 for (PropInfo propInfo : group.getPropList()) {
                     // Create prop from prop info
                     EntityProp prop = new EntityProp(propInfo.getPropID(), propInfo.clonePos());
-                    //prop.setState(propInfo.getState());
+                    prop.setState(propInfo.getState());
                     prop.getRot().set(
                             (int) (propInfo.getRotX() * 1000f),
                             (int) (propInfo.getRotY() * 1000f),
@@ -104,6 +104,11 @@ public class Scene {
                     );
                     prop.setInstId(propInfo.getID());
                     prop.setGroupId(group.getId());
+                    
+                    // Hacky fix for rogue entry
+                    if (prop.getPropId() == 1003) {
+                        prop.setState(PropState.Open);
+                    }
                     
                     // Add to monsters
                     this.addEntity(prop);
