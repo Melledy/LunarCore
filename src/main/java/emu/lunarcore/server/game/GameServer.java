@@ -1,6 +1,8 @@
 package emu.lunarcore.server.game;
 
 import java.net.InetSocketAddress;
+import java.util.ArrayList;
+import java.util.List;
 
 import emu.lunarcore.Config.GameServerConfig;
 import emu.lunarcore.LunarRail;
@@ -94,5 +96,13 @@ public class GameServer extends KcpServer {
         // Set region info
         this.info.setUp(false);
         this.info.save();
+        
+        // Kick and save all players
+        List<Player> list = new ArrayList<>(players.size());
+        list.addAll(players.values());
+        
+        for (Player player : list) {
+            player.getSession().close();
+        }
     }
 }
