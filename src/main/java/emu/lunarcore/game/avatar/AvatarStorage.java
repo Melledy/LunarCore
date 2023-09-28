@@ -6,22 +6,24 @@ import java.util.stream.Stream;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.AvatarExcel;
+import emu.lunarcore.data.excel.HeroExcel;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
+
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import lombok.Getter;
 
+@Getter
 public class AvatarStorage extends BasePlayerManager implements Iterable<GameAvatar> {
     private final Int2ObjectMap<GameAvatar> avatars;
-
+    private final Int2ObjectMap<HeroPath> heroPaths;
+    
     public AvatarStorage(Player player) {
         super(player);
         this.avatars = new Int2ObjectOpenHashMap<>();
-    }
-
-    public Int2ObjectMap<GameAvatar> getAvatars() {
-        return avatars;
+        this.heroPaths = new Int2ObjectOpenHashMap<>();
     }
 
     public int getAvatarCount() {
@@ -56,9 +58,25 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
 
         return true;
     }
-
-    public void recalcAvatarStats() {
-        //this.getAvatars().values().stream().forEach(GameAvatar::recalcStats);
+    
+    public HeroPath getHeroPathById(int id) {
+        return getHeroPaths().get(id);
+    }
+    
+    /**
+     * Updates hero types for players. Will create hero types if they dont exist already.
+     */
+    public void setupHeroPaths() {
+        for (HeroExcel heroExcel : GameData.getHeroExcelMap().values()) {
+            if (getHeroPaths().containsKey(heroExcel.getId())) continue;
+            
+            AvatarExcel excel = GameData.getAvatarExcelMap().get(heroExcel.getId());
+            if (excel == null) continue;
+            
+            HeroPath path = new HeroPath(getPlayer(), excel);
+            path.save();
+            getHeroPaths().put(path.getId(), path);
+        }
     }
 
     @Override
@@ -69,6 +87,22 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
     // Database
 
     public void loadFromDatabase() {
+        // Load hero paths
+        Stream<HeroPath> heroStream = LunarRail.getGameDatabase().getObjects(HeroPath.class, "ownerUid", this.getPlayer().getUid());
+
+        heroStream.forEach(heroPath -> {
+            // Load avatar excel data
+            AvatarExcel excel = GameData.getAvatarExcelMap().get(heroPath.getId());
+            if (excel == null) {
+                return;
+            }
+            
+            heroPath.setExcel(excel);
+            
+            this.heroPaths.put(heroPath.getId(), heroPath);
+        });
+        
+        // Load avatars
         Stream<GameAvatar> stream = LunarRail.getGameDatabase().getObjects(GameAvatar.class, "ownerUid", this.getPlayer().getUid());
 
         stream.forEach(avatar -> {
@@ -76,15 +110,22 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
             if (avatar.getId() == null) {
                 return;
             }
+            
+            // Set hero path
+            if (avatar.isHero()) {
+                avatar.setHeroPath(getPlayer().getCurHeroPath());
+            } else {
+                // Load avatar excel data
+                AvatarExcel excel = GameData.getAvatarExcelMap().get(avatar.getAvatarId());
+                if (excel == null) {
+                    return;
+                }
 
-            // Load avatar excel data
-            AvatarExcel excel = GameData.getAvatarExcelMap().get(avatar.getAvatarId());
-            if (excel == null) {
-                return;
+                // Set ownerships
+                avatar.setExcel(excel);
             }
-
-            // Set ownerships
-            avatar.setExcel(excel);
+            
+            // Set ownership
             avatar.setOwner(getPlayer());
 
             // Add to avatar storage

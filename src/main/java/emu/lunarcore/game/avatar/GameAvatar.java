@@ -42,25 +42,26 @@ public class GameAvatar implements GameEntity {
     @Indexed @Getter private int ownerUid; // Uid of player that this avatar belongs to
 
     private transient Player owner;
-    private transient AvatarExcel excel;
-
+    @Setter private transient AvatarExcel excel;
+    
     private int avatarId; // Id of avatar
     @Setter private int level;
     @Setter private int exp;
     @Setter private int promotion;
-    @Setter private int rank; // Eidolons
-
+    private AvatarRank rank; // Eidolons - We use an object for this so we can sync it easily with hero paths
+    private Map<Integer, Integer> skills;
+    
     private int currentHp;
     private int currentSp;
 
-    private Map<Integer, Integer> skills;
-
     private transient int entityId;
     private transient Int2ObjectMap<GameItem> equips;
+    private transient HeroPath heroPath;
 
     @Deprecated // Morphia only
     public GameAvatar() {
         this.equips = new Int2ObjectOpenHashMap<>();
+        this.level = 1;
         this.currentHp = 10000;
         this.currentSp = 0;
     }
@@ -74,16 +75,21 @@ public class GameAvatar implements GameEntity {
         this();
         this.excel = excel;
         this.avatarId = excel.getId();
-        this.level = 1;
 
-        // Set default skills
+        // Set defaults
+        this.rank = new AvatarRank();
         this.skills = new HashMap<>();
+        
+        // Add skills
         for (var skillTree : excel.getDefaultSkillTrees()) {
             this.skills.put(skillTree.getPointID(), skillTree.getLevel());
         }
-
-        // Set stats
-        this.currentHp = 10000;
+    }
+    
+    public GameAvatar(HeroPath path) {
+        this();
+        this.avatarId = GameConstants.TRAILBLAZER_AVATAR_ID;
+        this.setHeroPath(path);
     }
 
     public void setOwner(Player player) {
@@ -91,13 +97,13 @@ public class GameAvatar implements GameEntity {
         this.ownerUid = player.getUid();
     }
 
-    public void setExcel(AvatarExcel excel) {
-        this.excel = excel;
-    }
-
     @Override
     public void setEntityId(int entityId) {
         this.entityId = entityId;
+    }
+    
+    public boolean isHero() {
+        return GameData.getHeroExcelMap().containsKey(this.getAvatarId());
     }
 
     public int getMaxSp() {
@@ -110,6 +116,27 @@ public class GameAvatar implements GameEntity {
 
     public void setCurrentSp(int amount) {
         this.currentSp = Math.max(Math.min(amount, getMaxSp()), 0);
+    }
+    
+    public int getRank() {
+        return this.rank.getValue();
+    }
+    
+    public void setRank(int rank) {
+        this.rank.setValue(rank);
+    }
+    
+    public void setHeroPath(HeroPath heroPath) {
+        // Clear prev set hero path from avatar
+        if (this.getHeroPath() != null) {
+            this.getHeroPath().setAvatar(null);
+        }
+        
+        this.rank = heroPath.getRank();
+        this.skills = heroPath.getSkills();
+        this.excel = heroPath.getExcel();
+        this.heroPath = heroPath;
+        this.heroPath.setAvatar(this);
     }
 
     // Equips
@@ -271,6 +298,11 @@ public class GameAvatar implements GameEntity {
     // Database
 
     public void save() {
+        // Save avatar
         LunarRail.getGameDatabase().save(this);
+        // Save hero path
+        if (this.getHeroPath() != null) {
+            this.getHeroPath().save();
+        }
     }
 }

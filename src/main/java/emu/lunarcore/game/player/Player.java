@@ -14,6 +14,7 @@ import emu.lunarcore.data.excel.MapEntranceExcel;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.avatar.HeroPath;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
@@ -26,6 +27,7 @@ import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.server.packet.send.PacketEnterSceneByServerScNotify;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.server.packet.send.PacketRevcMsgScNotify;
+import emu.lunarcore.server.packet.send.PacketSetHeroBasicTypeScRsp;
 import emu.lunarcore.util.Position;
 
 import lombok.Getter;
@@ -39,7 +41,9 @@ public class Player {
     @Indexed private String accountUid;
     private String name;
     private String signature;
+    private PlayerGender gender;
     private int birthday;
+    private int curBasicType;
 
     private int level;
     private int exp;
@@ -66,6 +70,8 @@ public class Player {
 
     @Deprecated // Morphia only
     public Player() {
+        this.curBasicType = 8001;
+        this.gender = PlayerGender.GENDER_MAN;
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
     }
@@ -89,10 +95,13 @@ public class Player {
 
         // Setup uid
         this.initUid();
+        
+        // Setup hero paths
+        this.getAvatars().setupHeroPaths();
 
         // Give us a starter character.
         // TODO script tutorial
-        GameAvatar avatar = new GameAvatar(8001);
+        GameAvatar avatar = new GameAvatar(this.getCurHeroPath());
 
         this.getAvatars().addAvatar(avatar);
         this.getLineupManager().getCurrentLineup().getAvatars().add(8001);
@@ -147,6 +156,11 @@ public class Player {
     }
 
     public GameAvatar getAvatarById(int avatarId) {
+        // Check if we are trying to retrieve the hero character
+        if (GameData.getHeroExcelMap().containsKey(avatarId)) {
+            avatarId = GameConstants.TRAILBLAZER_AVATAR_ID;
+        }
+        
         return getAvatars().getAvatarById(avatarId);
     }
 
@@ -207,6 +221,22 @@ public class Player {
 
     public int getDisplayExp() {
         return this.exp - GameData.getPlayerExpRequired(this.level);
+    }
+    
+    public HeroPath getCurHeroPath() {
+        return this.getAvatars().getHeroPathById(this.getCurBasicType());
+    }
+    
+    public void setHeroBasicType(int heroType) {
+        HeroPath path = this.getAvatars().getHeroPathById(heroType);
+        if (path == null) return;
+        
+        GameAvatar mainCharacter = this.getAvatarById(GameConstants.TRAILBLAZER_AVATAR_ID);
+        if (mainCharacter == null) return;
+        
+        // Set new hero and cur basic type
+        mainCharacter.setHeroPath(path);
+        this.curBasicType = heroType;
     }
     
     public boolean isInBattle() {
@@ -294,10 +324,10 @@ public class Player {
         // Load avatars and inventory first
         this.getAvatars().loadFromDatabase();
         this.getInventory().loadFromDatabase();
-        this.getAvatars().recalcAvatarStats(); // Recalc stats after items have loaded for the avatars
 
         // Load Etc
         this.getLineupManager().validate(this);
+        this.getAvatars().setupHeroPaths();
 
         // Enter scene (should happen after everything else loads)
         this.loadScene(planeId, floorId, entryId);
@@ -316,5 +346,4 @@ public class Player {
         
         return proto;
     }
-
 }

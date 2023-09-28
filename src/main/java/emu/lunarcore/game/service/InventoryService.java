@@ -143,7 +143,7 @@ public class InventoryService extends BaseGameService {
         int nextLevel = avatar.getSkills().getOrDefault(pointId, 0) + 1;
 
         AvatarSkillTreeExcel skillTree = GameData.getAvatarSkillTreeExcel(pointId, nextLevel);
-        if (skillTree == null || skillTree.getAvatarID() != avatarId) return;
+        if (skillTree == null || skillTree.getAvatarID() != avatar.getExcel().getAvatarID()) return;
 
         // Verify items
         for (ItemParam param : skillTree.getMaterialList()) {
@@ -171,7 +171,12 @@ public class InventoryService extends BaseGameService {
         player.save();
 
         // Send packets
-        player.sendPacket(new PacketPlayerSyncScNotify(avatar));
+        if (avatar.getHeroPath() != null) {
+            player.sendPacket(new PacketPlayerSyncScNotify(avatar.getHeroPath()));
+        } else {
+            player.sendPacket(new PacketPlayerSyncScNotify(avatar));
+        }
+        
         player.sendPacket(new PacketUnlockSkilltreeScRsp(avatarId, pointId, nextLevel));
     }
 
@@ -200,7 +205,12 @@ public class InventoryService extends BaseGameService {
         avatar.save();
 
         // Send packets
-        player.sendPacket(new PacketPlayerSyncScNotify(avatar));
+        if (avatar.getHeroPath() != null) {
+            player.sendPacket(new PacketPlayerSyncScNotify(avatar.getHeroPath()));
+        } else {
+            player.sendPacket(new PacketPlayerSyncScNotify(avatar));
+        }
+        
         player.sendPacket(new BasePacket(CmdId.RankUpAvatarScRsp));
     }
 

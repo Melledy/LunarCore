@@ -12,6 +12,7 @@ public class GameConstants {
     // Game
     public static final int HOME_PLANE_ID = 10000;
     public static final String DEFAULT_NAME = "Trailblazer";
+    public static final int TRAILBLAZER_AVATAR_ID = 8001;
     public static final int MAX_TRAILBLAZER_LEVEL = 70;
     public static final int MAX_STAMINA = 240;
     public static final int MAX_AVATARS_IN_TEAM = 4;
