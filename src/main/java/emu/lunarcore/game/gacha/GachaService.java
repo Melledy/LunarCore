@@ -16,6 +16,7 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.GachaItemOuterClass.GachaItem;
 import emu.lunarcore.proto.GetGachaInfoScRspOuterClass.GetGachaInfoScRsp;
 import emu.lunarcore.proto.ItemListOuterClass.ItemList;
+import emu.lunarcore.proto.ItemOuterClass.Item;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.packet.send.PacketDoGachaScRsp;
@@ -35,8 +36,8 @@ public class GachaService extends BaseGameService {
     private int[] purpleWeapons = new int[] {21000, 21001, 21002, 21003, 21004, 21005, 21006, 21007, 21008, 21009, 21010, 21011, 21012, 21013, 21014, 21015, 21016, 21017, 21018, 21019, 21020};
     private int[] blueWeapons = new int[] {20000, 20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012, 20013, 20014, 20015, 20016, 20017, 20018, 20019, 20020};
 
-    private static int starglitterId = 251;
-    private static int stardustId = 252;
+    private static int starglightId = 252;
+    private static int embersId = 251;
 
     public GachaService(GameServer server) {
         super(server);
@@ -177,6 +178,8 @@ public class GachaService extends BaseGameService {
 
             // Create gacha item
             GachaItem gachaItem = GachaItem.newInstance();
+            gachaItem.setTransferItemList(ItemList.newInstance());
+            gachaItem.setTokenItem(ItemList.newInstance());
             int addStardust = 0, addStarglitter = 0;
 
             // Dupe check
@@ -184,27 +187,26 @@ public class GachaService extends BaseGameService {
                 int avatarId = itemData.getId();
                 GameAvatar avatar = player.getAvatars().getAvatarById(avatarId);
                 if (avatar != null) {
-                    int constLevel = avatar.getRank();
-                    int constItemId = avatarId + 10000; // Hacky. TODO optimize by using AvatarRankExcel
-                    GameItem constItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(constItemId);
-                    if (constItem != null) {
-                        constLevel += constItem.getCount();
+                    int dupeLevel = avatar.getRank();
+                    int dupeItemId = avatarId + 10000; // Hacky. TODO optimize by using AvatarRankExcel
+                    GameItem dupeItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(dupeItemId);
+                    if (dupeItem != null) {
+                        dupeLevel += dupeItem.getCount();
                     }
 
-                    if (constLevel < 6) {
+                    if (dupeLevel < 6) {
                         // Not max const
-                        addStarglitter = 2;
-                        // Add 1 const
-                        //gachaItem.addTransferItems(GachaTransferItem.newBuilder().setItem(ItemParam.newBuilder().setItemId(constItemId).setCount(1)).setIsTransferItemNew(constItem == null));
-                        //gachaItem.addTokenItemList(ItemParam.newBuilder().setItemId(constItemId).setCount(1));
-                        player.getInventory().addItem(constItemId, 1);
+                        addStarglitter = 8;
+                        // Add 1 rank
+                        gachaItem.getTransferItemList().addItemList(Item.newInstance().setItemId(dupeItemId).setNum(1));
+                        player.getInventory().addItem(dupeItemId, 1);
                     } else {
-                        // Is max const
-                        addStarglitter = 5;
+                        // Is max rank
+                        addStarglitter = 20;
                     }
 
                     if (itemData.getRarity() == ItemRarity.SuperRare) {
-                        addStarglitter *= 5;
+                        addStarglitter *= 2.5;
                     }
                 } else {
                     // New
@@ -214,13 +216,13 @@ public class GachaService extends BaseGameService {
                 // Is weapon
                 switch (itemData.getRarity()) {
                 case SuperRare:
-                    addStarglitter = 10;
+                    addStarglitter = 40;
                     break;
                 case VeryRare:
-                    addStarglitter = 2;
+                    addStarglitter = 8;
                     break;
                 case Rare:
-                    addStardust = 15;
+                    addStardust = 20;
                     break;
                 default:
                     break;
@@ -230,33 +232,27 @@ public class GachaService extends BaseGameService {
             // Create item
             GameItem item = new GameItem(itemData);
             gachaItem.setGachaItem(item.toProto());
-            gachaItem.setUnk1(ItemList.newInstance());
-            gachaItem.setUnk2(ItemList.newInstance());
             player.getInventory().addItem(item);
 
+            // Add embers/starlight
             stardust += addStardust;
             starglitter += addStarglitter;
 
-            /*
 			if (addStardust > 0) {
-				gachaItem.addTokenItemList(ItemParam.newBuilder().setItemId(stardustId).setCount(addStardust));
+				gachaItem.getTokenItem().addItemList(Item.newInstance().setItemId(embersId).setNum(addStardust));
 			} if (addStarglitter > 0) {
-				ItemParam starglitterParam = ItemParam.newBuilder().setItemId(starglitterId).setCount(addStarglitter).build();
-				if (isTransferItem) {
-					gachaItem.addTransferItems(GachaTransferItem.newBuilder().setItem(starglitterParam));
-				}
-				gachaItem.addTokenItemList(starglitterParam);
+			    gachaItem.getTokenItem().addItemList(Item.newInstance().setItemId(starglightId).setNum(addStarglitter));
 			}
-             */
-
-            list.add(gachaItem.newInstance());
+			
+			// Add to gacha item list rsp
+			list.add(gachaItem);
         }
 
         // Add stardust/starglitter
         if (stardust > 0) {
-            player.getInventory().addItem(stardustId, stardust);
+            player.getInventory().addItem(embersId, stardust);
         } if (starglitter > 0) {
-            player.getInventory().addItem(starglitterId, starglitter);
+            player.getInventory().addItem(starglightId, starglitter);
         }
 
         // Packets
