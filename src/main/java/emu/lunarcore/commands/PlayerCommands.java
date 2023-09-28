@@ -11,7 +11,7 @@ import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.scene.EntityMonster;
+import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.util.Position;
 
 @SuppressWarnings("unused")

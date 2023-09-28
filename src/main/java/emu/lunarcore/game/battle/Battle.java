@@ -9,7 +9,7 @@ import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerLineup;
-import emu.lunarcore.game.scene.EntityMonster;
+import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
 import emu.lunarcore.proto.SceneMonsterOuterClass.SceneMonster;
 import emu.lunarcore.proto.SceneMonsterWaveOuterClass.SceneMonsterWave;

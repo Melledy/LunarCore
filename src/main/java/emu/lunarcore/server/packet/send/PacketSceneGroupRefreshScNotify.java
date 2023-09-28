@@ -2,7 +2,7 @@ package emu.lunarcore.server.packet.send;
 
 import java.util.Collection;
 
-import emu.lunarcore.game.scene.GameEntity;
+import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo;
 import emu.lunarcore.proto.SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo;
 import emu.lunarcore.proto.SceneGroupRefreshScNotifyOuterClass.SceneGroupRefreshScNotify;

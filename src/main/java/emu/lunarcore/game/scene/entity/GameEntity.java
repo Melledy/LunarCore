@@ -1,4 +1,4 @@
-package emu.lunarcore.game.scene;
+package emu.lunarcore.game.scene.entity;
 
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 

@@ -11,6 +11,7 @@ import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.PlayerLineup;
+import emu.lunarcore.game.scene.entity.*;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;

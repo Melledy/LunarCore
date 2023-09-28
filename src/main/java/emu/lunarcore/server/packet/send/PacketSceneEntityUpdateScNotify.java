@@ -1,6 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.scene.GameEntity;
+import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.SceneEntityUpdateScNotifyOuterClass.SceneEntityUpdateScNotify;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
