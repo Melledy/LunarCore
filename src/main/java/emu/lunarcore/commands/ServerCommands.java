@@ -78,7 +78,10 @@ public class ServerCommands {
                 //String password = split[2];
 
                 // Reserved player uid
-                int reservedUid = Utils.parseSafeInt(split[2]);
+                int reservedUid = 0;
+                if (split.length >= 3) {
+                    reservedUid = Utils.parseSafeInt(split[2]);
+                }
 
                 // Get acocunt from database
                 account = LunarRail.getAccountDatabase().getObjectByField(emu.lunarcore.game.account.Account.class, "username", username);
