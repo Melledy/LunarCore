@@ -79,10 +79,10 @@ public class Player {
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
 
-        this.pos = new Position(-36589, -5400, 70019);
-        this.planeId = 10101;
-        this.floorId = 10101001;
-        this.entryId = 1010101;
+        this.pos = new Position(99, 62, -4800);
+        this.planeId = 20001;
+        this.floorId = 20001001;
+        this.entryId = 2000101;
 
         this.lineupManager = new LineupManager(this);
         this.gachaInfo = new PlayerGachaInfo();
