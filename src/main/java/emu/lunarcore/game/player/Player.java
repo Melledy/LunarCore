@@ -99,12 +99,11 @@ public class Player {
         // Setup hero paths
         this.getAvatars().setupHeroPaths();
 
-        // Give us a starter character.
+        // Give us a starter character and add it to our main lineup.
         // TODO script tutorial
         GameAvatar avatar = new GameAvatar(this.getCurHeroPath());
-
         this.getAvatars().addAvatar(avatar);
-        this.getLineupManager().getCurrentLineup().getAvatars().add(8001);
+        this.getLineupManager().getCurrentLineup().getAvatars().add(avatar.getAvatarId());
     }
 
     public GameServer getServer() {
