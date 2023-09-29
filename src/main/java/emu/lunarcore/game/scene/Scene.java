@@ -222,7 +222,7 @@ public class Scene {
         // Proto
         var proto = SceneInfo.newInstance()
                 .setWorldId(this.getExcel().getWorldID())
-                .setLCMMECNPOBA(this.getExcel().getPlaneType().getVal())
+                .setGameModeType(this.getExcel().getPlaneType().getVal())
                 .setPlaneId(this.getPlaneId())
                 .setFloorId(this.getFloorId())
                 .setEntryId(this.getEntryId());

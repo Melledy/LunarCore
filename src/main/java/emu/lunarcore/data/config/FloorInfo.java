@@ -1,9 +1,11 @@
 package emu.lunarcore.data.config;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gson.annotations.SerializedName;
 
+import emu.lunarcore.game.enums.PropState;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 
@@ -19,10 +21,12 @@ public class FloorInfo {
     private transient boolean loaded;
     private transient Int2ObjectMap<GroupInfo> groups;
     private transient Int2ObjectMap<PropInfo> cachedTeleports;
+    private transient List<PropInfo> unlockedCheckpoints; // DEBUG
     
     public FloorInfo() {
         this.groups = new Int2ObjectOpenHashMap<>();
         this.cachedTeleports = new Int2ObjectOpenHashMap<>();
+        this.unlockedCheckpoints = new ArrayList<>();
     }
     
     public AnchorInfo getAnchorInfo(int groupId, int anchorId) {
@@ -42,8 +46,14 @@ public class FloorInfo {
             }
             
             for (PropInfo prop : group.getPropList()) {
+                // Check if prop can be teleported to
                 if (prop.getAnchorID() > 0) {
+                    // Put inside cached teleport list to send to client when they request map info
                     this.cachedTeleports.put(prop.getMappingInfoID(), prop);
+                    this.unlockedCheckpoints.add(prop);
+                    
+                    // Force prop to be in the unlocked state
+                    prop.setState(PropState.CheckPointEnable);
                 }
             }
         }
