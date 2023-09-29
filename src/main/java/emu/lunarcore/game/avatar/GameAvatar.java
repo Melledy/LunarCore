@@ -42,14 +42,13 @@ public class GameAvatar implements GameEntity {
     @Indexed @Getter private int ownerUid; // Uid of player that this avatar belongs to
 
     private transient Player owner;
-    @Setter private transient AvatarExcel excel;
+    private transient AvatarExcel excel;
     
     private int avatarId; // Id of avatar
     @Setter private int level;
     @Setter private int exp;
     @Setter private int promotion;
-    private AvatarRank rank; // Eidolons - We use an object for this so we can sync it easily with hero paths
-    private Map<Integer, Integer> skills;
+    private AvatarData data;
     
     private int currentHp;
     private int currentSp;
@@ -73,23 +72,23 @@ public class GameAvatar implements GameEntity {
 
     public GameAvatar(AvatarExcel excel) {
         this();
-        this.excel = excel;
         this.avatarId = excel.getId();
-
-        // Set defaults
-        this.rank = new AvatarRank();
-        this.skills = new HashMap<>();
-        
-        // Add skills
-        for (var skillTree : excel.getDefaultSkillTrees()) {
-            this.skills.put(skillTree.getPointID(), skillTree.getLevel());
-        }
+        this.setExcel(excel);
     }
     
     public GameAvatar(HeroPath path) {
         this();
         this.avatarId = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.setHeroPath(path);
+    }
+    
+    public void setExcel(AvatarExcel excel) {
+        if (this.excel == null) {
+            this.excel = excel;
+        }
+        if (this.data == null) {
+            this.data = new AvatarData(excel);
+        }
     }
 
     public void setOwner(Player player) {
@@ -119,11 +118,15 @@ public class GameAvatar implements GameEntity {
     }
     
     public int getRank() {
-        return this.rank.getValue();
+        return this.getData().getRank();
     }
     
     public void setRank(int rank) {
-        this.rank.setValue(rank);
+        this.getData().setRank(rank);
+    }
+    
+    public Map<Integer, Integer> getSkills() {
+        return this.getData().getSkills();
     }
     
     public void setHeroPath(HeroPath heroPath) {
@@ -132,9 +135,8 @@ public class GameAvatar implements GameEntity {
             this.getHeroPath().setAvatar(null);
         }
         
-        this.rank = heroPath.getRank();
-        this.skills = heroPath.getSkills();
-        this.excel = heroPath.getExcel();
+        this.data = heroPath.getData();
+        this.excel = heroPath.getExcel(); // DO NOT USE GameAvatar::setExcel for this
         this.heroPath = heroPath;
         this.heroPath.setAvatar(this);
     }

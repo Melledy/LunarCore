@@ -1,16 +1,17 @@
 package emu.lunarcore.game.avatar;
 
-import java.util.HashMap;
 import java.util.Map;
 
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
+
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.AvatarSkillTreeOuterClass.AvatarSkillTree;
 import emu.lunarcore.proto.HeroBasicTypeInfoOuterClass.HeroBasicTypeInfo;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,11 +23,10 @@ public class HeroPath {
     @Indexed 
     private int ownerUid;
     
-    private AvatarRank rank;
-    private Map<Integer, Integer> skills;
+    private AvatarData data;
     
     @Setter private transient GameAvatar avatar;
-    @Setter private transient AvatarExcel excel;
+    private transient AvatarExcel excel;
     
     @Deprecated // Morphia only!
     public HeroPath() {
@@ -37,22 +37,30 @@ public class HeroPath {
         // Set excel avatar id as id
         this.id = excel.getId();
         this.ownerUid = player.getUid();
-        this.excel = excel;
-
-        // Set defaults
-        this.rank = new AvatarRank();
-        this.skills = new HashMap<>();
-        
-        // Add skills
-        for (var skillTree : excel.getDefaultSkillTrees()) {
-            this.skills.put(skillTree.getPointID(), skillTree.getLevel());
+        this.setExcel(excel);
+    }
+    
+    public void setExcel(AvatarExcel excel) {
+        if (this.excel == null) {
+            this.excel = excel;
         }
+        if (this.data == null) {
+            this.data = new AvatarData(excel);
+        }
+    }
+    
+    public int getRank() {
+        return this.getData().getRank();
+    }
+    
+    public Map<Integer, Integer> getSkills() {
+        return this.getData().getSkills();
     }
     
     public HeroBasicTypeInfo toProto() {
         var proto = HeroBasicTypeInfo.newInstance()
                 .setBasicTypeValue(this.getId())
-                .setRank(this.getRank().getValue());
+                .setRank(this.getRank());
         
         for (var skill : getSkills().entrySet()) {
             proto.addSkillTreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));

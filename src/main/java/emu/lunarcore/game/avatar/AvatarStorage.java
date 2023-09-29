@@ -120,7 +120,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
                 if (excel == null) {
                     return;
                 }
-
+                
                 // Set ownerships
                 avatar.setExcel(excel);
             }
