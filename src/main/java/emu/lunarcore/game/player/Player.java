@@ -32,6 +32,7 @@ import emu.lunarcore.server.packet.send.PacketSetHeroBasicTypeScRsp;
 import emu.lunarcore.util.Position;
 
 import lombok.Getter;
+import lombok.Setter;
 
 @Entity(value = "players", useDiscriminator = false)
 @Getter
@@ -60,6 +61,9 @@ public class Player {
     private int planeId;
     private int floorId;
     private int entryId;
+    
+    // Etc
+    @Setter private transient boolean paused;
 
     // Player managers
     private transient final AvatarStorage avatars;
