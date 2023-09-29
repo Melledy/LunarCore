@@ -249,7 +249,7 @@ public class GameAvatar implements GameEntity {
     public BattleAvatar toBattleProto(int index) {
         var proto = BattleAvatar.newInstance()
                 .setAvatarType(AvatarType.AVATAR_FORMAL_TYPE)
-                .setId(this.getAvatarId())
+                .setId(this.getExcel().getAvatarID())
                 .setLevel(this.getLevel())
                 .setPromotion(this.getPromotion())
                 .setRank(this.getRank())
