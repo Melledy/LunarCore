@@ -1,11 +1,10 @@
 package emu.lunarcore.game.battle;
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.List;
-import java.util.Objects;
 
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
@@ -18,6 +17,7 @@ import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
+
 import us.hebi.quickbuf.RepeatedInt;
 import us.hebi.quickbuf.RepeatedMessage;
 
@@ -76,8 +76,25 @@ public class BattleService extends BaseGameService {
 
         // Start battle
         if (monsters.size() > 0) {
+            // Get stages from monsters
+            List<StageExcel> stages = new ArrayList<>();
+            
+            for (var monster : monsters) {
+                StageExcel stage = GameData.getStageExcelMap().get(monster.getStageId(player.getWorldLevel()));
+                
+                if (stage != null) {
+                    stages.add(stage);
+                }
+            }
+            
+            if (stages.size() == 0) {
+                // An error has occurred while trying to get stage data
+                player.sendPacket(new PacketSceneCastSkillScRsp(1));
+                return;
+            }
+            
             // Create battle and add npc monsters to it
-            Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), GameData.getStageExcelMap().get(1));
+            Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
             battle.getNpcMonsters().addAll(monsters);
             // Add weakness buff to battle
             if (isPlayerCaster) {

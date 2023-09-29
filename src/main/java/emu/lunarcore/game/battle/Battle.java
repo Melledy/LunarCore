@@ -1,6 +1,7 @@
 package emu.lunarcore.game.battle;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import emu.lunarcore.data.GameData;
@@ -14,6 +15,7 @@ import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
 import emu.lunarcore.proto.SceneMonsterOuterClass.SceneMonster;
 import emu.lunarcore.proto.SceneMonsterWaveOuterClass.SceneMonsterWave;
 import emu.lunarcore.util.Utils;
+import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
 
 @Getter
@@ -22,14 +24,17 @@ public class Battle {
     private final PlayerLineup lineup;
     private final List<EntityMonster> npcMonsters;
     private final List<MazeBuff> buffs;
-    private StageExcel stage;
+    private final List<StageExcel> stages;
 
-    public Battle(Player player, PlayerLineup lineup, StageExcel stage) {
+    // Constructor params subject to change
+    public Battle(Player player, PlayerLineup lineup, Collection<StageExcel> stages) {
         this.player = player;
         this.lineup = lineup;
         this.npcMonsters = new ArrayList<>();
         this.buffs = new ArrayList<>();
-        this.stage = stage;
+        this.stages = new ArrayList<>();
+        
+        this.stages.addAll(stages);
     }
     
     public MazeBuff addBuff(int buffId, int ownerId) {
@@ -47,23 +52,30 @@ public class Battle {
     }
     
     public SceneBattleInfo toProto() {
-        var wave = SceneMonsterWave.newInstance()
-                .setStageId(stage.getId());
-
-        int[] monsters = {101203002, 100202003, 100204007, 100205006};
-
-        for (int i = 0; i < 5; i++) {
-            var m = SceneMonster.newInstance()
-                    .setMonsterId(Utils.randomElement(monsters));
-
-            wave.addMonsterList(m);
-        }
-        
+        // Build battle info
         var proto = SceneBattleInfo.newInstance()
-                .setStageId(stage.getId())
                 .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
-                .addMonsterWaveList(wave)
                 .setWorldLevel(player.getWorldLevel());
+        
+        // Add monster waves from stages
+        for (StageExcel stage : stages) {
+            // Build monster waves
+            for (IntList sceneMonsterWave : stage.getMonsterWaves()) {
+                var wave = SceneMonsterWave.newInstance().setStageId(stage.getId());
+                
+                for (int monsterId : sceneMonsterWave) {
+                    var monster = SceneMonster.newInstance().setMonsterId(monsterId);
+                    wave.addMonsterList(monster);
+                }
+                
+                proto.addMonsterWaveList(wave);
+            }
+            
+            // Set stage for the battle
+            if (proto.getStageId() == 0) {
+                proto.setStageId(stage.getId());
+            }
+        }
         
         // Buffs
         for (MazeBuff buff : this.getBuffs()) {

@@ -19,15 +19,17 @@ public class EntityMonster implements GameEntity {
     @Setter private int eventId;
     
     private NpcMonsterExcel excel;
-    private StageExcel stage;
     private Position pos;
     private Position rot;
     
-    public EntityMonster(NpcMonsterExcel excel, StageExcel stage, Position pos) {
+    public EntityMonster(NpcMonsterExcel excel, Position pos) {
         this.excel = excel;
-        this.stage = stage;
         this.pos = pos;
         this.rot = new Position();
+    }
+    
+    public int getStageId(int worldLevel) {
+        return (this.getEventId() * 10) + worldLevel;
     }
 
     @Override
@@ -46,5 +48,4 @@ public class EntityMonster implements GameEntity {
 
         return proto;
     }
-
 }

@@ -80,11 +80,10 @@ public class Scene {
                 for (MonsterInfo monsterInfo : group.getMonsterList()) {
                     // Get excels from game data
                     NpcMonsterExcel npcMonsterExcel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
-                    StageExcel stage = GameData.getStageExcelMap().get(1);
-                    if (excel == null || stage == null) continue;
+                    if (excel == null) continue;
                     
                     // Create monster with excels
-                    EntityMonster monster = new EntityMonster(npcMonsterExcel, stage, monsterInfo.clonePos());
+                    EntityMonster monster = new EntityMonster(npcMonsterExcel, monsterInfo.clonePos());
                     monster.getRot().setY((int) (monsterInfo.getRotY() * 1000f));
                     monster.setInstId(monsterInfo.getID());
                     monster.setEventId(monsterInfo.getEventID());
