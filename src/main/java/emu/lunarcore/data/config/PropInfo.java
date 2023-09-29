@@ -1,6 +1,6 @@
 package emu.lunarcore.data.config;
 
-import emu.lunarcore.game.scene.entity.PropState;
+import emu.lunarcore.game.enums.PropState;
 import lombok.Getter;
 
 @Getter

@@ -7,9 +7,11 @@ import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.*;
 import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
+import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.entity.*;
 import emu.lunarcore.game.player.Player;
@@ -25,9 +27,10 @@ import lombok.Getter;
 @Getter
 public class Scene {
     private final Player player;
+    private final MazePlaneExcel excel;
     private final int planeId;
     private final int floorId;
-    private final int entryId;
+    private int entryId;
     
     private int lastEntityId = 0;
 
@@ -38,11 +41,11 @@ public class Scene {
     // Other entities TODO
     private Int2ObjectMap<GameEntity> entities;
 
-    public Scene(Player player, int planeId, int floorId, int entryId) {
+    public Scene(Player player, MazePlaneExcel excel, int floorId) {
         this.player = player;
-        this.planeId = planeId;
+        this.excel = excel;
+        this.planeId = excel.getPlaneID();
         this.floorId = floorId;
-        this.entryId = entryId;
 
         // Setup avatars
         this.avatarEntityIds = new IntOpenHashSet();
@@ -76,12 +79,12 @@ public class Scene {
             if (group.getMonsterList() != null && group.getMonsterList().size() > 0) {
                 for (MonsterInfo monsterInfo : group.getMonsterList()) {
                     // Get excels from game data
-                    NpcMonsterExcel excel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
+                    NpcMonsterExcel npcMonsterExcel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
                     StageExcel stage = GameData.getStageExcelMap().get(1);
                     if (excel == null || stage == null) continue;
                     
                     // Create monster with excels
-                    EntityMonster monster = new EntityMonster(excel, stage, monsterInfo.clonePos());
+                    EntityMonster monster = new EntityMonster(npcMonsterExcel, stage, monsterInfo.clonePos());
                     monster.getRot().setY((int) (monsterInfo.getRotY() * 1000f));
                     monster.setInstId(monsterInfo.getID());
                     monster.setEventId(monsterInfo.getEventID());
@@ -145,6 +148,10 @@ public class Scene {
                 }
             }
         }
+    }
+    
+    public void setEntryId(int entryId) {
+        this.entryId = entryId;
     }
 
     private int getNextEntityId() {
@@ -215,8 +222,8 @@ public class Scene {
     public SceneInfo toProto() {
         // Proto
         var proto = SceneInfo.newInstance()
-                .setWorldId(301)
-                .setLCMMECNPOBA(this.getPlaneId() == GameConstants.HOME_PLANE_ID ? 3 : 2)
+                .setWorldId(this.getExcel().getWorldID())
+                .setLCMMECNPOBA(this.getExcel().getPlaneType().getVal())
                 .setPlaneId(this.getPlaneId())
                 .setFloorId(this.getFloorId())
                 .setEntryId(this.getEntryId());

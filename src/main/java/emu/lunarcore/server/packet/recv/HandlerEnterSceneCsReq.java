@@ -13,7 +13,7 @@ public class HandlerEnterSceneCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = EnterSceneCsReq.parseFrom(data);
         
-        session.getPlayer().enterScene(req.getEntryId(), req.getTeleportId());
+        session.getPlayer().enterScene(req.getEntryId(), req.getTeleportId(), true);
         session.send(CmdId.EnterSceneScRsp);
     }
 

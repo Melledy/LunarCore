@@ -6,8 +6,8 @@ import java.util.List;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
-import emu.lunarcore.game.avatar.AvatarBaseType;
-import emu.lunarcore.game.avatar.DamageType;
+import emu.lunarcore.game.enums.AvatarBaseType;
+import emu.lunarcore.game.enums.DamageType;
 import lombok.AccessLevel;
 import lombok.Getter;
 

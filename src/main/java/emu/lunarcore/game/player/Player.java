@@ -11,6 +11,7 @@ import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.MapEntranceExcel;
+import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
@@ -246,7 +247,7 @@ public class Player {
         this.battle = battle;
     }
     
-    public void enterScene(int entryId, int teleportId) {
+    public void enterScene(int entryId, int teleportId, boolean sendPacket) {
         // Get map entrance excel
         MapEntranceExcel entry = GameData.getMapEntranceExcelMap().get(entryId);
         if (entry == null) return;
@@ -255,7 +256,7 @@ public class Player {
         FloorInfo floor = GameData.getFloorInfo(entry.getPlaneID(), entry.getFloorID());
         if (floor == null) return;
         
-        // Get teleport anchor
+        // Get teleport anchor info (contains position) from the entry id
         int startGroup = entry.getStartGroupID();
         int anchorId = entry.getStartAnchorID();
         if (teleportId != 0 || anchorId == 0) {
@@ -268,36 +269,48 @@ public class Player {
         
         AnchorInfo anchor = floor.getAnchorInfo(startGroup, anchorId);
         if (anchor == null) return;
+
+        // Move player to scene
+        this.loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId(), anchor.clonePos());
         
-        // Set position
-        this.getPos().set(
-                (int) (anchor.getPosX() * 1000f), 
-                (int) (anchor.getPosY() * 1000f), 
-                (int) (anchor.getPosZ() * 1000f)
-        );
-        this.planeId = entry.getPlaneID();
-        this.floorId = entry.getFloorID();
-        this.entryId = entry.getId();
-        
-        // Save player
-        this.save();
-
-        // Move to scene
-        loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId());
-    }
-
-    private void loadScene(int planeId, int floorId, int entryId) {
-        // Sanity check
-        if (this.scene != null && this.scene.getPlaneId() == planeId) {
-            // Don't create a new scene if were already in the one we want to teleport to
-        } else {
-            this.scene = new Scene(this, planeId, floorId, entryId);
-        }
-
-        // TODO send packet
-        if (this.getSession().getState() != SessionState.WAITING_FOR_TOKEN) {
+        // Send packet
+        if (sendPacket) {
             this.sendPacket(new PacketEnterSceneByServerScNotify(this));
         }
+    }
+
+    private boolean loadScene(int planeId, int floorId, int entryId, Position pos) {
+        // Get maze plane excel
+        MazePlaneExcel planeExcel = GameData.getMazePlaneExcelMap().get(planeId);
+        if (planeExcel == null) {
+            return false;
+        }
+        
+        // Get scene that we want to enter
+        Scene nextScene = null;
+        
+        if (getScene() != null && getScene().getPlaneId() == planeId && getScene().getFloorId() == floorId) {
+            // Don't create a new scene if were already in the one we want to teleport to
+            nextScene = this.scene;
+        } else {
+            nextScene = new Scene(this, planeExcel, floorId);
+        }
+
+        // Set positions if player has logged in
+        if (this.getSession().getState() != SessionState.WAITING_FOR_TOKEN) {
+            this.getPos().set(pos);
+            this.planeId = planeId;
+            this.floorId = floorId;
+            this.entryId = entryId;
+            this.save();
+        }
+        
+        // Set player scene
+        this.scene = nextScene;
+        this.scene.setEntryId(entryId);
+        
+        // Done, return success
+        return true;
     }
 
     public void dropMessage(String message) {
@@ -329,7 +342,7 @@ public class Player {
         this.getAvatars().setupHeroPaths();
 
         // Enter scene (should happen after everything else loads)
-        this.loadScene(planeId, floorId, entryId);
+        this.loadScene(planeId, floorId, entryId, this.getPos());
     }
 
     public PlayerBasicInfo toProto() {

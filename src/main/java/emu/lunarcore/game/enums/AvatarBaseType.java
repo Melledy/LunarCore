@@ -1,4 +1,4 @@
-package emu.lunarcore.game.avatar;
+package emu.lunarcore.game.enums;
 
 import lombok.Getter;
 

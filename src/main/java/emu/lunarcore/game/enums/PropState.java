@@ -1,4 +1,4 @@
-package emu.lunarcore.game.scene.entity;
+package emu.lunarcore.game.enums;
 
 import lombok.Getter;
 
