@@ -148,6 +148,7 @@ public class BattleService extends BaseGameService {
         
         // Build battle from cocoon data
         Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
+        player.setBattle(battle);
         
         // Send packet
         player.sendPacket(new PacketStartCocoonStageScRsp(battle, cocoonId, wave));
