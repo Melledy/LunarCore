@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.excel.CocoonExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
@@ -16,6 +17,7 @@ import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
+import emu.lunarcore.server.packet.send.PacketStartCocoonStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 
 import us.hebi.quickbuf.RepeatedInt;
@@ -27,7 +29,7 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void onBattleStart(Player player, int attackerId, RepeatedInt attackedList) {
+    public void startBattle(Player player, int attackerId, RepeatedInt attackedList) {
         // Setup variables
         List<GameEntity> entities = new ArrayList<>();
         List<EntityMonster> monsters = new ArrayList<>();
@@ -44,7 +46,7 @@ public class BattleService extends BaseGameService {
                     entities.add(entity);
                 }
             }
-            //
+
             isPlayerCaster = true;
         } else {
             // Player is ambushed
@@ -108,15 +110,50 @@ public class BattleService extends BaseGameService {
             }
             // Set battle and send rsp packet
             player.setBattle(battle);
-            player.sendPacket(new PacketSceneCastSkillScRsp(player, battle));
+            player.sendPacket(new PacketSceneCastSkillScRsp(battle));
             return;
         }
         
         // Send packet
         player.sendPacket(new PacketSceneCastSkillScRsp(0));
     }
+    
+    public void startCocoon(Player player, int cocoonId, int worldLevel, int wave) {
+        // Get cocoon data
+        CocoonExcel cocoonExcel = GameData.getCocoonExcel(cocoonId, worldLevel);
+        if (cocoonExcel == null) {
+            player.sendPacket(new PacketStartCocoonStageScRsp());
+            return;
+        }
+        
+        // Get waves
+        wave = Math.min(Math.max(1, wave), cocoonExcel.getMaxWave());
+        
+        // Get stages from cocoon
+        List<StageExcel> stages = new ArrayList<>();
+        
+        for (int i = 0; i < wave; i++) {
+            StageExcel stage = GameData.getStageExcelMap().get(cocoonExcel.getRandomStage());
+            
+            if (stage != null) {
+                stages.add(stage);
+            }
+        }
+        
+        // Sanity
+        if (stages.size() <= 0) {
+            player.sendPacket(new PacketStartCocoonStageScRsp());
+            return;
+        }
+        
+        // Build battle from cocoon data
+        Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
+        
+        // Send packet
+        player.sendPacket(new PacketStartCocoonStageScRsp(battle, cocoonId, wave));
+    }
 
-    public void onBattleResult(Player player, BattleEndStatus result, RepeatedMessage<AvatarBattleInfo> battleAvatars) {
+    public void finishBattle(Player player, BattleEndStatus result, RepeatedMessage<AvatarBattleInfo> battleAvatars) {
         // Sanity
         if (!player.isInBattle()) {
             return;
@@ -153,5 +190,4 @@ public class BattleService extends BaseGameService {
         // Done - Clear battle object from player
         player.setBattle(null);
     }
-
 }

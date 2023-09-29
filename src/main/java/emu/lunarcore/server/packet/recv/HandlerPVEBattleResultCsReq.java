@@ -14,7 +14,7 @@ public class HandlerPVEBattleResultCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = PVEBattleResultCsReq.parseFrom(data);
 
-        session.getServer().getBattleService().onBattleResult(
+        session.getServer().getBattleService().finishBattle(
                 session.getPlayer(),
                 req.getEndStatus(),
                 req.getStt().getBattleAvatarList()

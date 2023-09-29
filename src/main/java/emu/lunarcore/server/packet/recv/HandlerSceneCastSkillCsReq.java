@@ -15,7 +15,7 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
         var req = SceneCastSkillCsReq.parseFrom(data);
 
         if (req.hasAttackedEntityIdList()) {
-            session.getServer().getBattleService().onBattleStart(session.getPlayer(), req.getAttackerId(), req.getAttackedEntityIdList());
+            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getAttackerId(), req.getAttackedEntityIdList());
         } else {
             session.send(new PacketSceneCastSkillScRsp());
         }
