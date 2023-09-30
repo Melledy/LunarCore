@@ -147,6 +147,14 @@ public class Player {
         return false;
     }
     
+    public void setSignature(String signature) {
+        if (signature.length() > 50) { // Client's max signature length is 50
+            signature = signature.substring(0, 49);
+        }
+        this.signature = signature;
+        this.save();
+    }
+    
     public int setBirthday(int birthday) {
         if (this.birthday == 0) {
             int month = birthday / 100;
