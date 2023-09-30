@@ -89,6 +89,7 @@ public class Scene {
                     monster.setInstId(monsterInfo.getID());
                     monster.setEventId(monsterInfo.getEventID());
                     monster.setGroupId(group.getId());
+                    monster.setWorldLevel(this.getPlayer().getWorldLevel());
                     
                     // Add to monsters
                     this.addEntity(monster);
@@ -208,6 +209,10 @@ public class Scene {
         if (entity == null) {
             player.sendPacket(new PacketActivateFarmElementScRsp());
             return false;
+        }
+        
+        if (entity instanceof EntityMonster monster) {
+            monster.setWorldLevel(worldLevel);
         }
         
         player.sendPacket(new PacketActivateFarmElementScRsp(entityId, worldLevel));

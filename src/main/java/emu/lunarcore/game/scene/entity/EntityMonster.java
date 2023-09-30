@@ -28,7 +28,7 @@ public class EntityMonster implements GameEntity {
         this.rot = new Position();
     }
     
-    public int getStageId(int worldLevel) {
+    public int getStageId() {
         return (this.getEventId() * 10) + worldLevel;
     }
 

@@ -82,7 +82,7 @@ public class BattleService extends BaseGameService {
             List<StageExcel> stages = new ArrayList<>();
             
             for (var monster : monsters) {
-                StageExcel stage = GameData.getStageExcelMap().get(monster.getStageId(player.getWorldLevel()));
+                StageExcel stage = GameData.getStageExcelMap().get(monster.getStageId());
                 
                 if (stage != null) {
                     stages.add(stage);
