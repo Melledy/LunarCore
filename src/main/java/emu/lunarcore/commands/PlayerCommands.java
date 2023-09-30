@@ -168,7 +168,7 @@ public class PlayerCommands {
                         }
                     }
                     // Credits
-                    player.getInventory().addItem(2, 10_000_000);
+                    player.getInventory().addItem(2, 100_000_000);
                     break;
                 case "avatars":
                     // All avatars and their eidolons
