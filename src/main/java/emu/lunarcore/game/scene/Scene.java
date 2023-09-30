@@ -17,6 +17,7 @@ import emu.lunarcore.game.scene.entity.*;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
+import emu.lunarcore.server.packet.send.PacketActivateFarmElementScRsp;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -156,6 +157,10 @@ public class Scene {
     private int getNextEntityId() {
         return ++lastEntityId;
     }
+    
+    public GameEntity getEntityById(int id) {
+        return this.entities.get(id);
+    }
 
     public void syncLineup() {
         // Get current lineup
@@ -196,6 +201,17 @@ public class Scene {
 
         // Sync packet
         getPlayer().sendPacket(new PacketSceneGroupRefreshScNotify(toAdd, toRemove));
+    }
+    
+    public boolean activateFarmElement(int entityId, int worldLevel) {
+        GameEntity entity = this.getEntityById(entityId);
+        if (entity == null) {
+            player.sendPacket(new PacketActivateFarmElementScRsp());
+            return false;
+        }
+        
+        player.sendPacket(new PacketActivateFarmElementScRsp(entityId, worldLevel));
+        return true;
     }
 
     public synchronized void addEntity(GameEntity entity) {
