@@ -17,6 +17,7 @@ public class LineupManager {
     private PlayerLineup[] lineups;
     private int currentIndex;
     private int currentLeader;
+    private int mp;
     
     // Extra lineups for challenges/simulated universe/etc
     private transient int currentExtraLineup;
@@ -29,8 +30,17 @@ public class LineupManager {
 
     public LineupManager(Player player) {
         this();
-
+        this.mp = 5;
         this.validate(player);
+    }
+    
+    public void addMp(int i) {
+        this.mp = Math.min(this.mp + i, GameConstants.MAX_MP);
+        this.getPlayer().sendPacket(new PacketSyncLineupNotify(player.getCurrentLineup()));
+    }
+    
+    public void removeMp(int i) {
+        this.mp = Math.max(this.mp - i, 0);
     }
     
     public PlayerLineup getLineupByIndex(int index, int extraLineup) {

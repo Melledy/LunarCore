@@ -34,6 +34,7 @@ public class BattleService extends BaseGameService {
     public void startBattle(Player player, int attackerId, RepeatedInt attackedList) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
+            player.sendPacket(new PacketSceneCastSkillScRsp(1));
             return;
         }
         
@@ -64,7 +65,7 @@ public class BattleService extends BaseGameService {
             }
         }
         
-        // Give the client an error if not attacked entities detected
+        // Give the client an error if no attacked entities detected
         if (entities.size() == 0) {
             player.sendPacket(new PacketSceneCastSkillScRsp(1));
             return;

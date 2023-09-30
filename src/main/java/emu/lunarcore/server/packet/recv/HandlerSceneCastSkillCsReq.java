@@ -13,7 +13,11 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = SceneCastSkillCsReq.parseFrom(data);
-
+        
+        if (req.getSkillIndex() > 0 && session.getPlayer().getScene().getAvatarEntityIds().contains(req.getAttackerId())) {
+            session.getPlayer().getLineupManager().removeMp(1);
+        }
+        
         if (req.hasAttackedEntityIdList()) {
             session.getServer().getBattleService().startBattle(session.getPlayer(), req.getAttackerId(), req.getAttackedEntityIdList());
         } else {

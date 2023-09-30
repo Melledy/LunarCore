@@ -86,7 +86,8 @@ public class PlayerLineup {
                 .setIndex(index)
                 .setName(this.getName())
                 .setLeaderSlot(this.getOwner().getLineupManager().getCurrentLeader())
-                .setTechniquePoints(5)
+                .setMp(this.getOwner().getLineupManager().getMp())
+                .setMaxMp(GameConstants.MAX_MP)
                 .setExtraLineupType(ExtraLineupType.LINEUP_NONE);
 
         for (int slot = 0; slot < this.getAvatars().size(); slot++) {

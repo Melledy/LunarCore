@@ -3,6 +3,7 @@ package emu.lunarcore.game.scene.entity;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.enums.PropState;
+import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SceneNpcMonsterInfoOuterClass.SceneNpcMonsterInfo;
@@ -28,6 +29,12 @@ public class EntityProp implements GameEntity {
         this.pos = pos;
         this.rot = new Position();
         this.state = PropState.Closed;
+    }
+    
+    @Override
+    public void onRemove(Scene scene) {
+        // TODO Debug
+        scene.getPlayer().getLineupManager().addMp(2);
     }
 
     @Override

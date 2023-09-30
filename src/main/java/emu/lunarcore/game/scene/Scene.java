@@ -224,6 +224,8 @@ public class Scene {
         // Set entity id and add monster to entity map
         entity.setEntityId(this.getNextEntityId());
         this.entities.put(entity.getEntityId(), entity);
+        // Entity add callback
+        entity.onAdd(this);
     }
     
     public synchronized void removeEntity(GameEntity entity) {
@@ -234,6 +236,9 @@ public class Scene {
         GameEntity entity = this.entities.remove(entityId);
 
         if (entity != null) {
+            // Entity remove callback
+            entity.onRemove(this);
+            // Send packet
             player.sendPacket(new PacketSceneGroupRefreshScNotify(null, entity));
         }
     }
