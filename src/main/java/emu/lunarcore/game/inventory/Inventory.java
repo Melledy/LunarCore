@@ -118,6 +118,7 @@ public class Inventory extends BasePlayerManager {
 
         // Add item to inventory store
         ItemMainType type = item.getExcel().getItemMainType();
+        ItemSubType subType = item.getExcel().getItemSubType();
         InventoryTab tab = getInventoryTab(type);
 
         // Add
@@ -143,6 +144,12 @@ public class Inventory extends BasePlayerManager {
             AvatarExcel avatarExcel = GameData.getAvatarExcelMap().get(item.getItemId());
             if (avatarExcel != null && !getPlayer().getAvatars().hasAvatar(avatarExcel.getId())) {
                 getPlayer().addAvatar(new GameAvatar(avatarExcel));
+            }
+            return null;
+        case Usable:
+            if (subType == ItemSubType.HeadIcon) {
+                getPlayer().addHeadIcon(item.getItemId());
+                return item;
             }
             return null;
         case Material:

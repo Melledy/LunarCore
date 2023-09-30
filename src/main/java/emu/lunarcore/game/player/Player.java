@@ -1,5 +1,8 @@
 package emu.lunarcore.game.player;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
@@ -20,6 +23,8 @@ import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.scene.Scene;
+import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
+import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
@@ -42,8 +47,9 @@ public class Player {
     @Indexed private String accountUid;
     private String name;
     private String signature;
-    private PlayerGender gender;
+    private int headIcon;
     private int birthday;
+    private PlayerGender gender;
     private int curBasicType;
 
     private int level;
@@ -61,6 +67,8 @@ public class Player {
     private int floorId;
     private int entryId;
     
+    private Set<Integer> unlockedHeadIcons;
+    
     // Etc
     @Setter private transient boolean paused;
     private transient int nextBattleId;
@@ -75,7 +83,7 @@ public class Player {
 
     @Deprecated // Morphia only
     public Player() {
-        this.curBasicType = 8001;
+        this.curBasicType = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.gender = PlayerGender.GENDER_MAN;
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
@@ -87,6 +95,8 @@ public class Player {
         this.session = session;
         this.accountUid = getAccount().getUid();
         this.name = GameConstants.DEFAULT_NAME;
+        this.signature = "";
+        this.headIcon = 200001;
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
 
@@ -95,6 +105,7 @@ public class Player {
         this.floorId = 20001001;
         this.entryId = 2000101;
 
+        this.unlockedHeadIcons = new HashSet<>();
         this.lineupManager = new LineupManager(this);
         this.gachaInfo = new PlayerGachaInfo();
 
@@ -155,6 +166,27 @@ public class Player {
         this.worldLevel = level;
         this.save();
         this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+    
+    public Set<Integer> getUnlockedHeadIcons() {
+        if (this.unlockedHeadIcons == null) {
+            this.unlockedHeadIcons = new HashSet<>();
+        }
+        return this.unlockedHeadIcons;
+    }
+    
+    public void addHeadIcon(int headIconId) {
+        this.getUnlockedHeadIcons().add(headIconId);
+        this.sendPacket(new PacketPlayerSyncScNotify(this.toBoardData()));
+    }
+    
+    public boolean setHeadIcon(int id) {
+        if (this.getUnlockedHeadIcons().contains(id)) {
+            this.headIcon = id;
+            this.save();
+            return true;
+        }
+        return false;
     }
 
     public boolean hasLoggedIn() {
@@ -363,6 +395,8 @@ public class Player {
         this.loadScene(planeId, floorId, entryId, this.getPos());
     }
 
+    // Proto
+    
     public PlayerBasicInfo toProto() {
         var proto = PlayerBasicInfo.newInstance()
                 .setNickname(this.getName())
@@ -373,6 +407,17 @@ public class Player {
                 .setHcoin(this.getHcoin())
                 .setMcoin(this.getMcoin())
                 .setStamina(this.getStamina());
+        
+        return proto;
+    }
+    
+    public BoardDataSync toBoardData() {
+        var proto = BoardDataSync.newInstance()
+                .setSignature(this.getSignature());
+        
+        for (int id : this.getUnlockedHeadIcons()) {
+            proto.addUnlockedHeadIconList(HeadIcon.newInstance().setId(id));
+        }
         
         return proto;
     }

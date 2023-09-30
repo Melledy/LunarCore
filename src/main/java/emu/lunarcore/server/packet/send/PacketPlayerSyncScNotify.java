@@ -7,6 +7,7 @@ import emu.lunarcore.game.avatar.HeroPath;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.AvatarSyncOuterClass.AvatarSync;
+import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.PlayerSyncScNotifyOuterClass.PlayerSyncScNotify;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
@@ -23,6 +24,15 @@ public class PacketPlayerSyncScNotify extends BasePacket {
 
         var data = PlayerSyncScNotify.newInstance()
                 .setBasicInfo(player.toProto());
+
+        this.setData(data);
+    }
+    
+    public PacketPlayerSyncScNotify(BoardDataSync boardData) {
+        this();
+
+        var data = PlayerSyncScNotify.newInstance()
+                .setBoardDataSync(boardData);
 
         this.setData(data);
     }
