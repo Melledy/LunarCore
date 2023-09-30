@@ -84,14 +84,17 @@ public class Inventory extends BasePlayerManager {
     }
 
     public boolean addItem(int itemId, int count) {
-        ItemExcel excel = GameData.getItemExcelMap().get(itemId);
+        ItemExcel itemExcel = GameData.getItemExcelMap().get(itemId);
 
-        if (excel == null) {
+        if (itemExcel == null) {
             return false;
         }
-
-        GameItem item = new GameItem(excel, count);
-
+        
+        return addItem(itemExcel, count);
+    }
+    
+    public boolean addItem(ItemExcel itemExcel, int count) {
+        GameItem item = new GameItem(itemExcel, count);
         return addItem(item);
     }
 

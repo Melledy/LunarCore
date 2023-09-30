@@ -10,6 +10,8 @@ import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.inventory.GameItem;
+import emu.lunarcore.game.inventory.ItemMainType;
+import emu.lunarcore.game.inventory.ItemSubType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.util.Position;
@@ -149,6 +151,36 @@ public class PlayerCommands {
             // Set world level
             player.setWorldLevel(level);
             player.dropMessage("Set world level to " + level);
+        }
+    }
+    
+    @Command(aliases = {"ga"}, desc = "/giveall {materials|avatars}")
+    public static class GiveAll extends PlayerCommand {
+        @Override
+        public void execute(Player player, String raw) {
+            switch (raw) {
+                case "materials":
+                    // Character/Relic/Lightcone upgrade materials
+                    for (ItemExcel excel : GameData.getItemExcelMap().values()) {
+                        int purpose = excel.getPurposeType();
+                        if (purpose >= 1 && purpose <= 7) {
+                            player.getInventory().addItem(excel, 1000);
+                        }
+                    }
+                    // Credits
+                    player.getInventory().addItem(2, 10_000_000);
+                    break;
+                case "avatars":
+                    // All avatars and their eidolons
+                    for (ItemExcel excel : GameData.getItemExcelMap().values()) {
+                        if (excel.getItemMainType() == ItemMainType.AvatarCard) {
+                            player.getInventory().addItem(excel, 1);
+                        } else if (excel.getItemSubType() == ItemSubType.Eidolon) {
+                            player.getInventory().addItem(excel, 6);
+                        }
+                    }
+                    break;
+            }
         }
     }
 

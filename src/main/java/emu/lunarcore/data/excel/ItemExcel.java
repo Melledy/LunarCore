@@ -22,6 +22,7 @@ public class ItemExcel extends GameResource {
     private ItemSubType ItemSubType;
     private ItemRarity Rarity;
     private int PileLimit;
+    private int PurposeType;
 
     private List<ItemParam> ReturnItemIDList;
 
