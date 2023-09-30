@@ -131,6 +131,26 @@ public class PlayerCommands {
             player.dropMessage("Giving you " + count + " of " + itemId);
         }
     }
+    
+    @Command(aliases = {"wl", "el"}, desc = "/worldlevel [world level]")
+    public static class WorldLevel extends PlayerCommand {
+        @Override
+        public void execute(Player player, String raw) {
+            int level = 0;
+
+            try {
+                level = Integer.parseInt(raw);
+            } catch (Exception e) {
+                level = 0;
+            }
+
+            level = Math.min(Math.max(level, 0), 6);
+
+            // Set world level
+            player.setWorldLevel(level);
+            player.dropMessage("Set world level to " + level);
+        }
+    }
 
     /* Temporarily disabled as spawned monsters need 
     @Command(desc = "/spawn [monster id] [count] - Creates {count} amount of {item id}")

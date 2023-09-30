@@ -150,6 +150,12 @@ public class Player {
         
         return 0;
     }
+    
+    public void setWorldLevel(int level) {
+        this.worldLevel = level;
+        this.save();
+        this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
 
     public boolean hasLoggedIn() {
         return this.getSession() != null && this.getSession().getState() != SessionState.WAITING_FOR_TOKEN;
