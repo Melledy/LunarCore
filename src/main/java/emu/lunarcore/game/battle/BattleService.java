@@ -221,7 +221,7 @@ public class BattleService extends BaseGameService {
         }
         
         // Create new battle for player
-        Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stage);
+        Battle battle = new Battle(player, player.getCurrentLineup(), stage);
         player.setBattle(battle);
         
         // Send packet

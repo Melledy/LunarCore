@@ -3,13 +3,11 @@ package emu.lunarcore.game.scene;
 import java.util.ArrayList;
 import java.util.List;
 
-import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.*;
 import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
-import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.player.PlayerLineup;
@@ -19,6 +17,7 @@ import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
 import emu.lunarcore.server.packet.send.PacketActivateFarmElementScRsp;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
+
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
@@ -53,7 +52,7 @@ public class Scene {
         this.avatars = new Int2ObjectOpenHashMap<>();
         this.entities = new Int2ObjectOpenHashMap<>();
 
-        PlayerLineup lineup = getPlayer().getLineupManager().getCurrentLineup();
+        PlayerLineup lineup = getPlayer().getCurrentLineup();
 
         for (int avatarId : lineup.getAvatars()) {
             GameAvatar avatar = getPlayer().getAvatarById(avatarId);
@@ -249,7 +248,7 @@ public class Scene {
                 .setEntryId(this.getEntryId());
 
         // Get current lineup
-        PlayerLineup lineup = getPlayer().getLineupManager().getCurrentLineup();
+        PlayerLineup lineup = getPlayer().getCurrentLineup();
         int leaderAvatarId = lineup.getAvatars().get(getPlayer().getLineupManager().getCurrentLeader());
 
         // Sort entities into groups

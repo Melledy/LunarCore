@@ -11,7 +11,7 @@ public class PacketEnterSceneByServerScNotify extends BasePacket {
         super(CmdId.EnterSceneByServerScNotify);
 
         var data = EnterSceneByServerScNotify.newInstance()
-                .setLineup(player.getLineupManager().getCurrentLineup().toProto())
+                .setLineup(player.getCurrentLineup().toProto())
                 .setScene(player.getScene().toProto());
         
         this.setData(data);

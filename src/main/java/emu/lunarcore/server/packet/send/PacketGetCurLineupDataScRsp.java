@@ -11,7 +11,7 @@ public class PacketGetCurLineupDataScRsp extends BasePacket {
         super(CmdId.GetCurLineupDataScRsp);
 
         var data = GetCurLineupDataScRsp.newInstance()
-                .setLineup(session.getPlayer().getLineupManager().getCurrentLineup().toProto());
+                .setLineup(session.getPlayer().getCurrentLineup().toProto());
 
         this.setData(data);
     }

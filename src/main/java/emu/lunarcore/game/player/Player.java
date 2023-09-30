@@ -108,7 +108,7 @@ public class Player {
         // TODO script tutorial
         GameAvatar avatar = new GameAvatar(this.getCurHeroPath());
         this.getAvatars().addAvatar(avatar);
-        this.getLineupManager().getCurrentLineup().getAvatars().add(avatar.getAvatarId());
+        this.getCurrentLineup().getAvatars().add(avatar.getAvatarId());
     }
 
     public GameServer getServer() {
@@ -172,6 +172,10 @@ public class Player {
         }
         
         return getAvatars().getAvatarById(avatarId);
+    }
+    
+    public PlayerLineup getCurrentLineup() {
+        return this.getLineupManager().getCurrentLineup();
     }
 
     private void initUid() {

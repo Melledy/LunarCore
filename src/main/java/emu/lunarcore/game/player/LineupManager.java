@@ -33,19 +33,19 @@ public class LineupManager {
         this.validate(player);
     }
     
-    public PlayerLineup getLineup(int index, int extraLineup) {
+    public PlayerLineup getLineupByIndex(int index, int extraLineup) {
         // Sanity
         if (extraLineup > 0) {
-            return getExtraLineup(extraLineup);
+            return getExtraLineupByType(extraLineup);
         } else {
-            return getLineup(index);
+            return getLineupByIndex(index);
         }
     }
 
     /*
      * Get player lineup by index. Only normal lineups are returned
      */
-    public PlayerLineup getLineup(int index) {
+    public PlayerLineup getLineupByIndex(int index) {
         // Sanity
         if (index < 0 || index >= this.getLineups().length) {
             return null;
@@ -59,7 +59,7 @@ public class LineupManager {
      * @param extraLineupType
      * @return
      */
-    private PlayerLineup getExtraLineup(int extraLineupType) {
+    private PlayerLineup getExtraLineupByType(int extraLineupType) {
         PlayerLineup lineup = this.extraLineups.get(extraLineupType);
         
         if (lineup == null) {
@@ -72,7 +72,7 @@ public class LineupManager {
     }
 
     public PlayerLineup getCurrentLineup() {
-        return this.getLineup(this.currentIndex, this.getCurrentExtraLineup());
+        return this.getLineupByIndex(this.currentIndex, this.getCurrentExtraLineup());
     }
     
     public GameAvatar getCurrentLeaderAvatar() {
@@ -97,7 +97,7 @@ public class LineupManager {
 
     public boolean joinLineup(int index, int slot, int avatarId) {
         // Get lineup
-        PlayerLineup lineup = this.getLineup(index);
+        PlayerLineup lineup = this.getLineupByIndex(index);
         if (lineup == null) return false;
 
         boolean isCurrentLineup = lineup == getCurrentLineup();
@@ -134,7 +134,7 @@ public class LineupManager {
 
     public boolean quitLineup(int index, int avatarId) {
         // Get lineup
-        PlayerLineup lineup = this.getLineup(index);
+        PlayerLineup lineup = this.getLineupByIndex(index);
         if (lineup == null) return false;
 
         boolean isCurrentLineup = lineup == getCurrentLineup();
@@ -178,7 +178,7 @@ public class LineupManager {
         }
 
         // Get lineup
-        PlayerLineup lineup = this.getLineup(index);
+        PlayerLineup lineup = this.getLineupByIndex(index);
 
         // Make sure lineup exists and has size
         if (lineup == null || lineup.size() == 0) {
@@ -201,7 +201,7 @@ public class LineupManager {
 
     public boolean replaceLineup(int index, int extraLineupType, List<Integer> lineupList) {
         // Get lineup
-        PlayerLineup lineup = this.getLineup(index, extraLineupType);
+        PlayerLineup lineup = this.getLineupByIndex(index, extraLineupType);
         if (lineup == null) return false;
         
         // Sanity - Make sure player cant remove all avatars from the current lineup
@@ -244,7 +244,7 @@ public class LineupManager {
         if (src == dest) return false;
 
         // Get lineup
-        PlayerLineup lineup = this.getLineup(index);
+        PlayerLineup lineup = this.getLineupByIndex(index);
         // Validate slots
         if ((lineup == null) || (src < 0 && src >= lineup.size())) {
             return false;
@@ -271,7 +271,7 @@ public class LineupManager {
 
     public boolean changeLineupName(int index, String name) {
         // Get lineup
-        PlayerLineup lineup = this.getLineup(index);
+        PlayerLineup lineup = this.getLineupByIndex(index);
         if (lineup == null) return false;
 
         // Change name

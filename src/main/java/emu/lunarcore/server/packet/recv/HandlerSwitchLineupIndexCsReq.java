@@ -15,7 +15,7 @@ public class HandlerSwitchLineupIndexCsReq extends PacketHandler {
         var req = SwitchLineupIndexCsReq.parseFrom(data);
 
         session.getPlayer().getLineupManager().switchLineup(req.getIndex());
-        session.send(new PacketSwitchLineupIndexScRsp(session.getPlayer().getLineupManager().getCurrentLineup()));
+        session.send(new PacketSwitchLineupIndexScRsp(session.getPlayer().getCurrentLineup()));
     }
 
 }
