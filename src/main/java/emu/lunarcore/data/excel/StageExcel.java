@@ -5,6 +5,7 @@ import java.util.List;
 
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.game.enums.StageType;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.AccessLevel;
@@ -15,6 +16,7 @@ import lombok.Getter;
 public class StageExcel extends GameResource {
     private int StageID;
     private long StageName;
+    private StageType StageType;
     private int Level;
     
     @Getter(AccessLevel.NONE) 

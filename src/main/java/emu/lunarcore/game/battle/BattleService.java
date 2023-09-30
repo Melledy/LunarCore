@@ -7,6 +7,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.CocoonExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.enums.StageType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.game.scene.entity.EntityProp;
@@ -16,6 +17,7 @@ import emu.lunarcore.proto.AvatarPropertyOuterClass.AvatarProperty;
 import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
+import emu.lunarcore.server.packet.send.PacketReEnterLastElementStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
 import emu.lunarcore.server.packet.send.PacketStartCocoonStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
@@ -30,6 +32,11 @@ public class BattleService extends BaseGameService {
     }
 
     public void startBattle(Player player, int attackerId, RepeatedInt attackedList) {
+        // Sanity check to make sure player isnt in a battle
+        if (player.isInBattle()) {
+            return;
+        }
+        
         // Setup variables
         List<GameEntity> entities = new ArrayList<>();
         List<EntityMonster> monsters = new ArrayList<>();
@@ -119,6 +126,11 @@ public class BattleService extends BaseGameService {
     }
     
     public void startCocoon(Player player, int cocoonId, int worldLevel, int wave) {
+        // Sanity check to make sure player isnt in a battle
+        if (player.isInBattle()) {
+            return;
+        }
+        
         // Get cocoon data
         CocoonExcel cocoonExcel = GameData.getCocoonExcel(cocoonId, worldLevel);
         if (cocoonExcel == null) {
@@ -128,6 +140,8 @@ public class BattleService extends BaseGameService {
         
         // Get waves
         wave = Math.min(Math.max(1, wave), cocoonExcel.getMaxWave());
+        
+        // TODO sanity check stamina
         
         // Get stages from cocoon
         List<StageExcel> stages = new ArrayList<>();
@@ -155,7 +169,7 @@ public class BattleService extends BaseGameService {
     }
 
     public void finishBattle(Player player, BattleEndStatus result, RepeatedMessage<AvatarBattleInfo> battleAvatars) {
-        // Sanity
+        // Sanity check to make sure player is in a battle
         if (!player.isInBattle()) {
             return;
         }
@@ -190,5 +204,27 @@ public class BattleService extends BaseGameService {
         
         // Done - Clear battle object from player
         player.setBattle(null);
+    }
+
+    public void reEnterBattle(Player player, int stageId) {
+        // Sanity check to make sure player isnt in a battle
+        if (player.isInBattle()) {
+            player.sendPacket(new PacketReEnterLastElementStageScRsp());
+            return;
+        }
+        
+        // Get stage
+        StageExcel stage = GameData.getStageExcelMap().get(stageId);
+        if (stage == null || stage.getStageType() != StageType.FarmElement) {
+            player.sendPacket(new PacketReEnterLastElementStageScRsp());
+            return;
+        }
+        
+        // Create new battle for player
+        Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stage);
+        player.setBattle(battle);
+        
+        // Send packet
+        player.sendPacket(new PacketReEnterLastElementStageScRsp(battle));
     }
 }

@@ -28,7 +28,6 @@ import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.server.packet.send.PacketEnterSceneByServerScNotify;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.server.packet.send.PacketRevcMsgScNotify;
-import emu.lunarcore.server.packet.send.PacketSetHeroBasicTypeScRsp;
 import emu.lunarcore.util.Position;
 
 import lombok.Getter;
@@ -64,6 +63,7 @@ public class Player {
     
     // Etc
     @Setter private transient boolean paused;
+    private transient int nextBattleId;
 
     // Player managers
     private transient final AvatarStorage avatars;
@@ -247,6 +247,10 @@ public class Player {
         // Set new hero and cur basic type
         mainCharacter.setHeroPath(path);
         this.curBasicType = heroType;
+    }
+    
+    public int getNextBattleId() {
+        return ++nextBattleId;
     }
     
     public boolean isInBattle() {

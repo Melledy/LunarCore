@@ -15,26 +15,44 @@ import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
 import emu.lunarcore.proto.SceneMonsterOuterClass.SceneMonster;
 import emu.lunarcore.proto.SceneMonsterWaveOuterClass.SceneMonsterWave;
 import emu.lunarcore.util.Utils;
+
 import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
 
 @Getter
 public class Battle {
+    private final int id;
     private final Player player;
     private final PlayerLineup lineup;
     private final List<EntityMonster> npcMonsters;
     private final List<MazeBuff> buffs;
     private final List<StageExcel> stages;
-
-    // Constructor params subject to change
-    public Battle(Player player, PlayerLineup lineup, Collection<StageExcel> stages) {
+    
+    private Battle(Player player, PlayerLineup lineup) {
+        this.id = player.getNextBattleId();
         this.player = player;
         this.lineup = lineup;
         this.npcMonsters = new ArrayList<>();
         this.buffs = new ArrayList<>();
         this.stages = new ArrayList<>();
-        
+    }
+    
+    public Battle(Player player, PlayerLineup lineup, StageExcel stage) {
+        this(player, lineup);
+        this.stages.add(stage);
+    }
+    
+    public Battle(Player player, PlayerLineup lineup, Collection<StageExcel> stages) {
+        this(player, lineup);
         this.stages.addAll(stages);
+    }
+    
+    public int getStageId() {
+        if (this.getStages().size() > 0) {
+            return this.getStages().get(0).getId();
+        } else {
+            return 0;
+        }
     }
     
     public MazeBuff addBuff(int buffId, int ownerId) {
@@ -51,9 +69,14 @@ public class Battle {
         return buff;
     }
     
+    public void clearBuffs() {
+        this.buffs.clear();
+    }
+    
     public SceneBattleInfo toProto() {
         // Build battle info
         var proto = SceneBattleInfo.newInstance()
+                .setBattleId(this.getId())
                 .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
                 .setWorldLevel(player.getWorldLevel());
         
