@@ -8,6 +8,7 @@ import emu.lunarcore.data.config.*;
 import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
+import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.player.PlayerLineup;
@@ -98,8 +99,14 @@ public class Scene {
             // Add props
             if (group.getPropList() != null && group.getPropList().size() > 0) {
                 for (PropInfo propInfo : group.getPropList()) {
+                    // Get prop excel
+                    PropExcel propExcel = GameData.getPropExcelMap().get(propInfo.getPropID());
+                    if (propExcel == null) {
+                        continue;
+                    }
+                    
                     // Create prop from prop info
-                    EntityProp prop = new EntityProp(propInfo.getPropID(), propInfo.clonePos());
+                    EntityProp prop = new EntityProp(propExcel, propInfo.clonePos());
                     prop.setState(propInfo.getState());
                     prop.getRot().set(
                             (int) (propInfo.getRotX() * 1000f),

@@ -1,0 +1,32 @@
+package emu.lunarcore.data.excel;
+
+import emu.lunarcore.data.GameResource;
+import emu.lunarcore.data.ResourceType;
+import lombok.Getter;
+
+@Getter
+@ResourceType(name = {"MazeProp.json"})
+public class PropExcel extends GameResource {
+    private int ID;
+    private String JsonPath;
+    
+    private transient boolean recoverHp;
+    private transient boolean recoverMp;
+    
+    @Override
+    public int getId() {
+        return ID;
+    }
+    
+    @Override
+    public void onLoad() {
+        // Hacky way to determine if a prop will recover hp or mp
+        if (getJsonPath() != null && getJsonPath().length() > 0) {
+            if (getJsonPath().contains("MPRecoverBox")) {
+                this.recoverMp = true;
+            } else if (getJsonPath().contains("HPRecoverBox")) {
+                this.recoverHp = true;
+            }
+        }
+    }
+}
