@@ -5,6 +5,7 @@ import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
+import emu.lunarcore.server.packet.send.PacketSceneCastSkillMpUpdateScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
 
 @Opcodes(CmdId.SceneCastSkillCsReq)
@@ -16,6 +17,7 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
         
         if (req.getSkillIndex() > 0 && session.getPlayer().getScene().getAvatarEntityIds().contains(req.getAttackerId())) {
             session.getPlayer().getLineupManager().removeMp(1);
+            session.send(new PacketSceneCastSkillMpUpdateScNotify(req.getAttackedGroupId(), session.getPlayer().getLineupManager().getMp()));
         }
         
         if (req.hasAttackedEntityIdList()) {
