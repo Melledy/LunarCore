@@ -29,6 +29,7 @@ import lombok.Getter;
 public class Scene {
     private final Player player;
     private final MazePlaneExcel excel;
+    private final FloorInfo floorInfo;
     private final int planeId;
     private final int floorId;
     private int entryId;
@@ -67,7 +68,7 @@ public class Scene {
         }
         
         // Spawn monsters
-        FloorInfo floorInfo = GameData.getFloorInfo(this.planeId, this.floorId);
+        this.floorInfo = GameData.getFloorInfo(this.planeId, this.floorId);
         if (floorInfo == null) return;
         
         for (GroupInfo group : floorInfo.getGroups().values()) {

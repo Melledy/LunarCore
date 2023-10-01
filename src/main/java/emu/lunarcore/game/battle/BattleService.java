@@ -106,6 +106,7 @@ public class BattleService extends BaseGameService {
             // Create battle and add npc monsters to it
             Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
             battle.getNpcMonsters().addAll(monsters);
+            
             // Add weakness buff to battle
             if (isPlayerCaster) {
                 GameAvatar avatar = player.getLineupManager().getCurrentLeaderAvatar();
@@ -116,6 +117,7 @@ public class BattleService extends BaseGameService {
                     }
                 }
             }
+            
             // Set battle and send rsp packet
             player.setBattle(battle);
             player.sendPacket(new PacketSceneCastSkillScRsp(battle));
@@ -175,10 +177,33 @@ public class BattleService extends BaseGameService {
             return;
         }
         
-        // Get battle object
+        // Get battle object and setup variables
         Battle battle = player.getBattle();
+        int minimumHp = 0;
+        boolean teleportToAnchor = false;
         
-        // Set health/energy
+        // Handle result
+        switch (result) {
+            case BATTLE_END_WIN -> {
+                // Remove monsters from the map - Could optimize it a little better
+                for (var monster : battle.getNpcMonsters()) {
+                    player.getScene().removeEntity(monster);
+                }
+            }
+            case BATTLE_END_LOSE -> {
+                // Set avatar hp to 20% if the player's party is downed
+                minimumHp = 2000;
+                teleportToAnchor = true;
+            }
+            case BATTLE_END_QUIT -> {
+                teleportToAnchor = true;
+            }
+            default -> {
+                
+            }
+        }
+        
+        // Set health/energy for player avatars
         for (var battleAvatar : battleAvatars) {
             GameAvatar avatar = player.getAvatarById(battleAvatar.getId());
             if (avatar == null) continue;
@@ -187,19 +212,19 @@ public class BattleService extends BaseGameService {
             int currentHp = (int) Math.round((prop.getLeftHp() / prop.getMaxHp()) * 100);
             int currentSp = (int) prop.getLeftSp() * 100;
 
-            //avatar.setCurrentHp(currentHp);
-            avatar.setCurrentSp(currentSp);
+            avatar.setCurrentHp(Math.max(currentHp, minimumHp));
+            avatar.setCurrentSp(Math.max(currentSp, 0));
             avatar.save();
         }
 
         // Sync with player
         player.sendPacket(new PacketSyncLineupNotify(battle.getLineup()));
         
-        // Delete enemies if the player won
-        if (result == BattleEndStatus.BATTLE_END_WIN) {
-            // Could optimize it a little better
-            for (var monster : battle.getNpcMonsters()) {
-                player.getScene().removeEntity(monster);
+        // Teleport to anchor if player has lost/retreated. On official servers, the player party is teleported to the nearest anchor.
+        if (teleportToAnchor) {
+            var anchor = player.getScene().getFloorInfo().getStartAnchorInfo();
+            if (anchor != null) {
+                player.moveTo(anchor.clonePos());
             }
         }
         

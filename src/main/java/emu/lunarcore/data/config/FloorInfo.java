@@ -14,9 +14,12 @@ import lombok.Getter;
 @Getter
 public class FloorInfo {
     private int FloorID;
+    private int StartGroupID;
+    private int StartAnchorID;
+    
     @SerializedName(value = "GroupList")
     private List<FloorGroupSimpleInfo> SimpleGroupList;
-    
+
     // Cached data
     private transient boolean loaded;
     private transient Int2ObjectMap<GroupInfo> groups;
@@ -27,6 +30,10 @@ public class FloorInfo {
         this.groups = new Int2ObjectOpenHashMap<>();
         this.cachedTeleports = new Int2ObjectOpenHashMap<>();
         this.unlockedCheckpoints = new ArrayList<>();
+    }
+    
+    public AnchorInfo getStartAnchorInfo() {
+        return getAnchorInfo(StartGroupID, StartAnchorID);
     }
     
     public AnchorInfo getAnchorInfo(int groupId, int anchorId) {

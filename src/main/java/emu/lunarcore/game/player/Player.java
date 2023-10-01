@@ -33,6 +33,7 @@ import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.server.packet.send.PacketEnterSceneByServerScNotify;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.server.packet.send.PacketRevcMsgScNotify;
+import emu.lunarcore.server.packet.send.PacketSceneEntityMoveScNotify;
 import emu.lunarcore.util.Position;
 
 import lombok.Getter;
@@ -303,6 +304,16 @@ public class Player {
     
     public void setBattle(Battle battle) {
         this.battle = battle;
+    }
+    
+    public void moveTo(int entryId, Position pos) {
+        this.entryId = entryId;
+        this.moveTo(pos);
+    }
+    
+    public void moveTo(Position pos) {
+        this.getPos().set(pos);
+        this.sendPacket(new PacketSceneEntityMoveScNotify(this));
     }
     
     public void enterScene(int entryId, int teleportId, boolean sendPacket) {
