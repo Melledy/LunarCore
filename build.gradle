@@ -143,6 +143,13 @@ eclipse {
     }
 }
 
+task updateProto {
+    group 'Build'
+    description 'Cleans generated proto folder and regenerates protos'
+    dependsOn 'clean'
+    dependsOn 'generateProto'
+}
+
 processResources {
-    dependsOn "generateProto"
+    dependsOn 'generateProto'
 }
