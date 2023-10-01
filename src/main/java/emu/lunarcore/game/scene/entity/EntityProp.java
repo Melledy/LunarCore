@@ -36,6 +36,8 @@ public class EntityProp implements GameEntity {
     public void onRemove(Scene scene) {
         if (excel.isRecoverMp()) {
             scene.getPlayer().getLineupManager().addMp(2);
+        } else if (excel.isRecoverHp()) {
+            scene.getPlayer().getCurrentLineup().heal(2500);
         }
     }
 

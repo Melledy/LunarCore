@@ -8,7 +8,9 @@ import emu.lunarcore.GameConstants;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.proto.LineupInfoOuterClass.LineupInfo;
+import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import lombok.Getter;
+import lombok.Synchronized;
 
 @Entity(useDiscriminator = false) @Getter
 public class PlayerLineup {
@@ -53,32 +55,26 @@ public class PlayerLineup {
         this.name = name;
     }
 
+    @Synchronized
+    public List<Integer> getAvatars() {
+        return avatars;
+    }
+
     public int size() {
-        return avatars.size();
+        return getAvatars().size();
     }
-
-    public boolean contains(GameAvatar avatar) {
-        return getAvatars().contains(avatar.getAvatarId());
-    }
-
-    public boolean addAvatar(GameAvatar avatar) {
-        if (contains(avatar)) {
-            return false;
+    
+    public void heal(int heal) {
+        // Add hp to team
+        for (int avatarId : this.getAvatars()) {
+            GameAvatar avatar = this.getOwner().getAvatarById(avatarId);
+            if (avatar == null) continue;
+            
+            avatar.setCurrentHp(Math.min(avatar.getCurrentHp() + heal, 10000));
         }
-
-        getAvatars().add(avatar.getAvatarId());
-
-        return true;
-    }
-
-    public boolean removeAvatar(int slot) {
-        if (size() <= 1) {
-            return false;
-        }
-
-        getAvatars().remove(slot);
-
-        return true;
+        
+        // Send packet
+        getOwner().sendPacket(new PacketSyncLineupNotify(this));
     }
 
     public LineupInfo toProto() {
