@@ -11,6 +11,7 @@ import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.PropState;
+import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.entity.*;
 import emu.lunarcore.game.player.Player;
@@ -40,8 +41,11 @@ public class Scene {
     private IntSet avatarEntityIds;
     private Int2ObjectMap<GameAvatar> avatars;
 
-    // Other entities TODO
+    // Other entities
     private Int2ObjectMap<GameEntity> entities;
+    
+    // Cache
+    private List<EntityProp> healingSprings;
 
     public Scene(Player player, MazePlaneExcel excel, int floorId) {
         this.player = player;
@@ -53,6 +57,7 @@ public class Scene {
         this.avatarEntityIds = new IntOpenHashSet();
         this.avatars = new Int2ObjectOpenHashMap<>();
         this.entities = new Int2ObjectOpenHashMap<>();
+        this.healingSprings = new ArrayList<>();
 
         PlayerLineup lineup = getPlayer().getCurrentLineup();
 
@@ -117,9 +122,13 @@ public class Scene {
                     prop.setInstId(propInfo.getID());
                     prop.setGroupId(group.getId());
                     
-                    // Hacky fix for rogue entry
+                    // Hacky fixes
                     if (prop.getPropId() == 1003) {
+                        // Open simulated universe
                         prop.setState(PropState.Open);
+                    } else if (prop.getExcel().getPropType() == PropType.PROP_SPRING) {
+                        // Teleport anchors cache
+                        this.getHealingSprings().add(prop);
                     }
                     
                     // Add to monsters

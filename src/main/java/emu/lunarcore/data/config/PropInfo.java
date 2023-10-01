@@ -6,8 +6,8 @@ import lombok.Setter;
 
 @Getter
 public class PropInfo extends ObjectInfo {
-    public float RotX;
-    public float RotZ;
+    private float RotX;
+    private float RotZ;
     private int MappingInfoID;
     private int AnchorGroupID;
     private int AnchorID;

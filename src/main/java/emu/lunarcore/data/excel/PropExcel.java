@@ -2,6 +2,7 @@ package emu.lunarcore.data.excel;
 
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.game.enums.PropType;
 import lombok.Getter;
 
 @Getter
@@ -9,6 +10,7 @@ import lombok.Getter;
 public class PropExcel extends GameResource {
     private int ID;
     private String JsonPath;
+    private PropType PropType;
     
     private transient boolean recoverHp;
     private transient boolean recoverMp;
@@ -28,5 +30,8 @@ public class PropExcel extends GameResource {
                 this.recoverHp = true;
             }
         }
+        
+        // Clear for optimization
+        this.JsonPath = null;
     }
 }

@@ -65,16 +65,25 @@ public class PlayerLineup {
     }
     
     public void heal(int heal) {
+        // Flag to set if at least one avatar in the team has been healed
+        boolean hasHealed = false;
+        
         // Add hp to team
         for (int avatarId : this.getAvatars()) {
             GameAvatar avatar = this.getOwner().getAvatarById(avatarId);
             if (avatar == null) continue;
             
-            avatar.setCurrentHp(Math.min(avatar.getCurrentHp() + heal, 10000));
+            if (avatar.getCurrentHp() < 10000) {
+                avatar.setCurrentHp(Math.min(avatar.getCurrentHp() + heal, 10000));
+                avatar.save();
+                hasHealed = true;
+            }
         }
         
-        // Send packet
-        getOwner().sendPacket(new PacketSyncLineupNotify(this));
+        // Send packet if team was healed
+        if (hasHealed) {
+            getOwner().sendPacket(new PacketSyncLineupNotify(this));
+        }
     }
 
     public LineupInfo toProto() {

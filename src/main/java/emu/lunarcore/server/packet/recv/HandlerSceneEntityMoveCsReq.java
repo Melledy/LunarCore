@@ -15,9 +15,11 @@ public class HandlerSceneEntityMoveCsReq extends PacketHandler {
         var req = SceneEntityMoveCsReq.parseFrom(data);
 
         for (var entityMotion : req.getEntityMotionList()) {
+            // Update player position
             if (session.getPlayer().getScene().getAvatarEntityIds().contains(entityMotion.getEntityId())) {
                 var vec = entityMotion.getMotion().getPos();
                 session.getPlayer().getPos().set(vec.getX(), vec.getY(), vec.getZ());
+                session.getPlayer().onMove();
             }
         }
 

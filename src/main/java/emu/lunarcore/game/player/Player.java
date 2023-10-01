@@ -23,6 +23,7 @@ import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.scene.Scene;
+import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
@@ -72,6 +73,7 @@ public class Player {
     
     // Etc
     @Setter private transient boolean paused;
+    private transient boolean inAnchorRange;
     private transient int nextBattleId;
 
     // Player managers
@@ -304,6 +306,30 @@ public class Player {
     
     public void setBattle(Battle battle) {
         this.battle = battle;
+    }
+    
+    public void onMove() {
+        // Sanity
+        if (this.getScene() == null) {
+            return;
+        }
+        
+        boolean anchorRange = false;
+        
+        // Check anchors. We can optimize this later.
+        for (EntityProp anchor : this.getScene().getHealingSprings()) {
+            long dist = getPos().getFast2dDist(anchor.getPos());
+            if (dist > 25_000_000) continue; // 5000^2
+            
+            anchorRange = true;
+            break;
+        }
+        
+        // Only heal if player isnt already in anchor range
+        if (anchorRange && anchorRange != this.inAnchorRange) {
+            this.getCurrentLineup().heal(10000);
+        }
+        this.inAnchorRange = anchorRange;
     }
     
     public void moveTo(int entryId, Position pos) {

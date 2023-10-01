@@ -72,14 +72,14 @@ public class Position {
 
     public double get2dDist(Position pos) {
         int x = this.getX() - pos.getX();
-        int y = this.getY() - pos.getY();
-        return Math.sqrt((x * x) + (y * y));
+        int z = this.getZ() - pos.getZ();
+        return Math.sqrt((x * x) + (z * z));
     }
 
-    public int getFast2dDist(Position pos) {
-        int x = this.getX() - pos.getX();
-        int y = this.getY() - pos.getY();
-        return (x * x) + (y * y);
+    public long getFast2dDist(Position pos) {
+        long x = this.getX() - pos.getX();
+        long z = this.getZ() - pos.getZ();
+        return (x * x) + (z * z);
     }
 
     public Vector toProto() {
