@@ -207,6 +207,9 @@ public class Scene {
 
             // Add to entity id cache
             this.avatarEntityIds.add(avatar.getEntityId());
+            
+            // Clear avatar's buff
+            avatar.getBuffs().clear();
         }
 
         for (var avatar : this.avatars.values()) {

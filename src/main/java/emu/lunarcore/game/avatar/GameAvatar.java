@@ -30,8 +30,7 @@ import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SpBarInfoOuterClass.SpBarInfo;
 import emu.lunarcore.proto.VectorOuterClass.Vector;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.ints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -55,11 +54,13 @@ public class GameAvatar implements GameEntity {
 
     private transient int entityId;
     private transient Int2ObjectMap<GameItem> equips;
+    private transient Int2LongMap buffs;
     private transient HeroPath heroPath;
 
     @Deprecated // Morphia only
     public GameAvatar() {
         this.equips = new Int2ObjectOpenHashMap<>();
+        this.buffs = Int2LongMaps.synchronize(new Int2LongOpenHashMap());
         this.level = 1;
         this.currentHp = 10000;
         this.currentSp = 0;
@@ -139,6 +140,12 @@ public class GameAvatar implements GameEntity {
         this.excel = heroPath.getExcel(); // DO NOT USE GameAvatar::setExcel for this
         this.heroPath = heroPath;
         this.heroPath.setAvatar(this);
+    }
+    
+    // Buffs
+    
+    public void addBuff(int buffId, int duration) {
+        this.buffs.put(buffId, System.currentTimeMillis() + (duration * 1000));
     }
 
     // Equips

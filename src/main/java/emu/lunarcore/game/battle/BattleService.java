@@ -7,6 +7,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.CocoonExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.game.enums.StageType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
@@ -31,7 +32,7 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void startBattle(Player player, int attackerId, RepeatedInt attackedList) {
+    public void startBattle(Player player, int attackerId, MazeSkill castedSkill, RepeatedInt attackedList) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
             player.sendPacket(new PacketSceneCastSkillScRsp(1));
@@ -107,13 +108,18 @@ public class BattleService extends BaseGameService {
             Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
             battle.getNpcMonsters().addAll(monsters);
             
-            // Add weakness buff to battle
+            // Add buffs to battle
             if (isPlayerCaster) {
                 GameAvatar avatar = player.getLineupManager().getCurrentLeaderAvatar();
                 if (avatar != null) {
-                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), 0);
+                    // Add elemental weakness buff to enemies
+                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff());
                     if (buff != null) {
                         buff.addDynamicValue("SkillIndex", 1);
+                    }
+                    // Maze skill handlers
+                    if (castedSkill != null) {
+                        castedSkill.onAttack(avatar, battle);
                     }
                 }
             }

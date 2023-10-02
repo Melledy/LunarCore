@@ -27,6 +27,7 @@ public class Battle {
     private final List<EntityMonster> npcMonsters;
     private final List<MazeBuff> buffs;
     private final List<StageExcel> stages;
+    private final long timestamp;
     
     private Battle(Player player, PlayerLineup lineup) {
         this.id = player.getNextBattleId();
@@ -35,6 +36,7 @@ public class Battle {
         this.npcMonsters = new ArrayList<>();
         this.buffs = new ArrayList<>();
         this.stages = new ArrayList<>();
+        this.timestamp = System.currentTimeMillis();
     }
     
     public Battle(Player player, PlayerLineup lineup, StageExcel stage) {
@@ -55,8 +57,9 @@ public class Battle {
         }
     }
     
-    public MazeBuff addBuff(int buffId, int ownerId) {
-        return addBuff(buffId, ownerId, 0xffffffff);
+    
+    public MazeBuff addBuff(int buffId) {
+        return addBuff(buffId, 0, 0xffffffff);
     }
     
     public MazeBuff addBuff(int buffId, int ownerId, int waveFlag) {
@@ -100,17 +103,28 @@ public class Battle {
             }
         }
         
-        // Buffs
-        for (MazeBuff buff : this.getBuffs()) {
-            proto.addBuffList(buff.toProto());
-        }
-        
         // Avatars
         for (int i = 0; i < lineup.getAvatars().size(); i++) {
             GameAvatar avatar = getPlayer().getAvatarById(lineup.getAvatars().get(i));
             if (avatar == null) continue;
-
+            
+            // Add to proto
             proto.addBattleAvatarList(avatar.toBattleProto(i));
+            
+            // Add buffs from avatars
+            if (avatar.getBuffs().size() > 0) {
+                for (var buffEntry : avatar.getBuffs().int2LongEntrySet()) {
+                    // Check expiry for buff
+                    if (buffEntry.getLongValue() >= this.timestamp) {
+                        this.addBuff(buffEntry.getIntKey());
+                    }
+                }
+            }
+        }
+        
+        // Buffs
+        for (MazeBuff buff : this.getBuffs()) {
+            proto.addBuffList(buff.toProto());
         }
         
         return proto;

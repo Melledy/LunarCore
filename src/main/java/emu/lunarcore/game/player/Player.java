@@ -43,8 +43,6 @@ import lombok.Setter;
 @Entity(value = "players", useDiscriminator = false)
 @Getter
 public class Player {
-    private transient GameSession session;
-
     @Id private int uid;
     @Indexed private String accountUid;
     private String name;
@@ -71,18 +69,19 @@ public class Player {
     
     private Set<Integer> unlockedHeadIcons;
     
-    // Etc
-    @Setter private transient boolean paused;
-    private transient boolean inAnchorRange;
-    private transient int nextBattleId;
-
     // Player managers
+    private transient GameSession session;
     private transient final AvatarStorage avatars;
     private transient final Inventory inventory;
 
     // Database persistent data
     private LineupManager lineupManager;
     private PlayerGachaInfo gachaInfo;
+    
+    // Etc
+    @Setter private transient boolean paused;
+    private transient boolean inAnchorRange;
+    private transient int nextBattleId;
 
     @Deprecated // Morphia only
     public Player() {

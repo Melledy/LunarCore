@@ -127,7 +127,7 @@ public class LineupManager {
             // No changes were made
             return false;
         }
-
+        
         // Save
         this.getPlayer().save();
 

@@ -22,6 +22,7 @@ import emu.lunarcore.data.ResourceDeserializers.LunarRailHashDeserializer;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.FloorInfo.FloorGroupSimpleInfo;
 import emu.lunarcore.data.config.GroupInfo;
+import emu.lunarcore.data.config.SkillAbilityInfo;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
 public class ResourceLoader {
@@ -42,6 +43,8 @@ public class ResourceLoader {
         loadResources();
         // Load floor infos after resources
         loadFloorInfos();
+        // Load maze abilities
+        loadMazeAbilities();
 
         // Done
         loaded = true;
@@ -207,5 +210,29 @@ public class ResourceLoader {
         
         // Done
         LunarRail.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " FloorInfos.");
+    }
+    
+    // Might be better to cache
+    private static void loadMazeAbilities() {
+        int count = 0;
+        
+        for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
+            // Get file
+            File file = new File(LunarRail.getConfig().getResourceDir() + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + avatarExcel.getNameKey() + "_Ability.json");
+            if (!file.exists()) continue;
+            
+            try (FileReader reader = new FileReader(file)) {
+                SkillAbilityInfo avatarSkills = gson.fromJson(reader, SkillAbilityInfo.class);
+                
+                if (avatarSkills.parse(avatarExcel)) {
+                    count++;
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+        // Done
+        LunarRail.getLogger().info("Loaded " + count + " maze abilities for avatars");
     }
 }

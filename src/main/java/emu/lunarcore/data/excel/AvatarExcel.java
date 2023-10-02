@@ -2,10 +2,13 @@ package emu.lunarcore.data.excel;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.game.enums.AvatarBaseType;
 import emu.lunarcore.game.enums.DamageType;
 import lombok.AccessLevel;
@@ -26,11 +29,16 @@ public class AvatarExcel extends GameResource {
 
     private int[] RankIDList;
     private int[] SkillList;
+    private String JsonPath;
 
     @Getter(AccessLevel.NONE)
     private transient AvatarPromotionExcel[] promotionData;
     private transient List<AvatarSkillTreeExcel> defaultSkillTrees;
+    private transient String nameKey;
+    private transient MazeSkill mazeSkill;
     private transient int maxSp;
+    
+    private static Pattern namePattern = Pattern.compile("(?<=Avatar_)(.*?)(?=_Config)");
 
     public AvatarExcel() {
         this.defaultSkillTrees = new ArrayList<>();
@@ -39,6 +47,10 @@ public class AvatarExcel extends GameResource {
     @Override
     public int getId() {
         return AvatarID;
+    }
+    
+    public void setMazeSkill(MazeSkill skill) {
+        this.mazeSkill = skill;
     }
 
     public AvatarPromotionExcel getPromotionData(int i) {
@@ -60,5 +72,15 @@ public class AvatarExcel extends GameResource {
 
         // Cache max sp
         this.maxSp = (int) this.SPNeed * 100;
+        
+        // Get name key
+        Matcher matcher = namePattern.matcher(this.JsonPath);
+        
+        if (matcher.find()) {
+            this.nameKey = matcher.group(0);
+        }
+        
+        // Clear variable to save memory
+        this.JsonPath = null;
     }
 }
