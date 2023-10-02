@@ -351,36 +351,43 @@ public class Player {
         this.sendPacket(new PacketSceneEntityMoveScNotify(this));
     }
     
-    public void enterScene(int entryId, int teleportId, boolean sendPacket) {
+    public boolean enterScene(int entryId, int teleportId, boolean sendPacket) {
         // Get map entrance excel
         MapEntranceExcel entry = GameData.getMapEntranceExcelMap().get(entryId);
-        if (entry == null) return;
+        if (entry == null) return false;
         
         // Get floor info
         FloorInfo floor = GameData.getFloorInfo(entry.getPlaneID(), entry.getFloorID());
-        if (floor == null) return;
+        if (floor == null) return false;
         
         // Get teleport anchor info (contains position) from the entry id
         int startGroup = entry.getStartGroupID();
         int anchorId = entry.getStartAnchorID();
-        if (teleportId != 0 || anchorId == 0) {
+        
+        if (teleportId != 0) {
             PropInfo teleport = floor.getCachedTeleports().get(teleportId);
             if (teleport != null) {
                 startGroup = teleport.getAnchorGroupID();
                 anchorId = teleport.getAnchorID();
             }
+        } else if (anchorId == 0) {
+            startGroup = floor.getStartGroupID();
+            anchorId = floor.getStartAnchorID();
         }
         
         AnchorInfo anchor = floor.getAnchorInfo(startGroup, anchorId);
-        if (anchor == null) return;
+        if (anchor == null) return false;
 
         // Move player to scene
-        this.loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId(), anchor.clonePos());
+        boolean success = this.loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId(), anchor.clonePos());
         
         // Send packet
-        if (sendPacket) {
+        if (success && sendPacket) {
             this.sendPacket(new PacketEnterSceneByServerScNotify(this));
         }
+        
+        // Success
+        return success;
     }
 
     private boolean loadScene(int planeId, int floorId, int entryId, Position pos) {
