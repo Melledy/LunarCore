@@ -7,6 +7,7 @@ import java.util.List;
 import emu.lunarcore.Config.GameServerConfig;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.game.battle.BattleService;
+import emu.lunarcore.game.challenge.ChallengeService;
 import emu.lunarcore.game.gacha.GachaService;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.service.ChatService;
@@ -31,7 +32,8 @@ public class GameServer extends KcpServer {
     @Getter private final InventoryService inventoryService;
     @Getter private final GachaService gachaService;
     @Getter private final ChatService chatService;
-
+    @Getter private final ChallengeService challengeService;
+    
     public GameServer(GameServerConfig serverConfig) {
         // Game Server base
         this.serverConfig = serverConfig;
@@ -46,6 +48,7 @@ public class GameServer extends KcpServer {
         this.inventoryService = new InventoryService(this);
         this.gachaService = new GachaService(this);
         this.chatService = new ChatService(this);
+        this.challengeService = new ChallengeService(this);
 
         // Hook into shutdown event.
         Runtime.getRuntime().addShutdownHook(new Thread(this::onShutdown));
