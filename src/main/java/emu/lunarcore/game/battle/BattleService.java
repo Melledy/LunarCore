@@ -186,6 +186,8 @@ public class BattleService extends BaseGameService {
         // Get battle object and setup variables
         Battle battle = player.getBattle();
         int minimumHp = 0;
+        
+        boolean updateStatus = true;
         boolean teleportToAnchor = false;
         
         // Handle result
@@ -203,28 +205,32 @@ public class BattleService extends BaseGameService {
             }
             case BATTLE_END_QUIT -> {
                 teleportToAnchor = true;
+                updateStatus = false;
             }
             default -> {
-                
+                updateStatus = false;
             }
         }
         
-        // Set health/energy for player avatars
-        for (var battleAvatar : battleAvatars) {
-            GameAvatar avatar = player.getAvatarById(battleAvatar.getId());
-            if (avatar == null) continue;
+        // Check if avatar hp/sp should be updated after a battle
+        if (updateStatus) {
+            // Set health/energy for player avatars
+            for (var battleAvatar : battleAvatars) {
+                GameAvatar avatar = player.getAvatarById(battleAvatar.getId());
+                if (avatar == null) continue;
 
-            AvatarProperty prop = battleAvatar.getAvatarStatus();
-            int currentHp = (int) Math.round((prop.getLeftHp() / prop.getMaxHp()) * 100);
-            int currentSp = (int) prop.getLeftSp() * 100;
+                AvatarProperty prop = battleAvatar.getAvatarStatus();
+                int currentHp = (int) Math.round((prop.getLeftHp() / prop.getMaxHp()) * 100);
+                int currentSp = (int) prop.getLeftSp() * 100;
 
-            avatar.setCurrentHp(Math.max(currentHp, minimumHp));
-            avatar.setCurrentSp(Math.max(currentSp, 0));
-            avatar.save();
+                avatar.setCurrentHp(Math.max(currentHp, minimumHp));
+                avatar.setCurrentSp(Math.max(currentSp, 0));
+                avatar.save();
+            }
+
+            // Sync with player
+            player.sendPacket(new PacketSyncLineupNotify(battle.getLineup()));
         }
-
-        // Sync with player
-        player.sendPacket(new PacketSyncLineupNotify(battle.getLineup()));
         
         // Teleport to anchor if player has lost/retreated. On official servers, the player party is teleported to the nearest anchor.
         if (teleportToAnchor) {
