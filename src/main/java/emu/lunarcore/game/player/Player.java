@@ -120,7 +120,7 @@ public class Player {
         // Give us a starter character and add it to our main lineup.
         // TODO script tutorial
         GameAvatar avatar = new GameAvatar(this.getCurHeroPath());
-        this.getAvatars().addAvatar(avatar);
+        this.addAvatar(avatar);
         this.getCurrentLineup().getAvatars().add(avatar.getAvatarId());
     }
 
@@ -186,8 +186,10 @@ public class Player {
     }
     
     public void addHeadIcon(int headIconId) {
-        this.getUnlockedHeadIcons().add(headIconId);
-        this.sendPacket(new PacketPlayerSyncScNotify(this.toBoardData()));
+        boolean success = this.getUnlockedHeadIcons().add(headIconId);
+        if (success) {
+            this.sendPacket(new PacketPlayerSyncScNotify(this.toBoardData()));
+        }
     }
     
     public boolean setHeadIcon(int id) {
@@ -204,7 +206,15 @@ public class Player {
     }
 
     public boolean addAvatar(GameAvatar avatar) {
-        return getAvatars().addAvatar(avatar);
+        boolean success = getAvatars().addAvatar(avatar);
+        if (success) {
+            // Add profile picture of avatar
+            int headIconId = 200000 + avatar.getAvatarId();
+            if (GameData.getItemExcelMap().containsKey(headIconId)) {
+                this.addHeadIcon(headIconId);
+            }
+        }
+        return success;
     }
 
     public GameAvatar getAvatarById(int avatarId) {
