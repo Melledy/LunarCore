@@ -3,6 +3,7 @@ package emu.lunarcore.game.avatar;
 import java.util.Iterator;
 import java.util.stream.Stream;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.AvatarExcel;
@@ -39,8 +40,13 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
     }
 
     public boolean addAvatar(GameAvatar avatar) {
-        // Sanity
+        // Sanity - Dont add avatars we already have OR avatars that dont have excel data
         if (avatar.getExcel() == null || this.hasAvatar(avatar.getAvatarId())) {
+            return false;
+        }
+        
+        // Dont add more than 1 main character
+        if (avatar.isHero() && this.hasAvatar(GameConstants.TRAILBLAZER_AVATAR_ID)) {
             return false;
         }
 
