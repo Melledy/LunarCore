@@ -3,10 +3,9 @@ package emu.lunarcore.game.battle.skills;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
-import lombok.AccessLevel;
 import lombok.Getter;
 
-@Getter(AccessLevel.PRIVATE)
+@Getter
 public class MazeSkillAddBuff extends MazeSkillAction {
     private int buffId;
     private int duration;
@@ -23,7 +22,8 @@ public class MazeSkillAddBuff extends MazeSkillAction {
     
     @Override
     public void onAttack(GameAvatar caster, Battle battle) {
-        battle.addBuff(buffId);
+        // TODO add buff for each monster wave
+        battle.addBuff(buffId, caster.getOwner().getLineupManager().getCurrentLeader(), 1);
     }
     
 }

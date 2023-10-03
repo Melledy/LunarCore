@@ -3,6 +3,7 @@ package emu.lunarcore.game.battle.skills;
 import java.util.ArrayList;
 import java.util.List;
 
+import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
@@ -10,10 +11,12 @@ import lombok.Getter;
 
 @Getter
 public class MazeSkill {
+    private int id;
     private List<MazeSkillAction> castActions;
     private List<MazeSkillAction> attackActions;
     
-    public MazeSkill() {
+    public MazeSkill(AvatarExcel excel) {
+        this.id = excel.getAvatarID();
         this.castActions = new ArrayList<>();
         this.attackActions = new ArrayList<>();
     }

@@ -36,7 +36,7 @@ public class PlayerLineup {
         
         // Set team name if not an extra lineup
         if (!this.isExtraLineup()) {
-            this.name = "Squad " + (index + 1);
+            this.name = "Team " + (index + 1);
         } else {
             this.name = "";
         }

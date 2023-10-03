@@ -7,7 +7,6 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.CocoonExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.game.enums.StageType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
@@ -32,10 +31,10 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void startBattle(Player player, int attackerId, MazeSkill castedSkill, RepeatedInt attackedList) {
+    public void startBattle(Player player, int attackerId, int attackedGroupId, boolean castedSkill, RepeatedInt attackedList) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
-            player.sendPacket(new PacketSceneCastSkillScRsp(1));
+            player.sendPacket(new PacketSceneCastSkillScRsp());
             return;
         }
         
@@ -68,7 +67,7 @@ public class BattleService extends BaseGameService {
         
         // Give the client an error if no attacked entities detected
         if (entities.size() == 0) {
-            player.sendPacket(new PacketSceneCastSkillScRsp(1));
+            player.sendPacket(new PacketSceneCastSkillScRsp());
             return;
         }
         
@@ -100,7 +99,7 @@ public class BattleService extends BaseGameService {
             
             if (stages.size() == 0) {
                 // An error has occurred while trying to get stage data
-                player.sendPacket(new PacketSceneCastSkillScRsp(1));
+                player.sendPacket(new PacketSceneCastSkillScRsp());
                 return;
             }
             
@@ -112,26 +111,29 @@ public class BattleService extends BaseGameService {
             if (isPlayerCaster) {
                 GameAvatar avatar = player.getLineupManager().getCurrentLeaderAvatar();
                 if (avatar != null) {
-                    // Add elemental weakness buff to enemies
-                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff());
-                    if (buff != null) {
-                        buff.addDynamicValue("SkillIndex", 1);
+                    // Maze skill attack event
+                    if (castedSkill) { // Dont need to null check maze skill since we already did it in HandlerSceneCastSkillCsReq
+                        avatar.getExcel().getMazeSkill().onAttack(avatar, battle);
+                    } else if (avatar.getExcel().getMazeAttack() != null) {
+                        avatar.getExcel().getMazeAttack().onAttack(avatar, battle);
                     }
-                    // Maze skill handlers
-                    if (castedSkill != null) {
-                        castedSkill.onAttack(avatar, battle);
+                    // Add elemental weakness buff to enemies
+                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), player.getLineupManager().getCurrentLeader());
+                    if (buff != null) {
+                        buff.addTargetIndex(player.getLineupManager().getCurrentLeader());
+                        buff.addDynamicValue("SkillIndex", castedSkill ? 2 : 1);
                     }
                 }
             }
             
             // Set battle and send rsp packet
             player.setBattle(battle);
-            player.sendPacket(new PacketSceneCastSkillScRsp(battle));
+            player.sendPacket(new PacketSceneCastSkillScRsp(battle, attackedGroupId));
             return;
         }
         
         // Send packet
-        player.sendPacket(new PacketSceneCastSkillScRsp(0));
+        player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
     }
     
     public void startCocoon(Player player, int cocoonId, int worldLevel, int wave) {

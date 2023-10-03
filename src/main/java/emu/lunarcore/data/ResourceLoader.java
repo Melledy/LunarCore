@@ -233,6 +233,6 @@ public class ResourceLoader {
         }
         
         // Done
-        LunarRail.getLogger().info("Loaded " + count + " maze abilities for avatars");
+        LunarRail.getLogger().info("Loaded " + count + " maze abilities for avatars.");
     }
 }

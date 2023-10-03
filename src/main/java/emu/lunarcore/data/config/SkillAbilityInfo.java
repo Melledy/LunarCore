@@ -20,37 +20,44 @@ public class SkillAbilityInfo {
         
         // Look for MazeSkill
         for (AbilityInfo ability : AbilityList) {
+            //
+            List<MazeSkillAction> actionList = null;
+            
             // Skip if not a maze skill
-            if (!ability.getName().contains("MazeSkill")) {
+            if (ability.getName().contains("MazeSkill")) {
+                skill = new MazeSkill(avatarExcel);
+                avatarExcel.setMazeSkill(skill);
+                
+                actionList = skill.getCastActions();
+            } else if (ability.getName().contains("NormalAtk")) {
+                skill = new MazeSkill(avatarExcel);
+                avatarExcel.setMazeAttack(skill);
+                
+                actionList = skill.getAttackActions();
+            } else {
                 continue;
             }
             
-            // Create maze skill
-            skill = new MazeSkill();
-            
             // Parse tasks
             for (TaskInfo task : ability.getOnStart()) {
-                parseTask(skill, skill.getCastActions(), task);
+                parseTask(skill, actionList, task);
             }
         }
         
-        // Set skill for avatar
-        if (skill != null) {
-            avatarExcel.setMazeSkill(skill); 
-            return true;
-        }
-        
-        return false;
+        return true;
     }
     
+    // "Simple" way to parse maze attacks/skills
     private void parseTask(MazeSkill skill, List<MazeSkillAction> actionList, TaskInfo task) {
         if (task.getType().contains("AddMazeBuff")) {
             actionList.add(new MazeSkillAddBuff(task.getID(), 15));
+        } else if (task.getType().contains("RemoveMazeBuff")) {
+            actionList.removeIf(action -> action instanceof MazeSkillAddBuff actionAdd && actionAdd.getBuffId() == task.getID());
         } else if (task.getType().contains("CreateSummonUnit")) {
             
         } else if (task.getSuccessTaskList() != null) {
             for (TaskInfo t : task.getSuccessTaskList()) {
-                parseTask(skill, skill.getCastActions(), t);
+                parseTask(skill, actionList, t);
             }
         } else if (task.getOnAttack() != null) {
             if (task.getType().contains("AdventureTriggerAttack")) {

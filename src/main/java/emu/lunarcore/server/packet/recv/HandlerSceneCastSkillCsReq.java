@@ -17,7 +17,7 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = SceneCastSkillCsReq.parseFrom(data);
         
-        MazeSkill castedSkill = null;
+        boolean castedSkill = false;
         
         // Check if player casted a maze skill
         if (req.getSkillIndex() > 0 && session.getPlayer().getScene().getAvatarEntityIds().contains(req.getAttackerId())) {
@@ -27,15 +27,17 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
             // Cast skill effects
             GameAvatar caster = session.getPlayer().getLineupManager().getCurrentLeaderAvatar();
             if (caster != null && caster.getExcel().getMazeSkill() != null) {
-                castedSkill = caster.getExcel().getMazeSkill();
-                castedSkill.onCast(caster, req.getTargetMotion());
+                MazeSkill skill = caster.getExcel().getMazeSkill();
+                skill.onCast(caster, req.getTargetMotion());
+                // Set flag
+                castedSkill = true;
             }
         }
         
         if (req.hasAttackedEntityIdList()) {
-            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getAttackerId(), castedSkill, req.getAttackedEntityIdList());
+            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getAttackerId(), req.getAttackedGroupId(), castedSkill, req.getAttackedEntityIdList());
         } else {
-            session.send(new PacketSceneCastSkillScRsp());
+            session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
         }
     }
 

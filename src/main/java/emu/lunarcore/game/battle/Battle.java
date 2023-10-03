@@ -58,15 +58,15 @@ public class Battle {
     }
     
     
-    public MazeBuff addBuff(int buffId) {
-        return addBuff(buffId, 0, 0xffffffff);
+    public MazeBuff addBuff(int buffId, int ownerIndex) {
+        return addBuff(buffId, ownerIndex, 0xffffffff);
     }
     
-    public MazeBuff addBuff(int buffId, int ownerId, int waveFlag) {
+    public MazeBuff addBuff(int buffId, int ownerIndex, int waveFlag) {
         MazeBuffExcel excel = GameData.getMazeBuffExcel(buffId, 1);
         if (excel == null) return null;
         
-        MazeBuff buff = new MazeBuff(excel, ownerId, waveFlag);
+        MazeBuff buff = new MazeBuff(excel, ownerIndex, waveFlag);
         this.buffs.add(buff);
         
         return buff;
@@ -83,11 +83,16 @@ public class Battle {
                 .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
                 .setWorldLevel(player.getWorldLevel());
         
+        // Init variables
+        int waveId = 0;
+        
         // Add monster waves from stages
         for (StageExcel stage : stages) {
             // Build monster waves
             for (IntList sceneMonsterWave : stage.getMonsterWaves()) {
-                var wave = SceneMonsterWave.newInstance().setStageId(stage.getId());
+                var wave = SceneMonsterWave.newInstance()
+                        .setWaveId(++waveId)
+                        .setStageId(stage.getId());
                 
                 for (int monsterId : sceneMonsterWave) {
                     var monster = SceneMonster.newInstance().setMonsterId(monsterId);
@@ -115,8 +120,13 @@ public class Battle {
             if (avatar.getBuffs().size() > 0) {
                 for (var buffEntry : avatar.getBuffs().int2LongEntrySet()) {
                     // Check expiry for buff
-                    if (buffEntry.getLongValue() >= this.timestamp) {
-                        this.addBuff(buffEntry.getIntKey());
+                    if (buffEntry.getLongValue() < this.timestamp) {
+                        continue;
+                    }
+                    
+                    MazeBuff buff = this.addBuff(buffEntry.getIntKey(), i);
+                    if (buff != null) {
+                        buff.addTargetIndex(i);
                     }
                 }
             }
