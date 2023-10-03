@@ -74,6 +74,16 @@ public class Battle {
         }
     }
     
+    public int getMonsterWaveCount() {
+        int count = 0;
+        
+        for (StageExcel stage : stages) {
+            count += stage.getMonsterWaves().size();
+        }
+        
+        return count;
+    }
+    
     public MazeBuff addBuff(int buffId, int ownerIndex) {
         return addBuff(buffId, ownerIndex, 0xffffffff);
     }
@@ -98,16 +108,13 @@ public class Battle {
                 .setBattleId(this.getId())
                 .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
                 .setWorldLevel(player.getWorldLevel());
-        
-        // Init variables
-        int waveId = 0;
-        
+
         // Add monster waves from stages
         for (StageExcel stage : stages) {
             // Build monster waves
             for (IntList sceneMonsterWave : stage.getMonsterWaves()) {
                 var wave = SceneMonsterWave.newInstance()
-                        .setWaveId(++waveId)
+                        .setWaveId(1) // Probably not named correctly
                         .setStageId(stage.getId());
                 
                 for (int monsterId : sceneMonsterWave) {

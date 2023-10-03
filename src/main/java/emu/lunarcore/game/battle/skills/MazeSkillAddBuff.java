@@ -22,8 +22,12 @@ public class MazeSkillAddBuff extends MazeSkillAction {
     
     @Override
     public void onAttack(GameAvatar caster, Battle battle) {
-        // TODO add buff for each monster wave
-        battle.addBuff(buffId, caster.getOwner().getLineupManager().getCurrentLeader(), 1);
+        // Get amount of monster waves in battle
+        int waveCount = battle.getMonsterWaveCount();
+        // Add buff for each wave id
+        for (int i = 0; i < waveCount; i++) {
+            battle.addBuff(buffId, caster.getOwner().getLineupManager().getCurrentLeader(), 1 << i);
+        }
     }
     
 }
