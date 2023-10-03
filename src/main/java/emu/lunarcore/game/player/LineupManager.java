@@ -43,6 +43,10 @@ public class LineupManager {
         this.mp = Math.max(this.mp - i, 0);
     }
     
+    public void setCurrentExtraLineup(int i) {
+        this.currentExtraLineup = i;
+    }
+    
     public PlayerLineup getLineupByIndex(int index, int extraLineup) {
         // Sanity
         if (extraLineup > 0) {
