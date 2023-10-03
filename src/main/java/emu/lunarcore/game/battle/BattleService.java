@@ -222,7 +222,7 @@ public class BattleService extends BaseGameService {
                 if (avatar == null) continue;
 
                 AvatarProperty prop = battleAvatar.getAvatarStatus();
-                int currentHp = (int) Math.round((prop.getLeftHp() / prop.getMaxHp()) * 100);
+                int currentHp = (int) Math.round((prop.getLeftHp() / prop.getMaxHp()) * 10000);
                 int currentSp = (int) prop.getLeftSp() * 100;
 
                 avatar.setCurrentHp(Math.max(currentHp, minimumHp));
