@@ -8,6 +8,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.MazeBuffExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.enums.StageType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.entity.EntityMonster;
@@ -49,6 +50,22 @@ public class Battle {
         this.stages.addAll(stages);
     }
     
+    public StageType getStageType() {
+        StageExcel stage = this.getFirstStage();
+        if (stage != null) {
+            return stage.getStageType();
+        }
+        return StageType.Unknown;
+    }
+
+    public StageExcel getFirstStage() {
+        if (this.getStages().size() > 0) {
+            return this.getStages().get(0);
+        } else {
+            return null;
+        }
+    }
+    
     public int getStageId() {
         if (this.getStages().size() > 0) {
             return this.getStages().get(0).getId();
@@ -56,7 +73,6 @@ public class Battle {
             return 0;
         }
     }
-    
     
     public MazeBuff addBuff(int buffId, int ownerIndex) {
         return addBuff(buffId, ownerIndex, 0xffffffff);
