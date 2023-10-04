@@ -24,6 +24,7 @@ public class GameServer extends KcpServer {
     private final RegionInfo info;
     private final InetSocketAddress address;
 
+    @Getter
     private final GameServerPacketHandler packetHandler;
     private final Int2ObjectMap<Player> players;
 
@@ -41,7 +42,7 @@ public class GameServer extends KcpServer {
         this.address = new InetSocketAddress(serverConfig.bindAddress, serverConfig.getPort());
         this.packetHandler = new GameServerPacketHandler();
 
-        this.players = Int2ObjectMaps.synchronize(new Int2ObjectOpenHashMap<>());
+        this.players = new Int2ObjectOpenHashMap<>();
 
         // Setup managers
         this.battleService = new BattleService(this);
@@ -58,20 +59,25 @@ public class GameServer extends KcpServer {
         return this.serverConfig;
     }
 
-    public GameServerPacketHandler getPacketHandler() {
-        return this.packetHandler;
-    }
-
     public void registerPlayer(Player player) {
-        players.put(player.getUid(), player);
+        synchronized (this.players) {
+            this.players.put(player.getUid(), player);
+        }
+    }
+    
+    public void deregisterPlayer(Player player) {
+        synchronized (this.players) {
+            Player check = this.players.get(player.getUid());
+            if (check == player) {
+                this.players.remove(player.getUid());
+            }
+        }
     }
 
-    public void deregisterPlayer(int uid) {
-        players.remove(uid);
-    }
-
-    public Player getPlayerByUid(int uid) {
-        return players.get(uid);
+    public Player getOnlinePlayerByUid(int uid) {
+        synchronized (this.players) {
+            return this.players.get(uid);
+        }
     }
 
     public void start() {
@@ -96,6 +102,9 @@ public class GameServer extends KcpServer {
     }
 
     private void onShutdown() {
+        // Close server socket
+        this.stop();
+        
         // Set region info
         this.info.setUp(false);
         this.info.save();

@@ -77,7 +77,7 @@ public class GameSession {
             // Save first
             player.save();
             // Deregister
-            this.getServer().deregisterPlayer(player.getUid());
+            this.getServer().deregisterPlayer(player);
         }
     }
 

@@ -24,7 +24,7 @@ public class ChatService extends BaseGameService {
         }
 
         // Get target
-        Player target = getServer().getPlayerByUid(targetUid);
+        Player target = getServer().getOnlinePlayerByUid(targetUid);
 
         if (target == null) {
             return;
@@ -35,7 +35,7 @@ public class ChatService extends BaseGameService {
 
     public void sendPrivChat(Player player, int targetUid, int emote) {
         // Get target
-        Player target = getServer().getPlayerByUid(targetUid);
+        Player target = getServer().getOnlinePlayerByUid(targetUid);
 
         if (target == null) {
             return;

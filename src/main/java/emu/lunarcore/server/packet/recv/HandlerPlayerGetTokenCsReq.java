@@ -35,6 +35,12 @@ public class HandlerPlayerGetTokenCsReq extends PacketHandler {
             player = new Player(session);
             LunarRail.getGameDatabase().save(player);
         }
+        
+        // Dont let people log on to the same player at the same time
+        Player prevPlayer = session.getServer().getOnlinePlayerByUid(player.getUid());
+        if (prevPlayer != null) {
+            prevPlayer.getSession().close();
+        }
 
         // Set player object for session
         session.setPlayer(player);
