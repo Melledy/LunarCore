@@ -4,6 +4,7 @@ import java.lang.reflect.Modifier;
 import java.util.HashMap;
 
 import emu.lunarcore.LunarRail;
+import emu.lunarcore.game.account.AccountHelper;
 import emu.lunarcore.util.Utils;
 
 @SuppressWarnings("unused")
@@ -61,9 +62,7 @@ public class ServerCommands {
                 LunarRail.getLogger().error("Invalid amount of args");
                 return;
             }
-
-            emu.lunarcore.game.account.Account account = null;
-
+            
             String command = split[0].toLowerCase();
             String username = split[1];
 
@@ -83,37 +82,18 @@ public class ServerCommands {
                     reservedUid = Utils.parseSafeInt(split[2]);
                 }
 
-                // Get acocunt from database
-                account = LunarRail.getAccountDatabase().getObjectByField(emu.lunarcore.game.account.Account.class, "username", username);
-
-                if (account == null) {
-                    // Create account
-                    //String hash = BCrypt.withDefaults().hashToString(12, password.toCharArray());
-
-                    account = new emu.lunarcore.game.account.Account(username);
-                    account.setReservedPlayerUid(reservedUid);
-                    account.save();
-
+                if (AccountHelper.createAccount(username, null, reservedUid)) {
                     LunarRail.getLogger().info("Account created");
                 } else {
                     LunarRail.getLogger().error("Account already exists");
                 }
-
                 break;
             case "delete":
-                account = LunarRail.getAccountDatabase().getObjectByField(emu.lunarcore.game.account.Account.class, "name", username);
-
-                if (account == null) {
-                    LunarRail.getLogger().info("Account doesnt exist");
-                    return;
-                }
-
-                boolean success = LunarRail.getAccountDatabase().delete(account);
-
-                if (success) {
+                if (AccountHelper.deleteAccount(username)) {
                     LunarRail.getLogger().info("Account deleted");
+                } else {
+                    LunarRail.getLogger().info("Account doesnt exist");
                 }
-
                 break;
             }
         }
