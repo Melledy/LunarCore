@@ -213,6 +213,42 @@ public class InventoryService extends BaseGameService {
         
         player.sendPacket(new BasePacket(CmdId.RankUpAvatarScRsp));
     }
+    
+    public void takePromotionRewardAvatar(Player player, int avatarId, int promotion) {
+        // Get avatar
+        GameAvatar avatar = player.getAvatarById(avatarId);
+        if (avatar == null) {
+            player.sendPacket(new PacketTakePromotionRewardScRsp());
+            return;
+        }
+        
+        // Sanity
+        if (promotion <= 0 || promotion > avatar.getPromotion()) {
+            player.sendPacket(new PacketTakePromotionRewardScRsp());
+            return;
+        }
+        
+        // Make sure promotion level is odd + Make sure promotion reward isnt already taken
+        if (promotion % 2 == 0 || avatar.getTakenRewards().contains(promotion)) {
+            player.sendPacket(new PacketTakePromotionRewardScRsp());
+            return;
+        }
+        
+        // Set reward as taken
+        avatar.getTakenRewards().add(promotion);
+        avatar.save();
+        
+        // Setup rewards
+        List<GameItem> rewards = new ArrayList<>();
+        rewards.add(new GameItem(101, 1)); // Promotion reward is in excels, but we will hardcode it for now as its easier
+
+        // Add items to player inventory
+        player.getInventory().addItems(rewards);
+        
+        // Send packets
+        player.sendPacket(new PacketPlayerSyncScNotify(avatar));
+        player.sendPacket(new PacketTakePromotionRewardScRsp(rewards));
+    }
 
     // === Equipment ===
 

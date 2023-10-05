@@ -109,6 +109,13 @@ public class Inventory extends BasePlayerManager {
 
         return false;
     }
+    
+    public void addItems(Collection<GameItem> items) {
+        // TODO optimize to not send a packet every time we add an item
+        for (GameItem item : items) {
+            this.addItem(item);
+        }
+    }
 
     private synchronized GameItem putItem(GameItem item) {
         // Dont add items that dont have a valid item definition.

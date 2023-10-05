@@ -1,7 +1,8 @@
 package emu.lunarcore.game.avatar;
 
-import java.util.HashMap;
+import java.util.HashSet;
 import java.util.Map;
+import java.util.Set;
 
 import org.bson.types.ObjectId;
 
@@ -51,6 +52,7 @@ public class GameAvatar implements GameEntity {
     
     private int currentHp;
     private int currentSp;
+    private Set<Integer> takenRewards;
 
     private transient int entityId;
     private transient Int2ObjectMap<GameItem> equips;
@@ -74,6 +76,7 @@ public class GameAvatar implements GameEntity {
     public GameAvatar(AvatarExcel excel) {
         this();
         this.avatarId = excel.getId();
+        this.takenRewards = new HashSet<>();
         this.setExcel(excel);
     }
     
@@ -90,6 +93,13 @@ public class GameAvatar implements GameEntity {
         if (this.data == null) {
             this.data = new AvatarData(excel);
         }
+    }
+    
+    public Set<Integer> getTakenRewards() {
+        if (this.takenRewards == null) {
+            this.takenRewards = new HashSet<>();
+        }
+        return this.takenRewards;
     }
 
     public void setOwner(Player player) {
@@ -229,6 +239,10 @@ public class GameAvatar implements GameEntity {
 
         for (var skill : getSkills().entrySet()) {
             proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
+        }
+        
+        for (int i : this.getTakenRewards()) {
+            proto.addAllTakenRewards(i);
         }
 
         return proto;
