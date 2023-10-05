@@ -103,7 +103,7 @@ public class Inventory extends BasePlayerManager {
 
         if (result != null) {
             // Send packet (update)
-            getPlayer().sendPacket(new PacketPlayerSyncScNotify(item));
+            getPlayer().sendPacket(new PacketPlayerSyncScNotify(result));
             return true;
         }
 
@@ -160,30 +160,27 @@ public class Inventory extends BasePlayerManager {
             }
             return null;
         case Material:
-            switch (item.getExcel().getItemSubType()) {
-            default:
-                if (tab == null) {
+            if (tab == null) {
+                return null;
+            }
+            
+            GameItem existingItem = tab.getItemById(item.getItemId());
+            
+            if (existingItem == null) {
+                // Item type didnt exist before, we will add it to main inventory map if there is enough space
+                if (tab.getSize() >= tab.getMaxCapacity()) {
                     return null;
                 }
-                GameItem existingItem = tab.getItemById(item.getItemId());
-                if (existingItem == null) {
-                    // Item type didnt exist before, we will add it to main inventory map if there is enough space
-                    if (tab.getSize() >= tab.getMaxCapacity()) {
-                        return null;
-                    }
-                    // Make sure item count doesnt exceed stack limit
-                    item.setCount(Math.min(item.getCount(), item.getExcel().getPileLimit()));
-                    // Put item to inventory
-                    this.putItem(item, tab);
-                    // Set ownership and save to db
-                    item.save();
-                    return item;
-                } else {
-                    // Add count
-                    existingItem.setCount(Math.min(existingItem.getCount() + item.getCount(), item.getExcel().getPileLimit()));
-                    existingItem.save();
-                    return existingItem;
-                }
+                // Put item to inventory
+                this.putItem(item, tab);
+                // Set ownership and save to db
+                item.save();
+                return item;
+            } else {
+                // Add count
+                existingItem.setCount(Math.min(existingItem.getCount() + item.getCount(), item.getExcel().getPileLimit()));
+                existingItem.save();
+                return existingItem;
             }
         default:
             return null;
