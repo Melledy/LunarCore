@@ -17,6 +17,7 @@ public class EntityMonster implements GameEntity {
     @Setter private int groupId;
     @Setter private int instId;
     @Setter private int eventId;
+    @Setter private int overrideStageId;
     
     private NpcMonsterExcel excel;
     private Position pos;
@@ -29,7 +30,11 @@ public class EntityMonster implements GameEntity {
     }
     
     public int getStageId() {
-        return (this.getEventId() * 10) + worldLevel;
+        if (this.overrideStageId == 0) {
+            return (this.getEventId() * 10) + worldLevel;
+        } else {
+            return this.overrideStageId;
+        }
     }
 
     @Override
