@@ -102,7 +102,7 @@ public class Inventory extends BasePlayerManager {
         GameItem result = putItem(item);
 
         if (result != null) {
-            // TODO Send packet (update)
+            // Send packet (update)
             getPlayer().sendPacket(new PacketPlayerSyncScNotify(item));
             return true;
         }
@@ -129,7 +129,7 @@ public class Inventory extends BasePlayerManager {
                 return null;
             }
             // Duplicates cause problems
-            item.setCount(Math.max(item.getCount(), 1));
+            item.setCount(1);
             // Adds to inventory
             this.putItem(item, tab);
             // Set ownership and save to database
@@ -164,6 +164,9 @@ public class Inventory extends BasePlayerManager {
                     if (tab.getSize() >= tab.getMaxCapacity()) {
                         return null;
                     }
+                    // Make sure item count doesnt exceed stack limit
+                    item.setCount(Math.min(item.getCount(), item.getExcel().getPileLimit()));
+                    // Put item to inventory
                     this.putItem(item, tab);
                     // Set ownership and save to db
                     item.save();
@@ -263,10 +266,10 @@ public class Inventory extends BasePlayerManager {
             }
             // Remove from inventory if less than 0
             deleteItem(item, tab);
-            // TODO Send packet (delete)
+            // Send packet (delete)
             getPlayer().sendPacket(new PacketPlayerSyncScNotify(item));
         } else {
-            // TODO Send packet (update)
+            // Send packet (update)
             getPlayer().sendPacket(new PacketPlayerSyncScNotify(item));
         }
 

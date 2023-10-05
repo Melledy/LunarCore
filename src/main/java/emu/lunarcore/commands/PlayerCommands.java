@@ -117,7 +117,7 @@ public class PlayerCommands {
             }
 
             if (itemData.isEquippable()) {
-                List<GameItem> items = new LinkedList<>();
+               //List<GameItem> items = new LinkedList<>();
                 for (int i = 0; i < count; i++) {
                     item = new GameItem(itemData);
                     //items.add(item);
