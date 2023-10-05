@@ -46,8 +46,7 @@ protobuf {
 			}
 			task.plugins {
 				quickbuf {
-					option 'store_unknown_fields=true'
-					
+					//option 'store_unknown_fields=true'
 					outputSubDir = ''
 				}
 			}
