@@ -183,6 +183,21 @@ public class PlayerCommands {
             }
         }
     }
+    
+    @Command(desc = "/clearrelics")
+    public static class ClearRelics extends PlayerCommand {
+        @Override
+        public void execute(Player player, String raw) {
+            List<GameItem> toRemove = new LinkedList<>();
+            for (GameItem item : player.getInventory().getItems().values()) {
+                if (item.getItemMainType() == ItemMainType.Relic && item.getLevel() <= 1 && item.getExp() == 0 && !item.isLocked() && !item.isEquipped()) {
+                    toRemove.add(item);
+                }
+            }
+            
+            player.getInventory().removeItems(toRemove);
+        }
+    }
 
     /* Temporarily disabled as spawned monsters need 
     @Command(desc = "/spawn [monster id] [count] - Creates {count} amount of {item id}")

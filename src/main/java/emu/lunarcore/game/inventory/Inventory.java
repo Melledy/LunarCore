@@ -216,13 +216,19 @@ public class Inventory extends BasePlayerManager {
         }
     }
 
-    public synchronized void removeItems(Collection<ItemParam> items) {
+    public synchronized void removeItemsByParams(Collection<ItemParam> items) {
         for (ItemParam param : items) {
             GameItem item = this.getItemByParam(param);
 
             if (item != null) {
                 this.removeItem(item, param.getCount());
             }
+        }
+    }
+    
+    public synchronized void removeItems(Collection<GameItem> items) {
+        for (GameItem item : items) {
+            this.removeItem(item, item.getCount());
         }
     }
 

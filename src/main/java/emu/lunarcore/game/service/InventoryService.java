@@ -55,7 +55,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(items);
+        player.getInventory().removeItemsByParams(items);
         player.addSCoin(-cost);
 
         // Level up
@@ -118,7 +118,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(promotion.getPromotionCostList());
+        player.getInventory().removeItemsByParams(promotion.getPromotionCostList());
         player.addSCoin(-promotion.getPromotionCostCoin());
 
         // Promote
@@ -161,7 +161,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(skillTree.getMaterialList());
+        player.getInventory().removeItemsByParams(skillTree.getMaterialList());
         player.addSCoin(-skillTree.getMaterialCostCoin());
 
         // Add skill
@@ -198,7 +198,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(rankData.getUnlockCost());
+        player.getInventory().removeItemsByParams(rankData.getUnlockCost());
 
         // Add rank
         avatar.setRank(avatar.getRank() + 1);
@@ -254,7 +254,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(items);
+        player.getInventory().removeItemsByParams(items);
         player.addSCoin(-cost);
 
         // Level up
@@ -325,7 +325,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(promotion.getPromotionCostList());
+        player.getInventory().removeItemsByParams(promotion.getPromotionCostList());
         player.addSCoin(-promotion.getPromotionCostCoin());
 
         // Promote
@@ -358,7 +358,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(items);
+        player.getInventory().removeItemsByParams(items);
 
         // Add rank
         equip.setRank(Math.min(equip.getRank() + items.size(), equip.getExcel().getEquipmentExcel().getMaxRank()));
@@ -409,7 +409,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Pay items
-        player.getInventory().removeItems(items);
+        player.getInventory().removeItemsByParams(items);
         player.addSCoin(-cost);
 
         // Level up
@@ -493,7 +493,7 @@ public class InventoryService extends BaseGameService {
         }
 
         // Delete items
-        player.getInventory().removeItems(items);
+        player.getInventory().removeItemsByParams(items);
 
         // Add return items
         for (var returnItem : returnItems.int2IntEntrySet()) {
