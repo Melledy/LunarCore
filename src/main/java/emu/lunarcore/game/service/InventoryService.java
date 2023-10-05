@@ -416,6 +416,7 @@ public class InventoryService extends BaseGameService {
         int maxLevel = equip.getExcel().getRelicExcel().getMaxLevel();
         int level = equip.getLevel();
         int exp = equip.getExp();
+        int totalExp = equip.getTotalExp();
         int upgrades = 0;
         int reqExp = GameData.getRelicExpRequired(equip.getExcel().getRelicExcel().getExpType(), level);
 
@@ -423,6 +424,7 @@ public class InventoryService extends BaseGameService {
             // Do calculations
             int toGain = Math.min(expGain, reqExp - exp);
             exp += toGain;
+            totalExp += toGain;
             expGain -= toGain;
             // Level up
             if (exp >= reqExp) {
@@ -446,6 +448,7 @@ public class InventoryService extends BaseGameService {
         // Done
         equip.setLevel(level);
         equip.setExp(exp);
+        equip.setTotalExp(totalExp);
 
         equip.save();
         player.save();
