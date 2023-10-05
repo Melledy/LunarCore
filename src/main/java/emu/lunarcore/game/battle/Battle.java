@@ -5,10 +5,12 @@ import java.util.Collection;
 import java.util.List;
 
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.excel.MazeBuffExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.StageType;
+import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.entity.EntityMonster;
@@ -17,6 +19,7 @@ import emu.lunarcore.proto.SceneMonsterOuterClass.SceneMonster;
 import emu.lunarcore.proto.SceneMonsterWaveOuterClass.SceneMonsterWave;
 import emu.lunarcore.util.Utils;
 
+import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
 
@@ -28,6 +31,7 @@ public class Battle {
     private final List<EntityMonster> npcMonsters;
     private final List<MazeBuff> buffs;
     private final List<StageExcel> stages;
+    private final List<GameItem> drops;
     private final long timestamp;
     
     private Battle(Player player, PlayerLineup lineup) {
@@ -37,6 +41,7 @@ public class Battle {
         this.npcMonsters = new ArrayList<>();
         this.buffs = new ArrayList<>();
         this.stages = new ArrayList<>();
+        this.drops = new ArrayList<>();
         this.timestamp = System.currentTimeMillis();
     }
     
@@ -84,6 +89,8 @@ public class Battle {
         return count;
     }
     
+    // Battle buffs
+    
     public MazeBuff addBuff(int buffId, int ownerIndex) {
         return addBuff(buffId, ownerIndex, 0xffffffff);
     }
@@ -101,6 +108,51 @@ public class Battle {
     public void clearBuffs() {
         this.buffs.clear();
     }
+    
+    // Drops
+    
+    public void calculateDrops() {
+        // TODO this isnt the right way drops are calculated on the official server... but its good enough for now
+        if (this.getNpcMonsters().size() == 0) {
+            return;
+        }
+        
+        var dropMap = new Int2IntOpenHashMap();
+        
+        // Get drops from monsters
+        for (EntityMonster monster : this.getNpcMonsters()) {
+            var dropExcel = GameData.getMonsterDropExcel(monster.getExcel().getId(), monster.getWorldLevel());
+            if (dropExcel == null || dropExcel.getDisplayItemList() == null) {
+                continue;
+            }
+            
+            for (ItemParam param : dropExcel.getDisplayItemList()) {
+                int id = param.getId();
+                int count = Utils.randomRange(0, 3);
+                
+                if (id == 2) {
+                    count = dropExcel.getAvatarExpReward();
+                }
+                
+                dropMap.put(id, count + dropMap.get(id));
+            }
+        }
+        
+        for (var entry : dropMap.int2IntEntrySet()) {
+            if (entry.getIntValue() <= 0) {
+                continue;
+            }
+            
+            // Create item and add it to player
+            GameItem item = new GameItem(entry.getIntKey(), entry.getIntValue());
+
+            if (getPlayer().getInventory().addItem(item)) {
+               this.getDrops().add(item);
+            }
+        }
+    }
+    
+    // Serialization
     
     public SceneBattleInfo toProto() {
         // Build battle info

@@ -179,10 +179,10 @@ public class BattleService extends BaseGameService {
         player.sendPacket(new PacketStartCocoonStageScRsp(battle, cocoonId, wave));
     }
 
-    public void finishBattle(Player player, BattleEndStatus result, RepeatedMessage<AvatarBattleInfo> battleAvatars) {
+    public Battle finishBattle(Player player, BattleEndStatus result, RepeatedMessage<AvatarBattleInfo> battleAvatars) {
         // Sanity check to make sure player is in a battle
         if (!player.isInBattle()) {
-            return;
+            return null;
         }
         
         // Get battle object and setup variables
@@ -199,6 +199,8 @@ public class BattleService extends BaseGameService {
                 for (var monster : battle.getNpcMonsters()) {
                     player.getScene().removeEntity(monster);
                 }
+                // Drops
+                battle.calculateDrops();
             }
             case BATTLE_END_LOSE -> {
                 // Set avatar hp to 20% if the player's party is downed
@@ -247,6 +249,7 @@ public class BattleService extends BaseGameService {
         
         // Done - Clear battle object from player
         player.setBattle(null);
+        return battle;
     }
 
     public void reEnterBattle(Player player, int stageId) {

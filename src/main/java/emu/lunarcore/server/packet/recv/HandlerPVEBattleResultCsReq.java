@@ -1,5 +1,6 @@
 package emu.lunarcore.server.packet.recv;
 
+import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.proto.PVEBattleResultCsReqOuterClass.PVEBattleResultCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
@@ -14,13 +15,17 @@ public class HandlerPVEBattleResultCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = PVEBattleResultCsReq.parseFrom(data);
 
-        session.getServer().getBattleService().finishBattle(
+        Battle battle = session.getServer().getBattleService().finishBattle(
                 session.getPlayer(),
                 req.getEndStatus(),
                 req.getStt().getBattleAvatarList()
         );
 
-        session.send(new PacketPVEBattleResultScRsp(req));
+        if (battle != null) {
+            session.send(new PacketPVEBattleResultScRsp(req, battle));
+        } else {
+            session.send(new PacketPVEBattleResultScRsp());
+        }
     }
 
 }
