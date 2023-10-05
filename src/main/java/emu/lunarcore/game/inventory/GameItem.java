@@ -165,7 +165,7 @@ public class GameItem {
 
         // Blacklist main affix and any sub affixes
         AvatarPropertyType mainAffixProperty = AvatarPropertyType.Unknown;
-        RelicMainAffixExcel mainAffix = GameData.getRelicMainAffixExcelMap().get(this.mainAffix);
+        RelicMainAffixExcel mainAffix = GameData.getRelicMainAffixExcel(getExcel().getRelicExcel().getMainAffixGroup(), this.mainAffix);
         if (mainAffix != null) {
             mainAffixProperty = mainAffix.getProperty();
         }

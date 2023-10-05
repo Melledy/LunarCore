@@ -43,7 +43,6 @@ public class GameData {
     private static Int2ObjectMap<EquipmentExpTypeExcel> equipmentExpTypeExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<RelicExpTypeExcel> relicExpTypeExcelMap = new Int2ObjectOpenHashMap<>();
 
-    @Getter
     private static Int2ObjectMap<RelicMainAffixExcel> relicMainAffixExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<RelicSubAffixExcel> relicSubAffixExcelMap = new Int2ObjectOpenHashMap<>();
     
@@ -102,9 +101,13 @@ public class GameData {
         var excel = relicExpTypeExcelMap.get((expGroup << 16) + level);
         return excel != null ? excel.getExp() : 0;
     }
+    
+    public static RelicMainAffixExcel getRelicMainAffixExcel(int groupId, int affixId) {
+        return relicMainAffixExcelMap.get((groupId << 16) + affixId);
+    }
 
     public static RelicSubAffixExcel getRelicSubAffixExcel(int groupId, int affixId) {
-        return relicSubAffixExcelMap.get((groupId << 8) + affixId);
+        return relicSubAffixExcelMap.get((groupId << 16) + affixId);
     }
     
     public static FloorInfo getFloorInfo(int planeId, int floorId) {
