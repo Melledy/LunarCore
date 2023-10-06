@@ -1,6 +1,8 @@
 package emu.lunarcore.game.inventory;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Stream;
 
 import emu.lunarcore.LunarRail;
@@ -61,11 +63,11 @@ public class Inventory extends BasePlayerManager {
 
     /* Returns an item using its internal uid
      * */
-    public GameItem getItemByUid(int uid) {
+    public synchronized GameItem getItemByUid(int uid) {
         return this.getItems().get(uid);
     }
 
-    public GameItem getMaterialByItemId(int id) {
+    public synchronized GameItem getMaterialByItemId(int id) {
         return this.getInventoryTab(ItemMainType.Material).getItemById(id);
     }
 
@@ -102,7 +104,6 @@ public class Inventory extends BasePlayerManager {
         GameItem result = putItem(item);
 
         if (result != null) {
-            // Send packet (update)
             getPlayer().sendPacket(new PacketPlayerSyncScNotify(result));
             return true;
         }
@@ -111,9 +112,24 @@ public class Inventory extends BasePlayerManager {
     }
     
     public void addItems(Collection<GameItem> items) {
-        // TODO optimize to not send a packet every time we add an item
+        // Sanity
+        if (items.size() == 0) {
+            return;
+        }
+        
+        // Init results and add items to inventory
+        List<GameItem> results = new ArrayList<GameItem>(items.size());
+        
         for (GameItem item : items) {
-            this.addItem(item);
+            GameItem result = putItem(item);
+            if (result != null) {
+                results.add(result);
+            }
+        }
+        
+        // Send packet (update)
+        if (results.size() > 0) {
+            getPlayer().sendPacket(new PacketPlayerSyncScNotify(results));
         }
     }
 
@@ -220,19 +236,50 @@ public class Inventory extends BasePlayerManager {
         }
     }
 
-    public synchronized void removeItemsByParams(Collection<ItemParam> items) {
+    public void removeItemsByParams(Collection<ItemParam> items) {
+        // Sanity
+        if (items.size() == 0) {
+            return;
+        }
+        
+        // Init results and remove items from inventory
+        List<GameItem> results = new ArrayList<GameItem>(items.size());
+        
         for (ItemParam param : items) {
             GameItem item = this.getItemByParam(param);
-
-            if (item != null) {
-                this.removeItem(item, param.getCount());
+            if (item == null) continue;
+            
+            GameItem result = this.deleteItem(item, param.getCount());
+            if (result != null) {
+                results.add(result);
             }
+        }
+        
+        // Send packet (update)
+        if (results.size() > 0) {
+            getPlayer().sendPacket(new PacketPlayerSyncScNotify(results));
         }
     }
     
-    public synchronized void removeItems(Collection<GameItem> items) {
+    public void removeItems(Collection<GameItem> items) {
+        // Sanity
+        if (items.size() == 0) {
+            return;
+        }
+        
+        // Init results and remove items from inventory
+        List<GameItem> results = new ArrayList<GameItem>(items.size());
+        
         for (GameItem item : items) {
-            this.removeItem(item, item.getCount());
+            GameItem result = deleteItem(item, item.getCount());
+            if (result != null) {
+                results.add(result);
+            }
+        }
+        
+        // Send packet (update)
+        if (results.size() > 0) {
+            getPlayer().sendPacket(new PacketPlayerSyncScNotify(results));
         }
     }
 
@@ -255,11 +302,22 @@ public class Inventory extends BasePlayerManager {
 
         return removeItem(item, count);
     }
-
+    
     public synchronized boolean removeItem(GameItem item, int count) {
+        GameItem result = deleteItem(item, count);
+        
+        if (result != null) {
+            getPlayer().sendPacket(new PacketPlayerSyncScNotify(result));
+            return true;
+        }
+        
+        return false;
+    }
+
+    private synchronized GameItem deleteItem(GameItem item, int count) {
         // Sanity check
         if (count <= 0 || item == null || item.getOwnerUid() != getPlayer().getUid()) {
-            return false;
+            return null;
         }
 
         if (item.getExcel() == null || item.getExcel().isEquippable()) {
@@ -273,28 +331,20 @@ public class Inventory extends BasePlayerManager {
             InventoryTab tab = null;
             if (item.getExcel() != null) {
                 tab = getInventoryTab(item.getExcel().getItemMainType());
+                
+                if (tab != null) {
+                    tab.onRemoveItem(item);
+                }
             }
-            // Remove from inventory if less than 0
-            deleteItem(item, tab);
-            // Send packet (delete)
-            getPlayer().sendPacket(new PacketPlayerSyncScNotify(item));
-        } else {
-            // Send packet (update)
-            getPlayer().sendPacket(new PacketPlayerSyncScNotify(item));
+            // Remove from items map
+            getItems().remove(item.getInternalUid());
         }
 
         // Update in db
         item.save();
 
         // Returns true on success
-        return true;
-    }
-
-    private void deleteItem(GameItem item, InventoryTab tab) {
-        getItems().remove(item.getInternalUid());
-        if (tab != null) {
-            tab.onRemoveItem(item);
-        }
+        return item;
     }
 
     // Equips

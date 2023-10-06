@@ -1,6 +1,7 @@
 package emu.lunarcore.commands;
 
 import java.lang.reflect.Modifier;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -160,15 +161,19 @@ public class PlayerCommands {
         public void execute(Player player, String raw) {
             switch (raw) {
                 case "materials":
+                    //
+                    List<GameItem> items = new ArrayList<>();
                     // Character/Relic/Lightcone upgrade materials
                     for (ItemExcel excel : GameData.getItemExcelMap().values()) {
                         int purpose = excel.getPurposeType();
                         if (purpose >= 1 && purpose <= 7) {
-                            player.getInventory().addItem(excel, 1000);
+                            items.add(new GameItem(excel, 1000));
                         }
                     }
                     // Credits
-                    player.getInventory().addItem(2, 100_000_000);
+                    items.add(new GameItem(2, 50_000_000));
+                    // Add
+                    player.getInventory().addItems(items);
                     break;
                 case "avatars":
                     // All avatars and their eidolons
