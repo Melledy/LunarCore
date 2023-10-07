@@ -28,6 +28,7 @@ import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
+import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
@@ -332,6 +333,8 @@ public class Player {
         EntityProp prop = null;
         if (entity instanceof EntityProp) {
             prop = (EntityProp) entity;
+        } else {
+            return null;
         }
         
         // Handle prop interaction action
@@ -345,6 +348,14 @@ public class Player {
                 } else {
                     return null;
                 }
+            }
+            case PROP_MAZE_PUZZLE -> {
+                // Finish puzzle
+                prop.setState(PropState.Locked);
+                // Trigger event
+                this.getScene().fireTrigger(PropTriggerType.PUZZLE_FINISH, prop.getGroupId(), prop.getInstId());
+                //
+                return prop;
             }
             default -> {
                 return null;

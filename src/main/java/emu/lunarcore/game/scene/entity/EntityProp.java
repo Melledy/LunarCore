@@ -69,4 +69,8 @@ public class EntityProp implements GameEntity {
         return proto;
     }
 
+    @Override
+    public String toString() {
+        return "Prop: " + this.getEntityId() + ", Group: " + this.groupId + ", Inst: " + this.getInstId();
+    }
 }

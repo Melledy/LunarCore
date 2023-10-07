@@ -5,24 +5,32 @@ import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
+import emu.lunarcore.util.Utils;
 import lombok.Getter;
 
 @Getter
-public class TriggerOpenTreasureWhenMonsterDie extends PropTrigger {
+public class TriggerPuzzleCompassWayPointController extends PropTrigger {
     private int groupId;
+    private int puzzleInstId;
+    private int chestInstId;
     
-    public TriggerOpenTreasureWhenMonsterDie(int groupId) {
-        this.groupId = groupId;
+    public TriggerPuzzleCompassWayPointController(String compassKey, String chestKey) {
+        String[] compass = compassKey.split(",");
+        String[] chest = chestKey.split(",");
+        
+        this.groupId = Utils.parseSafeInt(compass[0]);
+        this.puzzleInstId = Utils.parseSafeInt(compass[1]);
+        this.chestInstId = Utils.parseSafeInt(chest[1]);
     }
     
     @Override
     public PropTriggerType getType() {
-        return PropTriggerType.MONSTER_DIE;
+        return PropTriggerType.PUZZLE_FINISH;
     }
     
     @Override
     public boolean shouldRun(int groupId, int instId) {
-        return this.groupId == groupId;
+        return this.groupId == groupId && this.puzzleInstId == instId;
     }
     
     @Override
@@ -34,7 +42,7 @@ public class TriggerOpenTreasureWhenMonsterDie extends PropTrigger {
                 }
                 
                 if (entity instanceof EntityProp prop) {
-                    if (prop.getExcel().getPropType() == PropType.PROP_TREASURE_CHEST) {
+                    if (prop.getInstId() == chestInstId) {
                         prop.setState(PropState.ChestClosed);
                     }
                 }

@@ -253,9 +253,9 @@ public class Scene {
     }
     
     // TODO
-    public void fireTrigger(PropTriggerType type, int param) {
+    public void fireTrigger(PropTriggerType type, int param1, int param2) {
         for (PropTrigger trigger : this.getTriggers()) {
-            if (trigger.shouldRun(param)) {
+            if (trigger.shouldRun(param1, param2)) {
                 trigger.run(this);
             }
         }
