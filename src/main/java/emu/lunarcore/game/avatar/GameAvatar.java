@@ -16,6 +16,7 @@ import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.AvatarOuterClass.Avatar;
 import emu.lunarcore.proto.AvatarSkillTreeOuterClass.AvatarSkillTree;
@@ -84,6 +85,11 @@ public class GameAvatar implements GameEntity {
         this();
         this.avatarId = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.setHeroPath(path);
+    }
+    
+    @Override
+    public Scene getScene() {
+        return this.getOwner().getScene();
     }
     
     public void setExcel(AvatarExcel excel) {

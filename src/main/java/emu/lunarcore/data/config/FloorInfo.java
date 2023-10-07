@@ -6,6 +6,7 @@ import java.util.List;
 import com.google.gson.annotations.SerializedName;
 
 import emu.lunarcore.game.enums.PropState;
+import emu.lunarcore.game.scene.triggers.TriggerOpenTreasureWhenMonsterDie;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 
@@ -61,6 +62,15 @@ public class FloorInfo {
                     
                     // Force prop to be in the unlocked state
                     prop.setState(PropState.CheckPointEnable);
+                } else if (prop.getInitLevelGraph() != null) {
+                    String json = prop.getInitLevelGraph();
+                    
+                    // Hacky way to setup prop triggers
+                    if (json.contains("Maze_GroupProp_OpenTreasure_WhenMonsterDie")) {
+                        prop.setTrigger(new TriggerOpenTreasureWhenMonsterDie(group.getId()));
+                    }
+                    
+                    prop.setInitLevelGraph(null);
                 }
             }
         }

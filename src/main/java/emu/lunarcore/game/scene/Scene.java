@@ -14,6 +14,8 @@ import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.entity.*;
+import emu.lunarcore.game.scene.triggers.PropTrigger;
+import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
@@ -24,6 +26,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
 
 @Getter
@@ -36,6 +39,7 @@ public class Scene {
     private int entryId;
     
     private int lastEntityId = 0;
+    private boolean loaded = false;
 
     // Avatar entites
     private IntSet avatarEntityIds;
@@ -45,6 +49,7 @@ public class Scene {
     private Int2ObjectMap<GameEntity> entities;
     
     // Cache
+    private List<PropTrigger> triggers;
     private List<EntityProp> healingSprings;
 
     public Scene(Player player, MazePlaneExcel excel, int floorId) {
@@ -57,7 +62,8 @@ public class Scene {
         this.avatarEntityIds = new IntOpenHashSet();
         this.avatars = new Int2ObjectOpenHashMap<>();
         this.entities = new Int2ObjectOpenHashMap<>();
-        this.healingSprings = new ArrayList<>();
+        this.healingSprings = new ObjectArrayList<>();
+        this.triggers = new ObjectArrayList<>();
 
         PlayerLineup lineup = getPlayer().getCurrentLineup();
 
@@ -90,7 +96,7 @@ public class Scene {
                     if (npcMonsterExcel == null) continue;
                     
                     // Create monster with excels
-                    EntityMonster monster = new EntityMonster(npcMonsterExcel, monsterInfo.clonePos());
+                    EntityMonster monster = new EntityMonster(this, npcMonsterExcel, monsterInfo.clonePos());
                     monster.getRot().setY((int) (monsterInfo.getRotY() * 1000f));
                     monster.setInstId(monsterInfo.getID());
                     monster.setEventId(monsterInfo.getEventID());
@@ -112,7 +118,7 @@ public class Scene {
                     }
                     
                     // Create prop from prop info
-                    EntityProp prop = new EntityProp(propExcel, propInfo.clonePos());
+                    EntityProp prop = new EntityProp(this, propExcel, propInfo.clonePos());
                     prop.setState(propInfo.getState());
                     prop.getRot().set(
                             (int) (propInfo.getRotX() * 1000f),
@@ -127,8 +133,13 @@ public class Scene {
                         // Open simulated universe
                         prop.setState(PropState.Open);
                     } else if (prop.getExcel().getPropType() == PropType.PROP_SPRING) {
-                        // Teleport anchors cache
+                        // Cache teleport anchors
                         this.getHealingSprings().add(prop);
+                    }
+                    
+                    // Add trigger
+                    if (propInfo.getTrigger() != null) {
+                        this.getTriggers().add(propInfo.getTrigger());
                     }
                     
                     // Add to monsters
@@ -155,7 +166,7 @@ public class Scene {
                     if (haseDuplicateNpcId) continue;
                     
                     // Create npc from npc info
-                    EntityNpc npc = new EntityNpc(npcInfo.getNPCID(), npcInfo.clonePos());
+                    EntityNpc npc = new EntityNpc(this, npcInfo.getNPCID(), npcInfo.clonePos());
                     npc.getRot().setY((int) (npcInfo.getRotY() * 1000f));
                     npc.setInstId(npcInfo.getID());
                     npc.setGroupId(group.getId());
@@ -165,6 +176,9 @@ public class Scene {
                 }
             }
         }
+        
+        // Done
+        this.loaded = true;
     }
     
     public void setEntryId(int entryId) {
@@ -175,8 +189,8 @@ public class Scene {
         return ++lastEntityId;
     }
     
-    public GameEntity getEntityById(int id) {
-        return this.entities.get(id);
+    public synchronized GameEntity getEntityById(int id) {
+        return this.getEntities().get(id);
     }
 
     public void syncLineup() {
@@ -237,15 +251,24 @@ public class Scene {
         player.sendPacket(new PacketActivateFarmElementScRsp(entityId, worldLevel));
         return true;
     }
+    
+    // TODO
+    public void fireTrigger(PropTriggerType type, int param) {
+        for (PropTrigger trigger : this.getTriggers()) {
+            if (trigger.shouldRun(param)) {
+                trigger.run(this);
+            }
+        }
+    }
 
     public synchronized void addEntity(GameEntity entity) {
         // Dont add if monster id already exists
         if (entity.getEntityId() != 0) return;
         // Set entity id and add monster to entity map
         entity.setEntityId(this.getNextEntityId());
-        this.entities.put(entity.getEntityId(), entity);
+        this.getEntities().put(entity.getEntityId(), entity);
         // Entity add callback
-        entity.onAdd(this);
+        entity.onAdd();
     }
     
     public synchronized void removeEntity(GameEntity entity) {
@@ -253,17 +276,17 @@ public class Scene {
     }
     
     public synchronized void removeEntity(int entityId) {
-        GameEntity entity = this.entities.remove(entityId);
+        GameEntity entity = this.getEntities().remove(entityId);
 
         if (entity != null) {
             // Entity remove callback
-            entity.onRemove(this);
+            entity.onRemove();
             // Send packet
             player.sendPacket(new PacketSceneGroupRefreshScNotify(null, entity));
         }
     }
     
-    public SceneInfo toProto() {
+    public synchronized SceneInfo toProto() {
         // Proto
         var proto = SceneInfo.newInstance()
                 .setWorldId(this.getExcel().getWorldID())
@@ -293,7 +316,7 @@ public class Scene {
         groups.put(0, playerGroup);
 
         // Add rest of the entities to groups
-        for (var entity : entities.values()) {
+        for (var entity : getEntities().values()) {
             var group = groups.computeIfAbsent(entity.getGroupId(), i -> SceneEntityGroupInfo.newInstance().setGroupId(i));
             group.addEntityList(entity.toSceneEntityProto());
         }

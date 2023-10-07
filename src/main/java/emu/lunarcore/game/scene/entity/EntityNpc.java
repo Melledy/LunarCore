@@ -1,5 +1,6 @@
 package emu.lunarcore.game.scene.entity;
 
+import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SceneNpcInfoOuterClass.SceneNpcInfo;
@@ -14,10 +15,12 @@ public class EntityNpc implements GameEntity {
     @Setter private int instId;
     @Setter private int npcId;
     
-    private Position pos;
-    private Position rot;
+    private final Scene scene;
+    private final Position pos;
+    private final Position rot;
     
-    public EntityNpc(int npcId, Position pos) {
+    public EntityNpc(Scene scene, int npcId, Position pos) {
+        this.scene = scene;
         this.npcId = npcId;
         this.pos = pos;
         this.rot = new Position();

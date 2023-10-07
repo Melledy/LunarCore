@@ -6,6 +6,7 @@ import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.ScenePropInfoOuterClass.ScenePropInfo;
+import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
 import emu.lunarcore.util.Position;
 import lombok.Getter;
 import lombok.Setter;
@@ -15,13 +16,15 @@ public class EntityProp implements GameEntity {
     @Setter private int entityId;
     @Setter private int groupId;
     @Setter private int instId;
-    @Setter private PropState state;
+    private PropState state;
     
-    private PropExcel excel;
-    private Position pos;
-    private Position rot;
+    private final Scene scene;
+    private final PropExcel excel;
+    private final Position pos;
+    private final Position rot;
     
-    public EntityProp(PropExcel excel, Position pos) {
+    public EntityProp(Scene scene, PropExcel excel, Position pos) {
+        this.scene = scene;
         this.excel = excel;
         this.pos = pos;
         this.rot = new Position();
@@ -32,8 +35,17 @@ public class EntityProp implements GameEntity {
         return excel.getId();
     }
     
+    public void setState(PropState state) {
+        // Set state
+        this.state = state;
+        // Sync state update to client
+        if (this.getScene().isLoaded()) {
+            this.getScene().getPlayer().sendPacket(new PacketSceneGroupRefreshScNotify(this, null));
+        }
+    }
+    
     @Override
-    public void onRemove(Scene scene) {
+    public void onRemove() {
         if (excel.isRecoverMp()) {
             scene.getPlayer().getLineupManager().addMp(2);
         } else if (excel.isRecoverHp()) {

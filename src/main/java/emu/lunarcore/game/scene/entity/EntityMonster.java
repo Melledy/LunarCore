@@ -2,6 +2,8 @@ package emu.lunarcore.game.scene.entity;
 
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.StageExcel;
+import emu.lunarcore.game.scene.Scene;
+import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SceneNpcMonsterInfoOuterClass.SceneNpcMonsterInfo;
@@ -19,11 +21,13 @@ public class EntityMonster implements GameEntity {
     @Setter private int eventId;
     @Setter private int overrideStageId;
     
-    private NpcMonsterExcel excel;
-    private Position pos;
-    private Position rot;
+    private final Scene scene;
+    private final NpcMonsterExcel excel;
+    private final Position pos;
+    private final Position rot;
     
-    public EntityMonster(NpcMonsterExcel excel, Position pos) {
+    public EntityMonster(Scene scene, NpcMonsterExcel excel, Position pos) {
+        this.scene = scene;
         this.excel = excel;
         this.pos = pos;
         this.rot = new Position();
@@ -35,6 +39,12 @@ public class EntityMonster implements GameEntity {
         } else {
             return this.overrideStageId;
         }
+    }
+    
+    @Override
+    public void onRemove() {
+        // Try to fire any triggers
+        getScene().fireTrigger(PropTriggerType.MONSTER_DIE, this.getGroupId());
     }
 
     @Override

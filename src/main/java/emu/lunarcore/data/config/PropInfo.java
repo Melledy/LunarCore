@@ -1,6 +1,7 @@
 package emu.lunarcore.data.config;
 
 import emu.lunarcore.game.enums.PropState;
+import emu.lunarcore.game.scene.triggers.PropTrigger;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -15,7 +16,10 @@ public class PropInfo extends ObjectInfo {
     private int EventID;
     private int CocoonID;
     private int FarmElementID;
+    private int ChestID;
     
-    @Setter
-    private PropState State = PropState.Closed;
+    @Setter private String InitLevelGraph;
+    @Setter private PropState State = PropState.Closed;
+    
+    @Setter private transient PropTrigger trigger;
 }
