@@ -22,10 +22,12 @@ import emu.lunarcore.game.avatar.HeroPath;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.chat.ChatManager;
 import emu.lunarcore.game.chat.ChatMessage;
+import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
+import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
@@ -35,7 +37,6 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.server.packet.send.PacketEnterSceneByServerScNotify;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
-import emu.lunarcore.server.packet.send.PacketRevcMsgScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneEntityMoveScNotify;
 import emu.lunarcore.util.Position;
 
@@ -321,11 +322,39 @@ public class Player {
         this.battle = battle;
     }
     
+    public EntityProp interactWithProp(int propEntityId) {
+        // Sanity
+        if (this.getScene() == null) return null;
+        
+        // Get entity so we can cast it to a prop
+        GameEntity entity = getScene().getEntityById(propEntityId);
+        
+        EntityProp prop = null;
+        if (entity instanceof EntityProp) {
+            prop = (EntityProp) entity;
+        }
+        
+        // Handle prop interaction action
+        switch (prop.getExcel().getPropType()) {
+            case PROP_TREASURE_CHEST -> {
+                if (prop.getState() == PropState.ChestClosed) {
+                    // Open chest
+                    prop.setState(PropState.ChestUsed);
+                    // TODO handle drops
+                    return prop;
+                } else {
+                    return null;
+                }
+            }
+            default -> {
+                return null;
+            }
+        }
+    }
+    
     public void onMove() {
         // Sanity
-        if (this.getScene() == null) {
-            return;
-        }
+        if (this.getScene() == null) return;
         
         boolean anchorRange = false;
         
