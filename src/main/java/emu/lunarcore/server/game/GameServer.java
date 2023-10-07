@@ -10,7 +10,6 @@ import emu.lunarcore.game.battle.BattleService;
 import emu.lunarcore.game.challenge.ChallengeService;
 import emu.lunarcore.game.gacha.GachaService;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.service.ChatService;
 import emu.lunarcore.game.service.InventoryService;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMaps;
@@ -32,7 +31,6 @@ public class GameServer extends KcpServer {
     @Getter private final BattleService battleService;
     @Getter private final InventoryService inventoryService;
     @Getter private final GachaService gachaService;
-    @Getter private final ChatService chatService;
     @Getter private final ChallengeService challengeService;
     
     public GameServer(GameServerConfig serverConfig) {
@@ -48,7 +46,6 @@ public class GameServer extends KcpServer {
         this.battleService = new BattleService(this);
         this.inventoryService = new InventoryService(this);
         this.gachaService = new GachaService(this);
-        this.chatService = new ChatService(this);
         this.challengeService = new ChallengeService(this);
 
         // Hook into shutdown event.

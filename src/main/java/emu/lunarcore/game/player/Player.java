@@ -20,6 +20,8 @@ import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.avatar.HeroPath;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.chat.ChatManager;
+import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.scene.Scene;
@@ -73,6 +75,7 @@ public class Player {
     private transient GameSession session;
     private transient final AvatarStorage avatars;
     private transient final Inventory inventory;
+    private transient final ChatManager chatManager;
 
     // Database persistent data
     private LineupManager lineupManager;
@@ -89,6 +92,7 @@ public class Player {
         this.gender = PlayerGender.GENDER_MAN;
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
+        this.chatManager = new ChatManager(this);
     }
 
     // Called when player is created
@@ -425,7 +429,8 @@ public class Player {
     }
 
     public void dropMessage(String message) {
-        this.sendPacket(new PacketRevcMsgScNotify(this, message));
+        var msg = new ChatMessage(GameConstants.SERVER_CONSOLE_UID, this.getUid(), message);
+        this.getChatManager().addChatMessage(msg);
     }
 
     public void sendPacket(BasePacket packet) {

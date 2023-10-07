@@ -17,9 +17,9 @@ public class HandlerSendMsgCsReq extends PacketHandler {
 
         for (int targetUid : req.getToUid()) {
             if (req.getMsgType() == MsgType.MSG_TYPE_CUSTOM_TEXT) {
-                session.getServer().getChatService().sendPrivChat(session.getPlayer(), targetUid, req.getText());
+                session.getPlayer().getChatManager().sendChat(targetUid, req.getText());
             } else if (req.getMsgType() == MsgType.MSG_TYPE_EMOJI) {
-                session.getServer().getChatService().sendPrivChat(session.getPlayer(), targetUid, req.getEmote());
+                session.getPlayer().getChatManager().sendChat(targetUid, req.getEmote());
             }
         }
 

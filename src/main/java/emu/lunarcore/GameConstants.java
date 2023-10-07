@@ -18,6 +18,8 @@ public class GameConstants {
     public static final int DEFAULT_TEAMS = 6;
     public static final int MAX_MP = 5; // Client doesnt like more than 5
 
+    public static final int MAX_CHAT_HISTORY = 100; // Max chat messages per conversation
+    
     // Custom
     public static final int SERVER_CONSOLE_UID = 99;
     public static final int EQUIPMENT_SLOT_ID = 100;
