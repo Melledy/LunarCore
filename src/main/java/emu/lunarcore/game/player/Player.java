@@ -366,23 +366,16 @@ public class Player {
     public void onMove() {
         // Sanity
         if (this.getScene() == null) return;
-        
-        boolean anchorRange = false;
-        
+
         // Check anchors. We can optimize this later.
-        for (EntityProp anchor : this.getScene().getHealingSprings()) {
-            long dist = getPos().getFast2dDist(anchor.getPos());
-            if (dist > 25_000_000) continue; // 5000^2
-            
-            anchorRange = true;
-            break;
-        }
+        EntityProp nearestAnchor = this.getScene().getNearestSpring(25_000_000); // 5000^2
+        boolean isInRange = nearestAnchor != null;
         
         // Only heal if player isnt already in anchor range
-        if (anchorRange && anchorRange != this.inAnchorRange) {
+        if (isInRange && isInRange != this.inAnchorRange) {
             this.getCurrentLineup().heal(10000);
         }
-        this.inAnchorRange = anchorRange;
+        this.inAnchorRange = isInRange;
     }
     
     public void moveTo(int entryId, Position pos) {

@@ -1,5 +1,6 @@
 package emu.lunarcore.game.scene.entity;
 
+import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.scene.Scene;
@@ -22,6 +23,9 @@ public class EntityProp implements GameEntity {
     private final PropExcel excel;
     private final Position pos;
     private final Position rot;
+    
+    @Setter
+    private PropInfo propInfo;
     
     public EntityProp(Scene scene, PropExcel excel, Position pos) {
         this.scene = scene;

@@ -241,9 +241,15 @@ public class BattleService extends BaseGameService {
         
         // Teleport to anchor if player has lost/retreated. On official servers, the player party is teleported to the nearest anchor.
         if (teleportToAnchor) {
-            var anchor = player.getScene().getFloorInfo().getStartAnchorInfo();
-            if (anchor != null) {
-                player.moveTo(anchor.clonePos());
+            var anchorProp = player.getScene().getNearestSpring();
+            if (anchorProp != null && anchorProp.getPropInfo() != null) {
+                var anchor = player.getScene().getFloorInfo().getAnchorInfo(
+                        anchorProp.getPropInfo().getAnchorGroupID(), 
+                        anchorProp.getPropInfo().getAnchorID()
+                );
+                if (anchor != null) {
+                    player.moveTo(anchor.clonePos());
+                }
             }
         }
         

@@ -127,6 +127,7 @@ public class Scene {
                     );
                     prop.setInstId(propInfo.getID());
                     prop.setGroupId(group.getId());
+                    prop.setPropInfo(propInfo);
                     
                     // Hacky fixes
                     if (prop.getPropId() == 1003) {
@@ -250,6 +251,36 @@ public class Scene {
         
         player.sendPacket(new PacketActivateFarmElementScRsp(entityId, worldLevel));
         return true;
+    }
+    
+    /**
+     * Returns the nearest spring (Space Anchor) to the player in the scene
+     * @return
+     */
+    public EntityProp getNearestSpring() {
+        return getNearestSpring(Long.MAX_VALUE);
+    }
+
+    /**
+     * Returns the nearest spring (Space Anchor) to the player in the scene
+     * @param minDistSq Only checks springs in below this distance
+     * @return
+     */
+    public EntityProp getNearestSpring(long minDistSq) {
+        EntityProp spring = null;
+        long springDist = 0;
+        
+        for (EntityProp prop : this.getHealingSprings()) {
+            long dist = getPlayer().getPos().getFast2dDist(prop.getPos());
+            if (dist > minDistSq) continue;
+            
+            if (spring == null || dist < springDist) {
+                spring = prop;
+                springDist = dist;
+            }
+        }
+        
+        return spring;
     }
     
     // TODO
