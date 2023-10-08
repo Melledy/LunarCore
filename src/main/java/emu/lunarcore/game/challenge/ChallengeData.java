@@ -26,6 +26,7 @@ public class ChallengeData {
     private final Scene scene;
     private final ChallengeExcel excel;
     private final Position startPos;
+    private final Position startRot;
     
     private int currentStage;
     private ExtraLineupType currentExtraLineup;
@@ -39,6 +40,7 @@ public class ChallengeData {
         this.scene = player.getScene();
         this.excel = excel;
         this.startPos = player.getPos().clone();
+        this.startRot = player.getRot().clone();
         this.currentStage = 1;
         this.roundsLimit = excel.getChallengeCountDown();
         this.status = ChallengeStatus.CHALLENGE_DOING;
@@ -92,7 +94,7 @@ public class ChallengeData {
             if (npcMonsterExcel == null) continue;
             
             // Create monster with excels
-            EntityMonster monster = new EntityMonster(getScene(), npcMonsterExcel, monsterInfo.clonePos());
+            EntityMonster monster = new EntityMonster(getScene(), npcMonsterExcel, monsterInfo.getPos());
             monster.getRot().setY((int) (monsterInfo.getRotY() * 1000f));
             monster.setInstId(instId);
             monster.setEventId(eventId);
@@ -137,7 +139,7 @@ public class ChallengeData {
                     player.getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), true);
                     player.sendPacket(new PacketChallengeLineupNotify(this.getCurrentExtraLineup()));
                     // Move player
-                    player.moveTo(this.getStartPos());
+                    player.moveTo(this.getStartPos(), this.getStartRot());
                 }
             }
         } else {

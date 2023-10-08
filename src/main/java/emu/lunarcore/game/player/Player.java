@@ -69,6 +69,7 @@ public class Player {
     private transient Battle battle;
     private transient Scene scene;
     private Position pos;
+    private Position rot;
     private int planeId;
     private int floorId;
     private int entryId;
@@ -115,6 +116,7 @@ public class Player {
         this.stamina = GameConstants.MAX_STAMINA;
 
         this.pos = new Position(99, 62, -4800);
+        this.rot = new Position();
         this.planeId = 20001;
         this.floorId = 20001001;
         this.entryId = 2000101;
@@ -394,6 +396,12 @@ public class Player {
         this.sendPacket(new PacketSceneEntityMoveScNotify(this));
     }
     
+    public void moveTo(Position pos, Position rot) {
+        this.getPos().set(pos);
+        this.getRot().set(rot);
+        this.sendPacket(new PacketSceneEntityMoveScNotify(this));
+    }
+    
     public boolean enterScene(int entryId, int teleportId, boolean sendPacket) {
         // Get map entrance excel
         MapEntranceExcel entry = GameData.getMapEntranceExcelMap().get(entryId);
@@ -422,7 +430,7 @@ public class Player {
         if (anchor == null) return false;
 
         // Move player to scene
-        boolean success = this.loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId(), anchor.clonePos());
+        boolean success = this.loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId(), anchor.getPos(), anchor.getRot());
         
         // Send packet
         if (success && sendPacket) {
@@ -433,7 +441,7 @@ public class Player {
         return success;
     }
 
-    private boolean loadScene(int planeId, int floorId, int entryId, Position pos) {
+    private boolean loadScene(int planeId, int floorId, int entryId, Position pos, Position rot) {
         // Get maze plane excel
         MazePlaneExcel planeExcel = GameData.getMazePlaneExcelMap().get(planeId);
         if (planeExcel == null) {
@@ -456,6 +464,7 @@ public class Player {
         // Set positions if player has logged in
         if (this.getSession().getState() != SessionState.WAITING_FOR_TOKEN) {
             this.getPos().set(pos);
+            this.getRot().set(rot);
             this.planeId = planeId;
             this.floorId = floorId;
             this.entryId = entryId;
@@ -491,6 +500,9 @@ public class Player {
     }
 
     public void onLogin() {
+        // Validate
+        if (this.getRot() == null) this.rot = new Position();
+        
         // Load avatars and inventory first
         this.getAvatars().loadFromDatabase();
         this.getInventory().loadFromDatabase();
@@ -501,7 +513,7 @@ public class Player {
         this.getAvatars().setupHeroPaths();
 
         // Enter scene (should happen after everything else loads)
-        this.loadScene(planeId, floorId, entryId, this.getPos());
+        this.loadScene(planeId, floorId, entryId, this.getPos(), this.getRot());
     }
 
     // Proto

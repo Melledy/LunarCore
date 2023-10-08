@@ -113,8 +113,8 @@ public class Scene {
                 if (npcMonsterExcel == null) continue;
                 
                 // Create monster with excels
-                EntityMonster monster = new EntityMonster(this, npcMonsterExcel, monsterInfo.clonePos());
-                monster.getRot().setY((int) (monsterInfo.getRotY() * 1000f));
+                EntityMonster monster = new EntityMonster(this, npcMonsterExcel, monsterInfo.getPos());
+                monster.getRot().set(monsterInfo.getRot());
                 monster.setInstId(monsterInfo.getID());
                 monster.setEventId(monsterInfo.getEventID());
                 monster.setGroupId(group.getId());
@@ -135,13 +135,9 @@ public class Scene {
                 }
                 
                 // Create prop from prop info
-                EntityProp prop = new EntityProp(this, propExcel, propInfo.clonePos());
+                EntityProp prop = new EntityProp(this, propExcel, propInfo.getPos());
                 prop.setState(propInfo.getState());
-                prop.getRot().set(
-                        (int) (propInfo.getRotX() * 1000f),
-                        (int) (propInfo.getRotY() * 1000f),
-                        (int) (propInfo.getRotZ() * 1000f)
-                );
+                prop.getRot().set(propInfo.getRot());
                 prop.setInstId(propInfo.getID());
                 prop.setGroupId(group.getId());
                 prop.setPropInfo(propInfo);
@@ -184,8 +180,8 @@ public class Scene {
                 if (haseDuplicateNpcId) continue;
                 
                 // Create npc from npc info
-                EntityNpc npc = new EntityNpc(this, npcInfo.getNPCID(), npcInfo.clonePos());
-                npc.getRot().setY((int) (npcInfo.getRotY() * 1000f));
+                EntityNpc npc = new EntityNpc(this, npcInfo.getNPCID(), npcInfo.getPos());
+                npc.getRot().set(npcInfo.getRot());
                 npc.setInstId(npcInfo.getID());
                 npc.setGroupId(group.getId());
                 

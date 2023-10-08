@@ -4,6 +4,7 @@ import java.util.List;
 
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.scene.triggers.PropTrigger;
+import emu.lunarcore.util.Position;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -24,6 +25,14 @@ public class PropInfo extends ObjectInfo {
     @Setter private PropState State = PropState.Closed;
     
     @Setter private transient PropTrigger trigger;
+    
+    @Override
+    public Position getRot() {
+        if (this.rot == null) {
+            this.rot = new Position((int) (this.RotX * 1000f), (int) (this.RotY * 1000f), (int) (this.RotZ * 1000f));
+        }
+        return this.rot;
+    }
     
     public String getSharedValueByKey(String key) {
         if (this.getValueSource() == null) return null;

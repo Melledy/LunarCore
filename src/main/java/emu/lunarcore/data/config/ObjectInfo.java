@@ -12,10 +12,20 @@ public class ObjectInfo {
     public String Name;
     public float RotY;
     
-    /*
-     * Returns a new Position object
-     */
-    public Position clonePos() {
-        return new Position((int) (this.PosX * 1000f), (int) (this.PosY * 1000f), (int) (this.PosZ * 1000f));
+    protected transient Position pos;
+    protected transient Position rot;
+    
+    public Position getPos() {
+        if (this.pos == null) {
+            this.pos = new Position((int) (this.PosX * 1000f), (int) (this.PosY * 1000f), (int) (this.PosZ * 1000f));
+        }
+        return this.pos;
+    }
+
+    public Position getRot() {
+        if (this.rot == null) {
+            this.rot = new Position(0, (int) (this.RotY * 1000f), 0);
+        }
+        return this.rot;
     }
 }

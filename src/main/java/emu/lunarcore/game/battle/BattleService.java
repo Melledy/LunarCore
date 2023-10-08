@@ -252,7 +252,7 @@ public class BattleService extends BaseGameService {
                         anchorProp.getPropInfo().getAnchorID()
                 );
                 if (anchor != null) {
-                    player.moveTo(anchor.clonePos());
+                    player.moveTo(anchor.getPos());
                 }
             }
         }
