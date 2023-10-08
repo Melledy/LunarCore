@@ -48,6 +48,10 @@ public class ChallengeData {
         this.setupStage1();
     }
     
+    private int getChallengeId() {
+        return this.getExcel().getId();
+    }
+    
     private void setupStage1() {
         this.setupStage(
                 excel.getMazeGroupID1(), 
@@ -120,6 +124,8 @@ public class ChallengeData {
                     // Last stage
                     this.status = ChallengeStatus.CHALLENGE_FINISH;
                     this.stars = 9; // TODO calculate the right amount stars
+                    // Save history
+                    player.getChallengeManager().addHistory(this.getChallengeId(), this.getStars());
                     // Send challenge result data
                     player.sendPacket(new PacketChallengeSettleNotify(this));
                 } else {
@@ -139,7 +145,7 @@ public class ChallengeData {
             this.status = ChallengeStatus.CHALLENGE_FAILED;
         }
     }
-    
+
     public void onUpdate() {
         // End challenge if its done
         if (status != ChallengeStatus.CHALLENGE_DOING) {

@@ -1,19 +1,17 @@
 package emu.lunarcore.server.packet.recv;
 
-import emu.lunarcore.proto.StartChallengeCsReqOuterClass.StartChallengeCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
+import emu.lunarcore.server.packet.send.PacketGetChallengeScRsp;
 
-@Opcodes(CmdId.StartChallengeCsReq)
-public class HandlerStartChallengeCsReq extends PacketHandler {
+@Opcodes(CmdId.GetChallengeCsReq)
+public class HandlerGetChallengeCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
-        var req = StartChallengeCsReq.parseFrom(data);
-        
-        session.getPlayer().getChallengeManager().startChallenge(req.getChallengeId());
+        session.send(new PacketGetChallengeScRsp(session.getPlayer()));
     }
 
 }

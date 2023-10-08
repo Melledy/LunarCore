@@ -7,12 +7,10 @@ import java.util.List;
 import emu.lunarcore.Config.GameServerConfig;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.game.battle.BattleService;
-import emu.lunarcore.game.challenge.ChallengeService;
 import emu.lunarcore.game.gacha.GachaService;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.service.InventoryService;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMaps;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import kcp.highway.ChannelConfig;
 import kcp.highway.KcpServer;
@@ -31,7 +29,6 @@ public class GameServer extends KcpServer {
     @Getter private final BattleService battleService;
     @Getter private final InventoryService inventoryService;
     @Getter private final GachaService gachaService;
-    @Getter private final ChallengeService challengeService;
     
     public GameServer(GameServerConfig serverConfig) {
         // Game Server base
@@ -46,7 +43,6 @@ public class GameServer extends KcpServer {
         this.battleService = new BattleService(this);
         this.inventoryService = new InventoryService(this);
         this.gachaService = new GachaService(this);
-        this.challengeService = new ChallengeService(this);
 
         // Hook into shutdown event.
         Runtime.getRuntime().addShutdownHook(new Thread(this::onShutdown));

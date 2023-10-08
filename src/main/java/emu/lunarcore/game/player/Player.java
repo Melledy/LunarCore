@@ -21,6 +21,7 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.avatar.HeroPath;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.challenge.ChallengeData;
+import emu.lunarcore.game.challenge.ChallengeManager;
 import emu.lunarcore.game.chat.ChatManager;
 import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.game.enums.PropState;
@@ -79,6 +80,7 @@ public class Player {
     private transient final AvatarStorage avatars;
     private transient final Inventory inventory;
     private transient final ChatManager chatManager;
+    private transient final ChallengeManager challengeManager;
 
     // Database persistent data
     private LineupManager lineupManager;
@@ -98,6 +100,7 @@ public class Player {
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
         this.chatManager = new ChatManager(this);
+        this.challengeManager = new ChallengeManager(this);
     }
 
     // Called when player is created
@@ -491,6 +494,7 @@ public class Player {
         // Load avatars and inventory first
         this.getAvatars().loadFromDatabase();
         this.getInventory().loadFromDatabase();
+        this.getChallengeManager().loadFromDatabase();
 
         // Load Etc
         this.getLineupManager().validate(this);
