@@ -5,6 +5,7 @@ import java.util.List;
 import dev.morphia.annotations.Entity;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -43,8 +44,21 @@ public class LineupManager {
         this.mp = Math.max(this.mp - i, 0);
     }
     
-    public void setCurrentExtraLineup(int i) {
-        this.currentExtraLineup = i;
+    /**
+     * Sets the player's current extra lineup type.
+     * @param type Extra lineup type
+     * @param sync Whether or not to sync lineup with scene. Not needed when changing scenes.
+     */
+    public void setCurrentExtraLineup(int type, boolean sync) {
+        this.currentExtraLineup = type;
+
+        if (sync) {
+            this.getPlayer().getScene().syncLineup();
+        }
+    }
+    
+    public void setCurrentExtraLineup(ExtraLineupType type, boolean sync) {
+        this.setCurrentExtraLineup(type.getNumber(), sync);
     }
     
     public PlayerLineup getLineupByIndex(int index, int extraLineup) {
@@ -74,15 +88,7 @@ public class LineupManager {
      * @return
      */
     private PlayerLineup getExtraLineupByType(int extraLineupType) {
-        PlayerLineup lineup = this.extraLineups.get(extraLineupType);
-        
-        if (lineup == null) {
-            lineup = new PlayerLineup(0, extraLineupType);
-            lineup.setOwnerAndIndex(this.getPlayer(), 0);
-            this.extraLineups.put(extraLineupType, lineup);
-        }
-        
-        return lineup;
+        return getExtraLineups().computeIfAbsent(extraLineupType, type -> new PlayerLineup(getPlayer(), 0, type));
     }
 
     public PlayerLineup getCurrentLineup() {
@@ -309,9 +315,10 @@ public class LineupManager {
         // Create new lineups for any missing ones
         for (int i = 0; i < this.lineups.length; i++) {
             if (this.lineups[i] == null) {
-                this.lineups[i] = new PlayerLineup(i);
+                this.lineups[i] = new PlayerLineup(getPlayer(), i, 0);
+            } else {
+                this.lineups[i].setOwnerAndIndex(getPlayer(), i);
             }
-            this.lineups[i].setOwnerAndIndex(getPlayer(), i);
         }
 
         // Set current index if out of bounds

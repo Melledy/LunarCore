@@ -20,6 +20,7 @@ import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.avatar.HeroPath;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.challenge.ChallengeData;
 import emu.lunarcore.game.chat.ChatManager;
 import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.game.enums.PropState;
@@ -84,10 +85,12 @@ public class Player {
     private PlayerGachaInfo gachaInfo;
     
     // Etc
-    @Setter private transient boolean paused;
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
-
+    
+    @Setter private transient boolean paused;
+    @Setter private transient ChallengeData challengeData;
+    
     @Deprecated // Morphia only
     public Player() {
         this.curBasicType = GameConstants.TRAILBLAZER_AVATAR_ID;
@@ -443,6 +446,9 @@ public class Player {
         } else {
             nextScene = new Scene(this, planeExcel, floorId);
         }
+        
+        // Clear any extra data the player might have
+        this.setChallengeData(null);
 
         // Set positions if player has logged in
         if (this.getSession().getState() != SessionState.WAITING_FOR_TOKEN) {

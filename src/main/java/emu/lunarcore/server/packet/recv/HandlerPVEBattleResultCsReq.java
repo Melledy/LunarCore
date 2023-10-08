@@ -18,7 +18,7 @@ public class HandlerPVEBattleResultCsReq extends PacketHandler {
         Battle battle = session.getServer().getBattleService().finishBattle(
                 session.getPlayer(),
                 req.getEndStatus(),
-                req.getStt().getBattleAvatarList()
+                req.getStt()
         );
 
         if (battle != null) {

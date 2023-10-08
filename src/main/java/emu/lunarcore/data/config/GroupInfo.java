@@ -20,6 +20,10 @@ public class GroupInfo {
         if (this.id == 0) this.id = id;
     }
     
+    public MonsterInfo getMonsterById(int configId) {
+        return MonsterList.stream().filter(m -> m.getID() == configId).findFirst().orElse(null);
+    }
+    
     public static enum GroupLoadSide {
         Client, Server;
     }

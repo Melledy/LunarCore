@@ -12,9 +12,9 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
-import emu.lunarcore.proto.AvatarBattleInfoOuterClass.AvatarBattleInfo;
 import emu.lunarcore.proto.AvatarPropertyOuterClass.AvatarProperty;
 import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
+import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.packet.send.PacketReEnterLastElementStageScRsp;
@@ -23,7 +23,6 @@ import emu.lunarcore.server.packet.send.PacketStartCocoonStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 
 import us.hebi.quickbuf.RepeatedInt;
-import us.hebi.quickbuf.RepeatedMessage;
 
 public class BattleService extends BaseGameService {
 
@@ -126,6 +125,11 @@ public class BattleService extends BaseGameService {
                 }
             }
             
+            // Challenge
+            if (player.getChallengeData() != null) {
+                player.getChallengeData().onBattleStart(battle);
+            }
+            
             // Set battle and send rsp packet
             player.setBattle(battle);
             player.sendPacket(new PacketSceneCastSkillScRsp(battle, attackedGroupId));
@@ -179,7 +183,7 @@ public class BattleService extends BaseGameService {
         player.sendPacket(new PacketStartCocoonStageScRsp(battle, cocoonId, wave));
     }
 
-    public Battle finishBattle(Player player, BattleEndStatus result, RepeatedMessage<AvatarBattleInfo> battleAvatars) {
+    public Battle finishBattle(Player player, BattleEndStatus result, BattleStatistics stats) {
         // Sanity check to make sure player is in a battle
         if (!player.isInBattle()) {
             return null;
@@ -222,7 +226,7 @@ public class BattleService extends BaseGameService {
         // Check if avatar hp/sp should be updated after a battle
         if (updateStatus) {
             // Set health/energy for player avatars
-            for (var battleAvatar : battleAvatars) {
+            for (var battleAvatar : stats.getBattleAvatarList()) {
                 GameAvatar avatar = player.getAvatarById(battleAvatar.getId());
                 if (avatar == null) continue;
 
@@ -251,6 +255,11 @@ public class BattleService extends BaseGameService {
                     player.moveTo(anchor.clonePos());
                 }
             }
+        }
+        
+        // Challenge
+        if (player.getChallengeData() != null) {
+            player.getChallengeData().onBattleFinish(battle, result, stats);
         }
         
         // Done - Clear battle object from player

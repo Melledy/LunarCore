@@ -6,7 +6,6 @@ import java.util.List;
 import dev.morphia.annotations.Entity;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.proto.LineupInfoOuterClass.LineupInfo;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import lombok.Getter;
@@ -26,11 +25,9 @@ public class PlayerLineup {
 
     }
     
-    public PlayerLineup(int index) {
-        this(index, 0);
-    }
-
-    public PlayerLineup(int index, int extraLineupType) {
+    public PlayerLineup(Player player, int index, int extraLineupType) {
+        this.owner = player;
+        this.index = index;
         this.extraLineupType = extraLineupType;
         this.avatars = new ArrayList<>(GameConstants.MAX_AVATARS_IN_TEAM);
         
@@ -93,7 +90,7 @@ public class PlayerLineup {
                 .setLeaderSlot(this.getOwner().getLineupManager().getCurrentLeader())
                 .setMp(this.getOwner().getLineupManager().getMp())
                 .setMaxMp(GameConstants.MAX_MP)
-                .setExtraLineupType(ExtraLineupType.LINEUP_NONE);
+                .setExtraLineupTypeValue(this.getExtraLineupType());
 
         for (int slot = 0; slot < this.getAvatars().size(); slot++) {
             GameAvatar avatar = owner.getAvatars().getAvatarById(getAvatars().get(slot));

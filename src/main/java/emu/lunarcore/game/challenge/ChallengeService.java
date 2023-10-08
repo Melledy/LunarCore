@@ -20,7 +20,19 @@ public class ChallengeService extends BaseGameService {
             return;
         }
         
-        player.enterScene(excel.getMapEntranceID(), 0, false);
+        // Sanity check lineups TODO
+        
+        // Enter scene
+        boolean success = player.enterScene(excel.getMapEntranceID(), 0, false);
+        if (success == false) {
+            return;
+        }
+        
+        // Set challenge data for player
+        ChallengeData data = new ChallengeData(player, excel);
+        
+        player.setChallengeData(data);
+        player.getLineupManager().setCurrentExtraLineup(data.getCurrentExtraLineup(), false);
         
         // Send packet
         player.sendPacket(new PacketStartChallengeScRsp(player, challengeId));

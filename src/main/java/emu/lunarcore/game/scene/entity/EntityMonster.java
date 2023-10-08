@@ -20,9 +20,9 @@ public class EntityMonster implements GameEntity {
     @Setter private int instId;
     @Setter private int eventId;
     @Setter private int overrideStageId;
+    @Setter private NpcMonsterExcel excel;
     
     private final Scene scene;
-    private final NpcMonsterExcel excel;
     private final Position pos;
     private final Position rot;
     

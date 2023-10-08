@@ -22,6 +22,7 @@ import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class Battle {
@@ -33,6 +34,8 @@ public class Battle {
     private final List<StageExcel> stages;
     private final List<GameItem> drops;
     private final long timestamp;
+    
+    @Setter private int roundsLimit;
     
     private Battle(Player player, PlayerLineup lineup) {
         this.id = player.getNextBattleId();
@@ -158,6 +161,7 @@ public class Battle {
         // Build battle info
         var proto = SceneBattleInfo.newInstance()
                 .setBattleId(this.getId())
+                .setRoundsLimit(this.getRoundsLimit())
                 .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
                 .setWorldLevel(player.getWorldLevel());
 

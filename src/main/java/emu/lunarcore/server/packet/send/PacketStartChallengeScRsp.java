@@ -22,15 +22,15 @@ public class PacketStartChallengeScRsp extends BasePacket {
     public PacketStartChallengeScRsp(Player player, int challengeId) {
         super(CmdId.StartChallengeScRsp);
         
-        var challengeInfo = ChallengeInfo.newInstance()
-                .setChallengeId(challengeId)
-                .setStatus(ChallengeStatus.CHALLENGE_DOING)
-                .setExtraLineupType(ExtraLineupType.LINEUP_CHALLENGE);
+        var data = StartChallengeScRsp.newInstance();
         
-        var data = StartChallengeScRsp.newInstance()
-                .setLineup(player.getCurrentLineup().toProto().setExtraLineupType(ExtraLineupType.LINEUP_CHALLENGE)) // TODO temporary
-                .setScene(player.getScene().toProto())
-                .setChallengeInfo(challengeInfo);
+        if (player.getChallengeData() != null) {
+            data.setLineup(player.getCurrentLineup().toProto());
+            data.setScene(player.getScene().toProto());
+            data.setChallengeInfo(player.getChallengeData().toProto());
+        } else {
+            data.setRetcode(1);
+        }
         
         this.setData(data);
     }
