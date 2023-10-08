@@ -57,7 +57,10 @@ public class LineupManager {
         this.currentExtraLineup = type;
 
         if (sync) {
+            // Sync with scene entities
             this.getPlayer().getScene().syncLineup();
+            // Sync lineup data with client
+            player.sendPacket(new PacketSyncLineupNotify(this.getExtraLineupByType(type)));
         }
     }
     
