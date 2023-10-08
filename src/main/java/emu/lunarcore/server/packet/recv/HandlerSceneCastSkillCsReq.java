@@ -22,7 +22,7 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
         // Check if player casted a maze skill
         if (req.getSkillIndex() > 0 && session.getPlayer().getScene().getAvatarEntityIds().contains(req.getAttackerId())) {
             // Spend one skill point
-            session.getPlayer().getLineupManager().removeMp(1);
+            session.getPlayer().getCurrentLineup().removeMp(1);
             session.send(new PacketSceneCastSkillMpUpdateScNotify(req.getAttackedGroupId(), session.getPlayer().getLineupManager().getMp()));
             // Cast skill effects
             GameAvatar caster = session.getPlayer().getLineupManager().getCurrentLeaderAvatar();

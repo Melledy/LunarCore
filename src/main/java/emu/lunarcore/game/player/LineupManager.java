@@ -35,12 +35,16 @@ public class LineupManager {
         this.validate(player);
     }
     
-    public void addMp(int i) {
+    protected void addMp(int i) {
         this.mp = Math.min(this.mp + i, GameConstants.MAX_MP);
         this.getPlayer().sendPacket(new PacketSyncLineupNotify(player.getCurrentLineup()));
     }
     
-    public void removeMp(int i) {
+    protected void setMp(int i) {
+        this.mp = i;
+    }
+    
+    protected void removeMp(int i) {
         this.mp = Math.max(this.mp - i, 0);
     }
     
