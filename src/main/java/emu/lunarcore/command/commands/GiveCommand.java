@@ -21,12 +21,11 @@ public class GiveCommand implements CommandHandler {
         if (args.getTarget() == null) {
             this.sendMessage(sender, "Error: Targeted player not found or offline");
             return;
-        } else if (args.getCount() <= 0) {
-            this.sendMessage(sender, "Error: Amount must be higher than 0");
-            return;
         }
         
         int itemId = Utils.parseSafeInt(args.get(0));
+        int amount = Math.max(args.getCount(), 1);
+        
         ItemExcel itemData = GameData.getItemExcelMap().get(itemId);
         
         if (itemData == null) {
@@ -36,16 +35,16 @@ public class GiveCommand implements CommandHandler {
         
         if (itemData.isEquippable()) {
             List<GameItem> items = new LinkedList<>();
-            for (int i = 0; i < args.getCount(); i++) {
+            for (int i = 0; i < amount; i++) {
                 items.add(new GameItem(itemData));
             }
             args.getTarget().getInventory().addItems(items);
         } else {
-            GameItem item = new GameItem(itemData, args.getCount());
+            GameItem item = new GameItem(itemData, amount);
             args.getTarget().getInventory().addItem(item);
         }
 
-        args.getTarget().sendMessage("Giving " + args.getTarget().getName() + " " + args.getCount() + " of " + itemId);
+        args.getTarget().sendMessage("Giving " + args.getTarget().getName() + " " + amount + " of " + itemId);
     }
 
 }
