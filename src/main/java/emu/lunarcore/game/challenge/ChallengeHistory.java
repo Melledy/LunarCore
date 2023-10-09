@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
+import dev.morphia.annotations.Indexed;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.ChallengeOuterClass.Challenge;
@@ -16,7 +17,9 @@ public class ChallengeHistory {
     @Id
     private ObjectId id;
     
+    @Indexed
     private int ownerUid;
+    
     private int challengeId;
     private int takenReward;
     private int stars;
