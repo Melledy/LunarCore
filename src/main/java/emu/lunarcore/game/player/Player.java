@@ -55,8 +55,8 @@ public class Player {
     private String signature;
     private int headIcon;
     private int birthday;
-    private PlayerGender gender;
     private int curBasicType;
+    @Setter private PlayerGender gender;
 
     private int level;
     private int exp;
