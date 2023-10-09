@@ -7,7 +7,7 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerGender;
 import emu.lunarcore.server.packet.send.PacketGetHeroBasicTypeInfoScRsp;
 
-@Command(label = "gender")
+@Command(label = "gender", permission = "player.gender")
 public class GenderCommand implements CommandHandler {
 
     @Override

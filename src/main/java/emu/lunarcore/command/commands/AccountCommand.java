@@ -7,7 +7,7 @@ import emu.lunarcore.game.account.AccountHelper;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "account")
+@Command(label = "account", permission = "server.account")
 public class AccountCommand implements CommandHandler {
 
     @Override

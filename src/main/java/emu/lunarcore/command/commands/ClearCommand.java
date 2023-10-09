@@ -10,7 +10,7 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "clear")
+@Command(label = "clear", permission = "player.clear")
 public class ClearCommand implements CommandHandler {
 
     @Override

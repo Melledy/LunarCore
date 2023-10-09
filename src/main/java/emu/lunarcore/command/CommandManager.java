@@ -77,6 +77,22 @@ public class CommandManager {
         return this;
     }
     
+    private boolean checkPermission(Player sender, Command command) {
+        if (sender == null || command.permission().isEmpty()) {
+            return true;
+        }
+        
+        return sender.getAccount().hasPermission(command.permission());
+    }
+    
+    private boolean checkTargetPermission(Player sender, Command command) {
+        if (sender == null || command.permission().isEmpty()) {
+            return true;
+        }
+        
+        return sender.getAccount().hasPermission("target." + command.permission());
+    }
+    
     public void invoke(Player sender, String message) {
         List<String> args = Arrays.stream(message.split(" ")).collect(Collectors.toCollection(ArrayList::new));
         
@@ -89,8 +105,24 @@ public class CommandManager {
         
         // Get handler
         CommandHandler handler = this.commands.get(label);
+
+        // Execute
         if (handler != null) {
-            handler.execute(sender, new CommandArgs(sender, args));
+            // Command annotation data
+            Command command = handler.getClass().getAnnotation(Command.class);
+            // Check permission
+            if (this.checkPermission(sender, command)) {
+                // Check targetted permission
+                CommandArgs cmdArgs = new CommandArgs(sender, args);
+                if (sender != cmdArgs.getTarget() && !this.checkTargetPermission(sender, command)) {
+                    handler.sendMessage(sender, "You do not have permission to use this command on another player");
+                    return;
+                }
+                // Run command
+                handler.execute(sender, cmdArgs);
+            } else {
+                handler.sendMessage(sender, "You do not have permission to use this command");
+            }
         } else {
             if (sender != null) {
                 sender.sendMessage("Inavlid Command!");

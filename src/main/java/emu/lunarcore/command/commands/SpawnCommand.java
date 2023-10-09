@@ -11,7 +11,7 @@ import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.util.Position;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "spawn")
+@Command(label = "spawn", permission = "player.spawn")
 public class SpawnCommand implements CommandHandler {
 
     @Override
@@ -32,7 +32,7 @@ public class SpawnCommand implements CommandHandler {
         // Get id
         int id = Utils.parseSafeInt(args.get(0));
         int stage = Math.max(Utils.parseSafeInt(args.get(1)), 1);
-        int amount = Math.max(args.getCount(), 1);
+        int amount = Math.max(args.getAmount(), 1);
         int radius = Math.max(args.getRank(), 5) * 1000;
         
         // Spawn monster

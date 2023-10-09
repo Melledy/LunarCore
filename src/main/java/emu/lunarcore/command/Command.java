@@ -10,4 +10,6 @@ public @interface Command {
     public String[] aliases() default "";
 
     public String desc() default "";
+    
+    public String permission() default "";
 }

@@ -1,5 +1,8 @@
 package emu.lunarcore;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import lombok.Getter;
 
 @Getter
@@ -15,6 +18,7 @@ public class Config {
     public ServerConfig httpServer = new ServerConfig("127.0.0.1", 443);
     public GameServerConfig gameServer = new GameServerConfig("127.0.0.1", 23301);
     
+    public ServerOptions serverOptions = new ServerOptions();
     public DownloadData downloadData = new DownloadData();
 
     public String resourceDir = "./resources";
@@ -68,6 +72,12 @@ public class Config {
         public GameServerConfig(String address, int port) {
             super(address, port);
         }
+    }
+    
+    @Getter
+    public static class ServerOptions {
+        public int entitySceneLimit = 2000;
+        public Set<String> defaultPermissions = Set.of("*");
     }
     
     @Getter

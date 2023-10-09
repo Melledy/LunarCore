@@ -6,7 +6,7 @@ import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "reload")
+@Command(label = "reload", permission = "server.reload")
 public class ReloadCommand implements CommandHandler {
 
     @Override

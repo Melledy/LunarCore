@@ -6,7 +6,7 @@ import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "worldlevel", aliases = {"wl"})
+@Command(label = "worldlevel", aliases = {"wl"}, permission = "player.worldlevel")
 public class WorldLevelCommand implements CommandHandler {
 
     @Override

@@ -12,7 +12,7 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "give", aliases = {"g"})
+@Command(label = "give", aliases = {"g"}, permission = "player.give")
 public class GiveCommand implements CommandHandler {
 
     @Override
@@ -24,7 +24,7 @@ public class GiveCommand implements CommandHandler {
         }
         
         int itemId = Utils.parseSafeInt(args.get(0));
-        int amount = Math.max(args.getCount(), 1);
+        int amount = Math.max(args.getAmount(), 1);
         
         ItemExcel itemData = GameData.getItemExcelMap().get(itemId);
         

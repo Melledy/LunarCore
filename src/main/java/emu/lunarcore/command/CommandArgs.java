@@ -14,7 +14,7 @@ public class CommandArgs {
     
     private int targetUid;
     private int level;
-    private int count;
+    private int amount;
     private int rank;
     private int promotion;
     
@@ -35,7 +35,7 @@ public class CommandArgs {
                         this.targetUid = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
                     } else if (arg.startsWith("x")) {
-                        this.count = Utils.parseSafeInt(arg.substring(1));
+                        this.amount = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
                     } else if (arg.startsWith("lv")) {
                         this.level = Utils.parseSafeInt(arg.substring(2));
