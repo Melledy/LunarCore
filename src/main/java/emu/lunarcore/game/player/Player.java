@@ -479,7 +479,7 @@ public class Player {
         return true;
     }
 
-    public void dropMessage(String message) {
+    public void sendMessage(String message) {
         var msg = new ChatMessage(GameConstants.SERVER_CONSOLE_UID, this.getUid(), message);
         this.getChatManager().addChatMessage(msg);
     }

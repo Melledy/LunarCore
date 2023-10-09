@@ -8,7 +8,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 import ch.qos.logback.classic.Logger;
-import emu.lunarcore.commands.ServerCommands;
+import emu.lunarcore.command.CommandManager;
 import emu.lunarcore.data.ResourceLoader;
 import emu.lunarcore.database.DatabaseManager;
 import emu.lunarcore.server.game.GameServer;
@@ -28,6 +28,8 @@ public class LunarRail {
     @Getter private static HttpServer httpServer;
     @Getter private static GameServer gameServer;
 
+    @Getter private static CommandManager commandManager;
+    
     private static ServerType serverType = ServerType.BOTH;
 
     // Load config first before doing anything
@@ -38,6 +40,9 @@ public class LunarRail {
     public static void main(String[] args) {
         // Start Server
         LunarRail.getLogger().info("Starting Lunar Rail...");
+        
+        // Load commands
+        LunarRail.commandManager = new CommandManager();
 
         // Parse arguments
         for (String arg : args) {
@@ -58,7 +63,7 @@ public class LunarRail {
                 return;
             }
         }
-
+        
         // Load resources
         ResourceLoader.loadAll();
 
@@ -127,7 +132,7 @@ public class LunarRail {
         String input;
         try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
             while ((input = br.readLine()) != null) {
-                ServerCommands.handle(input);
+                LunarRail.getCommandManager().invoke(null, input);
             }
         } catch (Exception e) {
             LunarRail.getLogger().error("Console error:", e);

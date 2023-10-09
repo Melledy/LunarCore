@@ -89,6 +89,10 @@ public class Utils {
     }
 
     public static int parseSafeInt(String s) {
+        if (s == null) {
+            return 0;
+        }
+        
         int i = 0;
 
         try {
@@ -101,6 +105,10 @@ public class Utils {
     }
 
     public static long parseSafeLong(String s) {
+        if (s == null) {
+            return 0;
+        }
+        
         long i = 0;
 
         try {

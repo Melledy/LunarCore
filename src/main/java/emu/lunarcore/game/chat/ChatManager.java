@@ -3,7 +3,7 @@ package emu.lunarcore.game.chat;
 import java.util.Collection;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.commands.PlayerCommands;
+import emu.lunarcore.LunarRail;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketRevcMsgScNotify;
@@ -52,7 +52,7 @@ public class ChatManager extends BasePlayerManager {
 
         // Check if command
         if (text.charAt(0) == '!' || text.charAt(0) == '/') {
-            PlayerCommands.handle(getPlayer(), text);
+            LunarRail.getCommandManager().invoke(getPlayer(), text);
             return;
         }
 
