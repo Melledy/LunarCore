@@ -14,9 +14,6 @@ public class PermissionCommand implements CommandHandler {
         if (args.getTarget() == null) {
             this.sendMessage(sender, "Error: Targeted player not found or offline");
             return;
-        } else if (args.size() < 2) {
-            this.sendMessage(sender, "Error: Not enough arguments");
-            return;
         }
         
         String type = args.get(0).toLowerCase();
@@ -25,13 +22,17 @@ public class PermissionCommand implements CommandHandler {
         switch (type) {
             case "add" -> {
                 // Add permission
-                args.getTarget().getAccount().addPermission(permission);
+                if (!permission.isEmpty()) {
+                    args.getTarget().getAccount().addPermission(permission);
+                }
                 // Send message
                 this.sendMessage(sender, "Added permission for " + args.getTarget().getName());
             }
             case "remove" -> {
                 // Remove permission
-                args.getTarget().getAccount().removePermission(permission);
+                if (!permission.isEmpty()) {
+                    args.getTarget().getAccount().removePermission(permission);
+                }
                 // Send message
                 this.sendMessage(sender, "Removed permission for " + args.getTarget().getName());
             }
@@ -42,7 +43,7 @@ public class PermissionCommand implements CommandHandler {
                 this.sendMessage(sender, "Cleared permissions for " + args.getTarget().getName());
             }
             default -> {
-                this.sendMessage(sender, "Error: Invalid argument");
+                this.sendMessage(sender, "Error: Invalid arguments");
             }
         }
     }
