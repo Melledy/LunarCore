@@ -29,7 +29,7 @@ public class LunarRail {
     @Getter private static GameServer gameServer;
 
     @Getter private static CommandManager commandManager;
-    
+
     private static ServerType serverType = ServerType.BOTH;
 
     // Load config first before doing anything
@@ -40,6 +40,7 @@ public class LunarRail {
     public static void main(String[] args) {
         // Start Server
         LunarRail.getLogger().info("Starting Lunar Rail...");
+        boolean generateHandbook = true;
         
         // Load commands
         LunarRail.commandManager = new CommandManager();
@@ -52,6 +53,10 @@ public class LunarRail {
                 break;
             case "-game":
                 serverType = ServerType.GAME;
+                break;
+            case "-nohandbook":
+            case "-skiphandbook":
+                generateHandbook = false;
                 break;
             case "-database":
                 // Database only
@@ -67,8 +72,10 @@ public class LunarRail {
         // Load resources
         ResourceLoader.loadAll();
 
-        // Build handbook TODO
-        Handbook.generate();
+        // Build handbook
+        if (generateHandbook) {
+            Handbook.generate();
+        }
 
         // Start Database(s)
         LunarRail.initDatabases();
