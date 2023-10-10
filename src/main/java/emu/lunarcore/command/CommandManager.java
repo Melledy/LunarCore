@@ -11,10 +11,9 @@ import emu.lunarcore.LunarRail;
 import emu.lunarcore.game.player.Player;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
-import lombok.AccessLevel;
 import lombok.Getter;
 
-@Getter(AccessLevel.PRIVATE)
+@Getter
 public class CommandManager {
     private Object2ObjectMap<String, CommandHandler> labels;
     private Object2ObjectMap<String, CommandHandler> commands;

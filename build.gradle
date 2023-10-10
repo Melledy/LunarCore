@@ -79,6 +79,9 @@ dependencies {
     implementation group: 'de.bwaldvogel', name: 'mongo-java-server', version: '1.44.0'
     implementation group: 'de.bwaldvogel', name: 'mongo-java-server-h2-backend', version: '1.44.0'
     
+    implementation group: 'org.jline', name: 'jline', version: '3.23.0'
+    implementation group: 'org.jline', name: 'jline-terminal-jansi', version: '3.23.0'
+    
     protobuf files('proto/')
 
     compileOnly 'org.projectlombok:lombok:1.18.30'

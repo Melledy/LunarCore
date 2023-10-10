@@ -2,6 +2,11 @@ package emu.lunarcore;
 
 import java.io.*;
 
+import org.jline.reader.EndOfFileException;
+import org.jline.reader.LineReaderBuilder;
+import org.jline.reader.UserInterruptException;
+import org.jline.reader.impl.LineReaderImpl;
+import org.jline.terminal.TerminalBuilder;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
@@ -146,15 +151,26 @@ public class LunarRail {
     }
 
     // Server console
-
+    
     private static void startConsole() {
-        String input;
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
-            while ((input = br.readLine()) != null) {
+        try {
+            LineReaderImpl reader = (LineReaderImpl) LineReaderBuilder.builder()
+                    .terminal(TerminalBuilder.terminal())
+                    .build();
+            
+            while (true) {
+                String input = reader.readLine("> ");
+                if (input == null || input.length() == 0) {
+                    continue;
+                }
+                
                 LunarRail.getCommandManager().invoke(null, input);
-            }
+            } 
+        } catch (UserInterruptException | EndOfFileException e) {
+            // CTRL + C / CTRL + D
+            System.exit(0);
         } catch (Exception e) {
-            LunarRail.getLogger().error("Console error:", e);
+            LunarRail.getLogger().error("Terminal error: ", e);
         }
     }
 
