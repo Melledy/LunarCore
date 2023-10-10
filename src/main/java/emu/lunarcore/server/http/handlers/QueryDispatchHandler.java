@@ -21,7 +21,9 @@ public class QueryDispatchHandler implements Handler {
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
         // Log
-        LunarRail.getLogger().info("Client request: query_dispatch");
+        if (LunarRail.getConfig().getLogOptions().connections) {
+            LunarRail.getLogger().info("Client request: query_dispatch");
+        }
         
         // Build region list
         DispatchRegionData regions = DispatchRegionData.newInstance();

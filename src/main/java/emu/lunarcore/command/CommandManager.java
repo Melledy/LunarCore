@@ -112,16 +112,20 @@ public class CommandManager {
             Command command = handler.getClass().getAnnotation(Command.class);
             // Check permission
             if (this.checkPermission(sender, command)) {
-                // Check targetted permission
+                // Check targeted permission
                 CommandArgs cmdArgs = new CommandArgs(sender, args);
                 if (sender != cmdArgs.getTarget() && !this.checkTargetPermission(sender, command)) {
-                    handler.sendMessage(sender, "You do not have permission to use this command on another player");
+                    handler.sendMessage(sender, "You do not have permission to use this command on another player.");
                     return;
+                }
+                // Log
+                if (sender != null && LunarRail.getConfig().getLogOptions().commands) {
+                    LunarRail.getLogger().info("[UID: " + sender.getUid() + "] " + sender.getName() + " used command: " + message);
                 }
                 // Run command
                 handler.execute(sender, cmdArgs);
             } else {
-                handler.sendMessage(sender, "You do not have permission to use this command");
+                handler.sendMessage(sender, "You do not have permission to use this command.");
             }
         } else {
             if (sender != null) {

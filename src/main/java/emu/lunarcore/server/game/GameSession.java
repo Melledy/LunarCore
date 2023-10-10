@@ -65,11 +65,15 @@ public class GameSession {
     }
 
     public void onConnect() {
-        LunarRail.getLogger().info("Client connected from " + address.getHostString());
+        if (LunarRail.getConfig().getLogOptions().connections) {
+            LunarRail.getLogger().info("Client connected from " + address.getHostString());
+        }
     }
 
     public void onDisconnect() {
-        LunarRail.getLogger().info("Client disconnected from " + address.getHostString());
+        if (LunarRail.getConfig().getLogOptions().connections) {
+            LunarRail.getLogger().info("Client disconnected from " + address.getHostString());
+        }
 
         this.state = SessionState.INACTIVE;
 
@@ -116,7 +120,7 @@ public class GameSession {
                 }
 
                 // Log packet
-                if (LunarRail.getConfig().logPackets) {
+                if (LunarRail.getConfig().getLogOptions().packets) {
                     logPacket("RECV", opcode, data);
                 }
 
@@ -141,7 +145,7 @@ public class GameSession {
         this.send(packet.build());
 
         // Log
-        if (LunarRail.getConfig().logPackets) {
+        if (LunarRail.getConfig().getLogOptions().packets) {
             logPacket("SEND", packet.getOpcode(), packet.getData());
         }
     }

@@ -44,7 +44,9 @@ public class QueryGatewayHandler implements Handler {
         }
 
         // Log
-        LunarRail.getLogger().info("Client request: query_gateway");
+        if (LunarRail.getConfig().getLogOptions().connections) {
+            LunarRail.getLogger().info("Client request: query_gateway");
+        }
 
         // Encode to base64 and send to client
         ctx.result(Utils.base64Encode(gateserver.toByteArray()));
