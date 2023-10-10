@@ -69,21 +69,25 @@ public class LunarRail {
             }
         }
         
-        // Load resources
-        ResourceLoader.loadAll();
+        // Skip these if we are only running the http server in dispatch mode
+        if (serverType.runGame()) {
+            // Load resources
+            ResourceLoader.loadAll();
 
-        // Build handbook
-        if (generateHandbook) {
-            Handbook.generate();
+            // Build handbook
+            if (generateHandbook) {
+                Handbook.generate();
+            }
         }
 
         // Start Database(s)
         LunarRail.initDatabases();
 
-        // Start Servers TODO
+        // Always run http server as it is needed by for dispatch and gateserver
         httpServer = new HttpServer(serverType);
         httpServer.start();
 
+        // Start game server
         if (serverType.runGame()) {
             gameServer = new GameServer(getConfig().getGameServer());
             gameServer.start();
