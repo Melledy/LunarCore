@@ -5,7 +5,7 @@ import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "permission", aliases = {"perm"}, permission = "server.permission")
+@Command(label = "permission", aliases = {"perm"}, permission = "admin.permission")
 public class PermissionCommand implements CommandHandler {
 
     @Override
