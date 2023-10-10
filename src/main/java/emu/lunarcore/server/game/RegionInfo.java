@@ -15,7 +15,6 @@ public class RegionInfo {
     private String desc;
 
     private String gateAddress;
-    private String gameAddress;
 
     @Setter private boolean up;
 
@@ -29,7 +28,6 @@ public class RegionInfo {
         this.name = server.getServerConfig().getName();
         this.desc = server.getServerConfig().getDescription();
         this.gateAddress = LunarRail.getHttpServer().getServerConfig().getDisplayAddress();
-        this.gameAddress = server.getServerConfig().getDisplayAddress();
         this.up = true;
     }
     

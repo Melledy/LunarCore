@@ -3,7 +3,6 @@ package emu.lunarcore.server.http;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.eclipse.jetty.server.HttpConfiguration;
 import org.eclipse.jetty.server.HttpConnectionFactory;
@@ -11,11 +10,13 @@ import org.eclipse.jetty.server.SecureRequestCustomizer;
 import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 
-import emu.lunarcore.Config.ServerConfig;
+import emu.lunarcore.Config.HttpServerConfig;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.LunarRail.ServerType;
+import emu.lunarcore.proto.DispatchRegionDataOuterClass.DispatchRegionData;
 import emu.lunarcore.server.game.RegionInfo;
 import emu.lunarcore.server.http.handlers.*;
+import emu.lunarcore.util.Utils;
 import io.javalin.Javalin;
 import io.javalin.http.ContentType;
 import io.javalin.http.Context;
@@ -31,6 +32,7 @@ public class HttpServer {
     
     private long nextRegionUpdate;
     private Object2ObjectMap<String, RegionInfo> regions;
+    private String regionList;
 
     public HttpServer(ServerType type) {
         this.type = type;
@@ -49,7 +51,7 @@ public class HttpServer {
         return type;
     }
 
-    public ServerConfig getServerConfig() {
+    public HttpServerConfig getServerConfig() {
         return LunarRail.getConfig().getHttpServer();
     }
 
@@ -74,21 +76,30 @@ public class HttpServer {
         this.nextRegionUpdate = 0;
     }
     
-    public Object2ObjectMap<String, RegionInfo> getRegions() {
+    public String getRegionList() {
         synchronized (this.regions) {
-            if (System.currentTimeMillis() > this.nextRegionUpdate) {
+            // Check if region list needs to be cached
+            if (System.currentTimeMillis() > this.nextRegionUpdate || this.regionList == null) {
+                // Clear regions first
                 this.regions.clear();
                 
+                // Pull region infos from database
                 LunarRail.getAccountDatabase().getObjects(RegionInfo.class)
                     .forEach(region -> {
                         this.regions.put(region.getId(), region);
                     });
+
+                // Serialize to proto
+                DispatchRegionData regionData = DispatchRegionData.newInstance();
+                regions.values().stream().map(RegionInfo::toProto).forEach(regionData::addRegionList);
                 
-                this.nextRegionUpdate = System.currentTimeMillis() + 60_000;
+                // Set region list cache
+                this.regionList = Utils.base64Encode(regionData.toByteArray());
+                this.nextRegionUpdate = System.currentTimeMillis() + getServerConfig().regionListRefresh;
             }
-            
-            return regions;
         }
+        
+        return regionList;
     }
 
     public void start() {

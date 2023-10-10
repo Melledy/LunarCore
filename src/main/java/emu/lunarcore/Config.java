@@ -14,8 +14,8 @@ public class Config {
 
     public KeystoreInfo keystore = new KeystoreInfo();
 
-    public ServerConfig httpServer = new ServerConfig("127.0.0.1", 443);
-    public GameServerConfig gameServer = new GameServerConfig("127.0.0.1", 23301);
+    public HttpServerConfig httpServer = new HttpServerConfig(443);
+    public GameServerConfig gameServer = new GameServerConfig(23301);
     
     public ServerOptions serverOptions = new ServerOptions();
     public LogOptions logOptions = new LogOptions();
@@ -45,17 +45,25 @@ public class Config {
     }
 
     @Getter
-    public static class ServerConfig {
+    private static class ServerConfig {
         public String bindAddress = "0.0.0.0";
         public String publicAddress = "127.0.0.1";
         public int port;
-        public boolean useSSL = true;
 
-        public ServerConfig(String address, int port) {
-            this.publicAddress = address;
+        public ServerConfig(int port) {
             this.port = port;
         }
+    }
+    
+    @Getter
+    public static class HttpServerConfig extends ServerConfig {
+        public boolean useSSL = true;
+        public long regionListRefresh = 60_000; // Time in milliseconds to wait before refreshing region list cache again
 
+        public HttpServerConfig(int port) {
+            super(port);
+        }
+        
         public String getDisplayAddress() {
             return (useSSL ? "https" : "http") + "://" + publicAddress + ":" + port;
         }
@@ -67,8 +75,8 @@ public class Config {
         public String name = "Test";
         public String description = "Test Server";
 
-        public GameServerConfig(String address, int port) {
-            super(address, port);
+        public GameServerConfig(int port) {
+            super(port);
         }
     }
     
