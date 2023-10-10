@@ -9,7 +9,6 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.proto.LineupInfoOuterClass.LineupInfo;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import lombok.Getter;
-import lombok.Synchronized;
 
 @Entity(useDiscriminator = false) @Getter
 public class PlayerLineup {
@@ -53,8 +52,7 @@ public class PlayerLineup {
         this.name = name;
     }
 
-    @Synchronized
-    public List<Integer> getAvatars() {
+    public synchronized List<Integer> getAvatars() {
         return avatars;
     }
 
