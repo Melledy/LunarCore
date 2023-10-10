@@ -52,6 +52,9 @@ public class ChallengeManager extends BasePlayerManager {
             lineup.setMp(5);
         }
         
+        // Set first lineup before we enter scenes
+        getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE_VALUE, false);
+        
         // Enter scene
         boolean success = getPlayer().enterScene(excel.getMapEntranceID(), 0, false);
         if (success == false) {
@@ -60,10 +63,8 @@ public class ChallengeManager extends BasePlayerManager {
         
         // Set challenge data for player
         ChallengeData data = new ChallengeData(getPlayer(), excel);
-        
         getPlayer().setChallengeData(data);
-        getPlayer().getLineupManager().setCurrentExtraLineup(data.getCurrentExtraLineup(), false);
-        
+
         // Send packet
         getPlayer().sendPacket(new PacketStartChallengeScRsp(getPlayer(), challengeId));
     }
