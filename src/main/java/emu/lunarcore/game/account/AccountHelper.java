@@ -8,7 +8,7 @@ import emu.lunarcore.LunarRail;
 public class AccountHelper {
 
     public static boolean createAccount(String username, String password, int reservedUid) {
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "name", username);
+        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "username", username);
         
         if (account != null) {
             return false;
@@ -22,7 +22,7 @@ public class AccountHelper {
     }
     
     public static boolean deleteAccount(String username) {
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "name", username);
+        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "username", username);
 
         if (account == null) {
             return false;
