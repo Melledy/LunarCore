@@ -25,6 +25,7 @@ import dev.morphia.query.filters.Filters;
 import emu.lunarcore.Config.DatabaseInfo;
 import emu.lunarcore.Config.InternalMongoInfo;
 import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarRail.ServerType;
 
 public final class DatabaseManager {
     private MongoServer server;
@@ -35,7 +36,7 @@ public final class DatabaseManager {
 
     }
 
-    public DatabaseManager(DatabaseInfo info) {
+    public DatabaseManager(DatabaseInfo info, ServerType type) {
         // Variables
         String connectionString = info.getUri();
 
@@ -58,16 +59,31 @@ public final class DatabaseManager {
         datastore = Morphia.createDatastore(gameMongoClient, info.getCollection(), mapperOptions);
 
         // Map classes
-        Class<?>[] entities = new Reflections(LunarRail.class.getPackageName())
+        var entities = new Reflections(LunarRail.class.getPackageName())
                 .getTypesAnnotatedWith(Entity.class)
                 .stream()
                 .filter(cls -> {
                     Entity e = cls.getAnnotation(Entity.class);
                     return e != null && !e.value().equals(Mapper.IGNORED_FIELDNAME);
                 })
-                .toArray(Class<?>[]::new);
-
-        datastore.getMapper().map(entities);
+                .toList();
+        
+        if (type.runDispatch()) {
+            // Only map account related entities
+            var map = entities.stream().filter(cls -> {
+                return cls.getAnnotation(AccountDatabaseOnly.class) != null;
+            }).toArray(Class<?>[]::new);
+            
+            datastore.getMapper().map(map);
+        }
+        if (type.runGame()) {
+            // Only map game related entities
+            var map = entities.stream().filter(cls -> {
+                return cls.getAnnotation(AccountDatabaseOnly.class) == null;
+            }).toArray(Class<?>[]::new);
+            
+            datastore.getMapper().map(map);
+        }
 
         // Ensure indexes
         ensureIndexes();

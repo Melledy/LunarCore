@@ -3,11 +3,13 @@ package emu.lunarcore.server.game;
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import emu.lunarcore.LunarRail;
+import emu.lunarcore.database.AccountDatabaseOnly;
 import emu.lunarcore.proto.RegionEntryOuterClass.RegionEntry;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
+@AccountDatabaseOnly
 @Entity(value = "regions", useDiscriminator = false)
 public class RegionInfo {
     @Id private String id;

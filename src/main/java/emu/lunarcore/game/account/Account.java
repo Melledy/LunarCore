@@ -5,12 +5,14 @@ import java.util.stream.Stream;
 
 import dev.morphia.annotations.*;
 import emu.lunarcore.LunarRail;
+import emu.lunarcore.database.AccountDatabaseOnly;
 import emu.lunarcore.util.Crypto;
 import emu.lunarcore.util.Snowflake32;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
 
 @Getter
+@AccountDatabaseOnly
 @Entity(value = "accounts", useDiscriminator = false)
 public class Account {
     @Id private String uid;

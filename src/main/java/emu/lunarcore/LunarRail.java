@@ -108,12 +108,20 @@ public class LunarRail {
     // Database
 
     private static void initDatabases() {
-        accountDatabase = new DatabaseManager(LunarRail.getConfig().getAccountDatabase());
-
         if (LunarRail.getConfig().useSameDatabase) {
-            gameDatabase = accountDatabase;
+            // Setup account and game database
+            accountDatabase = new DatabaseManager(LunarRail.getConfig().getAccountDatabase(), serverType);
+            // Optimization: Dont run a 2nd database manager if we are not running a gameserver
+            if (serverType.runGame()) {
+                gameDatabase = accountDatabase;
+            }
         } else {
-            gameDatabase = new DatabaseManager(LunarRail.getConfig().getGameDatabase());
+            // Run separate databases
+            accountDatabase = new DatabaseManager(LunarRail.getConfig().getAccountDatabase(), ServerType.DISPATCH);
+            // Optimization: Dont run a 2nd database manager if we are not running a gameserver
+            if (serverType.runGame()) {
+                gameDatabase = new DatabaseManager(LunarRail.getConfig().getGameDatabase(), ServerType.GAME);
+            }
         }
     }
 
@@ -153,24 +161,22 @@ public class LunarRail {
     // Server enums
 
     public enum ServerType {
-        BOTH        (true, true),
-        DISPATCH    (true, false),
-        GAME        (false, true);
+        DISPATCH    (0x1),
+        GAME        (0x2),
+        BOTH        (0x3);
 
-        private final boolean runDispatch;
-        private final boolean runGame;
+        private final int flags;
 
-        private ServerType(boolean runDispatch, boolean runGame) {
-            this.runDispatch = runDispatch;
-            this.runGame = runGame;
+        private ServerType(int flags) {
+            this.flags = flags;
         }
 
         public boolean runDispatch() {
-            return runDispatch;
+            return (this.flags & 0x1) == 0x1;
         }
 
         public boolean runGame() {
-            return runGame;
+            return (this.flags & 0x2) == 0x2;
         }
     }
 }
