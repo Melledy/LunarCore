@@ -125,7 +125,7 @@ public class ChallengeData {
                 if (this.currentStage >= excel.getStageNum()) {
                     // Last stage
                     this.status = ChallengeStatus.CHALLENGE_FINISH;
-                    this.stars = 9; // TODO calculate the right amount stars
+                    this.stars = 7; // TODO calculate the right amount stars
                     // Save history
                     player.getChallengeManager().addHistory(this.getChallengeId(), this.getStars());
                     // Send challenge result data
