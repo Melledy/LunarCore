@@ -59,9 +59,9 @@ tmp/
 .directory
 
 # Lunar Rail generated/resource/log folders
-src/generated
 /resources
 /logs
+/proto
 
 # Lunar Rail compiled
 /*.jar
