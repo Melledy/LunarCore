@@ -89,6 +89,7 @@ public class GameServer extends KcpServer {
         // Setup region info
         this.info.setUp(true);
         this.info.save();
+        LunarRail.getHttpServer().forceRegionListRefresh();
 
         // Done
         LunarRail.getLogger().info("Game Server started on " + address.getPort());

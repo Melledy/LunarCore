@@ -1,5 +1,10 @@
 package emu.lunarcore.server.http;
 
+import java.util.LinkedList;
+import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
+
 import org.eclipse.jetty.server.HttpConfiguration;
 import org.eclipse.jetty.server.HttpConnectionFactory;
 import org.eclipse.jetty.server.SecureRequestCustomizer;
@@ -9,19 +14,29 @@ import org.eclipse.jetty.util.ssl.SslContextFactory;
 import emu.lunarcore.Config.ServerConfig;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.LunarRail.ServerType;
+import emu.lunarcore.server.game.RegionInfo;
 import emu.lunarcore.server.http.handlers.*;
 import io.javalin.Javalin;
 import io.javalin.http.ContentType;
 import io.javalin.http.Context;
+import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
+import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 
 public class HttpServer {
     private final Javalin app;
     private final ServerType type;
+    
+    private List<String> modes;
     private boolean started;
+    
+    private long nextRegionUpdate;
+    private Object2ObjectMap<String, RegionInfo> regions;
 
     public HttpServer(ServerType type) {
         this.type = type;
         this.app = Javalin.create();
+        this.modes = new LinkedList<>();
+        this.regions = new Object2ObjectOpenHashMap<>();
 
         this.addRoutes();
     }
@@ -54,6 +69,27 @@ public class HttpServer {
         sslContextFactory.setRenegotiationAllowed(false);
         return sslContextFactory;
     }
+    
+    public void forceRegionListRefresh() {
+        this.nextRegionUpdate = 0;
+    }
+    
+    public Object2ObjectMap<String, RegionInfo> getRegions() {
+        synchronized (this.regions) {
+            if (System.currentTimeMillis() > this.nextRegionUpdate) {
+                this.regions.clear();
+                
+                LunarRail.getAccountDatabase().getObjects(RegionInfo.class)
+                    .forEach(region -> {
+                        this.regions.put(region.getId(), region);
+                    });
+                
+                this.nextRegionUpdate = System.currentTimeMillis() + 60_000;
+            }
+            
+            return regions;
+        }
+    }
 
     public void start() {
         if (this.started) return;
@@ -72,6 +108,7 @@ public class HttpServer {
         }
 
         // Done
+        LunarRail.getLogger().info("Http Server running as: " + this.modes.stream().collect(Collectors.joining(", ")));
         LunarRail.getLogger().info("Http Server started on " + getServerConfig().getPort());
     }
 
@@ -91,7 +128,7 @@ public class HttpServer {
 
     private void addDispatchRoutes() {
         // Get region info
-        getApp().get("/query_dispatch", new QueryDispatchHandler());
+        getApp().get("/query_dispatch", new QueryDispatchHandler(this));
 
         // Captcha -> api-account-os.hoyoverse.com
         getApp().post("/account/risky/api/check", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"id\":\"none\",\"action\":\"ACTION_NONE\",\"geetest\":null}}"));
@@ -126,6 +163,9 @@ public class HttpServer {
 
         // abtest-api-data-sg.hoyoverse.com
         getApp().post("/data_abtest_api/config/experiment/list", new HttpJsonResponse("{\"retcode\":0,\"success\":true,\"message\":\"\",\"data\":[{\"code\":1000,\"type\":2,\"config_id\":\"14\",\"period_id\":\"6125_197\",\"version\":\"1\",\"configs\":{\"cardType\":\"direct\"}}]}"));
+    
+        // Add mode
+        this.modes.add("DISPATCH");
     }
 
     private void addLogServerRoutes() {
@@ -143,6 +183,9 @@ public class HttpServer {
     private void addGateServerRoutes() {
         // Gateway info
         getApp().get("/query_gateway", new QueryGatewayHandler());
+        
+        // Add mode
+        this.modes.add("GATESERVER");
     }
 
     private void notFoundHandler(Context ctx) {
