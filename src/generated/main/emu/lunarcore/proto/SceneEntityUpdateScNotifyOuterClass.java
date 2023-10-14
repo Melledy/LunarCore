@@ -20,10 +20,6 @@ public final class SceneEntityUpdateScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     *  52
-     * </pre>
-     *
      * <code>repeated .SceneEntityInfo entity_list = 11;</code>
      */
     private final RepeatedMessage<SceneEntityInfoOuterClass.SceneEntityInfo> entityList = RepeatedMessage.newEmptyInstance(SceneEntityInfoOuterClass.SceneEntityInfo.getFactory());
@@ -39,10 +35,6 @@ public final class SceneEntityUpdateScNotifyOuterClass {
     }
 
     /**
-     * <pre>
-     *  52
-     * </pre>
-     *
      * <code>repeated .SceneEntityInfo entity_list = 11;</code>
      * @return whether the entityList field is set
      */
@@ -51,10 +43,6 @@ public final class SceneEntityUpdateScNotifyOuterClass {
     }
 
     /**
-     * <pre>
-     *  52
-     * </pre>
-     *
      * <code>repeated .SceneEntityInfo entity_list = 11;</code>
      * @return this
      */
@@ -65,10 +53,6 @@ public final class SceneEntityUpdateScNotifyOuterClass {
     }
 
     /**
-     * <pre>
-     *  52
-     * </pre>
-     *
      * <code>repeated .SceneEntityInfo entity_list = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
@@ -83,10 +67,6 @@ public final class SceneEntityUpdateScNotifyOuterClass {
     }
 
     /**
-     * <pre>
-     *  52
-     * </pre>
-     *
      * <code>repeated .SceneEntityInfo entity_list = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
@@ -101,10 +81,6 @@ public final class SceneEntityUpdateScNotifyOuterClass {
     }
 
     /**
-     * <pre>
-     *  52
-     * </pre>
-     *
      * <code>repeated .SceneEntityInfo entity_list = 11;</code>
      * @param value the entityList to add
      * @return this
@@ -117,10 +93,6 @@ public final class SceneEntityUpdateScNotifyOuterClass {
     }
 
     /**
-     * <pre>
-     *  52
-     * </pre>
-     *
      * <code>repeated .SceneEntityInfo entity_list = 11;</code>
      * @param values the entityList to add
      * @return this

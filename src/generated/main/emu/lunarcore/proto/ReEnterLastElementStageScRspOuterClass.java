@@ -19,21 +19,17 @@ public final class ReEnterLastElementStageScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 stage_id = 2;</code>
+     * <code>optional uint32 stage_id = 10;</code>
      */
     private int stageId;
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 10;</code>
+     * <code>optional .SceneBattleInfo battle_info = 6;</code>
      */
     private final SceneBattleInfoOuterClass.SceneBattleInfo battleInfo = SceneBattleInfoOuterClass.SceneBattleInfo.newInstance();
 
@@ -48,7 +44,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 2;</code>
+     * <code>optional uint32 stage_id = 10;</code>
      * @return whether the stageId field is set
      */
     public boolean hasStageId() {
@@ -56,7 +52,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 2;</code>
+     * <code>optional uint32 stage_id = 10;</code>
      * @return this
      */
     public ReEnterLastElementStageScRsp clearStageId() {
@@ -66,7 +62,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 2;</code>
+     * <code>optional uint32 stage_id = 10;</code>
      * @return the stageId
      */
     public int getStageId() {
@@ -74,7 +70,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 2;</code>
+     * <code>optional uint32 stage_id = 10;</code>
      * @param value the stageId to set
      * @return this
      */
@@ -85,11 +81,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -97,11 +89,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public ReEnterLastElementStageScRsp clearRetcode() {
@@ -111,11 +99,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -123,11 +107,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -138,7 +118,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 10;</code>
+     * <code>optional .SceneBattleInfo battle_info = 6;</code>
      * @return whether the battleInfo field is set
      */
     public boolean hasBattleInfo() {
@@ -146,7 +126,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 10;</code>
+     * <code>optional .SceneBattleInfo battle_info = 6;</code>
      * @return this
      */
     public ReEnterLastElementStageScRsp clearBattleInfo() {
@@ -156,7 +136,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 10;</code>
+     * <code>optional .SceneBattleInfo battle_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -170,7 +150,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 10;</code>
+     * <code>optional .SceneBattleInfo battle_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -184,7 +164,7 @@ public final class ReEnterLastElementStageScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 10;</code>
+     * <code>optional .SceneBattleInfo battle_info = 6;</code>
      * @param value the battleInfo to set
      * @return this
      */
@@ -267,15 +247,15 @@ public final class ReEnterLastElementStageScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(stageId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 82);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(battleInfo);
       }
     }
@@ -302,25 +282,25 @@ public final class ReEnterLastElementStageScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 80: {
             // stageId
             stageId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 96) {
               break;
             }
           }
-          case 64: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 50) {
               break;
             }
           }
-          case 82: {
+          case 50: {
             // battleInfo
             input.readMessage(battleInfo);
             bitField0_ |= 0x00000004;

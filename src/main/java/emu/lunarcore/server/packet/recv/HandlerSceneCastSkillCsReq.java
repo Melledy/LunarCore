@@ -20,7 +20,7 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
         boolean castedSkill = false;
         
         // Check if player casted a maze skill
-        if (req.getSkillIndex() > 0 && session.getPlayer().getScene().getAvatarEntityIds().contains(req.getAttackerId())) {
+        if (req.getSkillIndex() > 0 && session.getPlayer().getScene().getAvatarEntityIds().contains(req.getCasterId())) {
             // Spend one skill point
             session.getPlayer().getCurrentLineup().removeMp(1);
             session.send(new PacketSceneCastSkillMpUpdateScNotify(req.getAttackedGroupId(), session.getPlayer().getLineupManager().getMp()));
@@ -35,7 +35,7 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
         }
         
         if (req.hasAttackedEntityIdList()) {
-            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getAttackerId(), req.getAttackedGroupId(), castedSkill, req.getAttackedEntityIdList());
+            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getCasterId(), req.getAttackedGroupId(), castedSkill, req.getAttackedEntityIdList());
         } else {
             session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
         }

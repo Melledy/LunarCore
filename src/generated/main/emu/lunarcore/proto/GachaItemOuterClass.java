@@ -19,7 +19,7 @@ public final class GachaItemOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool is_new = 11;</code>
+     * <code>optional bool is_new = 5;</code>
      */
     private boolean isNew;
 
@@ -29,7 +29,7 @@ public final class GachaItemOuterClass {
     private final ItemListOuterClass.ItemList tokenItem = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <code>optional .Item gacha_item = 7;</code>
+     * <code>optional .Item gacha_item = 13;</code>
      */
     private final ItemOuterClass.Item gachaItem = ItemOuterClass.Item.newInstance();
 
@@ -49,7 +49,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional bool is_new = 11;</code>
+     * <code>optional bool is_new = 5;</code>
      * @return whether the isNew field is set
      */
     public boolean hasIsNew() {
@@ -57,7 +57,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional bool is_new = 11;</code>
+     * <code>optional bool is_new = 5;</code>
      * @return this
      */
     public GachaItem clearIsNew() {
@@ -67,7 +67,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional bool is_new = 11;</code>
+     * <code>optional bool is_new = 5;</code>
      * @return the isNew
      */
     public boolean getIsNew() {
@@ -75,7 +75,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional bool is_new = 11;</code>
+     * <code>optional bool is_new = 5;</code>
      * @param value the isNew to set
      * @return this
      */
@@ -143,7 +143,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional .Item gacha_item = 7;</code>
+     * <code>optional .Item gacha_item = 13;</code>
      * @return whether the gachaItem field is set
      */
     public boolean hasGachaItem() {
@@ -151,7 +151,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional .Item gacha_item = 7;</code>
+     * <code>optional .Item gacha_item = 13;</code>
      * @return this
      */
     public GachaItem clearGachaItem() {
@@ -161,7 +161,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional .Item gacha_item = 7;</code>
+     * <code>optional .Item gacha_item = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -175,7 +175,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional .Item gacha_item = 7;</code>
+     * <code>optional .Item gacha_item = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -189,7 +189,7 @@ public final class GachaItemOuterClass {
     }
 
     /**
-     * <code>optional .Item gacha_item = 7;</code>
+     * <code>optional .Item gacha_item = 13;</code>
      * @param value the gachaItem to set
      * @return this
      */
@@ -336,7 +336,7 @@ public final class GachaItemOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 40);
         output.writeBoolNoTag(isNew);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -344,7 +344,7 @@ public final class GachaItemOuterClass {
         output.writeMessageNoTag(tokenItem);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 106);
         output.writeMessageNoTag(gachaItem);
       }
       if ((bitField0_ & 0x00000008) != 0) {
@@ -378,7 +378,7 @@ public final class GachaItemOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 40: {
             // isNew
             isNew = input.readBool();
             bitField0_ |= 0x00000001;
@@ -392,11 +392,11 @@ public final class GachaItemOuterClass {
             input.readMessage(tokenItem);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 106) {
               break;
             }
           }
-          case 58: {
+          case 106: {
             // gachaItem
             input.readMessage(gachaItem);
             bitField0_ |= 0x00000004;

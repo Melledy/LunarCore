@@ -24,7 +24,7 @@ public final class DressAvatarCsReqOuterClass {
     private int equipmentUniqueId;
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      */
     private int baseAvatarId;
 
@@ -76,7 +76,7 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -84,7 +84,7 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @return this
      */
     public DressAvatarCsReq clearBaseAvatarId() {
@@ -94,7 +94,7 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -102,7 +102,7 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class DressAvatarCsReqOuterClass {
         output.writeUInt32NoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(baseAvatarId);
       }
     }
@@ -210,11 +210,11 @@ public final class DressAvatarCsReqOuterClass {
             equipmentUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 120) {
               break;
             }
           }
-          case 96: {
+          case 120: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000002;

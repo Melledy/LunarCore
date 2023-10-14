@@ -21,48 +21,34 @@ public final class GetSceneMapInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 cur_map_entry_id = 9;</code>
-     */
-    private int curMapEntryId;
-
-    /**
-     * <code>optional uint32 entry_id = 12;</code>
+     * <code>optional uint32 entry_id = 14;</code>
      */
     private int entryId;
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 10;</code>
+     * <code>optional uint32 cur_map_entry_id = 15;</code>
      */
-    private boolean dBHFEKHNIIH;
+    private int curMapEntryId;
 
     /**
-     * <code>repeated uint32 PLHHEJPGCNP = 1;</code>
+     * <code>repeated uint32 unlocked_teleport_list = 10;</code>
      */
-    private final RepeatedInt pLHHEJPGCNP = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt unlockedTeleportList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 PEJMPFBLINI = 4;</code>
+     * <code>repeated uint32 lighten_section_list = 12;</code>
      */
-    private final RepeatedInt pEJMPFBLINI = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt lightenSectionList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .MazeProp maze_prop_list = 3;</code>
+     * <code>repeated .MazeProp maze_prop_list = 4;</code>
      */
     private final RepeatedMessage<MazePropOuterClass.MazeProp> mazePropList = RepeatedMessage.newEmptyInstance(MazePropOuterClass.MazeProp.getFactory());
-
-    /**
-     * <code>repeated .MazeGroup maze_group_list = 5;</code>
-     */
-    private final RepeatedMessage<MazeGroupOuterClass.MazeGroup> mazeGroupList = RepeatedMessage.newEmptyInstance(MazeGroupOuterClass.MazeGroup.getFactory());
 
     /**
      * <code>repeated .MazeChest unlocked_chest_list = 6;</code>
@@ -73,6 +59,11 @@ public final class GetSceneMapInfoScRspOuterClass {
      * <code>repeated .MazeMapData map_list = 7;</code>
      */
     private final RepeatedMessage<MazeMapDataOuterClass.MazeMapData> mapList = RepeatedMessage.newEmptyInstance(MazeMapDataOuterClass.MazeMapData.getFactory());
+
+    /**
+     * <code>repeated .MazeGroup maze_group_list = 11;</code>
+     */
+    private final RepeatedMessage<MazeGroupOuterClass.MazeGroup> mazeGroupList = RepeatedMessage.newEmptyInstance(MazeGroupOuterClass.MazeGroup.getFactory());
 
     private GetSceneMapInfoScRsp() {
     }
@@ -85,11 +76,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -97,11 +84,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return this
      */
     public GetSceneMapInfoScRsp clearRetcode() {
@@ -111,11 +94,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -123,11 +102,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -138,62 +113,25 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_map_entry_id = 9;</code>
-     * @return whether the curMapEntryId field is set
+     * <code>optional uint32 entry_id = 14;</code>
+     * @return whether the entryId field is set
      */
-    public boolean hasCurMapEntryId() {
+    public boolean hasEntryId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 cur_map_entry_id = 9;</code>
-     * @return this
-     */
-    public GetSceneMapInfoScRsp clearCurMapEntryId() {
-      bitField0_ &= ~0x00000002;
-      curMapEntryId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 cur_map_entry_id = 9;</code>
-     * @return the curMapEntryId
-     */
-    public int getCurMapEntryId() {
-      return curMapEntryId;
-    }
-
-    /**
-     * <code>optional uint32 cur_map_entry_id = 9;</code>
-     * @param value the curMapEntryId to set
-     * @return this
-     */
-    public GetSceneMapInfoScRsp setCurMapEntryId(final int value) {
-      bitField0_ |= 0x00000002;
-      curMapEntryId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 12;</code>
-     * @return whether the entryId field is set
-     */
-    public boolean hasEntryId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 12;</code>
+     * <code>optional uint32 entry_id = 14;</code>
      * @return this
      */
     public GetSceneMapInfoScRsp clearEntryId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       entryId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 entry_id = 12;</code>
+     * <code>optional uint32 entry_id = 14;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -201,87 +139,155 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 12;</code>
+     * <code>optional uint32 entry_id = 14;</code>
      * @param value the entryId to set
      * @return this
      */
     public GetSceneMapInfoScRsp setEntryId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       entryId = value;
       return this;
     }
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 10;</code>
-     * @return whether the dBHFEKHNIIH field is set
+     * <code>optional uint32 cur_map_entry_id = 15;</code>
+     * @return whether the curMapEntryId field is set
      */
-    public boolean hasDBHFEKHNIIH() {
+    public boolean hasCurMapEntryId() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 cur_map_entry_id = 15;</code>
+     * @return this
+     */
+    public GetSceneMapInfoScRsp clearCurMapEntryId() {
+      bitField0_ &= ~0x00000004;
+      curMapEntryId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 cur_map_entry_id = 15;</code>
+     * @return the curMapEntryId
+     */
+    public int getCurMapEntryId() {
+      return curMapEntryId;
+    }
+
+    /**
+     * <code>optional uint32 cur_map_entry_id = 15;</code>
+     * @param value the curMapEntryId to set
+     * @return this
+     */
+    public GetSceneMapInfoScRsp setCurMapEntryId(final int value) {
+      bitField0_ |= 0x00000004;
+      curMapEntryId = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 unlocked_teleport_list = 10;</code>
+     * @return whether the unlockedTeleportList field is set
+     */
+    public boolean hasUnlockedTeleportList() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 10;</code>
+     * <code>repeated uint32 unlocked_teleport_list = 10;</code>
      * @return this
      */
-    public GetSceneMapInfoScRsp clearDBHFEKHNIIH() {
+    public GetSceneMapInfoScRsp clearUnlockedTeleportList() {
       bitField0_ &= ~0x00000008;
-      dBHFEKHNIIH = false;
+      unlockedTeleportList.clear();
       return this;
     }
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 10;</code>
-     * @return the dBHFEKHNIIH
+     * <code>repeated uint32 unlocked_teleport_list = 10;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableUnlockedTeleportList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
      */
-    public boolean getDBHFEKHNIIH() {
-      return dBHFEKHNIIH;
+    public RepeatedInt getUnlockedTeleportList() {
+      return unlockedTeleportList;
     }
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 10;</code>
-     * @param value the dBHFEKHNIIH to set
+     * <code>repeated uint32 unlocked_teleport_list = 10;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableUnlockedTeleportList() {
+      bitField0_ |= 0x00000008;
+      return unlockedTeleportList;
+    }
+
+    /**
+     * <code>repeated uint32 unlocked_teleport_list = 10;</code>
+     * @param value the unlockedTeleportList to add
      * @return this
      */
-    public GetSceneMapInfoScRsp setDBHFEKHNIIH(final boolean value) {
+    public GetSceneMapInfoScRsp addUnlockedTeleportList(final int value) {
       bitField0_ |= 0x00000008;
-      dBHFEKHNIIH = value;
+      unlockedTeleportList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 PLHHEJPGCNP = 1;</code>
-     * @return whether the pLHHEJPGCNP field is set
+     * <code>repeated uint32 unlocked_teleport_list = 10;</code>
+     * @param values the unlockedTeleportList to add
+     * @return this
      */
-    public boolean hasPLHHEJPGCNP() {
+    public GetSceneMapInfoScRsp addAllUnlockedTeleportList(final int... values) {
+      bitField0_ |= 0x00000008;
+      unlockedTeleportList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 lighten_section_list = 12;</code>
+     * @return whether the lightenSectionList field is set
+     */
+    public boolean hasLightenSectionList() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>repeated uint32 PLHHEJPGCNP = 1;</code>
+     * <code>repeated uint32 lighten_section_list = 12;</code>
      * @return this
      */
-    public GetSceneMapInfoScRsp clearPLHHEJPGCNP() {
+    public GetSceneMapInfoScRsp clearLightenSectionList() {
       bitField0_ &= ~0x00000010;
-      pLHHEJPGCNP.clear();
+      lightenSectionList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 PLHHEJPGCNP = 1;</code>
+     * <code>repeated uint32 lighten_section_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutablePLHHEJPGCNP()} if you want to modify it.
+     * Use {@link #getMutableLightenSectionList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getPLHHEJPGCNP() {
-      return pLHHEJPGCNP;
+    public RepeatedInt getLightenSectionList() {
+      return lightenSectionList;
     }
 
     /**
-     * <code>repeated uint32 PLHHEJPGCNP = 1;</code>
+     * <code>repeated uint32 lighten_section_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -289,121 +295,53 @@ public final class GetSceneMapInfoScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutablePLHHEJPGCNP() {
+    public RepeatedInt getMutableLightenSectionList() {
       bitField0_ |= 0x00000010;
-      return pLHHEJPGCNP;
+      return lightenSectionList;
     }
 
     /**
-     * <code>repeated uint32 PLHHEJPGCNP = 1;</code>
-     * @param value the pLHHEJPGCNP to add
+     * <code>repeated uint32 lighten_section_list = 12;</code>
+     * @param value the lightenSectionList to add
      * @return this
      */
-    public GetSceneMapInfoScRsp addPLHHEJPGCNP(final int value) {
+    public GetSceneMapInfoScRsp addLightenSectionList(final int value) {
       bitField0_ |= 0x00000010;
-      pLHHEJPGCNP.add(value);
+      lightenSectionList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 PLHHEJPGCNP = 1;</code>
-     * @param values the pLHHEJPGCNP to add
+     * <code>repeated uint32 lighten_section_list = 12;</code>
+     * @param values the lightenSectionList to add
      * @return this
      */
-    public GetSceneMapInfoScRsp addAllPLHHEJPGCNP(final int... values) {
+    public GetSceneMapInfoScRsp addAllLightenSectionList(final int... values) {
       bitField0_ |= 0x00000010;
-      pLHHEJPGCNP.addAll(values);
+      lightenSectionList.addAll(values);
       return this;
     }
 
     /**
-     * <code>repeated uint32 PEJMPFBLINI = 4;</code>
-     * @return whether the pEJMPFBLINI field is set
+     * <code>repeated .MazeProp maze_prop_list = 4;</code>
+     * @return whether the mazePropList field is set
      */
-    public boolean hasPEJMPFBLINI() {
+    public boolean hasMazePropList() {
       return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
-     * <code>repeated uint32 PEJMPFBLINI = 4;</code>
-     * @return this
-     */
-    public GetSceneMapInfoScRsp clearPEJMPFBLINI() {
-      bitField0_ &= ~0x00000020;
-      pEJMPFBLINI.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 PEJMPFBLINI = 4;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutablePEJMPFBLINI()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getPEJMPFBLINI() {
-      return pEJMPFBLINI;
-    }
-
-    /**
-     * <code>repeated uint32 PEJMPFBLINI = 4;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutablePEJMPFBLINI() {
-      bitField0_ |= 0x00000020;
-      return pEJMPFBLINI;
-    }
-
-    /**
-     * <code>repeated uint32 PEJMPFBLINI = 4;</code>
-     * @param value the pEJMPFBLINI to add
-     * @return this
-     */
-    public GetSceneMapInfoScRsp addPEJMPFBLINI(final int value) {
-      bitField0_ |= 0x00000020;
-      pEJMPFBLINI.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 PEJMPFBLINI = 4;</code>
-     * @param values the pEJMPFBLINI to add
-     * @return this
-     */
-    public GetSceneMapInfoScRsp addAllPEJMPFBLINI(final int... values) {
-      bitField0_ |= 0x00000020;
-      pEJMPFBLINI.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated .MazeProp maze_prop_list = 3;</code>
-     * @return whether the mazePropList field is set
-     */
-    public boolean hasMazePropList() {
-      return (bitField0_ & 0x00000040) != 0;
-    }
-
-    /**
-     * <code>repeated .MazeProp maze_prop_list = 3;</code>
+     * <code>repeated .MazeProp maze_prop_list = 4;</code>
      * @return this
      */
     public GetSceneMapInfoScRsp clearMazePropList() {
-      bitField0_ &= ~0x00000040;
+      bitField0_ &= ~0x00000020;
       mazePropList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .MazeProp maze_prop_list = 3;</code>
+     * <code>repeated .MazeProp maze_prop_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -417,7 +355,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeProp maze_prop_list = 3;</code>
+     * <code>repeated .MazeProp maze_prop_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -426,97 +364,29 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<MazePropOuterClass.MazeProp> getMutableMazePropList() {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       return mazePropList;
     }
 
     /**
-     * <code>repeated .MazeProp maze_prop_list = 3;</code>
+     * <code>repeated .MazeProp maze_prop_list = 4;</code>
      * @param value the mazePropList to add
      * @return this
      */
     public GetSceneMapInfoScRsp addMazePropList(final MazePropOuterClass.MazeProp value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       mazePropList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .MazeProp maze_prop_list = 3;</code>
+     * <code>repeated .MazeProp maze_prop_list = 4;</code>
      * @param values the mazePropList to add
      * @return this
      */
     public GetSceneMapInfoScRsp addAllMazePropList(final MazePropOuterClass.MazeProp... values) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000020;
       mazePropList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated .MazeGroup maze_group_list = 5;</code>
-     * @return whether the mazeGroupList field is set
-     */
-    public boolean hasMazeGroupList() {
-      return (bitField0_ & 0x00000080) != 0;
-    }
-
-    /**
-     * <code>repeated .MazeGroup maze_group_list = 5;</code>
-     * @return this
-     */
-    public GetSceneMapInfoScRsp clearMazeGroupList() {
-      bitField0_ &= ~0x00000080;
-      mazeGroupList.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated .MazeGroup maze_group_list = 5;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableMazeGroupList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedMessage<MazeGroupOuterClass.MazeGroup> getMazeGroupList() {
-      return mazeGroupList;
-    }
-
-    /**
-     * <code>repeated .MazeGroup maze_group_list = 5;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedMessage<MazeGroupOuterClass.MazeGroup> getMutableMazeGroupList() {
-      bitField0_ |= 0x00000080;
-      return mazeGroupList;
-    }
-
-    /**
-     * <code>repeated .MazeGroup maze_group_list = 5;</code>
-     * @param value the mazeGroupList to add
-     * @return this
-     */
-    public GetSceneMapInfoScRsp addMazeGroupList(final MazeGroupOuterClass.MazeGroup value) {
-      bitField0_ |= 0x00000080;
-      mazeGroupList.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated .MazeGroup maze_group_list = 5;</code>
-     * @param values the mazeGroupList to add
-     * @return this
-     */
-    public GetSceneMapInfoScRsp addAllMazeGroupList(final MazeGroupOuterClass.MazeGroup... values) {
-      bitField0_ |= 0x00000080;
-      mazeGroupList.addAll(values);
       return this;
     }
 
@@ -525,7 +395,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return whether the unlockedChestList field is set
      */
     public boolean hasUnlockedChestList() {
-      return (bitField0_ & 0x00000100) != 0;
+      return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
@@ -533,7 +403,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return this
      */
     public GetSceneMapInfoScRsp clearUnlockedChestList() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000040;
       unlockedChestList.clear();
       return this;
     }
@@ -562,7 +432,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<MazeChestOuterClass.MazeChest> getMutableUnlockedChestList() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000040;
       return unlockedChestList;
     }
 
@@ -572,7 +442,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return this
      */
     public GetSceneMapInfoScRsp addUnlockedChestList(final MazeChestOuterClass.MazeChest value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000040;
       unlockedChestList.add(value);
       return this;
     }
@@ -584,7 +454,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      */
     public GetSceneMapInfoScRsp addAllUnlockedChestList(
         final MazeChestOuterClass.MazeChest... values) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000040;
       unlockedChestList.addAll(values);
       return this;
     }
@@ -594,7 +464,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return whether the mapList field is set
      */
     public boolean hasMapList() {
-      return (bitField0_ & 0x00000200) != 0;
+      return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
@@ -602,7 +472,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return this
      */
     public GetSceneMapInfoScRsp clearMapList() {
-      bitField0_ &= ~0x00000200;
+      bitField0_ &= ~0x00000080;
       mapList.clear();
       return this;
     }
@@ -631,7 +501,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<MazeMapDataOuterClass.MazeMapData> getMutableMapList() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000080;
       return mapList;
     }
 
@@ -641,7 +511,7 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return this
      */
     public GetSceneMapInfoScRsp addMapList(final MazeMapDataOuterClass.MazeMapData value) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000080;
       mapList.add(value);
       return this;
     }
@@ -652,8 +522,76 @@ public final class GetSceneMapInfoScRspOuterClass {
      * @return this
      */
     public GetSceneMapInfoScRsp addAllMapList(final MazeMapDataOuterClass.MazeMapData... values) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000080;
       mapList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .MazeGroup maze_group_list = 11;</code>
+     * @return whether the mazeGroupList field is set
+     */
+    public boolean hasMazeGroupList() {
+      return (bitField0_ & 0x00000100) != 0;
+    }
+
+    /**
+     * <code>repeated .MazeGroup maze_group_list = 11;</code>
+     * @return this
+     */
+    public GetSceneMapInfoScRsp clearMazeGroupList() {
+      bitField0_ &= ~0x00000100;
+      mazeGroupList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .MazeGroup maze_group_list = 11;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableMazeGroupList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<MazeGroupOuterClass.MazeGroup> getMazeGroupList() {
+      return mazeGroupList;
+    }
+
+    /**
+     * <code>repeated .MazeGroup maze_group_list = 11;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<MazeGroupOuterClass.MazeGroup> getMutableMazeGroupList() {
+      bitField0_ |= 0x00000100;
+      return mazeGroupList;
+    }
+
+    /**
+     * <code>repeated .MazeGroup maze_group_list = 11;</code>
+     * @param value the mazeGroupList to add
+     * @return this
+     */
+    public GetSceneMapInfoScRsp addMazeGroupList(final MazeGroupOuterClass.MazeGroup value) {
+      bitField0_ |= 0x00000100;
+      mazeGroupList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .MazeGroup maze_group_list = 11;</code>
+     * @param values the mazeGroupList to add
+     * @return this
+     */
+    public GetSceneMapInfoScRsp addAllMazeGroupList(final MazeGroupOuterClass.MazeGroup... values) {
+      bitField0_ |= 0x00000100;
+      mazeGroupList.addAll(values);
       return this;
     }
 
@@ -663,15 +601,14 @@ public final class GetSceneMapInfoScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        curMapEntryId = other.curMapEntryId;
         entryId = other.entryId;
-        dBHFEKHNIIH = other.dBHFEKHNIIH;
-        pLHHEJPGCNP.copyFrom(other.pLHHEJPGCNP);
-        pEJMPFBLINI.copyFrom(other.pEJMPFBLINI);
+        curMapEntryId = other.curMapEntryId;
+        unlockedTeleportList.copyFrom(other.unlockedTeleportList);
+        lightenSectionList.copyFrom(other.lightenSectionList);
         mazePropList.copyFrom(other.mazePropList);
-        mazeGroupList.copyFrom(other.mazeGroupList);
         unlockedChestList.copyFrom(other.unlockedChestList);
         mapList.copyFrom(other.mapList);
+        mazeGroupList.copyFrom(other.mazeGroupList);
       }
       return this;
     }
@@ -685,32 +622,29 @@ public final class GetSceneMapInfoScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasCurMapEntryId()) {
-        setCurMapEntryId(other.curMapEntryId);
-      }
       if (other.hasEntryId()) {
         setEntryId(other.entryId);
       }
-      if (other.hasDBHFEKHNIIH()) {
-        setDBHFEKHNIIH(other.dBHFEKHNIIH);
+      if (other.hasCurMapEntryId()) {
+        setCurMapEntryId(other.curMapEntryId);
       }
-      if (other.hasPLHHEJPGCNP()) {
-        getMutablePLHHEJPGCNP().addAll(other.pLHHEJPGCNP);
+      if (other.hasUnlockedTeleportList()) {
+        getMutableUnlockedTeleportList().addAll(other.unlockedTeleportList);
       }
-      if (other.hasPEJMPFBLINI()) {
-        getMutablePEJMPFBLINI().addAll(other.pEJMPFBLINI);
+      if (other.hasLightenSectionList()) {
+        getMutableLightenSectionList().addAll(other.lightenSectionList);
       }
       if (other.hasMazePropList()) {
         getMutableMazePropList().addAll(other.mazePropList);
-      }
-      if (other.hasMazeGroupList()) {
-        getMutableMazeGroupList().addAll(other.mazeGroupList);
       }
       if (other.hasUnlockedChestList()) {
         getMutableUnlockedChestList().addAll(other.unlockedChestList);
       }
       if (other.hasMapList()) {
         getMutableMapList().addAll(other.mapList);
+      }
+      if (other.hasMazeGroupList()) {
+        getMutableMazeGroupList().addAll(other.mazeGroupList);
       }
       return this;
     }
@@ -723,15 +657,14 @@ public final class GetSceneMapInfoScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      curMapEntryId = 0;
       entryId = 0;
-      dBHFEKHNIIH = false;
-      pLHHEJPGCNP.clear();
-      pEJMPFBLINI.clear();
+      curMapEntryId = 0;
+      unlockedTeleportList.clear();
+      lightenSectionList.clear();
       mazePropList.clear();
-      mazeGroupList.clear();
       unlockedChestList.clear();
       mapList.clear();
+      mazeGroupList.clear();
       return this;
     }
 
@@ -742,12 +675,12 @@ public final class GetSceneMapInfoScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      pLHHEJPGCNP.clear();
-      pEJMPFBLINI.clear();
+      unlockedTeleportList.clear();
+      lightenSectionList.clear();
       mazePropList.clearQuick();
-      mazeGroupList.clearQuick();
       unlockedChestList.clearQuick();
       mapList.clearQuick();
+      mazeGroupList.clearQuick();
       return this;
     }
 
@@ -762,69 +695,64 @@ public final class GetSceneMapInfoScRspOuterClass {
       GetSceneMapInfoScRsp other = (GetSceneMapInfoScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasCurMapEntryId() || curMapEntryId == other.curMapEntryId)
         && (!hasEntryId() || entryId == other.entryId)
-        && (!hasDBHFEKHNIIH() || dBHFEKHNIIH == other.dBHFEKHNIIH)
-        && (!hasPLHHEJPGCNP() || pLHHEJPGCNP.equals(other.pLHHEJPGCNP))
-        && (!hasPEJMPFBLINI() || pEJMPFBLINI.equals(other.pEJMPFBLINI))
+        && (!hasCurMapEntryId() || curMapEntryId == other.curMapEntryId)
+        && (!hasUnlockedTeleportList() || unlockedTeleportList.equals(other.unlockedTeleportList))
+        && (!hasLightenSectionList() || lightenSectionList.equals(other.lightenSectionList))
         && (!hasMazePropList() || mazePropList.equals(other.mazePropList))
-        && (!hasMazeGroupList() || mazeGroupList.equals(other.mazeGroupList))
         && (!hasUnlockedChestList() || unlockedChestList.equals(other.unlockedChestList))
-        && (!hasMapList() || mapList.equals(other.mapList));
+        && (!hasMapList() || mapList.equals(other.mapList))
+        && (!hasMazeGroupList() || mazeGroupList.equals(other.mazeGroupList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(curMapEntryId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(entryId);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(curMapEntryId);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeBoolNoTag(dBHFEKHNIIH);
+        for (int i = 0; i < unlockedTeleportList.length(); i++) {
+          output.writeRawByte((byte) 80);
+          output.writeUInt32NoTag(unlockedTeleportList.array()[i]);
+        }
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        for (int i = 0; i < pLHHEJPGCNP.length(); i++) {
-          output.writeRawByte((byte) 8);
-          output.writeUInt32NoTag(pLHHEJPGCNP.array()[i]);
+        for (int i = 0; i < lightenSectionList.length(); i++) {
+          output.writeRawByte((byte) 96);
+          output.writeUInt32NoTag(lightenSectionList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        for (int i = 0; i < pEJMPFBLINI.length(); i++) {
-          output.writeRawByte((byte) 32);
-          output.writeUInt32NoTag(pEJMPFBLINI.array()[i]);
-        }
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
         for (int i = 0; i < mazePropList.length(); i++) {
-          output.writeRawByte((byte) 26);
+          output.writeRawByte((byte) 34);
           output.writeMessageNoTag(mazePropList.get(i));
         }
       }
-      if ((bitField0_ & 0x00000080) != 0) {
-        for (int i = 0; i < mazeGroupList.length(); i++) {
-          output.writeRawByte((byte) 42);
-          output.writeMessageNoTag(mazeGroupList.get(i));
-        }
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         for (int i = 0; i < unlockedChestList.length(); i++) {
           output.writeRawByte((byte) 50);
           output.writeMessageNoTag(unlockedChestList.get(i));
         }
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         for (int i = 0; i < mapList.length(); i++) {
           output.writeRawByte((byte) 58);
           output.writeMessageNoTag(mapList.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        for (int i = 0; i < mazeGroupList.length(); i++) {
+          output.writeRawByte((byte) 90);
+          output.writeMessageNoTag(mazeGroupList.get(i));
         }
       }
     }
@@ -836,31 +764,28 @@ public final class GetSceneMapInfoScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(curMapEntryId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(curMapEntryId);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 2;
+        size += (1 * unlockedTeleportList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(unlockedTeleportList);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += (1 * pLHHEJPGCNP.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(pLHHEJPGCNP);
+        size += (1 * lightenSectionList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(lightenSectionList);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += (1 * pEJMPFBLINI.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(pEJMPFBLINI);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
         size += (1 * mazePropList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(mazePropList);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
-        size += (1 * mazeGroupList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(mazeGroupList);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         size += (1 * unlockedChestList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(unlockedChestList);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         size += (1 * mapList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(mapList);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        size += (1 * mazeGroupList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(mazeGroupList);
       }
       return size;
     }
@@ -872,45 +797,45 @@ public final class GetSceneMapInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 8: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 112) {
               break;
             }
           }
-          case 72: {
-            // curMapEntryId
-            curMapEntryId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
+          case 112: {
             // entryId
             entryId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // curMapEntryId
+            curMapEntryId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 82) {
               break;
             }
           }
-          case 80: {
-            // dBHFEKHNIIH
-            dBHFEKHNIIH = input.readBool();
+          case 82: {
+            // unlockedTeleportList [packed=true]
+            input.readPackedUInt32(unlockedTeleportList, tag);
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 98) {
               break;
             }
           }
-          case 10: {
-            // pLHHEJPGCNP [packed=true]
-            input.readPackedUInt32(pLHHEJPGCNP, tag);
+          case 98: {
+            // lightenSectionList [packed=true]
+            input.readPackedUInt32(lightenSectionList, tag);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 34) {
@@ -918,26 +843,9 @@ public final class GetSceneMapInfoScRspOuterClass {
             }
           }
           case 34: {
-            // pEJMPFBLINI [packed=true]
-            input.readPackedUInt32(pEJMPFBLINI, tag);
-            bitField0_ |= 0x00000020;
-            tag = input.readTag();
-            if (tag != 26) {
-              break;
-            }
-          }
-          case 26: {
             // mazePropList
             tag = input.readRepeatedMessage(mazePropList, tag);
-            bitField0_ |= 0x00000040;
-            if (tag != 42) {
-              break;
-            }
-          }
-          case 42: {
-            // mazeGroupList
-            tag = input.readRepeatedMessage(mazeGroupList, tag);
-            bitField0_ |= 0x00000080;
+            bitField0_ |= 0x00000020;
             if (tag != 50) {
               break;
             }
@@ -945,7 +853,7 @@ public final class GetSceneMapInfoScRspOuterClass {
           case 50: {
             // unlockedChestList
             tag = input.readRepeatedMessage(unlockedChestList, tag);
-            bitField0_ |= 0x00000100;
+            bitField0_ |= 0x00000040;
             if (tag != 58) {
               break;
             }
@@ -953,7 +861,15 @@ public final class GetSceneMapInfoScRspOuterClass {
           case 58: {
             // mapList
             tag = input.readRepeatedMessage(mapList, tag);
-            bitField0_ |= 0x00000200;
+            bitField0_ |= 0x00000080;
+            if (tag != 90) {
+              break;
+            }
+          }
+          case 90: {
+            // mazeGroupList
+            tag = input.readRepeatedMessage(mazeGroupList, tag);
+            bitField0_ |= 0x00000100;
             if (tag != 0) {
               break;
             }
@@ -968,16 +884,16 @@ public final class GetSceneMapInfoScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 8: {
-            // pLHHEJPGCNP [packed=false]
-            tag = input.readRepeatedUInt32(pLHHEJPGCNP, tag);
-            bitField0_ |= 0x00000010;
+          case 80: {
+            // unlockedTeleportList [packed=false]
+            tag = input.readRepeatedUInt32(unlockedTeleportList, tag);
+            bitField0_ |= 0x00000008;
             break;
           }
-          case 32: {
-            // pEJMPFBLINI [packed=false]
-            tag = input.readRepeatedUInt32(pEJMPFBLINI, tag);
-            bitField0_ |= 0x00000020;
+          case 96: {
+            // lightenSectionList [packed=false]
+            tag = input.readRepeatedUInt32(lightenSectionList, tag);
+            bitField0_ |= 0x00000010;
             break;
           }
         }
@@ -991,31 +907,28 @@ public final class GetSceneMapInfoScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.curMapEntryId, curMapEntryId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.entryId, entryId);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.curMapEntryId, curMapEntryId);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeBool(FieldNames.dBHFEKHNIIH, dBHFEKHNIIH);
+        output.writeRepeatedUInt32(FieldNames.unlockedTeleportList, unlockedTeleportList);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRepeatedUInt32(FieldNames.pLHHEJPGCNP, pLHHEJPGCNP);
+        output.writeRepeatedUInt32(FieldNames.lightenSectionList, lightenSectionList);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRepeatedUInt32(FieldNames.pEJMPFBLINI, pEJMPFBLINI);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
         output.writeRepeatedMessage(FieldNames.mazePropList, mazePropList);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRepeatedMessage(FieldNames.mazeGroupList, mazeGroupList);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         output.writeRepeatedMessage(FieldNames.unlockedChestList, unlockedChestList);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeRepeatedMessage(FieldNames.mapList, mapList);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        output.writeRepeatedMessage(FieldNames.mazeGroupList, mazeGroupList);
       }
       output.endObject();
     }
@@ -1038,11 +951,11 @@ public final class GetSceneMapInfoScRspOuterClass {
             }
             break;
           }
-          case 764919441:
-          case 2115673898: {
-            if (input.isAtField(FieldNames.curMapEntryId)) {
+          case -1591558867:
+          case -2093663224: {
+            if (input.isAtField(FieldNames.entryId)) {
               if (!input.trySkipNullValue()) {
-                curMapEntryId = input.readUInt32();
+                entryId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -1050,11 +963,11 @@ public final class GetSceneMapInfoScRspOuterClass {
             }
             break;
           }
-          case -1591558867:
-          case -2093663224: {
-            if (input.isAtField(FieldNames.entryId)) {
+          case 764919441:
+          case 2115673898: {
+            if (input.isAtField(FieldNames.curMapEntryId)) {
               if (!input.trySkipNullValue()) {
-                entryId = input.readUInt32();
+                curMapEntryId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -1062,10 +975,11 @@ public final class GetSceneMapInfoScRspOuterClass {
             }
             break;
           }
-          case 1755627008: {
-            if (input.isAtField(FieldNames.dBHFEKHNIIH)) {
+          case 856936684:
+          case -10753834: {
+            if (input.isAtField(FieldNames.unlockedTeleportList)) {
               if (!input.trySkipNullValue()) {
-                dBHFEKHNIIH = input.readBool();
+                input.readRepeatedUInt32(unlockedTeleportList);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -1073,22 +987,12 @@ public final class GetSceneMapInfoScRspOuterClass {
             }
             break;
           }
-          case -1128889619: {
-            if (input.isAtField(FieldNames.pLHHEJPGCNP)) {
+          case -1942343836:
+          case 1328850360: {
+            if (input.isAtField(FieldNames.lightenSectionList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(pLHHEJPGCNP);
+                input.readRepeatedUInt32(lightenSectionList);
                 bitField0_ |= 0x00000010;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 2096195084: {
-            if (input.isAtField(FieldNames.pEJMPFBLINI)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(pEJMPFBLINI);
-                bitField0_ |= 0x00000020;
               }
             } else {
               input.skipUnknownField();
@@ -1100,19 +1004,7 @@ public final class GetSceneMapInfoScRspOuterClass {
             if (input.isAtField(FieldNames.mazePropList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(mazePropList);
-                bitField0_ |= 0x00000040;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -317054274:
-          case 407435998: {
-            if (input.isAtField(FieldNames.mazeGroupList)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(mazeGroupList);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000020;
               }
             } else {
               input.skipUnknownField();
@@ -1124,7 +1016,7 @@ public final class GetSceneMapInfoScRspOuterClass {
             if (input.isAtField(FieldNames.unlockedChestList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(unlockedChestList);
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -1136,7 +1028,19 @@ public final class GetSceneMapInfoScRspOuterClass {
             if (input.isAtField(FieldNames.mapList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(mapList);
-                bitField0_ |= 0x00000200;
+                bitField0_ |= 0x00000080;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -317054274:
+          case 407435998: {
+            if (input.isAtField(FieldNames.mazeGroupList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(mazeGroupList);
+                bitField0_ |= 0x00000100;
               }
             } else {
               input.skipUnknownField();
@@ -1198,23 +1102,21 @@ public final class GetSceneMapInfoScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
-      static final FieldName curMapEntryId = FieldName.forField("curMapEntryId", "cur_map_entry_id");
-
       static final FieldName entryId = FieldName.forField("entryId", "entry_id");
 
-      static final FieldName dBHFEKHNIIH = FieldName.forField("DBHFEKHNIIH");
+      static final FieldName curMapEntryId = FieldName.forField("curMapEntryId", "cur_map_entry_id");
 
-      static final FieldName pLHHEJPGCNP = FieldName.forField("PLHHEJPGCNP");
+      static final FieldName unlockedTeleportList = FieldName.forField("unlockedTeleportList", "unlocked_teleport_list");
 
-      static final FieldName pEJMPFBLINI = FieldName.forField("PEJMPFBLINI");
+      static final FieldName lightenSectionList = FieldName.forField("lightenSectionList", "lighten_section_list");
 
       static final FieldName mazePropList = FieldName.forField("mazePropList", "maze_prop_list");
-
-      static final FieldName mazeGroupList = FieldName.forField("mazeGroupList", "maze_group_list");
 
       static final FieldName unlockedChestList = FieldName.forField("unlockedChestList", "unlocked_chest_list");
 
       static final FieldName mapList = FieldName.forField("mapList", "map_list");
+
+      static final FieldName mazeGroupList = FieldName.forField("mazeGroupList", "maze_group_list");
     }
   }
 }

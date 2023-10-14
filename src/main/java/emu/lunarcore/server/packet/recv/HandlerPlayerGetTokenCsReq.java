@@ -20,7 +20,7 @@ public class HandlerPlayerGetTokenCsReq extends PacketHandler {
         var req = PlayerGetTokenCsReq.parseFrom(data);
 
         // Authenticate
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "_id", req.getUid());
+        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "_id", req.getAccountUid());
         if (account == null || !account.getComboToken().equals(req.getToken())) {
             return;
         }

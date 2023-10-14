@@ -20,12 +20,7 @@ public final class SetNicknameCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool PLHEIKJBKKL = 3;</code>
-     */
-    private boolean pLHEIKJBKKL;
-
-    /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 12;</code>
      */
     private final Utf8String nickname = Utf8String.newEmptyInstance();
 
@@ -40,62 +35,25 @@ public final class SetNicknameCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool PLHEIKJBKKL = 3;</code>
-     * @return whether the pLHEIKJBKKL field is set
+     * <code>optional string nickname = 12;</code>
+     * @return whether the nickname field is set
      */
-    public boolean hasPLHEIKJBKKL() {
+    public boolean hasNickname() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional bool PLHEIKJBKKL = 3;</code>
-     * @return this
-     */
-    public SetNicknameCsReq clearPLHEIKJBKKL() {
-      bitField0_ &= ~0x00000001;
-      pLHEIKJBKKL = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool PLHEIKJBKKL = 3;</code>
-     * @return the pLHEIKJBKKL
-     */
-    public boolean getPLHEIKJBKKL() {
-      return pLHEIKJBKKL;
-    }
-
-    /**
-     * <code>optional bool PLHEIKJBKKL = 3;</code>
-     * @param value the pLHEIKJBKKL to set
-     * @return this
-     */
-    public SetNicknameCsReq setPLHEIKJBKKL(final boolean value) {
-      bitField0_ |= 0x00000001;
-      pLHEIKJBKKL = value;
-      return this;
-    }
-
-    /**
-     * <code>optional string nickname = 13;</code>
-     * @return whether the nickname field is set
-     */
-    public boolean hasNickname() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 12;</code>
      * @return this
      */
     public SetNicknameCsReq clearNickname() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       nickname.clear();
       return this;
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 12;</code>
      * @return the nickname
      */
     public String getNickname() {
@@ -103,7 +61,7 @@ public final class SetNicknameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 12;</code>
      * @return internal {@code Utf8String} representation of nickname for reading
      */
     public Utf8String getNicknameBytes() {
@@ -111,32 +69,32 @@ public final class SetNicknameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 12;</code>
      * @return internal {@code Utf8String} representation of nickname for modifications
      */
     public Utf8String getMutableNicknameBytes() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       return this.nickname;
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 12;</code>
      * @param value the nickname to set
      * @return this
      */
     public SetNicknameCsReq setNickname(final CharSequence value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       nickname.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 12;</code>
      * @param value the nickname to set
      * @return this
      */
     public SetNicknameCsReq setNickname(final Utf8String value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       nickname.copyFrom(value);
       return this;
     }
@@ -146,7 +104,6 @@ public final class SetNicknameCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        pLHEIKJBKKL = other.pLHEIKJBKKL;
         nickname.copyFrom(other.nickname);
       }
       return this;
@@ -158,9 +115,6 @@ public final class SetNicknameCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPLHEIKJBKKL()) {
-        setPLHEIKJBKKL(other.pLHEIKJBKKL);
-      }
       if (other.hasNickname()) {
         getMutableNicknameBytes().copyFrom(other.nickname);
       }
@@ -174,7 +128,6 @@ public final class SetNicknameCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      pLHEIKJBKKL = false;
       nickname.clear();
       return this;
     }
@@ -200,18 +153,13 @@ public final class SetNicknameCsReqOuterClass {
       }
       SetNicknameCsReq other = (SetNicknameCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasPLHEIKJBKKL() || pLHEIKJBKKL == other.pLHEIKJBKKL)
         && (!hasNickname() || nickname.equals(other.nickname));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeBoolNoTag(pLHEIKJBKKL);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 98);
         output.writeStringNoTag(nickname);
       }
     }
@@ -220,9 +168,6 @@ public final class SetNicknameCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 2;
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeStringSizeNoTag(nickname);
       }
       return size;
@@ -235,19 +180,10 @@ public final class SetNicknameCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // pLHEIKJBKKL
-            pLHEIKJBKKL = input.readBool();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 106) {
-              break;
-            }
-          }
-          case 106: {
+          case 98: {
             // nickname
             input.readString(nickname);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -271,9 +207,6 @@ public final class SetNicknameCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeBool(FieldNames.pLHEIKJBKKL, pLHEIKJBKKL);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeString(FieldNames.nickname, nickname);
       }
       output.endObject();
@@ -286,22 +219,11 @@ public final class SetNicknameCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1510608057: {
-            if (input.isAtField(FieldNames.pLHEIKJBKKL)) {
-              if (!input.trySkipNullValue()) {
-                pLHEIKJBKKL = input.readBool();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 70690926: {
             if (input.isAtField(FieldNames.nickname)) {
               if (!input.trySkipNullValue()) {
                 input.readString(nickname);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -361,8 +283,6 @@ public final class SetNicknameCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName pLHEIKJBKKL = FieldName.forField("PLHEIKJBKKL");
-
       static final FieldName nickname = FieldName.forField("nickname");
     }
   }

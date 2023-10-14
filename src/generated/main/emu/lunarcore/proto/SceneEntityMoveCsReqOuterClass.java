@@ -20,17 +20,12 @@ public final class SceneEntityMoveCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 ECMCBPIJPMF = 10;</code>
-     */
-    private long eCMCBPIJPMF;
-
-    /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 10;</code>
      */
     private int entryId;
 
     /**
-     * <code>repeated .EntityMotion entity_motion_list = 5;</code>
+     * <code>repeated .EntityMotion entity_motion_list = 11;</code>
      */
     private final RepeatedMessage<EntityMotionOuterClass.EntityMotion> entityMotionList = RepeatedMessage.newEmptyInstance(EntityMotionOuterClass.EntityMotion.getFactory());
 
@@ -45,62 +40,25 @@ public final class SceneEntityMoveCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 ECMCBPIJPMF = 10;</code>
-     * @return whether the eCMCBPIJPMF field is set
+     * <code>optional uint32 entry_id = 10;</code>
+     * @return whether the entryId field is set
      */
-    public boolean hasECMCBPIJPMF() {
+    public boolean hasEntryId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint64 ECMCBPIJPMF = 10;</code>
-     * @return this
-     */
-    public SceneEntityMoveCsReq clearECMCBPIJPMF() {
-      bitField0_ &= ~0x00000001;
-      eCMCBPIJPMF = 0L;
-      return this;
-    }
-
-    /**
-     * <code>optional uint64 ECMCBPIJPMF = 10;</code>
-     * @return the eCMCBPIJPMF
-     */
-    public long getECMCBPIJPMF() {
-      return eCMCBPIJPMF;
-    }
-
-    /**
-     * <code>optional uint64 ECMCBPIJPMF = 10;</code>
-     * @param value the eCMCBPIJPMF to set
-     * @return this
-     */
-    public SceneEntityMoveCsReq setECMCBPIJPMF(final long value) {
-      bitField0_ |= 0x00000001;
-      eCMCBPIJPMF = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 9;</code>
-     * @return whether the entryId field is set
-     */
-    public boolean hasEntryId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 10;</code>
      * @return this
      */
     public SceneEntityMoveCsReq clearEntryId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       entryId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 10;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -108,36 +66,36 @@ public final class SceneEntityMoveCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 10;</code>
      * @param value the entryId to set
      * @return this
      */
     public SceneEntityMoveCsReq setEntryId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       entryId = value;
       return this;
     }
 
     /**
-     * <code>repeated .EntityMotion entity_motion_list = 5;</code>
+     * <code>repeated .EntityMotion entity_motion_list = 11;</code>
      * @return whether the entityMotionList field is set
      */
     public boolean hasEntityMotionList() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>repeated .EntityMotion entity_motion_list = 5;</code>
+     * <code>repeated .EntityMotion entity_motion_list = 11;</code>
      * @return this
      */
     public SceneEntityMoveCsReq clearEntityMotionList() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       entityMotionList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .EntityMotion entity_motion_list = 5;</code>
+     * <code>repeated .EntityMotion entity_motion_list = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +109,7 @@ public final class SceneEntityMoveCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .EntityMotion entity_motion_list = 5;</code>
+     * <code>repeated .EntityMotion entity_motion_list = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -160,30 +118,30 @@ public final class SceneEntityMoveCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<EntityMotionOuterClass.EntityMotion> getMutableEntityMotionList() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       return entityMotionList;
     }
 
     /**
-     * <code>repeated .EntityMotion entity_motion_list = 5;</code>
+     * <code>repeated .EntityMotion entity_motion_list = 11;</code>
      * @param value the entityMotionList to add
      * @return this
      */
     public SceneEntityMoveCsReq addEntityMotionList(
         final EntityMotionOuterClass.EntityMotion value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       entityMotionList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .EntityMotion entity_motion_list = 5;</code>
+     * <code>repeated .EntityMotion entity_motion_list = 11;</code>
      * @param values the entityMotionList to add
      * @return this
      */
     public SceneEntityMoveCsReq addAllEntityMotionList(
         final EntityMotionOuterClass.EntityMotion... values) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       entityMotionList.addAll(values);
       return this;
     }
@@ -193,7 +151,6 @@ public final class SceneEntityMoveCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        eCMCBPIJPMF = other.eCMCBPIJPMF;
         entryId = other.entryId;
         entityMotionList.copyFrom(other.entityMotionList);
       }
@@ -206,9 +163,6 @@ public final class SceneEntityMoveCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasECMCBPIJPMF()) {
-        setECMCBPIJPMF(other.eCMCBPIJPMF);
-      }
       if (other.hasEntryId()) {
         setEntryId(other.entryId);
       }
@@ -225,7 +179,6 @@ public final class SceneEntityMoveCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      eCMCBPIJPMF = 0L;
       entryId = 0;
       entityMotionList.clear();
       return this;
@@ -252,7 +205,6 @@ public final class SceneEntityMoveCsReqOuterClass {
       }
       SceneEntityMoveCsReq other = (SceneEntityMoveCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasECMCBPIJPMF() || eCMCBPIJPMF == other.eCMCBPIJPMF)
         && (!hasEntryId() || entryId == other.entryId)
         && (!hasEntityMotionList() || entityMotionList.equals(other.entityMotionList));
     }
@@ -261,15 +213,11 @@ public final class SceneEntityMoveCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt64NoTag(eCMCBPIJPMF);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(entryId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < entityMotionList.length(); i++) {
-          output.writeRawByte((byte) 42);
+          output.writeRawByte((byte) 90);
           output.writeMessageNoTag(entityMotionList.get(i));
         }
       }
@@ -279,12 +227,9 @@ public final class SceneEntityMoveCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt64SizeNoTag(eCMCBPIJPMF);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * entityMotionList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(entityMotionList);
       }
       return size;
@@ -298,27 +243,18 @@ public final class SceneEntityMoveCsReqOuterClass {
       while (true) {
         switch (tag) {
           case 80: {
-            // eCMCBPIJPMF
-            eCMCBPIJPMF = input.readUInt64();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 72) {
-              break;
-            }
-          }
-          case 72: {
             // entryId
             entryId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 90) {
               break;
             }
           }
-          case 42: {
+          case 90: {
             // entityMotionList
             tag = input.readRepeatedMessage(entityMotionList, tag);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             if (tag != 0) {
               break;
             }
@@ -341,12 +277,9 @@ public final class SceneEntityMoveCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt64(FieldNames.eCMCBPIJPMF, eCMCBPIJPMF);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.entryId, entryId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedMessage(FieldNames.entityMotionList, entityMotionList);
       }
       output.endObject();
@@ -359,23 +292,12 @@ public final class SceneEntityMoveCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 157773926: {
-            if (input.isAtField(FieldNames.eCMCBPIJPMF)) {
-              if (!input.trySkipNullValue()) {
-                eCMCBPIJPMF = input.readUInt64();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1591558867:
           case -2093663224: {
             if (input.isAtField(FieldNames.entryId)) {
               if (!input.trySkipNullValue()) {
                 entryId = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -387,7 +309,7 @@ public final class SceneEntityMoveCsReqOuterClass {
             if (input.isAtField(FieldNames.entityMotionList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(entityMotionList);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -447,8 +369,6 @@ public final class SceneEntityMoveCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName eCMCBPIJPMF = FieldName.forField("ECMCBPIJPMF");
-
       static final FieldName entryId = FieldName.forField("entryId", "entry_id");
 
       static final FieldName entityMotionList = FieldName.forField("entityMotionList", "entity_motion_list");

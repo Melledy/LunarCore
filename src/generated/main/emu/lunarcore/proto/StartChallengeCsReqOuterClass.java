@@ -19,12 +19,7 @@ public final class StartChallengeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 OGAEOEHBKKJ = 6;</code>
-     */
-    private int oGAEOEHBKKJ;
-
-    /**
-     * <code>optional uint32 challenge_id = 13;</code>
+     * <code>optional uint32 challenge_id = 7;</code>
      */
     private int challengeId;
 
@@ -39,62 +34,25 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 OGAEOEHBKKJ = 6;</code>
-     * @return whether the oGAEOEHBKKJ field is set
+     * <code>optional uint32 challenge_id = 7;</code>
+     * @return whether the challengeId field is set
      */
-    public boolean hasOGAEOEHBKKJ() {
+    public boolean hasChallengeId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 OGAEOEHBKKJ = 6;</code>
-     * @return this
-     */
-    public StartChallengeCsReq clearOGAEOEHBKKJ() {
-      bitField0_ &= ~0x00000001;
-      oGAEOEHBKKJ = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 OGAEOEHBKKJ = 6;</code>
-     * @return the oGAEOEHBKKJ
-     */
-    public int getOGAEOEHBKKJ() {
-      return oGAEOEHBKKJ;
-    }
-
-    /**
-     * <code>optional uint32 OGAEOEHBKKJ = 6;</code>
-     * @param value the oGAEOEHBKKJ to set
-     * @return this
-     */
-    public StartChallengeCsReq setOGAEOEHBKKJ(final int value) {
-      bitField0_ |= 0x00000001;
-      oGAEOEHBKKJ = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 13;</code>
-     * @return whether the challengeId field is set
-     */
-    public boolean hasChallengeId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 13;</code>
+     * <code>optional uint32 challenge_id = 7;</code>
      * @return this
      */
     public StartChallengeCsReq clearChallengeId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       challengeId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 challenge_id = 13;</code>
+     * <code>optional uint32 challenge_id = 7;</code>
      * @return the challengeId
      */
     public int getChallengeId() {
@@ -102,12 +60,12 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 13;</code>
+     * <code>optional uint32 challenge_id = 7;</code>
      * @param value the challengeId to set
      * @return this
      */
     public StartChallengeCsReq setChallengeId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       challengeId = value;
       return this;
     }
@@ -117,7 +75,6 @@ public final class StartChallengeCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        oGAEOEHBKKJ = other.oGAEOEHBKKJ;
         challengeId = other.challengeId;
       }
       return this;
@@ -129,9 +86,6 @@ public final class StartChallengeCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasOGAEOEHBKKJ()) {
-        setOGAEOEHBKKJ(other.oGAEOEHBKKJ);
-      }
       if (other.hasChallengeId()) {
         setChallengeId(other.challengeId);
       }
@@ -145,7 +99,6 @@ public final class StartChallengeCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      oGAEOEHBKKJ = 0;
       challengeId = 0;
       return this;
     }
@@ -170,18 +123,13 @@ public final class StartChallengeCsReqOuterClass {
       }
       StartChallengeCsReq other = (StartChallengeCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasOGAEOEHBKKJ() || oGAEOEHBKKJ == other.oGAEOEHBKKJ)
         && (!hasChallengeId() || challengeId == other.challengeId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(oGAEOEHBKKJ);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(challengeId);
       }
     }
@@ -190,9 +138,6 @@ public final class StartChallengeCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(oGAEOEHBKKJ);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
       }
       return size;
@@ -205,19 +150,10 @@ public final class StartChallengeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // oGAEOEHBKKJ
-            oGAEOEHBKKJ = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
+          case 56: {
             // challengeId
             challengeId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -241,9 +177,6 @@ public final class StartChallengeCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.oGAEOEHBKKJ, oGAEOEHBKKJ);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.challengeId, challengeId);
       }
       output.endObject();
@@ -256,23 +189,12 @@ public final class StartChallengeCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 618871838: {
-            if (input.isAtField(FieldNames.oGAEOEHBKKJ)) {
-              if (!input.trySkipNullValue()) {
-                oGAEOEHBKKJ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -689112866:
           case 112359031: {
             if (input.isAtField(FieldNames.challengeId)) {
               if (!input.trySkipNullValue()) {
                 challengeId = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -332,8 +254,6 @@ public final class StartChallengeCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName oGAEOEHBKKJ = FieldName.forField("OGAEOEHBKKJ");
-
       static final FieldName challengeId = FieldName.forField("challengeId", "challenge_id");
     }
   }

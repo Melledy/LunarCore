@@ -30,7 +30,7 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void startBattle(Player player, int attackerId, int attackedGroupId, boolean castedSkill, RepeatedInt attackedList) {
+    public void startBattle(Player player, int casterId, int attackedGroupId, boolean castedSkill, RepeatedInt attackedList) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
             player.sendPacket(new PacketSceneCastSkillScRsp());
@@ -44,7 +44,7 @@ public class BattleService extends BaseGameService {
         boolean isPlayerCaster = false; // Set true if the player is the one casting
         
         // Check if attacker is the player or not
-        if (player.getScene().getAvatarEntityIds().contains(attackerId)) {
+        if (player.getScene().getAvatarEntityIds().contains(casterId)) {
             // Attacker is the player
             for (int entityId : attackedList) {
                 GameEntity entity = player.getScene().getEntities().get(entityId);
@@ -57,7 +57,7 @@ public class BattleService extends BaseGameService {
             isPlayerCaster = true;
         } else {
             // Player is ambushed
-            GameEntity entity = player.getScene().getEntities().get(attackerId);
+            GameEntity entity = player.getScene().getEntities().get(casterId);
             
             if (entity != null) {
                 entities.add(entity);

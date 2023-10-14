@@ -20,17 +20,12 @@ public final class GetSceneMapInfoCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 1;</code>
      */
     private int entryId;
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 2;</code>
-     */
-    private boolean dBHFEKHNIIH;
-
-    /**
-     * <code>repeated uint32 entry_id_list = 15;</code>
+     * <code>repeated uint32 entry_id_list = 10;</code>
      */
     private final RepeatedInt entryIdList = RepeatedInt.newEmptyInstance();
 
@@ -45,7 +40,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 1;</code>
      * @return whether the entryId field is set
      */
     public boolean hasEntryId() {
@@ -53,7 +48,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 1;</code>
      * @return this
      */
     public GetSceneMapInfoCsReq clearEntryId() {
@@ -63,7 +58,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 1;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -71,7 +66,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 9;</code>
+     * <code>optional uint32 entry_id = 1;</code>
      * @param value the entryId to set
      * @return this
      */
@@ -82,62 +77,25 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 2;</code>
-     * @return whether the dBHFEKHNIIH field is set
+     * <code>repeated uint32 entry_id_list = 10;</code>
+     * @return whether the entryIdList field is set
      */
-    public boolean hasDBHFEKHNIIH() {
+    public boolean hasEntryIdList() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional bool DBHFEKHNIIH = 2;</code>
-     * @return this
-     */
-    public GetSceneMapInfoCsReq clearDBHFEKHNIIH() {
-      bitField0_ &= ~0x00000002;
-      dBHFEKHNIIH = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool DBHFEKHNIIH = 2;</code>
-     * @return the dBHFEKHNIIH
-     */
-    public boolean getDBHFEKHNIIH() {
-      return dBHFEKHNIIH;
-    }
-
-    /**
-     * <code>optional bool DBHFEKHNIIH = 2;</code>
-     * @param value the dBHFEKHNIIH to set
-     * @return this
-     */
-    public GetSceneMapInfoCsReq setDBHFEKHNIIH(final boolean value) {
-      bitField0_ |= 0x00000002;
-      dBHFEKHNIIH = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 entry_id_list = 15;</code>
-     * @return whether the entryIdList field is set
-     */
-    public boolean hasEntryIdList() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 entry_id_list = 15;</code>
+     * <code>repeated uint32 entry_id_list = 10;</code>
      * @return this
      */
     public GetSceneMapInfoCsReq clearEntryIdList() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       entryIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 15;</code>
+     * <code>repeated uint32 entry_id_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +109,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 15;</code>
+     * <code>repeated uint32 entry_id_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -160,28 +118,28 @@ public final class GetSceneMapInfoCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableEntryIdList() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       return entryIdList;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 15;</code>
+     * <code>repeated uint32 entry_id_list = 10;</code>
      * @param value the entryIdList to add
      * @return this
      */
     public GetSceneMapInfoCsReq addEntryIdList(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       entryIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 15;</code>
+     * <code>repeated uint32 entry_id_list = 10;</code>
      * @param values the entryIdList to add
      * @return this
      */
     public GetSceneMapInfoCsReq addAllEntryIdList(final int... values) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       entryIdList.addAll(values);
       return this;
     }
@@ -192,7 +150,6 @@ public final class GetSceneMapInfoCsReqOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         entryId = other.entryId;
-        dBHFEKHNIIH = other.dBHFEKHNIIH;
         entryIdList.copyFrom(other.entryIdList);
       }
       return this;
@@ -206,9 +163,6 @@ public final class GetSceneMapInfoCsReqOuterClass {
       cachedSize = -1;
       if (other.hasEntryId()) {
         setEntryId(other.entryId);
-      }
-      if (other.hasDBHFEKHNIIH()) {
-        setDBHFEKHNIIH(other.dBHFEKHNIIH);
       }
       if (other.hasEntryIdList()) {
         getMutableEntryIdList().addAll(other.entryIdList);
@@ -224,7 +178,6 @@ public final class GetSceneMapInfoCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       entryId = 0;
-      dBHFEKHNIIH = false;
       entryIdList.clear();
       return this;
     }
@@ -251,23 +204,18 @@ public final class GetSceneMapInfoCsReqOuterClass {
       GetSceneMapInfoCsReq other = (GetSceneMapInfoCsReq) o;
       return bitField0_ == other.bitField0_
         && (!hasEntryId() || entryId == other.entryId)
-        && (!hasDBHFEKHNIIH() || dBHFEKHNIIH == other.dBHFEKHNIIH)
         && (!hasEntryIdList() || entryIdList.equals(other.entryIdList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(entryId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeBoolNoTag(dBHFEKHNIIH);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < entryIdList.length(); i++) {
-          output.writeRawByte((byte) 120);
+          output.writeRawByte((byte) 80);
           output.writeUInt32NoTag(entryIdList.array()[i]);
         }
       }
@@ -280,9 +228,6 @@ public final class GetSceneMapInfoCsReqOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 2;
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += (1 * entryIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(entryIdList);
       }
       return size;
@@ -295,28 +240,19 @@ public final class GetSceneMapInfoCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 8: {
             // entryId
             entryId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 82) {
               break;
             }
           }
-          case 16: {
-            // dBHFEKHNIIH
-            dBHFEKHNIIH = input.readBool();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 122) {
-              break;
-            }
-          }
-          case 122: {
+          case 82: {
             // entryIdList [packed=true]
             input.readPackedUInt32(entryIdList, tag);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -332,10 +268,10 @@ public final class GetSceneMapInfoCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 120: {
+          case 80: {
             // entryIdList [packed=false]
             tag = input.readRepeatedUInt32(entryIdList, tag);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             break;
           }
         }
@@ -349,9 +285,6 @@ public final class GetSceneMapInfoCsReqOuterClass {
         output.writeUInt32(FieldNames.entryId, entryId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.dBHFEKHNIIH, dBHFEKHNIIH);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRepeatedUInt32(FieldNames.entryIdList, entryIdList);
       }
       output.endObject();
@@ -376,23 +309,12 @@ public final class GetSceneMapInfoCsReqOuterClass {
             }
             break;
           }
-          case 1755627008: {
-            if (input.isAtField(FieldNames.dBHFEKHNIIH)) {
-              if (!input.trySkipNullValue()) {
-                dBHFEKHNIIH = input.readBool();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1441102997:
           case -1413189003: {
             if (input.isAtField(FieldNames.entryIdList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(entryIdList);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -453,8 +375,6 @@ public final class GetSceneMapInfoCsReqOuterClass {
      */
     static class FieldNames {
       static final FieldName entryId = FieldName.forField("entryId", "entry_id");
-
-      static final FieldName dBHFEKHNIIH = FieldName.forField("DBHFEKHNIIH");
 
       static final FieldName entryIdList = FieldName.forField("entryIdList", "entry_id_list");
     }

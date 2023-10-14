@@ -19,17 +19,7 @@ public final class MazeChestOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 POGFOPELNMK = 14;</code>
-     */
-    private int pOGFOPELNMK;
-
-    /**
-     * <code>optional uint32 GKHHBPAINAO = 15;</code>
-     */
-    private int gKHHBPAINAO;
-
-    /**
-     * <code>optional .MapInfoChestType map_info_chest_Type = 3;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
      */
     private int mapInfoChestType;
 
@@ -44,99 +34,25 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 POGFOPELNMK = 14;</code>
-     * @return whether the pOGFOPELNMK field is set
+     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * @return whether the mapInfoChestType field is set
      */
-    public boolean hasPOGFOPELNMK() {
+    public boolean hasMapInfoChestType() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 POGFOPELNMK = 14;</code>
-     * @return this
-     */
-    public MazeChest clearPOGFOPELNMK() {
-      bitField0_ &= ~0x00000001;
-      pOGFOPELNMK = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 POGFOPELNMK = 14;</code>
-     * @return the pOGFOPELNMK
-     */
-    public int getPOGFOPELNMK() {
-      return pOGFOPELNMK;
-    }
-
-    /**
-     * <code>optional uint32 POGFOPELNMK = 14;</code>
-     * @param value the pOGFOPELNMK to set
-     * @return this
-     */
-    public MazeChest setPOGFOPELNMK(final int value) {
-      bitField0_ |= 0x00000001;
-      pOGFOPELNMK = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 GKHHBPAINAO = 15;</code>
-     * @return whether the gKHHBPAINAO field is set
-     */
-    public boolean hasGKHHBPAINAO() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 GKHHBPAINAO = 15;</code>
-     * @return this
-     */
-    public MazeChest clearGKHHBPAINAO() {
-      bitField0_ &= ~0x00000002;
-      gKHHBPAINAO = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 GKHHBPAINAO = 15;</code>
-     * @return the gKHHBPAINAO
-     */
-    public int getGKHHBPAINAO() {
-      return gKHHBPAINAO;
-    }
-
-    /**
-     * <code>optional uint32 GKHHBPAINAO = 15;</code>
-     * @param value the gKHHBPAINAO to set
-     * @return this
-     */
-    public MazeChest setGKHHBPAINAO(final int value) {
-      bitField0_ |= 0x00000002;
-      gKHHBPAINAO = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .MapInfoChestType map_info_chest_Type = 3;</code>
-     * @return whether the mapInfoChestType field is set
-     */
-    public boolean hasMapInfoChestType() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional .MapInfoChestType map_info_chest_Type = 3;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
      * @return this
      */
     public MazeChest clearMapInfoChestType() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       mapInfoChestType = 0;
       return this;
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_Type = 3;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
      * @return the mapInfoChestType
      */
     public MapInfoChestTypeOuterClass.MapInfoChestType getMapInfoChestType() {
@@ -163,18 +79,18 @@ public final class MazeChestOuterClass {
      * @return this
      */
     public MazeChest setMapInfoChestTypeValue(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       mapInfoChestType = value;
       return this;
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_Type = 3;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
      * @param value the mapInfoChestType to set
      * @return this
      */
     public MazeChest setMapInfoChestType(final MapInfoChestTypeOuterClass.MapInfoChestType value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       mapInfoChestType = value.getNumber();
       return this;
     }
@@ -184,8 +100,6 @@ public final class MazeChestOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        pOGFOPELNMK = other.pOGFOPELNMK;
-        gKHHBPAINAO = other.gKHHBPAINAO;
         mapInfoChestType = other.mapInfoChestType;
       }
       return this;
@@ -197,12 +111,6 @@ public final class MazeChestOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPOGFOPELNMK()) {
-        setPOGFOPELNMK(other.pOGFOPELNMK);
-      }
-      if (other.hasGKHHBPAINAO()) {
-        setGKHHBPAINAO(other.gKHHBPAINAO);
-      }
       if (other.hasMapInfoChestType()) {
         setMapInfoChestTypeValue(other.mapInfoChestType);
       }
@@ -216,8 +124,6 @@ public final class MazeChestOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      pOGFOPELNMK = 0;
-      gKHHBPAINAO = 0;
       mapInfoChestType = 0;
       return this;
     }
@@ -242,23 +148,13 @@ public final class MazeChestOuterClass {
       }
       MazeChest other = (MazeChest) o;
       return bitField0_ == other.bitField0_
-        && (!hasPOGFOPELNMK() || pOGFOPELNMK == other.pOGFOPELNMK)
-        && (!hasGKHHBPAINAO() || gKHHBPAINAO == other.gKHHBPAINAO)
         && (!hasMapInfoChestType() || mapInfoChestType == other.mapInfoChestType);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(pOGFOPELNMK);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(gKHHBPAINAO);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 32);
         output.writeEnumNoTag(mapInfoChestType);
       }
     }
@@ -267,12 +163,6 @@ public final class MazeChestOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(pOGFOPELNMK);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(gKHHBPAINAO);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(mapInfoChestType);
       }
       return size;
@@ -285,30 +175,12 @@ public final class MazeChestOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 112: {
-            // pOGFOPELNMK
-            pOGFOPELNMK = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
-            // gKHHBPAINAO
-            gKHHBPAINAO = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
+          case 32: {
             // mapInfoChestType
             final int value = input.readInt32();
             if (MapInfoChestTypeOuterClass.MapInfoChestType.forNumber(value) != null) {
               mapInfoChestType = value;
-              bitField0_ |= 0x00000004;
+              bitField0_ |= 0x00000001;
             }
             tag = input.readTag();
             if (tag != 0) {
@@ -333,12 +205,6 @@ public final class MazeChestOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.pOGFOPELNMK, pOGFOPELNMK);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.gKHHBPAINAO, gKHHBPAINAO);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeEnum(FieldNames.mapInfoChestType, mapInfoChestType, MapInfoChestTypeOuterClass.MapInfoChestType.converter());
       }
       output.endObject();
@@ -351,36 +217,14 @@ public final class MazeChestOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1345248838: {
-            if (input.isAtField(FieldNames.pOGFOPELNMK)) {
-              if (!input.trySkipNullValue()) {
-                pOGFOPELNMK = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -149234974: {
-            if (input.isAtField(FieldNames.gKHHBPAINAO)) {
-              if (!input.trySkipNullValue()) {
-                gKHHBPAINAO = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 602980561:
-          case -764040922: {
+          case -763087610: {
             if (input.isAtField(FieldNames.mapInfoChestType)) {
               if (!input.trySkipNullValue()) {
                 final MapInfoChestTypeOuterClass.MapInfoChestType value = input.readEnum(MapInfoChestTypeOuterClass.MapInfoChestType.converter());
                 if (value != null) {
                   mapInfoChestType = value.getNumber();
-                  bitField0_ |= 0x00000004;
+                  bitField0_ |= 0x00000001;
                 } else {
                   input.skipUnknownEnumValue();
                 }
@@ -442,11 +286,7 @@ public final class MazeChestOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName pOGFOPELNMK = FieldName.forField("POGFOPELNMK");
-
-      static final FieldName gKHHBPAINAO = FieldName.forField("GKHHBPAINAO");
-
-      static final FieldName mapInfoChestType = FieldName.forField("mapInfoChestType", "map_info_chest_Type");
+      static final FieldName mapInfoChestType = FieldName.forField("mapInfoChestType", "map_info_chest_type");
     }
   }
 }

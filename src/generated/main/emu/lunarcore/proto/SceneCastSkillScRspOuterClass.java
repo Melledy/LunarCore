@@ -19,17 +19,17 @@ public final class SceneCastSkillScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 attacked_group_id = 6;</code>
+     * <code>optional uint32 attacked_group_id = 11;</code>
      */
     private int attackedGroupId;
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 4;</code>
+     * <code>optional .SceneBattleInfo battle_info = 9;</code>
      */
     private final SceneBattleInfoOuterClass.SceneBattleInfo battleInfo = SceneBattleInfoOuterClass.SceneBattleInfo.newInstance();
 
@@ -44,7 +44,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 6;</code>
+     * <code>optional uint32 attacked_group_id = 11;</code>
      * @return whether the attackedGroupId field is set
      */
     public boolean hasAttackedGroupId() {
@@ -52,7 +52,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 6;</code>
+     * <code>optional uint32 attacked_group_id = 11;</code>
      * @return this
      */
     public SceneCastSkillScRsp clearAttackedGroupId() {
@@ -62,7 +62,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 6;</code>
+     * <code>optional uint32 attacked_group_id = 11;</code>
      * @return the attackedGroupId
      */
     public int getAttackedGroupId() {
@@ -70,7 +70,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 6;</code>
+     * <code>optional uint32 attacked_group_id = 11;</code>
      * @param value the attackedGroupId to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -89,7 +89,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public SceneCastSkillScRsp clearRetcode() {
@@ -99,7 +99,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -107,7 +107,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 4;</code>
+     * <code>optional .SceneBattleInfo battle_info = 9;</code>
      * @return whether the battleInfo field is set
      */
     public boolean hasBattleInfo() {
@@ -126,7 +126,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 4;</code>
+     * <code>optional .SceneBattleInfo battle_info = 9;</code>
      * @return this
      */
     public SceneCastSkillScRsp clearBattleInfo() {
@@ -136,7 +136,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 4;</code>
+     * <code>optional .SceneBattleInfo battle_info = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 4;</code>
+     * <code>optional .SceneBattleInfo battle_info = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class SceneCastSkillScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneBattleInfo battle_info = 4;</code>
+     * <code>optional .SceneBattleInfo battle_info = 9;</code>
      * @param value the battleInfo to set
      * @return this
      */
@@ -247,15 +247,15 @@ public final class SceneCastSkillScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(attackedGroupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 74);
         output.writeMessageNoTag(battleInfo);
       }
     }
@@ -282,25 +282,25 @@ public final class SceneCastSkillScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 88: {
             // attackedGroupId
             attackedGroupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 96) {
               break;
             }
           }
-          case 72: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 74) {
               break;
             }
           }
-          case 34: {
+          case 74: {
             // battleInfo
             input.readMessage(battleInfo);
             bitField0_ |= 0x00000004;

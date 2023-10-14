@@ -19,7 +19,7 @@ public class PacketSetHeadIconScRsp extends BasePacket {
         super(CmdId.SetHeadIconScRsp);
         
         var data = SetHeadIconScRsp.newInstance()
-                .setId(headIconId);
+                .setCurrentHeadIconId(headIconId);
         
         this.setData(data);
     }

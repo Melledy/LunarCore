@@ -19,17 +19,17 @@ public final class SpringTransferCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 floor_id = 4;</code>
-     */
-    private int floorId;
-
-    /**
-     * <code>optional uint32 prop_entity_id = 8;</code>
+     * <code>optional uint32 prop_entity_id = 4;</code>
      */
     private int propEntityId;
 
     /**
-     * <code>optional uint32 plane_id = 13;</code>
+     * <code>optional uint32 floor_id = 5;</code>
+     */
+    private int floorId;
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
      */
     private int planeId;
 
@@ -44,62 +44,25 @@ public final class SpringTransferCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 floor_id = 4;</code>
-     * @return whether the floorId field is set
+     * <code>optional uint32 prop_entity_id = 4;</code>
+     * @return whether the propEntityId field is set
      */
-    public boolean hasFloorId() {
+    public boolean hasPropEntityId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 floor_id = 4;</code>
-     * @return this
-     */
-    public SpringTransferCsReq clearFloorId() {
-      bitField0_ &= ~0x00000001;
-      floorId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 floor_id = 4;</code>
-     * @return the floorId
-     */
-    public int getFloorId() {
-      return floorId;
-    }
-
-    /**
-     * <code>optional uint32 floor_id = 4;</code>
-     * @param value the floorId to set
-     * @return this
-     */
-    public SpringTransferCsReq setFloorId(final int value) {
-      bitField0_ |= 0x00000001;
-      floorId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 prop_entity_id = 8;</code>
-     * @return whether the propEntityId field is set
-     */
-    public boolean hasPropEntityId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 prop_entity_id = 8;</code>
+     * <code>optional uint32 prop_entity_id = 4;</code>
      * @return this
      */
     public SpringTransferCsReq clearPropEntityId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       propEntityId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 prop_entity_id = 8;</code>
+     * <code>optional uint32 prop_entity_id = 4;</code>
      * @return the propEntityId
      */
     public int getPropEntityId() {
@@ -107,18 +70,55 @@ public final class SpringTransferCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_entity_id = 8;</code>
+     * <code>optional uint32 prop_entity_id = 4;</code>
      * @param value the propEntityId to set
      * @return this
      */
     public SpringTransferCsReq setPropEntityId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       propEntityId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 plane_id = 13;</code>
+     * <code>optional uint32 floor_id = 5;</code>
+     * @return whether the floorId field is set
+     */
+    public boolean hasFloorId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 floor_id = 5;</code>
+     * @return this
+     */
+    public SpringTransferCsReq clearFloorId() {
+      bitField0_ &= ~0x00000002;
+      floorId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 floor_id = 5;</code>
+     * @return the floorId
+     */
+    public int getFloorId() {
+      return floorId;
+    }
+
+    /**
+     * <code>optional uint32 floor_id = 5;</code>
+     * @param value the floorId to set
+     * @return this
+     */
+    public SpringTransferCsReq setFloorId(final int value) {
+      bitField0_ |= 0x00000002;
+      floorId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
      * @return whether the planeId field is set
      */
     public boolean hasPlaneId() {
@@ -126,7 +126,7 @@ public final class SpringTransferCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 13;</code>
+     * <code>optional uint32 plane_id = 12;</code>
      * @return this
      */
     public SpringTransferCsReq clearPlaneId() {
@@ -136,7 +136,7 @@ public final class SpringTransferCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 13;</code>
+     * <code>optional uint32 plane_id = 12;</code>
      * @return the planeId
      */
     public int getPlaneId() {
@@ -144,7 +144,7 @@ public final class SpringTransferCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 13;</code>
+     * <code>optional uint32 plane_id = 12;</code>
      * @param value the planeId to set
      * @return this
      */
@@ -159,8 +159,8 @@ public final class SpringTransferCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        floorId = other.floorId;
         propEntityId = other.propEntityId;
+        floorId = other.floorId;
         planeId = other.planeId;
       }
       return this;
@@ -172,11 +172,11 @@ public final class SpringTransferCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasFloorId()) {
-        setFloorId(other.floorId);
-      }
       if (other.hasPropEntityId()) {
         setPropEntityId(other.propEntityId);
+      }
+      if (other.hasFloorId()) {
+        setFloorId(other.floorId);
       }
       if (other.hasPlaneId()) {
         setPlaneId(other.planeId);
@@ -191,8 +191,8 @@ public final class SpringTransferCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      floorId = 0;
       propEntityId = 0;
+      floorId = 0;
       planeId = 0;
       return this;
     }
@@ -217,8 +217,8 @@ public final class SpringTransferCsReqOuterClass {
       }
       SpringTransferCsReq other = (SpringTransferCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasFloorId() || floorId == other.floorId)
         && (!hasPropEntityId() || propEntityId == other.propEntityId)
+        && (!hasFloorId() || floorId == other.floorId)
         && (!hasPlaneId() || planeId == other.planeId);
     }
 
@@ -226,14 +226,14 @@ public final class SpringTransferCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(floorId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(propEntityId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(floorId);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(planeId);
       }
     }
@@ -242,10 +242,10 @@ public final class SpringTransferCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(floorId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(propEntityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(propEntityId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(floorId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
@@ -261,24 +261,24 @@ public final class SpringTransferCsReqOuterClass {
       while (true) {
         switch (tag) {
           case 32: {
-            // floorId
-            floorId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
             // propEntityId
             propEntityId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 40) {
               break;
             }
           }
-          case 104: {
+          case 40: {
+            // floorId
+            floorId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
             // planeId
             planeId = input.readUInt32();
             bitField0_ |= 0x00000004;
@@ -305,10 +305,10 @@ public final class SpringTransferCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.floorId, floorId);
+        output.writeUInt32(FieldNames.propEntityId, propEntityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.propEntityId, propEntityId);
+        output.writeUInt32(FieldNames.floorId, floorId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.planeId, planeId);
@@ -323,11 +323,11 @@ public final class SpringTransferCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -766027193:
-          case 2022982190: {
-            if (input.isAtField(FieldNames.floorId)) {
+          case -68717343:
+          case -57484005: {
+            if (input.isAtField(FieldNames.propEntityId)) {
               if (!input.trySkipNullValue()) {
-                floorId = input.readUInt32();
+                propEntityId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -335,11 +335,11 @@ public final class SpringTransferCsReqOuterClass {
             }
             break;
           }
-          case -68717343:
-          case -57484005: {
-            if (input.isAtField(FieldNames.propEntityId)) {
+          case -766027193:
+          case 2022982190: {
+            if (input.isAtField(FieldNames.floorId)) {
               if (!input.trySkipNullValue()) {
-                propEntityId = input.readUInt32();
+                floorId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -412,9 +412,9 @@ public final class SpringTransferCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName floorId = FieldName.forField("floorId", "floor_id");
-
       static final FieldName propEntityId = FieldName.forField("propEntityId", "prop_entity_id");
+
+      static final FieldName floorId = FieldName.forField("floorId", "floor_id");
 
       static final FieldName planeId = FieldName.forField("planeId", "plane_id");
     }

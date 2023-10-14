@@ -21,29 +21,29 @@ public final class LineupInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 index = 5;</code>
-     */
-    private int index;
-
-    /**
-     * <code>optional uint32 max_mp = 6;</code>
-     */
-    private int maxMp;
-
-    /**
-     * <code>optional uint32 mp = 8;</code>
-     */
-    private int mp;
-
-    /**
-     * <code>optional uint32 plane_id = 10;</code>
+     * <code>optional uint32 plane_id = 1;</code>
      */
     private int planeId;
 
     /**
-     * <code>optional uint32 leader_slot = 12;</code>
+     * <code>optional uint32 mp = 5;</code>
+     */
+    private int mp;
+
+    /**
+     * <code>optional uint32 leader_slot = 10;</code>
      */
     private int leaderSlot;
+
+    /**
+     * <code>optional uint32 index = 11;</code>
+     */
+    private int index;
+
+    /**
+     * <code>optional uint32 max_mp = 12;</code>
+     */
+    private int maxMp;
 
     /**
      * <code>optional .ExtraLineupType extra_lineup_type = 2;</code>
@@ -51,17 +51,17 @@ public final class LineupInfoOuterClass {
     private int extraLineupType;
 
     /**
-     * <code>optional bool is_virtual = 14;</code>
+     * <code>optional bool is_virtual = 4;</code>
      */
     private boolean isVirtual;
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      */
     private final Utf8String name = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated .LineupAvatar avatar_list = 9;</code>
+     * <code>repeated .LineupAvatar avatar_list = 13;</code>
      */
     private final RepeatedMessage<LineupAvatarOuterClass.LineupAvatar> avatarList = RepeatedMessage.newEmptyInstance(LineupAvatarOuterClass.LineupAvatar.getFactory());
 
@@ -76,136 +76,25 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 5;</code>
-     * @return whether the index field is set
+     * <code>optional uint32 plane_id = 1;</code>
+     * @return whether the planeId field is set
      */
-    public boolean hasIndex() {
+    public boolean hasPlaneId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 index = 5;</code>
-     * @return this
-     */
-    public LineupInfo clearIndex() {
-      bitField0_ &= ~0x00000001;
-      index = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 index = 5;</code>
-     * @return the index
-     */
-    public int getIndex() {
-      return index;
-    }
-
-    /**
-     * <code>optional uint32 index = 5;</code>
-     * @param value the index to set
-     * @return this
-     */
-    public LineupInfo setIndex(final int value) {
-      bitField0_ |= 0x00000001;
-      index = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 max_mp = 6;</code>
-     * @return whether the maxMp field is set
-     */
-    public boolean hasMaxMp() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 max_mp = 6;</code>
-     * @return this
-     */
-    public LineupInfo clearMaxMp() {
-      bitField0_ &= ~0x00000002;
-      maxMp = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 max_mp = 6;</code>
-     * @return the maxMp
-     */
-    public int getMaxMp() {
-      return maxMp;
-    }
-
-    /**
-     * <code>optional uint32 max_mp = 6;</code>
-     * @param value the maxMp to set
-     * @return this
-     */
-    public LineupInfo setMaxMp(final int value) {
-      bitField0_ |= 0x00000002;
-      maxMp = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 mp = 8;</code>
-     * @return whether the mp field is set
-     */
-    public boolean hasMp() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 mp = 8;</code>
-     * @return this
-     */
-    public LineupInfo clearMp() {
-      bitField0_ &= ~0x00000004;
-      mp = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 mp = 8;</code>
-     * @return the mp
-     */
-    public int getMp() {
-      return mp;
-    }
-
-    /**
-     * <code>optional uint32 mp = 8;</code>
-     * @param value the mp to set
-     * @return this
-     */
-    public LineupInfo setMp(final int value) {
-      bitField0_ |= 0x00000004;
-      mp = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 10;</code>
-     * @return whether the planeId field is set
-     */
-    public boolean hasPlaneId() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 10;</code>
+     * <code>optional uint32 plane_id = 1;</code>
      * @return this
      */
     public LineupInfo clearPlaneId() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000001;
       planeId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 plane_id = 10;</code>
+     * <code>optional uint32 plane_id = 1;</code>
      * @return the planeId
      */
     public int getPlaneId() {
@@ -213,36 +102,73 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 10;</code>
+     * <code>optional uint32 plane_id = 1;</code>
      * @param value the planeId to set
      * @return this
      */
     public LineupInfo setPlaneId(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000001;
       planeId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 leader_slot = 12;</code>
-     * @return whether the leaderSlot field is set
+     * <code>optional uint32 mp = 5;</code>
+     * @return whether the mp field is set
      */
-    public boolean hasLeaderSlot() {
-      return (bitField0_ & 0x00000010) != 0;
+    public boolean hasMp() {
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 leader_slot = 12;</code>
+     * <code>optional uint32 mp = 5;</code>
+     * @return this
+     */
+    public LineupInfo clearMp() {
+      bitField0_ &= ~0x00000002;
+      mp = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 mp = 5;</code>
+     * @return the mp
+     */
+    public int getMp() {
+      return mp;
+    }
+
+    /**
+     * <code>optional uint32 mp = 5;</code>
+     * @param value the mp to set
+     * @return this
+     */
+    public LineupInfo setMp(final int value) {
+      bitField0_ |= 0x00000002;
+      mp = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 leader_slot = 10;</code>
+     * @return whether the leaderSlot field is set
+     */
+    public boolean hasLeaderSlot() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 leader_slot = 10;</code>
      * @return this
      */
     public LineupInfo clearLeaderSlot() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000004;
       leaderSlot = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 leader_slot = 12;</code>
+     * <code>optional uint32 leader_slot = 10;</code>
      * @return the leaderSlot
      */
     public int getLeaderSlot() {
@@ -250,13 +176,87 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 leader_slot = 12;</code>
+     * <code>optional uint32 leader_slot = 10;</code>
      * @param value the leaderSlot to set
      * @return this
      */
     public LineupInfo setLeaderSlot(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       leaderSlot = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 index = 11;</code>
+     * @return whether the index field is set
+     */
+    public boolean hasIndex() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 index = 11;</code>
+     * @return this
+     */
+    public LineupInfo clearIndex() {
+      bitField0_ &= ~0x00000008;
+      index = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 index = 11;</code>
+     * @return the index
+     */
+    public int getIndex() {
+      return index;
+    }
+
+    /**
+     * <code>optional uint32 index = 11;</code>
+     * @param value the index to set
+     * @return this
+     */
+    public LineupInfo setIndex(final int value) {
+      bitField0_ |= 0x00000008;
+      index = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 max_mp = 12;</code>
+     * @return whether the maxMp field is set
+     */
+    public boolean hasMaxMp() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional uint32 max_mp = 12;</code>
+     * @return this
+     */
+    public LineupInfo clearMaxMp() {
+      bitField0_ &= ~0x00000010;
+      maxMp = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 max_mp = 12;</code>
+     * @return the maxMp
+     */
+    public int getMaxMp() {
+      return maxMp;
+    }
+
+    /**
+     * <code>optional uint32 max_mp = 12;</code>
+     * @param value the maxMp to set
+     * @return this
+     */
+    public LineupInfo setMaxMp(final int value) {
+      bitField0_ |= 0x00000010;
+      maxMp = value;
       return this;
     }
 
@@ -323,7 +323,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 14;</code>
+     * <code>optional bool is_virtual = 4;</code>
      * @return whether the isVirtual field is set
      */
     public boolean hasIsVirtual() {
@@ -331,7 +331,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 14;</code>
+     * <code>optional bool is_virtual = 4;</code>
      * @return this
      */
     public LineupInfo clearIsVirtual() {
@@ -341,7 +341,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 14;</code>
+     * <code>optional bool is_virtual = 4;</code>
      * @return the isVirtual
      */
     public boolean getIsVirtual() {
@@ -349,7 +349,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 14;</code>
+     * <code>optional bool is_virtual = 4;</code>
      * @param value the isVirtual to set
      * @return this
      */
@@ -360,7 +360,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      * @return whether the name field is set
      */
     public boolean hasName() {
@@ -368,7 +368,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      * @return this
      */
     public LineupInfo clearName() {
@@ -378,7 +378,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      * @return the name
      */
     public String getName() {
@@ -386,7 +386,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      * @return internal {@code Utf8String} representation of name for reading
      */
     public Utf8String getNameBytes() {
@@ -394,7 +394,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      * @return internal {@code Utf8String} representation of name for modifications
      */
     public Utf8String getMutableNameBytes() {
@@ -403,7 +403,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      * @param value the name to set
      * @return this
      */
@@ -414,7 +414,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>optional string name = 3;</code>
+     * <code>optional string name = 15;</code>
      * @param value the name to set
      * @return this
      */
@@ -425,7 +425,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .LineupAvatar avatar_list = 9;</code>
+     * <code>repeated .LineupAvatar avatar_list = 13;</code>
      * @return whether the avatarList field is set
      */
     public boolean hasAvatarList() {
@@ -433,7 +433,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .LineupAvatar avatar_list = 9;</code>
+     * <code>repeated .LineupAvatar avatar_list = 13;</code>
      * @return this
      */
     public LineupInfo clearAvatarList() {
@@ -443,7 +443,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .LineupAvatar avatar_list = 9;</code>
+     * <code>repeated .LineupAvatar avatar_list = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -457,7 +457,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .LineupAvatar avatar_list = 9;</code>
+     * <code>repeated .LineupAvatar avatar_list = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -471,7 +471,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .LineupAvatar avatar_list = 9;</code>
+     * <code>repeated .LineupAvatar avatar_list = 13;</code>
      * @param value the avatarList to add
      * @return this
      */
@@ -482,7 +482,7 @@ public final class LineupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .LineupAvatar avatar_list = 9;</code>
+     * <code>repeated .LineupAvatar avatar_list = 13;</code>
      * @param values the avatarList to add
      * @return this
      */
@@ -497,11 +497,11 @@ public final class LineupInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        planeId = other.planeId;
+        mp = other.mp;
+        leaderSlot = other.leaderSlot;
         index = other.index;
         maxMp = other.maxMp;
-        mp = other.mp;
-        planeId = other.planeId;
-        leaderSlot = other.leaderSlot;
         extraLineupType = other.extraLineupType;
         isVirtual = other.isVirtual;
         name.copyFrom(other.name);
@@ -516,20 +516,20 @@ public final class LineupInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasPlaneId()) {
+        setPlaneId(other.planeId);
+      }
+      if (other.hasMp()) {
+        setMp(other.mp);
+      }
+      if (other.hasLeaderSlot()) {
+        setLeaderSlot(other.leaderSlot);
+      }
       if (other.hasIndex()) {
         setIndex(other.index);
       }
       if (other.hasMaxMp()) {
         setMaxMp(other.maxMp);
-      }
-      if (other.hasMp()) {
-        setMp(other.mp);
-      }
-      if (other.hasPlaneId()) {
-        setPlaneId(other.planeId);
-      }
-      if (other.hasLeaderSlot()) {
-        setLeaderSlot(other.leaderSlot);
       }
       if (other.hasExtraLineupType()) {
         setExtraLineupTypeValue(other.extraLineupType);
@@ -553,11 +553,11 @@ public final class LineupInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      planeId = 0;
+      mp = 0;
+      leaderSlot = 0;
       index = 0;
       maxMp = 0;
-      mp = 0;
-      planeId = 0;
-      leaderSlot = 0;
       extraLineupType = 0;
       isVirtual = false;
       name.clear();
@@ -587,11 +587,11 @@ public final class LineupInfoOuterClass {
       }
       LineupInfo other = (LineupInfo) o;
       return bitField0_ == other.bitField0_
+        && (!hasPlaneId() || planeId == other.planeId)
+        && (!hasMp() || mp == other.mp)
+        && (!hasLeaderSlot() || leaderSlot == other.leaderSlot)
         && (!hasIndex() || index == other.index)
         && (!hasMaxMp() || maxMp == other.maxMp)
-        && (!hasMp() || mp == other.mp)
-        && (!hasPlaneId() || planeId == other.planeId)
-        && (!hasLeaderSlot() || leaderSlot == other.leaderSlot)
         && (!hasExtraLineupType() || extraLineupType == other.extraLineupType)
         && (!hasIsVirtual() || isVirtual == other.isVirtual)
         && (!hasName() || name.equals(other.name))
@@ -601,40 +601,40 @@ public final class LineupInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(index);
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(planeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(maxMp);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(mp);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(planeId);
+        output.writeUInt32NoTag(leaderSlot);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(index);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(leaderSlot);
+        output.writeUInt32NoTag(maxMp);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeRawByte((byte) 16);
         output.writeEnumNoTag(extraLineupType);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 32);
         output.writeBoolNoTag(isVirtual);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 26);
+        output.writeRawByte((byte) 122);
         output.writeStringNoTag(name);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         for (int i = 0; i < avatarList.length(); i++) {
-          output.writeRawByte((byte) 74);
+          output.writeRawByte((byte) 106);
           output.writeMessageNoTag(avatarList.get(i));
         }
       }
@@ -644,19 +644,19 @@ public final class LineupInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(index);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(maxMp);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(mp);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(mp);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(leaderSlot);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(index);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(maxMp);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(extraLineupType);
@@ -680,36 +680,36 @@ public final class LineupInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // index
-            index = input.readUInt32();
+          case 8: {
+            // planeId
+            planeId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 40) {
               break;
             }
           }
-          case 48: {
-            // maxMp
-            maxMp = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
+          case 40: {
             // mp
             mp = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 80) {
               break;
             }
           }
           case 80: {
-            // planeId
-            planeId = input.readUInt32();
+            // leaderSlot
+            leaderSlot = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
+            // index
+            index = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 96) {
@@ -717,8 +717,8 @@ public final class LineupInfoOuterClass {
             }
           }
           case 96: {
-            // leaderSlot
-            leaderSlot = input.readUInt32();
+            // maxMp
+            maxMp = input.readUInt32();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 16) {
@@ -733,29 +733,29 @@ public final class LineupInfoOuterClass {
               bitField0_ |= 0x00000020;
             }
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 32) {
               break;
             }
           }
-          case 112: {
+          case 32: {
             // isVirtual
             isVirtual = input.readBool();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 122) {
               break;
             }
           }
-          case 26: {
+          case 122: {
             // name
             input.readString(name);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 106) {
               break;
             }
           }
-          case 74: {
+          case 106: {
             // avatarList
             tag = input.readRepeatedMessage(avatarList, tag);
             bitField0_ |= 0x00000100;
@@ -781,19 +781,19 @@ public final class LineupInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.index, index);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.maxMp, maxMp);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.mp, mp);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.planeId, planeId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.mp, mp);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.leaderSlot, leaderSlot);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.index, index);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeUInt32(FieldNames.maxMp, maxMp);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeEnum(FieldNames.extraLineupType, extraLineupType, ExtraLineupTypeOuterClass.ExtraLineupType.converter());
@@ -817,23 +817,12 @@ public final class LineupInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 100346066: {
-            if (input.isAtField(FieldNames.index)) {
+          case -493896553:
+          case 1869097438: {
+            if (input.isAtField(FieldNames.planeId)) {
               if (!input.trySkipNullValue()) {
-                index = input.readUInt32();
+                planeId = input.readUInt32();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 103671335:
-          case -1081138594: {
-            if (input.isAtField(FieldNames.maxMp)) {
-              if (!input.trySkipNullValue()) {
-                maxMp = input.readUInt32();
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -844,19 +833,7 @@ public final class LineupInfoOuterClass {
             if (input.isAtField(FieldNames.mp)) {
               if (!input.trySkipNullValue()) {
                 mp = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -493896553:
-          case 1869097438: {
-            if (input.isAtField(FieldNames.planeId)) {
-              if (!input.trySkipNullValue()) {
-                planeId = input.readUInt32();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -868,6 +845,29 @@ public final class LineupInfoOuterClass {
             if (input.isAtField(FieldNames.leaderSlot)) {
               if (!input.trySkipNullValue()) {
                 leaderSlot = input.readUInt32();
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 100346066: {
+            if (input.isAtField(FieldNames.index)) {
+              if (!input.trySkipNullValue()) {
+                index = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 103671335:
+          case -1081138594: {
+            if (input.isAtField(FieldNames.maxMp)) {
+              if (!input.trySkipNullValue()) {
+                maxMp = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -979,15 +979,15 @@ public final class LineupInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName index = FieldName.forField("index");
-
-      static final FieldName maxMp = FieldName.forField("maxMp", "max_mp");
+      static final FieldName planeId = FieldName.forField("planeId", "plane_id");
 
       static final FieldName mp = FieldName.forField("mp");
 
-      static final FieldName planeId = FieldName.forField("planeId", "plane_id");
-
       static final FieldName leaderSlot = FieldName.forField("leaderSlot", "leader_slot");
+
+      static final FieldName index = FieldName.forField("index");
+
+      static final FieldName maxMp = FieldName.forField("maxMp", "max_mp");
 
       static final FieldName extraLineupType = FieldName.forField("extraLineupType", "extra_lineup_type");
 

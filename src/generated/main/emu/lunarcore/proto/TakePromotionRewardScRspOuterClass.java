@@ -19,16 +19,12 @@ public final class TakePromotionRewardScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 15;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .ItemList reward_list = 11;</code>
+     * <code>optional .ItemList reward_list = 7;</code>
      */
     private final ItemListOuterClass.ItemList rewardList = ItemListOuterClass.ItemList.newInstance();
 
@@ -43,11 +39,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -55,11 +47,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return this
      */
     public TakePromotionRewardScRsp clearRetcode() {
@@ -69,11 +57,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -81,11 +65,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * repeated DFINCAGAMOF BKACCCFJMBI = 5;
-     * </pre>
-     *
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -96,7 +76,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward_list = 11;</code>
+     * <code>optional .ItemList reward_list = 7;</code>
      * @return whether the rewardList field is set
      */
     public boolean hasRewardList() {
@@ -104,7 +84,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward_list = 11;</code>
+     * <code>optional .ItemList reward_list = 7;</code>
      * @return this
      */
     public TakePromotionRewardScRsp clearRewardList() {
@@ -114,7 +94,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward_list = 11;</code>
+     * <code>optional .ItemList reward_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -128,7 +108,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward_list = 11;</code>
+     * <code>optional .ItemList reward_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -142,7 +122,7 @@ public final class TakePromotionRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward_list = 11;</code>
+     * <code>optional .ItemList reward_list = 7;</code>
      * @param value the rewardList to set
      * @return this
      */
@@ -218,11 +198,11 @@ public final class TakePromotionRewardScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(rewardList);
       }
     }
@@ -246,16 +226,16 @@ public final class TakePromotionRewardScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 120: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 58) {
               break;
             }
           }
-          case 90: {
+          case 58: {
             // rewardList
             input.readMessage(rewardList);
             bitField0_ |= 0x00000002;

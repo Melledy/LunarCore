@@ -19,17 +19,17 @@ public final class SceneEntityRefreshInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 2;</code>
+     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
      */
     private int lFEHNPMNFMG;
 
     /**
-     * <code>optional uint32 del_entity = 15;</code>
+     * <code>optional uint32 del_entity = 9;</code>
      */
     private int delEntity;
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 13;</code>
+     * <code>optional .SceneEntityInfo add_entity = 6;</code>
      */
     private final SceneEntityInfoOuterClass.SceneEntityInfo addEntity = SceneEntityInfoOuterClass.SceneEntityInfo.newInstance();
 
@@ -78,7 +78,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 2;</code>
+     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
      * @return whether the lFEHNPMNFMG field is set
      */
     public boolean hasLFEHNPMNFMG() {
@@ -86,7 +86,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 2;</code>
+     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearLFEHNPMNFMG() {
@@ -96,7 +96,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 2;</code>
+     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
      * @return the lFEHNPMNFMG
      */
     public int getLFEHNPMNFMG() {
@@ -104,7 +104,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 2;</code>
+     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
      * @param value the lFEHNPMNFMG to set
      * @return this
      */
@@ -116,7 +116,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 15;</code>
+     * <code>optional uint32 del_entity = 9;</code>
      * @return whether the delEntity field is set
      */
     public boolean hasDelEntity() {
@@ -124,7 +124,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 15;</code>
+     * <code>optional uint32 del_entity = 9;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearDelEntity() {
@@ -134,7 +134,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 15;</code>
+     * <code>optional uint32 del_entity = 9;</code>
      * @return the delEntity
      */
     public int getDelEntity() {
@@ -142,7 +142,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 15;</code>
+     * <code>optional uint32 del_entity = 9;</code>
      * @param value the delEntity to set
      * @return this
      */
@@ -154,7 +154,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 13;</code>
+     * <code>optional .SceneEntityInfo add_entity = 6;</code>
      * @return whether the addEntity field is set
      */
     public boolean hasAddEntity() {
@@ -162,7 +162,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 13;</code>
+     * <code>optional .SceneEntityInfo add_entity = 6;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearAddEntity() {
@@ -172,7 +172,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 13;</code>
+     * <code>optional .SceneEntityInfo add_entity = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -186,7 +186,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 13;</code>
+     * <code>optional .SceneEntityInfo add_entity = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -201,7 +201,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 13;</code>
+     * <code>optional .SceneEntityInfo add_entity = 6;</code>
      * @param value the addEntity to set
      * @return this
      */
@@ -285,15 +285,15 @@ public final class SceneEntityRefreshInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(lFEHNPMNFMG);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(delEntity);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(addEntity);
       }
     }
@@ -320,27 +320,27 @@ public final class SceneEntityRefreshInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 24: {
             // lFEHNPMNFMG
             clearUpdateTypeOtherLFEHNPMNFMG();
             lFEHNPMNFMG = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 72) {
               break;
             }
           }
-          case 120: {
+          case 72: {
             // delEntity
             clearUpdateTypeOtherDelEntity();
             delEntity = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 50) {
               break;
             }
           }
-          case 106: {
+          case 50: {
             // addEntity
             clearUpdateTypeOtherAddEntity();
             input.readMessage(addEntity);

@@ -19,12 +19,12 @@ public final class LockRelicScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 relic_unique_id = 11;</code>
+     * <code>optional uint32 relic_unique_id = 8;</code>
      */
     private int relicUniqueId;
 
@@ -39,7 +39,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return this
      */
     public LockRelicScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 11;</code>
+     * <code>optional uint32 relic_unique_id = 8;</code>
      * @return whether the relicUniqueId field is set
      */
     public boolean hasRelicUniqueId() {
@@ -84,7 +84,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 11;</code>
+     * <code>optional uint32 relic_unique_id = 8;</code>
      * @return this
      */
     public LockRelicScRsp clearRelicUniqueId() {
@@ -94,7 +94,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 11;</code>
+     * <code>optional uint32 relic_unique_id = 8;</code>
      * @return the relicUniqueId
      */
     public int getRelicUniqueId() {
@@ -102,7 +102,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 11;</code>
+     * <code>optional uint32 relic_unique_id = 8;</code>
      * @param value the relicUniqueId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class LockRelicScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(relicUniqueId);
       }
     }
@@ -205,16 +205,16 @@ public final class LockRelicScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 16: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 64) {
               break;
             }
           }
-          case 88: {
+          case 64: {
             // relicUniqueId
             relicUniqueId = input.readUInt32();
             bitField0_ |= 0x00000002;

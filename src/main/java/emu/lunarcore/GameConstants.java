@@ -4,8 +4,8 @@ import java.time.Instant;
 import java.time.ZoneOffset;
 
 public class GameConstants {
-    public static String VERSION = "1.3.0";
-    public static String MDK_VERSION = "5377911";
+    public static String VERSION = "1.4.0";
+    public static String MDK_VERSION = "";
     
     public static final ZoneOffset CURRENT_OFFSET = ZoneOffset.systemDefault().getRules().getOffset(Instant.now());
 

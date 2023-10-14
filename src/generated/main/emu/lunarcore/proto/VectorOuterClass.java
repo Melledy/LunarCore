@@ -19,19 +19,19 @@ public final class VectorOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional sint32 y = 6;</code>
+     * <code>optional sint32 x = 3;</code>
      */
-    private int y;
+    private int x;
 
     /**
-     * <code>optional sint32 z = 9;</code>
+     * <code>optional sint32 z = 4;</code>
      */
     private int z;
 
     /**
-     * <code>optional sint32 x = 10;</code>
+     * <code>optional sint32 y = 13;</code>
      */
-    private int x;
+    private int y;
 
     private Vector() {
     }
@@ -44,44 +44,44 @@ public final class VectorOuterClass {
     }
 
     /**
-     * <code>optional sint32 y = 6;</code>
-     * @return whether the y field is set
+     * <code>optional sint32 x = 3;</code>
+     * @return whether the x field is set
      */
-    public boolean hasY() {
+    public boolean hasX() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional sint32 y = 6;</code>
+     * <code>optional sint32 x = 3;</code>
      * @return this
      */
-    public Vector clearY() {
+    public Vector clearX() {
       bitField0_ &= ~0x00000001;
-      y = 0;
+      x = 0;
       return this;
     }
 
     /**
-     * <code>optional sint32 y = 6;</code>
-     * @return the y
+     * <code>optional sint32 x = 3;</code>
+     * @return the x
      */
-    public int getY() {
-      return y;
+    public int getX() {
+      return x;
     }
 
     /**
-     * <code>optional sint32 y = 6;</code>
-     * @param value the y to set
+     * <code>optional sint32 x = 3;</code>
+     * @param value the x to set
      * @return this
      */
-    public Vector setY(final int value) {
+    public Vector setX(final int value) {
       bitField0_ |= 0x00000001;
-      y = value;
+      x = value;
       return this;
     }
 
     /**
-     * <code>optional sint32 z = 9;</code>
+     * <code>optional sint32 z = 4;</code>
      * @return whether the z field is set
      */
     public boolean hasZ() {
@@ -89,7 +89,7 @@ public final class VectorOuterClass {
     }
 
     /**
-     * <code>optional sint32 z = 9;</code>
+     * <code>optional sint32 z = 4;</code>
      * @return this
      */
     public Vector clearZ() {
@@ -99,7 +99,7 @@ public final class VectorOuterClass {
     }
 
     /**
-     * <code>optional sint32 z = 9;</code>
+     * <code>optional sint32 z = 4;</code>
      * @return the z
      */
     public int getZ() {
@@ -107,7 +107,7 @@ public final class VectorOuterClass {
     }
 
     /**
-     * <code>optional sint32 z = 9;</code>
+     * <code>optional sint32 z = 4;</code>
      * @param value the z to set
      * @return this
      */
@@ -118,39 +118,39 @@ public final class VectorOuterClass {
     }
 
     /**
-     * <code>optional sint32 x = 10;</code>
-     * @return whether the x field is set
+     * <code>optional sint32 y = 13;</code>
+     * @return whether the y field is set
      */
-    public boolean hasX() {
+    public boolean hasY() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional sint32 x = 10;</code>
+     * <code>optional sint32 y = 13;</code>
      * @return this
      */
-    public Vector clearX() {
+    public Vector clearY() {
       bitField0_ &= ~0x00000004;
-      x = 0;
+      y = 0;
       return this;
     }
 
     /**
-     * <code>optional sint32 x = 10;</code>
-     * @return the x
+     * <code>optional sint32 y = 13;</code>
+     * @return the y
      */
-    public int getX() {
-      return x;
+    public int getY() {
+      return y;
     }
 
     /**
-     * <code>optional sint32 x = 10;</code>
-     * @param value the x to set
+     * <code>optional sint32 y = 13;</code>
+     * @param value the y to set
      * @return this
      */
-    public Vector setX(final int value) {
+    public Vector setY(final int value) {
       bitField0_ |= 0x00000004;
-      x = value;
+      y = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class VectorOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        y = other.y;
-        z = other.z;
         x = other.x;
+        z = other.z;
+        y = other.y;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class VectorOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasY()) {
-        setY(other.y);
+      if (other.hasX()) {
+        setX(other.x);
       }
       if (other.hasZ()) {
         setZ(other.z);
       }
-      if (other.hasX()) {
-        setX(other.x);
+      if (other.hasY()) {
+        setY(other.y);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class VectorOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      y = 0;
-      z = 0;
       x = 0;
+      z = 0;
+      y = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class VectorOuterClass {
       }
       Vector other = (Vector) o;
       return bitField0_ == other.bitField0_
-        && (!hasY() || y == other.y)
+        && (!hasX() || x == other.x)
         && (!hasZ() || z == other.z)
-        && (!hasX() || x == other.x);
+        && (!hasY() || y == other.y);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeSInt32NoTag(y);
+        output.writeRawByte((byte) 24);
+        output.writeSInt32NoTag(x);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 32);
         output.writeSInt32NoTag(z);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeSInt32NoTag(x);
+        output.writeRawByte((byte) 104);
+        output.writeSInt32NoTag(y);
       }
     }
 
@@ -242,13 +242,13 @@ public final class VectorOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeSInt32SizeNoTag(y);
+        size += 1 + ProtoSink.computeSInt32SizeNoTag(x);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeSInt32SizeNoTag(z);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeSInt32SizeNoTag(x);
+        size += 1 + ProtoSink.computeSInt32SizeNoTag(y);
       }
       return size;
     }
@@ -260,27 +260,27 @@ public final class VectorOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // y
-            y = input.readSInt32();
+          case 24: {
+            // x
+            x = input.readSInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 32) {
               break;
             }
           }
-          case 72: {
+          case 32: {
             // z
             z = input.readSInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 104) {
               break;
             }
           }
-          case 80: {
-            // x
-            x = input.readSInt32();
+          case 104: {
+            // y
+            y = input.readSInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class VectorOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeSInt32(FieldNames.y, y);
+        output.writeSInt32(FieldNames.x, x);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeSInt32(FieldNames.z, z);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeSInt32(FieldNames.x, x);
+        output.writeSInt32(FieldNames.y, y);
       }
       output.endObject();
     }
@@ -323,10 +323,10 @@ public final class VectorOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 121: {
-            if (input.isAtField(FieldNames.y)) {
+          case 120: {
+            if (input.isAtField(FieldNames.x)) {
               if (!input.trySkipNullValue()) {
-                y = input.readSInt32();
+                x = input.readSInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -345,10 +345,10 @@ public final class VectorOuterClass {
             }
             break;
           }
-          case 120: {
-            if (input.isAtField(FieldNames.x)) {
+          case 121: {
+            if (input.isAtField(FieldNames.y)) {
               if (!input.trySkipNullValue()) {
-                x = input.readSInt32();
+                y = input.readSInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -408,11 +408,11 @@ public final class VectorOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName y = FieldName.forField("y");
+      static final FieldName x = FieldName.forField("x");
 
       static final FieldName z = FieldName.forField("z");
 
-      static final FieldName x = FieldName.forField("x");
+      static final FieldName y = FieldName.forField("y");
     }
   }
 }

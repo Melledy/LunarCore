@@ -12,7 +12,6 @@ import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 import us.hebi.quickbuf.RepeatedByte;
 import us.hebi.quickbuf.RepeatedMessage;
-import us.hebi.quickbuf.Utf8String;
 
 public final class PVEBattleResultCsReqOuterClass {
   /**
@@ -22,52 +21,37 @@ public final class PVEBattleResultCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 KIGBBBPDKEB = 2;</code>
+     * <code>optional uint32 cost_time = 4;</code>
      */
-    private int kIGBBBPDKEB;
+    private int costTime;
 
     /**
-     * <code>optional uint32 stage_id = 3;</code>
+     * <code>optional uint32 stage_id = 6;</code>
      */
     private int stageId;
 
     /**
-     * <code>optional uint32 CKGDEAKGMLJ = 7;</code>
-     */
-    private int cKGDEAKGMLJ;
-
-    /**
-     * <code>optional uint32 battle_id = 10;</code>
+     * <code>optional uint32 battle_id = 9;</code>
      */
     private int battleId;
 
     /**
-     * <code>optional uint32 client_res_version = 11;</code>
+     * <code>optional uint32 client_res_version = 14;</code>
      */
     private int clientResVersion;
 
     /**
-     * <code>optional uint32 KBHKHHAKPND = 14;</code>
-     */
-    private int kBHKHHAKPND;
-
-    /**
-     * <code>optional .BattleEndStatus end_status = 4;</code>
+     * <code>optional .BattleEndStatus end_status = 15;</code>
      */
     private int endStatus;
 
     /**
-     * <code>optional bool OKEOKGAICEL = 6;</code>
-     */
-    private boolean oKEOKGAICEL;
-
-    /**
-     * <code>optional bool is_ai_consider_ultra_skill = 13;</code>
+     * <code>optional bool is_ai_consider_ultra_skill = 12;</code>
      */
     private boolean isAiConsiderUltraSkill;
 
     /**
-     * <code>optional .BattleStatistics stt = 15;</code>
+     * <code>optional .BattleStatistics stt = 10;</code>
      */
     private final BattleStatisticsOuterClass.BattleStatistics stt = BattleStatisticsOuterClass.BattleStatistics.newInstance();
 
@@ -77,19 +61,9 @@ public final class PVEBattleResultCsReqOuterClass {
     private final RepeatedByte turnSnapshotHash = RepeatedByte.newEmptyInstance();
 
     /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     */
-    private final Utf8String cAIAOBGAECF = Utf8String.newEmptyInstance();
-
-    /**
      * <code>repeated .BattleOp op_list = 5;</code>
      */
     private final RepeatedMessage<BattleOpOuterClass.BattleOp> opList = RepeatedMessage.newEmptyInstance(BattleOpOuterClass.BattleOp.getFactory());
-
-    /**
-     * <code>repeated .PVEBattleResultCsReq.GGLJGEMBGDHEntry GGLJGEMBGDH = 12;</code>
-     */
-    private final RepeatedMessage<GGLJGEMBGDHEntry> gGLJGEMBGDH = RepeatedMessage.newEmptyInstance(GGLJGEMBGDHEntry.getFactory());
 
     private PVEBattleResultCsReq() {
     }
@@ -102,44 +76,44 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 KIGBBBPDKEB = 2;</code>
-     * @return whether the kIGBBBPDKEB field is set
+     * <code>optional uint32 cost_time = 4;</code>
+     * @return whether the costTime field is set
      */
-    public boolean hasKIGBBBPDKEB() {
+    public boolean hasCostTime() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 KIGBBBPDKEB = 2;</code>
+     * <code>optional uint32 cost_time = 4;</code>
      * @return this
      */
-    public PVEBattleResultCsReq clearKIGBBBPDKEB() {
+    public PVEBattleResultCsReq clearCostTime() {
       bitField0_ &= ~0x00000001;
-      kIGBBBPDKEB = 0;
+      costTime = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 KIGBBBPDKEB = 2;</code>
-     * @return the kIGBBBPDKEB
+     * <code>optional uint32 cost_time = 4;</code>
+     * @return the costTime
      */
-    public int getKIGBBBPDKEB() {
-      return kIGBBBPDKEB;
+    public int getCostTime() {
+      return costTime;
     }
 
     /**
-     * <code>optional uint32 KIGBBBPDKEB = 2;</code>
-     * @param value the kIGBBBPDKEB to set
+     * <code>optional uint32 cost_time = 4;</code>
+     * @param value the costTime to set
      * @return this
      */
-    public PVEBattleResultCsReq setKIGBBBPDKEB(final int value) {
+    public PVEBattleResultCsReq setCostTime(final int value) {
       bitField0_ |= 0x00000001;
-      kIGBBBPDKEB = value;
+      costTime = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 stage_id = 3;</code>
+     * <code>optional uint32 stage_id = 6;</code>
      * @return whether the stageId field is set
      */
     public boolean hasStageId() {
@@ -147,7 +121,7 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 3;</code>
+     * <code>optional uint32 stage_id = 6;</code>
      * @return this
      */
     public PVEBattleResultCsReq clearStageId() {
@@ -157,7 +131,7 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 3;</code>
+     * <code>optional uint32 stage_id = 6;</code>
      * @return the stageId
      */
     public int getStageId() {
@@ -165,7 +139,7 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 stage_id = 3;</code>
+     * <code>optional uint32 stage_id = 6;</code>
      * @param value the stageId to set
      * @return this
      */
@@ -176,62 +150,25 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 CKGDEAKGMLJ = 7;</code>
-     * @return whether the cKGDEAKGMLJ field is set
+     * <code>optional uint32 battle_id = 9;</code>
+     * @return whether the battleId field is set
      */
-    public boolean hasCKGDEAKGMLJ() {
+    public boolean hasBattleId() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 CKGDEAKGMLJ = 7;</code>
-     * @return this
-     */
-    public PVEBattleResultCsReq clearCKGDEAKGMLJ() {
-      bitField0_ &= ~0x00000004;
-      cKGDEAKGMLJ = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 CKGDEAKGMLJ = 7;</code>
-     * @return the cKGDEAKGMLJ
-     */
-    public int getCKGDEAKGMLJ() {
-      return cKGDEAKGMLJ;
-    }
-
-    /**
-     * <code>optional uint32 CKGDEAKGMLJ = 7;</code>
-     * @param value the cKGDEAKGMLJ to set
-     * @return this
-     */
-    public PVEBattleResultCsReq setCKGDEAKGMLJ(final int value) {
-      bitField0_ |= 0x00000004;
-      cKGDEAKGMLJ = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 battle_id = 10;</code>
-     * @return whether the battleId field is set
-     */
-    public boolean hasBattleId() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 battle_id = 10;</code>
+     * <code>optional uint32 battle_id = 9;</code>
      * @return this
      */
     public PVEBattleResultCsReq clearBattleId() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000004;
       battleId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 battle_id = 10;</code>
+     * <code>optional uint32 battle_id = 9;</code>
      * @return the battleId
      */
     public int getBattleId() {
@@ -239,36 +176,36 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 battle_id = 10;</code>
+     * <code>optional uint32 battle_id = 9;</code>
      * @param value the battleId to set
      * @return this
      */
     public PVEBattleResultCsReq setBattleId(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       battleId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 client_res_version = 11;</code>
+     * <code>optional uint32 client_res_version = 14;</code>
      * @return whether the clientResVersion field is set
      */
     public boolean hasClientResVersion() {
-      return (bitField0_ & 0x00000010) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 client_res_version = 11;</code>
+     * <code>optional uint32 client_res_version = 14;</code>
      * @return this
      */
     public PVEBattleResultCsReq clearClientResVersion() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000008;
       clientResVersion = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 client_res_version = 11;</code>
+     * <code>optional uint32 client_res_version = 14;</code>
      * @return the clientResVersion
      */
     public int getClientResVersion() {
@@ -276,73 +213,36 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_res_version = 11;</code>
+     * <code>optional uint32 client_res_version = 14;</code>
      * @param value the clientResVersion to set
      * @return this
      */
     public PVEBattleResultCsReq setClientResVersion(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       clientResVersion = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 KBHKHHAKPND = 14;</code>
-     * @return whether the kBHKHHAKPND field is set
-     */
-    public boolean hasKBHKHHAKPND() {
-      return (bitField0_ & 0x00000020) != 0;
-    }
-
-    /**
-     * <code>optional uint32 KBHKHHAKPND = 14;</code>
-     * @return this
-     */
-    public PVEBattleResultCsReq clearKBHKHHAKPND() {
-      bitField0_ &= ~0x00000020;
-      kBHKHHAKPND = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 KBHKHHAKPND = 14;</code>
-     * @return the kBHKHHAKPND
-     */
-    public int getKBHKHHAKPND() {
-      return kBHKHHAKPND;
-    }
-
-    /**
-     * <code>optional uint32 KBHKHHAKPND = 14;</code>
-     * @param value the kBHKHHAKPND to set
-     * @return this
-     */
-    public PVEBattleResultCsReq setKBHKHHAKPND(final int value) {
-      bitField0_ |= 0x00000020;
-      kBHKHHAKPND = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .BattleEndStatus end_status = 4;</code>
+     * <code>optional .BattleEndStatus end_status = 15;</code>
      * @return whether the endStatus field is set
      */
     public boolean hasEndStatus() {
-      return (bitField0_ & 0x00000040) != 0;
+      return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional .BattleEndStatus end_status = 4;</code>
+     * <code>optional .BattleEndStatus end_status = 15;</code>
      * @return this
      */
     public PVEBattleResultCsReq clearEndStatus() {
-      bitField0_ &= ~0x00000040;
+      bitField0_ &= ~0x00000010;
       endStatus = 0;
       return this;
     }
 
     /**
-     * <code>optional .BattleEndStatus end_status = 4;</code>
+     * <code>optional .BattleEndStatus end_status = 15;</code>
      * @return the endStatus
      */
     public BattleEndStatusOuterClass.BattleEndStatus getEndStatus() {
@@ -369,80 +269,43 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq setEndStatusValue(final int value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000010;
       endStatus = value;
       return this;
     }
 
     /**
-     * <code>optional .BattleEndStatus end_status = 4;</code>
+     * <code>optional .BattleEndStatus end_status = 15;</code>
      * @param value the endStatus to set
      * @return this
      */
     public PVEBattleResultCsReq setEndStatus(
         final BattleEndStatusOuterClass.BattleEndStatus value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000010;
       endStatus = value.getNumber();
       return this;
     }
 
     /**
-     * <code>optional bool OKEOKGAICEL = 6;</code>
-     * @return whether the oKEOKGAICEL field is set
-     */
-    public boolean hasOKEOKGAICEL() {
-      return (bitField0_ & 0x00000080) != 0;
-    }
-
-    /**
-     * <code>optional bool OKEOKGAICEL = 6;</code>
-     * @return this
-     */
-    public PVEBattleResultCsReq clearOKEOKGAICEL() {
-      bitField0_ &= ~0x00000080;
-      oKEOKGAICEL = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool OKEOKGAICEL = 6;</code>
-     * @return the oKEOKGAICEL
-     */
-    public boolean getOKEOKGAICEL() {
-      return oKEOKGAICEL;
-    }
-
-    /**
-     * <code>optional bool OKEOKGAICEL = 6;</code>
-     * @param value the oKEOKGAICEL to set
-     * @return this
-     */
-    public PVEBattleResultCsReq setOKEOKGAICEL(final boolean value) {
-      bitField0_ |= 0x00000080;
-      oKEOKGAICEL = value;
-      return this;
-    }
-
-    /**
-     * <code>optional bool is_ai_consider_ultra_skill = 13;</code>
+     * <code>optional bool is_ai_consider_ultra_skill = 12;</code>
      * @return whether the isAiConsiderUltraSkill field is set
      */
     public boolean hasIsAiConsiderUltraSkill() {
-      return (bitField0_ & 0x00000100) != 0;
+      return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
-     * <code>optional bool is_ai_consider_ultra_skill = 13;</code>
+     * <code>optional bool is_ai_consider_ultra_skill = 12;</code>
      * @return this
      */
     public PVEBattleResultCsReq clearIsAiConsiderUltraSkill() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000020;
       isAiConsiderUltraSkill = false;
       return this;
     }
 
     /**
-     * <code>optional bool is_ai_consider_ultra_skill = 13;</code>
+     * <code>optional bool is_ai_consider_ultra_skill = 12;</code>
      * @return the isAiConsiderUltraSkill
      */
     public boolean getIsAiConsiderUltraSkill() {
@@ -450,36 +313,36 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_ai_consider_ultra_skill = 13;</code>
+     * <code>optional bool is_ai_consider_ultra_skill = 12;</code>
      * @param value the isAiConsiderUltraSkill to set
      * @return this
      */
     public PVEBattleResultCsReq setIsAiConsiderUltraSkill(final boolean value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000020;
       isAiConsiderUltraSkill = value;
       return this;
     }
 
     /**
-     * <code>optional .BattleStatistics stt = 15;</code>
+     * <code>optional .BattleStatistics stt = 10;</code>
      * @return whether the stt field is set
      */
     public boolean hasStt() {
-      return (bitField0_ & 0x00000200) != 0;
+      return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional .BattleStatistics stt = 15;</code>
+     * <code>optional .BattleStatistics stt = 10;</code>
      * @return this
      */
     public PVEBattleResultCsReq clearStt() {
-      bitField0_ &= ~0x00000200;
+      bitField0_ &= ~0x00000040;
       stt.clear();
       return this;
     }
 
     /**
-     * <code>optional .BattleStatistics stt = 15;</code>
+     * <code>optional .BattleStatistics stt = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -493,7 +356,7 @@ public final class PVEBattleResultCsReqOuterClass {
     }
 
     /**
-     * <code>optional .BattleStatistics stt = 15;</code>
+     * <code>optional .BattleStatistics stt = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -502,17 +365,17 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public BattleStatisticsOuterClass.BattleStatistics getMutableStt() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000040;
       return stt;
     }
 
     /**
-     * <code>optional .BattleStatistics stt = 15;</code>
+     * <code>optional .BattleStatistics stt = 10;</code>
      * @param value the stt to set
      * @return this
      */
     public PVEBattleResultCsReq setStt(final BattleStatisticsOuterClass.BattleStatistics value) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000040;
       stt.copyFrom(value);
       return this;
     }
@@ -522,7 +385,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return whether the turnSnapshotHash field is set
      */
     public boolean hasTurnSnapshotHash() {
-      return (bitField0_ & 0x00000400) != 0;
+      return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
@@ -530,7 +393,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq clearTurnSnapshotHash() {
-      bitField0_ &= ~0x00000400;
+      bitField0_ &= ~0x00000080;
       turnSnapshotHash.clear();
       return this;
     }
@@ -559,7 +422,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedByte getMutableTurnSnapshotHash() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000080;
       return turnSnapshotHash;
     }
 
@@ -569,7 +432,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq addTurnSnapshotHash(final byte value) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000080;
       turnSnapshotHash.add(value);
       return this;
     }
@@ -580,7 +443,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq addAllTurnSnapshotHash(final byte... values) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000080;
       turnSnapshotHash.addAll(values);
       return this;
     }
@@ -591,73 +454,8 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq setTurnSnapshotHash(final byte... values) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000080;
       turnSnapshotHash.copyFrom(values);
-      return this;
-    }
-
-    /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     * @return whether the cAIAOBGAECF field is set
-     */
-    public boolean hasCAIAOBGAECF() {
-      return (bitField0_ & 0x00000800) != 0;
-    }
-
-    /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     * @return this
-     */
-    public PVEBattleResultCsReq clearCAIAOBGAECF() {
-      bitField0_ &= ~0x00000800;
-      cAIAOBGAECF.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     * @return the cAIAOBGAECF
-     */
-    public String getCAIAOBGAECF() {
-      return cAIAOBGAECF.getString();
-    }
-
-    /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     * @return internal {@code Utf8String} representation of cAIAOBGAECF for reading
-     */
-    public Utf8String getCAIAOBGAECFBytes() {
-      return this.cAIAOBGAECF;
-    }
-
-    /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     * @return internal {@code Utf8String} representation of cAIAOBGAECF for modifications
-     */
-    public Utf8String getMutableCAIAOBGAECFBytes() {
-      bitField0_ |= 0x00000800;
-      return this.cAIAOBGAECF;
-    }
-
-    /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     * @param value the cAIAOBGAECF to set
-     * @return this
-     */
-    public PVEBattleResultCsReq setCAIAOBGAECF(final CharSequence value) {
-      bitField0_ |= 0x00000800;
-      cAIAOBGAECF.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string CAIAOBGAECF = 9;</code>
-     * @param value the cAIAOBGAECF to set
-     * @return this
-     */
-    public PVEBattleResultCsReq setCAIAOBGAECF(final Utf8String value) {
-      bitField0_ |= 0x00000800;
-      cAIAOBGAECF.copyFrom(value);
       return this;
     }
 
@@ -666,7 +464,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return whether the opList field is set
      */
     public boolean hasOpList() {
-      return (bitField0_ & 0x00001000) != 0;
+      return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
@@ -674,7 +472,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq clearOpList() {
-      bitField0_ &= ~0x00001000;
+      bitField0_ &= ~0x00000100;
       opList.clear();
       return this;
     }
@@ -703,7 +501,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<BattleOpOuterClass.BattleOp> getMutableOpList() {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00000100;
       return opList;
     }
 
@@ -713,7 +511,7 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq addOpList(final BattleOpOuterClass.BattleOp value) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00000100;
       opList.add(value);
       return this;
     }
@@ -724,76 +522,8 @@ public final class PVEBattleResultCsReqOuterClass {
      * @return this
      */
     public PVEBattleResultCsReq addAllOpList(final BattleOpOuterClass.BattleOp... values) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00000100;
       opList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated .PVEBattleResultCsReq.GGLJGEMBGDHEntry GGLJGEMBGDH = 12;</code>
-     * @return whether the gGLJGEMBGDH field is set
-     */
-    public boolean hasGGLJGEMBGDH() {
-      return (bitField0_ & 0x00002000) != 0;
-    }
-
-    /**
-     * <code>repeated .PVEBattleResultCsReq.GGLJGEMBGDHEntry GGLJGEMBGDH = 12;</code>
-     * @return this
-     */
-    public PVEBattleResultCsReq clearGGLJGEMBGDH() {
-      bitField0_ &= ~0x00002000;
-      gGLJGEMBGDH.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated .PVEBattleResultCsReq.GGLJGEMBGDHEntry GGLJGEMBGDH = 12;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableGGLJGEMBGDH()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedMessage<GGLJGEMBGDHEntry> getGGLJGEMBGDH() {
-      return gGLJGEMBGDH;
-    }
-
-    /**
-     * <code>repeated .PVEBattleResultCsReq.GGLJGEMBGDHEntry GGLJGEMBGDH = 12;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedMessage<GGLJGEMBGDHEntry> getMutableGGLJGEMBGDH() {
-      bitField0_ |= 0x00002000;
-      return gGLJGEMBGDH;
-    }
-
-    /**
-     * <code>repeated .PVEBattleResultCsReq.GGLJGEMBGDHEntry GGLJGEMBGDH = 12;</code>
-     * @param value the gGLJGEMBGDH to add
-     * @return this
-     */
-    public PVEBattleResultCsReq addGGLJGEMBGDH(final GGLJGEMBGDHEntry value) {
-      bitField0_ |= 0x00002000;
-      gGLJGEMBGDH.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated .PVEBattleResultCsReq.GGLJGEMBGDHEntry GGLJGEMBGDH = 12;</code>
-     * @param values the gGLJGEMBGDH to add
-     * @return this
-     */
-    public PVEBattleResultCsReq addAllGGLJGEMBGDH(final GGLJGEMBGDHEntry... values) {
-      bitField0_ |= 0x00002000;
-      gGLJGEMBGDH.addAll(values);
       return this;
     }
 
@@ -802,20 +532,15 @@ public final class PVEBattleResultCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        kIGBBBPDKEB = other.kIGBBBPDKEB;
+        costTime = other.costTime;
         stageId = other.stageId;
-        cKGDEAKGMLJ = other.cKGDEAKGMLJ;
         battleId = other.battleId;
         clientResVersion = other.clientResVersion;
-        kBHKHHAKPND = other.kBHKHHAKPND;
         endStatus = other.endStatus;
-        oKEOKGAICEL = other.oKEOKGAICEL;
         isAiConsiderUltraSkill = other.isAiConsiderUltraSkill;
         stt.copyFrom(other.stt);
         turnSnapshotHash.copyFrom(other.turnSnapshotHash);
-        cAIAOBGAECF.copyFrom(other.cAIAOBGAECF);
         opList.copyFrom(other.opList);
-        gGLJGEMBGDH.copyFrom(other.gGLJGEMBGDH);
       }
       return this;
     }
@@ -826,14 +551,11 @@ public final class PVEBattleResultCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasKIGBBBPDKEB()) {
-        setKIGBBBPDKEB(other.kIGBBBPDKEB);
+      if (other.hasCostTime()) {
+        setCostTime(other.costTime);
       }
       if (other.hasStageId()) {
         setStageId(other.stageId);
-      }
-      if (other.hasCKGDEAKGMLJ()) {
-        setCKGDEAKGMLJ(other.cKGDEAKGMLJ);
       }
       if (other.hasBattleId()) {
         setBattleId(other.battleId);
@@ -841,14 +563,8 @@ public final class PVEBattleResultCsReqOuterClass {
       if (other.hasClientResVersion()) {
         setClientResVersion(other.clientResVersion);
       }
-      if (other.hasKBHKHHAKPND()) {
-        setKBHKHHAKPND(other.kBHKHHAKPND);
-      }
       if (other.hasEndStatus()) {
         setEndStatusValue(other.endStatus);
-      }
-      if (other.hasOKEOKGAICEL()) {
-        setOKEOKGAICEL(other.oKEOKGAICEL);
       }
       if (other.hasIsAiConsiderUltraSkill()) {
         setIsAiConsiderUltraSkill(other.isAiConsiderUltraSkill);
@@ -859,14 +575,8 @@ public final class PVEBattleResultCsReqOuterClass {
       if (other.hasTurnSnapshotHash()) {
         getMutableTurnSnapshotHash().copyFrom(other.turnSnapshotHash);
       }
-      if (other.hasCAIAOBGAECF()) {
-        getMutableCAIAOBGAECFBytes().copyFrom(other.cAIAOBGAECF);
-      }
       if (other.hasOpList()) {
         getMutableOpList().addAll(other.opList);
-      }
-      if (other.hasGGLJGEMBGDH()) {
-        getMutableGGLJGEMBGDH().addAll(other.gGLJGEMBGDH);
       }
       return this;
     }
@@ -878,20 +588,15 @@ public final class PVEBattleResultCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      kIGBBBPDKEB = 0;
+      costTime = 0;
       stageId = 0;
-      cKGDEAKGMLJ = 0;
       battleId = 0;
       clientResVersion = 0;
-      kBHKHHAKPND = 0;
       endStatus = 0;
-      oKEOKGAICEL = false;
       isAiConsiderUltraSkill = false;
       stt.clear();
       turnSnapshotHash.clear();
-      cAIAOBGAECF.clear();
       opList.clear();
-      gGLJGEMBGDH.clear();
       return this;
     }
 
@@ -904,9 +609,7 @@ public final class PVEBattleResultCsReqOuterClass {
       bitField0_ = 0;
       stt.clearQuick();
       turnSnapshotHash.clear();
-      cAIAOBGAECF.clear();
       opList.clearQuick();
-      gGLJGEMBGDH.clearQuick();
       return this;
     }
 
@@ -920,82 +623,55 @@ public final class PVEBattleResultCsReqOuterClass {
       }
       PVEBattleResultCsReq other = (PVEBattleResultCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasKIGBBBPDKEB() || kIGBBBPDKEB == other.kIGBBBPDKEB)
+        && (!hasCostTime() || costTime == other.costTime)
         && (!hasStageId() || stageId == other.stageId)
-        && (!hasCKGDEAKGMLJ() || cKGDEAKGMLJ == other.cKGDEAKGMLJ)
         && (!hasBattleId() || battleId == other.battleId)
         && (!hasClientResVersion() || clientResVersion == other.clientResVersion)
-        && (!hasKBHKHHAKPND() || kBHKHHAKPND == other.kBHKHHAKPND)
         && (!hasEndStatus() || endStatus == other.endStatus)
-        && (!hasOKEOKGAICEL() || oKEOKGAICEL == other.oKEOKGAICEL)
         && (!hasIsAiConsiderUltraSkill() || isAiConsiderUltraSkill == other.isAiConsiderUltraSkill)
         && (!hasStt() || stt.equals(other.stt))
         && (!hasTurnSnapshotHash() || turnSnapshotHash.equals(other.turnSnapshotHash))
-        && (!hasCAIAOBGAECF() || cAIAOBGAECF.equals(other.cAIAOBGAECF))
-        && (!hasOpList() || opList.equals(other.opList))
-        && (!hasGGLJGEMBGDH() || gGLJGEMBGDH.equals(other.gGLJGEMBGDH));
+        && (!hasOpList() || opList.equals(other.opList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(kIGBBBPDKEB);
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(costTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(stageId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(cKGDEAKGMLJ);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(battleId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 88);
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(clientResVersion);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(kBHKHHAKPND);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 32);
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 120);
         output.writeEnumNoTag(endStatus);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeBoolNoTag(oKEOKGAICEL);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawByte((byte) 104);
+      if ((bitField0_ & 0x00000020) != 0) {
+        output.writeRawByte((byte) 96);
         output.writeBoolNoTag(isAiConsiderUltraSkill);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
-        output.writeRawByte((byte) 122);
+      if ((bitField0_ & 0x00000040) != 0) {
+        output.writeRawByte((byte) 82);
         output.writeMessageNoTag(stt);
       }
-      if ((bitField0_ & 0x00000400) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 10);
         output.writeBytesNoTag(turnSnapshotHash);
       }
-      if ((bitField0_ & 0x00000800) != 0) {
-        output.writeRawByte((byte) 74);
-        output.writeStringNoTag(cAIAOBGAECF);
-      }
-      if ((bitField0_ & 0x00001000) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         for (int i = 0; i < opList.length(); i++) {
           output.writeRawByte((byte) 42);
           output.writeMessageNoTag(opList.get(i));
-        }
-      }
-      if ((bitField0_ & 0x00002000) != 0) {
-        for (int i = 0; i < gGLJGEMBGDH.length(); i++) {
-          output.writeRawByte((byte) 98);
-          output.writeMessageNoTag(gGLJGEMBGDH.get(i));
         }
       }
     }
@@ -1004,46 +680,31 @@ public final class PVEBattleResultCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kIGBBBPDKEB);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(costTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(stageId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(cKGDEAKGMLJ);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(battleId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(clientResVersion);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kBHKHHAKPND);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000010) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(endStatus);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
+      if ((bitField0_ & 0x00000020) != 0) {
         size += 2;
       }
-      if ((bitField0_ & 0x00000100) != 0) {
-        size += 2;
-      }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(stt);
       }
-      if ((bitField0_ & 0x00000400) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeBytesSizeNoTag(turnSnapshotHash);
       }
-      if ((bitField0_ & 0x00000800) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(cAIAOBGAECF);
-      }
-      if ((bitField0_ & 0x00001000) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         size += (1 * opList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(opList);
-      }
-      if ((bitField0_ & 0x00002000) != 0) {
-        size += (1 * gGLJGEMBGDH.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(gGLJGEMBGDH);
       }
       return size;
     }
@@ -1055,94 +716,67 @@ public final class PVEBattleResultCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // kIGBBBPDKEB
-            kIGBBBPDKEB = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
-            // stageId
-            stageId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
-          case 56: {
-            // cKGDEAKGMLJ
-            cKGDEAKGMLJ = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
-            // battleId
-            battleId = input.readUInt32();
-            bitField0_ |= 0x00000008;
-            tag = input.readTag();
-            if (tag != 88) {
-              break;
-            }
-          }
-          case 88: {
-            // clientResVersion
-            clientResVersion = input.readUInt32();
-            bitField0_ |= 0x00000010;
-            tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
-            // kBHKHHAKPND
-            kBHKHHAKPND = input.readUInt32();
-            bitField0_ |= 0x00000020;
-            tag = input.readTag();
-            if (tag != 32) {
-              break;
-            }
-          }
           case 32: {
-            // endStatus
-            final int value = input.readInt32();
-            if (BattleEndStatusOuterClass.BattleEndStatus.forNumber(value) != null) {
-              endStatus = value;
-              bitField0_ |= 0x00000040;
-            }
+            // costTime
+            costTime = input.readUInt32();
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 48) {
               break;
             }
           }
           case 48: {
-            // oKEOKGAICEL
-            oKEOKGAICEL = input.readBool();
-            bitField0_ |= 0x00000080;
+            // stageId
+            stageId = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 72) {
               break;
             }
           }
-          case 104: {
+          case 72: {
+            // battleId
+            battleId = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 112) {
+              break;
+            }
+          }
+          case 112: {
+            // clientResVersion
+            clientResVersion = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // endStatus
+            final int value = input.readInt32();
+            if (BattleEndStatusOuterClass.BattleEndStatus.forNumber(value) != null) {
+              endStatus = value;
+              bitField0_ |= 0x00000010;
+            }
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
             // isAiConsiderUltraSkill
             isAiConsiderUltraSkill = input.readBool();
-            bitField0_ |= 0x00000100;
+            bitField0_ |= 0x00000020;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 82) {
               break;
             }
           }
-          case 122: {
+          case 82: {
             // stt
             input.readMessage(stt);
-            bitField0_ |= 0x00000200;
+            bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 10) {
               break;
@@ -1151,16 +785,7 @@ public final class PVEBattleResultCsReqOuterClass {
           case 10: {
             // turnSnapshotHash
             input.readBytes(turnSnapshotHash);
-            bitField0_ |= 0x00000400;
-            tag = input.readTag();
-            if (tag != 74) {
-              break;
-            }
-          }
-          case 74: {
-            // cAIAOBGAECF
-            input.readString(cAIAOBGAECF);
-            bitField0_ |= 0x00000800;
+            bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 42) {
               break;
@@ -1169,15 +794,7 @@ public final class PVEBattleResultCsReqOuterClass {
           case 42: {
             // opList
             tag = input.readRepeatedMessage(opList, tag);
-            bitField0_ |= 0x00001000;
-            if (tag != 98) {
-              break;
-            }
-          }
-          case 98: {
-            // gGLJGEMBGDH
-            tag = input.readRepeatedMessage(gGLJGEMBGDH, tag);
-            bitField0_ |= 0x00002000;
+            bitField0_ |= 0x00000100;
             if (tag != 0) {
               break;
             }
@@ -1200,46 +817,31 @@ public final class PVEBattleResultCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.kIGBBBPDKEB, kIGBBBPDKEB);
+        output.writeUInt32(FieldNames.costTime, costTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.stageId, stageId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.cKGDEAKGMLJ, cKGDEAKGMLJ);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.battleId, battleId);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.clientResVersion, clientResVersion);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
-        output.writeUInt32(FieldNames.kBHKHHAKPND, kBHKHHAKPND);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000010) != 0) {
         output.writeEnum(FieldNames.endStatus, endStatus, BattleEndStatusOuterClass.BattleEndStatus.converter());
       }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeBool(FieldNames.oKEOKGAICEL, oKEOKGAICEL);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000020) != 0) {
         output.writeBool(FieldNames.isAiConsiderUltraSkill, isAiConsiderUltraSkill);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         output.writeMessage(FieldNames.stt, stt);
       }
-      if ((bitField0_ & 0x00000400) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeBytes(FieldNames.turnSnapshotHash, turnSnapshotHash);
       }
-      if ((bitField0_ & 0x00000800) != 0) {
-        output.writeString(FieldNames.cAIAOBGAECF, cAIAOBGAECF);
-      }
-      if ((bitField0_ & 0x00001000) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         output.writeRepeatedMessage(FieldNames.opList, opList);
-      }
-      if ((bitField0_ & 0x00002000) != 0) {
-        output.writeRepeatedMessage(FieldNames.gGLJGEMBGDH, gGLJGEMBGDH);
       }
       output.endObject();
     }
@@ -1251,10 +853,11 @@ public final class PVEBattleResultCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1199341211: {
-            if (input.isAtField(FieldNames.kIGBBBPDKEB)) {
+          case -424687558:
+          case -269929473: {
+            if (input.isAtField(FieldNames.costTime)) {
               if (!input.trySkipNullValue()) {
-                kIGBBBPDKEB = input.readUInt32();
+                costTime = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -1274,23 +877,12 @@ public final class PVEBattleResultCsReqOuterClass {
             }
             break;
           }
-          case -177934930: {
-            if (input.isAtField(FieldNames.cKGDEAKGMLJ)) {
-              if (!input.trySkipNullValue()) {
-                cKGDEAKGMLJ = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1678308365:
           case -487930366: {
             if (input.isAtField(FieldNames.battleId)) {
               if (!input.trySkipNullValue()) {
                 battleId = input.readUInt32();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -1302,18 +894,7 @@ public final class PVEBattleResultCsReqOuterClass {
             if (input.isAtField(FieldNames.clientResVersion)) {
               if (!input.trySkipNullValue()) {
                 clientResVersion = input.readUInt32();
-                bitField0_ |= 0x00000010;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 461095618: {
-            if (input.isAtField(FieldNames.kBHKHHAKPND)) {
-              if (!input.trySkipNullValue()) {
-                kBHKHHAKPND = input.readUInt32();
-                bitField0_ |= 0x00000020;
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -1327,21 +908,10 @@ public final class PVEBattleResultCsReqOuterClass {
                 final BattleEndStatusOuterClass.BattleEndStatus value = input.readEnum(BattleEndStatusOuterClass.BattleEndStatus.converter());
                 if (value != null) {
                   endStatus = value.getNumber();
-                  bitField0_ |= 0x00000040;
+                  bitField0_ |= 0x00000010;
                 } else {
                   input.skipUnknownEnumValue();
                 }
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -2057851680: {
-            if (input.isAtField(FieldNames.oKEOKGAICEL)) {
-              if (!input.trySkipNullValue()) {
-                oKEOKGAICEL = input.readBool();
-                bitField0_ |= 0x00000080;
               }
             } else {
               input.skipUnknownField();
@@ -1353,7 +923,7 @@ public final class PVEBattleResultCsReqOuterClass {
             if (input.isAtField(FieldNames.isAiConsiderUltraSkill)) {
               if (!input.trySkipNullValue()) {
                 isAiConsiderUltraSkill = input.readBool();
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00000020;
               }
             } else {
               input.skipUnknownField();
@@ -1364,7 +934,7 @@ public final class PVEBattleResultCsReqOuterClass {
             if (input.isAtField(FieldNames.stt)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(stt);
-                bitField0_ |= 0x00000200;
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -1376,18 +946,7 @@ public final class PVEBattleResultCsReqOuterClass {
             if (input.isAtField(FieldNames.turnSnapshotHash)) {
               if (!input.trySkipNullValue()) {
                 input.readBytes(turnSnapshotHash);
-                bitField0_ |= 0x00000400;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1843645349: {
-            if (input.isAtField(FieldNames.cAIAOBGAECF)) {
-              if (!input.trySkipNullValue()) {
-                input.readString(cAIAOBGAECF);
-                bitField0_ |= 0x00000800;
+                bitField0_ |= 0x00000080;
               }
             } else {
               input.skipUnknownField();
@@ -1399,18 +958,7 @@ public final class PVEBattleResultCsReqOuterClass {
             if (input.isAtField(FieldNames.opList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(opList);
-                bitField0_ |= 0x00001000;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1026086682: {
-            if (input.isAtField(FieldNames.gGLJGEMBGDH)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(gGLJGEMBGDH);
-                bitField0_ |= 0x00002000;
+                bitField0_ |= 0x00000100;
               }
             } else {
               input.skipUnknownField();
@@ -1457,360 +1005,6 @@ public final class PVEBattleResultCsReqOuterClass {
       return PVEBattleResultCsReqFactory.INSTANCE;
     }
 
-    /**
-     * Protobuf type {@code GGLJGEMBGDHEntry}
-     */
-    public static final class GGLJGEMBGDHEntry extends ProtoMessage<GGLJGEMBGDHEntry> implements Cloneable {
-      private static final long serialVersionUID = 0L;
-
-      /**
-       * <code>optional uint32 value = 2;</code>
-       */
-      private int value_;
-
-      /**
-       * <code>optional string key = 1;</code>
-       */
-      private final Utf8String key = Utf8String.newEmptyInstance();
-
-      private GGLJGEMBGDHEntry() {
-      }
-
-      /**
-       * @return a new empty instance of {@code GGLJGEMBGDHEntry}
-       */
-      public static GGLJGEMBGDHEntry newInstance() {
-        return new GGLJGEMBGDHEntry();
-      }
-
-      /**
-       * <code>optional uint32 value = 2;</code>
-       * @return whether the value_ field is set
-       */
-      public boolean hasValue() {
-        return (bitField0_ & 0x00000001) != 0;
-      }
-
-      /**
-       * <code>optional uint32 value = 2;</code>
-       * @return this
-       */
-      public GGLJGEMBGDHEntry clearValue() {
-        bitField0_ &= ~0x00000001;
-        value_ = 0;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 value = 2;</code>
-       * @return the value_
-       */
-      public int getValue() {
-        return value_;
-      }
-
-      /**
-       * <code>optional uint32 value = 2;</code>
-       * @param value the value_ to set
-       * @return this
-       */
-      public GGLJGEMBGDHEntry setValue(final int value) {
-        bitField0_ |= 0x00000001;
-        value_ = value;
-        return this;
-      }
-
-      /**
-       * <code>optional string key = 1;</code>
-       * @return whether the key field is set
-       */
-      public boolean hasKey() {
-        return (bitField0_ & 0x00000002) != 0;
-      }
-
-      /**
-       * <code>optional string key = 1;</code>
-       * @return this
-       */
-      public GGLJGEMBGDHEntry clearKey() {
-        bitField0_ &= ~0x00000002;
-        key.clear();
-        return this;
-      }
-
-      /**
-       * <code>optional string key = 1;</code>
-       * @return the key
-       */
-      public String getKey() {
-        return key.getString();
-      }
-
-      /**
-       * <code>optional string key = 1;</code>
-       * @return internal {@code Utf8String} representation of key for reading
-       */
-      public Utf8String getKeyBytes() {
-        return this.key;
-      }
-
-      /**
-       * <code>optional string key = 1;</code>
-       * @return internal {@code Utf8String} representation of key for modifications
-       */
-      public Utf8String getMutableKeyBytes() {
-        bitField0_ |= 0x00000002;
-        return this.key;
-      }
-
-      /**
-       * <code>optional string key = 1;</code>
-       * @param value the key to set
-       * @return this
-       */
-      public GGLJGEMBGDHEntry setKey(final CharSequence value) {
-        bitField0_ |= 0x00000002;
-        key.copyFrom(value);
-        return this;
-      }
-
-      /**
-       * <code>optional string key = 1;</code>
-       * @param value the key to set
-       * @return this
-       */
-      public GGLJGEMBGDHEntry setKey(final Utf8String value) {
-        bitField0_ |= 0x00000002;
-        key.copyFrom(value);
-        return this;
-      }
-
-      @Override
-      public GGLJGEMBGDHEntry copyFrom(final GGLJGEMBGDHEntry other) {
-        cachedSize = other.cachedSize;
-        if ((bitField0_ | other.bitField0_) != 0) {
-          bitField0_ = other.bitField0_;
-          value_ = other.value_;
-          key.copyFrom(other.key);
-        }
-        return this;
-      }
-
-      @Override
-      public GGLJGEMBGDHEntry mergeFrom(final GGLJGEMBGDHEntry other) {
-        if (other.isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        if (other.hasValue()) {
-          setValue(other.value_);
-        }
-        if (other.hasKey()) {
-          getMutableKeyBytes().copyFrom(other.key);
-        }
-        return this;
-      }
-
-      @Override
-      public GGLJGEMBGDHEntry clear() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        value_ = 0;
-        key.clear();
-        return this;
-      }
-
-      @Override
-      public GGLJGEMBGDHEntry clearQuick() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        key.clear();
-        return this;
-      }
-
-      @Override
-      public boolean equals(Object o) {
-        if (o == this) {
-          return true;
-        }
-        if (!(o instanceof GGLJGEMBGDHEntry)) {
-          return false;
-        }
-        GGLJGEMBGDHEntry other = (GGLJGEMBGDHEntry) o;
-        return bitField0_ == other.bitField0_
-          && (!hasValue() || value_ == other.value_)
-          && (!hasKey() || key.equals(other.key));
-      }
-
-      @Override
-      public void writeTo(final ProtoSink output) throws IOException {
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeRawByte((byte) 16);
-          output.writeUInt32NoTag(value_);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeRawByte((byte) 10);
-          output.writeStringNoTag(key);
-        }
-      }
-
-      @Override
-      protected int computeSerializedSize() {
-        int size = 0;
-        if ((bitField0_ & 0x00000001) != 0) {
-          size += 1 + ProtoSink.computeUInt32SizeNoTag(value_);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          size += 1 + ProtoSink.computeStringSizeNoTag(key);
-        }
-        return size;
-      }
-
-      @Override
-      @SuppressWarnings("fallthrough")
-      public GGLJGEMBGDHEntry mergeFrom(final ProtoSource input) throws IOException {
-        // Enabled Fall-Through Optimization (QuickBuffers)
-        int tag = input.readTag();
-        while (true) {
-          switch (tag) {
-            case 16: {
-              // value_
-              value_ = input.readUInt32();
-              bitField0_ |= 0x00000001;
-              tag = input.readTag();
-              if (tag != 10) {
-                break;
-              }
-            }
-            case 10: {
-              // key
-              input.readString(key);
-              bitField0_ |= 0x00000002;
-              tag = input.readTag();
-              if (tag != 0) {
-                break;
-              }
-            }
-            case 0: {
-              return this;
-            }
-            default: {
-              if (!input.skipField(tag)) {
-                return this;
-              }
-              tag = input.readTag();
-              break;
-            }
-          }
-        }
-      }
-
-      @Override
-      public void writeTo(final JsonSink output) throws IOException {
-        output.beginObject();
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeUInt32(FieldNames.value_, value_);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeString(FieldNames.key, key);
-        }
-        output.endObject();
-      }
-
-      @Override
-      public GGLJGEMBGDHEntry mergeFrom(final JsonSource input) throws IOException {
-        if (!input.beginObject()) {
-          return this;
-        }
-        while (!input.isAtEnd()) {
-          switch (input.readFieldHash()) {
-            case 111972721: {
-              if (input.isAtField(FieldNames.value_)) {
-                if (!input.trySkipNullValue()) {
-                  value_ = input.readUInt32();
-                  bitField0_ |= 0x00000001;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            case 106079: {
-              if (input.isAtField(FieldNames.key)) {
-                if (!input.trySkipNullValue()) {
-                  input.readString(key);
-                  bitField0_ |= 0x00000002;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            default: {
-              input.skipUnknownField();
-              break;
-            }
-          }
-        }
-        input.endObject();
-        return this;
-      }
-
-      @Override
-      public GGLJGEMBGDHEntry clone() {
-        return new GGLJGEMBGDHEntry().copyFrom(this);
-      }
-
-      @Override
-      public boolean isEmpty() {
-        return ((bitField0_) == 0);
-      }
-
-      public static GGLJGEMBGDHEntry parseFrom(final byte[] data) throws
-          InvalidProtocolBufferException {
-        return ProtoMessage.mergeFrom(new GGLJGEMBGDHEntry(), data).checkInitialized();
-      }
-
-      public static GGLJGEMBGDHEntry parseFrom(final ProtoSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new GGLJGEMBGDHEntry(), input).checkInitialized();
-      }
-
-      public static GGLJGEMBGDHEntry parseFrom(final JsonSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new GGLJGEMBGDHEntry(), input).checkInitialized();
-      }
-
-      /**
-       * @return factory for creating GGLJGEMBGDHEntry messages
-       */
-      public static MessageFactory<GGLJGEMBGDHEntry> getFactory() {
-        return GGLJGEMBGDHEntryFactory.INSTANCE;
-      }
-
-      private enum GGLJGEMBGDHEntryFactory implements MessageFactory<GGLJGEMBGDHEntry> {
-        INSTANCE;
-
-        @Override
-        public GGLJGEMBGDHEntry create() {
-          return GGLJGEMBGDHEntry.newInstance();
-        }
-      }
-
-      /**
-       * Contains name constants used for serializing JSON
-       */
-      static class FieldNames {
-        static final FieldName value_ = FieldName.forField("value");
-
-        static final FieldName key = FieldName.forField("key");
-      }
-    }
-
     private enum PVEBattleResultCsReqFactory implements MessageFactory<PVEBattleResultCsReq> {
       INSTANCE;
 
@@ -1824,21 +1018,15 @@ public final class PVEBattleResultCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName kIGBBBPDKEB = FieldName.forField("KIGBBBPDKEB");
+      static final FieldName costTime = FieldName.forField("costTime", "cost_time");
 
       static final FieldName stageId = FieldName.forField("stageId", "stage_id");
-
-      static final FieldName cKGDEAKGMLJ = FieldName.forField("CKGDEAKGMLJ");
 
       static final FieldName battleId = FieldName.forField("battleId", "battle_id");
 
       static final FieldName clientResVersion = FieldName.forField("clientResVersion", "client_res_version");
 
-      static final FieldName kBHKHHAKPND = FieldName.forField("KBHKHHAKPND");
-
       static final FieldName endStatus = FieldName.forField("endStatus", "end_status");
-
-      static final FieldName oKEOKGAICEL = FieldName.forField("OKEOKGAICEL");
 
       static final FieldName isAiConsiderUltraSkill = FieldName.forField("isAiConsiderUltraSkill", "is_ai_consider_ultra_skill");
 
@@ -1846,11 +1034,7 @@ public final class PVEBattleResultCsReqOuterClass {
 
       static final FieldName turnSnapshotHash = FieldName.forField("turnSnapshotHash", "turn_snapshot_hash");
 
-      static final FieldName cAIAOBGAECF = FieldName.forField("CAIAOBGAECF");
-
       static final FieldName opList = FieldName.forField("opList", "op_list");
-
-      static final FieldName gGLJGEMBGDH = FieldName.forField("GGLJGEMBGDH");
     }
   }
 }

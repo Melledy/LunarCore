@@ -24,12 +24,12 @@ public final class PlayerHeartbeatCsReqOuterClass {
     private long clientTimeMs;
 
     /**
-     * <code>optional uint32 DCLHJDKBBAK = 6;</code>
+     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
      */
-    private int dCLHJDKBBAK;
+    private int dIMAFIDFCOD;
 
     /**
-     * <code>optional .ClientUploadData upload_data = 10;</code>
+     * <code>optional .ClientUploadData upload_data = 13;</code>
      */
     private final ClientUploadDataOuterClass.ClientUploadData uploadData = ClientUploadDataOuterClass.ClientUploadData.newInstance();
 
@@ -81,44 +81,44 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 DCLHJDKBBAK = 6;</code>
-     * @return whether the dCLHJDKBBAK field is set
+     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
+     * @return whether the dIMAFIDFCOD field is set
      */
-    public boolean hasDCLHJDKBBAK() {
+    public boolean hasDIMAFIDFCOD() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 DCLHJDKBBAK = 6;</code>
+     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
      * @return this
      */
-    public PlayerHeartbeatCsReq clearDCLHJDKBBAK() {
+    public PlayerHeartbeatCsReq clearDIMAFIDFCOD() {
       bitField0_ &= ~0x00000002;
-      dCLHJDKBBAK = 0;
+      dIMAFIDFCOD = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 DCLHJDKBBAK = 6;</code>
-     * @return the dCLHJDKBBAK
+     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
+     * @return the dIMAFIDFCOD
      */
-    public int getDCLHJDKBBAK() {
-      return dCLHJDKBBAK;
+    public int getDIMAFIDFCOD() {
+      return dIMAFIDFCOD;
     }
 
     /**
-     * <code>optional uint32 DCLHJDKBBAK = 6;</code>
-     * @param value the dCLHJDKBBAK to set
+     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
+     * @param value the dIMAFIDFCOD to set
      * @return this
      */
-    public PlayerHeartbeatCsReq setDCLHJDKBBAK(final int value) {
+    public PlayerHeartbeatCsReq setDIMAFIDFCOD(final int value) {
       bitField0_ |= 0x00000002;
-      dCLHJDKBBAK = value;
+      dIMAFIDFCOD = value;
       return this;
     }
 
     /**
-     * <code>optional .ClientUploadData upload_data = 10;</code>
+     * <code>optional .ClientUploadData upload_data = 13;</code>
      * @return whether the uploadData field is set
      */
     public boolean hasUploadData() {
@@ -126,7 +126,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ClientUploadData upload_data = 10;</code>
+     * <code>optional .ClientUploadData upload_data = 13;</code>
      * @return this
      */
     public PlayerHeartbeatCsReq clearUploadData() {
@@ -136,7 +136,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ClientUploadData upload_data = 10;</code>
+     * <code>optional .ClientUploadData upload_data = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ClientUploadData upload_data = 10;</code>
+     * <code>optional .ClientUploadData upload_data = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ClientUploadData upload_data = 10;</code>
+     * <code>optional .ClientUploadData upload_data = 13;</code>
      * @param value the uploadData to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         clientTimeMs = other.clientTimeMs;
-        dCLHJDKBBAK = other.dCLHJDKBBAK;
+        dIMAFIDFCOD = other.dIMAFIDFCOD;
         uploadData.copyFrom(other.uploadData);
       }
       return this;
@@ -196,8 +196,8 @@ public final class PlayerHeartbeatCsReqOuterClass {
       if (other.hasClientTimeMs()) {
         setClientTimeMs(other.clientTimeMs);
       }
-      if (other.hasDCLHJDKBBAK()) {
-        setDCLHJDKBBAK(other.dCLHJDKBBAK);
+      if (other.hasDIMAFIDFCOD()) {
+        setDIMAFIDFCOD(other.dIMAFIDFCOD);
       }
       if (other.hasUploadData()) {
         getMutableUploadData().mergeFrom(other.uploadData);
@@ -213,7 +213,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       clientTimeMs = 0L;
-      dCLHJDKBBAK = 0;
+      dIMAFIDFCOD = 0;
       uploadData.clear();
       return this;
     }
@@ -240,7 +240,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
       PlayerHeartbeatCsReq other = (PlayerHeartbeatCsReq) o;
       return bitField0_ == other.bitField0_
         && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs)
-        && (!hasDCLHJDKBBAK() || dCLHJDKBBAK == other.dCLHJDKBBAK)
+        && (!hasDIMAFIDFCOD() || dIMAFIDFCOD == other.dIMAFIDFCOD)
         && (!hasUploadData() || uploadData.equals(other.uploadData));
     }
 
@@ -251,11 +251,11 @@ public final class PlayerHeartbeatCsReqOuterClass {
         output.writeUInt64NoTag(clientTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(dCLHJDKBBAK);
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(dIMAFIDFCOD);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 82);
+        output.writeRawByte((byte) 106);
         output.writeMessageNoTag(uploadData);
       }
     }
@@ -267,7 +267,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
         size += 1 + ProtoSink.computeUInt64SizeNoTag(clientTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(dCLHJDKBBAK);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(dIMAFIDFCOD);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(uploadData);
@@ -287,20 +287,20 @@ public final class PlayerHeartbeatCsReqOuterClass {
             clientTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 56) {
               break;
             }
           }
-          case 48: {
-            // dCLHJDKBBAK
-            dCLHJDKBBAK = input.readUInt32();
+          case 56: {
+            // dIMAFIDFCOD
+            dIMAFIDFCOD = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 106) {
               break;
             }
           }
-          case 82: {
+          case 106: {
             // uploadData
             input.readMessage(uploadData);
             bitField0_ |= 0x00000004;
@@ -330,7 +330,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
         output.writeUInt64(FieldNames.clientTimeMs, clientTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.dCLHJDKBBAK, dCLHJDKBBAK);
+        output.writeUInt32(FieldNames.dIMAFIDFCOD, dIMAFIDFCOD);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.uploadData, uploadData);
@@ -357,10 +357,10 @@ public final class PlayerHeartbeatCsReqOuterClass {
             }
             break;
           }
-          case 2054436768: {
-            if (input.isAtField(FieldNames.dCLHJDKBBAK)) {
+          case 634885050: {
+            if (input.isAtField(FieldNames.dIMAFIDFCOD)) {
               if (!input.trySkipNullValue()) {
-                dCLHJDKBBAK = input.readUInt32();
+                dIMAFIDFCOD = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -435,7 +435,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     static class FieldNames {
       static final FieldName clientTimeMs = FieldName.forField("clientTimeMs", "client_time_ms");
 
-      static final FieldName dCLHJDKBBAK = FieldName.forField("DCLHJDKBBAK");
+      static final FieldName dIMAFIDFCOD = FieldName.forField("DIMAFIDFCOD");
 
       static final FieldName uploadData = FieldName.forField("uploadData", "upload_data");
     }

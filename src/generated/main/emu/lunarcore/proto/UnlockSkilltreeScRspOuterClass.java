@@ -19,24 +19,24 @@ public final class UnlockSkilltreeScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 point_id = 2;</code>
-     */
-    private int pointId;
-
-    /**
-     * <code>optional uint32 level = 8;</code>
-     */
-    private int level;
-
-    /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      */
     private int baseAvatarId;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 6;</code>
      */
     private int retcode;
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     */
+    private int level;
+
+    /**
+     * <code>optional uint32 point_id = 11;</code>
+     */
+    private int pointId;
 
     private UnlockSkilltreeScRsp() {
     }
@@ -49,99 +49,25 @@ public final class UnlockSkilltreeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 point_id = 2;</code>
-     * @return whether the pointId field is set
+     * <code>optional uint32 base_avatar_id = 3;</code>
+     * @return whether the baseAvatarId field is set
      */
-    public boolean hasPointId() {
+    public boolean hasBaseAvatarId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 point_id = 2;</code>
-     * @return this
-     */
-    public UnlockSkilltreeScRsp clearPointId() {
-      bitField0_ &= ~0x00000001;
-      pointId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 point_id = 2;</code>
-     * @return the pointId
-     */
-    public int getPointId() {
-      return pointId;
-    }
-
-    /**
-     * <code>optional uint32 point_id = 2;</code>
-     * @param value the pointId to set
-     * @return this
-     */
-    public UnlockSkilltreeScRsp setPointId(final int value) {
-      bitField0_ |= 0x00000001;
-      pointId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 level = 8;</code>
-     * @return whether the level field is set
-     */
-    public boolean hasLevel() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 level = 8;</code>
-     * @return this
-     */
-    public UnlockSkilltreeScRsp clearLevel() {
-      bitField0_ &= ~0x00000002;
-      level = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 level = 8;</code>
-     * @return the level
-     */
-    public int getLevel() {
-      return level;
-    }
-
-    /**
-     * <code>optional uint32 level = 8;</code>
-     * @param value the level to set
-     * @return this
-     */
-    public UnlockSkilltreeScRsp setLevel(final int value) {
-      bitField0_ |= 0x00000002;
-      level = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
-     * @return whether the baseAvatarId field is set
-     */
-    public boolean hasBaseAvatarId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return this
      */
     public UnlockSkilltreeScRsp clearBaseAvatarId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       baseAvatarId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -149,36 +75,36 @@ public final class UnlockSkilltreeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
     public UnlockSkilltreeScRsp setBaseAvatarId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       baseAvatarId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
-      return (bitField0_ & 0x00000008) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return this
      */
     public UnlockSkilltreeScRsp clearRetcode() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000002;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -186,13 +112,87 @@ public final class UnlockSkilltreeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @param value the retcode to set
      * @return this
      */
     public UnlockSkilltreeScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000002;
       retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return whether the level field is set
+     */
+    public boolean hasLevel() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return this
+     */
+    public UnlockSkilltreeScRsp clearLevel() {
+      bitField0_ &= ~0x00000004;
+      level = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return the level
+     */
+    public int getLevel() {
+      return level;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @param value the level to set
+     * @return this
+     */
+    public UnlockSkilltreeScRsp setLevel(final int value) {
+      bitField0_ |= 0x00000004;
+      level = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 point_id = 11;</code>
+     * @return whether the pointId field is set
+     */
+    public boolean hasPointId() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 point_id = 11;</code>
+     * @return this
+     */
+    public UnlockSkilltreeScRsp clearPointId() {
+      bitField0_ &= ~0x00000008;
+      pointId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 point_id = 11;</code>
+     * @return the pointId
+     */
+    public int getPointId() {
+      return pointId;
+    }
+
+    /**
+     * <code>optional uint32 point_id = 11;</code>
+     * @param value the pointId to set
+     * @return this
+     */
+    public UnlockSkilltreeScRsp setPointId(final int value) {
+      bitField0_ |= 0x00000008;
+      pointId = value;
       return this;
     }
 
@@ -201,10 +201,10 @@ public final class UnlockSkilltreeScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        pointId = other.pointId;
-        level = other.level;
         baseAvatarId = other.baseAvatarId;
         retcode = other.retcode;
+        level = other.level;
+        pointId = other.pointId;
       }
       return this;
     }
@@ -215,17 +215,17 @@ public final class UnlockSkilltreeScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPointId()) {
-        setPointId(other.pointId);
-      }
-      if (other.hasLevel()) {
-        setLevel(other.level);
-      }
       if (other.hasBaseAvatarId()) {
         setBaseAvatarId(other.baseAvatarId);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasLevel()) {
+        setLevel(other.level);
+      }
+      if (other.hasPointId()) {
+        setPointId(other.pointId);
       }
       return this;
     }
@@ -237,10 +237,10 @@ public final class UnlockSkilltreeScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      pointId = 0;
-      level = 0;
       baseAvatarId = 0;
       retcode = 0;
+      level = 0;
+      pointId = 0;
       return this;
     }
 
@@ -264,29 +264,29 @@ public final class UnlockSkilltreeScRspOuterClass {
       }
       UnlockSkilltreeScRsp other = (UnlockSkilltreeScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasPointId() || pointId == other.pointId)
-        && (!hasLevel() || level == other.level)
         && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId)
-        && (!hasRetcode() || retcode == other.retcode);
+        && (!hasRetcode() || retcode == other.retcode)
+        && (!hasLevel() || level == other.level)
+        && (!hasPointId() || pointId == other.pointId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(pointId);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(level);
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(baseAvatarId);
+        output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(retcode);
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(pointId);
       }
     }
 
@@ -294,16 +294,16 @@ public final class UnlockSkilltreeScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(pointId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(pointId);
       }
       return size;
     }
@@ -315,18 +315,18 @@ public final class UnlockSkilltreeScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // pointId
-            pointId = input.readUInt32();
+          case 24: {
+            // baseAvatarId
+            baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 48) {
               break;
             }
           }
-          case 64: {
-            // level
-            level = input.readUInt32();
+          case 48: {
+            // retcode
+            retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 80) {
@@ -334,17 +334,17 @@ public final class UnlockSkilltreeScRspOuterClass {
             }
           }
           case 80: {
-            // baseAvatarId
-            baseAvatarId = input.readUInt32();
+            // level
+            level = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 88) {
               break;
             }
           }
-          case 120: {
-            // retcode
-            retcode = input.readUInt32();
+          case 88: {
+            // pointId
+            pointId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
@@ -369,16 +369,16 @@ public final class UnlockSkilltreeScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.pointId, pointId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.level, level);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.level, level);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.pointId, pointId);
       }
       output.endObject();
     }
@@ -390,35 +390,12 @@ public final class UnlockSkilltreeScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -400606517:
-          case 466121258: {
-            if (input.isAtField(FieldNames.pointId)) {
-              if (!input.trySkipNullValue()) {
-                pointId = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 102865796: {
-            if (input.isAtField(FieldNames.level)) {
-              if (!input.trySkipNullValue()) {
-                level = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 118022725:
           case -1756826157: {
             if (input.isAtField(FieldNames.baseAvatarId)) {
               if (!input.trySkipNullValue()) {
                 baseAvatarId = input.readUInt32();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -429,6 +406,29 @@ public final class UnlockSkilltreeScRspOuterClass {
             if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 102865796: {
+            if (input.isAtField(FieldNames.level)) {
+              if (!input.trySkipNullValue()) {
+                level = input.readUInt32();
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -400606517:
+          case 466121258: {
+            if (input.isAtField(FieldNames.pointId)) {
+              if (!input.trySkipNullValue()) {
+                pointId = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -489,13 +489,13 @@ public final class UnlockSkilltreeScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName pointId = FieldName.forField("pointId", "point_id");
-
-      static final FieldName level = FieldName.forField("level");
-
       static final FieldName baseAvatarId = FieldName.forField("baseAvatarId", "base_avatar_id");
 
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName level = FieldName.forField("level");
+
+      static final FieldName pointId = FieldName.forField("pointId", "point_id");
     }
   }
 }

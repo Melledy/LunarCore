@@ -19,7 +19,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      */
     private int equipmentUniqueId;
 
@@ -39,7 +39,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      * @return whether the equipmentUniqueId field is set
      */
     public boolean hasEquipmentUniqueId() {
@@ -47,7 +47,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      * @return this
      */
     public RankUpEquipmentCsReq clearEquipmentUniqueId() {
@@ -57,7 +57,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      * @return the equipmentUniqueId
      */
     public int getEquipmentUniqueId() {
@@ -65,7 +65,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
+     * <code>optional uint32 equipment_unique_id = 14;</code>
      * @param value the equipmentUniqueId to set
      * @return this
      */
@@ -198,7 +198,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -226,7 +226,7 @@ public final class RankUpEquipmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 112: {
             // equipmentUniqueId
             equipmentUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;

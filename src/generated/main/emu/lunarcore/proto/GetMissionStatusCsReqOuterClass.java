@@ -20,19 +20,19 @@ public final class GetMissionStatusCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 sub_mission_id_list = 7;</code>
+     * <code>repeated uint32 main_mission_id_list = 5;</code>
      */
-    private final RepeatedInt subMissionIdList = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt mainMissionIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 mission_event_id_list = 11;</code>
+     * <code>repeated uint32 mission_event_id_list = 10;</code>
      */
     private final RepeatedInt missionEventIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 main_mission_id_list = 15;</code>
+     * <code>repeated uint32 sub_mission_id_list = 14;</code>
      */
-    private final RepeatedInt mainMissionIdList = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt subMissionIdList = RepeatedInt.newEmptyInstance();
 
     private GetMissionStatusCsReq() {
     }
@@ -45,161 +45,25 @@ public final class GetMissionStatusCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 sub_mission_id_list = 7;</code>
-     * @return whether the subMissionIdList field is set
+     * <code>repeated uint32 main_mission_id_list = 5;</code>
+     * @return whether the mainMissionIdList field is set
      */
-    public boolean hasSubMissionIdList() {
+    public boolean hasMainMissionIdList() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>repeated uint32 sub_mission_id_list = 7;</code>
-     * @return this
-     */
-    public GetMissionStatusCsReq clearSubMissionIdList() {
-      bitField0_ &= ~0x00000001;
-      subMissionIdList.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 sub_mission_id_list = 7;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableSubMissionIdList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getSubMissionIdList() {
-      return subMissionIdList;
-    }
-
-    /**
-     * <code>repeated uint32 sub_mission_id_list = 7;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableSubMissionIdList() {
-      bitField0_ |= 0x00000001;
-      return subMissionIdList;
-    }
-
-    /**
-     * <code>repeated uint32 sub_mission_id_list = 7;</code>
-     * @param value the subMissionIdList to add
-     * @return this
-     */
-    public GetMissionStatusCsReq addSubMissionIdList(final int value) {
-      bitField0_ |= 0x00000001;
-      subMissionIdList.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 sub_mission_id_list = 7;</code>
-     * @param values the subMissionIdList to add
-     * @return this
-     */
-    public GetMissionStatusCsReq addAllSubMissionIdList(final int... values) {
-      bitField0_ |= 0x00000001;
-      subMissionIdList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 mission_event_id_list = 11;</code>
-     * @return whether the missionEventIdList field is set
-     */
-    public boolean hasMissionEventIdList() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 mission_event_id_list = 11;</code>
-     * @return this
-     */
-    public GetMissionStatusCsReq clearMissionEventIdList() {
-      bitField0_ &= ~0x00000002;
-      missionEventIdList.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 mission_event_id_list = 11;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableMissionEventIdList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getMissionEventIdList() {
-      return missionEventIdList;
-    }
-
-    /**
-     * <code>repeated uint32 mission_event_id_list = 11;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableMissionEventIdList() {
-      bitField0_ |= 0x00000002;
-      return missionEventIdList;
-    }
-
-    /**
-     * <code>repeated uint32 mission_event_id_list = 11;</code>
-     * @param value the missionEventIdList to add
-     * @return this
-     */
-    public GetMissionStatusCsReq addMissionEventIdList(final int value) {
-      bitField0_ |= 0x00000002;
-      missionEventIdList.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 mission_event_id_list = 11;</code>
-     * @param values the missionEventIdList to add
-     * @return this
-     */
-    public GetMissionStatusCsReq addAllMissionEventIdList(final int... values) {
-      bitField0_ |= 0x00000002;
-      missionEventIdList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 main_mission_id_list = 15;</code>
-     * @return whether the mainMissionIdList field is set
-     */
-    public boolean hasMainMissionIdList() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 main_mission_id_list = 15;</code>
+     * <code>repeated uint32 main_mission_id_list = 5;</code>
      * @return this
      */
     public GetMissionStatusCsReq clearMainMissionIdList() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       mainMissionIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 main_mission_id_list = 15;</code>
+     * <code>repeated uint32 main_mission_id_list = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -213,7 +77,7 @@ public final class GetMissionStatusCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 main_mission_id_list = 15;</code>
+     * <code>repeated uint32 main_mission_id_list = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -222,29 +86,165 @@ public final class GetMissionStatusCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableMainMissionIdList() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       return mainMissionIdList;
     }
 
     /**
-     * <code>repeated uint32 main_mission_id_list = 15;</code>
+     * <code>repeated uint32 main_mission_id_list = 5;</code>
      * @param value the mainMissionIdList to add
      * @return this
      */
     public GetMissionStatusCsReq addMainMissionIdList(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       mainMissionIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 main_mission_id_list = 15;</code>
+     * <code>repeated uint32 main_mission_id_list = 5;</code>
      * @param values the mainMissionIdList to add
      * @return this
      */
     public GetMissionStatusCsReq addAllMainMissionIdList(final int... values) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       mainMissionIdList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 mission_event_id_list = 10;</code>
+     * @return whether the missionEventIdList field is set
+     */
+    public boolean hasMissionEventIdList() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 mission_event_id_list = 10;</code>
+     * @return this
+     */
+    public GetMissionStatusCsReq clearMissionEventIdList() {
+      bitField0_ &= ~0x00000002;
+      missionEventIdList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 mission_event_id_list = 10;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableMissionEventIdList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getMissionEventIdList() {
+      return missionEventIdList;
+    }
+
+    /**
+     * <code>repeated uint32 mission_event_id_list = 10;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableMissionEventIdList() {
+      bitField0_ |= 0x00000002;
+      return missionEventIdList;
+    }
+
+    /**
+     * <code>repeated uint32 mission_event_id_list = 10;</code>
+     * @param value the missionEventIdList to add
+     * @return this
+     */
+    public GetMissionStatusCsReq addMissionEventIdList(final int value) {
+      bitField0_ |= 0x00000002;
+      missionEventIdList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 mission_event_id_list = 10;</code>
+     * @param values the missionEventIdList to add
+     * @return this
+     */
+    public GetMissionStatusCsReq addAllMissionEventIdList(final int... values) {
+      bitField0_ |= 0x00000002;
+      missionEventIdList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 sub_mission_id_list = 14;</code>
+     * @return whether the subMissionIdList field is set
+     */
+    public boolean hasSubMissionIdList() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 sub_mission_id_list = 14;</code>
+     * @return this
+     */
+    public GetMissionStatusCsReq clearSubMissionIdList() {
+      bitField0_ &= ~0x00000004;
+      subMissionIdList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 sub_mission_id_list = 14;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableSubMissionIdList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getSubMissionIdList() {
+      return subMissionIdList;
+    }
+
+    /**
+     * <code>repeated uint32 sub_mission_id_list = 14;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableSubMissionIdList() {
+      bitField0_ |= 0x00000004;
+      return subMissionIdList;
+    }
+
+    /**
+     * <code>repeated uint32 sub_mission_id_list = 14;</code>
+     * @param value the subMissionIdList to add
+     * @return this
+     */
+    public GetMissionStatusCsReq addSubMissionIdList(final int value) {
+      bitField0_ |= 0x00000004;
+      subMissionIdList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 sub_mission_id_list = 14;</code>
+     * @param values the subMissionIdList to add
+     * @return this
+     */
+    public GetMissionStatusCsReq addAllSubMissionIdList(final int... values) {
+      bitField0_ |= 0x00000004;
+      subMissionIdList.addAll(values);
       return this;
     }
 
@@ -253,9 +253,9 @@ public final class GetMissionStatusCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        subMissionIdList.copyFrom(other.subMissionIdList);
-        missionEventIdList.copyFrom(other.missionEventIdList);
         mainMissionIdList.copyFrom(other.mainMissionIdList);
+        missionEventIdList.copyFrom(other.missionEventIdList);
+        subMissionIdList.copyFrom(other.subMissionIdList);
       }
       return this;
     }
@@ -266,14 +266,14 @@ public final class GetMissionStatusCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasSubMissionIdList()) {
-        getMutableSubMissionIdList().addAll(other.subMissionIdList);
+      if (other.hasMainMissionIdList()) {
+        getMutableMainMissionIdList().addAll(other.mainMissionIdList);
       }
       if (other.hasMissionEventIdList()) {
         getMutableMissionEventIdList().addAll(other.missionEventIdList);
       }
-      if (other.hasMainMissionIdList()) {
-        getMutableMainMissionIdList().addAll(other.mainMissionIdList);
+      if (other.hasSubMissionIdList()) {
+        getMutableSubMissionIdList().addAll(other.subMissionIdList);
       }
       return this;
     }
@@ -285,9 +285,9 @@ public final class GetMissionStatusCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      subMissionIdList.clear();
-      missionEventIdList.clear();
       mainMissionIdList.clear();
+      missionEventIdList.clear();
+      subMissionIdList.clear();
       return this;
     }
 
@@ -298,9 +298,9 @@ public final class GetMissionStatusCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      subMissionIdList.clear();
-      missionEventIdList.clear();
       mainMissionIdList.clear();
+      missionEventIdList.clear();
+      subMissionIdList.clear();
       return this;
     }
 
@@ -314,29 +314,29 @@ public final class GetMissionStatusCsReqOuterClass {
       }
       GetMissionStatusCsReq other = (GetMissionStatusCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasSubMissionIdList() || subMissionIdList.equals(other.subMissionIdList))
+        && (!hasMainMissionIdList() || mainMissionIdList.equals(other.mainMissionIdList))
         && (!hasMissionEventIdList() || missionEventIdList.equals(other.missionEventIdList))
-        && (!hasMainMissionIdList() || mainMissionIdList.equals(other.mainMissionIdList));
+        && (!hasSubMissionIdList() || subMissionIdList.equals(other.subMissionIdList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        for (int i = 0; i < subMissionIdList.length(); i++) {
-          output.writeRawByte((byte) 56);
-          output.writeUInt32NoTag(subMissionIdList.array()[i]);
+        for (int i = 0; i < mainMissionIdList.length(); i++) {
+          output.writeRawByte((byte) 40);
+          output.writeUInt32NoTag(mainMissionIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < missionEventIdList.length(); i++) {
-          output.writeRawByte((byte) 88);
+          output.writeRawByte((byte) 80);
           output.writeUInt32NoTag(missionEventIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < mainMissionIdList.length(); i++) {
-          output.writeRawByte((byte) 120);
-          output.writeUInt32NoTag(mainMissionIdList.array()[i]);
+        for (int i = 0; i < subMissionIdList.length(); i++) {
+          output.writeRawByte((byte) 112);
+          output.writeUInt32NoTag(subMissionIdList.array()[i]);
         }
       }
     }
@@ -345,13 +345,13 @@ public final class GetMissionStatusCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += (1 * subMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(subMissionIdList);
+        size += (1 * mainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(mainMissionIdList);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * missionEventIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(missionEventIdList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * mainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(mainMissionIdList);
+        size += (1 * subMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(subMissionIdList);
       }
       return size;
     }
@@ -363,27 +363,27 @@ public final class GetMissionStatusCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 58: {
-            // subMissionIdList [packed=true]
-            input.readPackedUInt32(subMissionIdList, tag);
+          case 42: {
+            // mainMissionIdList [packed=true]
+            input.readPackedUInt32(mainMissionIdList, tag);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 82) {
               break;
             }
           }
-          case 90: {
+          case 82: {
             // missionEventIdList [packed=true]
             input.readPackedUInt32(missionEventIdList, tag);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 114) {
               break;
             }
           }
-          case 122: {
-            // mainMissionIdList [packed=true]
-            input.readPackedUInt32(mainMissionIdList, tag);
+          case 114: {
+            // subMissionIdList [packed=true]
+            input.readPackedUInt32(subMissionIdList, tag);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -400,21 +400,21 @@ public final class GetMissionStatusCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
-            // subMissionIdList [packed=false]
-            tag = input.readRepeatedUInt32(subMissionIdList, tag);
+          case 40: {
+            // mainMissionIdList [packed=false]
+            tag = input.readRepeatedUInt32(mainMissionIdList, tag);
             bitField0_ |= 0x00000001;
             break;
           }
-          case 88: {
+          case 80: {
             // missionEventIdList [packed=false]
             tag = input.readRepeatedUInt32(missionEventIdList, tag);
             bitField0_ |= 0x00000002;
             break;
           }
-          case 120: {
-            // mainMissionIdList [packed=false]
-            tag = input.readRepeatedUInt32(mainMissionIdList, tag);
+          case 112: {
+            // subMissionIdList [packed=false]
+            tag = input.readRepeatedUInt32(subMissionIdList, tag);
             bitField0_ |= 0x00000004;
             break;
           }
@@ -426,13 +426,13 @@ public final class GetMissionStatusCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRepeatedUInt32(FieldNames.subMissionIdList, subMissionIdList);
+        output.writeRepeatedUInt32(FieldNames.mainMissionIdList, mainMissionIdList);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedUInt32(FieldNames.missionEventIdList, missionEventIdList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.mainMissionIdList, mainMissionIdList);
+        output.writeRepeatedUInt32(FieldNames.subMissionIdList, subMissionIdList);
       }
       output.endObject();
     }
@@ -444,11 +444,11 @@ public final class GetMissionStatusCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 2039339685:
-          case -225917552: {
-            if (input.isAtField(FieldNames.subMissionIdList)) {
+          case 1438400460:
+          case -1382679799: {
+            if (input.isAtField(FieldNames.mainMissionIdList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(subMissionIdList);
+                input.readRepeatedUInt32(mainMissionIdList);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -468,11 +468,11 @@ public final class GetMissionStatusCsReqOuterClass {
             }
             break;
           }
-          case 1438400460:
-          case -1382679799: {
-            if (input.isAtField(FieldNames.mainMissionIdList)) {
+          case 2039339685:
+          case -225917552: {
+            if (input.isAtField(FieldNames.subMissionIdList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(mainMissionIdList);
+                input.readRepeatedUInt32(subMissionIdList);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -533,11 +533,11 @@ public final class GetMissionStatusCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName subMissionIdList = FieldName.forField("subMissionIdList", "sub_mission_id_list");
+      static final FieldName mainMissionIdList = FieldName.forField("mainMissionIdList", "main_mission_id_list");
 
       static final FieldName missionEventIdList = FieldName.forField("missionEventIdList", "mission_event_id_list");
 
-      static final FieldName mainMissionIdList = FieldName.forField("mainMissionIdList", "main_mission_id_list");
+      static final FieldName subMissionIdList = FieldName.forField("subMissionIdList", "sub_mission_id_list");
     }
   }
 }

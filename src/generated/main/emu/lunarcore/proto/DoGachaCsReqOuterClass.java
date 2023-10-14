@@ -19,24 +19,24 @@ public final class DoGachaCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 gacha_num = 6;</code>
+     * <code>optional uint32 gacha_num = 2;</code>
      */
     private int gachaNum;
+
+    /**
+     * <code>optional uint32 gacha_id = 7;</code>
+     */
+    private int gachaId;
+
+    /**
+     * <code>optional uint32 simulate_magic = 8;</code>
+     */
+    private int simulateMagic;
 
     /**
      * <code>optional uint32 gacha_random = 9;</code>
      */
     private int gachaRandom;
-
-    /**
-     * <code>optional uint32 gacha_id = 10;</code>
-     */
-    private int gachaId;
-
-    /**
-     * <code>optional uint32 simulate_magic = 15;</code>
-     */
-    private int simulateMagic;
 
     private DoGachaCsReq() {
     }
@@ -49,7 +49,7 @@ public final class DoGachaCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_num = 6;</code>
+     * <code>optional uint32 gacha_num = 2;</code>
      * @return whether the gachaNum field is set
      */
     public boolean hasGachaNum() {
@@ -57,7 +57,7 @@ public final class DoGachaCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_num = 6;</code>
+     * <code>optional uint32 gacha_num = 2;</code>
      * @return this
      */
     public DoGachaCsReq clearGachaNum() {
@@ -67,7 +67,7 @@ public final class DoGachaCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_num = 6;</code>
+     * <code>optional uint32 gacha_num = 2;</code>
      * @return the gachaNum
      */
     public int getGachaNum() {
@@ -75,7 +75,7 @@ public final class DoGachaCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_num = 6;</code>
+     * <code>optional uint32 gacha_num = 2;</code>
      * @param value the gachaNum to set
      * @return this
      */
@@ -86,11 +86,85 @@ public final class DoGachaCsReqOuterClass {
     }
 
     /**
+     * <code>optional uint32 gacha_id = 7;</code>
+     * @return whether the gachaId field is set
+     */
+    public boolean hasGachaId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 gacha_id = 7;</code>
+     * @return this
+     */
+    public DoGachaCsReq clearGachaId() {
+      bitField0_ &= ~0x00000002;
+      gachaId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 gacha_id = 7;</code>
+     * @return the gachaId
+     */
+    public int getGachaId() {
+      return gachaId;
+    }
+
+    /**
+     * <code>optional uint32 gacha_id = 7;</code>
+     * @param value the gachaId to set
+     * @return this
+     */
+    public DoGachaCsReq setGachaId(final int value) {
+      bitField0_ |= 0x00000002;
+      gachaId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 simulate_magic = 8;</code>
+     * @return whether the simulateMagic field is set
+     */
+    public boolean hasSimulateMagic() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 simulate_magic = 8;</code>
+     * @return this
+     */
+    public DoGachaCsReq clearSimulateMagic() {
+      bitField0_ &= ~0x00000004;
+      simulateMagic = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 simulate_magic = 8;</code>
+     * @return the simulateMagic
+     */
+    public int getSimulateMagic() {
+      return simulateMagic;
+    }
+
+    /**
+     * <code>optional uint32 simulate_magic = 8;</code>
+     * @param value the simulateMagic to set
+     * @return this
+     */
+    public DoGachaCsReq setSimulateMagic(final int value) {
+      bitField0_ |= 0x00000004;
+      simulateMagic = value;
+      return this;
+    }
+
+    /**
      * <code>optional uint32 gacha_random = 9;</code>
      * @return whether the gachaRandom field is set
      */
     public boolean hasGachaRandom() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
@@ -98,7 +172,7 @@ public final class DoGachaCsReqOuterClass {
      * @return this
      */
     public DoGachaCsReq clearGachaRandom() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000008;
       gachaRandom = 0;
       return this;
     }
@@ -117,82 +191,8 @@ public final class DoGachaCsReqOuterClass {
      * @return this
      */
     public DoGachaCsReq setGachaRandom(final int value) {
-      bitField0_ |= 0x00000002;
-      gachaRandom = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 gacha_id = 10;</code>
-     * @return whether the gachaId field is set
-     */
-    public boolean hasGachaId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 gacha_id = 10;</code>
-     * @return this
-     */
-    public DoGachaCsReq clearGachaId() {
-      bitField0_ &= ~0x00000004;
-      gachaId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 gacha_id = 10;</code>
-     * @return the gachaId
-     */
-    public int getGachaId() {
-      return gachaId;
-    }
-
-    /**
-     * <code>optional uint32 gacha_id = 10;</code>
-     * @param value the gachaId to set
-     * @return this
-     */
-    public DoGachaCsReq setGachaId(final int value) {
-      bitField0_ |= 0x00000004;
-      gachaId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 simulate_magic = 15;</code>
-     * @return whether the simulateMagic field is set
-     */
-    public boolean hasSimulateMagic() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 simulate_magic = 15;</code>
-     * @return this
-     */
-    public DoGachaCsReq clearSimulateMagic() {
-      bitField0_ &= ~0x00000008;
-      simulateMagic = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 simulate_magic = 15;</code>
-     * @return the simulateMagic
-     */
-    public int getSimulateMagic() {
-      return simulateMagic;
-    }
-
-    /**
-     * <code>optional uint32 simulate_magic = 15;</code>
-     * @param value the simulateMagic to set
-     * @return this
-     */
-    public DoGachaCsReq setSimulateMagic(final int value) {
       bitField0_ |= 0x00000008;
-      simulateMagic = value;
+      gachaRandom = value;
       return this;
     }
 
@@ -202,9 +202,9 @@ public final class DoGachaCsReqOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         gachaNum = other.gachaNum;
-        gachaRandom = other.gachaRandom;
         gachaId = other.gachaId;
         simulateMagic = other.simulateMagic;
+        gachaRandom = other.gachaRandom;
       }
       return this;
     }
@@ -218,14 +218,14 @@ public final class DoGachaCsReqOuterClass {
       if (other.hasGachaNum()) {
         setGachaNum(other.gachaNum);
       }
-      if (other.hasGachaRandom()) {
-        setGachaRandom(other.gachaRandom);
-      }
       if (other.hasGachaId()) {
         setGachaId(other.gachaId);
       }
       if (other.hasSimulateMagic()) {
         setSimulateMagic(other.simulateMagic);
+      }
+      if (other.hasGachaRandom()) {
+        setGachaRandom(other.gachaRandom);
       }
       return this;
     }
@@ -238,9 +238,9 @@ public final class DoGachaCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       gachaNum = 0;
-      gachaRandom = 0;
       gachaId = 0;
       simulateMagic = 0;
+      gachaRandom = 0;
       return this;
     }
 
@@ -265,28 +265,28 @@ public final class DoGachaCsReqOuterClass {
       DoGachaCsReq other = (DoGachaCsReq) o;
       return bitField0_ == other.bitField0_
         && (!hasGachaNum() || gachaNum == other.gachaNum)
-        && (!hasGachaRandom() || gachaRandom == other.gachaRandom)
         && (!hasGachaId() || gachaId == other.gachaId)
-        && (!hasSimulateMagic() || simulateMagic == other.simulateMagic);
+        && (!hasSimulateMagic() || simulateMagic == other.simulateMagic)
+        && (!hasGachaRandom() || gachaRandom == other.gachaRandom);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(gachaNum);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(gachaRandom);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(gachaId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(simulateMagic);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(gachaRandom);
       }
     }
 
@@ -297,13 +297,13 @@ public final class DoGachaCsReqOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaNum);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaRandom);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(simulateMagic);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaRandom);
       }
       return size;
     }
@@ -315,10 +315,28 @@ public final class DoGachaCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 16: {
             // gachaNum
             gachaNum = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 56) {
+              break;
+            }
+          }
+          case 56: {
+            // gachaId
+            gachaId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 64) {
+              break;
+            }
+          }
+          case 64: {
+            // simulateMagic
+            simulateMagic = input.readUInt32();
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 72) {
               break;
@@ -327,24 +345,6 @@ public final class DoGachaCsReqOuterClass {
           case 72: {
             // gachaRandom
             gachaRandom = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
-            // gachaId
-            gachaId = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
-            // simulateMagic
-            simulateMagic = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
@@ -372,13 +372,13 @@ public final class DoGachaCsReqOuterClass {
         output.writeUInt32(FieldNames.gachaNum, gachaNum);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.gachaRandom, gachaRandom);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.gachaId, gachaId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.simulateMagic, simulateMagic);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.gachaRandom, gachaRandom);
       }
       output.endObject();
     }
@@ -402,24 +402,12 @@ public final class DoGachaCsReqOuterClass {
             }
             break;
           }
-          case -1635961627:
-          case -47579616: {
-            if (input.isAtField(FieldNames.gachaRandom)) {
-              if (!input.trySkipNullValue()) {
-                gachaRandom = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -204751299:
           case -2052301576: {
             if (input.isAtField(FieldNames.gachaId)) {
               if (!input.trySkipNullValue()) {
                 gachaId = input.readUInt32();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -431,6 +419,18 @@ public final class DoGachaCsReqOuterClass {
             if (input.isAtField(FieldNames.simulateMagic)) {
               if (!input.trySkipNullValue()) {
                 simulateMagic = input.readUInt32();
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1635961627:
+          case -47579616: {
+            if (input.isAtField(FieldNames.gachaRandom)) {
+              if (!input.trySkipNullValue()) {
+                gachaRandom = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -492,11 +492,11 @@ public final class DoGachaCsReqOuterClass {
     static class FieldNames {
       static final FieldName gachaNum = FieldName.forField("gachaNum", "gacha_num");
 
-      static final FieldName gachaRandom = FieldName.forField("gachaRandom", "gacha_random");
-
       static final FieldName gachaId = FieldName.forField("gachaId", "gacha_id");
 
       static final FieldName simulateMagic = FieldName.forField("simulateMagic", "simulate_magic");
+
+      static final FieldName gachaRandom = FieldName.forField("gachaRandom", "gacha_random");
     }
   }
 }

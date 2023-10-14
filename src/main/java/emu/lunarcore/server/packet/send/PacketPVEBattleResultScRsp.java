@@ -32,6 +32,7 @@ public class PacketPVEBattleResultScRsp extends BasePacket {
         // Battle result
         var data = PVEBattleResultScRsp.newInstance()
                 .setUnk1(ItemList.newInstance())
+                .setUnk2(ItemList.newInstance())
                 .setUnk3(ItemList.newInstance())
                 .setDropData(dropData)
                 .setResVersion(Integer.toString(req.getClientResVersion()))
