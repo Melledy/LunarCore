@@ -9,6 +9,7 @@ public class ObjectInfo {
     public float PosX;
     public float PosY;
     public float PosZ;
+    public boolean IsDelete;
     public String Name;
     public float RotY;
     

@@ -108,6 +108,9 @@ public class Scene {
         // Add monsters
         if (group.getMonsterList() != null && group.getMonsterList().size() > 0) {
             for (MonsterInfo monsterInfo : group.getMonsterList()) {
+                // Don't spawn entity if they have the IsDelete flag in group info
+                if (monsterInfo.isIsDelete()) continue;
+                
                 // Get excels from game data
                 NpcMonsterExcel npcMonsterExcel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
                 if (npcMonsterExcel == null) continue;
@@ -128,6 +131,9 @@ public class Scene {
         // Add props
         if (group.getPropList() != null && group.getPropList().size() > 0) {
             for (PropInfo propInfo : group.getPropList()) {
+                // Don't spawn entity if they have the IsDelete flag in group info
+                if (propInfo.isIsDelete()) continue;
+                
                 // Get prop excel
                 PropExcel propExcel = GameData.getPropExcelMap().get(propInfo.getPropID());
                 if (propExcel == null) {
@@ -164,8 +170,8 @@ public class Scene {
         // Add npcs
         if (group.getNPCList() != null && group.getNPCList().size() > 0) {
             for (NpcInfo npcInfo : group.getNPCList()) {
-                // Sanity check
-                if (!GameData.getNpcExcelMap().containsKey(npcInfo.getNPCID())) {
+                // Don't spawn entity if they have the IsDelete flag in group info
+                if (npcInfo.isIsDelete() || !GameData.getNpcExcelMap().containsKey(npcInfo.getNPCID())) {
                     continue;
                 }
                 

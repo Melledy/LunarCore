@@ -31,6 +31,11 @@ public final class GetPlayerBoardDataScRspOuterClass {
     private int retcode;
 
     /**
+     * <code>optional .GetPlayerBoardDataScRspUnk1 unk1 = 5;</code>
+     */
+    private final GetPlayerBoardDataScRspUnk1 unk1 = GetPlayerBoardDataScRspUnk1.newInstance();
+
+    /**
      * <code>optional string signature = 2;</code>
      */
     private final Utf8String signature = Utf8String.newEmptyInstance();
@@ -125,11 +130,68 @@ public final class GetPlayerBoardDataScRspOuterClass {
     }
 
     /**
+     * <code>optional .GetPlayerBoardDataScRspUnk1 unk1 = 5;</code>
+     * @return whether the unk1 field is set
+     */
+    public boolean hasUnk1() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional .GetPlayerBoardDataScRspUnk1 unk1 = 5;</code>
+     * @return this
+     */
+    public GetPlayerBoardDataScRsp clearUnk1() {
+      bitField0_ &= ~0x00000004;
+      unk1.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .GetPlayerBoardDataScRspUnk1 unk1 = 5;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableUnk1()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public GetPlayerBoardDataScRspUnk1 getUnk1() {
+      return unk1;
+    }
+
+    /**
+     * <code>optional .GetPlayerBoardDataScRspUnk1 unk1 = 5;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public GetPlayerBoardDataScRspUnk1 getMutableUnk1() {
+      bitField0_ |= 0x00000004;
+      return unk1;
+    }
+
+    /**
+     * <code>optional .GetPlayerBoardDataScRspUnk1 unk1 = 5;</code>
+     * @param value the unk1 to set
+     * @return this
+     */
+    public GetPlayerBoardDataScRsp setUnk1(final GetPlayerBoardDataScRspUnk1 value) {
+      bitField0_ |= 0x00000004;
+      unk1.copyFrom(value);
+      return this;
+    }
+
+    /**
      * <code>optional string signature = 2;</code>
      * @return whether the signature field is set
      */
     public boolean hasSignature() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
@@ -137,7 +199,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      * @return this
      */
     public GetPlayerBoardDataScRsp clearSignature() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000008;
       signature.clear();
       return this;
     }
@@ -163,7 +225,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      * @return internal {@code Utf8String} representation of signature for modifications
      */
     public Utf8String getMutableSignatureBytes() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       return this.signature;
     }
 
@@ -173,7 +235,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      * @return this
      */
     public GetPlayerBoardDataScRsp setSignature(final CharSequence value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       signature.copyFrom(value);
       return this;
     }
@@ -184,7 +246,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      * @return this
      */
     public GetPlayerBoardDataScRsp setSignature(final Utf8String value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       signature.copyFrom(value);
       return this;
     }
@@ -194,7 +256,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      * @return whether the unlockedHeadIconList field is set
      */
     public boolean hasUnlockedHeadIconList() {
-      return (bitField0_ & 0x00000008) != 0;
+      return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
@@ -202,7 +264,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      * @return this
      */
     public GetPlayerBoardDataScRsp clearUnlockedHeadIconList() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000010;
       unlockedHeadIconList.clear();
       return this;
     }
@@ -231,7 +293,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<HeadIconOuterClass.HeadIcon> getMutableUnlockedHeadIconList() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       return unlockedHeadIconList;
     }
 
@@ -242,7 +304,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      */
     public GetPlayerBoardDataScRsp addUnlockedHeadIconList(
         final HeadIconOuterClass.HeadIcon value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       unlockedHeadIconList.add(value);
       return this;
     }
@@ -254,7 +316,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
      */
     public GetPlayerBoardDataScRsp addAllUnlockedHeadIconList(
         final HeadIconOuterClass.HeadIcon... values) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       unlockedHeadIconList.addAll(values);
       return this;
     }
@@ -266,6 +328,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
         bitField0_ = other.bitField0_;
         currentHeadIconId = other.currentHeadIconId;
         retcode = other.retcode;
+        unk1.copyFrom(other.unk1);
         signature.copyFrom(other.signature);
         unlockedHeadIconList.copyFrom(other.unlockedHeadIconList);
       }
@@ -283,6 +346,9 @@ public final class GetPlayerBoardDataScRspOuterClass {
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasUnk1()) {
+        getMutableUnk1().mergeFrom(other.unk1);
       }
       if (other.hasSignature()) {
         getMutableSignatureBytes().copyFrom(other.signature);
@@ -302,6 +368,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
       bitField0_ = 0;
       currentHeadIconId = 0;
       retcode = 0;
+      unk1.clear();
       signature.clear();
       unlockedHeadIconList.clear();
       return this;
@@ -314,6 +381,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      unk1.clearQuick();
       signature.clear();
       unlockedHeadIconList.clearQuick();
       return this;
@@ -331,6 +399,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasCurrentHeadIconId() || currentHeadIconId == other.currentHeadIconId)
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasUnk1() || unk1.equals(other.unk1))
         && (!hasSignature() || signature.equals(other.signature))
         && (!hasUnlockedHeadIconList() || unlockedHeadIconList.equals(other.unlockedHeadIconList));
     }
@@ -346,10 +415,14 @@ public final class GetPlayerBoardDataScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 42);
+        output.writeMessageNoTag(unk1);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 18);
         output.writeStringNoTag(signature);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000010) != 0) {
         for (int i = 0; i < unlockedHeadIconList.length(); i++) {
           output.writeRawByte((byte) 50);
           output.writeMessageNoTag(unlockedHeadIconList.get(i));
@@ -367,9 +440,12 @@ public final class GetPlayerBoardDataScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(signature);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(unk1);
       }
       if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeStringSizeNoTag(signature);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
         size += (1 * unlockedHeadIconList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(unlockedHeadIconList);
       }
       return size;
@@ -396,6 +472,15 @@ public final class GetPlayerBoardDataScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
+            if (tag != 42) {
+              break;
+            }
+          }
+          case 42: {
+            // unk1
+            input.readMessage(unk1);
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
             if (tag != 18) {
               break;
             }
@@ -403,7 +488,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
           case 18: {
             // signature
             input.readString(signature);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 50) {
               break;
@@ -412,7 +497,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
           case 50: {
             // unlockedHeadIconList
             tag = input.readRepeatedMessage(unlockedHeadIconList, tag);
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000010;
             if (tag != 0) {
               break;
             }
@@ -441,9 +526,12 @@ public final class GetPlayerBoardDataScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeString(FieldNames.signature, signature);
+        output.writeMessage(FieldNames.unk1, unk1);
       }
       if ((bitField0_ & 0x00000008) != 0) {
+        output.writeString(FieldNames.signature, signature);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
         output.writeRepeatedMessage(FieldNames.unlockedHeadIconList, unlockedHeadIconList);
       }
       output.endObject();
@@ -479,11 +567,22 @@ public final class GetPlayerBoardDataScRspOuterClass {
             }
             break;
           }
+          case 3594623: {
+            if (input.isAtField(FieldNames.unk1)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(unk1);
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 1073584312: {
             if (input.isAtField(FieldNames.signature)) {
               if (!input.trySkipNullValue()) {
                 input.readString(signature);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -495,7 +594,7 @@ public final class GetPlayerBoardDataScRspOuterClass {
             if (input.isAtField(FieldNames.unlockedHeadIconList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(unlockedHeadIconList);
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000010;
               }
             } else {
               input.skipUnknownField();
@@ -559,9 +658,173 @@ public final class GetPlayerBoardDataScRspOuterClass {
 
       static final FieldName retcode = FieldName.forField("retcode");
 
+      static final FieldName unk1 = FieldName.forField("unk1");
+
       static final FieldName signature = FieldName.forField("signature");
 
       static final FieldName unlockedHeadIconList = FieldName.forField("unlockedHeadIconList", "unlocked_head_icon_list");
+    }
+  }
+
+  /**
+   * Protobuf type {@code GetPlayerBoardDataScRspUnk1}
+   */
+  public static final class GetPlayerBoardDataScRspUnk1 extends ProtoMessage<GetPlayerBoardDataScRspUnk1> implements Cloneable {
+    private static final long serialVersionUID = 0L;
+
+    private GetPlayerBoardDataScRspUnk1() {
+    }
+
+    /**
+     * @return a new empty instance of {@code GetPlayerBoardDataScRspUnk1}
+     */
+    public static GetPlayerBoardDataScRspUnk1 newInstance() {
+      return new GetPlayerBoardDataScRspUnk1();
+    }
+
+    @Override
+    public GetPlayerBoardDataScRspUnk1 copyFrom(final GetPlayerBoardDataScRspUnk1 other) {
+      cachedSize = other.cachedSize;
+      return this;
+    }
+
+    @Override
+    public GetPlayerBoardDataScRspUnk1 mergeFrom(final GetPlayerBoardDataScRspUnk1 other) {
+      if (other.isEmpty()) {
+        return this;
+      }
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public GetPlayerBoardDataScRspUnk1 clear() {
+      if (isEmpty()) {
+        return this;
+      }
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public GetPlayerBoardDataScRspUnk1 clearQuick() {
+      if (isEmpty()) {
+        return this;
+      }
+      cachedSize = -1;
+      return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o == this) {
+        return true;
+      }
+      if (!(o instanceof GetPlayerBoardDataScRspUnk1)) {
+        return false;
+      }
+      GetPlayerBoardDataScRspUnk1 other = (GetPlayerBoardDataScRspUnk1) o;
+      return true;
+    }
+
+    @Override
+    public void writeTo(final ProtoSink output) throws IOException {
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = 0;
+      return size;
+    }
+
+    @Override
+    @SuppressWarnings("fallthrough")
+    public GetPlayerBoardDataScRspUnk1 mergeFrom(final ProtoSource input) throws IOException {
+      // Enabled Fall-Through Optimization (QuickBuffers)
+      int tag = input.readTag();
+      while (true) {
+        switch (tag) {
+          case 0: {
+            return this;
+          }
+          default: {
+            if (!input.skipField(tag)) {
+              return this;
+            }
+            tag = input.readTag();
+            break;
+          }
+        }
+      }
+    }
+
+    @Override
+    public void writeTo(final JsonSink output) throws IOException {
+      output.beginObject();
+      output.endObject();
+    }
+
+    @Override
+    public GetPlayerBoardDataScRspUnk1 mergeFrom(final JsonSource input) throws IOException {
+      if (!input.beginObject()) {
+        return this;
+      }
+      while (!input.isAtEnd()) {
+        switch (input.readFieldHash()) {
+          default: {
+            input.skipUnknownField();
+            break;
+          }
+        }
+      }
+      input.endObject();
+      return this;
+    }
+
+    @Override
+    public GetPlayerBoardDataScRspUnk1 clone() {
+      return new GetPlayerBoardDataScRspUnk1().copyFrom(this);
+    }
+
+    @Override
+    public boolean isEmpty() {
+      return ((bitField0_) == 0);
+    }
+
+    public static GetPlayerBoardDataScRspUnk1 parseFrom(final byte[] data) throws
+        InvalidProtocolBufferException {
+      return ProtoMessage.mergeFrom(new GetPlayerBoardDataScRspUnk1(), data).checkInitialized();
+    }
+
+    public static GetPlayerBoardDataScRspUnk1 parseFrom(final ProtoSource input) throws
+        IOException {
+      return ProtoMessage.mergeFrom(new GetPlayerBoardDataScRspUnk1(), input).checkInitialized();
+    }
+
+    public static GetPlayerBoardDataScRspUnk1 parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new GetPlayerBoardDataScRspUnk1(), input).checkInitialized();
+    }
+
+    /**
+     * @return factory for creating GetPlayerBoardDataScRspUnk1 messages
+     */
+    public static MessageFactory<GetPlayerBoardDataScRspUnk1> getFactory() {
+      return GetPlayerBoardDataScRspUnk1Factory.INSTANCE;
+    }
+
+    private enum GetPlayerBoardDataScRspUnk1Factory implements MessageFactory<GetPlayerBoardDataScRspUnk1> {
+      INSTANCE;
+
+      @Override
+      public GetPlayerBoardDataScRspUnk1 create() {
+        return GetPlayerBoardDataScRspUnk1.newInstance();
+      }
+    }
+
+    /**
+     * Contains name constants used for serializing JSON
+     */
+    static class FieldNames {
     }
   }
 }
