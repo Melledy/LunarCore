@@ -6,8 +6,11 @@ import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
+import emu.lunarcore.data.excel.PropExcel;
+import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
+import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.util.Position;
 import emu.lunarcore.util.Utils;
 
@@ -75,16 +78,26 @@ public class SpawnCommand implements CommandHandler {
                 target.getScene().addEntity(monster, true);
             }
             
+            // Send message when done
             this.sendMessage(sender, "Spawning " + amount + " monsters");
             return;
         }
         
-        /*
         PropExcel propExcel = GameData.getPropExcelMap().get(id);
         if (propExcel != null) {
+            // Spawn props
+            for (int i = 0; i < amount; i++) {
+                Position pos = target.getPos().clone().add(Utils.randomRange(-radius, radius), 0, Utils.randomRange(-radius, radius));
+                EntityProp prop = new EntityProp(target.getScene(), propExcel, pos);
+                prop.setState(PropState.Open);
+                
+                target.getScene().addEntity(prop, true);
+            }
+            
+            // Send message when done
+            this.sendMessage(sender, "Spawning " + amount + " props");
             return;
         }
-        */
 
         this.sendMessage(sender, "Error: Invalid id");
     }
