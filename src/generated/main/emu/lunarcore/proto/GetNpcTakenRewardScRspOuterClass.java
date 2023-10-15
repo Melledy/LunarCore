@@ -10,7 +10,6 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.RepeatedInt;
 
 public final class GetNpcTakenRewardScRspOuterClass {
   /**
@@ -20,19 +19,14 @@ public final class GetNpcTakenRewardScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 npc_id = 2;</code>
+     * <code>optional uint32 npc_id = 9;</code>
      */
     private int npcId;
-
-    /**
-     * <code>repeated uint32 OABGIDHGGHI = 4;</code>
-     */
-    private final RepeatedInt oABGIDHGGHI = RepeatedInt.newEmptyInstance();
 
     private GetNpcTakenRewardScRsp() {
     }
@@ -45,7 +39,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -53,7 +47,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return this
      */
     public GetNpcTakenRewardScRsp clearRetcode() {
@@ -63,7 +57,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -71,7 +65,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 1;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -82,7 +76,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 2;</code>
+     * <code>optional uint32 npc_id = 9;</code>
      * @return whether the npcId field is set
      */
     public boolean hasNpcId() {
@@ -90,7 +84,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 2;</code>
+     * <code>optional uint32 npc_id = 9;</code>
      * @return this
      */
     public GetNpcTakenRewardScRsp clearNpcId() {
@@ -100,7 +94,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 2;</code>
+     * <code>optional uint32 npc_id = 9;</code>
      * @return the npcId
      */
     public int getNpcId() {
@@ -108,81 +102,13 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 2;</code>
+     * <code>optional uint32 npc_id = 9;</code>
      * @param value the npcId to set
      * @return this
      */
     public GetNpcTakenRewardScRsp setNpcId(final int value) {
       bitField0_ |= 0x00000002;
       npcId = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 OABGIDHGGHI = 4;</code>
-     * @return whether the oABGIDHGGHI field is set
-     */
-    public boolean hasOABGIDHGGHI() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 OABGIDHGGHI = 4;</code>
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp clearOABGIDHGGHI() {
-      bitField0_ &= ~0x00000004;
-      oABGIDHGGHI.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 OABGIDHGGHI = 4;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableOABGIDHGGHI()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getOABGIDHGGHI() {
-      return oABGIDHGGHI;
-    }
-
-    /**
-     * <code>repeated uint32 OABGIDHGGHI = 4;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableOABGIDHGGHI() {
-      bitField0_ |= 0x00000004;
-      return oABGIDHGGHI;
-    }
-
-    /**
-     * <code>repeated uint32 OABGIDHGGHI = 4;</code>
-     * @param value the oABGIDHGGHI to add
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp addOABGIDHGGHI(final int value) {
-      bitField0_ |= 0x00000004;
-      oABGIDHGGHI.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 OABGIDHGGHI = 4;</code>
-     * @param values the oABGIDHGGHI to add
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp addAllOABGIDHGGHI(final int... values) {
-      bitField0_ |= 0x00000004;
-      oABGIDHGGHI.addAll(values);
       return this;
     }
 
@@ -193,7 +119,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
         npcId = other.npcId;
-        oABGIDHGGHI.copyFrom(other.oABGIDHGGHI);
       }
       return this;
     }
@@ -210,9 +135,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       if (other.hasNpcId()) {
         setNpcId(other.npcId);
       }
-      if (other.hasOABGIDHGGHI()) {
-        getMutableOABGIDHGGHI().addAll(other.oABGIDHGGHI);
-      }
       return this;
     }
 
@@ -225,7 +147,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       bitField0_ = 0;
       retcode = 0;
       npcId = 0;
-      oABGIDHGGHI.clear();
       return this;
     }
 
@@ -236,7 +157,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      oABGIDHGGHI.clear();
       return this;
     }
 
@@ -251,25 +171,18 @@ public final class GetNpcTakenRewardScRspOuterClass {
       GetNpcTakenRewardScRsp other = (GetNpcTakenRewardScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasNpcId() || npcId == other.npcId)
-        && (!hasOABGIDHGGHI() || oABGIDHGGHI.equals(other.oABGIDHGGHI));
+        && (!hasNpcId() || npcId == other.npcId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(npcId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < oABGIDHGGHI.length(); i++) {
-          output.writeRawByte((byte) 32);
-          output.writeUInt32NoTag(oABGIDHGGHI.array()[i]);
-        }
       }
     }
 
@@ -282,9 +195,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(npcId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * oABGIDHGGHI.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(oABGIDHGGHI);
-      }
       return size;
     }
 
@@ -295,28 +205,19 @@ public final class GetNpcTakenRewardScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 16: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 72) {
               break;
             }
           }
-          case 16: {
+          case 72: {
             // npcId
             npcId = input.readUInt32();
             bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 34) {
-              break;
-            }
-          }
-          case 34: {
-            // oABGIDHGGHI [packed=true]
-            input.readPackedUInt32(oABGIDHGGHI, tag);
-            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -332,12 +233,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 32: {
-            // oABGIDHGGHI [packed=false]
-            tag = input.readRepeatedUInt32(oABGIDHGGHI, tag);
-            bitField0_ |= 0x00000004;
-            break;
-          }
         }
       }
     }
@@ -350,9 +245,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.npcId, npcId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.oABGIDHGGHI, oABGIDHGGHI);
       }
       output.endObject();
     }
@@ -381,17 +273,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
               if (!input.trySkipNullValue()) {
                 npcId = input.readUInt32();
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1877387145: {
-            if (input.isAtField(FieldNames.oABGIDHGGHI)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(oABGIDHGGHI);
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -454,8 +335,6 @@ public final class GetNpcTakenRewardScRspOuterClass {
       static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName npcId = FieldName.forField("npcId", "npc_id");
-
-      static final FieldName oABGIDHGGHI = FieldName.forField("OABGIDHGGHI");
     }
   }
 }
