@@ -53,7 +53,7 @@ public class EntityProp implements GameEntity {
         if (excel.isRecoverMp()) {
             scene.getPlayer().getCurrentLineup().addMp(2);
         } else if (excel.isRecoverHp()) {
-            scene.getPlayer().getCurrentLineup().heal(2500);
+            scene.getPlayer().getCurrentLineup().heal(2500, false);
         }
     }
 

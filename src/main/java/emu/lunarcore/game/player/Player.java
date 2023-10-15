@@ -381,7 +381,7 @@ public class Player {
         
         // Only heal if player isnt already in anchor range
         if (isInRange && isInRange != this.inAnchorRange) {
-            this.getCurrentLineup().heal(10000);
+            this.getCurrentLineup().heal(10000, true);
         }
         this.inAnchorRange = isInRange;
     }

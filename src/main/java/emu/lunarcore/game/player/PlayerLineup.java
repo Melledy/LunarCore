@@ -93,7 +93,7 @@ public class PlayerLineup {
         }
     }
     
-    public void heal(int heal) {
+    public void heal(int heal, boolean allowRevive) {
         // Flag to set if at least one avatar in the team has been healed
         boolean hasHealed = false;
         
@@ -102,6 +102,12 @@ public class PlayerLineup {
             GameAvatar avatar = this.getOwner().getAvatarById(avatarId);
             if (avatar == null) continue;
             
+            // Dont heal dead avatars if we are not allowed to revive
+            if (avatar.getCurrentHp() <= 0 && !allowRevive) {
+                continue;
+            }
+            
+            // Heal avatar
             if (avatar.getCurrentHp() < 10000) {
                 avatar.setCurrentHp(Math.min(avatar.getCurrentHp() + heal, 10000));
                 avatar.save();
