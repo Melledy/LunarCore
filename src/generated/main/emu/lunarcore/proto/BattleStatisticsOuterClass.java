@@ -23,14 +23,14 @@ public final class BattleStatisticsOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional double HKCPJKPOKGF = 5;</code>
+     * <code>optional double total_delay_cumulate = 5;</code>
      */
-    private double hKCPJKPOKGF;
+    private double totalDelayCumulate;
 
     /**
-     * <code>optional double CKGDEAKGMLJ = 6;</code>
+     * <code>optional double cost_time = 6;</code>
      */
-    private double cKGDEAKGMLJ;
+    private double costTime;
 
     /**
      * <code>optional uint32 total_battle_turns = 1;</code>
@@ -43,38 +43,38 @@ public final class BattleStatisticsOuterClass {
     private int totalAutoTurns;
 
     /**
-     * <code>optional uint32 NIFHACPIHFP = 4;</code>
+     * <code>optional uint32 ultra_cnt = 4;</code>
      */
-    private int nIFHACPIHFP;
+    private int ultraCnt;
 
     /**
      * <pre>
      * repeated MonsterBattleInfo monster_list = 8;
      * </pre>
      *
-     * <code>optional uint32 KIGOIMMHHLE = 9;</code>
+     * <code>optional uint32 round_cnt = 9;</code>
      */
-    private int kIGOIMMHHLE;
+    private int roundCnt;
 
     /**
-     * <code>optional uint32 AOLAHGLLBAG = 10;</code>
+     * <code>optional uint32 cocoon_dead_wave = 10;</code>
      */
-    private int aOLAHGLLBAG;
+    private int cocoonDeadWave;
 
     /**
-     * <code>optional uint32 FCFPKHNLGKA = 11;</code>
+     * <code>optional uint32 avatar_battle_turns = 11;</code>
      */
-    private int fCFPKHNLGKA;
+    private int avatarBattleTurns;
 
     /**
-     * <code>optional uint32 LIAALHKEHIM = 12;</code>
+     * <code>optional uint32 monster_battle_turns = 12;</code>
      */
-    private int lIAALHKEHIM;
+    private int monsterBattleTurns;
 
     /**
-     * <code>optional uint32 BEKMEDAINKG = 14;</code>
+     * <code>optional uint32 challenge_score = 14;</code>
      */
-    private int bEKMEDAINKG;
+    private int challengeScore;
 
     /**
      * <code>repeated uint32 avatar_id_list = 3;</code>
@@ -102,76 +102,76 @@ public final class BattleStatisticsOuterClass {
     }
 
     /**
-     * <code>optional double HKCPJKPOKGF = 5;</code>
-     * @return whether the hKCPJKPOKGF field is set
+     * <code>optional double total_delay_cumulate = 5;</code>
+     * @return whether the totalDelayCumulate field is set
      */
-    public boolean hasHKCPJKPOKGF() {
+    public boolean hasTotalDelayCumulate() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional double HKCPJKPOKGF = 5;</code>
+     * <code>optional double total_delay_cumulate = 5;</code>
      * @return this
      */
-    public BattleStatistics clearHKCPJKPOKGF() {
+    public BattleStatistics clearTotalDelayCumulate() {
       bitField0_ &= ~0x00000001;
-      hKCPJKPOKGF = 0D;
+      totalDelayCumulate = 0D;
       return this;
     }
 
     /**
-     * <code>optional double HKCPJKPOKGF = 5;</code>
-     * @return the hKCPJKPOKGF
+     * <code>optional double total_delay_cumulate = 5;</code>
+     * @return the totalDelayCumulate
      */
-    public double getHKCPJKPOKGF() {
-      return hKCPJKPOKGF;
+    public double getTotalDelayCumulate() {
+      return totalDelayCumulate;
     }
 
     /**
-     * <code>optional double HKCPJKPOKGF = 5;</code>
-     * @param value the hKCPJKPOKGF to set
+     * <code>optional double total_delay_cumulate = 5;</code>
+     * @param value the totalDelayCumulate to set
      * @return this
      */
-    public BattleStatistics setHKCPJKPOKGF(final double value) {
+    public BattleStatistics setTotalDelayCumulate(final double value) {
       bitField0_ |= 0x00000001;
-      hKCPJKPOKGF = value;
+      totalDelayCumulate = value;
       return this;
     }
 
     /**
-     * <code>optional double CKGDEAKGMLJ = 6;</code>
-     * @return whether the cKGDEAKGMLJ field is set
+     * <code>optional double cost_time = 6;</code>
+     * @return whether the costTime field is set
      */
-    public boolean hasCKGDEAKGMLJ() {
+    public boolean hasCostTime() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional double CKGDEAKGMLJ = 6;</code>
+     * <code>optional double cost_time = 6;</code>
      * @return this
      */
-    public BattleStatistics clearCKGDEAKGMLJ() {
+    public BattleStatistics clearCostTime() {
       bitField0_ &= ~0x00000002;
-      cKGDEAKGMLJ = 0D;
+      costTime = 0D;
       return this;
     }
 
     /**
-     * <code>optional double CKGDEAKGMLJ = 6;</code>
-     * @return the cKGDEAKGMLJ
+     * <code>optional double cost_time = 6;</code>
+     * @return the costTime
      */
-    public double getCKGDEAKGMLJ() {
-      return cKGDEAKGMLJ;
+    public double getCostTime() {
+      return costTime;
     }
 
     /**
-     * <code>optional double CKGDEAKGMLJ = 6;</code>
-     * @param value the cKGDEAKGMLJ to set
+     * <code>optional double cost_time = 6;</code>
+     * @param value the costTime to set
      * @return this
      */
-    public BattleStatistics setCKGDEAKGMLJ(final double value) {
+    public BattleStatistics setCostTime(final double value) {
       bitField0_ |= 0x00000002;
-      cKGDEAKGMLJ = value;
+      costTime = value;
       return this;
     }
 
@@ -250,39 +250,39 @@ public final class BattleStatisticsOuterClass {
     }
 
     /**
-     * <code>optional uint32 NIFHACPIHFP = 4;</code>
-     * @return whether the nIFHACPIHFP field is set
+     * <code>optional uint32 ultra_cnt = 4;</code>
+     * @return whether the ultraCnt field is set
      */
-    public boolean hasNIFHACPIHFP() {
+    public boolean hasUltraCnt() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional uint32 NIFHACPIHFP = 4;</code>
+     * <code>optional uint32 ultra_cnt = 4;</code>
      * @return this
      */
-    public BattleStatistics clearNIFHACPIHFP() {
+    public BattleStatistics clearUltraCnt() {
       bitField0_ &= ~0x00000010;
-      nIFHACPIHFP = 0;
+      ultraCnt = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 NIFHACPIHFP = 4;</code>
-     * @return the nIFHACPIHFP
+     * <code>optional uint32 ultra_cnt = 4;</code>
+     * @return the ultraCnt
      */
-    public int getNIFHACPIHFP() {
-      return nIFHACPIHFP;
+    public int getUltraCnt() {
+      return ultraCnt;
     }
 
     /**
-     * <code>optional uint32 NIFHACPIHFP = 4;</code>
-     * @param value the nIFHACPIHFP to set
+     * <code>optional uint32 ultra_cnt = 4;</code>
+     * @param value the ultraCnt to set
      * @return this
      */
-    public BattleStatistics setNIFHACPIHFP(final int value) {
+    public BattleStatistics setUltraCnt(final int value) {
       bitField0_ |= 0x00000010;
-      nIFHACPIHFP = value;
+      ultraCnt = value;
       return this;
     }
 
@@ -291,10 +291,10 @@ public final class BattleStatisticsOuterClass {
      * repeated MonsterBattleInfo monster_list = 8;
      * </pre>
      *
-     * <code>optional uint32 KIGOIMMHHLE = 9;</code>
-     * @return whether the kIGOIMMHHLE field is set
+     * <code>optional uint32 round_cnt = 9;</code>
+     * @return whether the roundCnt field is set
      */
-    public boolean hasKIGOIMMHHLE() {
+    public boolean hasRoundCnt() {
       return (bitField0_ & 0x00000020) != 0;
     }
 
@@ -303,12 +303,12 @@ public final class BattleStatisticsOuterClass {
      * repeated MonsterBattleInfo monster_list = 8;
      * </pre>
      *
-     * <code>optional uint32 KIGOIMMHHLE = 9;</code>
+     * <code>optional uint32 round_cnt = 9;</code>
      * @return this
      */
-    public BattleStatistics clearKIGOIMMHHLE() {
+    public BattleStatistics clearRoundCnt() {
       bitField0_ &= ~0x00000020;
-      kIGOIMMHHLE = 0;
+      roundCnt = 0;
       return this;
     }
 
@@ -317,11 +317,11 @@ public final class BattleStatisticsOuterClass {
      * repeated MonsterBattleInfo monster_list = 8;
      * </pre>
      *
-     * <code>optional uint32 KIGOIMMHHLE = 9;</code>
-     * @return the kIGOIMMHHLE
+     * <code>optional uint32 round_cnt = 9;</code>
+     * @return the roundCnt
      */
-    public int getKIGOIMMHHLE() {
-      return kIGOIMMHHLE;
+    public int getRoundCnt() {
+      return roundCnt;
     }
 
     /**
@@ -329,161 +329,161 @@ public final class BattleStatisticsOuterClass {
      * repeated MonsterBattleInfo monster_list = 8;
      * </pre>
      *
-     * <code>optional uint32 KIGOIMMHHLE = 9;</code>
-     * @param value the kIGOIMMHHLE to set
+     * <code>optional uint32 round_cnt = 9;</code>
+     * @param value the roundCnt to set
      * @return this
      */
-    public BattleStatistics setKIGOIMMHHLE(final int value) {
+    public BattleStatistics setRoundCnt(final int value) {
       bitField0_ |= 0x00000020;
-      kIGOIMMHHLE = value;
+      roundCnt = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 AOLAHGLLBAG = 10;</code>
-     * @return whether the aOLAHGLLBAG field is set
+     * <code>optional uint32 cocoon_dead_wave = 10;</code>
+     * @return whether the cocoonDeadWave field is set
      */
-    public boolean hasAOLAHGLLBAG() {
+    public boolean hasCocoonDeadWave() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional uint32 AOLAHGLLBAG = 10;</code>
+     * <code>optional uint32 cocoon_dead_wave = 10;</code>
      * @return this
      */
-    public BattleStatistics clearAOLAHGLLBAG() {
+    public BattleStatistics clearCocoonDeadWave() {
       bitField0_ &= ~0x00000040;
-      aOLAHGLLBAG = 0;
+      cocoonDeadWave = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 AOLAHGLLBAG = 10;</code>
-     * @return the aOLAHGLLBAG
+     * <code>optional uint32 cocoon_dead_wave = 10;</code>
+     * @return the cocoonDeadWave
      */
-    public int getAOLAHGLLBAG() {
-      return aOLAHGLLBAG;
+    public int getCocoonDeadWave() {
+      return cocoonDeadWave;
     }
 
     /**
-     * <code>optional uint32 AOLAHGLLBAG = 10;</code>
-     * @param value the aOLAHGLLBAG to set
+     * <code>optional uint32 cocoon_dead_wave = 10;</code>
+     * @param value the cocoonDeadWave to set
      * @return this
      */
-    public BattleStatistics setAOLAHGLLBAG(final int value) {
+    public BattleStatistics setCocoonDeadWave(final int value) {
       bitField0_ |= 0x00000040;
-      aOLAHGLLBAG = value;
+      cocoonDeadWave = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 FCFPKHNLGKA = 11;</code>
-     * @return whether the fCFPKHNLGKA field is set
+     * <code>optional uint32 avatar_battle_turns = 11;</code>
+     * @return whether the avatarBattleTurns field is set
      */
-    public boolean hasFCFPKHNLGKA() {
+    public boolean hasAvatarBattleTurns() {
       return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>optional uint32 FCFPKHNLGKA = 11;</code>
+     * <code>optional uint32 avatar_battle_turns = 11;</code>
      * @return this
      */
-    public BattleStatistics clearFCFPKHNLGKA() {
+    public BattleStatistics clearAvatarBattleTurns() {
       bitField0_ &= ~0x00000080;
-      fCFPKHNLGKA = 0;
+      avatarBattleTurns = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 FCFPKHNLGKA = 11;</code>
-     * @return the fCFPKHNLGKA
+     * <code>optional uint32 avatar_battle_turns = 11;</code>
+     * @return the avatarBattleTurns
      */
-    public int getFCFPKHNLGKA() {
-      return fCFPKHNLGKA;
+    public int getAvatarBattleTurns() {
+      return avatarBattleTurns;
     }
 
     /**
-     * <code>optional uint32 FCFPKHNLGKA = 11;</code>
-     * @param value the fCFPKHNLGKA to set
+     * <code>optional uint32 avatar_battle_turns = 11;</code>
+     * @param value the avatarBattleTurns to set
      * @return this
      */
-    public BattleStatistics setFCFPKHNLGKA(final int value) {
+    public BattleStatistics setAvatarBattleTurns(final int value) {
       bitField0_ |= 0x00000080;
-      fCFPKHNLGKA = value;
+      avatarBattleTurns = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 LIAALHKEHIM = 12;</code>
-     * @return whether the lIAALHKEHIM field is set
+     * <code>optional uint32 monster_battle_turns = 12;</code>
+     * @return whether the monsterBattleTurns field is set
      */
-    public boolean hasLIAALHKEHIM() {
+    public boolean hasMonsterBattleTurns() {
       return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
-     * <code>optional uint32 LIAALHKEHIM = 12;</code>
+     * <code>optional uint32 monster_battle_turns = 12;</code>
      * @return this
      */
-    public BattleStatistics clearLIAALHKEHIM() {
+    public BattleStatistics clearMonsterBattleTurns() {
       bitField0_ &= ~0x00000100;
-      lIAALHKEHIM = 0;
+      monsterBattleTurns = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 LIAALHKEHIM = 12;</code>
-     * @return the lIAALHKEHIM
+     * <code>optional uint32 monster_battle_turns = 12;</code>
+     * @return the monsterBattleTurns
      */
-    public int getLIAALHKEHIM() {
-      return lIAALHKEHIM;
+    public int getMonsterBattleTurns() {
+      return monsterBattleTurns;
     }
 
     /**
-     * <code>optional uint32 LIAALHKEHIM = 12;</code>
-     * @param value the lIAALHKEHIM to set
+     * <code>optional uint32 monster_battle_turns = 12;</code>
+     * @param value the monsterBattleTurns to set
      * @return this
      */
-    public BattleStatistics setLIAALHKEHIM(final int value) {
+    public BattleStatistics setMonsterBattleTurns(final int value) {
       bitField0_ |= 0x00000100;
-      lIAALHKEHIM = value;
+      monsterBattleTurns = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 BEKMEDAINKG = 14;</code>
-     * @return whether the bEKMEDAINKG field is set
+     * <code>optional uint32 challenge_score = 14;</code>
+     * @return whether the challengeScore field is set
      */
-    public boolean hasBEKMEDAINKG() {
+    public boolean hasChallengeScore() {
       return (bitField0_ & 0x00000200) != 0;
     }
 
     /**
-     * <code>optional uint32 BEKMEDAINKG = 14;</code>
+     * <code>optional uint32 challenge_score = 14;</code>
      * @return this
      */
-    public BattleStatistics clearBEKMEDAINKG() {
+    public BattleStatistics clearChallengeScore() {
       bitField0_ &= ~0x00000200;
-      bEKMEDAINKG = 0;
+      challengeScore = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 BEKMEDAINKG = 14;</code>
-     * @return the bEKMEDAINKG
+     * <code>optional uint32 challenge_score = 14;</code>
+     * @return the challengeScore
      */
-    public int getBEKMEDAINKG() {
-      return bEKMEDAINKG;
+    public int getChallengeScore() {
+      return challengeScore;
     }
 
     /**
-     * <code>optional uint32 BEKMEDAINKG = 14;</code>
-     * @param value the bEKMEDAINKG to set
+     * <code>optional uint32 challenge_score = 14;</code>
+     * @param value the challengeScore to set
      * @return this
      */
-    public BattleStatistics setBEKMEDAINKG(final int value) {
+    public BattleStatistics setChallengeScore(final int value) {
       bitField0_ |= 0x00000200;
-      bEKMEDAINKG = value;
+      challengeScore = value;
       return this;
     }
 
@@ -699,16 +699,16 @@ public final class BattleStatisticsOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        hKCPJKPOKGF = other.hKCPJKPOKGF;
-        cKGDEAKGMLJ = other.cKGDEAKGMLJ;
+        totalDelayCumulate = other.totalDelayCumulate;
+        costTime = other.costTime;
         totalBattleTurns = other.totalBattleTurns;
         totalAutoTurns = other.totalAutoTurns;
-        nIFHACPIHFP = other.nIFHACPIHFP;
-        kIGOIMMHHLE = other.kIGOIMMHHLE;
-        aOLAHGLLBAG = other.aOLAHGLLBAG;
-        fCFPKHNLGKA = other.fCFPKHNLGKA;
-        lIAALHKEHIM = other.lIAALHKEHIM;
-        bEKMEDAINKG = other.bEKMEDAINKG;
+        ultraCnt = other.ultraCnt;
+        roundCnt = other.roundCnt;
+        cocoonDeadWave = other.cocoonDeadWave;
+        avatarBattleTurns = other.avatarBattleTurns;
+        monsterBattleTurns = other.monsterBattleTurns;
+        challengeScore = other.challengeScore;
         avatarIdList.copyFrom(other.avatarIdList);
         battleAvatarList.copyFrom(other.battleAvatarList);
         customValues.copyFrom(other.customValues);
@@ -722,11 +722,11 @@ public final class BattleStatisticsOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasHKCPJKPOKGF()) {
-        setHKCPJKPOKGF(other.hKCPJKPOKGF);
+      if (other.hasTotalDelayCumulate()) {
+        setTotalDelayCumulate(other.totalDelayCumulate);
       }
-      if (other.hasCKGDEAKGMLJ()) {
-        setCKGDEAKGMLJ(other.cKGDEAKGMLJ);
+      if (other.hasCostTime()) {
+        setCostTime(other.costTime);
       }
       if (other.hasTotalBattleTurns()) {
         setTotalBattleTurns(other.totalBattleTurns);
@@ -734,23 +734,23 @@ public final class BattleStatisticsOuterClass {
       if (other.hasTotalAutoTurns()) {
         setTotalAutoTurns(other.totalAutoTurns);
       }
-      if (other.hasNIFHACPIHFP()) {
-        setNIFHACPIHFP(other.nIFHACPIHFP);
+      if (other.hasUltraCnt()) {
+        setUltraCnt(other.ultraCnt);
       }
-      if (other.hasKIGOIMMHHLE()) {
-        setKIGOIMMHHLE(other.kIGOIMMHHLE);
+      if (other.hasRoundCnt()) {
+        setRoundCnt(other.roundCnt);
       }
-      if (other.hasAOLAHGLLBAG()) {
-        setAOLAHGLLBAG(other.aOLAHGLLBAG);
+      if (other.hasCocoonDeadWave()) {
+        setCocoonDeadWave(other.cocoonDeadWave);
       }
-      if (other.hasFCFPKHNLGKA()) {
-        setFCFPKHNLGKA(other.fCFPKHNLGKA);
+      if (other.hasAvatarBattleTurns()) {
+        setAvatarBattleTurns(other.avatarBattleTurns);
       }
-      if (other.hasLIAALHKEHIM()) {
-        setLIAALHKEHIM(other.lIAALHKEHIM);
+      if (other.hasMonsterBattleTurns()) {
+        setMonsterBattleTurns(other.monsterBattleTurns);
       }
-      if (other.hasBEKMEDAINKG()) {
-        setBEKMEDAINKG(other.bEKMEDAINKG);
+      if (other.hasChallengeScore()) {
+        setChallengeScore(other.challengeScore);
       }
       if (other.hasAvatarIdList()) {
         getMutableAvatarIdList().addAll(other.avatarIdList);
@@ -771,16 +771,16 @@ public final class BattleStatisticsOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      hKCPJKPOKGF = 0D;
-      cKGDEAKGMLJ = 0D;
+      totalDelayCumulate = 0D;
+      costTime = 0D;
       totalBattleTurns = 0;
       totalAutoTurns = 0;
-      nIFHACPIHFP = 0;
-      kIGOIMMHHLE = 0;
-      aOLAHGLLBAG = 0;
-      fCFPKHNLGKA = 0;
-      lIAALHKEHIM = 0;
-      bEKMEDAINKG = 0;
+      ultraCnt = 0;
+      roundCnt = 0;
+      cocoonDeadWave = 0;
+      avatarBattleTurns = 0;
+      monsterBattleTurns = 0;
+      challengeScore = 0;
       avatarIdList.clear();
       battleAvatarList.clear();
       customValues.clear();
@@ -810,16 +810,16 @@ public final class BattleStatisticsOuterClass {
       }
       BattleStatistics other = (BattleStatistics) o;
       return bitField0_ == other.bitField0_
-        && (!hasHKCPJKPOKGF() || ProtoUtil.isEqual(hKCPJKPOKGF, other.hKCPJKPOKGF))
-        && (!hasCKGDEAKGMLJ() || ProtoUtil.isEqual(cKGDEAKGMLJ, other.cKGDEAKGMLJ))
+        && (!hasTotalDelayCumulate() || ProtoUtil.isEqual(totalDelayCumulate, other.totalDelayCumulate))
+        && (!hasCostTime() || ProtoUtil.isEqual(costTime, other.costTime))
         && (!hasTotalBattleTurns() || totalBattleTurns == other.totalBattleTurns)
         && (!hasTotalAutoTurns() || totalAutoTurns == other.totalAutoTurns)
-        && (!hasNIFHACPIHFP() || nIFHACPIHFP == other.nIFHACPIHFP)
-        && (!hasKIGOIMMHHLE() || kIGOIMMHHLE == other.kIGOIMMHHLE)
-        && (!hasAOLAHGLLBAG() || aOLAHGLLBAG == other.aOLAHGLLBAG)
-        && (!hasFCFPKHNLGKA() || fCFPKHNLGKA == other.fCFPKHNLGKA)
-        && (!hasLIAALHKEHIM() || lIAALHKEHIM == other.lIAALHKEHIM)
-        && (!hasBEKMEDAINKG() || bEKMEDAINKG == other.bEKMEDAINKG)
+        && (!hasUltraCnt() || ultraCnt == other.ultraCnt)
+        && (!hasRoundCnt() || roundCnt == other.roundCnt)
+        && (!hasCocoonDeadWave() || cocoonDeadWave == other.cocoonDeadWave)
+        && (!hasAvatarBattleTurns() || avatarBattleTurns == other.avatarBattleTurns)
+        && (!hasMonsterBattleTurns() || monsterBattleTurns == other.monsterBattleTurns)
+        && (!hasChallengeScore() || challengeScore == other.challengeScore)
         && (!hasAvatarIdList() || avatarIdList.equals(other.avatarIdList))
         && (!hasBattleAvatarList() || battleAvatarList.equals(other.battleAvatarList))
         && (!hasCustomValues() || customValues.equals(other.customValues));
@@ -829,11 +829,11 @@ public final class BattleStatisticsOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 41);
-        output.writeDoubleNoTag(hKCPJKPOKGF);
+        output.writeDoubleNoTag(totalDelayCumulate);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 49);
-        output.writeDoubleNoTag(cKGDEAKGMLJ);
+        output.writeDoubleNoTag(costTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 8);
@@ -845,27 +845,27 @@ public final class BattleStatisticsOuterClass {
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(nIFHACPIHFP);
+        output.writeUInt32NoTag(ultraCnt);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(kIGOIMMHHLE);
+        output.writeUInt32NoTag(roundCnt);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(aOLAHGLLBAG);
+        output.writeUInt32NoTag(cocoonDeadWave);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(fCFPKHNLGKA);
+        output.writeUInt32NoTag(avatarBattleTurns);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(lIAALHKEHIM);
+        output.writeUInt32NoTag(monsterBattleTurns);
       }
       if ((bitField0_ & 0x00000200) != 0) {
         output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(bEKMEDAINKG);
+        output.writeUInt32NoTag(challengeScore);
       }
       if ((bitField0_ & 0x00000400) != 0) {
         for (int i = 0; i < avatarIdList.length(); i++) {
@@ -903,22 +903,22 @@ public final class BattleStatisticsOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(totalAutoTurns);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(nIFHACPIHFP);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(ultraCnt);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kIGOIMMHHLE);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(roundCnt);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(aOLAHGLLBAG);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(cocoonDeadWave);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(fCFPKHNLGKA);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarBattleTurns);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(lIAALHKEHIM);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(monsterBattleTurns);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(bEKMEDAINKG);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeScore);
       }
       if ((bitField0_ & 0x00000400) != 0) {
         size += (1 * avatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(avatarIdList);
@@ -940,8 +940,8 @@ public final class BattleStatisticsOuterClass {
       while (true) {
         switch (tag) {
           case 41: {
-            // hKCPJKPOKGF
-            hKCPJKPOKGF = input.readDouble();
+            // totalDelayCumulate
+            totalDelayCumulate = input.readDouble();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 49) {
@@ -949,8 +949,8 @@ public final class BattleStatisticsOuterClass {
             }
           }
           case 49: {
-            // cKGDEAKGMLJ
-            cKGDEAKGMLJ = input.readDouble();
+            // costTime
+            costTime = input.readDouble();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 8) {
@@ -976,8 +976,8 @@ public final class BattleStatisticsOuterClass {
             }
           }
           case 32: {
-            // nIFHACPIHFP
-            nIFHACPIHFP = input.readUInt32();
+            // ultraCnt
+            ultraCnt = input.readUInt32();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 72) {
@@ -985,8 +985,8 @@ public final class BattleStatisticsOuterClass {
             }
           }
           case 72: {
-            // kIGOIMMHHLE
-            kIGOIMMHHLE = input.readUInt32();
+            // roundCnt
+            roundCnt = input.readUInt32();
             bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 80) {
@@ -994,8 +994,8 @@ public final class BattleStatisticsOuterClass {
             }
           }
           case 80: {
-            // aOLAHGLLBAG
-            aOLAHGLLBAG = input.readUInt32();
+            // cocoonDeadWave
+            cocoonDeadWave = input.readUInt32();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 88) {
@@ -1003,8 +1003,8 @@ public final class BattleStatisticsOuterClass {
             }
           }
           case 88: {
-            // fCFPKHNLGKA
-            fCFPKHNLGKA = input.readUInt32();
+            // avatarBattleTurns
+            avatarBattleTurns = input.readUInt32();
             bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 96) {
@@ -1012,8 +1012,8 @@ public final class BattleStatisticsOuterClass {
             }
           }
           case 96: {
-            // lIAALHKEHIM
-            lIAALHKEHIM = input.readUInt32();
+            // monsterBattleTurns
+            monsterBattleTurns = input.readUInt32();
             bitField0_ |= 0x00000100;
             tag = input.readTag();
             if (tag != 112) {
@@ -1021,8 +1021,8 @@ public final class BattleStatisticsOuterClass {
             }
           }
           case 112: {
-            // bEKMEDAINKG
-            bEKMEDAINKG = input.readUInt32();
+            // challengeScore
+            challengeScore = input.readUInt32();
             bitField0_ |= 0x00000200;
             tag = input.readTag();
             if (tag != 26) {
@@ -1078,10 +1078,10 @@ public final class BattleStatisticsOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeDouble(FieldNames.hKCPJKPOKGF, hKCPJKPOKGF);
+        output.writeDouble(FieldNames.totalDelayCumulate, totalDelayCumulate);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeDouble(FieldNames.cKGDEAKGMLJ, cKGDEAKGMLJ);
+        output.writeDouble(FieldNames.costTime, costTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.totalBattleTurns, totalBattleTurns);
@@ -1090,22 +1090,22 @@ public final class BattleStatisticsOuterClass {
         output.writeUInt32(FieldNames.totalAutoTurns, totalAutoTurns);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.nIFHACPIHFP, nIFHACPIHFP);
+        output.writeUInt32(FieldNames.ultraCnt, ultraCnt);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeUInt32(FieldNames.kIGOIMMHHLE, kIGOIMMHHLE);
+        output.writeUInt32(FieldNames.roundCnt, roundCnt);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeUInt32(FieldNames.aOLAHGLLBAG, aOLAHGLLBAG);
+        output.writeUInt32(FieldNames.cocoonDeadWave, cocoonDeadWave);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeUInt32(FieldNames.fCFPKHNLGKA, fCFPKHNLGKA);
+        output.writeUInt32(FieldNames.avatarBattleTurns, avatarBattleTurns);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeUInt32(FieldNames.lIAALHKEHIM, lIAALHKEHIM);
+        output.writeUInt32(FieldNames.monsterBattleTurns, monsterBattleTurns);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeUInt32(FieldNames.bEKMEDAINKG, bEKMEDAINKG);
+        output.writeUInt32(FieldNames.challengeScore, challengeScore);
       }
       if ((bitField0_ & 0x00000400) != 0) {
         output.writeRepeatedUInt32(FieldNames.avatarIdList, avatarIdList);
@@ -1126,10 +1126,11 @@ public final class BattleStatisticsOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -2060289862: {
-            if (input.isAtField(FieldNames.hKCPJKPOKGF)) {
+          case -1914328833:
+          case -627205929: {
+            if (input.isAtField(FieldNames.totalDelayCumulate)) {
               if (!input.trySkipNullValue()) {
-                hKCPJKPOKGF = input.readDouble();
+                totalDelayCumulate = input.readDouble();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -1137,10 +1138,11 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
-          case -177934930: {
-            if (input.isAtField(FieldNames.cKGDEAKGMLJ)) {
+          case -424687558:
+          case -269929473: {
+            if (input.isAtField(FieldNames.costTime)) {
               if (!input.trySkipNullValue()) {
-                cKGDEAKGMLJ = input.readDouble();
+                costTime = input.readDouble();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -1172,10 +1174,11 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
-          case -1375859398: {
-            if (input.isAtField(FieldNames.nIFHACPIHFP)) {
+          case -1754250723:
+          case 1453625942: {
+            if (input.isAtField(FieldNames.ultraCnt)) {
               if (!input.trySkipNullValue()) {
-                nIFHACPIHFP = input.readUInt32();
+                ultraCnt = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -1183,10 +1186,11 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
-          case 315896860: {
-            if (input.isAtField(FieldNames.kIGOIMMHHLE)) {
+          case -178949:
+          case -4723912: {
+            if (input.isAtField(FieldNames.roundCnt)) {
               if (!input.trySkipNullValue()) {
-                kIGOIMMHHLE = input.readUInt32();
+                roundCnt = input.readUInt32();
                 bitField0_ |= 0x00000020;
               }
             } else {
@@ -1194,10 +1198,11 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
-          case -210507450: {
-            if (input.isAtField(FieldNames.aOLAHGLLBAG)) {
+          case 260478036:
+          case -1902996116: {
+            if (input.isAtField(FieldNames.cocoonDeadWave)) {
               if (!input.trySkipNullValue()) {
-                aOLAHGLLBAG = input.readUInt32();
+                cocoonDeadWave = input.readUInt32();
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -1205,10 +1210,11 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
-          case -1516966405: {
-            if (input.isAtField(FieldNames.fCFPKHNLGKA)) {
+          case -249379163:
+          case 172374645: {
+            if (input.isAtField(FieldNames.avatarBattleTurns)) {
               if (!input.trySkipNullValue()) {
-                fCFPKHNLGKA = input.readUInt32();
+                avatarBattleTurns = input.readUInt32();
                 bitField0_ |= 0x00000080;
               }
             } else {
@@ -1216,10 +1222,11 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
-          case 366658265: {
-            if (input.isAtField(FieldNames.lIAALHKEHIM)) {
+          case 192206212:
+          case -665842284: {
+            if (input.isAtField(FieldNames.monsterBattleTurns)) {
               if (!input.trySkipNullValue()) {
-                lIAALHKEHIM = input.readUInt32();
+                monsterBattleTurns = input.readUInt32();
                 bitField0_ |= 0x00000100;
               }
             } else {
@@ -1227,10 +1234,11 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
-          case -1554616514: {
-            if (input.isAtField(FieldNames.bEKMEDAINKG)) {
+          case 591599599:
+          case 1517684662: {
+            if (input.isAtField(FieldNames.challengeScore)) {
               if (!input.trySkipNullValue()) {
-                bEKMEDAINKG = input.readUInt32();
+                challengeScore = input.readUInt32();
                 bitField0_ |= 0x00000200;
               }
             } else {
@@ -1681,25 +1689,25 @@ public final class BattleStatisticsOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName hKCPJKPOKGF = FieldName.forField("HKCPJKPOKGF");
+      static final FieldName totalDelayCumulate = FieldName.forField("totalDelayCumulate", "total_delay_cumulate");
 
-      static final FieldName cKGDEAKGMLJ = FieldName.forField("CKGDEAKGMLJ");
+      static final FieldName costTime = FieldName.forField("costTime", "cost_time");
 
       static final FieldName totalBattleTurns = FieldName.forField("totalBattleTurns", "total_battle_turns");
 
       static final FieldName totalAutoTurns = FieldName.forField("totalAutoTurns", "total_auto_turns");
 
-      static final FieldName nIFHACPIHFP = FieldName.forField("NIFHACPIHFP");
+      static final FieldName ultraCnt = FieldName.forField("ultraCnt", "ultra_cnt");
 
-      static final FieldName kIGOIMMHHLE = FieldName.forField("KIGOIMMHHLE");
+      static final FieldName roundCnt = FieldName.forField("roundCnt", "round_cnt");
 
-      static final FieldName aOLAHGLLBAG = FieldName.forField("AOLAHGLLBAG");
+      static final FieldName cocoonDeadWave = FieldName.forField("cocoonDeadWave", "cocoon_dead_wave");
 
-      static final FieldName fCFPKHNLGKA = FieldName.forField("FCFPKHNLGKA");
+      static final FieldName avatarBattleTurns = FieldName.forField("avatarBattleTurns", "avatar_battle_turns");
 
-      static final FieldName lIAALHKEHIM = FieldName.forField("LIAALHKEHIM");
+      static final FieldName monsterBattleTurns = FieldName.forField("monsterBattleTurns", "monster_battle_turns");
 
-      static final FieldName bEKMEDAINKG = FieldName.forField("BEKMEDAINKG");
+      static final FieldName challengeScore = FieldName.forField("challengeScore", "challenge_score");
 
       static final FieldName avatarIdList = FieldName.forField("avatarIdList", "avatar_id_list");
 

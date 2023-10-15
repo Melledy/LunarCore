@@ -106,6 +106,10 @@ public class ChallengeData {
             getScene().addEntity(monster, sendPacket);
         }
     }
+    
+    private int getRoundCount() {
+        return getExcel().getChallengeCountDown() - this.roundsLimit;
+    }
 
     public boolean isWin() {
         return status == ChallengeStatus.CHALLENGE_FINISH;
@@ -142,6 +146,9 @@ public class ChallengeData {
                     player.moveTo(this.getStartPos(), this.getStartRot());
                 }
             }
+            
+            // Calculate rounds left
+            this.roundsLimit = Math.min(Math.max(this.roundsLimit - stats.getRoundCnt(), 0), this.roundsLimit);
         } else {
             // Fail challenge
             this.status = ChallengeStatus.CHALLENGE_FAILED;
@@ -159,6 +166,7 @@ public class ChallengeData {
         var proto = ChallengeInfo.newInstance()
                 .setChallengeId(this.getExcel().getId())
                 .setStatus(this.getStatus())
+                .setRoundCount(this.getRoundCount())
                 .setExtraLineupType(this.getCurrentExtraLineup());
         
         return proto;
