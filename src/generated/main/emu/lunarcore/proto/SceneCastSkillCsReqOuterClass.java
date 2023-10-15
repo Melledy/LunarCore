@@ -40,14 +40,14 @@ public final class SceneCastSkillCsReqOuterClass {
     private final MotionInfoOuterClass.MotionInfo targetMotion = MotionInfoOuterClass.MotionInfo.newInstance();
 
     /**
-     * <code>repeated uint32 cast_entity_id_list = 12;</code>
+     * <code>repeated uint32 assist_monster_id_list = 12;</code>
      */
-    private final RepeatedInt castEntityIdList = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt assistMonsterIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 attacked_entity_id_list = 15;</code>
+     * <code>repeated uint32 hit_target_id_list = 15;</code>
      */
-    private final RepeatedInt attackedEntityIdList = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt hitTargetIdList = RepeatedInt.newEmptyInstance();
 
     private SceneCastSkillCsReq() {
     }
@@ -228,39 +228,39 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 cast_entity_id_list = 12;</code>
-     * @return whether the castEntityIdList field is set
+     * <code>repeated uint32 assist_monster_id_list = 12;</code>
+     * @return whether the assistMonsterIdList field is set
      */
-    public boolean hasCastEntityIdList() {
+    public boolean hasAssistMonsterIdList() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>repeated uint32 cast_entity_id_list = 12;</code>
+     * <code>repeated uint32 assist_monster_id_list = 12;</code>
      * @return this
      */
-    public SceneCastSkillCsReq clearCastEntityIdList() {
+    public SceneCastSkillCsReq clearAssistMonsterIdList() {
       bitField0_ &= ~0x00000010;
-      castEntityIdList.clear();
+      assistMonsterIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 cast_entity_id_list = 12;</code>
+     * <code>repeated uint32 assist_monster_id_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableCastEntityIdList()} if you want to modify it.
+     * Use {@link #getMutableAssistMonsterIdList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getCastEntityIdList() {
-      return castEntityIdList;
+    public RepeatedInt getAssistMonsterIdList() {
+      return assistMonsterIdList;
     }
 
     /**
-     * <code>repeated uint32 cast_entity_id_list = 12;</code>
+     * <code>repeated uint32 assist_monster_id_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -268,67 +268,67 @@ public final class SceneCastSkillCsReqOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableCastEntityIdList() {
+    public RepeatedInt getMutableAssistMonsterIdList() {
       bitField0_ |= 0x00000010;
-      return castEntityIdList;
+      return assistMonsterIdList;
     }
 
     /**
-     * <code>repeated uint32 cast_entity_id_list = 12;</code>
-     * @param value the castEntityIdList to add
+     * <code>repeated uint32 assist_monster_id_list = 12;</code>
+     * @param value the assistMonsterIdList to add
      * @return this
      */
-    public SceneCastSkillCsReq addCastEntityIdList(final int value) {
+    public SceneCastSkillCsReq addAssistMonsterIdList(final int value) {
       bitField0_ |= 0x00000010;
-      castEntityIdList.add(value);
+      assistMonsterIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 cast_entity_id_list = 12;</code>
-     * @param values the castEntityIdList to add
+     * <code>repeated uint32 assist_monster_id_list = 12;</code>
+     * @param values the assistMonsterIdList to add
      * @return this
      */
-    public SceneCastSkillCsReq addAllCastEntityIdList(final int... values) {
+    public SceneCastSkillCsReq addAllAssistMonsterIdList(final int... values) {
       bitField0_ |= 0x00000010;
-      castEntityIdList.addAll(values);
+      assistMonsterIdList.addAll(values);
       return this;
     }
 
     /**
-     * <code>repeated uint32 attacked_entity_id_list = 15;</code>
-     * @return whether the attackedEntityIdList field is set
+     * <code>repeated uint32 hit_target_id_list = 15;</code>
+     * @return whether the hitTargetIdList field is set
      */
-    public boolean hasAttackedEntityIdList() {
+    public boolean hasHitTargetIdList() {
       return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
-     * <code>repeated uint32 attacked_entity_id_list = 15;</code>
+     * <code>repeated uint32 hit_target_id_list = 15;</code>
      * @return this
      */
-    public SceneCastSkillCsReq clearAttackedEntityIdList() {
+    public SceneCastSkillCsReq clearHitTargetIdList() {
       bitField0_ &= ~0x00000020;
-      attackedEntityIdList.clear();
+      hitTargetIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 attacked_entity_id_list = 15;</code>
+     * <code>repeated uint32 hit_target_id_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableAttackedEntityIdList()} if you want to modify it.
+     * Use {@link #getMutableHitTargetIdList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getAttackedEntityIdList() {
-      return attackedEntityIdList;
+    public RepeatedInt getHitTargetIdList() {
+      return hitTargetIdList;
     }
 
     /**
-     * <code>repeated uint32 attacked_entity_id_list = 15;</code>
+     * <code>repeated uint32 hit_target_id_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -336,30 +336,30 @@ public final class SceneCastSkillCsReqOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableAttackedEntityIdList() {
+    public RepeatedInt getMutableHitTargetIdList() {
       bitField0_ |= 0x00000020;
-      return attackedEntityIdList;
+      return hitTargetIdList;
     }
 
     /**
-     * <code>repeated uint32 attacked_entity_id_list = 15;</code>
-     * @param value the attackedEntityIdList to add
+     * <code>repeated uint32 hit_target_id_list = 15;</code>
+     * @param value the hitTargetIdList to add
      * @return this
      */
-    public SceneCastSkillCsReq addAttackedEntityIdList(final int value) {
+    public SceneCastSkillCsReq addHitTargetIdList(final int value) {
       bitField0_ |= 0x00000020;
-      attackedEntityIdList.add(value);
+      hitTargetIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 attacked_entity_id_list = 15;</code>
-     * @param values the attackedEntityIdList to add
+     * <code>repeated uint32 hit_target_id_list = 15;</code>
+     * @param values the hitTargetIdList to add
      * @return this
      */
-    public SceneCastSkillCsReq addAllAttackedEntityIdList(final int... values) {
+    public SceneCastSkillCsReq addAllHitTargetIdList(final int... values) {
       bitField0_ |= 0x00000020;
-      attackedEntityIdList.addAll(values);
+      hitTargetIdList.addAll(values);
       return this;
     }
 
@@ -372,8 +372,8 @@ public final class SceneCastSkillCsReqOuterClass {
         casterId = other.casterId;
         attackedGroupId = other.attackedGroupId;
         targetMotion.copyFrom(other.targetMotion);
-        castEntityIdList.copyFrom(other.castEntityIdList);
-        attackedEntityIdList.copyFrom(other.attackedEntityIdList);
+        assistMonsterIdList.copyFrom(other.assistMonsterIdList);
+        hitTargetIdList.copyFrom(other.hitTargetIdList);
       }
       return this;
     }
@@ -396,11 +396,11 @@ public final class SceneCastSkillCsReqOuterClass {
       if (other.hasTargetMotion()) {
         getMutableTargetMotion().mergeFrom(other.targetMotion);
       }
-      if (other.hasCastEntityIdList()) {
-        getMutableCastEntityIdList().addAll(other.castEntityIdList);
+      if (other.hasAssistMonsterIdList()) {
+        getMutableAssistMonsterIdList().addAll(other.assistMonsterIdList);
       }
-      if (other.hasAttackedEntityIdList()) {
-        getMutableAttackedEntityIdList().addAll(other.attackedEntityIdList);
+      if (other.hasHitTargetIdList()) {
+        getMutableHitTargetIdList().addAll(other.hitTargetIdList);
       }
       return this;
     }
@@ -416,8 +416,8 @@ public final class SceneCastSkillCsReqOuterClass {
       casterId = 0;
       attackedGroupId = 0;
       targetMotion.clear();
-      castEntityIdList.clear();
-      attackedEntityIdList.clear();
+      assistMonsterIdList.clear();
+      hitTargetIdList.clear();
       return this;
     }
 
@@ -429,8 +429,8 @@ public final class SceneCastSkillCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       targetMotion.clearQuick();
-      castEntityIdList.clear();
-      attackedEntityIdList.clear();
+      assistMonsterIdList.clear();
+      hitTargetIdList.clear();
       return this;
     }
 
@@ -448,8 +448,8 @@ public final class SceneCastSkillCsReqOuterClass {
         && (!hasCasterId() || casterId == other.casterId)
         && (!hasAttackedGroupId() || attackedGroupId == other.attackedGroupId)
         && (!hasTargetMotion() || targetMotion.equals(other.targetMotion))
-        && (!hasCastEntityIdList() || castEntityIdList.equals(other.castEntityIdList))
-        && (!hasAttackedEntityIdList() || attackedEntityIdList.equals(other.attackedEntityIdList));
+        && (!hasAssistMonsterIdList() || assistMonsterIdList.equals(other.assistMonsterIdList))
+        && (!hasHitTargetIdList() || hitTargetIdList.equals(other.hitTargetIdList));
     }
 
     @Override
@@ -471,15 +471,15 @@ public final class SceneCastSkillCsReqOuterClass {
         output.writeMessageNoTag(targetMotion);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        for (int i = 0; i < castEntityIdList.length(); i++) {
+        for (int i = 0; i < assistMonsterIdList.length(); i++) {
           output.writeRawByte((byte) 96);
-          output.writeUInt32NoTag(castEntityIdList.array()[i]);
+          output.writeUInt32NoTag(assistMonsterIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        for (int i = 0; i < attackedEntityIdList.length(); i++) {
+        for (int i = 0; i < hitTargetIdList.length(); i++) {
           output.writeRawByte((byte) 120);
-          output.writeUInt32NoTag(attackedEntityIdList.array()[i]);
+          output.writeUInt32NoTag(hitTargetIdList.array()[i]);
         }
       }
     }
@@ -500,10 +500,10 @@ public final class SceneCastSkillCsReqOuterClass {
         size += 1 + ProtoSink.computeMessageSizeNoTag(targetMotion);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += (1 * castEntityIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(castEntityIdList);
+        size += (1 * assistMonsterIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(assistMonsterIdList);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += (1 * attackedEntityIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(attackedEntityIdList);
+        size += (1 * hitTargetIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(hitTargetIdList);
       }
       return size;
     }
@@ -552,8 +552,8 @@ public final class SceneCastSkillCsReqOuterClass {
             }
           }
           case 98: {
-            // castEntityIdList [packed=true]
-            input.readPackedUInt32(castEntityIdList, tag);
+            // assistMonsterIdList [packed=true]
+            input.readPackedUInt32(assistMonsterIdList, tag);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 122) {
@@ -561,8 +561,8 @@ public final class SceneCastSkillCsReqOuterClass {
             }
           }
           case 122: {
-            // attackedEntityIdList [packed=true]
-            input.readPackedUInt32(attackedEntityIdList, tag);
+            // hitTargetIdList [packed=true]
+            input.readPackedUInt32(hitTargetIdList, tag);
             bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 0) {
@@ -580,14 +580,14 @@ public final class SceneCastSkillCsReqOuterClass {
             break;
           }
           case 96: {
-            // castEntityIdList [packed=false]
-            tag = input.readRepeatedUInt32(castEntityIdList, tag);
+            // assistMonsterIdList [packed=false]
+            tag = input.readRepeatedUInt32(assistMonsterIdList, tag);
             bitField0_ |= 0x00000010;
             break;
           }
           case 120: {
-            // attackedEntityIdList [packed=false]
-            tag = input.readRepeatedUInt32(attackedEntityIdList, tag);
+            // hitTargetIdList [packed=false]
+            tag = input.readRepeatedUInt32(hitTargetIdList, tag);
             bitField0_ |= 0x00000020;
             break;
           }
@@ -611,10 +611,10 @@ public final class SceneCastSkillCsReqOuterClass {
         output.writeMessage(FieldNames.targetMotion, targetMotion);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRepeatedUInt32(FieldNames.castEntityIdList, castEntityIdList);
+        output.writeRepeatedUInt32(FieldNames.assistMonsterIdList, assistMonsterIdList);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRepeatedUInt32(FieldNames.attackedEntityIdList, attackedEntityIdList);
+        output.writeRepeatedUInt32(FieldNames.hitTargetIdList, hitTargetIdList);
       }
       output.endObject();
     }
@@ -674,11 +674,11 @@ public final class SceneCastSkillCsReqOuterClass {
             }
             break;
           }
-          case -182636805:
-          case -1429767706: {
-            if (input.isAtField(FieldNames.castEntityIdList)) {
+          case -1198312214:
+          case -1972457465: {
+            if (input.isAtField(FieldNames.assistMonsterIdList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(castEntityIdList);
+                input.readRepeatedUInt32(assistMonsterIdList);
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -686,11 +686,11 @@ public final class SceneCastSkillCsReqOuterClass {
             }
             break;
           }
-          case -849608541:
-          case 1628923710: {
-            if (input.isAtField(FieldNames.attackedEntityIdList)) {
+          case 269057149:
+          case 197471936: {
+            if (input.isAtField(FieldNames.hitTargetIdList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(attackedEntityIdList);
+                input.readRepeatedUInt32(hitTargetIdList);
                 bitField0_ |= 0x00000020;
               }
             } else {
@@ -759,9 +759,9 @@ public final class SceneCastSkillCsReqOuterClass {
 
       static final FieldName targetMotion = FieldName.forField("targetMotion", "target_motion");
 
-      static final FieldName castEntityIdList = FieldName.forField("castEntityIdList", "cast_entity_id_list");
+      static final FieldName assistMonsterIdList = FieldName.forField("assistMonsterIdList", "assist_monster_id_list");
 
-      static final FieldName attackedEntityIdList = FieldName.forField("attackedEntityIdList", "attacked_entity_id_list");
+      static final FieldName hitTargetIdList = FieldName.forField("hitTargetIdList", "hit_target_id_list");
     }
   }
 }

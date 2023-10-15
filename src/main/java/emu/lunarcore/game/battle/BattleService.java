@@ -22,7 +22,7 @@ import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
 import emu.lunarcore.server.packet.send.PacketStartCocoonStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 
-import us.hebi.quickbuf.RepeatedInt;
+import it.unimi.dsi.fastutil.ints.IntSet;
 
 public class BattleService extends BaseGameService {
 
@@ -30,7 +30,7 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void startBattle(Player player, int casterId, int attackedGroupId, boolean castedSkill, RepeatedInt attackedList) {
+    public void startBattle(Player player, int casterId, int attackedGroupId, boolean castedSkill, IntSet targetList) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
             player.sendPacket(new PacketSceneCastSkillScRsp());
@@ -38,19 +38,17 @@ public class BattleService extends BaseGameService {
         }
         
         // Setup variables
-        List<GameEntity> entities = new ArrayList<>();
-        List<EntityMonster> monsters = new ArrayList<>();
-        
+        List<GameEntity> targetEntities = new ArrayList<>();
         boolean isPlayerCaster = false; // Set true if the player is the one casting
         
         // Check if attacker is the player or not
         if (player.getScene().getAvatarEntityIds().contains(casterId)) {
-            // Attacker is the player
-            for (int entityId : attackedList) {
+            // Player is the attacker
+            for (int entityId : targetList) {
                 GameEntity entity = player.getScene().getEntities().get(entityId);
                 
                 if (entity != null) {
-                    entities.add(entity);
+                    targetEntities.add(entity);
                 }
             }
 
@@ -60,18 +58,30 @@ public class BattleService extends BaseGameService {
             GameEntity entity = player.getScene().getEntities().get(casterId);
             
             if (entity != null) {
-                entities.add(entity);
+                targetEntities.add(entity);
+            }
+            
+            // Add any assisting monsters from target list
+            for (int entityId : targetList) {
+                entity = player.getScene().getEntities().get(entityId);
+                
+                if (entity != null) {
+                    targetEntities.add(entity);
+                }
             }
         }
         
         // Give the client an error if no attacked entities detected
-        if (entities.size() == 0) {
+        if (targetEntities.size() == 0) {
             player.sendPacket(new PacketSceneCastSkillScRsp());
             return;
         }
         
+        // Monster list
+        List<EntityMonster> monsters = new ArrayList<>();
+        
         // Destroy props
-        var it = entities.iterator();
+        var it = targetEntities.iterator();
         while (it.hasNext()) {
             GameEntity entity = it.next();
             
