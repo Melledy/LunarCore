@@ -32,6 +32,7 @@ import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SpBarInfoOuterClass.SpBarInfo;
 import emu.lunarcore.proto.VectorOuterClass.Vector;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
+import emu.lunarcore.util.Position;
 import it.unimi.dsi.fastutil.ints.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -112,10 +113,20 @@ public class GameAvatar implements GameEntity {
         this.owner = player;
         this.ownerUid = player.getUid();
     }
-
+    
     @Override
     public void setEntityId(int entityId) {
         this.entityId = entityId;
+    }
+    
+    @Override
+    public Position getPos() {
+        return this.getOwner().getPos();
+    }
+    
+    @Override
+    public Position getRot() {
+        return this.getOwner().getRot();
     }
     
     public boolean isHero() {
@@ -269,7 +280,7 @@ public class GameAvatar implements GameEntity {
     public SceneEntityInfo toSceneEntityProto() {
         var proto = SceneEntityInfo.newInstance()
                 .setEntityId(this.getEntityId())
-                .setMotion(MotionInfo.newInstance().setPos(getOwner().getPos().toProto()).setRot(getOwner().getRot().toProto()))
+                .setMotion(MotionInfo.newInstance().setPos(this.getPos().toProto()).setRot(this.getRot().toProto()))
                 .setActor(SceneActorInfo.newInstance().setBaseAvatarId(this.getAvatarId()).setAvatarType(AvatarType.AVATAR_FORMAL_TYPE));
 
         return proto;
