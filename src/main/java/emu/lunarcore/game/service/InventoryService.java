@@ -6,10 +6,7 @@ import java.util.List;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.common.ItemParam;
-import emu.lunarcore.data.excel.AvatarPromotionExcel;
-import emu.lunarcore.data.excel.AvatarRankExcel;
-import emu.lunarcore.data.excel.AvatarSkillTreeExcel;
-import emu.lunarcore.data.excel.EquipmentPromotionExcel;
+import emu.lunarcore.data.excel.*;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
@@ -541,5 +538,51 @@ public class InventoryService extends BaseGameService {
 
         // Send packet
         player.sendPacket(new PacketSellItemScRsp(returnItems));
+    }
+    
+    public List<GameItem> buyShopGoods(Player player, int shopId, int goodsId, int goodsNum) {
+        // Get shop and goods excels
+        ShopExcel shop = GameData.getShopExcelMap().get(shopId);
+        if (shop == null) return null;
+        
+        ShopGoodsExcel goods = shop.getGoods().get(goodsId);
+        if (goods == null) return null;
+        
+        // Verify items
+        for (ItemParam param : goods.getCostList()) {
+            GameItem item = player.getInventory().getItemByParam(param);
+            if (item == null || item.getCount() < param.getCount() * goodsNum) {
+                return null;
+            }
+        }
+
+        // Verify credits
+        if (player.getScoin() < goods.getCoinCost() * goodsNum) {
+            return null;
+        }
+        
+        // Pay items
+        player.getInventory().removeItemsByParams(goods.getCostList(), goodsNum);
+        player.addSCoin(goods.getCoinCost() * goodsNum);
+        
+        // Buy items
+        List<GameItem> items = new ArrayList<>();
+
+        ItemExcel itemExcel = GameData.getItemExcelMap().get(goods.getItemID());
+        if (!itemExcel.isEquippable()) {
+            GameItem item = new GameItem(itemExcel, goods.getItemCount());
+            items.add(item);
+        } else {
+            int num = goods.getItemCount() * goodsNum;
+            for (int i = 0; i < num; i++) {
+                GameItem item = new GameItem(itemExcel, 1);
+                items.add(item);
+            }
+        }
+        
+        // Add to inventory
+        player.getInventory().addItems(items);
+        
+        return items;
     }
 }

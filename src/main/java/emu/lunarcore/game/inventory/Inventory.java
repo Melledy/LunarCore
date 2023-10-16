@@ -111,15 +111,16 @@ public class Inventory extends BasePlayerManager {
         return false;
     }
     
-    public void addItems(Collection<GameItem> items) {
-        // Sanity
-        if (items.size() == 0) {
-            return;
-        }
-        
-        // Init results and add items to inventory
+    public List<GameItem> addItems(Collection<GameItem> items) {
+        // Init results
         List<GameItem> results = new ArrayList<GameItem>(items.size());
         
+        // Sanity
+        if (items.size() == 0) {
+            return results;
+        }
+        
+        // Add to inventory
         for (GameItem item : items) {
             GameItem result = putItem(item);
             if (result != null) {
@@ -131,6 +132,8 @@ public class Inventory extends BasePlayerManager {
         if (results.size() > 0) {
             getPlayer().sendPacket(new PacketPlayerSyncScNotify(results));
         }
+        
+        return results;
     }
 
     private synchronized GameItem putItem(GameItem item) {
@@ -235,8 +238,12 @@ public class Inventory extends BasePlayerManager {
             break;
         }
     }
-
+    
     public void removeItemsByParams(Collection<ItemParam> items) {
+        removeItemsByParams(items, 1);
+    }
+
+    public void removeItemsByParams(Collection<ItemParam> items, int multiplier) {
         // Sanity
         if (items.size() == 0) {
             return;
@@ -249,7 +256,7 @@ public class Inventory extends BasePlayerManager {
             GameItem item = this.getItemByParam(param);
             if (item == null) continue;
             
-            GameItem result = this.deleteItem(item, param.getCount());
+            GameItem result = this.deleteItem(item, param.getCount() * multiplier);
             if (result != null) {
                 results.add(result);
             }

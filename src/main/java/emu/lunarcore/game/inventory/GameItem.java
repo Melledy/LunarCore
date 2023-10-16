@@ -261,6 +261,11 @@ public class GameItem {
     public Item toProto() {
         return Item.newInstance()
                 .setItemId(this.getItemId())
-                .setNum(this.getCount());
+                .setNum(this.getCount())
+                .setLevel(this.getLevel())
+                .setMainAffixId(this.getMainAffix())
+                .setRank(this.getRank())
+                .setPromotion(this.getPromotion())
+                .setUniqueId(this.getInternalUid());
     }
 }

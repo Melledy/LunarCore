@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
@@ -46,7 +47,7 @@ public class AvatarPromotionExcel extends GameResource {
             Iterator<ItemParam> it = this.PromotionCostList.iterator();
             while (it.hasNext()) {
                 ItemParam param = it.next();
-                if (param.getId() == 2) {
+                if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
                     this.PromotionCostCoin = param.getCount();
                     it.remove();
                 }

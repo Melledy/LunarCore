@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
@@ -44,7 +45,7 @@ public class AvatarSkillTreeExcel extends GameResource {
             Iterator<ItemParam> it = this.MaterialList.iterator();
             while (it.hasNext()) {
                 ItemParam param = it.next();
-                if (param.getId() == 2) {
+                if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
                     this.MaterialCostCoin = param.getCount();
                     it.remove();
                 }

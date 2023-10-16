@@ -1,10 +1,16 @@
 package emu.lunarcore.data.excel;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
+import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.proto.GoodsOuterClass.Goods;
+import lombok.AccessLevel;
 import lombok.Getter;
 
 @Getter
@@ -14,8 +20,14 @@ public class ShopGoodsExcel extends GameResource {
     private int ItemID;
     private int ItemCount;
     private int ShopID;
+    
+    @Getter(AccessLevel.NONE)
     private int[] CurrencyList;
+    @Getter(AccessLevel.NONE)
     private int[] CurrencyCostList;
+    
+    private transient List<ItemParam> costList;
+    private transient int coinCost;
     
     @Override
     public int getId() {
@@ -24,10 +36,28 @@ public class ShopGoodsExcel extends GameResource {
     
     @Override
     public void onLoad() {
+        // Add to shop excel
         ShopExcel shop = GameData.getShopExcelMap().get(this.ShopID);
         if (shop == null) return;
         
         shop.getGoods().put(this.GoodsID, this);
+        
+        // Cache currency cost
+        this.costList = new ArrayList<>(CurrencyList.length);
+        
+        for (int i = 0; i < CurrencyList.length; i++) {
+            if (CurrencyList[i] == GameConstants.MATERIAL_COIN_ID) {
+                this.coinCost = CurrencyCostList[i];
+                continue;
+            }
+            
+            ItemParam param = new ItemParam(CurrencyList[i], CurrencyCostList[i]);
+            this.costList.add(param);
+        }
+        
+        // Done - Clear references to save memory
+        this.CurrencyList = null;
+        this.CurrencyCostList = null; 
     }
 
     public Goods toProto() {

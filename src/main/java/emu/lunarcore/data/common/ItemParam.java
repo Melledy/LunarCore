@@ -18,6 +18,11 @@ public class ItemParam {
     public ItemParam() {
         // Gson
     }
+    
+    public ItemParam(int id, int count) {
+        this.id = id;
+        this.count = count;
+    }
 
     public ItemParam(ItemParamType type, int id, int count) {
         this.type = type;
