@@ -13,6 +13,8 @@ public class ChallengeExcel extends GameResource {
     private int ChallengeCountDown;
     private int MazeBuffID;
     
+    private int[] ChallengeTargetID;
+    
     private int MazeGroupID1;
     private int[] ConfigList1;
     private int[] NpcMonsterIDList1;

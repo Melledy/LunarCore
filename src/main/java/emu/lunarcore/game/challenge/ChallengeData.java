@@ -5,6 +5,7 @@ import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.ChallengeExcel;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
+import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.Scene;
@@ -28,11 +29,12 @@ public class ChallengeData {
     private final Position startPos;
     private final Position startRot;
     
+    private boolean hasAvatarDied;
     private int currentStage;
     private ExtraLineupType currentExtraLineup;
     private ChallengeStatus status;
     
-    @Setter private int roundsLimit;
+    @Setter private int roundsLeft;
     @Setter private int stars;
 
     public ChallengeData(Player player, ChallengeExcel excel) {
@@ -42,7 +44,7 @@ public class ChallengeData {
         this.startPos = player.getPos().clone();
         this.startRot = player.getRot().clone();
         this.currentStage = 1;
-        this.roundsLimit = excel.getChallengeCountDown();
+        this.roundsLeft = excel.getChallengeCountDown();
         this.status = ChallengeStatus.CHALLENGE_DOING;
         this.currentExtraLineup = ExtraLineupType.LINEUP_CHALLENGE;
         
@@ -107,8 +109,8 @@ public class ChallengeData {
         }
     }
     
-    private int getRoundCount() {
-        return getExcel().getChallengeCountDown() - this.roundsLimit;
+    private int getRoundsElapsed() {
+        return getExcel().getChallengeCountDown() - this.roundsLeft;
     }
 
     public boolean isWin() {
@@ -116,11 +118,21 @@ public class ChallengeData {
     }
     
     public void onBattleStart(Battle battle) {
-        battle.setRoundsLimit(player.getChallengeData().getRoundsLimit());
+        battle.setRoundsLimit(player.getChallengeData().getRoundsLeft());
     }
     
     public void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
         if (result == BattleEndStatus.BATTLE_END_WIN) {
+            // Check if any avatar in the lineup has died
+            for (int avatarId : player.getCurrentLineup().getAvatars()) {
+                GameAvatar avatar = player.getAvatarById(avatarId);
+                if (avatar == null) continue;
+                
+                if (!avatar.isAlive()) {
+                    this.hasAvatarDied = true;
+                }
+            }
+            
             // Get monster count in stage
             long monsters = player.getScene().getEntities().values().stream().filter(e -> e instanceof EntityMonster).count();
             
@@ -129,7 +141,7 @@ public class ChallengeData {
                 if (this.currentStage >= excel.getStageNum()) {
                     // Last stage
                     this.status = ChallengeStatus.CHALLENGE_FINISH;
-                    this.stars = 7; // TODO calculate the right amount stars
+                    this.stars = this.calculateStars();
                     // Save history
                     player.getChallengeManager().addHistory(this.getChallengeId(), this.getStars());
                     // Send challenge result data
@@ -148,7 +160,7 @@ public class ChallengeData {
             }
             
             // Calculate rounds left
-            this.roundsLimit = Math.min(Math.max(this.roundsLimit - stats.getRoundCnt(), 0), this.roundsLimit);
+            this.roundsLeft = Math.min(Math.max(this.roundsLeft - stats.getRoundCnt(), 0), this.roundsLeft);
         } else {
             // Fail challenge
             this.status = ChallengeStatus.CHALLENGE_FAILED;
@@ -162,11 +174,38 @@ public class ChallengeData {
         }
     }
     
+    public int calculateStars() {
+        int[] targets = getExcel().getChallengeTargetID();
+        int stars = 0;
+        
+        for (int i = 0; i < targets.length; i++) {
+            var target = GameData.getChallengeTargetExcelMap().get(targets[i]);
+            if (target == null) continue;
+            
+            switch (target.getChallengeTargetType()) {
+                case ROUNDS_LEFT:
+                    if (this.getRoundsLeft() >= target.getChallengeTargetParam1()) {
+                        stars += (1 << i);
+                    }
+                    break;
+                case DEAD_AVATAR:
+                    if (!this.hasAvatarDied) {
+                        stars += (1 << i);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+        
+        return Math.min(stars, 7);
+    }
+    
     public ChallengeInfo toProto() {
         var proto = ChallengeInfo.newInstance()
                 .setChallengeId(this.getExcel().getId())
                 .setStatus(this.getStatus())
-                .setRoundCount(this.getRoundCount())
+                .setRoundCount(this.getRoundsElapsed())
                 .setExtraLineupType(this.getCurrentExtraLineup());
         
         return proto;

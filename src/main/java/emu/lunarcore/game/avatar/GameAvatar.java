@@ -145,6 +145,10 @@ public class GameAvatar implements GameEntity {
     public void setCurrentSp(int amount) {
         this.currentSp = Math.max(Math.min(amount, getMaxSp()), 0);
     }
+
+    public boolean isAlive() {
+        return this.getCurrentHp() <= 0;
+    }
     
     public int getRank() {
         return this.getData().getRank();
