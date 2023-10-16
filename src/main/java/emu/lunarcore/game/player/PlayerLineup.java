@@ -2,6 +2,7 @@ package emu.lunarcore.game.player;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Consumer;
 
 import dev.morphia.annotations.Entity;
 import emu.lunarcore.GameConstants;
@@ -118,6 +119,15 @@ public class PlayerLineup {
         // Send packet if team was healed
         if (hasHealed) {
             getOwner().sendPacket(new PacketSyncLineupNotify(this));
+        }
+    }
+    
+    public void forEachAvatar(Consumer<GameAvatar> consumer) {
+        for (int avatarId : this.getAvatars()) {
+            GameAvatar avatar = this.getOwner().getAvatarById(avatarId);
+            if (avatar == null) continue;
+            
+            consumer.accept(avatar);
         }
     }
 

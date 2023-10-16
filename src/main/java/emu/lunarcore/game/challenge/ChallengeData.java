@@ -5,7 +5,6 @@ import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.ChallengeExcel;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
-import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.Scene;
@@ -124,14 +123,11 @@ public class ChallengeData {
     public void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
         if (result == BattleEndStatus.BATTLE_END_WIN) {
             // Check if any avatar in the lineup has died
-            for (int avatarId : player.getCurrentLineup().getAvatars()) {
-                GameAvatar avatar = player.getAvatarById(avatarId);
-                if (avatar == null) continue;
-                
+            player.getCurrentLineup().forEachAvatar(avatar -> {
                 if (!avatar.isAlive()) {
-                    this.hasAvatarDied = true;
+                    hasAvatarDied = true;
                 }
-            }
+            });
             
             // Get monster count in stage
             long monsters = player.getScene().getEntities().values().stream().filter(e -> e instanceof EntityMonster).count();

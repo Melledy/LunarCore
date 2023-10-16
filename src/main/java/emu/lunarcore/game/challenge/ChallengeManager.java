@@ -5,7 +5,6 @@ import java.util.stream.Stream;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ChallengeExcel;
-import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerLineup;
@@ -34,20 +33,27 @@ public class ChallengeManager extends BasePlayerManager {
         
         // Sanity check lineups
         if (excel.getStageNum() >= 1) {
+            // Get lineup
             PlayerLineup lineup = getPlayer().getLineupManager().getLineupByIndex(0, ExtraLineupType.LINEUP_CHALLENGE_VALUE);
             // Make sure this lineup has avatars set
-            if (lineup.getAvatars().size() == 0) {
-                return;
-            }
+            if (lineup.getAvatars().size() == 0) return;
+            // Reset hp/sp
+            lineup.forEachAvatar(avatar -> {
+                avatar.setCurrentHp(10000);
+                avatar.setCurrentSp(avatar.getMaxSp() / 2);
+            });
             // Set technique points
             lineup.setMp(5);
         }
         if (excel.getStageNum() >= 2) {
             PlayerLineup lineup = getPlayer().getLineupManager().getLineupByIndex(0, ExtraLineupType.LINEUP_CHALLENGE_2_VALUE);
             // Make sure this lineup has avatars set
-            if (lineup.getAvatars().size() == 0) {
-                return;
-            }
+            if (lineup.getAvatars().size() == 0) return;
+            // Reset hp/sp
+            lineup.forEachAvatar(avatar -> {
+                avatar.setCurrentHp(10000);
+                avatar.setCurrentSp(avatar.getMaxSp() / 2);
+            });
             // Set technique points
             lineup.setMp(5);
         }
