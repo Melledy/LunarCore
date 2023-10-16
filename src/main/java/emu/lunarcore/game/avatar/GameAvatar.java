@@ -5,10 +5,10 @@ import java.util.Map;
 import java.util.Set;
 
 import org.bson.types.ObjectId;
-
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
+
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.data.GameData;
@@ -30,9 +30,9 @@ import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneActorInfoOuterClass.SceneActorInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SpBarInfoOuterClass.SpBarInfo;
-import emu.lunarcore.proto.VectorOuterClass.Vector;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.util.Position;
+
 import it.unimi.dsi.fastutil.ints.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -55,6 +55,7 @@ public class GameAvatar implements GameEntity {
     private int currentHp;
     private int currentSp;
     private Set<Integer> takenRewards;
+    private long timestamp;
 
     private transient int entityId;
     private transient Int2ObjectMap<GameItem> equips;
@@ -69,8 +70,7 @@ public class GameAvatar implements GameEntity {
         this.currentHp = 10000;
         this.currentSp = 0;
     }
-
-    // On creation
+    
     public GameAvatar(int avatarId) {
         this(GameData.getAvatarExcelMap().get(avatarId));
     }
@@ -78,13 +78,14 @@ public class GameAvatar implements GameEntity {
     public GameAvatar(AvatarExcel excel) {
         this();
         this.avatarId = excel.getId();
-        this.takenRewards = new HashSet<>();
+        this.timestamp = System.currentTimeMillis() / 1000;
         this.setExcel(excel);
     }
     
     public GameAvatar(HeroPath path) {
         this();
         this.avatarId = GameConstants.TRAILBLAZER_AVATAR_ID;
+        this.timestamp = System.currentTimeMillis() / 1000;
         this.setHeroPath(path);
     }
     
@@ -244,7 +245,8 @@ public class GameAvatar implements GameEntity {
                 .setLevel(this.getLevel())
                 .setExp(this.getExp())
                 .setPromotion(this.getPromotion())
-                .setRank(this.getRank());
+                .setRank(this.getRank())
+                .setFirstMetTimestamp(this.getTimestamp());
 
         for (var equip : this.getEquips().values()) {
             if (equip.getItemMainType() == ItemMainType.Relic) {
@@ -258,10 +260,12 @@ public class GameAvatar implements GameEntity {
             proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
         }
         
-        for (int i : this.getTakenRewards()) {
-            proto.addAllTakenRewards(i);
+        if (this.takenRewards != null) {
+            for (int i : this.takenRewards) {
+                proto.addAllTakenRewards(i);
+            }
         }
-
+        
         return proto;
     }
 
