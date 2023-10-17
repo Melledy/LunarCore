@@ -118,7 +118,7 @@ public class BattleService extends BaseGameService {
             
             // Add buffs to battle
             if (isPlayerCaster) {
-                GameAvatar avatar = player.getLineupManager().getCurrentLeaderAvatar();
+                GameAvatar avatar = player.getCurrentLeaderAvatar();
                 if (avatar != null) {
                     // Maze skill attack event
                     if (castedSkill) { // Dont need to null check maze skill since we already did it in HandlerSceneCastSkillCsReq

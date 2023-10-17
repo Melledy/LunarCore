@@ -29,7 +29,7 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
             session.getPlayer().getCurrentLineup().removeMp(1);
             session.send(new PacketSceneCastSkillMpUpdateScNotify(req.getAttackedGroupId(), session.getPlayer().getLineupManager().getMp()));
             // Cast skill effects
-            GameAvatar caster = session.getPlayer().getLineupManager().getCurrentLeaderAvatar();
+            GameAvatar caster = session.getPlayer().getCurrentLeaderAvatar();
             if (caster != null && caster.getExcel().getMazeSkill() != null) {
                 MazeSkill skill = caster.getExcel().getMazeSkill();
                 skill.onCast(caster, req.getTargetMotion());

@@ -12,6 +12,7 @@ import emu.lunarcore.data.ResourceType.LoadPriority;
 import emu.lunarcore.data.common.ItemParam;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import lombok.Getter;
+import net.bytebuddy.asm.Advice.This;
 
 @Getter
 @ResourceType(name = {"AvatarSkillTreeConfig.json"}, loadPriority = LoadPriority.LOW)
@@ -53,11 +54,15 @@ public class AvatarSkillTreeExcel extends GameResource {
         }
 
         // Load to excel
-        AvatarExcel excel = GameData.getAvatarExcelMap().get(AvatarID);
+        AvatarExcel excel = GameData.getAvatarExcelMap().get(this.AvatarID);
         if (excel == null) return;
 
+        // Add to default avatar skills
         if (this.isDefaultUnlock()) {
             excel.getDefaultSkillTrees().add(this);
         }
+        
+        // Add point id to avatar excel
+        excel.getSkillTreeIds().add(this.getPointID());
     }
 }

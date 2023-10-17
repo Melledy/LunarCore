@@ -13,10 +13,11 @@ public class CommandArgs {
     private Player target;
     
     private int targetUid;
-    private int level;
     private int amount;
-    private int rank;
-    private int promotion;
+    private int level = -1;
+    private int rank = -1;
+    private int promotion = -1;
+    private int stage = -1;
     
     private static String EMPTY_STRING = "";
 
@@ -45,6 +46,9 @@ public class CommandArgs {
                         it.remove();
                     } else if (arg.startsWith("p")) {
                         this.promotion = Utils.parseSafeInt(arg.substring(1));
+                        it.remove();
+                    } else if (arg.startsWith("s")) {
+                        this.stage = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
                     }
                 }

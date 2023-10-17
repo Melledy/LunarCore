@@ -16,7 +16,7 @@ public class LineupManager {
     private transient Player player;
 
     private PlayerLineup[] lineups;
-    private int currentIndex;
+    private int currentIndex; // Team index
     private int currentLeader;
     private int mp;
     

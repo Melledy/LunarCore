@@ -11,6 +11,8 @@ import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.game.enums.AvatarBaseType;
 import emu.lunarcore.game.enums.DamageType;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
+import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
@@ -35,6 +37,7 @@ public class AvatarExcel extends GameResource {
     @Getter(AccessLevel.NONE)
     private transient AvatarPromotionExcel[] promotionData;
     private transient List<AvatarSkillTreeExcel> defaultSkillTrees;
+    private transient IntSet skillTreeIds;
     private transient String nameKey;
     private transient int maxSp;
     
@@ -45,6 +48,7 @@ public class AvatarExcel extends GameResource {
 
     public AvatarExcel() {
         this.defaultSkillTrees = new ArrayList<>();
+        this.skillTreeIds = new IntOpenHashSet();
     }
 
     @Override

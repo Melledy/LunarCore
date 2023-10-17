@@ -243,6 +243,15 @@ public class Player {
     public PlayerLineup getCurrentLineup() {
         return this.getLineupManager().getCurrentLineup();
     }
+    
+    public GameAvatar getCurrentLeaderAvatar() {
+        try {
+            int avatarId = getCurrentLineup().getAvatars().get(this.getLineupManager().getCurrentLeader());
+            return this.getAvatarById(avatarId);
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
     private void initUid() {
         if (this.uid > 0) return;
