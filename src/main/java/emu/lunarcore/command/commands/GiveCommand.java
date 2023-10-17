@@ -12,7 +12,7 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "give", aliases = {"g"}, permission = "player.give")
+@Command(label = "give", aliases = {"g"}, permission = "player.give", desc = "/give [item id] x[amount]. Gives the targetted player an item.")
 public class GiveCommand implements CommandHandler {
 
     @Override

@@ -10,7 +10,7 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "clear", permission = "player.clear")
+@Command(label = "clear", permission = "player.clear", desc = "/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.")
 public class ClearCommand implements CommandHandler {
 
     @Override

@@ -7,7 +7,7 @@ import emu.lunarcore.game.account.AccountHelper;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "account", permission = "admin.account")
+@Command(label = "account", permission = "admin.account", desc = "/account {create | delete} [username] (reserved player uid). Creates or deletes an account.")
 public class AccountCommand implements CommandHandler {
 
     @Override

@@ -14,7 +14,7 @@ import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.util.Position;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "spawn", permission = "player.spawn")
+@Command(label = "spawn", permission = "player.spawn", desc = "/spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.")
 public class SpawnCommand implements CommandHandler {
 
     @Override
