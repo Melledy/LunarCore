@@ -12,6 +12,7 @@ import java.util.Map;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarRail;
+import emu.lunarcore.command.Command;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.*;
 
@@ -38,12 +39,23 @@ public class Handbook {
             LocalDateTime now = LocalDateTime.now();
 
             // Header
-            writer.println("// Star Rail " + GameConstants.VERSION + " Handbook");
-            writer.println("// Created " + dtf.format(now));
+            writer.println("# Star Rail " + GameConstants.VERSION + " Handbook");
+            writer.println("# Created " + dtf.format(now));
+            
+            // Dump commands
+            writer.println(System.lineSeparator());
+            writer.println("# Commands");
+            list = GameData.getAvatarExcelMap().keySet().intStream().sorted().boxed().toList();
+            for (var entry : LunarRail.getCommandManager().getLabels().entrySet()) {
+                Command command = entry.getValue().getClass().getAnnotation(Command.class);
+                if (command == null) continue;
+                
+                writer.println(command.desc());
+            }
 
             // Dump avatars
             writer.println(System.lineSeparator());
-            writer.println("// Avatars");
+            writer.println("# Avatars");
             list = GameData.getAvatarExcelMap().keySet().intStream().sorted().boxed().toList();
             for (int id : list) {
                 AvatarExcel excel = GameData.getAvatarExcelMap().get(id);
@@ -54,7 +66,7 @@ public class Handbook {
 
             // Dump items
             writer.println(System.lineSeparator());
-            writer.println("// Items");
+            writer.println("# Items");
             list = GameData.getItemExcelMap().keySet().intStream().sorted().boxed().toList();
             for (int id : list) {
                 ItemExcel excel = GameData.getItemExcelMap().get(id);
@@ -65,7 +77,7 @@ public class Handbook {
 
             // Dump npc monsters
             writer.println(System.lineSeparator());
-            writer.println("// NPC Monsters (Spawnable)");
+            writer.println("# NPC Monsters (Spawnable)");
             list = GameData.getNpcMonsterExcelMap().keySet().intStream().sorted().boxed().toList();
             for (int id : list) {
                 NpcMonsterExcel excel = GameData.getNpcMonsterExcelMap().get(id);
@@ -76,7 +88,7 @@ public class Handbook {
 
             // Dump stages
             writer.println(System.lineSeparator());
-            writer.println("// Stages");
+            writer.println("# Stages");
             list = GameData.getStageExcelMap().keySet().intStream().sorted().boxed().toList();
             for (int id : list) {
                 StageExcel excel = GameData.getStageExcelMap().get(id);
@@ -84,17 +96,6 @@ public class Handbook {
                 writer.print(" : ");
                 writer.print("[Level " + excel.getLevel() + "] ");
                 writer.println(textMap.getOrDefault(excel.getStageName(), "null"));
-            }
-
-            // Dump monsters
-            writer.println(System.lineSeparator());
-            writer.println("// Monsters");
-            list = GameData.getMonsterExcelMap().keySet().intStream().sorted().boxed().toList();
-            for (int id : list) {
-                MonsterExcel excel = GameData.getMonsterExcelMap().get(id);
-                writer.print(excel.getId());
-                writer.print(" : ");
-                writer.println(textMap.getOrDefault(excel.getMonsterName(), "null"));
             }
         } catch (IOException e) {
             e.printStackTrace();
