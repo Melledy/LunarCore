@@ -27,6 +27,7 @@ import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
+import emu.lunarcore.game.mail.Mailbox;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
@@ -81,6 +82,7 @@ public class Player {
     private transient final AvatarStorage avatars;
     private transient final Inventory inventory;
     private transient final ChatManager chatManager;
+    private transient final Mailbox mailbox;
     private transient final ChallengeManager challengeManager;
 
     // Database persistent data
@@ -101,6 +103,7 @@ public class Player {
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
         this.chatManager = new ChatManager(this);
+        this.mailbox = new Mailbox(this);
         this.challengeManager = new ChallengeManager(this);
     }
 
@@ -515,6 +518,7 @@ public class Player {
         // Load avatars and inventory first
         this.getAvatars().loadFromDatabase();
         this.getInventory().loadFromDatabase();
+        this.getMailbox().loadFromDatabase();
         this.getChallengeManager().loadFromDatabase();
 
         // Load Etc
