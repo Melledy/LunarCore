@@ -74,6 +74,7 @@ public class Config {
         public String id = "lunar_rail_test";
         public String name = "Test";
         public String description = "Test Server";
+        public int kcpInterval = 40;
 
         public GameServerConfig(int port) {
             super(port);
