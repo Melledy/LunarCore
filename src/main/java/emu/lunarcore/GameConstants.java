@@ -3,6 +3,8 @@ package emu.lunarcore;
 import java.time.Instant;
 import java.time.ZoneOffset;
 
+import emu.lunarcore.util.Position;
+
 public class GameConstants {
     public static String VERSION = "1.4.0";
     public static String MDK_VERSION = "";
@@ -20,6 +22,11 @@ public class GameConstants {
     public static final int MAX_MP = 5; // Client doesnt like more than 5
 
     public static final int MAX_CHAT_HISTORY = 100; // Max chat messages per conversation
+    
+    public static final int START_PLANE_ID = 20001;
+    public static final int START_FLOOR_ID = 20001001;
+    public static final int START_ENTRY_ID = 2000101;
+    public static final Position START_POS = new Position(99, 62, -4800);
     
     // Custom
     public static final int SERVER_CONSOLE_UID = 99;

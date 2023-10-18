@@ -110,6 +110,7 @@ public class Player {
     // Called when player is created
     public Player(GameSession session) {
         this();
+        this.resetPosition();
         this.session = session;
         this.accountUid = getAccount().getUid();
         this.name = GameConstants.DEFAULT_NAME;
@@ -117,12 +118,6 @@ public class Player {
         this.headIcon = 200001;
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
-
-        this.pos = new Position(99, 62, -4800);
-        this.rot = new Position();
-        this.planeId = 20001;
-        this.floorId = 20001001;
-        this.entryId = 2000101;
 
         this.unlockedHeadIcons = new HashSet<>();
         this.lineupManager = new LineupManager(this);
@@ -216,6 +211,18 @@ public class Player {
             return true;
         }
         return false;
+    }
+    
+    public void resetPosition() {
+        if (this.hasLoggedIn()) {
+            return;
+        }
+        
+        this.pos = GameConstants.START_POS.clone();
+        this.rot = new Position();
+        this.planeId = GameConstants.START_PLANE_ID;
+        this.floorId = GameConstants.START_FLOOR_ID;
+        this.entryId = GameConstants.START_ENTRY_ID;
     }
 
     public boolean hasLoggedIn() {
