@@ -148,10 +148,16 @@ public class Scene {
                 prop.setGroupId(group.getId());
                 prop.setPropInfo(propInfo);
                 
-                // Hacky fixes
+                // Cache
                 if (prop.getPropId() == 1003) {
-                    // Open simulated universe
-                    prop.setState(PropState.Open);
+                    // Hacky fix to open simulated universe
+                    if (propInfo.getMappingInfoID() == 2220) {
+                        // Open simulated universe
+                        prop.setState(PropState.Open);
+                    } else {
+                        // Skip tutorial simulated universe
+                        continue;
+                    }
                 } else if (prop.getExcel().getPropType() == PropType.PROP_SPRING) {
                     // Cache teleport anchors
                     this.getHealingSprings().add(prop);
