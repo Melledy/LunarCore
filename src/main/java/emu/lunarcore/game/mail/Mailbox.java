@@ -60,10 +60,15 @@ public class Mailbox extends BasePlayerManager implements Iterable<Mail> {
         this.getPlayer().sendPacket(new PacketNewMailScNotify(mail));
     }
 
-    public synchronized List<GameItem> takeMailAttachments(RepeatedInt idList) {
-        List<GameItem> attachments = new ArrayList<>();
+    public synchronized List<Mail> takeMailAttachments(RepeatedInt idList) {
+        List<Mail> attachments = new ArrayList<>();
+        
+        if (idList.length() == 0) {
+            this.getMap().keySet().forEach(idList::add);
+        }
         
         for (int id : idList) {
+            // Get mail from hash map
             Mail mail = getMap().get(id);
             if (mail == null || mail.isRead() || mail.getAttachments() == null) {
                 continue;
@@ -72,11 +77,13 @@ public class Mailbox extends BasePlayerManager implements Iterable<Mail> {
             // Add attachments to inventory
             for (GameItem item : mail.getAttachments()) {
                 getPlayer().getInventory().addItem(item);
-                attachments.add(item);
             }
             
             // Set read
             mail.setRead();
+            
+            //
+            attachments.add(mail);
         }
         
         return attachments;
@@ -85,14 +92,25 @@ public class Mailbox extends BasePlayerManager implements Iterable<Mail> {
     public synchronized IntList deleteMail(RepeatedInt idList) {
         IntList deleteList = new IntArrayList();
         
+        if (idList.length() == 0) {
+            this.getMap().keySet().forEach(idList::add);
+        }
+        
         for (int id : idList) {
-            Mail mail = getMap().remove(id);
-            if (mail != null) {
-                // Delete from database
-                mail.delete();
-                // Add to delete result list
-                deleteList.add(mail.getUniqueId());
+            // Get mail from hash map
+            Mail mail = getMap().get(id);
+            if (mail == null || !mail.isRead()) {
+                continue;
             }
+            
+            // Remove
+            getMap().remove(id);
+            
+            // Delete from database
+            mail.delete();
+            
+            // Add to delete result list
+            deleteList.add(mail.getUniqueId());
         }
         
         return deleteList;
