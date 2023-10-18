@@ -1,5 +1,6 @@
 package emu.lunarcore.game.mail;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -55,6 +56,13 @@ public class Mail {
         }
     }
     
+    public void addAttachment(GameItem item) {
+        if (this.attachments == null) {
+            this.attachments = new ArrayList<>();
+        }
+        this.attachments.add(item);
+    }
+    
     // Database
     
     public void save() {
@@ -75,8 +83,16 @@ public class Mail {
                 .setSender(this.getSender())
                 .setTime(this.getTime())
                 .setExpireTime(this.getExpiry())
-                .setIsRead(this.isRead())
-                .setAttachment(ItemList.newInstance());
+                .setIsRead(this.isRead());
+        
+        // Add attachments
+        ItemList list = ItemList.newInstance();
+        
+        if (this.attachments != null) {
+            this.attachments.stream().map(GameItem::toProto).forEach(list::addItemList);
+        }
+        
+        proto.setAttachment(list);
         
         return proto;
     }

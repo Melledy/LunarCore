@@ -1,9 +1,12 @@
 package emu.lunarcore.game.mail;
 
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.stream.Stream;
 
 import emu.lunarcore.LunarRail;
+import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketNewMailScNotify;
@@ -56,6 +59,28 @@ public class Mailbox extends BasePlayerManager implements Iterable<Mail> {
         // Send packet
         this.getPlayer().sendPacket(new PacketNewMailScNotify(mail));
     }
+
+    public synchronized List<GameItem> takeMailAttachments(RepeatedInt idList) {
+        List<GameItem> attachments = new ArrayList<>();
+        
+        for (int id : idList) {
+            Mail mail = getMap().get(id);
+            if (mail == null || mail.isRead() || mail.getAttachments() == null) {
+                continue;
+            }
+            
+            // Add attachments to inventory
+            for (GameItem item : mail.getAttachments()) {
+                getPlayer().getInventory().addItem(item);
+                attachments.add(item);
+            }
+            
+            // Set read
+            mail.setRead();
+        }
+        
+        return attachments;
+    }
     
     public synchronized IntList deleteMail(RepeatedInt idList) {
         IntList deleteList = new IntArrayList();
@@ -91,4 +116,5 @@ public class Mailbox extends BasePlayerManager implements Iterable<Mail> {
         
         stream.forEach(this::putMail);
     }
+
 }
