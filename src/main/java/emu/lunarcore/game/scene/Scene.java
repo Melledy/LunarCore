@@ -152,7 +152,7 @@ public class Scene {
                 if (prop.getPropId() == 1003) {
                     // Hacky fix to open simulated universe
                     if (propInfo.getMappingInfoID() == 2220) {
-                        // Open simulated universe
+                        // Regular simulated universe is locked behind a mission requirement by default
                         prop.setState(PropState.Open);
                     } else {
                         // Skip tutorial simulated universe
