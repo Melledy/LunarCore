@@ -4,14 +4,14 @@ import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
-import emu.lunarcore.server.packet.send.PacketGetRogueInfoScRsp;
+import emu.lunarcore.server.packet.send.PacketGetRogueHandbookDataScRsp;
 
-@Opcodes(CmdId.GetRogueInfoCsReq)
-public class HandlerGetRogueInfoCsReq extends PacketHandler {
+@Opcodes(CmdId.GetRogueHandbookDataCsReq)
+public class HandlerGetRogueHandbookDataCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
-        session.send(new PacketGetRogueInfoScRsp());
+        session.send(new PacketGetRogueHandbookDataScRsp());
     }
 
 }
