@@ -13,7 +13,7 @@ public class PacketPlayerLoginScRsp extends BasePacket {
 
         var data = PlayerLoginScRsp.newInstance()
                 .setBasicInfo(session.getPlayer().toProto())
-                .setCurTimezone(GameConstants.CURRENT_OFFSET.getTotalSeconds() / 60)
+                .setCurTimezone(GameConstants.CURRENT_TIMEZONE)
                 .setServerTimestampMs(System.currentTimeMillis())
                 .setStamina(session.getPlayer().getStamina());
 

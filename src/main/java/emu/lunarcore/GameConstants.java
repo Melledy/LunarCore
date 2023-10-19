@@ -9,7 +9,7 @@ public class GameConstants {
     public static String VERSION = "1.4.0";
     public static String MDK_VERSION = "";
     
-    public static final ZoneOffset CURRENT_OFFSET = ZoneOffset.systemDefault().getRules().getOffset(Instant.now());
+    public static final int CURRENT_TIMEZONE = ZoneOffset.systemDefault().getRules().getOffset(Instant.now()).getTotalSeconds() / 3600;
 
     // Game
     public static final String DEFAULT_NAME = "Trailblazer";
