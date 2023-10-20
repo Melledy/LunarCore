@@ -11,7 +11,7 @@ public class HandlerGetRogueScoreRewardInfoCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
-        session.send(new PacketGetRogueScoreRewardInfoScRsp());
+        session.send(new PacketGetRogueScoreRewardInfoScRsp(session.getPlayer()));
     }
 
 }

@@ -28,6 +28,7 @@ import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.mail.Mailbox;
+import emu.lunarcore.game.rogue.RogueManager;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
@@ -84,7 +85,8 @@ public class Player {
     private transient final ChatManager chatManager;
     private transient final Mailbox mailbox;
     private transient final ChallengeManager challengeManager;
-
+    private transient final RogueManager rogueManager;
+    
     // Database persistent data
     private LineupManager lineupManager;
     private PlayerGachaInfo gachaInfo;
@@ -105,6 +107,7 @@ public class Player {
         this.chatManager = new ChatManager(this);
         this.mailbox = new Mailbox(this);
         this.challengeManager = new ChallengeManager(this);
+        this.rogueManager = new RogueManager(this);
     }
 
     // Called when player is created

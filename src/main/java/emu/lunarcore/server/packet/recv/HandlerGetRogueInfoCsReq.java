@@ -11,7 +11,7 @@ public class HandlerGetRogueInfoCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
-        session.send(new PacketGetRogueInfoScRsp());
+        session.send(new PacketGetRogueInfoScRsp(session.getPlayer()));
     }
 
 }
