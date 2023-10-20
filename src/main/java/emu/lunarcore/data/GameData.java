@@ -6,6 +6,7 @@ import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.excel.*;
 import emu.lunarcore.game.battle.MazeBuff;
 import emu.lunarcore.util.Utils;
+import it.unimi.dsi.fastutil.ints.Int2ObjectLinkedOpenHashMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
@@ -29,7 +30,7 @@ public class GameData {
     @Getter private static Int2ObjectMap<HeroExcel> heroExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ChallengeExcel> challengeExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ChallengeTargetExcel> challengeTargetExcelMap = new Int2ObjectOpenHashMap<>();
-    @Getter private static Int2ObjectMap<RogueAreaExcel> rogueAreaExcelMap = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<RogueAreaExcel> rogueAreaExcelMap = new Int2ObjectLinkedOpenHashMap<>();
     @Getter private static Int2ObjectMap<RogueScheduleExcel> rogueScheduleExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ShopExcel> shopExcelMap = new Int2ObjectOpenHashMap<>();
     
