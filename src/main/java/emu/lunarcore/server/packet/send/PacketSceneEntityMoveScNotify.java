@@ -14,7 +14,7 @@ public class PacketSceneEntityMoveScNotify extends BasePacket {
         
         var data = SceneEntityMoveScNotify.newInstance()
                 .setEntryId(player.getEntryId())
-                .setMotion(MotionInfo.newInstance().setPos(player.getPos().toProto()).setRot(Vector.newInstance()));
+                .setMotion(MotionInfo.newInstance().setPos(player.getPos().toProto()).setRot(player.getRot().toProto()));
         
         this.setData(data);
     }
