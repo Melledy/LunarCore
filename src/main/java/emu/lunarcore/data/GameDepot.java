@@ -5,6 +5,7 @@ import java.util.List;
 
 import emu.lunarcore.data.excel.RelicMainAffixExcel;
 import emu.lunarcore.data.excel.RelicSubAffixExcel;
+import emu.lunarcore.data.excel.RogueScheduleExcel;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -33,5 +34,18 @@ public class GameDepot {
 
     public static List<RelicSubAffixExcel> getRelicSubAffixList(int groupId) {
         return relicSubAffixDepot.get(groupId);
+    }
+    
+    // TODO cache this so we dont have to run this function everytime we get the schedule
+    public static RogueScheduleExcel getCurrentRogueSchedule() {
+        long time = System.currentTimeMillis();
+        
+        for (var schedule : GameData.getRogueScheduleExcelMap().values()) {
+            if (time >= schedule.getBeginTime() && time < schedule.getEndTime()) {
+                return schedule;
+            }
+        }
+        
+        return null;
     }
 }

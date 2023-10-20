@@ -3,6 +3,7 @@ package emu.lunarcore.server.packet.send;
 import java.util.concurrent.TimeUnit;
 
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.proto.GetRogueInfoScRspOuterClass.GetRogueInfoScRsp;
 import emu.lunarcore.proto.RogueAreaOuterClass.RogueArea;
 import emu.lunarcore.proto.RogueAreaStatusOuterClass.RogueAreaStatus;
@@ -18,9 +19,15 @@ public class PacketGetRogueInfoScRsp extends BasePacket {
     public PacketGetRogueInfoScRsp() {
         super(CmdId.GetRogueInfoScRsp);
         
-        int seasonId = 67; // TODO un hardcode
+        var schedule = GameDepot.getCurrentRogueSchedule();
+   
+        int seasonId = 0;
         long beginTime = (System.currentTimeMillis() / 1000) - TimeUnit.DAYS.toSeconds(1);
         long endTime = beginTime + TimeUnit.DAYS.toSeconds(8);
+        
+        if (schedule != null) {
+            seasonId = schedule.getId() % 100000;
+        }
         
         var score = RogueScoreRewardInfo.newInstance()
                 .setPoolId(seasonId)
