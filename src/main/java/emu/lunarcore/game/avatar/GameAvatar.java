@@ -147,7 +147,7 @@ public class GameAvatar implements GameEntity {
     }
 
     public boolean isAlive() {
-        return this.getCurrentHp() <= 0;
+        return this.getCurrentHp() > 0;
     }
     
     public int getRank() {
