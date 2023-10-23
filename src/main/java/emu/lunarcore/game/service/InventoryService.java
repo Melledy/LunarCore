@@ -624,4 +624,66 @@ public class InventoryService extends BaseGameService {
         
         return items;
     }
+    
+    public List<GameItem> composeRelic(Player player, int composeId, int relicId, int mainAffix, int count) {
+        // Sanity check
+        if (count <= 0) return null;
+        
+        // Get item compose excel data
+        ItemComposeExcel excel = GameData.getItemComposeExcelMap().get(composeId);
+        if (excel == null || excel.getFormulaType() != FormulaType.SelectedRelic) {
+            return null;
+        }
+        
+        // Verify relic ids
+        if (excel.getRelicList() == null || !excel.getRelicList().contains(relicId)) {
+            return null;
+        }
+        
+        // Build cost items
+        List<ItemParam> costItems = new ArrayList<>();
+        costItems.addAll(excel.getMaterialCost());
+        
+        // Check main affix
+        if (mainAffix > 0) {
+            for (int specialId : excel.getSpecialMaterialCost()) {
+                costItems.add(new ItemParam(specialId, 1));
+            }
+        }
+        
+        // Verify items
+        for (ItemParam param : costItems) {
+            GameItem item = player.getInventory().getItemByParam(param);
+            if (item == null || item.getCount() < param.getCount() * count) {
+                return null;
+            }
+        }
+
+        // Verify credits
+        if (player.getScoin() < excel.getCoinCost() * count) {
+            return null;
+        }
+        
+        // Pay items
+        player.getInventory().removeItemsByParams(costItems, count);
+        player.addSCoin(-excel.getCoinCost() * count);
+        
+        // Compose item
+        List<GameItem> items = new ArrayList<>();
+        
+        for (int i = 0; i < count; i++) {
+            GameItem item = new GameItem(relicId, 1);
+            
+            if (mainAffix > 0) {
+                item.setMainAffix(mainAffix);
+            }
+            
+            items.add(item);
+        }
+        
+        // Add items to inventory
+        player.getInventory().addItems(items);
+        
+        return items;
+    }
 }

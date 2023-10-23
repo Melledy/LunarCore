@@ -5,7 +5,7 @@ import java.util.List;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.common.ItemParam;
-
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import lombok.Getter;
 
 @Getter
@@ -18,7 +18,7 @@ public class ItemComposeExcel extends GameResource {
     private int[] SpecialMaterialCost;
     private int CoinCost;
     private int WorldLevelRequire;
-    private int[] RelicList;
+    private IntOpenHashSet RelicList;
     
     @Override
     public int getId() {

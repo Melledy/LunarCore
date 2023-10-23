@@ -47,7 +47,7 @@ public class GameItem {
     @Setter private int rank; // Superimpose
     @Setter private boolean locked;
 
-    private int mainAffix;
+    @Setter private int mainAffix;
     private List<ItemSubAffix> subAffixes;
 
     private int equipAvatar;
