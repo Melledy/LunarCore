@@ -55,6 +55,7 @@ public class LineupManager {
      */
     public void setCurrentExtraLineup(int type, boolean sync) {
         this.currentExtraLineup = type;
+        this.currentLeader = 0;
 
         if (sync) {
             // Sync with scene entities
