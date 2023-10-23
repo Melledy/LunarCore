@@ -104,13 +104,13 @@ public class PlayerLineup {
             if (avatar == null) continue;
             
             // Dont heal dead avatars if we are not allowed to revive
-            if (avatar.getCurrentHp() <= 0 && !allowRevive) {
+            if (avatar.getCurrentHp(this) <= 0 && !allowRevive) {
                 continue;
             }
             
             // Heal avatar
-            if (avatar.getCurrentHp() < 10000) {
-                avatar.setCurrentHp(Math.min(avatar.getCurrentHp() + heal, 10000));
+            if (avatar.getCurrentHp(this) < 10000) {
+                avatar.setCurrentHp(this, Math.min(avatar.getCurrentHp(this) + heal, 10000));
                 avatar.save();
                 hasHealed = true;
             }
@@ -144,7 +144,7 @@ public class PlayerLineup {
             GameAvatar avatar = owner.getAvatars().getAvatarById(getAvatars().get(slot));
             if (avatar == null) continue;
 
-            proto.addAvatarList(avatar.toLineupAvatarProto(slot));
+            proto.addAvatarList(avatar.toLineupAvatarProto(this, slot));
         }
 
         return proto;

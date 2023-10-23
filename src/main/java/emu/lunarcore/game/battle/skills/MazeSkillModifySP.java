@@ -13,7 +13,10 @@ public class MazeSkillModifySP extends MazeSkillAction {
 
     @Override
     public void onCast(GameAvatar caster, MotionInfo castPosition) {
-        caster.setCurrentSp(amount + caster.getCurrentSp());
+        caster.setCurrentSp(
+                caster.getOwner().getCurrentLineup(), 
+                amount + caster.getCurrentSp(caster.getOwner().getCurrentLineup())
+        );
         // TODO Perhaps we should send a sync lineup packet here
     }
 

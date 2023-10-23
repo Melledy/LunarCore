@@ -244,8 +244,8 @@ public class BattleService extends BaseGameService {
                 int currentHp = (int) Math.round((prop.getLeftHp() / prop.getMaxHp()) * 10000);
                 int currentSp = (int) prop.getLeftSp() * 100;
 
-                avatar.setCurrentHp(Math.max(currentHp, minimumHp));
-                avatar.setCurrentSp(Math.max(currentSp, 0));
+                avatar.setCurrentHp(battle.getLineup(), Math.max(currentHp, minimumHp));
+                avatar.setCurrentSp(battle.getLineup(), Math.max(currentSp, 0));
                 avatar.save();
             }
 

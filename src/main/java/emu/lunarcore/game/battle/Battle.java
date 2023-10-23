@@ -193,7 +193,7 @@ public class Battle {
             if (avatar == null) continue;
             
             // Add to proto
-            proto.addBattleAvatarList(avatar.toBattleProto(i));
+            proto.addBattleAvatarList(avatar.toBattleProto(lineup, i));
             
             // Add buffs from avatars
             if (avatar.getBuffs().size() > 0) {

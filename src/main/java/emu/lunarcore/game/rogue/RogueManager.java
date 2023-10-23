@@ -52,8 +52,8 @@ public class RogueManager extends BasePlayerManager {
         
         // Reset hp/sp
         lineup.forEachAvatar(avatar -> {
-            avatar.setCurrentHp(10000);
-            avatar.setCurrentSp(avatar.getMaxSp());
+            avatar.setCurrentHp(lineup, 10000);
+            avatar.setCurrentSp(lineup, avatar.getMaxSp());
             
             data.getBaseAvatarIds().add(avatar.getAvatarId());
         });

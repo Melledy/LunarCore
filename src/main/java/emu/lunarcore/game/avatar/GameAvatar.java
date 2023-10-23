@@ -16,6 +16,7 @@ import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.AvatarOuterClass.Avatar;
@@ -34,6 +35,7 @@ import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.util.Position;
 
 import it.unimi.dsi.fastutil.ints.*;
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -52,10 +54,13 @@ public class GameAvatar implements GameEntity {
     @Setter private int promotion;
     private AvatarData data;
     
-    private int currentHp;
-    private int currentSp;
     private Set<Integer> takenRewards;
     private long timestamp;
+    
+    @Getter(AccessLevel.NONE) private int currentHp;
+    @Getter(AccessLevel.NONE) private int currentSp;
+    @Getter(AccessLevel.NONE) private int extraLineupHp;
+    @Getter(AccessLevel.NONE) private int extraLineupSp;
 
     private transient int entityId;
     private transient Int2ObjectMap<GameItem> equips;
@@ -137,17 +142,39 @@ public class GameAvatar implements GameEntity {
     public int getMaxSp() {
         return this.getExcel().getMaxSp();
     }
-
-    public void setCurrentHp(int amount) {
-        this.currentHp = Math.max(Math.min(amount, 10000), 0);
+    
+    public int getCurrentHp(PlayerLineup lineup) {
+        return !lineup.isExtraLineup() ? this.currentHp : this.extraLineupHp;
+    }
+    
+    public int getCurrentSp(PlayerLineup lineup) {
+        return !lineup.isExtraLineup() ? this.currentSp : this.extraLineupSp;
+    }
+    
+    public void setCurrentHp(PlayerLineup lineup, int amount) {
+        amount = Math.max(Math.min(amount, 10000), 0);
+        if (!lineup.isExtraLineup()) {
+            this.currentHp = amount; 
+        } else {
+            this.extraLineupHp = amount; 
+        }
     }
 
-    public void setCurrentSp(int amount) {
-        this.currentSp = Math.max(Math.min(amount, getMaxSp()), 0);
+    public void setCurrentSp(PlayerLineup lineup, int amount) {
+        amount = Math.max(Math.min(amount, getMaxSp()), 0);
+        if (!lineup.isExtraLineup()) {
+            this.currentSp = amount; 
+        } else {
+            this.extraLineupSp = amount; 
+        }
     }
-
+    
     public boolean isAlive() {
-        return this.getCurrentHp() > 0;
+        return this.isAlive(this.getOwner().getCurrentLineup());
+    }
+
+    public boolean isAlive(PlayerLineup lineup) {
+        return this.getCurrentHp(lineup) > 0;
     }
     
     public int getRank() {
@@ -273,12 +300,12 @@ public class GameAvatar implements GameEntity {
         return proto;
     }
 
-    public LineupAvatar toLineupAvatarProto(int slot) {
+    public LineupAvatar toLineupAvatarProto(PlayerLineup lineup, int slot) {
         var proto = LineupAvatar.newInstance()
                 .setAvatarType(AvatarType.AVATAR_FORMAL_TYPE)
                 .setId(this.getAvatarId())
-                .setSpBar(SpBarInfo.newInstance().setCurSp(this.getCurrentSp()).setMaxSp(this.getMaxSp()))
-                .setHp(this.getCurrentHp())
+                .setSpBar(SpBarInfo.newInstance().setCurSp(this.getCurrentSp(lineup)).setMaxSp(this.getMaxSp()))
+                .setHp(this.getCurrentHp(lineup))
                 .setSlot(slot);
         
         return proto;
@@ -294,7 +321,7 @@ public class GameAvatar implements GameEntity {
         return proto;
     }
 
-    public BattleAvatar toBattleProto(int index) {
+    public BattleAvatar toBattleProto(PlayerLineup lineup, int index) {
         var proto = BattleAvatar.newInstance()
                 .setAvatarType(AvatarType.AVATAR_FORMAL_TYPE)
                 .setId(this.getExcel().getAvatarID())
@@ -302,8 +329,8 @@ public class GameAvatar implements GameEntity {
                 .setPromotion(this.getPromotion())
                 .setRank(this.getRank())
                 .setIndex(index)
-                .setHp(this.getCurrentHp())
-                .setSpBar(SpBarInfo.newInstance().setCurSp(this.getCurrentSp()).setMaxSp(this.getMaxSp()))
+                .setHp(this.getCurrentHp(lineup))
+                .setSpBar(SpBarInfo.newInstance().setCurSp(this.getCurrentSp(lineup)).setMaxSp(this.getMaxSp()))
                 .setWorldLevel(this.getOwner().getWorldLevel());
 
         // Skill tree

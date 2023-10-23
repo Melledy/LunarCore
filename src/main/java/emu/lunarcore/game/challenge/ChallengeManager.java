@@ -39,8 +39,8 @@ public class ChallengeManager extends BasePlayerManager {
             if (lineup.getAvatars().size() == 0) return;
             // Reset hp/sp
             lineup.forEachAvatar(avatar -> {
-                avatar.setCurrentHp(10000);
-                avatar.setCurrentSp(avatar.getMaxSp() / 2);
+                avatar.setCurrentHp(lineup, 10000);
+                avatar.setCurrentSp(lineup, avatar.getMaxSp() / 2);
             });
             // Set technique points
             lineup.setMp(5);
@@ -51,8 +51,8 @@ public class ChallengeManager extends BasePlayerManager {
             if (lineup.getAvatars().size() == 0) return;
             // Reset hp/sp
             lineup.forEachAvatar(avatar -> {
-                avatar.setCurrentHp(10000);
-                avatar.setCurrentSp(avatar.getMaxSp() / 2);
+                avatar.setCurrentHp(lineup, 10000);
+                avatar.setCurrentSp(lineup, avatar.getMaxSp() / 2);
             });
             // Set technique points
             lineup.setMp(5);
