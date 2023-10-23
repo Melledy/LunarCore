@@ -3,29 +3,33 @@ package emu.lunarcore.data.excel;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import lombok.AccessLevel;
 import lombok.Getter;
 
 @Getter
-@ResourceType(name = {"ScheduleDataRogue.json"})
-public class RogueScheduleExcel extends GameResource {
+@ResourceType(name = {"RogueManager.json"})
+public class RogueManagerExcel extends GameResource {
     private static final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
     
-    private int ID;
+    private int ScheduleDataID;
+    private int RogueSeason;
     
     @Getter(AccessLevel.NONE)
     private String BeginTime;
     @Getter(AccessLevel.NONE)
     private String EndTime;
     
+    private int[] RogueAreaIDList;
+    
     private transient long beginTime;
     private transient long endTime;
     
     @Override
     public int getId() {
-        return ID;
+        return ScheduleDataID;
     }
 
     @Override

@@ -109,7 +109,7 @@ public class RogueManager extends BasePlayerManager {
         long endTime = beginTime + TimeUnit.DAYS.toSeconds(8);
         
         if (schedule != null) {
-            seasonId = 68; //schedule.getId() % 100000;
+            seasonId = schedule.getRogueSeason();
         }
         
         var score = RogueScoreRewardInfo.newInstance()
@@ -146,18 +146,23 @@ public class RogueManager extends BasePlayerManager {
         }
         
         // Add areas
-        for (var excel : GameData.getRogueAreaExcelMap().values()) {
-            var area = RogueArea.newInstance()
-                    .setAreaId(excel.getRogueAreaID())
-                    .setRogueAreaStatus(RogueAreaStatus.ROGUE_AREA_STATUS_FIRST_PASS);
-            
-            if (curRogue != null && excel == curRogue.getExcel()) {
-                area.setMapId(curRogue.getExcel().getMapId());
-                area.setCurReachRoomNum(curRogue.getCurrentRoomProgress());
-                area.setRogueStatus(curRogue.getStatus());
+        if (schedule != null) {
+            for (int i = 0; i < schedule.getRogueAreaIDList().length; i++) {
+                var excel = GameData.getRogueAreaExcelMap().get(schedule.getRogueAreaIDList()[i]);
+                if (excel == null) continue;
+                
+                var area = RogueArea.newInstance()
+                        .setAreaId(excel.getRogueAreaID())
+                        .setRogueAreaStatus(RogueAreaStatus.ROGUE_AREA_STATUS_FIRST_PASS);
+                
+                if (curRogue != null && excel == curRogue.getExcel()) {
+                    area.setMapId(curRogue.getExcel().getMapId());
+                    area.setCurReachRoomNum(curRogue.getCurrentRoomProgress());
+                    area.setRogueStatus(curRogue.getStatus());
+                }
+                
+                proto.addRogueAreaList(area);
             }
-            
-            proto.addRogueAreaList(area);
         }
         
         return proto;
