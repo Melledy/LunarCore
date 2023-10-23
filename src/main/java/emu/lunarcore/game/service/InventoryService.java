@@ -7,6 +7,7 @@ import java.util.List;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.excel.*;
+import emu.lunarcore.data.excel.ItemComposeExcel.FormulaType;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
@@ -581,6 +582,44 @@ public class InventoryService extends BaseGameService {
         }
         
         // Add to inventory
+        player.getInventory().addItems(items);
+        
+        return items;
+    }
+    
+    public List<GameItem> composeItem(Player player, int composeId, int count) {
+        // Sanity check
+        if (count <= 0) return null;
+        
+        // Get item compose excel data
+        ItemComposeExcel excel = GameData.getItemComposeExcelMap().get(composeId);
+        if (excel == null || excel.getFormulaType() != FormulaType.Normal) {
+            return null;
+        }
+        
+        // Verify items
+        for (ItemParam param : excel.getMaterialCost()) {
+            GameItem item = player.getInventory().getItemByParam(param);
+            if (item == null || item.getCount() < param.getCount() * count) {
+                return null;
+            }
+        }
+
+        // Verify credits
+        if (player.getScoin() < excel.getCoinCost() * count) {
+            return null;
+        }
+        
+        // Pay items
+        player.getInventory().removeItemsByParams(excel.getMaterialCost(), count);
+        player.addSCoin(-excel.getCoinCost() * count);
+        
+        // Compose item
+        List<GameItem> items = new ArrayList<>();
+        GameItem item = new GameItem(excel.getItemID(), count);
+        items.add(item);
+        
+        // Add items to inventory
         player.getInventory().addItems(items);
         
         return items;
