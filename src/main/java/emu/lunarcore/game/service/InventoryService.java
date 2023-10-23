@@ -606,12 +606,20 @@ public class InventoryService extends BaseGameService {
             return null;
         }
         
+        // Get relic excel
+        ItemExcel itemExcel = GameData.getItemExcelMap().get(relicId);
+        if (itemExcel == null) {
+            return null;
+        }
+        
         // Build cost items
         List<ItemParam> costItems = new ArrayList<>();
         costItems.addAll(excel.getMaterialCost());
         
         // Check main affix
         if (mainAffix > 0) {
+            // TODO verify main affix on item
+            
             for (int specialId : excel.getSpecialMaterialCost()) {
                 costItems.add(new ItemParam(specialId, 1));
             }
@@ -630,12 +638,7 @@ public class InventoryService extends BaseGameService {
         List<GameItem> items = new ArrayList<>();
         
         for (int i = 0; i < count; i++) {
-            GameItem item = new GameItem(relicId, 1);
-            
-            if (mainAffix > 0) {
-                item.setMainAffix(mainAffix);
-            }
-            
+            GameItem item = new GameItem(itemExcel, 1, mainAffix);
             items.add(item);
         }
         

@@ -68,8 +68,12 @@ public class GameItem {
     public GameItem(ItemExcel data) {
         this(data, 1);
     }
-
+    
     public GameItem(ItemExcel excel, int count) {
+        this(excel, count, 0);
+    }
+
+    public GameItem(ItemExcel excel, int count, int overrideMainAffix) {
         this.itemId = excel.getId();
         this.excel = excel;
 
@@ -87,9 +91,13 @@ public class GameItem {
             // Init affixes
             if (getExcel().getRelicExcel() != null) {
                 // Main affix
-                var affix = GameDepot.getRandomRelicMainAffix(getExcel().getRelicExcel().getMainAffixGroup());
-                if (affix != null) {
-                    this.mainAffix = affix.getAffixID();
+                if (overrideMainAffix > 0) {
+                    this.mainAffix = overrideMainAffix;
+                } else {
+                    var affix = GameDepot.getRandomRelicMainAffix(getExcel().getRelicExcel().getMainAffixGroup());
+                    if (affix != null) {
+                        this.mainAffix = affix.getAffixID();
+                    }
                 }
                 // Sub affixes
                 int baseSubAffixes = Math.min(Math.max(getExcel().getRarity().getVal() - 2, 0), 3);
