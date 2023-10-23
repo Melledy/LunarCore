@@ -22,7 +22,7 @@ public class LineupManager {
     
     // Extra lineups for challenges/simulated universe/etc
     private transient int currentExtraLineup;
-    private transient Int2ObjectMap<PlayerLineup> extraLineups;
+    private transient Int2ObjectMap<PlayerExtraLineup> extraLineups;
 
     @Deprecated // Morphia only!
     public LineupManager() {
@@ -95,7 +95,7 @@ public class LineupManager {
      * @return
      */
     private PlayerLineup getExtraLineupByType(int extraLineupType) {
-        return getExtraLineups().computeIfAbsent(extraLineupType, type -> new PlayerLineup(getPlayer(), 0, type));
+        return getExtraLineups().computeIfAbsent(extraLineupType, type -> new PlayerExtraLineup(getPlayer(), type));
     }
 
     public PlayerLineup getCurrentLineup() {
@@ -322,7 +322,7 @@ public class LineupManager {
         // Create new lineups for any missing ones
         for (int i = 0; i < this.lineups.length; i++) {
             if (this.lineups[i] == null) {
-                this.lineups[i] = new PlayerLineup(getPlayer(), i, 0);
+                this.lineups[i] = new PlayerLineup(getPlayer(), i);
             } else {
                 this.lineups[i].setOwnerAndIndex(getPlayer(), i);
             }

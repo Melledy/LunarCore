@@ -15,8 +15,6 @@ import lombok.Getter;
 public class PlayerLineup {
     private transient Player owner;
     private transient int index;
-    private transient int extraLineupType;
-    private transient int mp;
 
     private String name;
     private List<Integer> avatars;
@@ -26,10 +24,9 @@ public class PlayerLineup {
 
     }
     
-    public PlayerLineup(Player player, int index, int extraLineupType) {
+    public PlayerLineup(Player player, int index) {
         this.owner = player;
         this.index = index;
-        this.extraLineupType = extraLineupType;
         this.avatars = new ArrayList<>(GameConstants.MAX_AVATARS_IN_TEAM);
         
         // Set team name if not an extra lineup
@@ -46,7 +43,11 @@ public class PlayerLineup {
     }
     
     public boolean isExtraLineup() {
-        return this.extraLineupType != 0;
+        return false;
+    }
+    
+    public int getExtraLineupType() {
+        return 0;
     }
 
     public void setName(String name) {
@@ -62,36 +63,19 @@ public class PlayerLineup {
     }
     
     public void addMp(int i) {
-        if (this.getExtraLineupType() > 0) {
-            this.mp = Math.min(this.mp + i, GameConstants.MAX_MP);
-            this.getOwner().sendPacket(new PacketSyncLineupNotify(this.getOwner().getCurrentLineup()));
-        } else {
-            this.getOwner().getLineupManager().addMp(i);
-        }
+        this.getOwner().getLineupManager().addMp(i);
     }
     
     public void setMp(int i) {
-        if (this.getExtraLineupType() > 0) {
-            this.mp = i;
-        } else {
-            this.getOwner().getLineupManager().setMp(i);
-        }
+        this.getOwner().getLineupManager().setMp(i);
     }
     
     public void removeMp(int i) {
-        if (this.getExtraLineupType() > 0) {
-            this.mp = Math.max(this.mp - i, 0);
-        } else {
-            this.getOwner().getLineupManager().removeMp(i);
-        }
+        this.getOwner().getLineupManager().removeMp(i);
     }
     
     public int getMp() {
-        if (this.getExtraLineupType() > 0) {
-            return this.mp;
-        } else {
-            return this.getOwner().getLineupManager().getMp();
-        }
+        return this.getOwner().getLineupManager().getMp();
     }
     
     public void heal(int heal, boolean allowRevive) {
