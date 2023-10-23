@@ -45,7 +45,7 @@ public class GameDepot {
     
     // TODO cache this so we dont have to run this function everytime we get the schedule
     public static RogueManagerExcel getCurrentRogueSchedule() {
-        long time = System.currentTimeMillis();
+        long time = System.currentTimeMillis() - (GameConstants.CURRENT_ZONEOFFSET.getTotalSeconds() * 1000);
         
         for (var schedule : GameData.getRogueManagerExcelMap().values()) {
             if (time >= schedule.getBeginTime() && time < schedule.getEndTime()) {
