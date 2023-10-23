@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 import java.util.stream.Stream;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarRail;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.common.ItemParam;
@@ -253,12 +254,19 @@ public class Inventory extends BasePlayerManager {
         List<GameItem> results = new ArrayList<GameItem>(items.size());
         
         for (ItemParam param : items) {
-            GameItem item = this.getItemByParam(param);
-            if (item == null) continue;
-            
-            GameItem result = this.deleteItem(item, param.getCount() * multiplier);
-            if (result != null) {
-                results.add(result);
+            // Check param type
+            if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
+                // Remove credits
+                getPlayer().addSCoin(-param.getCount() * multiplier);
+            } else {
+                // Remove param items
+                GameItem item = this.getItemByParam(param);
+                if (item == null) continue;
+                
+                GameItem result = this.deleteItem(item, param.getCount() * multiplier);
+                if (result != null) {
+                    results.add(result);
+                }
             }
         }
         
@@ -352,6 +360,36 @@ public class Inventory extends BasePlayerManager {
 
         // Returns true on success
         return item;
+    }
+    
+    // Verifying items
+    
+    public boolean verifyItems(Collection<ItemParam> params) {
+        return verifyItems(params, 1);
+    }
+    
+    public boolean verifyItems(Collection<ItemParam> params, int multiplier) {
+        for (ItemParam param : params) {
+            // Check param type
+            if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
+                // Check credits
+                if (!verifyScoin(param.getCount() * multiplier)) {
+                    return false;
+                }
+            } else {
+                // Check param items
+                GameItem item = this.getItemByParam(param);
+                if (item == null || item.getCount() < param.getCount() * multiplier) {
+                    return false;
+                }
+            }
+        }
+        
+        return true;
+    }
+    
+    public boolean verifyScoin(int cost) {
+        return this.getPlayer().getScoin() >= cost;
     }
 
     // Equips

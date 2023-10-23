@@ -103,21 +103,14 @@ public class InventoryService extends BaseGameService {
             return;
         }
 
-        // Verify items
-        for (ItemParam param : promotion.getPromotionCostList()) {
-            GameItem item = player.getInventory().getItemByParam(param);
-            if (item == null || item.getCount() < param.getCount()) return;
-        }
-
-        // Verify credits
-        if (player.getScoin() < promotion.getPromotionCostCoin()) {
+        // Verify item params
+        if (!player.getInventory().verifyItems(promotion.getPromotionCostList())) {
             player.sendPacket(new BasePacket(CmdId.PromoteAvatarScRsp));
             return;
         }
 
         // Pay items
         player.getInventory().removeItemsByParams(promotion.getPromotionCostList());
-        player.addSCoin(-promotion.getPromotionCostCoin());
 
         // Promote
         avatar.setPromotion(avatar.getPromotion() + 1);
@@ -143,24 +136,14 @@ public class InventoryService extends BaseGameService {
         AvatarSkillTreeExcel skillTree = GameData.getAvatarSkillTreeExcel(pointId, nextLevel);
         if (skillTree == null || skillTree.getAvatarID() != avatar.getExcel().getAvatarID()) return;
 
-        // Verify items
-        for (ItemParam param : skillTree.getMaterialList()) {
-            GameItem item = player.getInventory().getItemByParam(param);
-            if (item == null || item.getCount() < param.getCount()) {
-                player.sendPacket(new PacketUnlockSkilltreeScRsp());
-                return;
-            }
-        }
-
-        // Verify credits
-        if (player.getScoin() < skillTree.getMaterialCostCoin()) {
+        // Verify item params
+        if (!player.getInventory().verifyItems(skillTree.getMaterialList())) {
             player.sendPacket(new PacketUnlockSkilltreeScRsp());
             return;
         }
 
         // Pay items
         player.getInventory().removeItemsByParams(skillTree.getMaterialList());
-        player.addSCoin(-skillTree.getMaterialCostCoin());
 
         // Add skill
         avatar.getSkills().put(pointId, nextLevel);
@@ -541,7 +524,7 @@ public class InventoryService extends BaseGameService {
         player.sendPacket(new PacketSellItemScRsp(returnItems));
     }
     
-    public List<GameItem> buyShopGoods(Player player, int shopId, int goodsId, int goodsNum) {
+    public List<GameItem> buyShopGoods(Player player, int shopId, int goodsId, int count) {
         // Get shop and goods excels
         ShopExcel shop = GameData.getShopExcelMap().get(shopId);
         if (shop == null) return null;
@@ -549,22 +532,13 @@ public class InventoryService extends BaseGameService {
         ShopGoodsExcel goods = shop.getGoods().get(goodsId);
         if (goods == null) return null;
         
-        // Verify items
-        for (ItemParam param : goods.getCostList()) {
-            GameItem item = player.getInventory().getItemByParam(param);
-            if (item == null || item.getCount() < param.getCount() * goodsNum) {
-                return null;
-            }
-        }
-
-        // Verify credits
-        if (player.getScoin() < goods.getCoinCost() * goodsNum) {
+        // Verify item params
+        if (!player.getInventory().verifyItems(goods.getCostList(), count)) {
             return null;
         }
         
         // Pay items
-        player.getInventory().removeItemsByParams(goods.getCostList(), goodsNum);
-        player.addSCoin(goods.getCoinCost() * goodsNum);
+        player.getInventory().removeItemsByParams(goods.getCostList(), count);
         
         // Buy items
         List<GameItem> items = new ArrayList<>();
@@ -574,7 +548,7 @@ public class InventoryService extends BaseGameService {
             GameItem item = new GameItem(itemExcel, goods.getItemCount());
             items.add(item);
         } else {
-            int num = goods.getItemCount() * goodsNum;
+            int num = goods.getItemCount() * count;
             for (int i = 0; i < num; i++) {
                 GameItem item = new GameItem(itemExcel, 1);
                 items.add(item);
@@ -597,16 +571,8 @@ public class InventoryService extends BaseGameService {
             return null;
         }
         
-        // Verify items
-        for (ItemParam param : excel.getMaterialCost()) {
-            GameItem item = player.getInventory().getItemByParam(param);
-            if (item == null || item.getCount() < param.getCount() * count) {
-                return null;
-            }
-        }
-
-        // Verify credits
-        if (player.getScoin() < excel.getCoinCost() * count) {
+        // Verify items + credits
+        if (!player.getInventory().verifyItems(excel.getMaterialCost(), count) || !player.getInventory().verifyScoin(excel.getCoinCost() * count)) {
             return null;
         }
         
@@ -651,16 +617,8 @@ public class InventoryService extends BaseGameService {
             }
         }
         
-        // Verify items
-        for (ItemParam param : costItems) {
-            GameItem item = player.getInventory().getItemByParam(param);
-            if (item == null || item.getCount() < param.getCount() * count) {
-                return null;
-            }
-        }
-
-        // Verify credits
-        if (player.getScoin() < excel.getCoinCost() * count) {
+        // Verify items + credits
+        if (!player.getInventory().verifyItems(costItems, count) || !player.getInventory().verifyScoin(excel.getCoinCost() * count)) {
             return null;
         }
         

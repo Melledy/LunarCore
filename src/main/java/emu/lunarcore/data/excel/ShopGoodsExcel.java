@@ -3,7 +3,6 @@ package emu.lunarcore.data.excel;
 import java.util.ArrayList;
 import java.util.List;
 
-import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
@@ -27,7 +26,6 @@ public class ShopGoodsExcel extends GameResource {
     private int[] CurrencyCostList;
     
     private transient List<ItemParam> costList;
-    private transient int coinCost;
     
     @Override
     public int getId() {
@@ -46,11 +44,6 @@ public class ShopGoodsExcel extends GameResource {
         this.costList = new ArrayList<>(CurrencyList.length);
         
         for (int i = 0; i < CurrencyList.length; i++) {
-            if (CurrencyList[i] == GameConstants.MATERIAL_COIN_ID) {
-                this.coinCost = CurrencyCostList[i];
-                continue;
-            }
-            
             ItemParam param = new ItemParam(CurrencyList[i], CurrencyCostList[i]);
             this.costList.add(param);
         }

@@ -1,10 +1,7 @@
 package emu.lunarcore.data.excel;
 
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
-import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
@@ -21,7 +18,6 @@ public class AvatarPromotionExcel extends GameResource {
     private int PlayerLevelRequire;
     private int WorldLevelRequire;
     private List<ItemParam> PromotionCostList;
-    private transient int PromotionCostCoin;
 
     private double AttackBase;
     private double AttackAdd;
@@ -37,21 +33,5 @@ public class AvatarPromotionExcel extends GameResource {
     @Override
     public int getId() {
         return (AvatarID << 8) + Promotion;
-    }
-
-    @Override
-    public void onLoad() {
-        if (this.PromotionCostList == null) {
-            this.PromotionCostList = new ArrayList<>();
-        } else {
-            Iterator<ItemParam> it = this.PromotionCostList.iterator();
-            while (it.hasNext()) {
-                ItemParam param = it.next();
-                if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
-                    this.PromotionCostCoin = param.getCount();
-                    it.remove();
-                }
-            }
-        }
     }
 }
