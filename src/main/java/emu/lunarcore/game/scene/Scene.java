@@ -10,7 +10,7 @@ import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.enums.GameModeType;
+import emu.lunarcore.game.enums.PlaneType;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.player.PlayerLineup;
@@ -19,14 +19,11 @@ import emu.lunarcore.game.scene.triggers.PropTrigger;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
+import emu.lunarcore.proto.SceneGroupStateOuterClass.SceneGroupState;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
 import emu.lunarcore.server.packet.send.PacketActivateFarmElementScRsp;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
-
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
-import it.unimi.dsi.fastutil.ints.IntSet;
+import it.unimi.dsi.fastutil.ints.*;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
 
@@ -43,11 +40,12 @@ public class Scene {
     private boolean loaded = false;
 
     // Avatar entites
-    private IntSet avatarEntityIds;
-    private Int2ObjectMap<GameAvatar> avatars;
+    private final IntSet avatarEntityIds;
+    private final Int2ObjectMap<GameAvatar> avatars;
 
     // Other entities
-    private Int2ObjectMap<GameEntity> entities;
+    private final Int2ObjectMap<GameEntity> entities;
+    private final Int2IntMap groupStates;
     
     // Cache
     private List<PropTrigger> triggers;
@@ -63,6 +61,8 @@ public class Scene {
         this.avatarEntityIds = new IntOpenHashSet();
         this.avatars = new Int2ObjectOpenHashMap<>();
         this.entities = new Int2ObjectOpenHashMap<>();
+        this.groupStates = new Int2IntOpenHashMap();
+        
         this.healingSprings = new ObjectArrayList<>();
         this.triggers = new ObjectArrayList<>();
 
@@ -84,7 +84,7 @@ public class Scene {
         if (floorInfo == null) return;
         
         // Spawn from groups
-        if (this.getExcel().getPlaneType() != GameModeType.Challenge) {
+        if (getExcel().getPlaneType() != PlaneType.Challenge && getExcel().getPlaneType() != PlaneType.Rogue) {
             this.initSpawns();
         }
         
@@ -100,6 +100,13 @@ public class Scene {
             }
             
             // Load group
+            this.loadGroup(group);
+        }
+    }
+    
+    public void loadGroup(int groupId) {
+        GroupInfo group = getFloorInfo().getGroups().get(groupId);
+        if (group != null) {
             this.loadGroup(group);
         }
     }
@@ -383,6 +390,17 @@ public class Scene {
 
         for (var group : groups.values()) {
             proto.addEntityGroupList(group);
+        }
+        
+        // Add group states
+        for (var entry : this.getGroupStates().int2IntEntrySet()) {
+            var state = SceneGroupState.newInstance()
+                    .setGroupId(entry.getIntKey())
+                    .setState(entry.getIntValue())
+                    .setIsDefault(true);
+            
+            proto.addGroupStateList(state);
+            proto.addJBDDBBAMMNH(entry.getIntKey());
         }
 
         // Done

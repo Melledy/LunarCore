@@ -45,6 +45,8 @@ public class ResourceLoader {
         loadFloorInfos();
         // Load maze abilities
         loadMazeAbilities();
+        // Load rogue maps
+        loadRogueMapGen();
 
         // Done
         loaded = true;
@@ -234,5 +236,23 @@ public class ResourceLoader {
         
         // Done
         LunarRail.getLogger().info("Loaded " + count + " maze abilities for avatars.");
+    }
+    
+    private static void loadRogueMapGen() {
+        File file = new File(LunarRail.getConfig().getDataDir() + "/RogueMapGen.json");
+        if (!file.exists()) return;
+        
+        try (FileReader reader = new FileReader(file)) {
+            Map<Integer, int[]> rogue = gson.fromJson(reader, TypeToken.getParameterized(Map.class, Integer.class, int[].class).getType());
+
+            for (var entry : rogue.entrySet()) {
+                GameDepot.getRogueMapGen().put(entry.getKey().intValue(), entry.getValue());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        // Done
+        LunarRail.getLogger().info("Loaded rogue maps");
     }
 }

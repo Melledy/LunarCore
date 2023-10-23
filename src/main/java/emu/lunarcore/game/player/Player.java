@@ -28,6 +28,7 @@ import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.mail.Mailbox;
+import emu.lunarcore.game.rogue.RogueData;
 import emu.lunarcore.game.rogue.RogueManager;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
@@ -97,6 +98,7 @@ public class Player {
     
     @Setter private transient boolean paused;
     @Setter private transient ChallengeData challengeData;
+    @Setter private transient RogueData rogueData;
     
     @Deprecated // Morphia only
     public Player() {

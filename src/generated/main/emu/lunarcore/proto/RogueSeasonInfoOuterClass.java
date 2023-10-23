@@ -29,9 +29,9 @@ public final class RogueSeasonInfoOuterClass {
     private long beginTime;
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
+     * <code>optional uint32 season_id = 7;</code>
      */
-    private int rogueSeasonId;
+    private int seasonId;
 
     private RogueSeasonInfo() {
     }
@@ -118,39 +118,39 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
-     * @return whether the rogueSeasonId field is set
+     * <code>optional uint32 season_id = 7;</code>
+     * @return whether the seasonId field is set
      */
-    public boolean hasRogueSeasonId() {
+    public boolean hasSeasonId() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
+     * <code>optional uint32 season_id = 7;</code>
      * @return this
      */
-    public RogueSeasonInfo clearRogueSeasonId() {
+    public RogueSeasonInfo clearSeasonId() {
       bitField0_ &= ~0x00000004;
-      rogueSeasonId = 0;
+      seasonId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
-     * @return the rogueSeasonId
+     * <code>optional uint32 season_id = 7;</code>
+     * @return the seasonId
      */
-    public int getRogueSeasonId() {
-      return rogueSeasonId;
+    public int getSeasonId() {
+      return seasonId;
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
-     * @param value the rogueSeasonId to set
+     * <code>optional uint32 season_id = 7;</code>
+     * @param value the seasonId to set
      * @return this
      */
-    public RogueSeasonInfo setRogueSeasonId(final int value) {
+    public RogueSeasonInfo setSeasonId(final int value) {
       bitField0_ |= 0x00000004;
-      rogueSeasonId = value;
+      seasonId = value;
       return this;
     }
 
@@ -161,7 +161,7 @@ public final class RogueSeasonInfoOuterClass {
         bitField0_ = other.bitField0_;
         endTime = other.endTime;
         beginTime = other.beginTime;
-        rogueSeasonId = other.rogueSeasonId;
+        seasonId = other.seasonId;
       }
       return this;
     }
@@ -178,8 +178,8 @@ public final class RogueSeasonInfoOuterClass {
       if (other.hasBeginTime()) {
         setBeginTime(other.beginTime);
       }
-      if (other.hasRogueSeasonId()) {
-        setRogueSeasonId(other.rogueSeasonId);
+      if (other.hasSeasonId()) {
+        setSeasonId(other.seasonId);
       }
       return this;
     }
@@ -193,7 +193,7 @@ public final class RogueSeasonInfoOuterClass {
       bitField0_ = 0;
       endTime = 0L;
       beginTime = 0L;
-      rogueSeasonId = 0;
+      seasonId = 0;
       return this;
     }
 
@@ -219,7 +219,7 @@ public final class RogueSeasonInfoOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasEndTime() || endTime == other.endTime)
         && (!hasBeginTime() || beginTime == other.beginTime)
-        && (!hasRogueSeasonId() || rogueSeasonId == other.rogueSeasonId);
+        && (!hasSeasonId() || seasonId == other.seasonId);
     }
 
     @Override
@@ -234,7 +234,7 @@ public final class RogueSeasonInfoOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(rogueSeasonId);
+        output.writeUInt32NoTag(seasonId);
       }
     }
 
@@ -248,7 +248,7 @@ public final class RogueSeasonInfoOuterClass {
         size += 1 + ProtoSink.computeInt64SizeNoTag(beginTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueSeasonId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(seasonId);
       }
       return size;
     }
@@ -279,8 +279,8 @@ public final class RogueSeasonInfoOuterClass {
             }
           }
           case 56: {
-            // rogueSeasonId
-            rogueSeasonId = input.readUInt32();
+            // seasonId
+            seasonId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -311,7 +311,7 @@ public final class RogueSeasonInfoOuterClass {
         output.writeInt64(FieldNames.beginTime, beginTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.rogueSeasonId, rogueSeasonId);
+        output.writeUInt32(FieldNames.seasonId, seasonId);
       }
       output.endObject();
     }
@@ -347,11 +347,11 @@ public final class RogueSeasonInfoOuterClass {
             }
             break;
           }
-          case -774262952:
-          case 1067542482: {
-            if (input.isAtField(FieldNames.rogueSeasonId)) {
+          case 889931614:
+          case 1818097655: {
+            if (input.isAtField(FieldNames.seasonId)) {
               if (!input.trySkipNullValue()) {
-                rogueSeasonId = input.readUInt32();
+                seasonId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -416,7 +416,7 @@ public final class RogueSeasonInfoOuterClass {
 
       static final FieldName beginTime = FieldName.forField("beginTime", "begin_time");
 
-      static final FieldName rogueSeasonId = FieldName.forField("rogueSeasonId", "rogue_season_id");
+      static final FieldName seasonId = FieldName.forField("seasonId", "season_id");
     }
   }
 }

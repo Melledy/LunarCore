@@ -36,14 +36,14 @@ public final class RogueInfoOuterClass {
     private int kMAGFHIIALA;
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
+     * <code>optional uint32 season_id = 7;</code>
      */
-    private int rogueSeasonId;
+    private int seasonId;
 
     /**
-     * <code>optional uint32 HNIJEKJEGHB = 486;</code>
+     * <code>optional uint32 talent_points = 486;</code>
      */
-    private int hNIJEKJEGHB;
+    private int talentPoints;
 
     /**
      * <code>optional uint32 HDBPIDMBJOH = 944;</code>
@@ -56,9 +56,19 @@ public final class RogueInfoOuterClass {
     private int status;
 
     /**
+     * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
+     */
+    private final RogueCurrentInfoOuterClass.RogueCurrentInfo rogueProgress = RogueCurrentInfoOuterClass.RogueCurrentInfo.newInstance();
+
+    /**
      * <code>optional .RogueInfoData rogue_data = 256;</code>
      */
     private final RogueInfoDataOuterClass.RogueInfoData rogueData = RogueInfoDataOuterClass.RogueInfoData.newInstance();
+
+    /**
+     * <code>optional .RogueMapInfo room_map = 862;</code>
+     */
+    private final RogueMapInfoOuterClass.RogueMapInfo roomMap = RogueMapInfoOuterClass.RogueMapInfo.newInstance();
 
     /**
      * <code>optional .RogueScoreRewardInfo rogue_score_info = 1300;</code>
@@ -197,76 +207,76 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
-     * @return whether the rogueSeasonId field is set
+     * <code>optional uint32 season_id = 7;</code>
+     * @return whether the seasonId field is set
      */
-    public boolean hasRogueSeasonId() {
+    public boolean hasSeasonId() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
+     * <code>optional uint32 season_id = 7;</code>
      * @return this
      */
-    public RogueInfo clearRogueSeasonId() {
+    public RogueInfo clearSeasonId() {
       bitField0_ &= ~0x00000008;
-      rogueSeasonId = 0;
+      seasonId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
-     * @return the rogueSeasonId
+     * <code>optional uint32 season_id = 7;</code>
+     * @return the seasonId
      */
-    public int getRogueSeasonId() {
-      return rogueSeasonId;
+    public int getSeasonId() {
+      return seasonId;
     }
 
     /**
-     * <code>optional uint32 rogue_season_id = 7;</code>
-     * @param value the rogueSeasonId to set
+     * <code>optional uint32 season_id = 7;</code>
+     * @param value the seasonId to set
      * @return this
      */
-    public RogueInfo setRogueSeasonId(final int value) {
+    public RogueInfo setSeasonId(final int value) {
       bitField0_ |= 0x00000008;
-      rogueSeasonId = value;
+      seasonId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 HNIJEKJEGHB = 486;</code>
-     * @return whether the hNIJEKJEGHB field is set
+     * <code>optional uint32 talent_points = 486;</code>
+     * @return whether the talentPoints field is set
      */
-    public boolean hasHNIJEKJEGHB() {
+    public boolean hasTalentPoints() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional uint32 HNIJEKJEGHB = 486;</code>
+     * <code>optional uint32 talent_points = 486;</code>
      * @return this
      */
-    public RogueInfo clearHNIJEKJEGHB() {
+    public RogueInfo clearTalentPoints() {
       bitField0_ &= ~0x00000010;
-      hNIJEKJEGHB = 0;
+      talentPoints = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 HNIJEKJEGHB = 486;</code>
-     * @return the hNIJEKJEGHB
+     * <code>optional uint32 talent_points = 486;</code>
+     * @return the talentPoints
      */
-    public int getHNIJEKJEGHB() {
-      return hNIJEKJEGHB;
+    public int getTalentPoints() {
+      return talentPoints;
     }
 
     /**
-     * <code>optional uint32 HNIJEKJEGHB = 486;</code>
-     * @param value the hNIJEKJEGHB to set
+     * <code>optional uint32 talent_points = 486;</code>
+     * @param value the talentPoints to set
      * @return this
      */
-    public RogueInfo setHNIJEKJEGHB(final int value) {
+    public RogueInfo setTalentPoints(final int value) {
       bitField0_ |= 0x00000010;
-      hNIJEKJEGHB = value;
+      talentPoints = value;
       return this;
     }
 
@@ -370,11 +380,68 @@ public final class RogueInfoOuterClass {
     }
 
     /**
+     * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
+     * @return whether the rogueProgress field is set
+     */
+    public boolean hasRogueProgress() {
+      return (bitField0_ & 0x00000080) != 0;
+    }
+
+    /**
+     * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
+     * @return this
+     */
+    public RogueInfo clearRogueProgress() {
+      bitField0_ &= ~0x00000080;
+      rogueProgress.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueProgress()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueCurrentInfoOuterClass.RogueCurrentInfo getRogueProgress() {
+      return rogueProgress;
+    }
+
+    /**
+     * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueCurrentInfoOuterClass.RogueCurrentInfo getMutableRogueProgress() {
+      bitField0_ |= 0x00000080;
+      return rogueProgress;
+    }
+
+    /**
+     * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
+     * @param value the rogueProgress to set
+     * @return this
+     */
+    public RogueInfo setRogueProgress(final RogueCurrentInfoOuterClass.RogueCurrentInfo value) {
+      bitField0_ |= 0x00000080;
+      rogueProgress.copyFrom(value);
+      return this;
+    }
+
+    /**
      * <code>optional .RogueInfoData rogue_data = 256;</code>
      * @return whether the rogueData field is set
      */
     public boolean hasRogueData() {
-      return (bitField0_ & 0x00000080) != 0;
+      return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
@@ -382,7 +449,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearRogueData() {
-      bitField0_ &= ~0x00000080;
+      bitField0_ &= ~0x00000100;
       rogueData.clear();
       return this;
     }
@@ -411,7 +478,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RogueInfoDataOuterClass.RogueInfoData getMutableRogueData() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       return rogueData;
     }
 
@@ -421,8 +488,65 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo setRogueData(final RogueInfoDataOuterClass.RogueInfoData value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       rogueData.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueMapInfo room_map = 862;</code>
+     * @return whether the roomMap field is set
+     */
+    public boolean hasRoomMap() {
+      return (bitField0_ & 0x00000200) != 0;
+    }
+
+    /**
+     * <code>optional .RogueMapInfo room_map = 862;</code>
+     * @return this
+     */
+    public RogueInfo clearRoomMap() {
+      bitField0_ &= ~0x00000200;
+      roomMap.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueMapInfo room_map = 862;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRoomMap()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueMapInfoOuterClass.RogueMapInfo getRoomMap() {
+      return roomMap;
+    }
+
+    /**
+     * <code>optional .RogueMapInfo room_map = 862;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueMapInfoOuterClass.RogueMapInfo getMutableRoomMap() {
+      bitField0_ |= 0x00000200;
+      return roomMap;
+    }
+
+    /**
+     * <code>optional .RogueMapInfo room_map = 862;</code>
+     * @param value the roomMap to set
+     * @return this
+     */
+    public RogueInfo setRoomMap(final RogueMapInfoOuterClass.RogueMapInfo value) {
+      bitField0_ |= 0x00000200;
+      roomMap.copyFrom(value);
       return this;
     }
 
@@ -431,7 +555,7 @@ public final class RogueInfoOuterClass {
      * @return whether the rogueScoreInfo field is set
      */
     public boolean hasRogueScoreInfo() {
-      return (bitField0_ & 0x00000100) != 0;
+      return (bitField0_ & 0x00000400) != 0;
     }
 
     /**
@@ -439,7 +563,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearRogueScoreInfo() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000400;
       rogueScoreInfo.clear();
       return this;
     }
@@ -468,7 +592,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getMutableRogueScoreInfo() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       return rogueScoreInfo;
     }
 
@@ -479,7 +603,7 @@ public final class RogueInfoOuterClass {
      */
     public RogueInfo setRogueScoreInfo(
         final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       rogueScoreInfo.copyFrom(value);
       return this;
     }
@@ -489,7 +613,7 @@ public final class RogueInfoOuterClass {
      * @return whether the baseAvatarIdList field is set
      */
     public boolean hasBaseAvatarIdList() {
-      return (bitField0_ & 0x00000200) != 0;
+      return (bitField0_ & 0x00000800) != 0;
     }
 
     /**
@@ -497,7 +621,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearBaseAvatarIdList() {
-      bitField0_ &= ~0x00000200;
+      bitField0_ &= ~0x00000800;
       baseAvatarIdList.clear();
       return this;
     }
@@ -526,7 +650,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableBaseAvatarIdList() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000800;
       return baseAvatarIdList;
     }
 
@@ -536,7 +660,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addBaseAvatarIdList(final int value) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000800;
       baseAvatarIdList.add(value);
       return this;
     }
@@ -547,7 +671,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addAllBaseAvatarIdList(final int... values) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000800;
       baseAvatarIdList.addAll(values);
       return this;
     }
@@ -557,7 +681,7 @@ public final class RogueInfoOuterClass {
      * @return whether the rogueAreaList field is set
      */
     public boolean hasRogueAreaList() {
-      return (bitField0_ & 0x00000400) != 0;
+      return (bitField0_ & 0x00001000) != 0;
     }
 
     /**
@@ -565,7 +689,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearRogueAreaList() {
-      bitField0_ &= ~0x00000400;
+      bitField0_ &= ~0x00001000;
       rogueAreaList.clear();
       return this;
     }
@@ -594,7 +718,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RogueAreaOuterClass.RogueArea> getMutableRogueAreaList() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00001000;
       return rogueAreaList;
     }
 
@@ -604,7 +728,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addRogueAreaList(final RogueAreaOuterClass.RogueArea value) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00001000;
       rogueAreaList.add(value);
       return this;
     }
@@ -615,7 +739,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addAllRogueAreaList(final RogueAreaOuterClass.RogueArea... values) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00001000;
       rogueAreaList.addAll(values);
       return this;
     }
@@ -628,11 +752,13 @@ public final class RogueInfoOuterClass {
         endTime = other.endTime;
         beginTime = other.beginTime;
         kMAGFHIIALA = other.kMAGFHIIALA;
-        rogueSeasonId = other.rogueSeasonId;
-        hNIJEKJEGHB = other.hNIJEKJEGHB;
+        seasonId = other.seasonId;
+        talentPoints = other.talentPoints;
         hDBPIDMBJOH = other.hDBPIDMBJOH;
         status = other.status;
+        rogueProgress.copyFrom(other.rogueProgress);
         rogueData.copyFrom(other.rogueData);
+        roomMap.copyFrom(other.roomMap);
         rogueScoreInfo.copyFrom(other.rogueScoreInfo);
         baseAvatarIdList.copyFrom(other.baseAvatarIdList);
         rogueAreaList.copyFrom(other.rogueAreaList);
@@ -655,11 +781,11 @@ public final class RogueInfoOuterClass {
       if (other.hasKMAGFHIIALA()) {
         setKMAGFHIIALA(other.kMAGFHIIALA);
       }
-      if (other.hasRogueSeasonId()) {
-        setRogueSeasonId(other.rogueSeasonId);
+      if (other.hasSeasonId()) {
+        setSeasonId(other.seasonId);
       }
-      if (other.hasHNIJEKJEGHB()) {
-        setHNIJEKJEGHB(other.hNIJEKJEGHB);
+      if (other.hasTalentPoints()) {
+        setTalentPoints(other.talentPoints);
       }
       if (other.hasHDBPIDMBJOH()) {
         setHDBPIDMBJOH(other.hDBPIDMBJOH);
@@ -667,8 +793,14 @@ public final class RogueInfoOuterClass {
       if (other.hasStatus()) {
         setStatusValue(other.status);
       }
+      if (other.hasRogueProgress()) {
+        getMutableRogueProgress().mergeFrom(other.rogueProgress);
+      }
       if (other.hasRogueData()) {
         getMutableRogueData().mergeFrom(other.rogueData);
+      }
+      if (other.hasRoomMap()) {
+        getMutableRoomMap().mergeFrom(other.roomMap);
       }
       if (other.hasRogueScoreInfo()) {
         getMutableRogueScoreInfo().mergeFrom(other.rogueScoreInfo);
@@ -692,11 +824,13 @@ public final class RogueInfoOuterClass {
       endTime = 0L;
       beginTime = 0L;
       kMAGFHIIALA = 0;
-      rogueSeasonId = 0;
-      hNIJEKJEGHB = 0;
+      seasonId = 0;
+      talentPoints = 0;
       hDBPIDMBJOH = 0;
       status = 0;
+      rogueProgress.clear();
       rogueData.clear();
+      roomMap.clear();
       rogueScoreInfo.clear();
       baseAvatarIdList.clear();
       rogueAreaList.clear();
@@ -710,7 +844,9 @@ public final class RogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      rogueProgress.clearQuick();
       rogueData.clearQuick();
+      roomMap.clearQuick();
       rogueScoreInfo.clearQuick();
       baseAvatarIdList.clear();
       rogueAreaList.clearQuick();
@@ -730,11 +866,13 @@ public final class RogueInfoOuterClass {
         && (!hasEndTime() || endTime == other.endTime)
         && (!hasBeginTime() || beginTime == other.beginTime)
         && (!hasKMAGFHIIALA() || kMAGFHIIALA == other.kMAGFHIIALA)
-        && (!hasRogueSeasonId() || rogueSeasonId == other.rogueSeasonId)
-        && (!hasHNIJEKJEGHB() || hNIJEKJEGHB == other.hNIJEKJEGHB)
+        && (!hasSeasonId() || seasonId == other.seasonId)
+        && (!hasTalentPoints() || talentPoints == other.talentPoints)
         && (!hasHDBPIDMBJOH() || hDBPIDMBJOH == other.hDBPIDMBJOH)
         && (!hasStatus() || status == other.status)
+        && (!hasRogueProgress() || rogueProgress.equals(other.rogueProgress))
         && (!hasRogueData() || rogueData.equals(other.rogueData))
+        && (!hasRoomMap() || roomMap.equals(other.roomMap))
         && (!hasRogueScoreInfo() || rogueScoreInfo.equals(other.rogueScoreInfo))
         && (!hasBaseAvatarIdList() || baseAvatarIdList.equals(other.baseAvatarIdList))
         && (!hasRogueAreaList() || rogueAreaList.equals(other.rogueAreaList));
@@ -756,11 +894,11 @@ public final class RogueInfoOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(rogueSeasonId);
+        output.writeUInt32NoTag(seasonId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawLittleEndian16((short) 7856);
-        output.writeUInt32NoTag(hNIJEKJEGHB);
+        output.writeUInt32NoTag(talentPoints);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeRawLittleEndian16((short) 15232);
@@ -771,20 +909,28 @@ public final class RogueInfoOuterClass {
         output.writeEnumNoTag(status);
       }
       if ((bitField0_ & 0x00000080) != 0) {
+        output.writeRawLittleEndian16((short) 1434);
+        output.writeMessageNoTag(rogueProgress);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawLittleEndian16((short) 4226);
         output.writeMessageNoTag(rogueData);
       }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000200) != 0) {
+        output.writeRawLittleEndian16((short) 13810);
+        output.writeMessageNoTag(roomMap);
+      }
+      if ((bitField0_ & 0x00000400) != 0) {
         output.writeRawLittleEndian16((short) 20898);
         output.writeMessageNoTag(rogueScoreInfo);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000800) != 0) {
         for (int i = 0; i < baseAvatarIdList.length(); i++) {
           output.writeRawByte((byte) 96);
           output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
         }
       }
-      if ((bitField0_ & 0x00000400) != 0) {
+      if ((bitField0_ & 0x00001000) != 0) {
         for (int i = 0; i < rogueAreaList.length(); i++) {
           output.writeRawLittleEndian16((short) 3834);
           output.writeMessageNoTag(rogueAreaList.get(i));
@@ -805,10 +951,10 @@ public final class RogueInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(kMAGFHIIALA);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueSeasonId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(seasonId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 2 + ProtoSink.computeUInt32SizeNoTag(hNIJEKJEGHB);
+        size += 2 + ProtoSink.computeUInt32SizeNoTag(talentPoints);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         size += 2 + ProtoSink.computeUInt32SizeNoTag(hDBPIDMBJOH);
@@ -817,15 +963,21 @@ public final class RogueInfoOuterClass {
         size += 1 + ProtoSink.computeEnumSizeNoTag(status);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueData);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueProgress);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueScoreInfo);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueData);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        size += (1 * baseAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(baseAvatarIdList);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(roomMap);
       }
       if ((bitField0_ & 0x00000400) != 0) {
+        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueScoreInfo);
+      }
+      if ((bitField0_ & 0x00000800) != 0) {
+        size += (1 * baseAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(baseAvatarIdList);
+      }
+      if ((bitField0_ & 0x00001000) != 0) {
         size += (2 * rogueAreaList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueAreaList);
       }
       return size;
@@ -866,8 +1018,8 @@ public final class RogueInfoOuterClass {
             }
           }
           case 56: {
-            // rogueSeasonId
-            rogueSeasonId = input.readUInt32();
+            // seasonId
+            seasonId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 3888) {
@@ -875,8 +1027,8 @@ public final class RogueInfoOuterClass {
             }
           }
           case 3888: {
-            // hNIJEKJEGHB
-            hNIJEKJEGHB = input.readUInt32();
+            // talentPoints
+            talentPoints = input.readUInt32();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 7552) {
@@ -900,6 +1052,15 @@ public final class RogueInfoOuterClass {
               bitField0_ |= 0x00000040;
             }
             tag = input.readTag();
+            if (tag != 666) {
+              break;
+            }
+          }
+          case 666: {
+            // rogueProgress
+            input.readMessage(rogueProgress);
+            bitField0_ |= 0x00000080;
+            tag = input.readTag();
             if (tag != 2050) {
               break;
             }
@@ -907,7 +1068,16 @@ public final class RogueInfoOuterClass {
           case 2050: {
             // rogueData
             input.readMessage(rogueData);
-            bitField0_ |= 0x00000080;
+            bitField0_ |= 0x00000100;
+            tag = input.readTag();
+            if (tag != 6898) {
+              break;
+            }
+          }
+          case 6898: {
+            // roomMap
+            input.readMessage(roomMap);
+            bitField0_ |= 0x00000200;
             tag = input.readTag();
             if (tag != 10402) {
               break;
@@ -916,7 +1086,7 @@ public final class RogueInfoOuterClass {
           case 10402: {
             // rogueScoreInfo
             input.readMessage(rogueScoreInfo);
-            bitField0_ |= 0x00000100;
+            bitField0_ |= 0x00000400;
             tag = input.readTag();
             if (tag != 98) {
               break;
@@ -925,7 +1095,7 @@ public final class RogueInfoOuterClass {
           case 98: {
             // baseAvatarIdList [packed=true]
             input.readPackedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00000200;
+            bitField0_ |= 0x00000800;
             tag = input.readTag();
             if (tag != 1914) {
               break;
@@ -934,7 +1104,7 @@ public final class RogueInfoOuterClass {
           case 1914: {
             // rogueAreaList
             tag = input.readRepeatedMessage(rogueAreaList, tag);
-            bitField0_ |= 0x00000400;
+            bitField0_ |= 0x00001000;
             if (tag != 0) {
               break;
             }
@@ -952,7 +1122,7 @@ public final class RogueInfoOuterClass {
           case 96: {
             // baseAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00000200;
+            bitField0_ |= 0x00000800;
             break;
           }
         }
@@ -972,10 +1142,10 @@ public final class RogueInfoOuterClass {
         output.writeUInt32(FieldNames.kMAGFHIIALA, kMAGFHIIALA);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.rogueSeasonId, rogueSeasonId);
+        output.writeUInt32(FieldNames.seasonId, seasonId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.hNIJEKJEGHB, hNIJEKJEGHB);
+        output.writeUInt32(FieldNames.talentPoints, talentPoints);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeUInt32(FieldNames.hDBPIDMBJOH, hDBPIDMBJOH);
@@ -984,15 +1154,21 @@ public final class RogueInfoOuterClass {
         output.writeEnum(FieldNames.status, status, RogueStatusOuterClass.RogueStatus.converter());
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeMessage(FieldNames.rogueData, rogueData);
+        output.writeMessage(FieldNames.rogueProgress, rogueProgress);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeMessage(FieldNames.rogueScoreInfo, rogueScoreInfo);
+        output.writeMessage(FieldNames.rogueData, rogueData);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeRepeatedUInt32(FieldNames.baseAvatarIdList, baseAvatarIdList);
+        output.writeMessage(FieldNames.roomMap, roomMap);
       }
       if ((bitField0_ & 0x00000400) != 0) {
+        output.writeMessage(FieldNames.rogueScoreInfo, rogueScoreInfo);
+      }
+      if ((bitField0_ & 0x00000800) != 0) {
+        output.writeRepeatedUInt32(FieldNames.baseAvatarIdList, baseAvatarIdList);
+      }
+      if ((bitField0_ & 0x00001000) != 0) {
         output.writeRepeatedMessage(FieldNames.rogueAreaList, rogueAreaList);
       }
       output.endObject();
@@ -1040,11 +1216,11 @@ public final class RogueInfoOuterClass {
             }
             break;
           }
-          case -774262952:
-          case 1067542482: {
-            if (input.isAtField(FieldNames.rogueSeasonId)) {
+          case 889931614:
+          case 1818097655: {
+            if (input.isAtField(FieldNames.seasonId)) {
               if (!input.trySkipNullValue()) {
-                rogueSeasonId = input.readUInt32();
+                seasonId = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -1052,10 +1228,11 @@ public final class RogueInfoOuterClass {
             }
             break;
           }
-          case 1669990649: {
-            if (input.isAtField(FieldNames.hNIJEKJEGHB)) {
+          case -1626892049:
+          case 1567623062: {
+            if (input.isAtField(FieldNames.talentPoints)) {
               if (!input.trySkipNullValue()) {
-                hNIJEKJEGHB = input.readUInt32();
+                talentPoints = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -1090,12 +1267,36 @@ public final class RogueInfoOuterClass {
             }
             break;
           }
+          case 1629694503:
+          case 1330014962: {
+            if (input.isAtField(FieldNames.rogueProgress)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(rogueProgress);
+                bitField0_ |= 0x00000080;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 655647908:
           case -1124744465: {
             if (input.isAtField(FieldNames.rogueData)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(rogueData);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000100;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1379875457:
+          case -172986376: {
+            if (input.isAtField(FieldNames.roomMap)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(roomMap);
+                bitField0_ |= 0x00000200;
               }
             } else {
               input.skipUnknownField();
@@ -1107,7 +1308,7 @@ public final class RogueInfoOuterClass {
             if (input.isAtField(FieldNames.rogueScoreInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(rogueScoreInfo);
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00000400;
               }
             } else {
               input.skipUnknownField();
@@ -1119,7 +1320,7 @@ public final class RogueInfoOuterClass {
             if (input.isAtField(FieldNames.baseAvatarIdList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(baseAvatarIdList);
-                bitField0_ |= 0x00000200;
+                bitField0_ |= 0x00000800;
               }
             } else {
               input.skipUnknownField();
@@ -1131,7 +1332,7 @@ public final class RogueInfoOuterClass {
             if (input.isAtField(FieldNames.rogueAreaList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(rogueAreaList);
-                bitField0_ |= 0x00000400;
+                bitField0_ |= 0x00001000;
               }
             } else {
               input.skipUnknownField();
@@ -1196,15 +1397,19 @@ public final class RogueInfoOuterClass {
 
       static final FieldName kMAGFHIIALA = FieldName.forField("KMAGFHIIALA");
 
-      static final FieldName rogueSeasonId = FieldName.forField("rogueSeasonId", "rogue_season_id");
+      static final FieldName seasonId = FieldName.forField("seasonId", "season_id");
 
-      static final FieldName hNIJEKJEGHB = FieldName.forField("HNIJEKJEGHB");
+      static final FieldName talentPoints = FieldName.forField("talentPoints", "talent_points");
 
       static final FieldName hDBPIDMBJOH = FieldName.forField("HDBPIDMBJOH");
 
       static final FieldName status = FieldName.forField("status");
 
+      static final FieldName rogueProgress = FieldName.forField("rogueProgress", "rogue_progress");
+
       static final FieldName rogueData = FieldName.forField("rogueData", "rogue_data");
+
+      static final FieldName roomMap = FieldName.forField("roomMap", "room_map");
 
       static final FieldName rogueScoreInfo = FieldName.forField("rogueScoreInfo", "rogue_score_info");
 
