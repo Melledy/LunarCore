@@ -2,7 +2,7 @@ package emu.lunarcore.server.game;
 
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.database.AccountDatabaseOnly;
 import emu.lunarcore.proto.RegionEntryOuterClass.RegionEntry;
 import lombok.Getter;
@@ -29,7 +29,7 @@ public class RegionInfo {
         this.id = server.getServerConfig().getId();
         this.name = server.getServerConfig().getName();
         this.desc = server.getServerConfig().getDescription();
-        this.gateAddress = LunarRail.getHttpServer().getServerConfig().getDisplayAddress();
+        this.gateAddress = LunarCore.getHttpServer().getServerConfig().getDisplayAddress();
         this.up = true;
     }
     
@@ -44,6 +44,6 @@ public class RegionInfo {
     }
 
     public void save() {
-        LunarRail.getAccountDatabase().save(this);
+        LunarCore.getAccountDatabase().save(this);
     }
 }

@@ -1,9 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.proto.ChallengeInfoOuterClass.ChallengeInfo;
-import emu.lunarcore.proto.ChallengeStatusOuterClass.ChallengeStatus;
-import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.proto.StartChallengeScRspOuterClass.StartChallengeScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;

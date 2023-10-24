@@ -1,6 +1,6 @@
 package emu.lunarcore.game.account;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 
 /**
  * Helper class for handling account related stuff
@@ -8,7 +8,7 @@ import emu.lunarcore.LunarRail;
 public class AccountHelper {
 
     public static boolean createAccount(String username, String password, int reservedUid) {
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "username", username);
+        Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "username", username);
         
         if (account != null) {
             return false;
@@ -22,13 +22,13 @@ public class AccountHelper {
     }
     
     public static boolean deleteAccount(String username) {
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "username", username);
+        Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "username", username);
 
         if (account == null) {
             return false;
         }
         
-        return LunarRail.getAccountDatabase().delete(account);
+        return LunarCore.getAccountDatabase().delete(account);
     }
     
 }

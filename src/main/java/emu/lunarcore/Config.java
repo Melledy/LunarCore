@@ -27,7 +27,7 @@ public class Config {
     @Getter
     public static class DatabaseInfo {
         public String uri = "mongodb://localhost:27017";
-        public String collection = "lunarrail";
+        public String collection = "lunarcore";
         public boolean useInternal = true;
     }
 

@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Map;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.*;
@@ -24,14 +24,14 @@ public class Handbook {
         List<Integer> list = null;
 
         try {
-            textMap = JsonUtils.loadToMap(LunarRail.getConfig().getResourceDir() + "/TextMap/TextMapEN.json", Long.class, String.class);
+            textMap = JsonUtils.loadToMap(LunarCore.getConfig().getResourceDir() + "/TextMap/TextMapEN.json", Long.class, String.class);
         } catch (Exception e) {
             e.printStackTrace();
             return;
         }
 
         // Save to file
-        String file = "./Star Rail Handbook.txt";
+        String file = "./Lunar Core Handbook.txt";
 
         try (PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8), true)) {
             // Format date for header
@@ -46,7 +46,7 @@ public class Handbook {
             writer.println(System.lineSeparator());
             writer.println("# Commands");
             list = GameData.getAvatarExcelMap().keySet().intStream().sorted().boxed().toList();
-            for (var entry : LunarRail.getCommandManager().getLabels().entrySet()) {
+            for (var entry : LunarCore.getCommandManager().getLabels().entrySet()) {
                 Command command = entry.getValue().getClass().getAnnotation(Command.class);
                 if (command == null) continue;
                 

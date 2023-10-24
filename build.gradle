@@ -98,18 +98,18 @@ clean {
 
 application {
     // Define the main class for the application
-    mainClassName = 'emu.lunarcore.LunarRail'
+    mainClassName = 'emu.lunarcore.LunarCore'
 }
 
 jar {
 	exclude '*.proto'
 
     manifest {
-        attributes 'Main-Class': 'emu.lunarcore.LunarRail'
+        attributes 'Main-Class': 'emu.lunarcore.LunarCore'
     }
 
     jar {
-        archiveBaseName = 'LunarRail'
+        archiveBaseName = 'LunarCore'
         archiveVersion = ''
     }
 

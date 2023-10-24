@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.common.ItemParam.ItemParamType;
@@ -428,7 +428,7 @@ public class Inventory extends BasePlayerManager {
     // Database
 
     public void loadFromDatabase() {
-        Stream<GameItem> stream = LunarRail.getGameDatabase().getObjects(GameItem.class, "ownerUid", this.getPlayer().getUid());
+        Stream<GameItem> stream = LunarCore.getGameDatabase().getObjects(GameItem.class, "ownerUid", this.getPlayer().getUid());
 
         stream.forEach(item -> {
             // Should never happen

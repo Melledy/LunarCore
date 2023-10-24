@@ -1,6 +1,6 @@
 package emu.lunarcore.command.commands;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
@@ -11,7 +11,7 @@ public class ReloadCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        LunarRail.loadConfig();
+        LunarCore.loadConfig();
         this.sendMessage(sender, "Reloaded the server config");
     }
 

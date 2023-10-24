@@ -1,7 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.proto.ArchiveDataOuterClass.ArchiveData;
 import emu.lunarcore.proto.GetArchiveDataScRspOuterClass.GetArchiveDataScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;

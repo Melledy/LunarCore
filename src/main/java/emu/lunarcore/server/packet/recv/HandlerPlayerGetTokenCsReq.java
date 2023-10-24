@@ -1,6 +1,6 @@
 package emu.lunarcore.server.packet.recv;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.PlayerGetTokenCsReqOuterClass.PlayerGetTokenCsReq;
@@ -20,7 +20,7 @@ public class HandlerPlayerGetTokenCsReq extends PacketHandler {
         var req = PlayerGetTokenCsReq.parseFrom(data);
 
         // Authenticate
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "_id", req.getAccountUid());
+        Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "_id", req.getAccountUid());
         if (account == null || !account.getComboToken().equals(req.getToken())) {
             return;
         }
@@ -29,11 +29,11 @@ public class HandlerPlayerGetTokenCsReq extends PacketHandler {
         session.setAccount(account);
 
         // Get player from database, if it doesnt exist, we create it
-        Player player = LunarRail.getGameDatabase().getObjectByField(Player.class, "accountUid", account.getUid());
+        Player player = LunarCore.getGameDatabase().getObjectByField(Player.class, "accountUid", account.getUid());
 
         if (player == null) {
             player = new Player(session);
-            LunarRail.getGameDatabase().save(player);
+            LunarCore.getGameDatabase().save(player);
         }
         
         // Dont let people log on to the same player at the same time

@@ -2,7 +2,6 @@ package emu.lunarcore.server.packet.recv;
 
 import emu.lunarcore.proto.TakeOffRelicCsReqOuterClass.TakeOffRelicCsReq;
 import emu.lunarcore.server.game.GameSession;
-import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -18,7 +17,7 @@ public class HandlerTakeOffRelicCsReq extends PacketHandler {
             session.getPlayer().getInventory().unequipItem(req.getBaseAvatarId(), slot);
         }
 
-        session.send(new BasePacket(CmdId.TakeOffRelicScRsp));
+        session.send(CmdId.TakeOffRelicScRsp);
     }
 
 }

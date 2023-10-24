@@ -14,8 +14,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
 
-import emu.lunarcore.Config;
-
 public class JsonUtils {
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
     private static final Gson gsonCompact = new GsonBuilder().create();

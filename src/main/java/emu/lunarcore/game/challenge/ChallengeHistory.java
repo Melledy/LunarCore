@@ -5,7 +5,7 @@ import org.bson.types.ObjectId;
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.ChallengeOuterClass.Challenge;
 import lombok.Getter;
@@ -42,10 +42,10 @@ public class ChallengeHistory {
     }
     
     public void delete() {
-        LunarRail.getGameDatabase().delete(this);
+        LunarCore.getGameDatabase().delete(this);
     }
     
     public void save() {
-        LunarRail.getGameDatabase().save(this);
+        LunarCore.getGameDatabase().save(this);
     }
 }

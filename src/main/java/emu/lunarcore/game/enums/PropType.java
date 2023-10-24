@@ -1,5 +1,8 @@
 package emu.lunarcore.game.enums;
 
+import lombok.Getter;
+
+@Getter
 public enum PropType {
     PROP_NONE (0),
     PROP_ORDINARY (1),

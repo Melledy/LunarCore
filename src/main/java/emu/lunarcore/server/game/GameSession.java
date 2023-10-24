@@ -2,7 +2,7 @@ package emu.lunarcore.server.game;
 
 import java.net.InetSocketAddress;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.BasePacket;
@@ -65,14 +65,14 @@ public class GameSession {
     }
 
     public void onConnect() {
-        if (LunarRail.getConfig().getLogOptions().connections) {
-            LunarRail.getLogger().info("Client connected from " + address.getHostString());
+        if (LunarCore.getConfig().getLogOptions().connections) {
+            LunarCore.getLogger().info("Client connected from " + address.getHostString());
         }
     }
 
     public void onDisconnect() {
-        if (LunarRail.getConfig().getLogOptions().connections) {
-            LunarRail.getLogger().info("Client disconnected from " + address.getHostString());
+        if (LunarCore.getConfig().getLogOptions().connections) {
+            LunarCore.getLogger().info("Client disconnected from " + address.getHostString());
         }
 
         this.state = SessionState.INACTIVE;
@@ -120,7 +120,7 @@ public class GameSession {
                 }
 
                 // Log packet
-                if (LunarRail.getConfig().getLogOptions().packets) {
+                if (LunarCore.getConfig().getLogOptions().packets) {
                     logPacket("RECV", opcode, data);
                 }
 
@@ -137,7 +137,7 @@ public class GameSession {
     public void send(BasePacket packet) {
         // Test
         if (packet.getOpcode() <= 0) {
-            LunarRail.getLogger().warn("Tried to send packet with missing cmd id!");
+            LunarCore.getLogger().warn("Tried to send packet with missing cmd id!");
             return;
         }
 
@@ -145,7 +145,7 @@ public class GameSession {
         this.send(packet.build());
 
         // Log
-        if (LunarRail.getConfig().getLogOptions().packets) {
+        if (LunarCore.getConfig().getLogOptions().packets) {
             logPacket("SEND", packet.getOpcode(), packet.getData());
         }
     }
@@ -168,7 +168,7 @@ public class GameSession {
     }
 
     public void logPacket(String sendOrRecv, int opcode, byte[] payload) {
-        LunarRail.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getOpcodeName(opcode) + " (" + opcode + ")");
+        LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getOpcodeName(opcode) + " (" + opcode + ")");
         System.out.println(Utils.bytesToHex(payload));
     }
 

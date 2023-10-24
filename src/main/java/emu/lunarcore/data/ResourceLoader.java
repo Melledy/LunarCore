@@ -2,8 +2,6 @@ package emu.lunarcore.data;
 
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
@@ -16,9 +14,9 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.google.gson.reflect.TypeToken;
 
-import emu.lunarcore.LunarRail;
-import emu.lunarcore.data.ResourceDeserializers.LunarRailDoubleDeserializer;
-import emu.lunarcore.data.ResourceDeserializers.LunarRailHashDeserializer;
+import emu.lunarcore.LunarCore;
+import emu.lunarcore.data.ResourceDeserializers.LunarCoreDoubleDeserializer;
+import emu.lunarcore.data.ResourceDeserializers.LunarCoreHashDeserializer;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.FloorInfo.FloorGroupSimpleInfo;
 import emu.lunarcore.data.config.GroupInfo;
@@ -30,8 +28,8 @@ public class ResourceLoader {
 
     // Special gson factory we create for loading resources
     private static final Gson gson = new GsonBuilder()
-            .registerTypeAdapter(double.class, new LunarRailDoubleDeserializer())
-            .registerTypeAdapter(long.class, new LunarRailHashDeserializer())
+            .registerTypeAdapter(double.class, new LunarCoreDoubleDeserializer())
+            .registerTypeAdapter(long.class, new LunarCoreHashDeserializer())
             .create();
 
     // Load all resources
@@ -83,7 +81,7 @@ public class ResourceLoader {
             try {
                 loadFromResource(resourceDefinition, type, map);
             } catch (Exception e) {
-                LunarRail.getLogger().error("Error loading resource file: " + Arrays.toString(type.name()), e);
+                LunarCore.getLogger().error("Error loading resource file: " + Arrays.toString(type.name()), e);
             }
         }
     }
@@ -96,12 +94,12 @@ public class ResourceLoader {
             count += loadFromResource(c, type, name, map);
         }
 
-        LunarRail.getLogger().info("Loaded " + count + " " + c.getSimpleName() + "s.");
+        LunarCore.getLogger().info("Loaded " + count + " " + c.getSimpleName() + "s.");
     }
 
     @SuppressWarnings({"rawtypes", "unchecked"})
     private static <T> int loadFromResource(Class<T> c, ResourceType type, String fileName, Int2ObjectMap map) throws Exception {
-        String file = LunarRail.getConfig().getResourceDir() + "/ExcelOutput/" + fileName;
+        String file = LunarCore.getConfig().getResourceDir() + "/ExcelOutput/" + fileName;
 
         // Load reader from file
         try (InputStreamReader fileReader = new InputStreamReader(new FileInputStream(file), StandardCharsets.UTF_8)) {
@@ -169,10 +167,10 @@ public class ResourceLoader {
     // Might be better to cache
     private static void loadFloorInfos() {
         // Load floor infos
-        File floorDir = new File(LunarRail.getConfig().getResourceDir() + "/Config/LevelOutput/Floor/");
+        File floorDir = new File(LunarCore.getConfig().getResourceDir() + "/Config/LevelOutput/Floor/");
         
         if (!floorDir.exists()) {
-            LunarRail.getLogger().warn("Floor infos are missing, please check your resources.");
+            LunarCore.getLogger().warn("Floor infos are missing, please check your resources.");
             return;
         }
         
@@ -190,7 +188,7 @@ public class ResourceLoader {
         // Load group infos
         for (FloorInfo floor : GameData.getFloorInfos().values()) {
             for (FloorGroupSimpleInfo simpleGroup : floor.getSimpleGroupList()) {
-                File file = new File(LunarRail.getConfig().getResourceDir() + "/" + simpleGroup.getGroupPath());
+                File file = new File(LunarCore.getConfig().getResourceDir() + "/" + simpleGroup.getGroupPath());
                 
                 if (!file.exists()) {
                     continue;
@@ -211,7 +209,7 @@ public class ResourceLoader {
         }
         
         // Done
-        LunarRail.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " FloorInfos.");
+        LunarCore.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " FloorInfos.");
     }
     
     // Might be better to cache
@@ -220,7 +218,7 @@ public class ResourceLoader {
         
         for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
             // Get file
-            File file = new File(LunarRail.getConfig().getResourceDir() + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + avatarExcel.getNameKey() + "_Ability.json");
+            File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + avatarExcel.getNameKey() + "_Ability.json");
             if (!file.exists()) continue;
             
             try (FileReader reader = new FileReader(file)) {
@@ -235,11 +233,11 @@ public class ResourceLoader {
         }
         
         // Done
-        LunarRail.getLogger().info("Loaded " + count + " maze abilities for avatars.");
+        LunarCore.getLogger().info("Loaded " + count + " maze abilities for avatars.");
     }
     
     private static void loadRogueMapGen() {
-        File file = new File(LunarRail.getConfig().getDataDir() + "/RogueMapGen.json");
+        File file = new File(LunarCore.getConfig().getDataDir() + "/RogueMapGen.json");
         if (!file.exists()) return;
         
         try (FileReader reader = new FileReader(file)) {
@@ -253,6 +251,6 @@ public class ResourceLoader {
         }
         
         // Done
-        LunarRail.getLogger().info("Loaded rogue maps");
+        LunarCore.getLogger().info("Loaded rogue maps");
     }
 }

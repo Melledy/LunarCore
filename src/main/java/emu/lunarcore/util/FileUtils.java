@@ -6,7 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 
 public class FileUtils {
     public static void write(String dest, byte[] bytes) {
@@ -15,7 +15,7 @@ public class FileUtils {
         try {
             Files.write(path, bytes);
         } catch (IOException e) {
-            LunarRail.getLogger().warn("Failed to write file: " + dest);
+            LunarCore.getLogger().warn("Failed to write file: " + dest);
         }
     }
 
@@ -27,7 +27,7 @@ public class FileUtils {
         try {
             return Files.readAllBytes(path);
         } catch (IOException e) {
-            LunarRail.getLogger().warn("Failed to read file: " + path);
+            LunarCore.getLogger().warn("Failed to read file: " + path);
         }
 
         return new byte[0];

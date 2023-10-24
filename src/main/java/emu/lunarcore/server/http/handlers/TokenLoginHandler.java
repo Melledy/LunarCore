@@ -2,7 +2,7 @@ package emu.lunarcore.server.http.handlers;
 
 import org.jetbrains.annotations.NotNull;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.server.http.objects.LoginResJson;
 import emu.lunarcore.server.http.objects.LoginResJson.VerifyData;
@@ -34,7 +34,7 @@ public class TokenLoginHandler implements Handler {
         }
 
         // Login
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "_id", req.uid);
+        Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "_id", req.uid);
 
         if (account == null || !account.getDispatchToken().equals(req.token)) {
             res.retcode = -201;

@@ -2,7 +2,7 @@ package emu.lunarcore.command;
 
 import java.util.List;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
@@ -59,8 +59,8 @@ public class CommandArgs {
         
         // Get target player
         if (targetUid != 0) {
-            if (LunarRail.getGameServer() != null) {
-                target = LunarRail.getGameServer().getOnlinePlayerByUid(targetUid);
+            if (LunarCore.getGameServer() != null) {
+                target = LunarCore.getGameServer().getOnlinePlayerByUid(targetUid);
             }
         } else {
             target = sender;

@@ -10,7 +10,7 @@ import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.inventory.GameItem;
@@ -374,7 +374,7 @@ public class GameAvatar implements GameEntity {
 
     public void save() {
         // Save avatar
-        LunarRail.getGameDatabase().save(this);
+        LunarCore.getGameDatabase().save(this);
         // Save hero path
         if (this.getHeroPath() != null) {
             this.getHeroPath().save();

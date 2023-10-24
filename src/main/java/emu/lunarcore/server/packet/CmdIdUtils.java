@@ -8,7 +8,7 @@ import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.util.JsonUtils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -45,7 +45,7 @@ public class CmdIdUtils {
                     .collect(Collectors.toMap(Int2ObjectMap.Entry::getIntKey, Int2ObjectMap.Entry::getValue, (k, v) -> v, TreeMap::new));
             // Write to file
             writer.write(JsonUtils.encode(packetIds));
-            LunarRail.getLogger().info("Dumped packet ids.");
+            LunarCore.getLogger().info("Dumped packet ids.");
         } catch (IOException e) {
             e.printStackTrace();
         }

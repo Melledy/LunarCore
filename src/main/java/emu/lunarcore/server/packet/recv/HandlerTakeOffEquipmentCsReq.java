@@ -3,7 +3,6 @@ package emu.lunarcore.server.packet.recv;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.proto.TakeOffEquipmentCsReqOuterClass.TakeOffEquipmentCsReq;
 import emu.lunarcore.server.game.GameSession;
-import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -16,7 +15,7 @@ public class HandlerTakeOffEquipmentCsReq extends PacketHandler {
         var req = TakeOffEquipmentCsReq.parseFrom(data);
 
         session.getPlayer().getInventory().unequipItem(req.getBaseAvatarId(), GameConstants.EQUIPMENT_SLOT_ID);
-        session.send(new BasePacket(CmdId.TakeOffEquipmentScRsp));
+        session.send(CmdId.TakeOffEquipmentScRsp);
     }
 
 }

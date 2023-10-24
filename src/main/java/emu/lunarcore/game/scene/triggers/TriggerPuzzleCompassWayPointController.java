@@ -1,7 +1,6 @@
 package emu.lunarcore.game.scene.triggers;
 
 import emu.lunarcore.game.enums.PropState;
-import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;

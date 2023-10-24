@@ -1,10 +1,7 @@
 package emu.lunarcore.game.player;
 
-import java.util.ArrayList;
-
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
-import lombok.Getter;
 
 public class PlayerExtraLineup extends PlayerLineup {
     private int extraLineupType;

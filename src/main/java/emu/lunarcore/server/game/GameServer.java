@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import emu.lunarcore.Config.GameServerConfig;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.battle.BattleService;
 import emu.lunarcore.game.gacha.GachaService;
 import emu.lunarcore.game.player.Player;
@@ -89,10 +89,10 @@ public class GameServer extends KcpServer {
         // Setup region info
         this.info.setUp(true);
         this.info.save();
-        LunarRail.getHttpServer().forceRegionListRefresh();
+        LunarCore.getHttpServer().forceRegionListRefresh();
 
         // Done
-        LunarRail.getLogger().info("Game Server started on " + address.getPort());
+        LunarCore.getLogger().info("Game Server started on " + address.getPort());
     }
 
     private void onShutdown() {

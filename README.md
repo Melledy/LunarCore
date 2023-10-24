@@ -1,5 +1,5 @@
-# Lunar Rail
-A WIP server emulator for version 1.4.0 of a certain turn based anime game.
+# Lunar Core
+A server emulator for version 1.4.0 of a certain turn based anime game.
 
 # Running the server and client
 

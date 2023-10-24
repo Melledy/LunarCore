@@ -8,7 +8,7 @@ import org.bson.types.ObjectId;
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.excel.ItemExcel;
@@ -210,9 +210,9 @@ public class GameItem {
 
     public void save() {
         if (this.count > 0 && this.ownerUid > 0) {
-            LunarRail.getGameDatabase().save(this);
+            LunarCore.getGameDatabase().save(this);
         } else if (this.getId() != null) {
-            LunarRail.getGameDatabase().delete(this);
+            LunarCore.getGameDatabase().delete(this);
         }
 
     }

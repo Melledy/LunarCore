@@ -10,6 +10,7 @@ import emu.lunarcore.server.packet.send.PacketGetPlayerDetailInfoScRsp;
 @Opcodes(CmdId.GetPlayerDetailInfoCsReq)
 public class HandlerGetPlayerDetailInfoCsReq extends PacketHandler {
 
+    @SuppressWarnings("unused")
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = GetPlayerDetailInfoCsReq.parseFrom(data);

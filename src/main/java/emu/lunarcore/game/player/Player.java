@@ -8,7 +8,7 @@ import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.config.FloorInfo;
@@ -277,8 +277,8 @@ public class Player {
             nextUid = 0;
         }
 
-        while (nextUid == 0 || LunarRail.getGameDatabase().checkIfObjectExists(Player.class, nextUid)) {
-            nextUid = LunarRail.getGameDatabase().getNextObjectId(Player.class);
+        while (nextUid == 0 || LunarCore.getGameDatabase().checkIfObjectExists(Player.class, nextUid)) {
+            nextUid = LunarCore.getGameDatabase().getNextObjectId(Player.class);
         }
 
         this.uid = nextUid;
@@ -516,11 +516,11 @@ public class Player {
 
     public void save() {
         if (this.uid <= 0) {
-            LunarRail.getLogger().error("Tried to save a player object without a uid!");
+            LunarCore.getLogger().error("Tried to save a player object without a uid!");
             return;
         }
 
-        LunarRail.getGameDatabase().save(this);
+        LunarCore.getGameDatabase().save(this);
     }
 
     public void onLogin() {

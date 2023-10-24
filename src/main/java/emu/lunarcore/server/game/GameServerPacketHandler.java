@@ -4,7 +4,7 @@ import java.util.Set;
 
 import org.reflections.Reflections;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -39,7 +39,7 @@ public class GameServerPacketHandler {
     }
 
     public void registerHandlers() {
-        Reflections reflections = new Reflections(LunarRail.class.getPackageName());
+        Reflections reflections = new Reflections(LunarCore.class.getPackageName());
         Set<?> handlerClasses = reflections.getSubTypesOf(PacketHandler.class);
 
         for (Object obj : handlerClasses) {
@@ -47,7 +47,7 @@ public class GameServerPacketHandler {
         }
 
         // Debug
-        LunarRail.getLogger().info("Game Server registered " + this.handlers.size() + " packet handlers");
+        LunarCore.getLogger().info("Game Server registered " + this.handlers.size() + " packet handlers");
     }
 
     public void handle(GameSession session, int opcode, byte[] header, byte[] data) {
@@ -68,15 +68,7 @@ public class GameServerPacketHandler {
                     if (state != SessionState.WAITING_FOR_LOGIN) {
                         return;
                     }
-                }
-                /*
-                else if (opcode == PacketOpcodes.SetPlayerBornDataReq) {
-                    if (state != SessionState.PICKING_CHARACTER) {
-                        return;
-                    }
-                }
-                 */
-                else {
+                } else {
                     if (state != SessionState.ACTIVE) {
                         return;
                     }
@@ -92,6 +84,6 @@ public class GameServerPacketHandler {
         }
 
         // Log unhandled packets
-        //LunarRail.getLogger().info("Unhandled packet (" + opcode + "): " + CmdIdUtils.getOpcodeName(opcode));
+        //LunarCore.getLogger().info("Unhandled packet (" + opcode + "): " + CmdIdUtils.getOpcodeName(opcode));
     }
 }

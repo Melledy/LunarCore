@@ -9,7 +9,7 @@ import com.google.gson.JsonParseException;
 
 public class ResourceDeserializers {
 
-    protected static class LunarRailDoubleDeserializer implements JsonDeserializer<Double> {
+    protected static class LunarCoreDoubleDeserializer implements JsonDeserializer<Double> {
         @Override
         public Double deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
             if (json.isJsonPrimitive()) {
@@ -22,7 +22,7 @@ public class ResourceDeserializers {
         }
     }
 
-    protected static class LunarRailHashDeserializer implements JsonDeserializer<Long> {
+    protected static class LunarCoreHashDeserializer implements JsonDeserializer<Long> {
         @Override
         public Long deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
             if (json.isJsonPrimitive()) {

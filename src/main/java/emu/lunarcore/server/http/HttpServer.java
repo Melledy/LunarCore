@@ -11,8 +11,8 @@ import org.eclipse.jetty.server.ServerConnector;
 import org.eclipse.jetty.util.ssl.SslContextFactory;
 
 import emu.lunarcore.Config.HttpServerConfig;
-import emu.lunarcore.LunarRail;
-import emu.lunarcore.LunarRail.ServerType;
+import emu.lunarcore.LunarCore;
+import emu.lunarcore.LunarCore.ServerType;
 import emu.lunarcore.proto.DispatchRegionDataOuterClass.DispatchRegionData;
 import emu.lunarcore.server.game.RegionInfo;
 import emu.lunarcore.server.http.handlers.*;
@@ -52,7 +52,7 @@ public class HttpServer {
     }
 
     public HttpServerConfig getServerConfig() {
-        return LunarRail.getConfig().getHttpServer();
+        return LunarCore.getConfig().getHttpServer();
     }
 
     private HttpConnectionFactory getHttpFactory() {
@@ -65,8 +65,8 @@ public class HttpServer {
 
     private SslContextFactory.Server getSSLContextFactory() {
         SslContextFactory.Server sslContextFactory = new SslContextFactory.Server();
-        sslContextFactory.setKeyStorePath(LunarRail.getConfig().getKeystore().getPath());
-        sslContextFactory.setKeyStorePassword(LunarRail.getConfig().getKeystore().getPassword());
+        sslContextFactory.setKeyStorePath(LunarCore.getConfig().getKeystore().getPath());
+        sslContextFactory.setKeyStorePassword(LunarCore.getConfig().getKeystore().getPassword());
         sslContextFactory.setSniRequired(false);
         sslContextFactory.setRenegotiationAllowed(false);
         return sslContextFactory;
@@ -84,7 +84,7 @@ public class HttpServer {
                 this.regions.clear();
                 
                 // Pull region infos from database
-                LunarRail.getAccountDatabase().getObjects(RegionInfo.class)
+                LunarCore.getAccountDatabase().getObjects(RegionInfo.class)
                     .forEach(region -> {
                         this.regions.put(region.getId(), region);
                     });
@@ -119,8 +119,8 @@ public class HttpServer {
         }
 
         // Done
-        LunarRail.getLogger().info("Http Server running as: " + this.modes.stream().collect(Collectors.joining(", ")));
-        LunarRail.getLogger().info("Http Server started on " + getServerConfig().getPort());
+        LunarCore.getLogger().info("Http Server running as: " + this.modes.stream().collect(Collectors.joining(", ")));
+        LunarCore.getLogger().info("Http Server started on " + getServerConfig().getPort());
     }
 
     private void addRoutes() {

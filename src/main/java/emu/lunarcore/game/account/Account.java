@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Stream;
 
 import dev.morphia.annotations.*;
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.database.AccountDatabaseOnly;
 import emu.lunarcore.util.Crypto;
 import emu.lunarcore.util.Snowflake32;
@@ -99,7 +99,7 @@ public class Account {
         }
         
         // Default permissions
-        var defaultPermissions = LunarRail.getConfig().getServerOptions().getDefaultPermissions();
+        var defaultPermissions = LunarCore.getConfig().getServerOptions().getDefaultPermissions();
         
         if (defaultPermissions.contains("*")) {
             return true;
@@ -151,6 +151,6 @@ public class Account {
     // Database
 
     public void save() {
-        LunarRail.getAccountDatabase().save(this);
+        LunarCore.getAccountDatabase().save(this);
     }
 }

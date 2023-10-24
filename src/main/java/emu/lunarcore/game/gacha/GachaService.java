@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
@@ -58,14 +58,14 @@ public class GachaService extends BaseGameService {
     }
 
     public synchronized void load() {
-        try (FileReader fileReader = new FileReader(LunarRail.getConfig().getDataDir() + "/Banners.json")) {
+        try (FileReader fileReader = new FileReader(LunarCore.getConfig().getDataDir() + "/Banners.json")) {
             List<GachaBanner> banners = JsonUtils.loadToList(fileReader, GachaBanner.class);
             for (GachaBanner banner : banners) {
                 getGachaBanners().put(banner.getId(), banner);
             }
         } catch (Exception e) {
             // TODO Auto-generated catch block
-            LunarRail.getLogger().warn("No gacha banners loaded!");
+            LunarCore.getLogger().warn("No gacha banners loaded!");
         }
     }
 

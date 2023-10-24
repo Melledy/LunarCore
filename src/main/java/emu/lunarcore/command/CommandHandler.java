@@ -1,6 +1,6 @@
 package emu.lunarcore.command;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.player.Player;
 
 public interface CommandHandler {
@@ -13,7 +13,7 @@ public interface CommandHandler {
         if (player != null) {
             player.sendMessage(message);
         } else {
-            LunarRail.getLogger().info(message);
+            LunarCore.getLogger().info(message);
         }
     }
     

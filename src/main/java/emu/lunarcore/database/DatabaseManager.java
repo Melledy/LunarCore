@@ -24,8 +24,8 @@ import dev.morphia.mapping.MapperOptions;
 import dev.morphia.query.filters.Filters;
 import emu.lunarcore.Config.DatabaseInfo;
 import emu.lunarcore.Config.InternalMongoInfo;
-import emu.lunarcore.LunarRail;
-import emu.lunarcore.LunarRail.ServerType;
+import emu.lunarcore.LunarCore;
+import emu.lunarcore.LunarCore.ServerType;
 
 public final class DatabaseManager {
     private MongoServer server;
@@ -42,8 +42,8 @@ public final class DatabaseManager {
 
         // Local mongo server
         if (info.isUseInternal()) {
-            connectionString = startInternalMongoServer(LunarRail.getConfig().getInternalMongoServer());
-            LunarRail.getLogger().info("Using local mongo server at " + server.getConnectionString());
+            connectionString = startInternalMongoServer(LunarCore.getConfig().getInternalMongoServer());
+            LunarCore.getLogger().info("Using local mongo server at " + server.getConnectionString());
         }
 
         // Initialize
@@ -59,7 +59,7 @@ public final class DatabaseManager {
         datastore = Morphia.createDatastore(gameMongoClient, info.getCollection(), mapperOptions);
 
         // Map classes
-        var entities = new Reflections(LunarRail.class.getPackageName())
+        var entities = new Reflections(LunarCore.class.getPackageName())
                 .getTypesAnnotatedWith(Entity.class)
                 .stream()
                 .filter(cls -> {
@@ -105,7 +105,7 @@ public final class DatabaseManager {
         try {
             datastore.ensureIndexes();
         } catch (MongoCommandException exception) {
-            LunarRail.getLogger().warn("Mongo index error: ", exception);
+            LunarCore.getLogger().warn("Mongo index error: ", exception);
             // Duplicate index error
             if (exception.getCode() == 85) {
                 // Drop all indexes and re add them

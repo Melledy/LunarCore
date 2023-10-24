@@ -58,17 +58,17 @@ tmp/
 .DS_Store
 .directory
 
-# Lunar Rail generated/resource/log folders
+# Lunar Core generated/resource/log folders
 /resources
 /logs
 /proto
 
-# Lunar Rail compiled
+# Lunar Core compiled
 /*.jar
 /*.sh
 
-# Lunar Rail extra
-Star Rail Handbook.txt
+# Lunar Core extra
+Lunar Core Handbook.txt
 config.json
 *.mv
 *.exe

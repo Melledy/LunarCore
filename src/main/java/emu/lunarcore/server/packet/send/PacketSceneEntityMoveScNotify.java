@@ -3,7 +3,6 @@ package emu.lunarcore.server.packet.send;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityMoveScNotifyOuterClass.SceneEntityMoveScNotify;
-import emu.lunarcore.proto.VectorOuterClass.Vector;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 

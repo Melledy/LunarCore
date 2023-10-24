@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 import org.reflections.Reflections;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.player.Player;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
@@ -118,8 +118,8 @@ public class CommandManager {
                     return;
                 }
                 // Log
-                if (sender != null && LunarRail.getConfig().getLogOptions().commands) {
-                    LunarRail.getLogger().info("[UID: " + sender.getUid() + "] " + sender.getName() + " used command: " + message);
+                if (sender != null && LunarCore.getConfig().getLogOptions().commands) {
+                    LunarCore.getLogger().info("[UID: " + sender.getUid() + "] " + sender.getName() + " used command: " + message);
                 }
                 // Run command
                 handler.execute(sender, cmdArgs);
@@ -130,7 +130,7 @@ public class CommandManager {
             if (sender != null) {
                 sender.sendMessage("Inavlid Command!");
             } else {
-                LunarRail.getLogger().info("Inavlid Command!");
+                LunarCore.getLogger().info("Inavlid Command!");
             }
         }
     }

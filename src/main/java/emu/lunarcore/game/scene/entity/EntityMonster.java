@@ -1,13 +1,11 @@
 package emu.lunarcore.game.scene.entity;
 
 import emu.lunarcore.data.excel.NpcMonsterExcel;
-import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SceneNpcMonsterInfoOuterClass.SceneNpcMonsterInfo;
-import emu.lunarcore.proto.VectorOuterClass.Vector;
 import emu.lunarcore.util.Position;
 import lombok.Getter;
 import lombok.Setter;

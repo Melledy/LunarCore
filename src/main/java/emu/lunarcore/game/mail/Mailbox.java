@@ -5,7 +5,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.stream.Stream;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
@@ -130,7 +130,7 @@ public class Mailbox extends BasePlayerManager implements Iterable<Mail> {
     // Database
 
     public void loadFromDatabase() {
-        Stream<Mail> stream = LunarRail.getGameDatabase().getObjects(Mail.class, "ownerUid", this.getPlayer().getUid());
+        Stream<Mail> stream = LunarCore.getGameDatabase().getObjects(Mail.class, "ownerUid", this.getPlayer().getUid());
         
         stream.forEach(this::putMail);
     }

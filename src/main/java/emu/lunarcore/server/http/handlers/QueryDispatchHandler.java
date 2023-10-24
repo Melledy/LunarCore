@@ -2,7 +2,7 @@ package emu.lunarcore.server.http.handlers;
 
 import org.jetbrains.annotations.NotNull;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.server.http.HttpServer;
 
 import io.javalin.http.Context;
@@ -18,8 +18,8 @@ public class QueryDispatchHandler implements Handler {
     @Override
     public void handle(@NotNull Context ctx) throws Exception {
         // Log
-        if (LunarRail.getConfig().getLogOptions().connections) {
-            LunarRail.getLogger().info("Client request: query_dispatch");
+        if (LunarCore.getConfig().getLogOptions().connections) {
+            LunarCore.getLogger().info("Client request: query_dispatch");
         }
         
         // Send region list to client

@@ -2,7 +2,7 @@ package emu.lunarcore.game.challenge;
 
 import java.util.stream.Stream;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ChallengeExcel;
 import emu.lunarcore.game.player.BasePlayerManager;
@@ -85,7 +85,7 @@ public class ChallengeManager extends BasePlayerManager {
     }
     
     public void loadFromDatabase() {
-        Stream<ChallengeHistory> stream = LunarRail.getGameDatabase().getObjects(ChallengeHistory.class, "ownerUid", this.getPlayer().getUid());
+        Stream<ChallengeHistory> stream = LunarCore.getGameDatabase().getObjects(ChallengeHistory.class, "ownerUid", this.getPlayer().getUid());
 
         stream.forEach(info -> {
             this.getHistory().put(info.getChallengeId(), info);

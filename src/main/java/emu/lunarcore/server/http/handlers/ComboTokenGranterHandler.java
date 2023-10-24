@@ -2,7 +2,7 @@ package emu.lunarcore.server.http.handlers;
 
 import org.jetbrains.annotations.NotNull;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.server.http.objects.ComboTokenReqJson;
 import emu.lunarcore.server.http.objects.ComboTokenReqJson.LoginTokenData;
@@ -45,7 +45,7 @@ public class ComboTokenGranterHandler implements Handler {
         }
 
         // Login
-        Account account = LunarRail.getAccountDatabase().getObjectByField(Account.class, "_id", data.uid);
+        Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "_id", data.uid);
 
         if (account == null || !account.getDispatchToken().equals(data.token)) {
             res.retcode = -201;

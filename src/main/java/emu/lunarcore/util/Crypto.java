@@ -2,7 +2,7 @@ package emu.lunarcore.util;
 
 import java.security.SecureRandom;
 
-import emu.lunarcore.LunarRail;
+import emu.lunarcore.LunarCore;
 
 public final class Crypto {
     private static final SecureRandom secureRandom = new SecureRandom();
@@ -13,7 +13,7 @@ public final class Crypto {
                 packet[i] ^= key[i % key.length];
             }
         } catch (Exception e) {
-            LunarRail.getLogger().error("Crypto error.", e);
+            LunarCore.getLogger().error("Crypto error.", e);
         }
     }
 

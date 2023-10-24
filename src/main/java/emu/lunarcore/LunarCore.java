@@ -22,8 +22,8 @@ import emu.lunarcore.util.Handbook;
 import emu.lunarcore.util.JsonUtils;
 import lombok.Getter;
 
-public class LunarRail {
-    private static Logger log = (Logger) LoggerFactory.getLogger(LunarRail.class);
+public class LunarCore {
+    private static Logger log = (Logger) LoggerFactory.getLogger(LunarCore.class);
     private static File configFile = new File("./config.json");
     private static Config config;
 
@@ -39,16 +39,16 @@ public class LunarRail {
 
     // Load config first before doing anything
     static {
-        LunarRail.loadConfig();
+        LunarCore.loadConfig();
     }
 
     public static void main(String[] args) {
         // Start Server
-        LunarRail.getLogger().info("Starting Lunar Rail...");
+        LunarCore.getLogger().info("Starting Lunar Core...");
         boolean generateHandbook = true;
         
         // Load commands
-        LunarRail.commandManager = new CommandManager();
+        LunarCore.commandManager = new CommandManager();
 
         // Parse arguments
         for (String arg : args) {
@@ -66,10 +66,10 @@ public class LunarRail {
             case "-database":
                 // Database only
                 DatabaseManager databaseManager = new DatabaseManager();
-                databaseManager.startInternalMongoServer(LunarRail.getConfig().getInternalMongoServer());
-                LunarRail.getLogger().info("Running local mongo server at " + databaseManager.getServer().getConnectionString());
+                databaseManager.startInternalMongoServer(LunarCore.getConfig().getInternalMongoServer());
+                LunarCore.getLogger().info("Running local mongo server at " + databaseManager.getServer().getConnectionString());
                 // Console
-                LunarRail.startConsole();
+                LunarCore.startConsole();
                 return;
             }
         }
@@ -86,7 +86,7 @@ public class LunarRail {
         }
 
         // Start Database(s)
-        LunarRail.initDatabases();
+        LunarCore.initDatabases();
 
         // Always run http server as it is needed by for dispatch and gateserver
         httpServer = new HttpServer(serverType);
@@ -99,7 +99,7 @@ public class LunarRail {
         }
 
         // Start console
-        LunarRail.startConsole();
+        LunarCore.startConsole();
     }
 
     public static Config getConfig() {
@@ -113,19 +113,19 @@ public class LunarRail {
     // Database
 
     private static void initDatabases() {
-        if (LunarRail.getConfig().useSameDatabase) {
+        if (LunarCore.getConfig().useSameDatabase) {
             // Setup account and game database
-            accountDatabase = new DatabaseManager(LunarRail.getConfig().getAccountDatabase(), serverType);
+            accountDatabase = new DatabaseManager(LunarCore.getConfig().getAccountDatabase(), serverType);
             // Optimization: Dont run a 2nd database manager if we are not running a gameserver
             if (serverType.runGame()) {
                 gameDatabase = accountDatabase;
             }
         } else {
             // Run separate databases
-            accountDatabase = new DatabaseManager(LunarRail.getConfig().getAccountDatabase(), ServerType.DISPATCH);
+            accountDatabase = new DatabaseManager(LunarCore.getConfig().getAccountDatabase(), ServerType.DISPATCH);
             // Optimization: Dont run a 2nd database manager if we are not running a gameserver
             if (serverType.runGame()) {
-                gameDatabase = new DatabaseManager(LunarRail.getConfig().getGameDatabase(), ServerType.GAME);
+                gameDatabase = new DatabaseManager(LunarCore.getConfig().getGameDatabase(), ServerType.GAME);
             }
         }
     }
@@ -136,7 +136,7 @@ public class LunarRail {
         try (FileReader file = new FileReader(configFile)) {
             config = JsonUtils.loadToClass(file, Config.class);
         } catch (Exception e) {
-            LunarRail.config = new Config();
+            LunarCore.config = new Config();
         }
         saveConfig();
     }
@@ -164,13 +164,13 @@ public class LunarRail {
                     continue;
                 }
                 
-                LunarRail.getCommandManager().invoke(null, input);
+                LunarCore.getCommandManager().invoke(null, input);
             } 
         } catch (UserInterruptException | EndOfFileException e) {
             // CTRL + C / CTRL + D
             System.exit(0);
         } catch (Exception e) {
-            LunarRail.getLogger().error("Terminal error: ", e);
+            LunarCore.getLogger().error("Terminal error: ", e);
         }
     }
 
