@@ -8,16 +8,20 @@ import emu.lunarcore.server.packet.CmdId;
 
 public class PacketGetArchiveDataScRsp extends BasePacket {
 
+    // TODO cache packet
     public PacketGetArchiveDataScRsp() {
         super(CmdId.GetArchiveDataScRsp);
-
-        var archive = ArchiveData.newInstance();
+        
+        var data = GetArchiveDataScRsp.newInstance();
         
         for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
-            archive.addArchiveAvatarIdList(avatarExcel.getAvatarID());
+            data.getMutableArchiveData().addArchiveAvatarIdList(avatarExcel.getAvatarID());
         }
         
-        var data = GetArchiveDataScRsp.newInstance().setArchiveData(archive);
+        for (var itemExcel : GameData.getItemExcelMap().values()) {
+            if (!itemExcel.isEquipment()) continue;
+            data.getMutableArchiveData().addAllArchiveEquipmentIdList(itemExcel.getId());
+        }
         
         this.setData(data);
     }
