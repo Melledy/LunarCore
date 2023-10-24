@@ -3,10 +3,7 @@ package emu.lunarcore.data.config;
 import java.util.List;
 
 import emu.lunarcore.data.excel.AvatarExcel;
-import emu.lunarcore.game.battle.skills.MazeSkill;
-import emu.lunarcore.game.battle.skills.MazeSkillAction;
-import emu.lunarcore.game.battle.skills.MazeSkillAddBuff;
-import emu.lunarcore.game.battle.skills.MazeSkillModifySP;
+import emu.lunarcore.game.battle.skills.*;
 import lombok.Getter;
 
 /**
@@ -55,6 +52,9 @@ public class SkillAbilityInfo {
             actionList.add(new MazeSkillAddBuff(task.getID(), 20));
         } else if (task.getType().contains("RemoveMazeBuff")) {
             actionList.removeIf(action -> action instanceof MazeSkillAddBuff actionAdd && actionAdd.getBuffId() == task.getID());
+        } else if (task.getType().contains("AdventureModifyTeamPlayerHP")) {
+            // TODO get hp increase value from params
+            actionList.add(new MazeSkillModifyHP(15));
         } else if (task.getType().contains("AdventureModifyTeamPlayerSP")) {
             // TODO get sp increase value from params, also handle target alias
             actionList.add(new MazeSkillModifySP(50));
