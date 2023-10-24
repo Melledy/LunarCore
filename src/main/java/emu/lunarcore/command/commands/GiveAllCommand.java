@@ -40,7 +40,7 @@ public class GiveAllCommand implements CommandHandler {
                 // Credits
                 items.add(new GameItem(2, 50_000_000));
                 // Add
-                args.getTarget().getInventory().addItems(items);
+                args.getTarget().getInventory().addItems(items, true);
                 // Send message
                 this.sendMessage(sender, "Giving " + args.getTarget().getName() + " " + items.size() + " items");
             }

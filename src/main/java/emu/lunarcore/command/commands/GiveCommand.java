@@ -33,17 +33,19 @@ public class GiveCommand implements CommandHandler {
             return;
         }
         
+        // Setup items
+        List<GameItem> items = new LinkedList<>();
+        
         if (itemData.isEquippable()) {
-            List<GameItem> items = new LinkedList<>();
             for (int i = 0; i < amount; i++) {
                 items.add(new GameItem(itemData));
             }
-            args.getTarget().getInventory().addItems(items);
         } else {
-            GameItem item = new GameItem(itemData, amount);
-            args.getTarget().getInventory().addItem(item);
+            items.add(new GameItem(itemData, amount));
         }
-
+        
+        // Add and send message to player
+        args.getTarget().getInventory().addItems(items, true);
         args.getTarget().sendMessage("Giving " + args.getTarget().getName() + " " + amount + " of " + itemId);
     }
 

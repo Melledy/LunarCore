@@ -17,6 +17,7 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
+import emu.lunarcore.server.packet.send.PacketScenePlaneEventScNotify;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
@@ -81,10 +82,8 @@ public class Inventory extends BasePlayerManager {
 
         return null;
     }
-
-    public boolean addItem(int itemId) {
-        return addItem(itemId, 1);
-    }
+    
+    // Add/Remove items
 
     public boolean addItem(int itemId, int count) {
         ItemExcel itemExcel = GameData.getItemExcelMap().get(itemId);
@@ -113,6 +112,10 @@ public class Inventory extends BasePlayerManager {
     }
     
     public List<GameItem> addItems(Collection<GameItem> items) {
+        return addItems(items, false);
+    }
+    
+    public List<GameItem> addItems(Collection<GameItem> items, boolean showHint) {
         // Init results
         List<GameItem> results = new ArrayList<GameItem>(items.size());
         
@@ -132,6 +135,9 @@ public class Inventory extends BasePlayerManager {
         // Send packet (update)
         if (results.size() > 0) {
             getPlayer().sendPacket(new PacketPlayerSyncScNotify(results));
+            if (showHint) {
+                getPlayer().sendPacket(new PacketScenePlaneEventScNotify(items));
+            }
         }
         
         return results;
