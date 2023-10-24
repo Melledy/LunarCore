@@ -9,6 +9,7 @@ import lombok.Getter;
 @ResourceType(name = {"MazeProp.json"})
 public class PropExcel extends GameResource {
     private int ID;
+    private long PropName;
     private String JsonPath;
     private PropType PropType;
     

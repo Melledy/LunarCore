@@ -39,7 +39,7 @@ public class Handbook {
             LocalDateTime now = LocalDateTime.now();
 
             // Header
-            writer.println("# Star Rail " + GameConstants.VERSION + " Handbook");
+            writer.println("# Lunar Core " + GameConstants.VERSION + " Handbook");
             writer.println("# Created " + dtf.format(now));
             
             // Dump commands
@@ -73,6 +73,17 @@ public class Handbook {
                 writer.print(excel.getId());
                 writer.print(" : ");
                 writer.println(textMap.getOrDefault(excel.getItemName(), "null"));
+            }
+            
+            // Dump props
+            writer.println(System.lineSeparator());
+            writer.println("# Props (Spawnable)");
+            list = GameData.getPropExcelMap().keySet().intStream().sorted().boxed().toList();
+            for (int id : list) {
+                PropExcel excel = GameData.getPropExcelMap().get(id);
+                writer.print(excel.getId());
+                writer.print(" : ");
+                writer.println(textMap.getOrDefault(excel.getPropName(), "null"));
             }
 
             // Dump npc monsters
