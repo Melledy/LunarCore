@@ -33,7 +33,7 @@ public class GiveAllCommand implements CommandHandler {
                 // Character/Relic/Lightcone upgrade materials
                 for (ItemExcel excel : GameData.getItemExcelMap().values()) {
                     int purpose = excel.getPurposeType();
-                    if (purpose >= 1 && purpose <= 7) {
+                    if ((purpose >= 1 && purpose <= 7) || purpose == 10) {
                         items.add(new GameItem(excel, 1000));
                     }
                 }
