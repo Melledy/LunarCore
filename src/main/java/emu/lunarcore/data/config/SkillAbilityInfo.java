@@ -52,7 +52,7 @@ public class SkillAbilityInfo {
     private void parseTask(MazeSkill skill, List<MazeSkillAction> actionList, TaskInfo task) {
         if (task.getType().contains("AddMazeBuff")) {
             // TODO get duration from params if buff duration is dynamic
-            actionList.add(new MazeSkillAddBuff(task.getID(), 15));
+            actionList.add(new MazeSkillAddBuff(task.getID(), 20));
         } else if (task.getType().contains("RemoveMazeBuff")) {
             actionList.removeIf(action -> action instanceof MazeSkillAddBuff actionAdd && actionAdd.getBuffId() == task.getID());
         } else if (task.getType().contains("AdventureModifyTeamPlayerSP")) {
