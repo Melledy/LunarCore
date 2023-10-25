@@ -38,6 +38,11 @@ public final class ScenePropInfoOuterClass {
      */
     private int propId;
 
+    /**
+     * <code>optional .PropExtraInfo extra_info = 6;</code>
+     */
+    private final PropExtraInfoOuterClass.PropExtraInfo extraInfo = PropExtraInfoOuterClass.PropExtraInfo.newInstance();
+
     private ScenePropInfo() {
     }
 
@@ -196,6 +201,63 @@ public final class ScenePropInfoOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .PropExtraInfo extra_info = 6;</code>
+     * @return whether the extraInfo field is set
+     */
+    public boolean hasExtraInfo() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional .PropExtraInfo extra_info = 6;</code>
+     * @return this
+     */
+    public ScenePropInfo clearExtraInfo() {
+      bitField0_ &= ~0x00000010;
+      extraInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .PropExtraInfo extra_info = 6;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableExtraInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public PropExtraInfoOuterClass.PropExtraInfo getExtraInfo() {
+      return extraInfo;
+    }
+
+    /**
+     * <code>optional .PropExtraInfo extra_info = 6;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public PropExtraInfoOuterClass.PropExtraInfo getMutableExtraInfo() {
+      bitField0_ |= 0x00000010;
+      return extraInfo;
+    }
+
+    /**
+     * <code>optional .PropExtraInfo extra_info = 6;</code>
+     * @param value the extraInfo to set
+     * @return this
+     */
+    public ScenePropInfo setExtraInfo(final PropExtraInfoOuterClass.PropExtraInfo value) {
+      bitField0_ |= 0x00000010;
+      extraInfo.copyFrom(value);
+      return this;
+    }
+
     @Override
     public ScenePropInfo copyFrom(final ScenePropInfo other) {
       cachedSize = other.cachedSize;
@@ -205,6 +267,7 @@ public final class ScenePropInfoOuterClass {
         propState = other.propState;
         lifeTimeMs = other.lifeTimeMs;
         propId = other.propId;
+        extraInfo.copyFrom(other.extraInfo);
       }
       return this;
     }
@@ -227,6 +290,9 @@ public final class ScenePropInfoOuterClass {
       if (other.hasPropId()) {
         setPropId(other.propId);
       }
+      if (other.hasExtraInfo()) {
+        getMutableExtraInfo().mergeFrom(other.extraInfo);
+      }
       return this;
     }
 
@@ -241,6 +307,7 @@ public final class ScenePropInfoOuterClass {
       propState = 0;
       lifeTimeMs = 0;
       propId = 0;
+      extraInfo.clear();
       return this;
     }
 
@@ -251,6 +318,7 @@ public final class ScenePropInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      extraInfo.clearQuick();
       return this;
     }
 
@@ -267,7 +335,8 @@ public final class ScenePropInfoOuterClass {
         && (!hasCreateTimeMs() || createTimeMs == other.createTimeMs)
         && (!hasPropState() || propState == other.propState)
         && (!hasLifeTimeMs() || lifeTimeMs == other.lifeTimeMs)
-        && (!hasPropId() || propId == other.propId);
+        && (!hasPropId() || propId == other.propId)
+        && (!hasExtraInfo() || extraInfo.equals(other.extraInfo));
     }
 
     @Override
@@ -288,6 +357,10 @@ public final class ScenePropInfoOuterClass {
         output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(propId);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 50);
+        output.writeMessageNoTag(extraInfo);
+      }
     }
 
     @Override
@@ -304,6 +377,9 @@ public final class ScenePropInfoOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(propId);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(extraInfo);
       }
       return size;
     }
@@ -347,6 +423,15 @@ public final class ScenePropInfoOuterClass {
             propId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
+            if (tag != 50) {
+              break;
+            }
+          }
+          case 50: {
+            // extraInfo
+            input.readMessage(extraInfo);
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -379,6 +464,9 @@ public final class ScenePropInfoOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.propId, propId);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeMessage(FieldNames.extraInfo, extraInfo);
       }
       output.endObject();
     }
@@ -432,6 +520,18 @@ public final class ScenePropInfoOuterClass {
               if (!input.trySkipNullValue()) {
                 propId = input.readUInt32();
                 bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -253631266:
+          case 747541373: {
+            if (input.isAtField(FieldNames.extraInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(extraInfo);
+                bitField0_ |= 0x00000010;
               }
             } else {
               input.skipUnknownField();
@@ -497,6 +597,8 @@ public final class ScenePropInfoOuterClass {
       static final FieldName lifeTimeMs = FieldName.forField("lifeTimeMs", "life_time_ms");
 
       static final FieldName propId = FieldName.forField("propId", "prop_id");
+
+      static final FieldName extraInfo = FieldName.forField("extraInfo", "extra_info");
     }
   }
 }

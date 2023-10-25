@@ -4,6 +4,7 @@ import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.scene.Scene;
+import emu.lunarcore.game.scene.entity.extra.PropRogueData;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.ScenePropInfoOuterClass.ScenePropInfo;
@@ -14,6 +15,8 @@ import lombok.Setter;
 
 @Getter
 public class EntityProp implements GameEntity {
+    @Setter private PropInfo propInfo;
+    
     @Setter private int entityId;
     @Setter private int groupId;
     @Setter private int instId;
@@ -23,9 +26,8 @@ public class EntityProp implements GameEntity {
     private final PropExcel excel;
     private final Position pos;
     private final Position rot;
-    
-    @Setter
-    private PropInfo propInfo;
+
+    @Setter private PropRogueData rogueData;
     
     public EntityProp(Scene scene, PropExcel excel, Position pos) {
         this.scene = scene;
@@ -62,6 +64,10 @@ public class EntityProp implements GameEntity {
         var prop = ScenePropInfo.newInstance()
                 .setPropId(this.getPropId())
                 .setPropState(this.getState().getVal());
+        
+        if (this.rogueData != null) {
+            prop.setExtraInfo(this.rogueData.toProto());
+        }
 
         var proto = SceneEntityInfo.newInstance()
                 .setEntityId(this.getEntityId())
