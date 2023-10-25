@@ -23,7 +23,6 @@ import lombok.Setter;
 @Getter
 public class ChallengeInstance {
     private final Player player;
-    private final Scene scene;
     private final ChallengeExcel excel;
     private final Position startPos;
     private final Position startRot;
@@ -38,7 +37,6 @@ public class ChallengeInstance {
 
     public ChallengeInstance(Player player, ChallengeExcel excel) {
         this.player = player;
-        this.scene = player.getScene();
         this.excel = excel;
         this.startPos = player.getPos().clone();
         this.startRot = player.getRot().clone();
@@ -46,16 +44,17 @@ public class ChallengeInstance {
         this.roundsLeft = excel.getChallengeCountDown();
         this.status = ChallengeStatus.CHALLENGE_DOING;
         this.currentExtraLineup = ExtraLineupType.LINEUP_CHALLENGE;
-        
-        // Setup first stage
-        this.setupStage1();
+    }
+    
+    private Scene getScene() {
+        return this.getPlayer().getScene();
     }
     
     private int getChallengeId() {
         return this.getExcel().getId();
     }
     
-    private void setupStage1() {
+    protected void setupStage1() {
         this.setupStage(
                 excel.getMazeGroupID1(), 
                 excel.getConfigList1(), 
@@ -65,7 +64,7 @@ public class ChallengeInstance {
         );
     }
     
-    private void setupStage2() {
+    protected void setupStage2() {
         this.setupStage(
                 excel.getMazeGroupID2(), 
                 excel.getConfigList2(), 
@@ -97,10 +96,10 @@ public class ChallengeInstance {
             // Create monster with excels
             EntityMonster monster = new EntityMonster(getScene(), npcMonsterExcel, monsterInfo.getPos());
             monster.getRot().setY((int) (monsterInfo.getRotY() * 1000f));
+            monster.setGroupId(group.getId());
             monster.setInstId(instId);
             monster.setEventId(eventId);
             monster.setOverrideStageId(eventId);
-            monster.setGroupId(group.getId());
             monster.setWorldLevel(this.getPlayer().getWorldLevel());
             
             // Add to scene

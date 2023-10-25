@@ -55,8 +55,8 @@ public class RogueManager extends BasePlayerManager {
         
         // Get entrance id
         RogueInstance data = new RogueInstance(getPlayer(), excel);
-        int entranceId = data.getCurrentRoom().getRoomExcel().getMapEntrance();
-        
+        getPlayer().setRogueInstance(data);
+
         // Reset hp/sp
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
@@ -70,18 +70,17 @@ public class RogueManager extends BasePlayerManager {
         getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_ROGUE, false);
 
         // Enter scene
+        int entranceId = data.getCurrentRoom().getRoomExcel().getMapEntrance();
         boolean success = getPlayer().enterScene(entranceId, 0, false);
         if (!success) {
-            // Clear extra lineup if entering scene failed
+            // Reset lineup/instance if entering scene failed
             getPlayer().getLineupManager().setCurrentExtraLineup(0, false);
+            getPlayer().setRogueInstance(null);
             // Send error packet
             getPlayer().sendPacket(new PacketStartRogueScRsp());
             return;
         }
-        
-        // Set rogue data
-        getPlayer().setRogueInstance(data);
-        
+
         // Get room excel
         RogueRoomExcel roomExcel = data.getCurrentRoom().getExcel();
 
@@ -108,7 +107,7 @@ public class RogueManager extends BasePlayerManager {
         }
         
         getPlayer().setRogueInstance(null);
-        getPlayer().enterScene(GameConstants.ROGUE_LEAVE_ENTRANCE, 0, true); // Test
+        getPlayer().enterScene(GameConstants.ROGUE_ENTRANCE, 0, true); // Test
         getPlayer().getSession().send(CmdId.QuitRogueScRsp);
     }
 

@@ -61,15 +61,23 @@ public class ChallengeManager extends BasePlayerManager {
         // Set first lineup before we enter scenes
         getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE_VALUE, false);
         
+        // Set challenge data for player
+        ChallengeInstance instance = new ChallengeInstance(getPlayer(), excel);
+        getPlayer().setChallengeInstance(instance);
+        
         // Enter scene
         boolean success = getPlayer().enterScene(excel.getMapEntranceID(), 0, false);
-        if (success == false) {
+        if (!success) {
+            // Reset lineup/instance if entering scene failed
+            getPlayer().getLineupManager().setCurrentExtraLineup(0, false);
+            getPlayer().setChallengeInstance(null);
+            // Send error packet
+            getPlayer().sendPacket(new PacketStartChallengeScRsp());
             return;
         }
         
-        // Set challenge data for player
-        ChallengeInstance data = new ChallengeInstance(getPlayer(), excel);
-        getPlayer().setChallengeInstance(data);
+        // Setup first challenge stage
+        instance.setupStage1();
 
         // Send packet
         getPlayer().sendPacket(new PacketStartChallengeScRsp(getPlayer(), challengeId));

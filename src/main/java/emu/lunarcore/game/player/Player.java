@@ -24,6 +24,7 @@ import emu.lunarcore.game.challenge.ChallengeInstance;
 import emu.lunarcore.game.challenge.ChallengeManager;
 import emu.lunarcore.game.chat.ChatManager;
 import emu.lunarcore.game.chat.ChatMessage;
+import emu.lunarcore.game.enums.PlaneType;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
@@ -468,8 +469,21 @@ public class Player {
     private boolean loadScene(int planeId, int floorId, int entryId, Position pos, Position rot) {
         // Get maze plane excel
         MazePlaneExcel planeExcel = GameData.getMazePlaneExcelMap().get(planeId);
-        if (planeExcel == null) {
-            return false;
+        if (planeExcel == null) return false;
+
+        // Unstuck check
+        if (planeExcel.getPlaneType() == PlaneType.Challenge) {
+            if (this.getChallengeInstance() == null) {
+                return enterScene(GameConstants.CHALLENGE_ENTRANCE, 0, false);
+            }
+        } else {
+            this.setChallengeInstance(null);
+        }
+        
+        if (planeExcel.getPlaneType() == PlaneType.Rogue) {
+            if (this.getRogueInstance() == null) {
+                return enterScene(GameConstants.ROGUE_ENTRANCE, 0, false);
+            }
         }
         
         // Get scene that we want to enter
@@ -481,12 +495,9 @@ public class Player {
         } else {
             nextScene = new Scene(this, planeExcel, floorId);
         }
-        
-        // Clear any extra data the player might have
-        this.setChallengeInstance(null);
 
-        // Set positions if player has logged in
-        if (this.getSession().getState() != SessionState.WAITING_FOR_TOKEN) {
+        // Save if scene has changed
+        if (this.planeId != planeId || this.floorId != floorId || this.entryId != entryId) {
             this.getPos().set(pos);
             this.getRot().set(rot);
             this.planeId = planeId;
@@ -537,8 +548,13 @@ public class Player {
         this.getLineupManager().validate(this);
         this.getAvatars().setupHeroPaths();
 
-        // Enter scene (should happen after everything else loads)
+        // Load into saved scene (should happen after everything else loads)
         this.loadScene(planeId, floorId, entryId, this.getPos(), this.getRot());
+        
+        // Unstuck check in case we couldn't load the scene
+        if (this.getScene() == null) {
+            this.enterScene(GameConstants.START_ENTRY_ID, 0, false);
+        }
     }
 
     // Proto
