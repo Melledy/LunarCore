@@ -49,14 +49,14 @@ public class SceneEntityLoader {
         prop.setPropInfo(propInfo);
         prop.setGroupId(group.getId());
         prop.setInstId(propInfo.getID());
-        prop.setState(propInfo.getState());
+        prop.setState(propInfo.getState(), false);
         
         // Cache
         if (prop.getPropId() == 1003) {
             // Hacky fix to open simulated universe
             if (propInfo.getMappingInfoID() == 2220) {
                 // Regular simulated universe is locked behind a mission requirement by default
-                prop.setState(PropState.Open);
+                prop.setState(PropState.Open, false);
             } else {
                 // Skip tutorial simulated universe
                 return null;

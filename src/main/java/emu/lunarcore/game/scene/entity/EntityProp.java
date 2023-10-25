@@ -42,10 +42,14 @@ public class EntityProp implements GameEntity {
     }
     
     public void setState(PropState state) {
+        this.setState(state, this.getScene().isLoaded());
+    }
+    
+    public void setState(PropState state, boolean sendPacket) {
         // Set state
         this.state = state;
         // Sync state update to client
-        if (this.getScene().isLoaded()) {
+        if (sendPacket) {
             this.getScene().getPlayer().sendPacket(new PacketSceneGroupRefreshScNotify(this, null));
         }
     }

@@ -89,7 +89,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         prop.setPropInfo(propInfo);
         prop.setGroupId(group.getId());
         prop.setInstId(propInfo.getID());
-        prop.setState(state);
+        prop.setState(state, false);
         
         // Overrides
         if (propExtra != null) {
