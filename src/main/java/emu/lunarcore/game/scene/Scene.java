@@ -292,11 +292,12 @@ public class Scene {
         GameEntity entity = this.getEntities().remove(entityId);
 
         if (entity != null) {
-            // Reset entity id and run event
-            entity.setEntityId(0);
+            // Run event
             entity.onRemove();
             // Send packet
             player.sendPacket(new PacketSceneGroupRefreshScNotify(null, entity));
+            // Reset entity id
+            entity.setEntityId(0);
         }
     }
     
