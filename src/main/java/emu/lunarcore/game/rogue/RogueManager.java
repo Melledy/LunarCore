@@ -3,6 +3,7 @@ package emu.lunarcore.game.rogue;
 import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.config.AnchorInfo;
@@ -97,7 +98,7 @@ public class RogueManager extends BasePlayerManager {
         }
         
         getPlayer().setRogueData(null);
-        getPlayer().enterScene(8011201, 0, true); // Test
+        getPlayer().enterScene(GameConstants.ROGUE_LEAVE_ENTRANCE, 0, true); // Test
         getPlayer().getSession().send(CmdId.QuitRogueScRsp);
     }
 

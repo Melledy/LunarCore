@@ -29,6 +29,9 @@ public class GameConstants {
     public static final int START_ENTRY_ID = 2000101;
     public static final Position START_POS = new Position(99, 62, -4800);
     
+    // Rogue
+    public static final int ROGUE_LEAVE_ENTRANCE = 801120102;
+    
     // Custom
     public static final int SERVER_CONSOLE_UID = 99;
     public static final int EQUIPMENT_SLOT_ID = 100;
