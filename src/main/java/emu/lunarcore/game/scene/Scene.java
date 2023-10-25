@@ -130,7 +130,7 @@ public class Scene {
         if (group.getPropList() != null && group.getPropList().size() > 0) {
             for (PropInfo propInfo : group.getPropList()) {
                 try {
-                    EntityProp prop = this.getEntityLoader().loadNpc(this, group, propInfo);
+                    EntityProp prop = this.getEntityLoader().loadProp(this, group, propInfo);
                     this.addEntity(prop);
                 } catch (Exception e) {
                     // Ignored

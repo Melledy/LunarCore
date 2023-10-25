@@ -24,7 +24,7 @@ public class SceneEntityLoader {
         NpcMonsterExcel npcMonsterExcel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
         if (npcMonsterExcel == null) return null;
         
-        // Create monster with excels
+        // Create monster from group monster info
         EntityMonster monster = new EntityMonster(scene, npcMonsterExcel, monsterInfo.getPos());
         monster.getRot().set(monsterInfo.getRot());
         monster.setGroupId(group.getId());
@@ -35,23 +35,21 @@ public class SceneEntityLoader {
         return monster;
     }
     
-    public EntityProp loadNpc(Scene scene, GroupInfo group, PropInfo propInfo) {
+    public EntityProp loadProp(Scene scene, GroupInfo group, PropInfo propInfo) {
         // Don't spawn entity if they have the IsDelete flag in group info
         if (propInfo.isIsDelete()) return null;
         
-        // Get prop excel
+        // Get prop excel to make sure prop exists
         PropExcel propExcel = GameData.getPropExcelMap().get(propInfo.getPropID());
-        if (propExcel == null) {
-            return null;
-        }
+        if (propExcel == null) return null;
         
-        // Create prop from prop info
+        // Create prop from group prop info
         EntityProp prop = new EntityProp(scene, propExcel, propInfo.getPos());
-        prop.setState(propInfo.getState());
         prop.getRot().set(propInfo.getRot());
-        prop.setInstId(propInfo.getID());
-        prop.setGroupId(group.getId());
         prop.setPropInfo(propInfo);
+        prop.setGroupId(group.getId());
+        prop.setInstId(propInfo.getID());
+        prop.setState(propInfo.getState());
         
         // Cache
         if (prop.getPropId() == 1003) {
@@ -92,7 +90,7 @@ public class SceneEntityLoader {
         }
         if (haseDuplicateNpcId) return null;
         
-        // Create npc from npc info
+        // Create npc from group npc info
         EntityNpc npc = new EntityNpc(scene, npcInfo.getNPCID(), npcInfo.getPos());
         npc.getRot().set(npcInfo.getRot());
         npc.setInstId(npcInfo.getID());
