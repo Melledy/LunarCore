@@ -21,10 +21,10 @@ public class PacketStartChallengeScRsp extends BasePacket {
         
         var data = StartChallengeScRsp.newInstance();
         
-        if (player.getChallengeData() != null) {
+        if (player.getChallengeInstance() != null) {
             data.setLineup(player.getCurrentLineup().toProto());
             data.setScene(player.getScene().toProto());
-            data.setChallengeInfo(player.getChallengeData().toProto());
+            data.setChallengeInfo(player.getChallengeInstance().toProto());
         } else {
             data.setRetcode(1);
         }

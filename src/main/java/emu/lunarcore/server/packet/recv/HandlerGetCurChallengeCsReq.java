@@ -14,8 +14,8 @@ public class HandlerGetCurChallengeCsReq extends PacketHandler {
         // Send packet first
         session.send(new PacketGetCurChallengeScRsp(session.getPlayer()));
         // Update challenge details for client
-        if (session.getPlayer().getChallengeData() != null) {
-            session.getPlayer().getChallengeData().onUpdate();
+        if (session.getPlayer().getChallengeInstance() != null) {
+            session.getPlayer().getChallengeInstance().onUpdate();
         }
     }
 

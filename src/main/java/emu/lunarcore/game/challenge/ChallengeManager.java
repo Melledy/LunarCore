@@ -68,8 +68,8 @@ public class ChallengeManager extends BasePlayerManager {
         }
         
         // Set challenge data for player
-        ChallengeData data = new ChallengeData(getPlayer(), excel);
-        getPlayer().setChallengeData(data);
+        ChallengeInstance data = new ChallengeInstance(getPlayer(), excel);
+        getPlayer().setChallengeInstance(data);
 
         // Send packet
         getPlayer().sendPacket(new PacketStartChallengeScRsp(getPlayer(), challengeId));

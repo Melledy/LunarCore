@@ -21,7 +21,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-public class ChallengeData {
+public class ChallengeInstance {
     private final Player player;
     private final Scene scene;
     private final ChallengeExcel excel;
@@ -36,7 +36,7 @@ public class ChallengeData {
     @Setter private int roundsLeft;
     @Setter private int stars;
 
-    public ChallengeData(Player player, ChallengeExcel excel) {
+    public ChallengeInstance(Player player, ChallengeExcel excel) {
         this.player = player;
         this.scene = player.getScene();
         this.excel = excel;
@@ -117,7 +117,7 @@ public class ChallengeData {
     }
     
     public void onBattleStart(Battle battle) {
-        battle.setRoundsLimit(player.getChallengeData().getRoundsLeft());
+        battle.setRoundsLimit(player.getChallengeInstance().getRoundsLeft());
     }
     
     public void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
@@ -166,7 +166,7 @@ public class ChallengeData {
     public void onUpdate() {
         // End challenge if its done
         if (status != ChallengeStatus.CHALLENGE_DOING) {
-            getPlayer().setChallengeData(null);
+            getPlayer().setChallengeInstance(null);
         }
     }
     

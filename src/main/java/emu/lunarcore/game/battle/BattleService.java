@@ -136,8 +136,8 @@ public class BattleService extends BaseGameService {
             }
             
             // Challenge
-            if (player.getChallengeData() != null) {
-                player.getChallengeData().onBattleStart(battle);
+            if (player.getChallengeInstance() != null) {
+                player.getChallengeInstance().onBattleStart(battle);
             }
             
             // Set battle and send rsp packet
@@ -268,8 +268,8 @@ public class BattleService extends BaseGameService {
         }
         
         // Challenge
-        if (player.getChallengeData() != null) {
-            player.getChallengeData().onBattleFinish(battle, result, stats);
+        if (player.getChallengeInstance() != null) {
+            player.getChallengeInstance().onBattleFinish(battle, result, stats);
         }
         
         // Done - Clear battle object from player

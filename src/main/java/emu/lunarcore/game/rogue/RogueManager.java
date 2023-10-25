@@ -31,7 +31,7 @@ public class RogueManager extends BasePlayerManager {
     
     public void startRogue(int areaId, RepeatedInt avatarIdList) {
         // Make sure player already isnt in a rogue instance
-        if (getPlayer().getRogueData() != null) {
+        if (getPlayer().getRogueInstance() != null) {
             getPlayer().sendPacket(new PacketStartRogueScRsp());
             return;
         }
@@ -54,7 +54,7 @@ public class RogueManager extends BasePlayerManager {
         }
         
         // Get entrance id
-        RogueData data = new RogueData(getPlayer(), excel);
+        RogueInstance data = new RogueInstance(getPlayer(), excel);
         int entranceId = data.getCurrentRoom().getRoomExcel().getMapEntrance();
         
         // Reset hp/sp
@@ -80,7 +80,7 @@ public class RogueManager extends BasePlayerManager {
         }
         
         // Set rogue data
-        getPlayer().setRogueData(data);
+        getPlayer().setRogueInstance(data);
         
         // Get room excel
         RogueRoomExcel roomExcel = data.getCurrentRoom().getExcel();
@@ -102,12 +102,12 @@ public class RogueManager extends BasePlayerManager {
     }
     
     public void quitRogue() {
-        if (getPlayer().getRogueData() == null) {
+        if (getPlayer().getRogueInstance() == null) {
             getPlayer().getSession().send(CmdId.QuitRogueScRsp);
             return;
         }
         
-        getPlayer().setRogueData(null);
+        getPlayer().setRogueInstance(null);
         getPlayer().enterScene(GameConstants.ROGUE_LEAVE_ENTRANCE, 0, true); // Test
         getPlayer().getSession().send(CmdId.QuitRogueScRsp);
     }
@@ -145,10 +145,10 @@ public class RogueManager extends BasePlayerManager {
                 .setEndTime(endTime);
         
         // Rogue data
-        RogueData curRogue = this.getPlayer().getRogueData();
+        RogueInstance curRogue = this.getPlayer().getRogueInstance();
         if (curRogue != null) {
             proto.setStatus(curRogue.getStatus());
-            proto.setRogueProgress(this.getPlayer().getRogueData().toProto());
+            proto.setRogueProgress(this.getPlayer().getRogueInstance().toProto());
             proto.setRoomMap(proto.getRogueProgress().getRoomMap());
             
             for (int id : curRogue.getBaseAvatarIds()) {

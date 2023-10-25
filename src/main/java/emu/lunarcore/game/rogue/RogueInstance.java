@@ -13,7 +13,7 @@ import emu.lunarcore.proto.RogueStatusOuterClass.RogueStatus;
 import lombok.Getter;
 
 @Getter
-public class RogueData {
+public class RogueInstance {
     private transient Player player;
     private transient RogueAreaExcel excel;
     
@@ -22,7 +22,7 @@ public class RogueData {
     private Set<Integer> baseAvatarIds;
     private TreeMap<Integer, RogueRoomData> rooms;
     
-    public RogueData(Player player, RogueAreaExcel excel) {
+    public RogueInstance(Player player, RogueAreaExcel excel) {
         this.player = player;
         this.excel = excel;
         this.currentRoomProgress = 1;

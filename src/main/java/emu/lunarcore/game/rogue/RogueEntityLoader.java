@@ -13,7 +13,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
     
     public EntityMonster loadMonster(Scene scene, GroupInfo group, MonsterInfo monsterInfo) {
         // Make sure player is in a rogue instance
-        RogueData rogue = scene.getPlayer().getRogueData();
+        RogueInstance rogue = scene.getPlayer().getRogueInstance();
         if (rogue == null) return null;
 
         // Get rogue group content

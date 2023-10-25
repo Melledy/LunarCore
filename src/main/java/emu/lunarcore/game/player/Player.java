@@ -20,7 +20,7 @@ import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.avatar.HeroPath;
 import emu.lunarcore.game.battle.Battle;
-import emu.lunarcore.game.challenge.ChallengeData;
+import emu.lunarcore.game.challenge.ChallengeInstance;
 import emu.lunarcore.game.challenge.ChallengeManager;
 import emu.lunarcore.game.chat.ChatManager;
 import emu.lunarcore.game.chat.ChatMessage;
@@ -28,7 +28,7 @@ import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.mail.Mailbox;
-import emu.lunarcore.game.rogue.RogueData;
+import emu.lunarcore.game.rogue.RogueInstance;
 import emu.lunarcore.game.rogue.RogueManager;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
@@ -97,8 +97,8 @@ public class Player {
     private transient int nextBattleId;
     
     @Setter private transient boolean paused;
-    @Setter private transient ChallengeData challengeData;
-    @Setter private transient RogueData rogueData;
+    @Setter private transient ChallengeInstance challengeInstance;
+    @Setter private transient RogueInstance rogueInstance;
     
     @Deprecated // Morphia only
     public Player() {
@@ -483,7 +483,7 @@ public class Player {
         }
         
         // Clear any extra data the player might have
-        this.setChallengeData(null);
+        this.setChallengeInstance(null);
 
         // Set positions if player has logged in
         if (this.getSession().getState() != SessionState.WAITING_FOR_TOKEN) {

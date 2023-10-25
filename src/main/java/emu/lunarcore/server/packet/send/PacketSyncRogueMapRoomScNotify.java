@@ -12,9 +12,9 @@ public class PacketSyncRogueMapRoomScNotify extends BasePacket {
         
         var data = SyncRogueMapRoomScNotify.newInstance();
         
-        if (player.getRogueData() != null) {
-            data.setMapId(player.getRogueData().getExcel().getMapId());
-            data.setCurRoom(player.getRogueData().getCurrentRoom().toProto());
+        if (player.getRogueInstance() != null) {
+            data.setMapId(player.getRogueInstance().getExcel().getMapId());
+            data.setCurRoom(player.getRogueInstance().getCurrentRoom().toProto());
         }
         
         this.setData(data);

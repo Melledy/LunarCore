@@ -12,8 +12,8 @@ public class PacketGetCurChallengeScRsp extends BasePacket {
         
         var data = GetCurChallengeScRsp.newInstance();
         
-        if (player.getChallengeData() != null) {
-            data.setChallengeInfo(player.getChallengeData().toProto());
+        if (player.getChallengeInstance() != null) {
+            data.setChallengeInfo(player.getChallengeInstance().toProto());
         } else {
             data.setRetcode(0);
         }
