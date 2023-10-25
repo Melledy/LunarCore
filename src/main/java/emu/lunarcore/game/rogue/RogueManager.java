@@ -30,6 +30,12 @@ public class RogueManager extends BasePlayerManager {
     }
     
     public void startRogue(int areaId, RepeatedInt avatarIdList) {
+        // Make sure player already isnt in a rogue instance
+        if (getPlayer().getRogueData() != null) {
+            getPlayer().sendPacket(new PacketStartRogueScRsp());
+            return;
+        }
+        
         // Get excel
         var excel = GameData.getRogueAreaExcelMap().get(areaId);
         if (excel == null || !excel.isValid()) {
@@ -72,13 +78,13 @@ public class RogueManager extends BasePlayerManager {
             getPlayer().sendPacket(new PacketStartRogueScRsp());
             return;
         }
-
-        // Load scene groups
-        RogueRoomExcel roomExcel = data.getCurrentRoom().getExcel();
-        for (var entry : roomExcel.getGroupWithContent().entrySet()) {
-            getPlayer().getScene().loadGroup(entry.getKey());
-        }
         
+        // Set rogue data
+        getPlayer().setRogueData(data);
+        
+        // Get room excel
+        RogueRoomExcel roomExcel = data.getCurrentRoom().getExcel();
+
         // Move player to rogue start position
         AnchorInfo anchor = getPlayer().getScene().getFloorInfo().getAnchorInfo(roomExcel.getGroupID(), 1);
         if (anchor != null) {
@@ -86,8 +92,12 @@ public class RogueManager extends BasePlayerManager {
             getPlayer().getRot().set(anchor.getRot());
         }
         
-        // Set rogue data and send packet
-        getPlayer().setRogueData(data);
+        // Load scene groups. THIS NEEDS TO BE LAST
+        for (int key : roomExcel.getGroupWithContent().keySet()) {
+            getPlayer().getScene().loadGroup(key);
+        }
+        
+        // Done
         getPlayer().sendPacket(new PacketStartRogueScRsp(getPlayer()));
     }
     

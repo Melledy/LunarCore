@@ -7,12 +7,8 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.*;
 import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.MazePlaneExcel;
-import emu.lunarcore.data.excel.NpcMonsterExcel;
-import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.PlaneType;
-import emu.lunarcore.game.enums.PropState;
-import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.entity.*;
 import emu.lunarcore.game.scene.triggers.PropTrigger;
@@ -23,6 +19,7 @@ import emu.lunarcore.proto.SceneGroupStateOuterClass.SceneGroupState;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
 import emu.lunarcore.server.packet.send.PacketActivateFarmElementScRsp;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
+
 import it.unimi.dsi.fastutil.ints.*;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
@@ -32,6 +29,7 @@ public class Scene {
     private final Player player;
     private final MazePlaneExcel excel;
     private final FloorInfo floorInfo;
+    private final SceneEntityLoader entityLoader;
     private final int planeId;
     private final int floorId;
     private int entryId;
@@ -50,7 +48,7 @@ public class Scene {
     // Cache
     private List<PropTrigger> triggers;
     private List<EntityProp> healingSprings;
-
+    
     public Scene(Player player, MazePlaneExcel excel, int floorId) {
         this.player = player;
         this.excel = excel;
@@ -65,7 +63,11 @@ public class Scene {
         
         this.healingSprings = new ObjectArrayList<>();
         this.triggers = new ObjectArrayList<>();
+        
+        // Use singleton to avoid allocating memory for a new entity loader everytime we create a scene
+        this.entityLoader = getExcel().getPlaneType().getSceneEntityLoader();
 
+        // Add avatar entities
         PlayerLineup lineup = getPlayer().getCurrentLineup();
 
         for (int avatarId : lineup.getAvatars()) {
@@ -115,97 +117,36 @@ public class Scene {
         // Add monsters
         if (group.getMonsterList() != null && group.getMonsterList().size() > 0) {
             for (MonsterInfo monsterInfo : group.getMonsterList()) {
-                // Don't spawn entity if they have the IsDelete flag in group info
-                if (monsterInfo.isIsDelete()) continue;
-                
-                // Get excels from game data
-                NpcMonsterExcel npcMonsterExcel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
-                if (npcMonsterExcel == null) continue;
-                
-                // Create monster with excels
-                EntityMonster monster = new EntityMonster(this, npcMonsterExcel, monsterInfo.getPos());
-                monster.getRot().set(monsterInfo.getRot());
-                monster.setInstId(monsterInfo.getID());
-                monster.setEventId(monsterInfo.getEventID());
-                monster.setGroupId(group.getId());
-                monster.setWorldLevel(this.getPlayer().getWorldLevel());
-                
-                // Add to monsters
-                this.addEntity(monster);
+                try {
+                    EntityMonster monster = this.getEntityLoader().loadMonster(this, group, monsterInfo);
+                    this.addEntity(monster);
+                } catch (Exception e) {
+                    // Ignored
+                }
             }
         }
         
         // Add props
         if (group.getPropList() != null && group.getPropList().size() > 0) {
             for (PropInfo propInfo : group.getPropList()) {
-                // Don't spawn entity if they have the IsDelete flag in group info
-                if (propInfo.isIsDelete()) continue;
-                
-                // Get prop excel
-                PropExcel propExcel = GameData.getPropExcelMap().get(propInfo.getPropID());
-                if (propExcel == null) {
-                    continue;
+                try {
+                    EntityProp prop = this.getEntityLoader().loadNpc(this, group, propInfo);
+                    this.addEntity(prop);
+                } catch (Exception e) {
+                    // Ignored
                 }
-                
-                // Create prop from prop info
-                EntityProp prop = new EntityProp(this, propExcel, propInfo.getPos());
-                prop.setState(propInfo.getState());
-                prop.getRot().set(propInfo.getRot());
-                prop.setInstId(propInfo.getID());
-                prop.setGroupId(group.getId());
-                prop.setPropInfo(propInfo);
-                
-                // Cache
-                if (prop.getPropId() == 1003) {
-                    // Hacky fix to open simulated universe
-                    if (propInfo.getMappingInfoID() == 2220) {
-                        // Regular simulated universe is locked behind a mission requirement by default
-                        prop.setState(PropState.Open);
-                    } else {
-                        // Skip tutorial simulated universe
-                        continue;
-                    }
-                } else if (prop.getExcel().getPropType() == PropType.PROP_SPRING) {
-                    // Cache teleport anchors
-                    this.getHealingSprings().add(prop);
-                }
-                
-                // Add trigger
-                if (propInfo.getTrigger() != null) {
-                    this.getTriggers().add(propInfo.getTrigger());
-                }
-                
-                // Add to monsters
-                this.addEntity(prop);
             }
         }
         
-        // Add npcs
+        // Add NPCs
         if (group.getNPCList() != null && group.getNPCList().size() > 0) {
             for (NpcInfo npcInfo : group.getNPCList()) {
-                // Don't spawn entity if they have the IsDelete flag in group info
-                if (npcInfo.isIsDelete() || !GameData.getNpcExcelMap().containsKey(npcInfo.getNPCID())) {
-                    continue;
+                try {
+                    EntityNpc npc = this.getEntityLoader().loadNpc(this, group, npcInfo);
+                    this.addEntity(npc);
+                } catch (Exception e) {
+                    // Ignored
                 }
-                
-                // Dont spawn duplicate NPCs
-                boolean haseDuplicateNpcId = false;
-                for (GameEntity entity : this.getEntities().values()) {
-                    if (entity instanceof EntityNpc eNpc && eNpc.getNpcId() == npcInfo.getNPCID()) {
-                        haseDuplicateNpcId = true;
-                        break;
-                    }
-                }
-                if (haseDuplicateNpcId) continue;
-                
-                // Create npc from npc info
-                EntityNpc npc = new EntityNpc(this, npcInfo.getNPCID(), npcInfo.getPos());
-                npc.getRot().set(npcInfo.getRot());
-                npc.setInstId(npcInfo.getID());
-                npc.setGroupId(group.getId());
-                
-                // Add to monsters
-                this.addEntity(npc);
             }
         }
     }
@@ -325,13 +266,18 @@ public class Scene {
     }
     
     public synchronized void addEntity(GameEntity entity, boolean sendPacket) {
-        // Dont add if monster id already exists
-        if (entity.getEntityId() != 0) return;
+        // Sanity checks - Also dont add entity if it already exists
+        if (entity == null || entity.getEntityId() != 0) {
+            return;
+        }
+        
         // Set entity id and add monster to entity map
         entity.setEntityId(this.getNextEntityId());
         this.getEntities().put(entity.getEntityId(), entity);
+        
         // Entity add callback
         entity.onAdd();
+        
         // Send packet
         if (sendPacket) {
             player.sendPacket(new PacketSceneGroupRefreshScNotify(entity, null));
@@ -346,7 +292,8 @@ public class Scene {
         GameEntity entity = this.getEntities().remove(entityId);
 
         if (entity != null) {
-            // Entity remove callback
+            // Reset entity id and run event
+            entity.setEntityId(0);
             entity.onRemove();
             // Send packet
             player.sendPacket(new PacketSceneGroupRefreshScNotify(null, entity));

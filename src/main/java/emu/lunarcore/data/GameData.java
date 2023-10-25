@@ -37,6 +37,7 @@ public class GameData {
     @Getter private static Int2ObjectMap<RogueAreaExcel> rogueAreaExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RogueManagerExcel> rogueManagerExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RogueRoomExcel> rogueRoomExcelMap = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<RogueMonsterExcel> rogueMonsterExcelMap = new Int2ObjectOpenHashMap<>();
     
     private static Int2ObjectMap<AvatarPromotionExcel> avatarPromotionExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<AvatarSkillTreeExcel> avatarSkillTreeExcelMap = new Int2ObjectOpenHashMap<>();

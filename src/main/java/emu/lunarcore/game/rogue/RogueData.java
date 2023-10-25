@@ -58,6 +58,8 @@ public class RogueData {
     public RogueRoomData getCurrentRoom() {
         return this.rooms.get(this.getCurrentSiteId());
     }
+    
+    // Serialization
 
     public RogueCurrentInfo toProto() {
         var proto = RogueCurrentInfo.newInstance()

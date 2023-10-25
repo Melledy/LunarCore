@@ -1,10 +1,8 @@
 package emu.lunarcore.data.excel;
 
-import java.util.Map;
-
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
-
+import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import lombok.Getter;
 
 @Getter
@@ -14,11 +12,15 @@ public class RogueRoomExcel extends GameResource {
     private int RogueRoomType;
     private int MapEntrance;
     private int GroupID;
-    private Map<Integer, Integer> GroupWithContent;
+    private Int2IntOpenHashMap GroupWithContent;
     
     @Override
     public int getId() {
         return RogueRoomID;
+    }
+
+    public int getGroupContent(int id) {
+        return GroupWithContent.get(id);
     }
 
 }
