@@ -24,8 +24,8 @@ import lombok.Setter;
 public class ChallengeInstance {
     private final Player player;
     private final ChallengeExcel excel;
-    private final Position startPos;
-    private final Position startRot;
+    private Position startPos;
+    private Position startRot;
     
     private boolean hasAvatarDied;
     private int currentStage;
@@ -38,8 +38,8 @@ public class ChallengeInstance {
     public ChallengeInstance(Player player, ChallengeExcel excel) {
         this.player = player;
         this.excel = excel;
-        this.startPos = player.getPos().clone();
-        this.startRot = player.getRot().clone();
+        this.startPos = new Position();
+        this.startRot = new Position();
         this.currentStage = 1;
         this.roundsLeft = excel.getChallengeCountDown();
         this.status = ChallengeStatus.CHALLENGE_DOING;

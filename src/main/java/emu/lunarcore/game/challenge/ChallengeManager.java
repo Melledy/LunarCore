@@ -76,6 +76,10 @@ public class ChallengeManager extends BasePlayerManager {
             return;
         }
         
+        // Save start positions
+        instance.getStartPos().set(getPlayer().getPos());
+        instance.getStartRot().set(getPlayer().getRot());
+        
         // Setup first challenge stage
         instance.setupStage1();
 
