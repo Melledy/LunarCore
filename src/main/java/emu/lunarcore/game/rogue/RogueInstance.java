@@ -29,7 +29,7 @@ public class RogueInstance {
     public RogueInstance(Player player, RogueAreaExcel excel) {
         this.player = player;
         this.excel = excel;
-        this.currentRoomProgress = 1;
+        this.currentRoomProgress = 0;
         this.baseAvatarIds = new HashSet<>();
         
         this.initRooms();
@@ -79,6 +79,7 @@ public class RogueInstance {
         if (nextRoom == null) return null;
         
         // Enter room
+        this.currentRoomProgress++;
         this.currentSiteId = nextRoom.getSiteId();
         nextRoom.setStatus(RogueRoomStatus.ROGUE_ROOM_STATUS_PLAY);
         
@@ -100,6 +101,7 @@ public class RogueInstance {
         
         // Send packet if we are not entering the rogue instance for the first time
         if (prevRoom != null) {
+            getPlayer().sendPacket(new PacketSyncRogueMapRoomScNotify(this, prevRoom));
             getPlayer().sendPacket(new PacketSyncRogueMapRoomScNotify(this, nextRoom));
         }
         
