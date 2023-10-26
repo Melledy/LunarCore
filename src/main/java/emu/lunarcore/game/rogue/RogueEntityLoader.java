@@ -54,7 +54,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         PropRogueData propExtra = null;
         
         // Rogue Door id is 1000
-        if (propId == 1000) {
+        if (propId == 1000 || propId == 1021) {
             // Site index
             int index = 0;
             

@@ -6,8 +6,6 @@ import java.util.concurrent.TimeUnit;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameDepot;
-import emu.lunarcore.data.config.AnchorInfo;
-import emu.lunarcore.data.excel.RogueRoomExcel;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerLineup;
@@ -52,11 +50,10 @@ public class RogueManager extends BasePlayerManager {
             getPlayer().sendPacket(new PacketStartRogueScRsp());
             return;
         }
-        
-        // Get entrance id
+     // Get entrance id
         RogueInstance data = new RogueInstance(getPlayer(), excel);
         getPlayer().setRogueInstance(data);
-
+        
         // Reset hp/sp
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
@@ -69,31 +66,16 @@ public class RogueManager extends BasePlayerManager {
         // Set first lineup before we enter scenes
         getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_ROGUE, false);
 
-        // Enter scene
-        int entranceId = data.getCurrentRoom().getRoomExcel().getMapEntrance();
-        boolean success = getPlayer().enterScene(entranceId, 0, false);
-        if (!success) {
+        // Enter rogue
+        RogueRoomData room = data.enterRoom(data.getStartSiteId());
+        
+        if (room == null) {
             // Reset lineup/instance if entering scene failed
             getPlayer().getLineupManager().setCurrentExtraLineup(0, false);
             getPlayer().setRogueInstance(null);
             // Send error packet
             getPlayer().sendPacket(new PacketStartRogueScRsp());
             return;
-        }
-
-        // Get room excel
-        RogueRoomExcel roomExcel = data.getCurrentRoom().getExcel();
-
-        // Move player to rogue start position
-        AnchorInfo anchor = getPlayer().getScene().getFloorInfo().getAnchorInfo(roomExcel.getGroupID(), 1);
-        if (anchor != null) {
-            getPlayer().getPos().set(anchor.getPos());
-            getPlayer().getRot().set(anchor.getRot());
-        }
-        
-        // Load scene groups. THIS NEEDS TO BE LAST
-        for (int key : roomExcel.getGroupWithContent().keySet()) {
-            getPlayer().getScene().loadGroup(key);
         }
         
         // Done

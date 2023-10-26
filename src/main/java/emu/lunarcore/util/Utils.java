@@ -135,6 +135,18 @@ public class Utils {
     public static <T> T randomElement(List<T> list) {
         return list.get(ThreadLocalRandom.current().nextInt(0, list.size()));
     }
+    
+    /**
+     * Checks if an integer array contains a value
+     * @param array
+     * @param value The value to check for
+     */
+    public static boolean arrayContains(int[] array, int value) {
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] == value) return true; 
+        }
+        return false;
+    }
 
     /**
      * Base64 encodes a given byte array.
