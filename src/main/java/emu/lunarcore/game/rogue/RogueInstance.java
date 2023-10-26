@@ -62,7 +62,7 @@ public class RogueInstance {
         return this.getRoomBySiteId(this.getCurrentSiteId());
     }
     
-    public RogueRoomData enterRoom(int siteId) {
+    public synchronized RogueRoomData enterRoom(int siteId) {
         // Set status on previous room
         RogueRoomData prevRoom = getCurrentRoom();
         if (prevRoom != null) {

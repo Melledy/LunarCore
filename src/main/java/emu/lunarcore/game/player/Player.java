@@ -489,7 +489,7 @@ public class Player {
         // Get scene that we want to enter
         Scene nextScene = null;
         
-        if (getScene() != null && getScene().getPlaneId() == planeId && getScene().getFloorId() == floorId) {
+        if (getScene() != null && getScene().getPlaneId() == planeId && getScene().getFloorId() == floorId && getScene().getPlaneType() != PlaneType.Rogue) {
             // Don't create a new scene if were already in the one we want to teleport to
             nextScene = this.scene;
         } else {

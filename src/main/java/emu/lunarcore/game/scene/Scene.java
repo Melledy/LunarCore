@@ -94,6 +94,10 @@ public class Scene {
         this.loaded = true;
     }
     
+    public PlaneType getPlaneType() {
+        return this.getExcel().getPlaneType();
+    }
+    
     private void initSpawns() {
         for (GroupInfo group : getFloorInfo().getGroups().values()) {
             // Skip non-server groups
