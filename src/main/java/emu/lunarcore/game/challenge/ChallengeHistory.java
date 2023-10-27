@@ -32,6 +32,10 @@ public class ChallengeHistory {
         this.challengeId = challengeId;
     }
     
+    public void setStars(int stars) {
+        this.stars = Math.max(this.stars, stars);
+    }
+    
     public Challenge toProto() {
         var proto = Challenge.newInstance()
                 .setChallengeId(this.getChallengeId())
