@@ -88,6 +88,9 @@ public class ChallengeManager extends BasePlayerManager {
     }
     
     public void addHistory(int challengeId, int stars) {
+        // Dont write challenge history if the player didnt get any stars
+        if (stars <= 0) return;
+        
         // Get history info
         var info = this.getHistory().computeIfAbsent(challengeId, id -> new ChallengeHistory(getPlayer(), id));
 
