@@ -2,6 +2,7 @@ package emu.lunarcore.game.battle;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.CocoonExcel;
@@ -22,15 +23,13 @@ import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
 import emu.lunarcore.server.packet.send.PacketStartCocoonStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 
-import it.unimi.dsi.fastutil.ints.IntSet;
-
 public class BattleService extends BaseGameService {
 
     public BattleService(GameServer server) {
         super(server);
     }
 
-    public void startBattle(Player player, int casterId, int attackedGroupId, boolean castedSkill, IntSet targetList) {
+    public void startBattle(Player player, int casterId, int attackedGroupId, boolean castedSkill, Set<Integer> targets) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
             player.sendPacket(new PacketSceneCastSkillScRsp());
@@ -44,7 +43,7 @@ public class BattleService extends BaseGameService {
         // Check if attacker is the player or not
         if (player.getScene().getAvatarEntityIds().contains(casterId)) {
             // Player is the attacker
-            for (int entityId : targetList) {
+            for (int entityId : targets) {
                 GameEntity entity = player.getScene().getEntities().get(entityId);
                 
                 if (entity != null) {
@@ -62,7 +61,7 @@ public class BattleService extends BaseGameService {
             }
             
             // Add any assisting monsters from target list
-            for (int entityId : targetList) {
+            for (int entityId : targets) {
                 entity = player.getScene().getEntities().get(entityId);
                 
                 if (entity != null) {

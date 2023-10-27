@@ -1,5 +1,8 @@
 package emu.lunarcore.server.packet.recv;
 
+import java.util.LinkedHashSet;
+import java.util.Set;
+
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.proto.SceneCastSkillCsReqOuterClass.SceneCastSkillCsReq;
@@ -10,13 +13,9 @@ import emu.lunarcore.server.packet.PacketHandler;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillMpUpdateScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
 
-import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
-import it.unimi.dsi.fastutil.ints.IntSet;
-
 @Opcodes(CmdId.SceneCastSkillCsReq)
 public class HandlerSceneCastSkillCsReq extends PacketHandler {
 
-    @SuppressWarnings("deprecation")
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = SceneCastSkillCsReq.parseFrom(data);
@@ -40,12 +39,12 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
         
         if (req.hasHitTargetIdList()) {
             // Create target list
-            IntSet targetList = new IntOpenHashSet();
-            req.getHitTargetIdList().forEach(targetList::add);
-            req.getAssistMonsterIdList().forEach(targetList::add);
+            Set<Integer> targets = new LinkedHashSet<>();
+            req.getHitTargetIdList().forEach(targets::add);
+            req.getAssistMonsterIdList().forEach(targets::add);
             
             // Start battle
-            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getCasterId(), req.getAttackedGroupId(), castedSkill, targetList);
+            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getCasterId(), req.getAttackedGroupId(), castedSkill, targets);
         } else {
             session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
         }
