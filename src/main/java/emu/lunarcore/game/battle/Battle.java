@@ -103,8 +103,11 @@ public class Battle {
         if (excel == null) return null;
         
         MazeBuff buff = new MazeBuff(excel, ownerIndex, waveFlag);
+        return addBuff(buff);
+    }
+    
+    public MazeBuff addBuff(MazeBuff buff) {
         this.buffs.add(buff);
-        
         return buff;
     }
     

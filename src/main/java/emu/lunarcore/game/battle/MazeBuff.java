@@ -12,7 +12,8 @@ import lombok.Getter;
 
 @Getter
 public class MazeBuff {
-    private MazeBuffExcel excel;
+    private int id;
+    private int level;
     private int ownerIndex;
     private int waveFlag;
     private IntList targetIndex;
@@ -21,7 +22,12 @@ public class MazeBuff {
     private Object2DoubleMap<String> dynamicValues; 
     
     public MazeBuff(MazeBuffExcel excel, int ownerIndex, int waveFlag) {
-        this.excel = excel;
+        this(excel.getBuffId(), excel.getLv(), ownerIndex, waveFlag);
+    }
+    
+    public MazeBuff(int id, int level, int ownerIndex, int waveFlag) {
+        this.id = id;
+        this.level = level;
         this.ownerIndex = ownerIndex;
         this.waveFlag = waveFlag;
     }
@@ -44,8 +50,8 @@ public class MazeBuff {
     
     public BattleBuff toProto() {
         var proto = BattleBuff.newInstance()
-                .setId(excel.getBuffId())
-                .setLevel(excel.getLv())
+                .setId(this.getId())
+                .setLevel(this.getLevel())
                 .setOwnerId(this.getOwnerIndex())
                 .setWaveFlag(this.getWaveFlag());
         

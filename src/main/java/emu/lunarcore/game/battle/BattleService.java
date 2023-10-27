@@ -140,6 +140,11 @@ public class BattleService extends BaseGameService {
                 player.getChallengeInstance().onBattleStart(battle);
             }
             
+            // Rogue
+            if (player.getRogueInstance() != null) {
+                player.getRogueInstance().onBattleStart(battle);
+            }
+            
             // Set battle and send rsp packet
             player.setBattle(battle);
             player.sendPacket(new PacketSceneCastSkillScRsp(battle, attackedGroupId));
@@ -270,6 +275,11 @@ public class BattleService extends BaseGameService {
         // Challenge
         if (player.getChallengeInstance() != null) {
             player.getChallengeInstance().onBattleFinish(battle, result, stats);
+        }
+        
+        // Rogue
+        if (player.getRogueInstance() != null) {
+            player.getRogueInstance().onBattleFinish(battle, result, stats);
         }
         
         // Done - Clear battle object from player

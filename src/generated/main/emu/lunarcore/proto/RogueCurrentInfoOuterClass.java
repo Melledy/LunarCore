@@ -28,6 +28,11 @@ public final class RogueCurrentInfoOuterClass {
      */
     private final RogueMapInfoOuterClass.RogueMapInfo roomMap = RogueMapInfoOuterClass.RogueMapInfo.newInstance();
 
+    /**
+     * <code>optional .RogueBuffInfo rogue_buff_info = 14;</code>
+     */
+    private final RogueBuffInfoOuterClass.RogueBuffInfo rogueBuffInfo = RogueBuffInfoOuterClass.RogueBuffInfo.newInstance();
+
     private RogueCurrentInfo() {
     }
 
@@ -157,6 +162,63 @@ public final class RogueCurrentInfoOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .RogueBuffInfo rogue_buff_info = 14;</code>
+     * @return whether the rogueBuffInfo field is set
+     */
+    public boolean hasRogueBuffInfo() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional .RogueBuffInfo rogue_buff_info = 14;</code>
+     * @return this
+     */
+    public RogueCurrentInfo clearRogueBuffInfo() {
+      bitField0_ &= ~0x00000004;
+      rogueBuffInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueBuffInfo rogue_buff_info = 14;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueBuffInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueBuffInfoOuterClass.RogueBuffInfo getRogueBuffInfo() {
+      return rogueBuffInfo;
+    }
+
+    /**
+     * <code>optional .RogueBuffInfo rogue_buff_info = 14;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueBuffInfoOuterClass.RogueBuffInfo getMutableRogueBuffInfo() {
+      bitField0_ |= 0x00000004;
+      return rogueBuffInfo;
+    }
+
+    /**
+     * <code>optional .RogueBuffInfo rogue_buff_info = 14;</code>
+     * @param value the rogueBuffInfo to set
+     * @return this
+     */
+    public RogueCurrentInfo setRogueBuffInfo(final RogueBuffInfoOuterClass.RogueBuffInfo value) {
+      bitField0_ |= 0x00000004;
+      rogueBuffInfo.copyFrom(value);
+      return this;
+    }
+
     @Override
     public RogueCurrentInfo copyFrom(final RogueCurrentInfo other) {
       cachedSize = other.cachedSize;
@@ -164,6 +226,7 @@ public final class RogueCurrentInfoOuterClass {
         bitField0_ = other.bitField0_;
         status = other.status;
         roomMap.copyFrom(other.roomMap);
+        rogueBuffInfo.copyFrom(other.rogueBuffInfo);
       }
       return this;
     }
@@ -180,6 +243,9 @@ public final class RogueCurrentInfoOuterClass {
       if (other.hasRoomMap()) {
         getMutableRoomMap().mergeFrom(other.roomMap);
       }
+      if (other.hasRogueBuffInfo()) {
+        getMutableRogueBuffInfo().mergeFrom(other.rogueBuffInfo);
+      }
       return this;
     }
 
@@ -192,6 +258,7 @@ public final class RogueCurrentInfoOuterClass {
       bitField0_ = 0;
       status = 0;
       roomMap.clear();
+      rogueBuffInfo.clear();
       return this;
     }
 
@@ -203,6 +270,7 @@ public final class RogueCurrentInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       roomMap.clearQuick();
+      rogueBuffInfo.clearQuick();
       return this;
     }
 
@@ -217,7 +285,8 @@ public final class RogueCurrentInfoOuterClass {
       RogueCurrentInfo other = (RogueCurrentInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasStatus() || status == other.status)
-        && (!hasRoomMap() || roomMap.equals(other.roomMap));
+        && (!hasRoomMap() || roomMap.equals(other.roomMap))
+        && (!hasRogueBuffInfo() || rogueBuffInfo.equals(other.rogueBuffInfo));
     }
 
     @Override
@@ -230,6 +299,10 @@ public final class RogueCurrentInfoOuterClass {
         output.writeRawByte((byte) 82);
         output.writeMessageNoTag(roomMap);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 114);
+        output.writeMessageNoTag(rogueBuffInfo);
+      }
     }
 
     @Override
@@ -240,6 +313,9 @@ public final class RogueCurrentInfoOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(roomMap);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueBuffInfo);
       }
       return size;
     }
@@ -268,6 +344,15 @@ public final class RogueCurrentInfoOuterClass {
             input.readMessage(roomMap);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
+            if (tag != 114) {
+              break;
+            }
+          }
+          case 114: {
+            // rogueBuffInfo
+            input.readMessage(rogueBuffInfo);
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -294,6 +379,9 @@ public final class RogueCurrentInfoOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeMessage(FieldNames.roomMap, roomMap);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeMessage(FieldNames.rogueBuffInfo, rogueBuffInfo);
       }
       output.endObject();
     }
@@ -327,6 +415,18 @@ public final class RogueCurrentInfoOuterClass {
               if (!input.trySkipNullValue()) {
                 input.readMessage(roomMap);
                 bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1107898267:
+          case -694847243: {
+            if (input.isAtField(FieldNames.rogueBuffInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(rogueBuffInfo);
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -389,6 +489,8 @@ public final class RogueCurrentInfoOuterClass {
       static final FieldName status = FieldName.forField("status");
 
       static final FieldName roomMap = FieldName.forField("roomMap", "room_map");
+
+      static final FieldName rogueBuffInfo = FieldName.forField("rogueBuffInfo", "rogue_buff_info");
     }
   }
 }

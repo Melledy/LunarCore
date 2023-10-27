@@ -1,16 +1,22 @@
 package emu.lunarcore.game.rogue;
 
-import java.util.HashSet;
-import java.util.Set;
-import java.util.TreeMap;
+import java.util.*;
 
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.excel.RogueAreaExcel;
+import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
+import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
+import emu.lunarcore.proto.RogueBuffInfoOuterClass.RogueBuffInfo;
+import emu.lunarcore.proto.RogueBuffSourceOuterClass.RogueBuffSource;
 import emu.lunarcore.proto.RogueCurrentInfoOuterClass.RogueCurrentInfo;
 import emu.lunarcore.proto.RogueMapInfoOuterClass.RogueMapInfo;
 import emu.lunarcore.proto.RogueRoomStatusOuterClass.RogueRoomStatus;
 import emu.lunarcore.proto.RogueStatusOuterClass.RogueStatus;
+import emu.lunarcore.server.packet.send.PacketAddRogueBuffScNotify;
+import emu.lunarcore.server.packet.send.PacketSyncRogueBuffSelectInfoScNotify;
 import emu.lunarcore.server.packet.send.PacketSyncRogueMapRoomScNotify;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
@@ -20,17 +26,28 @@ public class RogueInstance {
     private transient Player player;
     private transient RogueAreaExcel excel;
     
+    private int areaId;
     private int currentRoomProgress;
     private int currentSiteId;
     private int startSiteId;
-    private Set<Integer> baseAvatarIds;
     private TreeMap<Integer, RogueRoomData> rooms;
+    
+    private Set<Integer> baseAvatarIds;
+    private Map<Integer, RogueBuffData> buffs;
+    
+    private RogueBuffSelectMenu buffSelect;
+    private int pendingBuffSelects;
+    
+    @Deprecated // Morphia only!
+    public RogueInstance() {}
     
     public RogueInstance(Player player, RogueAreaExcel excel) {
         this.player = player;
         this.excel = excel;
+        this.areaId = excel.getRogueAreaID();
         this.currentRoomProgress = 0;
         this.baseAvatarIds = new HashSet<>();
+        this.buffs = new HashMap<>();
         
         this.initRooms();
     }
@@ -60,6 +77,43 @@ public class RogueInstance {
     
     public RogueRoomData getCurrentRoom() {
         return this.getRoomBySiteId(this.getCurrentSiteId());
+    }
+    
+    public synchronized void createBuffSelect(int amount) {
+        this.pendingBuffSelects += amount;
+        
+        RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
+        if (buffSelect != null) {
+            getPlayer().sendPacket(new PacketSyncRogueBuffSelectInfoScNotify(buffSelect));
+        }
+    }
+    
+    public synchronized RogueBuffSelectMenu updateBuffSelect() {
+        if (this.pendingBuffSelects > 0 && this.getBuffSelect() == null) {
+            this.buffSelect = new RogueBuffSelectMenu(this);
+            this.pendingBuffSelects--;
+            return this.buffSelect;
+        }
+        
+        return null;
+    }
+    
+    public synchronized RogueBuffData selectBuff(int buffId) {
+        if (this.getBuffSelect() == null) return null;
+        
+        RogueBuffData buff = this.getBuffSelect().getBuffs()
+                .stream()
+                .filter(b -> b.getBuffId() == buffId)
+                .findFirst()
+                .orElse(null);
+        
+        if (buff == null) return null;
+        
+        this.buffSelect = null;
+        this.getBuffs().put(buff.getBuffId(), buff);
+        getPlayer().sendPacket(new PacketAddRogueBuffScNotify(buff, RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_SELECT));
+        
+        return buff;
     }
     
     public synchronized RogueRoomData enterRoom(int siteId) {
@@ -108,12 +162,37 @@ public class RogueInstance {
         return nextRoom;
     }
     
+    public synchronized void onBattleStart(Battle battle) {
+        for (var buff : this.getBuffs().values()) {
+            battle.addBuff(buff.toMazeBuff());
+        }
+    }
+    
+    public synchronized void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
+        if (result == BattleEndStatus.BATTLE_END_WIN) {
+            int amount = battle.getNpcMonsters().size();
+            this.createBuffSelect(amount);
+        }
+    }
+    
+    // Database
+    
+    public void onLoad(Player player) {
+        this.player = player;
+        this.excel = GameData.getRogueAreaExcelMap().get(areaId);
+        
+        if (this.getBuffSelect() != null) {
+            this.getBuffSelect().onLoad(this);
+        }
+    }
+    
     // Serialization
 
     public RogueCurrentInfo toProto() {
         var proto = RogueCurrentInfo.newInstance()
                 .setStatus(this.getStatus())
-                .setRoomMap(this.toMapProto());
+                .setRoomMap(this.toMapProto())
+                .setRogueBuffInfo(this.toBuffProto());
         
         return proto;
     }
@@ -129,6 +208,22 @@ public class RogueInstance {
         
         for (var roomData : this.getRooms().values()) {
             proto.addRoomList(roomData.toProto());
+        }
+        
+        return proto;
+    }
+    
+    public RogueBuffInfo toBuffProto() {
+        var proto = RogueBuffInfo.newInstance();
+        
+        if (this.getBuffSelect() != null) {
+            proto.setBuffSelectInfo(this.getBuffSelect().toProto());
+        } else {
+            proto.getMutableBuffSelectInfo();
+        }
+        
+        for (var buff : this.getBuffs().values()) {
+            proto.addMazeBuffList(buff.toProto());
         }
         
         return proto;

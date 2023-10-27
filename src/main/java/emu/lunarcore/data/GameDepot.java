@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.data.excel.RelicMainAffixExcel;
-import emu.lunarcore.data.excel.RelicSubAffixExcel;
-import emu.lunarcore.data.excel.RogueMapExcel;
-import emu.lunarcore.data.excel.RogueManagerExcel;
+import emu.lunarcore.data.excel.*;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -15,11 +12,13 @@ import lombok.Getter;
 
 // Game data that is parsed by the server goes here
 public class GameDepot {
+    // Relics
     private static Int2ObjectMap<List<RelicMainAffixExcel>> relicMainAffixDepot = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<List<RelicSubAffixExcel>> relicSubAffixDepot = new Int2ObjectOpenHashMap<>();
 
-    @Getter
-    private static Int2ObjectMap<int[]> rogueMapGen = new Int2ObjectOpenHashMap<>();
+    // Rogue
+    @Getter private static Int2ObjectMap<int[]> rogueMapGen = new Int2ObjectOpenHashMap<>();
+    @Getter private static List<RogueBuffExcel> rogueBuffsList = new ArrayList<>();
     private static Int2ObjectMap<List<RogueMapExcel>> rogueMapDepot = new Int2ObjectOpenHashMap<>();
     
     public static void addRelicMainAffix(RelicMainAffixExcel affix) {
