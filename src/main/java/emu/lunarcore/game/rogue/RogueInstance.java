@@ -9,6 +9,7 @@ import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
 import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
+import emu.lunarcore.proto.RogueAvatarInfoOuterClass.RogueAvatarInfo;
 import emu.lunarcore.proto.RogueBuffInfoOuterClass.RogueBuffInfo;
 import emu.lunarcore.proto.RogueBuffSourceOuterClass.RogueBuffSource;
 import emu.lunarcore.proto.RogueCurrentInfoOuterClass.RogueCurrentInfo;
@@ -235,8 +236,20 @@ public class RogueInstance {
     public RogueCurrentInfo toProto() {
         var proto = RogueCurrentInfo.newInstance()
                 .setStatus(this.getStatus())
+                .setRogueAvatarInfo(this.toAvatarInfoProto())
                 .setRoomMap(this.toMapInfoProto())
-                .setRogueBuffInfo(this.toBuffInfoProto());
+                .setRogueBuffInfo(this.toBuffInfoProto())
+                .setRogueMiracleInfo(this.toMiracleInfoProto());
+        
+        return proto;
+    }
+    
+    public RogueAvatarInfo toAvatarInfoProto() {
+        var proto = RogueAvatarInfo.newInstance();
+        
+        for (int id : this.getBaseAvatarIds()) {
+            proto.addBaseAvatarIdList(id);
+        }
         
         return proto;
     }
