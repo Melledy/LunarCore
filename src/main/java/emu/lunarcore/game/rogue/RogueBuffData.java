@@ -6,21 +6,21 @@ import lombok.Getter;
 
 @Getter
 public class RogueBuffData {
-    private int buffId;
+    private int id;
     private int level;
     
     public RogueBuffData(int buffId, int level) {
-        this.buffId = buffId;
+        this.id = buffId;
         this.level = level;
     }
     
     public MazeBuff toMazeBuff() {
-        return new MazeBuff(buffId, level, 0, 0xffffffff);
+        return new MazeBuff(id, level, 0, 0xffffffff);
     }
     
     public RogueBuff toProto() {
         var proto = RogueBuff.newInstance()
-                .setBuffId(this.getBuffId())
+                .setBuffId(this.getId())
                 .setLevel(this.getLevel());
         
         return proto;

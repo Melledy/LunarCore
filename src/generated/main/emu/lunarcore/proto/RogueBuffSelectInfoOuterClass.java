@@ -55,9 +55,9 @@ public final class RogueBuffSelectInfoOuterClass {
     private int selectBuffSourceCurCount;
 
     /**
-     * <code>optional uint32 rogue_coin = 13;</code>
+     * <code>optional uint32 KMAGFHIIALA = 13;</code>
      */
-    private int rogueCoin;
+    private int kMAGFHIIALA;
 
     /**
      * <code>optional .RogueCommonBuffSelectSource source = 12;</code>
@@ -338,39 +338,39 @@ public final class RogueBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_coin = 13;</code>
-     * @return whether the rogueCoin field is set
+     * <code>optional uint32 KMAGFHIIALA = 13;</code>
+     * @return whether the kMAGFHIIALA field is set
      */
-    public boolean hasRogueCoin() {
+    public boolean hasKMAGFHIIALA() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional uint32 rogue_coin = 13;</code>
+     * <code>optional uint32 KMAGFHIIALA = 13;</code>
      * @return this
      */
-    public RogueBuffSelectInfo clearRogueCoin() {
+    public RogueBuffSelectInfo clearKMAGFHIIALA() {
       bitField0_ &= ~0x00000040;
-      rogueCoin = 0;
+      kMAGFHIIALA = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 rogue_coin = 13;</code>
-     * @return the rogueCoin
+     * <code>optional uint32 KMAGFHIIALA = 13;</code>
+     * @return the kMAGFHIIALA
      */
-    public int getRogueCoin() {
-      return rogueCoin;
+    public int getKMAGFHIIALA() {
+      return kMAGFHIIALA;
     }
 
     /**
-     * <code>optional uint32 rogue_coin = 13;</code>
-     * @param value the rogueCoin to set
+     * <code>optional uint32 KMAGFHIIALA = 13;</code>
+     * @param value the kMAGFHIIALA to set
      * @return this
      */
-    public RogueBuffSelectInfo setRogueCoin(final int value) {
+    public RogueBuffSelectInfo setKMAGFHIIALA(final int value) {
       bitField0_ |= 0x00000040;
-      rogueCoin = value;
+      kMAGFHIIALA = value;
       return this;
     }
 
@@ -715,7 +715,7 @@ public final class RogueBuffSelectInfoOuterClass {
         rollBuffTimes = other.rollBuffTimes;
         selectBuffSourceHint = other.selectBuffSourceHint;
         selectBuffSourceCurCount = other.selectBuffSourceCurCount;
-        rogueCoin = other.rogueCoin;
+        kMAGFHIIALA = other.kMAGFHIIALA;
         source = other.source;
         showHandbookHint = other.showHandbookHint;
         canRoll = other.canRoll;
@@ -750,8 +750,8 @@ public final class RogueBuffSelectInfoOuterClass {
       if (other.hasSelectBuffSourceCurCount()) {
         setSelectBuffSourceCurCount(other.selectBuffSourceCurCount);
       }
-      if (other.hasRogueCoin()) {
-        setRogueCoin(other.rogueCoin);
+      if (other.hasKMAGFHIIALA()) {
+        setKMAGFHIIALA(other.kMAGFHIIALA);
       }
       if (other.hasSource()) {
         setSourceValue(other.source);
@@ -787,7 +787,7 @@ public final class RogueBuffSelectInfoOuterClass {
       rollBuffTimes = 0;
       selectBuffSourceHint = 0;
       selectBuffSourceCurCount = 0;
-      rogueCoin = 0;
+      kMAGFHIIALA = 0;
       source = 0;
       showHandbookHint = false;
       canRoll = false;
@@ -826,7 +826,7 @@ public final class RogueBuffSelectInfoOuterClass {
         && (!hasRollBuffTimes() || rollBuffTimes == other.rollBuffTimes)
         && (!hasSelectBuffSourceHint() || selectBuffSourceHint == other.selectBuffSourceHint)
         && (!hasSelectBuffSourceCurCount() || selectBuffSourceCurCount == other.selectBuffSourceCurCount)
-        && (!hasRogueCoin() || rogueCoin == other.rogueCoin)
+        && (!hasKMAGFHIIALA() || kMAGFHIIALA == other.kMAGFHIIALA)
         && (!hasSource() || source == other.source)
         && (!hasShowHandbookHint() || showHandbookHint == other.showHandbookHint)
         && (!hasCanRoll() || canRoll == other.canRoll)
@@ -863,7 +863,7 @@ public final class RogueBuffSelectInfoOuterClass {
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(rogueCoin);
+        output.writeUInt32NoTag(kMAGFHIIALA);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 96);
@@ -917,7 +917,7 @@ public final class RogueBuffSelectInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(selectBuffSourceCurCount);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueCoin);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(kMAGFHIIALA);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(source);
@@ -1002,8 +1002,8 @@ public final class RogueBuffSelectInfoOuterClass {
             }
           }
           case 104: {
-            // rogueCoin
-            rogueCoin = input.readUInt32();
+            // kMAGFHIIALA
+            kMAGFHIIALA = input.readUInt32();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 96) {
@@ -1108,7 +1108,7 @@ public final class RogueBuffSelectInfoOuterClass {
         output.writeUInt32(FieldNames.selectBuffSourceCurCount, selectBuffSourceCurCount);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeUInt32(FieldNames.rogueCoin, rogueCoin);
+        output.writeUInt32(FieldNames.kMAGFHIIALA, kMAGFHIIALA);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeEnum(FieldNames.source, source, RogueCommonBuffSelectSourceOuterClass.RogueCommonBuffSelectSource.converter());
@@ -1209,11 +1209,10 @@ public final class RogueBuffSelectInfoOuterClass {
             }
             break;
           }
-          case 655631243:
-          case -1124761130: {
-            if (input.isAtField(FieldNames.rogueCoin)) {
+          case -2082273588: {
+            if (input.isAtField(FieldNames.kMAGFHIIALA)) {
               if (!input.trySkipNullValue()) {
-                rogueCoin = input.readUInt32();
+                kMAGFHIIALA = input.readUInt32();
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -1362,7 +1361,7 @@ public final class RogueBuffSelectInfoOuterClass {
 
       static final FieldName selectBuffSourceCurCount = FieldName.forField("selectBuffSourceCurCount", "select_buff_source_cur_count");
 
-      static final FieldName rogueCoin = FieldName.forField("rogueCoin", "rogue_coin");
+      static final FieldName kMAGFHIIALA = FieldName.forField("KMAGFHIIALA");
 
       static final FieldName source = FieldName.forField("source");
 

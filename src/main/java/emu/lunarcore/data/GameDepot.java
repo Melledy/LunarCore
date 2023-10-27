@@ -18,7 +18,8 @@ public class GameDepot {
 
     // Rogue
     @Getter private static Int2ObjectMap<int[]> rogueMapGen = new Int2ObjectOpenHashMap<>();
-    @Getter private static List<RogueBuffExcel> rogueBuffsList = new ArrayList<>();
+    @Getter private static List<RogueBuffExcel> rogueRandomBuffList = new ArrayList<>();
+    @Getter private static List<RogueMiracleExcel> rogueRandomMiracleList = new ArrayList<>();
     private static Int2ObjectMap<List<RogueMapExcel>> rogueMapDepot = new Int2ObjectOpenHashMap<>();
     
     public static void addRelicMainAffix(RelicMainAffixExcel affix) {

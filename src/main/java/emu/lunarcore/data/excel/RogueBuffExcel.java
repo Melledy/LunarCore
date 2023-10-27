@@ -23,7 +23,7 @@ public class RogueBuffExcel extends GameResource {
     @Override
     public void onLoad() {
         if (RogueBuffType >= 120 && RogueBuffType <= 126 && RogueBuffRarity >= 1 && RogueBuffRarity <= 3 && MazeBuffLevel == 1 && AeonID == 0) {
-            GameDepot.getRogueBuffsList().add(this);
+            GameDepot.getRogueRandomBuffList().add(this);
         }
     }
 }

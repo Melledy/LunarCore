@@ -12,7 +12,7 @@ public class PacketSelectRogueBuffScRsp extends BasePacket {
         super(CmdId.SelectRogueBuffScRsp);
         
         var data = SelectRogueBuffScRsp.newInstance()
-                .setMazeBuffId(buff.getBuffId())
+                .setMazeBuffId(buff.getId())
                 .setMazeBuffLevel(buff.getLevel());
         
         if (buffSelect != null) {

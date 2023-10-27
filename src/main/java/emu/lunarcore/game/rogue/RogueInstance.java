@@ -13,11 +13,11 @@ import emu.lunarcore.proto.RogueBuffInfoOuterClass.RogueBuffInfo;
 import emu.lunarcore.proto.RogueBuffSourceOuterClass.RogueBuffSource;
 import emu.lunarcore.proto.RogueCurrentInfoOuterClass.RogueCurrentInfo;
 import emu.lunarcore.proto.RogueMapInfoOuterClass.RogueMapInfo;
+import emu.lunarcore.proto.RogueMiracleInfoOuterClass.RogueMiracleInfo;
+import emu.lunarcore.proto.RogueMiracleSourceOuterClass.RogueMiracleSource;
 import emu.lunarcore.proto.RogueRoomStatusOuterClass.RogueRoomStatus;
 import emu.lunarcore.proto.RogueStatusOuterClass.RogueStatus;
-import emu.lunarcore.server.packet.send.PacketAddRogueBuffScNotify;
-import emu.lunarcore.server.packet.send.PacketSyncRogueBuffSelectInfoScNotify;
-import emu.lunarcore.server.packet.send.PacketSyncRogueMapRoomScNotify;
+import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
 
@@ -34,9 +34,12 @@ public class RogueInstance {
     
     private Set<Integer> baseAvatarIds;
     private Map<Integer, RogueBuffData> buffs;
+    private Map<Integer, RogueMiracleData> miracles;
     
-    private RogueBuffSelectMenu buffSelect;
     private int pendingBuffSelects;
+    private RogueBuffSelectMenu buffSelect;
+    private int pendingMiracleSelects;
+    private RogueMiracleSelectMenu miracleSelect;
     
     @Deprecated // Morphia only!
     public RogueInstance() {}
@@ -48,6 +51,7 @@ public class RogueInstance {
         this.currentRoomProgress = 0;
         this.baseAvatarIds = new HashSet<>();
         this.buffs = new HashMap<>();
+        this.miracles = new HashMap<>();
         
         this.initRooms();
     }
@@ -103,17 +107,54 @@ public class RogueInstance {
         
         RogueBuffData buff = this.getBuffSelect().getBuffs()
                 .stream()
-                .filter(b -> b.getBuffId() == buffId)
+                .filter(b -> b.getId() == buffId)
                 .findFirst()
                 .orElse(null);
         
         if (buff == null) return null;
         
         this.buffSelect = null;
-        this.getBuffs().put(buff.getBuffId(), buff);
+        this.getBuffs().put(buff.getId(), buff);
         getPlayer().sendPacket(new PacketAddRogueBuffScNotify(buff, RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_SELECT));
         
         return buff;
+    }
+    
+    public synchronized void createMiracleSelect(int amount) {
+        this.pendingMiracleSelects += amount;
+        
+        RogueMiracleSelectMenu miracleSelect = this.updateMiracleSelect();
+        if (miracleSelect != null) {
+            getPlayer().sendPacket(new PacketSyncRogueMiracleSelectInfoScNotify(miracleSelect));
+        }
+    }
+    
+    public synchronized RogueMiracleSelectMenu updateMiracleSelect() {
+        if (this.pendingMiracleSelects > 0 && this.getMiracleSelect() == null) {
+            this.miracleSelect = new RogueMiracleSelectMenu(this);
+            this.pendingMiracleSelects--;
+            return this.miracleSelect;
+        }
+        
+        return null;
+    }
+    
+    public synchronized RogueMiracleData selectMiracle(int miracleId) {
+        if (this.getMiracleSelect() == null) return null;
+        
+        RogueMiracleData miracle = this.getMiracleSelect().getMiracles()
+                .stream()
+                .filter(b -> b.getId() == miracleId)
+                .findFirst()
+                .orElse(null);
+        
+        if (miracle == null) return null;
+        
+        this.miracleSelect = null;
+        this.getMiracles().put(miracle.getId(), miracle);
+        getPlayer().sendPacket(new PacketAddRogueMiracleScNotify(miracle, RogueMiracleSource.ROGUE_MIRACLE_SOURCE_TYPE_SELECT));
+        
+        return miracle;
     }
     
     public synchronized RogueRoomData enterRoom(int siteId) {
@@ -184,6 +225,9 @@ public class RogueInstance {
         if (this.getBuffSelect() != null) {
             this.getBuffSelect().onLoad(this);
         }
+        if (this.getMiracleSelect() != null) {
+            this.getMiracleSelect().onLoad(this);
+        }
     }
     
     // Serialization
@@ -191,13 +235,13 @@ public class RogueInstance {
     public RogueCurrentInfo toProto() {
         var proto = RogueCurrentInfo.newInstance()
                 .setStatus(this.getStatus())
-                .setRoomMap(this.toMapProto())
-                .setRogueBuffInfo(this.toBuffProto());
+                .setRoomMap(this.toMapInfoProto())
+                .setRogueBuffInfo(this.toBuffInfoProto());
         
         return proto;
     }
     
-    public RogueMapInfo toMapProto() {
+    public RogueMapInfo toMapInfoProto() {
         var room = this.getCurrentRoom();
 
         var proto = RogueMapInfo.newInstance()
@@ -213,7 +257,7 @@ public class RogueInstance {
         return proto;
     }
     
-    public RogueBuffInfo toBuffProto() {
+    public RogueBuffInfo toBuffInfoProto() {
         var proto = RogueBuffInfo.newInstance();
         
         if (this.getBuffSelect() != null) {
@@ -224,6 +268,25 @@ public class RogueInstance {
         
         for (var buff : this.getBuffs().values()) {
             proto.addMazeBuffList(buff.toProto());
+        }
+        
+        return proto;
+    }
+    
+    public RogueMiracleInfo toMiracleInfoProto() {
+        var proto = RogueMiracleInfo.newInstance();
+        
+        if (this.getMiracleSelect() != null) {
+            proto.setMiracleSelectInfo(this.getMiracleSelect().toProto());
+        } else {
+            proto.getMutableMiracleSelectInfo();
+        }
+        
+        // Set flag for this so it gets serialized
+        proto.getMutableAchivedMiracleInfo();
+        
+        for (var miracle : this.getMiracles().values()) {
+            proto.getMutableAchivedMiracleInfo().addRogueMiracleList(miracle.toProto());
         }
         
         return proto;

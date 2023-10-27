@@ -36,7 +36,7 @@ public class RogueBuffSelectMenu {
         if (this.randomBuffs == null) {
             this.randomBuffs = new WeightedList<>();
             
-            for (RogueBuffExcel excel : GameDepot.getRogueBuffsList()) {
+            for (var excel : GameDepot.getRogueRandomBuffList()) {
                 if (rogue.getBuffs().containsKey(excel.getMazeBuffID())) {
                     continue;
                 }
@@ -48,7 +48,7 @@ public class RogueBuffSelectMenu {
         this.getBuffs().clear();
         
         while (this.getBuffs().size() < this.getMaxBuffs()) {
-            RogueBuffExcel excel = this.randomBuffs.next();
+            var excel = this.randomBuffs.next();
             this.getBuffs().add(new RogueBuffData(excel.getMazeBuffID(), 1));
         }
     }
