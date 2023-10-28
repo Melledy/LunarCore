@@ -200,8 +200,8 @@ public class LineupManager {
     }
 
     public boolean switchLineup(int index) {
-        // Sanity
-        if (index == this.getCurrentIndex()) {
+        // Sanity + Prevent lineups from being changed when the player is using an extra lineup
+        if (index == this.getCurrentIndex() || this.currentExtraLineup > 0) {
             return false;
         }
 
