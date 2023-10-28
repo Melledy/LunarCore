@@ -4,6 +4,7 @@ import java.util.*;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
+import emu.lunarcore.data.excel.RogueAeonExcel;
 import emu.lunarcore.data.excel.RogueAreaExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
@@ -42,10 +43,13 @@ public class RogueInstance {
     private int pendingMiracleSelects;
     private RogueMiracleSelectMenu miracleSelect;
     
+    private int aeonId;
+    private int aeonBuffType;
+    
     @Deprecated // Morphia only!
     public RogueInstance() {}
     
-    public RogueInstance(Player player, RogueAreaExcel excel) {
+    public RogueInstance(Player player, RogueAreaExcel excel, RogueAeonExcel aeonExcel) {
         this.player = player;
         this.excel = excel;
         this.areaId = excel.getRogueAreaID();
@@ -53,6 +57,11 @@ public class RogueInstance {
         this.baseAvatarIds = new HashSet<>();
         this.buffs = new HashMap<>();
         this.miracles = new HashMap<>();
+        
+        if (aeonExcel != null) {
+            this.aeonId = aeonExcel.getAeonID();
+            this.aeonBuffType = aeonExcel.getRogueBuffType(); 
+        }
         
         this.initRooms();
     }

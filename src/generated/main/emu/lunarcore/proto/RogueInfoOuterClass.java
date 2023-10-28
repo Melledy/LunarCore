@@ -71,6 +71,11 @@ public final class RogueInfoOuterClass {
     private final RogueInfoDataOuterClass.RogueInfoData rogueData = RogueInfoDataOuterClass.RogueInfoData.newInstance();
 
     /**
+     * <code>optional .RogueAeonInfo rogue_aeon_info = 772;</code>
+     */
+    private final RogueAeonInfoOuterClass.RogueAeonInfo rogueAeonInfo = RogueAeonInfoOuterClass.RogueAeonInfo.newInstance();
+
+    /**
      * <code>optional .RogueMapInfo room_map = 862;</code>
      */
     private final RogueMapInfoOuterClass.RogueMapInfo roomMap = RogueMapInfoOuterClass.RogueMapInfo.newInstance();
@@ -557,11 +562,68 @@ public final class RogueInfoOuterClass {
     }
 
     /**
+     * <code>optional .RogueAeonInfo rogue_aeon_info = 772;</code>
+     * @return whether the rogueAeonInfo field is set
+     */
+    public boolean hasRogueAeonInfo() {
+      return (bitField0_ & 0x00000400) != 0;
+    }
+
+    /**
+     * <code>optional .RogueAeonInfo rogue_aeon_info = 772;</code>
+     * @return this
+     */
+    public RogueInfo clearRogueAeonInfo() {
+      bitField0_ &= ~0x00000400;
+      rogueAeonInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueAeonInfo rogue_aeon_info = 772;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueAeonInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueAeonInfoOuterClass.RogueAeonInfo getRogueAeonInfo() {
+      return rogueAeonInfo;
+    }
+
+    /**
+     * <code>optional .RogueAeonInfo rogue_aeon_info = 772;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueAeonInfoOuterClass.RogueAeonInfo getMutableRogueAeonInfo() {
+      bitField0_ |= 0x00000400;
+      return rogueAeonInfo;
+    }
+
+    /**
+     * <code>optional .RogueAeonInfo rogue_aeon_info = 772;</code>
+     * @param value the rogueAeonInfo to set
+     * @return this
+     */
+    public RogueInfo setRogueAeonInfo(final RogueAeonInfoOuterClass.RogueAeonInfo value) {
+      bitField0_ |= 0x00000400;
+      rogueAeonInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
      * <code>optional .RogueMapInfo room_map = 862;</code>
      * @return whether the roomMap field is set
      */
     public boolean hasRoomMap() {
-      return (bitField0_ & 0x00000400) != 0;
+      return (bitField0_ & 0x00000800) != 0;
     }
 
     /**
@@ -569,7 +631,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearRoomMap() {
-      bitField0_ &= ~0x00000400;
+      bitField0_ &= ~0x00000800;
       roomMap.clear();
       return this;
     }
@@ -598,7 +660,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RogueMapInfoOuterClass.RogueMapInfo getMutableRoomMap() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       return roomMap;
     }
 
@@ -608,7 +670,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo setRoomMap(final RogueMapInfoOuterClass.RogueMapInfo value) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       roomMap.copyFrom(value);
       return this;
     }
@@ -618,7 +680,7 @@ public final class RogueInfoOuterClass {
      * @return whether the rogueScoreInfo field is set
      */
     public boolean hasRogueScoreInfo() {
-      return (bitField0_ & 0x00000800) != 0;
+      return (bitField0_ & 0x00001000) != 0;
     }
 
     /**
@@ -626,7 +688,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearRogueScoreInfo() {
-      bitField0_ &= ~0x00000800;
+      bitField0_ &= ~0x00001000;
       rogueScoreInfo.clear();
       return this;
     }
@@ -655,7 +717,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getMutableRogueScoreInfo() {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       return rogueScoreInfo;
     }
 
@@ -666,7 +728,7 @@ public final class RogueInfoOuterClass {
      */
     public RogueInfo setRogueScoreInfo(
         final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo value) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       rogueScoreInfo.copyFrom(value);
       return this;
     }
@@ -676,7 +738,7 @@ public final class RogueInfoOuterClass {
      * @return whether the baseAvatarIdList field is set
      */
     public boolean hasBaseAvatarIdList() {
-      return (bitField0_ & 0x00001000) != 0;
+      return (bitField0_ & 0x00002000) != 0;
     }
 
     /**
@@ -684,7 +746,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearBaseAvatarIdList() {
-      bitField0_ &= ~0x00001000;
+      bitField0_ &= ~0x00002000;
       baseAvatarIdList.clear();
       return this;
     }
@@ -713,7 +775,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableBaseAvatarIdList() {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       return baseAvatarIdList;
     }
 
@@ -723,7 +785,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addBaseAvatarIdList(final int value) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       baseAvatarIdList.add(value);
       return this;
     }
@@ -734,7 +796,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addAllBaseAvatarIdList(final int... values) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       baseAvatarIdList.addAll(values);
       return this;
     }
@@ -744,7 +806,7 @@ public final class RogueInfoOuterClass {
      * @return whether the rogueAreaList field is set
      */
     public boolean hasRogueAreaList() {
-      return (bitField0_ & 0x00002000) != 0;
+      return (bitField0_ & 0x00004000) != 0;
     }
 
     /**
@@ -752,7 +814,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo clearRogueAreaList() {
-      bitField0_ &= ~0x00002000;
+      bitField0_ &= ~0x00004000;
       rogueAreaList.clear();
       return this;
     }
@@ -781,7 +843,7 @@ public final class RogueInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RogueAreaOuterClass.RogueArea> getMutableRogueAreaList() {
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
       return rogueAreaList;
     }
 
@@ -791,7 +853,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addRogueAreaList(final RogueAreaOuterClass.RogueArea value) {
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
       rogueAreaList.add(value);
       return this;
     }
@@ -802,7 +864,7 @@ public final class RogueInfoOuterClass {
      * @return this
      */
     public RogueInfo addAllRogueAreaList(final RogueAreaOuterClass.RogueArea... values) {
-      bitField0_ |= 0x00002000;
+      bitField0_ |= 0x00004000;
       rogueAreaList.addAll(values);
       return this;
     }
@@ -822,6 +884,7 @@ public final class RogueInfoOuterClass {
         rogueVirtualItems.copyFrom(other.rogueVirtualItems);
         rogueProgress.copyFrom(other.rogueProgress);
         rogueData.copyFrom(other.rogueData);
+        rogueAeonInfo.copyFrom(other.rogueAeonInfo);
         roomMap.copyFrom(other.roomMap);
         rogueScoreInfo.copyFrom(other.rogueScoreInfo);
         baseAvatarIdList.copyFrom(other.baseAvatarIdList);
@@ -866,6 +929,9 @@ public final class RogueInfoOuterClass {
       if (other.hasRogueData()) {
         getMutableRogueData().mergeFrom(other.rogueData);
       }
+      if (other.hasRogueAeonInfo()) {
+        getMutableRogueAeonInfo().mergeFrom(other.rogueAeonInfo);
+      }
       if (other.hasRoomMap()) {
         getMutableRoomMap().mergeFrom(other.roomMap);
       }
@@ -898,6 +964,7 @@ public final class RogueInfoOuterClass {
       rogueVirtualItems.clear();
       rogueProgress.clear();
       rogueData.clear();
+      rogueAeonInfo.clear();
       roomMap.clear();
       rogueScoreInfo.clear();
       baseAvatarIdList.clear();
@@ -915,6 +982,7 @@ public final class RogueInfoOuterClass {
       rogueVirtualItems.clearQuick();
       rogueProgress.clearQuick();
       rogueData.clearQuick();
+      rogueAeonInfo.clearQuick();
       roomMap.clearQuick();
       rogueScoreInfo.clearQuick();
       baseAvatarIdList.clear();
@@ -942,6 +1010,7 @@ public final class RogueInfoOuterClass {
         && (!hasRogueVirtualItems() || rogueVirtualItems.equals(other.rogueVirtualItems))
         && (!hasRogueProgress() || rogueProgress.equals(other.rogueProgress))
         && (!hasRogueData() || rogueData.equals(other.rogueData))
+        && (!hasRogueAeonInfo() || rogueAeonInfo.equals(other.rogueAeonInfo))
         && (!hasRoomMap() || roomMap.equals(other.roomMap))
         && (!hasRogueScoreInfo() || rogueScoreInfo.equals(other.rogueScoreInfo))
         && (!hasBaseAvatarIdList() || baseAvatarIdList.equals(other.baseAvatarIdList))
@@ -991,20 +1060,24 @@ public final class RogueInfoOuterClass {
         output.writeMessageNoTag(rogueData);
       }
       if ((bitField0_ & 0x00000400) != 0) {
+        output.writeRawLittleEndian16((short) 12450);
+        output.writeMessageNoTag(rogueAeonInfo);
+      }
+      if ((bitField0_ & 0x00000800) != 0) {
         output.writeRawLittleEndian16((short) 13810);
         output.writeMessageNoTag(roomMap);
       }
-      if ((bitField0_ & 0x00000800) != 0) {
+      if ((bitField0_ & 0x00001000) != 0) {
         output.writeRawLittleEndian16((short) 20898);
         output.writeMessageNoTag(rogueScoreInfo);
       }
-      if ((bitField0_ & 0x00001000) != 0) {
+      if ((bitField0_ & 0x00002000) != 0) {
         for (int i = 0; i < baseAvatarIdList.length(); i++) {
           output.writeRawByte((byte) 96);
           output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
         }
       }
-      if ((bitField0_ & 0x00002000) != 0) {
+      if ((bitField0_ & 0x00004000) != 0) {
         for (int i = 0; i < rogueAreaList.length(); i++) {
           output.writeRawLittleEndian16((short) 3834);
           output.writeMessageNoTag(rogueAreaList.get(i));
@@ -1046,15 +1119,18 @@ public final class RogueInfoOuterClass {
         size += 2 + ProtoSink.computeMessageSizeNoTag(rogueData);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(roomMap);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueAeonInfo);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueScoreInfo);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(roomMap);
       }
       if ((bitField0_ & 0x00001000) != 0) {
-        size += (1 * baseAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(baseAvatarIdList);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueScoreInfo);
       }
       if ((bitField0_ & 0x00002000) != 0) {
+        size += (1 * baseAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(baseAvatarIdList);
+      }
+      if ((bitField0_ & 0x00004000) != 0) {
         size += (2 * rogueAreaList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueAreaList);
       }
       return size;
@@ -1156,6 +1232,15 @@ public final class RogueInfoOuterClass {
             input.readMessage(rogueData);
             bitField0_ |= 0x00000200;
             tag = input.readTag();
+            if (tag != 6178) {
+              break;
+            }
+          }
+          case 6178: {
+            // rogueAeonInfo
+            input.readMessage(rogueAeonInfo);
+            bitField0_ |= 0x00000400;
+            tag = input.readTag();
             if (tag != 6898) {
               break;
             }
@@ -1163,7 +1248,7 @@ public final class RogueInfoOuterClass {
           case 6898: {
             // roomMap
             input.readMessage(roomMap);
-            bitField0_ |= 0x00000400;
+            bitField0_ |= 0x00000800;
             tag = input.readTag();
             if (tag != 10402) {
               break;
@@ -1172,7 +1257,7 @@ public final class RogueInfoOuterClass {
           case 10402: {
             // rogueScoreInfo
             input.readMessage(rogueScoreInfo);
-            bitField0_ |= 0x00000800;
+            bitField0_ |= 0x00001000;
             tag = input.readTag();
             if (tag != 98) {
               break;
@@ -1181,7 +1266,7 @@ public final class RogueInfoOuterClass {
           case 98: {
             // baseAvatarIdList [packed=true]
             input.readPackedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00001000;
+            bitField0_ |= 0x00002000;
             tag = input.readTag();
             if (tag != 1914) {
               break;
@@ -1190,7 +1275,7 @@ public final class RogueInfoOuterClass {
           case 1914: {
             // rogueAreaList
             tag = input.readRepeatedMessage(rogueAreaList, tag);
-            bitField0_ |= 0x00002000;
+            bitField0_ |= 0x00004000;
             if (tag != 0) {
               break;
             }
@@ -1208,7 +1293,7 @@ public final class RogueInfoOuterClass {
           case 96: {
             // baseAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00001000;
+            bitField0_ |= 0x00002000;
             break;
           }
         }
@@ -1249,15 +1334,18 @@ public final class RogueInfoOuterClass {
         output.writeMessage(FieldNames.rogueData, rogueData);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        output.writeMessage(FieldNames.roomMap, roomMap);
+        output.writeMessage(FieldNames.rogueAeonInfo, rogueAeonInfo);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        output.writeMessage(FieldNames.rogueScoreInfo, rogueScoreInfo);
+        output.writeMessage(FieldNames.roomMap, roomMap);
       }
       if ((bitField0_ & 0x00001000) != 0) {
-        output.writeRepeatedUInt32(FieldNames.baseAvatarIdList, baseAvatarIdList);
+        output.writeMessage(FieldNames.rogueScoreInfo, rogueScoreInfo);
       }
       if ((bitField0_ & 0x00002000) != 0) {
+        output.writeRepeatedUInt32(FieldNames.baseAvatarIdList, baseAvatarIdList);
+      }
+      if ((bitField0_ & 0x00004000) != 0) {
         output.writeRepeatedMessage(FieldNames.rogueAreaList, rogueAreaList);
       }
       output.endObject();
@@ -1392,12 +1480,24 @@ public final class RogueInfoOuterClass {
             }
             break;
           }
+          case -1685018549:
+          case -1375922619: {
+            if (input.isAtField(FieldNames.rogueAeonInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(rogueAeonInfo);
+                bitField0_ |= 0x00000400;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 1379875457:
           case -172986376: {
             if (input.isAtField(FieldNames.roomMap)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(roomMap);
-                bitField0_ |= 0x00000400;
+                bitField0_ |= 0x00000800;
               }
             } else {
               input.skipUnknownField();
@@ -1409,7 +1509,7 @@ public final class RogueInfoOuterClass {
             if (input.isAtField(FieldNames.rogueScoreInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(rogueScoreInfo);
-                bitField0_ |= 0x00000800;
+                bitField0_ |= 0x00001000;
               }
             } else {
               input.skipUnknownField();
@@ -1421,7 +1521,7 @@ public final class RogueInfoOuterClass {
             if (input.isAtField(FieldNames.baseAvatarIdList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(baseAvatarIdList);
-                bitField0_ |= 0x00001000;
+                bitField0_ |= 0x00002000;
               }
             } else {
               input.skipUnknownField();
@@ -1433,7 +1533,7 @@ public final class RogueInfoOuterClass {
             if (input.isAtField(FieldNames.rogueAreaList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(rogueAreaList);
-                bitField0_ |= 0x00002000;
+                bitField0_ |= 0x00004000;
               }
             } else {
               input.skipUnknownField();
@@ -1511,6 +1611,8 @@ public final class RogueInfoOuterClass {
       static final FieldName rogueProgress = FieldName.forField("rogueProgress", "rogue_progress");
 
       static final FieldName rogueData = FieldName.forField("rogueData", "rogue_data");
+
+      static final FieldName rogueAeonInfo = FieldName.forField("rogueAeonInfo", "rogue_aeon_info");
 
       static final FieldName roomMap = FieldName.forField("roomMap", "room_map");
 

@@ -41,7 +41,14 @@ public class RogueBuffSelectMenu {
                     continue;
                 }
                 
-                this.randomBuffs.add(10.0 / excel.getRogueBuffRarity(), excel);
+                // Calculate buff weights
+                double weight = 10.0 / excel.getRogueBuffRarity();
+                
+                if (this.getRogue().getAeonBuffType() == excel.getRogueBuffType()) {
+                    weight *= 2;
+                }
+                
+                this.randomBuffs.add(weight, excel);
             };
         }
         

@@ -10,6 +10,7 @@ import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
+import emu.lunarcore.proto.RogueAeonInfoOuterClass.RogueAeonInfo;
 import emu.lunarcore.proto.RogueAreaOuterClass.RogueArea;
 import emu.lunarcore.proto.RogueAreaStatusOuterClass.RogueAreaStatus;
 import emu.lunarcore.proto.RogueInfoDataOuterClass.RogueInfoData;
@@ -27,7 +28,7 @@ public class RogueManager extends BasePlayerManager {
         super(player);
     }
     
-    public void startRogue(int areaId, RepeatedInt avatarIdList) {
+    public void startRogue(int areaId, int aeonId, RepeatedInt avatarIdList) {
         // Make sure player already isnt in a rogue instance
         if (getPlayer().getRogueInstance() != null) {
             getPlayer().sendPacket(new PacketStartRogueScRsp());
@@ -35,11 +36,13 @@ public class RogueManager extends BasePlayerManager {
         }
         
         // Get excel
-        var excel = GameData.getRogueAreaExcelMap().get(areaId);
-        if (excel == null || !excel.isValid()) {
+        var rogueAreaExcel = GameData.getRogueAreaExcelMap().get(areaId);
+        if (rogueAreaExcel == null || !rogueAreaExcel.isValid()) {
             getPlayer().sendPacket(new PacketStartRogueScRsp());
             return;
         }
+        
+        var aeonExcel = GameData.getRogueAeonExcelMap().get(aeonId);
         
         // Replace lineup
         getPlayer().getLineupManager().replaceLineup(0, ExtraLineupType.LINEUP_ROGUE_VALUE, Arrays.stream(avatarIdList.array()).boxed().toList());
@@ -50,8 +53,9 @@ public class RogueManager extends BasePlayerManager {
             getPlayer().sendPacket(new PacketStartRogueScRsp());
             return;
         }
-     // Get entrance id
-        RogueInstance data = new RogueInstance(getPlayer(), excel);
+        
+        // Get entrance id
+        RogueInstance data = new RogueInstance(getPlayer(), rogueAreaExcel, aeonExcel);
         getPlayer().setRogueInstance(data);
         
         // Reset hp/sp
@@ -117,9 +121,17 @@ public class RogueManager extends BasePlayerManager {
         var data = RogueInfoData.newInstance()
                 .setRogueScoreInfo(score)
                 .setRogueSeasonInfo(season);
+        
+        var aeonInfo = RogueAeonInfo.newInstance()
+                .setUnlockedAeonNum(GameData.getRogueAeonExcelMap().size());
+        
+        for (var aeonExcel : GameData.getRogueAeonExcelMap().values()) {
+            aeonInfo.addAeonIdList(aeonExcel.getAeonID());
+        }
 
         var proto = RogueInfo.newInstance()
                 .setRogueScoreInfo(score)
+                .setRogueAeonInfo(aeonInfo)
                 .setRogueData(data)
                 .setTalentPoints(getPlayer().getTalentPoints())
                 .setSeasonId(seasonId)
@@ -139,6 +151,8 @@ public class RogueManager extends BasePlayerManager {
             for (int id : curRogue.getBaseAvatarIds()) {
                 proto.addBaseAvatarIdList(id);
             }
+            
+            aeonInfo.setSelectedAeonId(curRogue.getAeonId());
         }
         
         // Add areas
