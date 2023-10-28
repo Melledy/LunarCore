@@ -20,21 +20,26 @@ public class GenderCommand implements CommandHandler {
         
         // Set world level
         String gender = args.get(0).toLowerCase();
+        PlayerGender playerGender = null;
         
         switch (gender) {
             case "m", "male", "boy", "man" -> {
-                args.getTarget().setGender(PlayerGender.GENDER_MAN);
+                playerGender = PlayerGender.GENDER_MAN;
             }
             case "f", "female", "girl", "woman" -> {
-                args.getTarget().setGender(PlayerGender.GENDER_WOMAN);
+                playerGender = PlayerGender.GENDER_WOMAN;
             }
         }
         
-        // Send packet
-        args.getTarget().sendPacket(new PacketGetHeroBasicTypeInfoScRsp(args.getTarget()));
-        
-        // Done
-        this.sendMessage(sender, "Gender set successfully");
+        // Change gender
+        if (playerGender != null && playerGender != args.getTarget().getGender()) {
+            args.getTarget().setGender(playerGender);
+            args.getTarget().sendPacket(new PacketGetHeroBasicTypeInfoScRsp(args.getTarget()));
+            
+            this.sendMessage(sender, "Gender for " + args.getTarget().getName() + " set successfully");
+        } else {
+            this.sendMessage(sender, "Error: Invalid input");
+        }
     }
 
 }
