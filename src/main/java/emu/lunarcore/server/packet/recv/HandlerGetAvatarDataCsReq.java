@@ -11,7 +11,7 @@ public class HandlerGetAvatarDataCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
-        session.send(new PacketGetAvatarDataScRsp(session));
+        session.send(new PacketGetAvatarDataScRsp(session.getPlayer()));
     }
 
 }

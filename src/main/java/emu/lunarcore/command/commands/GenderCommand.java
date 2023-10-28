@@ -3,6 +3,7 @@ package emu.lunarcore.command.commands;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerGender;
 import emu.lunarcore.server.packet.send.PacketGetHeroBasicTypeInfoScRsp;
@@ -19,9 +20,10 @@ public class GenderCommand implements CommandHandler {
         }
         
         // Set world level
-        String gender = args.get(0).toLowerCase();
+        Player target = args.getTarget();
         PlayerGender playerGender = null;
         
+        String gender = args.get(0).toLowerCase();
         switch (gender) {
             case "m", "male", "boy", "man" -> {
                 playerGender = PlayerGender.GENDER_MAN;
@@ -32,11 +34,21 @@ public class GenderCommand implements CommandHandler {
         }
         
         // Change gender
-        if (playerGender != null && playerGender != args.getTarget().getGender()) {
-            args.getTarget().setGender(playerGender);
-            args.getTarget().sendPacket(new PacketGetHeroBasicTypeInfoScRsp(args.getTarget()));
+        if (playerGender != null && playerGender != target.getGender()) {
+            // Set gender first
+            target.setGender(playerGender);
+            target.save();
+
+            // Get first hero excel that matches our new player gender
+            var heroExcel = GameData.getHeroExcelMap().values().stream().filter(path -> path.getGender() == target.getGender()).findFirst().orElse(null);
+            if (heroExcel != null) {
+                // Set hero basic type
+                target.setHeroBasicType(heroExcel.getId());
+            }
             
-            this.sendMessage(sender, "Gender for " + args.getTarget().getName() + " set successfully");
+            // Send packet and response message
+            target.sendPacket(new PacketGetHeroBasicTypeInfoScRsp(target));
+            this.sendMessage(sender, "Gender for " + target.getName() + " set successfully");
         } else {
             this.sendMessage(sender, "Error: Invalid input");
         }
