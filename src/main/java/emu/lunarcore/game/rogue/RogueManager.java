@@ -4,8 +4,10 @@ import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 import emu.lunarcore.GameConstants;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameDepot;
+import emu.lunarcore.data.excel.RogueTalentExcel;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.PlayerLineup;
@@ -17,15 +19,53 @@ import emu.lunarcore.proto.RogueInfoDataOuterClass.RogueInfoData;
 import emu.lunarcore.proto.RogueInfoOuterClass.RogueInfo;
 import emu.lunarcore.proto.RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo;
 import emu.lunarcore.proto.RogueSeasonInfoOuterClass.RogueSeasonInfo;
+import emu.lunarcore.proto.RogueTalentInfoOuterClass.RogueTalentInfo;
+import emu.lunarcore.proto.RogueTalentOuterClass.RogueTalent;
+import emu.lunarcore.proto.RogueTalentStatusOuterClass.RogueTalentStatus;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.PacketStartRogueScRsp;
 
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
+import it.unimi.dsi.fastutil.ints.IntSet;
+import lombok.Getter;
 import us.hebi.quickbuf.RepeatedInt;
 
+@Getter
 public class RogueManager extends BasePlayerManager {
+    private IntSet talents;
 
     public RogueManager(Player player) {
         super(player);
+        this.talents = new IntOpenHashSet();
+    }
+    
+    public boolean hasTalent(int talentId) {
+        return this.getTalents().contains(talentId);
+    }
+    
+    public boolean enableTalent(int talentId) {
+        // Sanity check so we dont enable the same talent
+        if (this.getTalents().contains(talentId)) {
+            return false;
+        }
+        
+        // Get talent excel
+        RogueTalentExcel excel = GameData.getRogueTalentExcelMap().get(talentId);
+        if (excel == null) return false;
+        
+        // Verify items
+        if (!getPlayer().getInventory().verifyItems(excel.getCost())) {
+            return false;
+        }
+        
+        // Pay items
+        getPlayer().getInventory().removeItemsByParams(excel.getCost());
+        
+        // Add talent
+        RogueTalentData talent = new RogueTalentData(getPlayer(), excel.getTalentID());
+        talent.save();
+        
+        return getTalents().add(talentId);
     }
     
     public void startRogue(int areaId, int aeonId, RepeatedInt avatarIdList) {
@@ -133,26 +173,24 @@ public class RogueManager extends BasePlayerManager {
                 .setRogueScoreInfo(score)
                 .setRogueAeonInfo(aeonInfo)
                 .setRogueData(data)
+                .setRogueVirtualItemInfo(getPlayer().toRogueVirtualItemsProto())
                 .setTalentPoints(getPlayer().getTalentPoints())
                 .setSeasonId(seasonId)
                 .setBeginTime(beginTime)
                 .setEndTime(endTime);
         
-        proto.getMutableRogueVirtualItems()
-            .setRogueTalentPoints(getPlayer().getTalentPoints());
-        
         // Rogue data
-        RogueInstance curRogue = this.getPlayer().getRogueInstance();
-        if (curRogue != null) {
-            proto.setStatus(curRogue.getStatus());
+        RogueInstance instance = this.getPlayer().getRogueInstance();
+        if (instance != null) {
+            proto.setStatus(instance.getStatus());
             proto.setRogueProgress(this.getPlayer().getRogueInstance().toProto());
             proto.setRoomMap(proto.getRogueProgress().getRoomMap());
             
-            for (int id : curRogue.getBaseAvatarIds()) {
+            for (int id : instance.getBaseAvatarIds()) {
                 proto.addBaseAvatarIdList(id);
             }
             
-            aeonInfo.setSelectedAeonId(curRogue.getAeonId());
+            aeonInfo.setSelectedAeonId(instance.getAeonId());
         }
         
         // Add areas
@@ -165,10 +203,10 @@ public class RogueManager extends BasePlayerManager {
                         .setAreaId(excel.getRogueAreaID())
                         .setRogueAreaStatus(RogueAreaStatus.ROGUE_AREA_STATUS_FIRST_PASS);
                 
-                if (curRogue != null && excel == curRogue.getExcel()) {
-                    area.setMapId(curRogue.getExcel().getMapId());
-                    area.setCurReachRoomNum(curRogue.getCurrentRoomProgress());
-                    area.setRogueStatus(curRogue.getStatus());
+                if (instance != null && excel == instance.getExcel()) {
+                    area.setMapId(instance.getExcel().getMapId());
+                    area.setCurReachRoomNum(instance.getCurrentRoomProgress());
+                    area.setRogueStatus(instance.getStatus());
                 }
                 
                 proto.addRogueAreaList(area);
@@ -176,5 +214,35 @@ public class RogueManager extends BasePlayerManager {
         }
         
         return proto;
+    }
+    
+    public RogueTalentInfo toTalentInfoProto() {
+        var proto = RogueTalentInfo.newInstance();
+        
+        for (RogueTalentExcel excel : GameData.getRogueTalentExcelMap().values()) {
+            var talent = RogueTalent.newInstance()
+                    .setTalentId(excel.getTalentID());
+            
+            if (this.hasTalent(excel.getTalentID())) {
+                talent.setStatus(RogueTalentStatus.ROGUE_TALENT_STATUS_ENABLE);
+            } else {
+                talent.setStatus(RogueTalentStatus.ROGUE_TALENT_STATUS_UNLOCK);
+            }
+            
+            proto.addRogueTalent(talent);
+        }
+        
+        return proto;
+    }
+    
+    // Database
+    
+    public void loadFromDatabase() {
+        // Load talent data
+        var stream = LunarCore.getGameDatabase().getObjects(RogueTalentData.class, "ownerUid", this.getPlayer().getUid());
+        
+        stream.forEach(talent -> {
+            this.getTalents().add(talent.getTalentId());
+        });
     }
 }

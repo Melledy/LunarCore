@@ -11,11 +11,11 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class RogueVirtualItemsOuterClass {
+public final class RogueVirtualItemInfoOuterClass {
   /**
-   * Protobuf type {@code RogueVirtualItems}
+   * Protobuf type {@code RogueVirtualItemInfo}
    */
-  public static final class RogueVirtualItems extends ProtoMessage<RogueVirtualItems> implements Cloneable {
+  public static final class RogueVirtualItemInfo extends ProtoMessage<RogueVirtualItemInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
@@ -38,14 +38,14 @@ public final class RogueVirtualItemsOuterClass {
      */
     private int rogueTalentPoints;
 
-    private RogueVirtualItems() {
+    private RogueVirtualItemInfo() {
     }
 
     /**
-     * @return a new empty instance of {@code RogueVirtualItems}
+     * @return a new empty instance of {@code RogueVirtualItemInfo}
      */
-    public static RogueVirtualItems newInstance() {
-      return new RogueVirtualItems();
+    public static RogueVirtualItemInfo newInstance() {
+      return new RogueVirtualItemInfo();
     }
 
     /**
@@ -60,7 +60,7 @@ public final class RogueVirtualItemsOuterClass {
      * <code>optional uint32 ALLDDMKKICK = 1;</code>
      * @return this
      */
-    public RogueVirtualItems clearALLDDMKKICK() {
+    public RogueVirtualItemInfo clearALLDDMKKICK() {
       bitField0_ &= ~0x00000001;
       aLLDDMKKICK = 0;
       return this;
@@ -79,7 +79,7 @@ public final class RogueVirtualItemsOuterClass {
      * @param value the aLLDDMKKICK to set
      * @return this
      */
-    public RogueVirtualItems setALLDDMKKICK(final int value) {
+    public RogueVirtualItemInfo setALLDDMKKICK(final int value) {
       bitField0_ |= 0x00000001;
       aLLDDMKKICK = value;
       return this;
@@ -97,7 +97,7 @@ public final class RogueVirtualItemsOuterClass {
      * <code>optional uint32 DOMMGENHGKE = 4;</code>
      * @return this
      */
-    public RogueVirtualItems clearDOMMGENHGKE() {
+    public RogueVirtualItemInfo clearDOMMGENHGKE() {
       bitField0_ &= ~0x00000002;
       dOMMGENHGKE = 0;
       return this;
@@ -116,7 +116,7 @@ public final class RogueVirtualItemsOuterClass {
      * @param value the dOMMGENHGKE to set
      * @return this
      */
-    public RogueVirtualItems setDOMMGENHGKE(final int value) {
+    public RogueVirtualItemInfo setDOMMGENHGKE(final int value) {
       bitField0_ |= 0x00000002;
       dOMMGENHGKE = value;
       return this;
@@ -134,7 +134,7 @@ public final class RogueVirtualItemsOuterClass {
      * <code>optional uint32 KMAGFHIIALA = 10;</code>
      * @return this
      */
-    public RogueVirtualItems clearKMAGFHIIALA() {
+    public RogueVirtualItemInfo clearKMAGFHIIALA() {
       bitField0_ &= ~0x00000004;
       kMAGFHIIALA = 0;
       return this;
@@ -153,7 +153,7 @@ public final class RogueVirtualItemsOuterClass {
      * @param value the kMAGFHIIALA to set
      * @return this
      */
-    public RogueVirtualItems setKMAGFHIIALA(final int value) {
+    public RogueVirtualItemInfo setKMAGFHIIALA(final int value) {
       bitField0_ |= 0x00000004;
       kMAGFHIIALA = value;
       return this;
@@ -171,7 +171,7 @@ public final class RogueVirtualItemsOuterClass {
      * <code>optional uint32 rogue_talent_points = 14;</code>
      * @return this
      */
-    public RogueVirtualItems clearRogueTalentPoints() {
+    public RogueVirtualItemInfo clearRogueTalentPoints() {
       bitField0_ &= ~0x00000008;
       rogueTalentPoints = 0;
       return this;
@@ -190,14 +190,14 @@ public final class RogueVirtualItemsOuterClass {
      * @param value the rogueTalentPoints to set
      * @return this
      */
-    public RogueVirtualItems setRogueTalentPoints(final int value) {
+    public RogueVirtualItemInfo setRogueTalentPoints(final int value) {
       bitField0_ |= 0x00000008;
       rogueTalentPoints = value;
       return this;
     }
 
     @Override
-    public RogueVirtualItems copyFrom(final RogueVirtualItems other) {
+    public RogueVirtualItemInfo copyFrom(final RogueVirtualItemInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
@@ -210,7 +210,7 @@ public final class RogueVirtualItemsOuterClass {
     }
 
     @Override
-    public RogueVirtualItems mergeFrom(final RogueVirtualItems other) {
+    public RogueVirtualItemInfo mergeFrom(final RogueVirtualItemInfo other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -231,7 +231,7 @@ public final class RogueVirtualItemsOuterClass {
     }
 
     @Override
-    public RogueVirtualItems clear() {
+    public RogueVirtualItemInfo clear() {
       if (isEmpty()) {
         return this;
       }
@@ -245,7 +245,7 @@ public final class RogueVirtualItemsOuterClass {
     }
 
     @Override
-    public RogueVirtualItems clearQuick() {
+    public RogueVirtualItemInfo clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -259,10 +259,10 @@ public final class RogueVirtualItemsOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof RogueVirtualItems)) {
+      if (!(o instanceof RogueVirtualItemInfo)) {
         return false;
       }
-      RogueVirtualItems other = (RogueVirtualItems) o;
+      RogueVirtualItemInfo other = (RogueVirtualItemInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasALLDDMKKICK() || aLLDDMKKICK == other.aLLDDMKKICK)
         && (!hasDOMMGENHGKE() || dOMMGENHGKE == other.dOMMGENHGKE)
@@ -310,7 +310,7 @@ public final class RogueVirtualItemsOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public RogueVirtualItems mergeFrom(final ProtoSource input) throws IOException {
+    public RogueVirtualItemInfo mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
@@ -384,7 +384,7 @@ public final class RogueVirtualItemsOuterClass {
     }
 
     @Override
-    public RogueVirtualItems mergeFrom(final JsonSource input) throws IOException {
+    public RogueVirtualItemInfo mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -446,8 +446,8 @@ public final class RogueVirtualItemsOuterClass {
     }
 
     @Override
-    public RogueVirtualItems clone() {
-      return new RogueVirtualItems().copyFrom(this);
+    public RogueVirtualItemInfo clone() {
+      return new RogueVirtualItemInfo().copyFrom(this);
     }
 
     @Override
@@ -455,32 +455,32 @@ public final class RogueVirtualItemsOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static RogueVirtualItems parseFrom(final byte[] data) throws
+    public static RogueVirtualItemInfo parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new RogueVirtualItems(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new RogueVirtualItemInfo(), data).checkInitialized();
     }
 
-    public static RogueVirtualItems parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new RogueVirtualItems(), input).checkInitialized();
+    public static RogueVirtualItemInfo parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new RogueVirtualItemInfo(), input).checkInitialized();
     }
 
-    public static RogueVirtualItems parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new RogueVirtualItems(), input).checkInitialized();
+    public static RogueVirtualItemInfo parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new RogueVirtualItemInfo(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating RogueVirtualItems messages
+     * @return factory for creating RogueVirtualItemInfo messages
      */
-    public static MessageFactory<RogueVirtualItems> getFactory() {
-      return RogueVirtualItemsFactory.INSTANCE;
+    public static MessageFactory<RogueVirtualItemInfo> getFactory() {
+      return RogueVirtualItemInfoFactory.INSTANCE;
     }
 
-    private enum RogueVirtualItemsFactory implements MessageFactory<RogueVirtualItems> {
+    private enum RogueVirtualItemInfoFactory implements MessageFactory<RogueVirtualItemInfo> {
       INSTANCE;
 
       @Override
-      public RogueVirtualItems create() {
-        return RogueVirtualItems.newInstance();
+      public RogueVirtualItemInfo create() {
+        return RogueVirtualItemInfo.newInstance();
       }
     }
 

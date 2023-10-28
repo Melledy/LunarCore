@@ -38,6 +38,7 @@ import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
+import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
@@ -45,6 +46,7 @@ import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.server.packet.send.PacketEnterSceneByServerScNotify;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneEntityMoveScNotify;
+import emu.lunarcore.server.packet.send.PacketSyncRogueVirtualItemInfoScNotify;
 import emu.lunarcore.util.Position;
 
 import lombok.Getter;
@@ -303,6 +305,7 @@ public class Player {
     
     public void addTalentPoints(int amount) {
         this.talentPoints += amount;
+        this.sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this));
     }
 
     public void addStamina(int amount) {
@@ -548,7 +551,8 @@ public class Player {
         this.getInventory().loadFromDatabase();
         this.getMailbox().loadFromDatabase();
         this.getChallengeManager().loadFromDatabase();
-
+        this.getRogueManager().loadFromDatabase();
+        
         // Load Etc
         this.getLineupManager().validate(this);
         this.getAvatars().setupHeroPaths();
@@ -585,6 +589,13 @@ public class Player {
         for (int id : this.getUnlockedHeadIcons()) {
             proto.addUnlockedHeadIconList(HeadIcon.newInstance().setId(id));
         }
+        
+        return proto;
+    }
+    
+    public RogueVirtualItemInfo toRogueVirtualItemsProto() {
+        var proto = RogueVirtualItemInfo.newInstance()
+                .setRogueTalentPoints(this.getTalentPoints());
         
         return proto;
     }

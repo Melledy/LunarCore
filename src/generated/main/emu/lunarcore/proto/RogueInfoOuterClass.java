@@ -56,9 +56,9 @@ public final class RogueInfoOuterClass {
     private int status;
 
     /**
-     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 5;</code>
      */
-    private final RogueVirtualItemsOuterClass.RogueVirtualItems rogueVirtualItems = RogueVirtualItemsOuterClass.RogueVirtualItems.newInstance();
+    private final RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo rogueVirtualItemInfo = RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo.newInstance();
 
     /**
      * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
@@ -390,39 +390,39 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
-     * @return whether the rogueVirtualItems field is set
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 5;</code>
+     * @return whether the rogueVirtualItemInfo field is set
      */
-    public boolean hasRogueVirtualItems() {
+    public boolean hasRogueVirtualItemInfo() {
       return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 5;</code>
      * @return this
      */
-    public RogueInfo clearRogueVirtualItems() {
+    public RogueInfo clearRogueVirtualItemInfo() {
       bitField0_ &= ~0x00000080;
-      rogueVirtualItems.clear();
+      rogueVirtualItemInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableRogueVirtualItems()} if you want to modify it.
+     * Use {@link #getMutableRogueVirtualItemInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RogueVirtualItemsOuterClass.RogueVirtualItems getRogueVirtualItems() {
-      return rogueVirtualItems;
+    public RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo getRogueVirtualItemInfo() {
+      return rogueVirtualItemInfo;
     }
 
     /**
-     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -430,20 +430,20 @@ public final class RogueInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RogueVirtualItemsOuterClass.RogueVirtualItems getMutableRogueVirtualItems() {
+    public RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo getMutableRogueVirtualItemInfo() {
       bitField0_ |= 0x00000080;
-      return rogueVirtualItems;
+      return rogueVirtualItemInfo;
     }
 
     /**
-     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
-     * @param value the rogueVirtualItems to set
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 5;</code>
+     * @param value the rogueVirtualItemInfo to set
      * @return this
      */
-    public RogueInfo setRogueVirtualItems(
-        final RogueVirtualItemsOuterClass.RogueVirtualItems value) {
+    public RogueInfo setRogueVirtualItemInfo(
+        final RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo value) {
       bitField0_ |= 0x00000080;
-      rogueVirtualItems.copyFrom(value);
+      rogueVirtualItemInfo.copyFrom(value);
       return this;
     }
 
@@ -881,7 +881,7 @@ public final class RogueInfoOuterClass {
         talentPoints = other.talentPoints;
         hDBPIDMBJOH = other.hDBPIDMBJOH;
         status = other.status;
-        rogueVirtualItems.copyFrom(other.rogueVirtualItems);
+        rogueVirtualItemInfo.copyFrom(other.rogueVirtualItemInfo);
         rogueProgress.copyFrom(other.rogueProgress);
         rogueData.copyFrom(other.rogueData);
         rogueAeonInfo.copyFrom(other.rogueAeonInfo);
@@ -920,8 +920,8 @@ public final class RogueInfoOuterClass {
       if (other.hasStatus()) {
         setStatusValue(other.status);
       }
-      if (other.hasRogueVirtualItems()) {
-        getMutableRogueVirtualItems().mergeFrom(other.rogueVirtualItems);
+      if (other.hasRogueVirtualItemInfo()) {
+        getMutableRogueVirtualItemInfo().mergeFrom(other.rogueVirtualItemInfo);
       }
       if (other.hasRogueProgress()) {
         getMutableRogueProgress().mergeFrom(other.rogueProgress);
@@ -961,7 +961,7 @@ public final class RogueInfoOuterClass {
       talentPoints = 0;
       hDBPIDMBJOH = 0;
       status = 0;
-      rogueVirtualItems.clear();
+      rogueVirtualItemInfo.clear();
       rogueProgress.clear();
       rogueData.clear();
       rogueAeonInfo.clear();
@@ -979,7 +979,7 @@ public final class RogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueVirtualItems.clearQuick();
+      rogueVirtualItemInfo.clearQuick();
       rogueProgress.clearQuick();
       rogueData.clearQuick();
       rogueAeonInfo.clearQuick();
@@ -1007,7 +1007,7 @@ public final class RogueInfoOuterClass {
         && (!hasTalentPoints() || talentPoints == other.talentPoints)
         && (!hasHDBPIDMBJOH() || hDBPIDMBJOH == other.hDBPIDMBJOH)
         && (!hasStatus() || status == other.status)
-        && (!hasRogueVirtualItems() || rogueVirtualItems.equals(other.rogueVirtualItems))
+        && (!hasRogueVirtualItemInfo() || rogueVirtualItemInfo.equals(other.rogueVirtualItemInfo))
         && (!hasRogueProgress() || rogueProgress.equals(other.rogueProgress))
         && (!hasRogueData() || rogueData.equals(other.rogueData))
         && (!hasRogueAeonInfo() || rogueAeonInfo.equals(other.rogueAeonInfo))
@@ -1049,7 +1049,7 @@ public final class RogueInfoOuterClass {
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 42);
-        output.writeMessageNoTag(rogueVirtualItems);
+        output.writeMessageNoTag(rogueVirtualItemInfo);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawLittleEndian16((short) 1434);
@@ -1110,7 +1110,7 @@ public final class RogueInfoOuterClass {
         size += 1 + ProtoSink.computeEnumSizeNoTag(status);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueVirtualItems);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueVirtualItemInfo);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         size += 2 + ProtoSink.computeMessageSizeNoTag(rogueProgress);
@@ -1210,8 +1210,8 @@ public final class RogueInfoOuterClass {
             }
           }
           case 42: {
-            // rogueVirtualItems
-            input.readMessage(rogueVirtualItems);
+            // rogueVirtualItemInfo
+            input.readMessage(rogueVirtualItemInfo);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 666) {
@@ -1325,7 +1325,7 @@ public final class RogueInfoOuterClass {
         output.writeEnum(FieldNames.status, status, RogueStatusOuterClass.RogueStatus.converter());
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeMessage(FieldNames.rogueVirtualItems, rogueVirtualItems);
+        output.writeMessage(FieldNames.rogueVirtualItemInfo, rogueVirtualItemInfo);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeMessage(FieldNames.rogueProgress, rogueProgress);
@@ -1444,11 +1444,11 @@ public final class RogueInfoOuterClass {
             }
             break;
           }
-          case 370696815:
-          case -768163865: {
-            if (input.isAtField(FieldNames.rogueVirtualItems)) {
+          case 1066755410:
+          case 1452147457: {
+            if (input.isAtField(FieldNames.rogueVirtualItemInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rogueVirtualItems);
+                input.readMessage(rogueVirtualItemInfo);
                 bitField0_ |= 0x00000080;
               }
             } else {
@@ -1606,7 +1606,7 @@ public final class RogueInfoOuterClass {
 
       static final FieldName status = FieldName.forField("status");
 
-      static final FieldName rogueVirtualItems = FieldName.forField("rogueVirtualItems", "rogue_virtual_items");
+      static final FieldName rogueVirtualItemInfo = FieldName.forField("rogueVirtualItemInfo", "rogue_virtual_item_info");
 
       static final FieldName rogueProgress = FieldName.forField("rogueProgress", "rogue_progress");
 
