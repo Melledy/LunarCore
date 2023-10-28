@@ -69,6 +69,7 @@ public class Player {
     private int scoin; // Credits
     private int hcoin; // Jade
     private int mcoin; // Crystals
+    private int talentPoints;
 
     private transient Battle battle;
     private transient Scene scene;
@@ -298,6 +299,10 @@ public class Player {
     public void addMCoin(int amount) {
         this.mcoin += amount;
         this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+    
+    public void addTalentPoints(int amount) {
+        this.talentPoints += amount;
     }
 
     public void addStamina(int amount) {

@@ -243,6 +243,9 @@ public class Inventory extends BasePlayerManager {
         case 22: // Trailblaze EXP
             getPlayer().addExp(count);
             break;
+        case GameConstants.ROGUE_TALENT_POINT_ITEM_ID: // Rogue talent points
+            getPlayer().addTalentPoints(count);
+            break;
         }
     }
     
@@ -264,6 +267,9 @@ public class Inventory extends BasePlayerManager {
             if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
                 // Remove credits
                 getPlayer().addSCoin(-param.getCount() * multiplier);
+            } else if (param.getId() == GameConstants.ROGUE_TALENT_POINT_ITEM_ID) {
+                // Remove credits
+                getPlayer().addTalentPoints(-param.getCount() * multiplier);
             } else {
                 // Remove param items
                 GameItem item = this.getItemByParam(param);
@@ -382,6 +388,8 @@ public class Inventory extends BasePlayerManager {
                 if (!verifyScoin(param.getCount() * multiplier)) {
                     return false;
                 }
+            } else if (param.getId() == GameConstants.ROGUE_TALENT_POINT_ITEM_ID) {
+                return this.getPlayer().getTalentPoints() >= param.getCount() * multiplier;
             } else {
                 // Check param items
                 GameItem item = this.getItemByParam(param);

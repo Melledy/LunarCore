@@ -117,13 +117,17 @@ public class RogueManager extends BasePlayerManager {
         var data = RogueInfoData.newInstance()
                 .setRogueScoreInfo(score)
                 .setRogueSeasonInfo(season);
-        
+
         var proto = RogueInfo.newInstance()
                 .setRogueScoreInfo(score)
                 .setRogueData(data)
+                .setTalentPoints(getPlayer().getTalentPoints())
                 .setSeasonId(seasonId)
                 .setBeginTime(beginTime)
                 .setEndTime(endTime);
+        
+        proto.getMutableRogueCurrencyInfo()
+            .setRogueTalentPoints(getPlayer().getTalentPoints());
         
         // Rogue data
         RogueInstance curRogue = this.getPlayer().getRogueInstance();
