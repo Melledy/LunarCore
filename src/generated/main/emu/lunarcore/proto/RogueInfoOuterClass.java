@@ -56,9 +56,9 @@ public final class RogueInfoOuterClass {
     private int status;
 
     /**
-     * <code>optional .RogueCurrencyInfo rogue_currency_info = 5;</code>
+     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
      */
-    private final RogueCurrencyInfoOuterClass.RogueCurrencyInfo rogueCurrencyInfo = RogueCurrencyInfoOuterClass.RogueCurrencyInfo.newInstance();
+    private final RogueVirtualItemsOuterClass.RogueVirtualItems rogueVirtualItems = RogueVirtualItemsOuterClass.RogueVirtualItems.newInstance();
 
     /**
      * <code>optional .RogueCurrentInfo rogue_progress = 83;</code>
@@ -385,39 +385,39 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCurrencyInfo rogue_currency_info = 5;</code>
-     * @return whether the rogueCurrencyInfo field is set
+     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
+     * @return whether the rogueVirtualItems field is set
      */
-    public boolean hasRogueCurrencyInfo() {
+    public boolean hasRogueVirtualItems() {
       return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>optional .RogueCurrencyInfo rogue_currency_info = 5;</code>
+     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
      * @return this
      */
-    public RogueInfo clearRogueCurrencyInfo() {
+    public RogueInfo clearRogueVirtualItems() {
       bitField0_ &= ~0x00000080;
-      rogueCurrencyInfo.clear();
+      rogueVirtualItems.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueCurrencyInfo rogue_currency_info = 5;</code>
+     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableRogueCurrencyInfo()} if you want to modify it.
+     * Use {@link #getMutableRogueVirtualItems()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RogueCurrencyInfoOuterClass.RogueCurrencyInfo getRogueCurrencyInfo() {
-      return rogueCurrencyInfo;
+    public RogueVirtualItemsOuterClass.RogueVirtualItems getRogueVirtualItems() {
+      return rogueVirtualItems;
     }
 
     /**
-     * <code>optional .RogueCurrencyInfo rogue_currency_info = 5;</code>
+     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -425,20 +425,20 @@ public final class RogueInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RogueCurrencyInfoOuterClass.RogueCurrencyInfo getMutableRogueCurrencyInfo() {
+    public RogueVirtualItemsOuterClass.RogueVirtualItems getMutableRogueVirtualItems() {
       bitField0_ |= 0x00000080;
-      return rogueCurrencyInfo;
+      return rogueVirtualItems;
     }
 
     /**
-     * <code>optional .RogueCurrencyInfo rogue_currency_info = 5;</code>
-     * @param value the rogueCurrencyInfo to set
+     * <code>optional .RogueVirtualItems rogue_virtual_items = 5;</code>
+     * @param value the rogueVirtualItems to set
      * @return this
      */
-    public RogueInfo setRogueCurrencyInfo(
-        final RogueCurrencyInfoOuterClass.RogueCurrencyInfo value) {
+    public RogueInfo setRogueVirtualItems(
+        final RogueVirtualItemsOuterClass.RogueVirtualItems value) {
       bitField0_ |= 0x00000080;
-      rogueCurrencyInfo.copyFrom(value);
+      rogueVirtualItems.copyFrom(value);
       return this;
     }
 
@@ -819,7 +819,7 @@ public final class RogueInfoOuterClass {
         talentPoints = other.talentPoints;
         hDBPIDMBJOH = other.hDBPIDMBJOH;
         status = other.status;
-        rogueCurrencyInfo.copyFrom(other.rogueCurrencyInfo);
+        rogueVirtualItems.copyFrom(other.rogueVirtualItems);
         rogueProgress.copyFrom(other.rogueProgress);
         rogueData.copyFrom(other.rogueData);
         roomMap.copyFrom(other.roomMap);
@@ -857,8 +857,8 @@ public final class RogueInfoOuterClass {
       if (other.hasStatus()) {
         setStatusValue(other.status);
       }
-      if (other.hasRogueCurrencyInfo()) {
-        getMutableRogueCurrencyInfo().mergeFrom(other.rogueCurrencyInfo);
+      if (other.hasRogueVirtualItems()) {
+        getMutableRogueVirtualItems().mergeFrom(other.rogueVirtualItems);
       }
       if (other.hasRogueProgress()) {
         getMutableRogueProgress().mergeFrom(other.rogueProgress);
@@ -895,7 +895,7 @@ public final class RogueInfoOuterClass {
       talentPoints = 0;
       hDBPIDMBJOH = 0;
       status = 0;
-      rogueCurrencyInfo.clear();
+      rogueVirtualItems.clear();
       rogueProgress.clear();
       rogueData.clear();
       roomMap.clear();
@@ -912,7 +912,7 @@ public final class RogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueCurrencyInfo.clearQuick();
+      rogueVirtualItems.clearQuick();
       rogueProgress.clearQuick();
       rogueData.clearQuick();
       roomMap.clearQuick();
@@ -939,7 +939,7 @@ public final class RogueInfoOuterClass {
         && (!hasTalentPoints() || talentPoints == other.talentPoints)
         && (!hasHDBPIDMBJOH() || hDBPIDMBJOH == other.hDBPIDMBJOH)
         && (!hasStatus() || status == other.status)
-        && (!hasRogueCurrencyInfo() || rogueCurrencyInfo.equals(other.rogueCurrencyInfo))
+        && (!hasRogueVirtualItems() || rogueVirtualItems.equals(other.rogueVirtualItems))
         && (!hasRogueProgress() || rogueProgress.equals(other.rogueProgress))
         && (!hasRogueData() || rogueData.equals(other.rogueData))
         && (!hasRoomMap() || roomMap.equals(other.roomMap))
@@ -980,7 +980,7 @@ public final class RogueInfoOuterClass {
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 42);
-        output.writeMessageNoTag(rogueCurrencyInfo);
+        output.writeMessageNoTag(rogueVirtualItems);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawLittleEndian16((short) 1434);
@@ -1037,7 +1037,7 @@ public final class RogueInfoOuterClass {
         size += 1 + ProtoSink.computeEnumSizeNoTag(status);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueCurrencyInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueVirtualItems);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         size += 2 + ProtoSink.computeMessageSizeNoTag(rogueProgress);
@@ -1134,8 +1134,8 @@ public final class RogueInfoOuterClass {
             }
           }
           case 42: {
-            // rogueCurrencyInfo
-            input.readMessage(rogueCurrencyInfo);
+            // rogueVirtualItems
+            input.readMessage(rogueVirtualItems);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 666) {
@@ -1240,7 +1240,7 @@ public final class RogueInfoOuterClass {
         output.writeEnum(FieldNames.status, status, RogueStatusOuterClass.RogueStatus.converter());
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeMessage(FieldNames.rogueCurrencyInfo, rogueCurrencyInfo);
+        output.writeMessage(FieldNames.rogueVirtualItems, rogueVirtualItems);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeMessage(FieldNames.rogueProgress, rogueProgress);
@@ -1356,11 +1356,11 @@ public final class RogueInfoOuterClass {
             }
             break;
           }
-          case 2062299993:
-          case -468018569: {
-            if (input.isAtField(FieldNames.rogueCurrencyInfo)) {
+          case 370696815:
+          case -768163865: {
+            if (input.isAtField(FieldNames.rogueVirtualItems)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rogueCurrencyInfo);
+                input.readMessage(rogueVirtualItems);
                 bitField0_ |= 0x00000080;
               }
             } else {
@@ -1506,7 +1506,7 @@ public final class RogueInfoOuterClass {
 
       static final FieldName status = FieldName.forField("status");
 
-      static final FieldName rogueCurrencyInfo = FieldName.forField("rogueCurrencyInfo", "rogue_currency_info");
+      static final FieldName rogueVirtualItems = FieldName.forField("rogueVirtualItems", "rogue_virtual_items");
 
       static final FieldName rogueProgress = FieldName.forField("rogueProgress", "rogue_progress");
 

@@ -126,7 +126,7 @@ public class RogueManager extends BasePlayerManager {
                 .setBeginTime(beginTime)
                 .setEndTime(endTime);
         
-        proto.getMutableRogueCurrencyInfo()
+        proto.getMutableRogueVirtualItems()
             .setRogueTalentPoints(getPlayer().getTalentPoints());
         
         // Rogue data

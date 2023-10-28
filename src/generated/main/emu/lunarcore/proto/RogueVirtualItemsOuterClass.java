@@ -11,11 +11,11 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class RogueCurrencyInfoOuterClass {
+public final class RogueVirtualItemsOuterClass {
   /**
-   * Protobuf type {@code RogueCurrencyInfo}
+   * Protobuf type {@code RogueVirtualItems}
    */
-  public static final class RogueCurrencyInfo extends ProtoMessage<RogueCurrencyInfo> implements Cloneable {
+  public static final class RogueVirtualItems extends ProtoMessage<RogueVirtualItems> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
@@ -38,14 +38,14 @@ public final class RogueCurrencyInfoOuterClass {
      */
     private int rogueTalentPoints;
 
-    private RogueCurrencyInfo() {
+    private RogueVirtualItems() {
     }
 
     /**
-     * @return a new empty instance of {@code RogueCurrencyInfo}
+     * @return a new empty instance of {@code RogueVirtualItems}
      */
-    public static RogueCurrencyInfo newInstance() {
-      return new RogueCurrencyInfo();
+    public static RogueVirtualItems newInstance() {
+      return new RogueVirtualItems();
     }
 
     /**
@@ -60,7 +60,7 @@ public final class RogueCurrencyInfoOuterClass {
      * <code>optional uint32 ALLDDMKKICK = 1;</code>
      * @return this
      */
-    public RogueCurrencyInfo clearALLDDMKKICK() {
+    public RogueVirtualItems clearALLDDMKKICK() {
       bitField0_ &= ~0x00000001;
       aLLDDMKKICK = 0;
       return this;
@@ -79,7 +79,7 @@ public final class RogueCurrencyInfoOuterClass {
      * @param value the aLLDDMKKICK to set
      * @return this
      */
-    public RogueCurrencyInfo setALLDDMKKICK(final int value) {
+    public RogueVirtualItems setALLDDMKKICK(final int value) {
       bitField0_ |= 0x00000001;
       aLLDDMKKICK = value;
       return this;
@@ -97,7 +97,7 @@ public final class RogueCurrencyInfoOuterClass {
      * <code>optional uint32 DOMMGENHGKE = 4;</code>
      * @return this
      */
-    public RogueCurrencyInfo clearDOMMGENHGKE() {
+    public RogueVirtualItems clearDOMMGENHGKE() {
       bitField0_ &= ~0x00000002;
       dOMMGENHGKE = 0;
       return this;
@@ -116,7 +116,7 @@ public final class RogueCurrencyInfoOuterClass {
      * @param value the dOMMGENHGKE to set
      * @return this
      */
-    public RogueCurrencyInfo setDOMMGENHGKE(final int value) {
+    public RogueVirtualItems setDOMMGENHGKE(final int value) {
       bitField0_ |= 0x00000002;
       dOMMGENHGKE = value;
       return this;
@@ -134,7 +134,7 @@ public final class RogueCurrencyInfoOuterClass {
      * <code>optional uint32 KMAGFHIIALA = 10;</code>
      * @return this
      */
-    public RogueCurrencyInfo clearKMAGFHIIALA() {
+    public RogueVirtualItems clearKMAGFHIIALA() {
       bitField0_ &= ~0x00000004;
       kMAGFHIIALA = 0;
       return this;
@@ -153,7 +153,7 @@ public final class RogueCurrencyInfoOuterClass {
      * @param value the kMAGFHIIALA to set
      * @return this
      */
-    public RogueCurrencyInfo setKMAGFHIIALA(final int value) {
+    public RogueVirtualItems setKMAGFHIIALA(final int value) {
       bitField0_ |= 0x00000004;
       kMAGFHIIALA = value;
       return this;
@@ -171,7 +171,7 @@ public final class RogueCurrencyInfoOuterClass {
      * <code>optional uint32 rogue_talent_points = 14;</code>
      * @return this
      */
-    public RogueCurrencyInfo clearRogueTalentPoints() {
+    public RogueVirtualItems clearRogueTalentPoints() {
       bitField0_ &= ~0x00000008;
       rogueTalentPoints = 0;
       return this;
@@ -190,14 +190,14 @@ public final class RogueCurrencyInfoOuterClass {
      * @param value the rogueTalentPoints to set
      * @return this
      */
-    public RogueCurrencyInfo setRogueTalentPoints(final int value) {
+    public RogueVirtualItems setRogueTalentPoints(final int value) {
       bitField0_ |= 0x00000008;
       rogueTalentPoints = value;
       return this;
     }
 
     @Override
-    public RogueCurrencyInfo copyFrom(final RogueCurrencyInfo other) {
+    public RogueVirtualItems copyFrom(final RogueVirtualItems other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
@@ -210,7 +210,7 @@ public final class RogueCurrencyInfoOuterClass {
     }
 
     @Override
-    public RogueCurrencyInfo mergeFrom(final RogueCurrencyInfo other) {
+    public RogueVirtualItems mergeFrom(final RogueVirtualItems other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -231,7 +231,7 @@ public final class RogueCurrencyInfoOuterClass {
     }
 
     @Override
-    public RogueCurrencyInfo clear() {
+    public RogueVirtualItems clear() {
       if (isEmpty()) {
         return this;
       }
@@ -245,7 +245,7 @@ public final class RogueCurrencyInfoOuterClass {
     }
 
     @Override
-    public RogueCurrencyInfo clearQuick() {
+    public RogueVirtualItems clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -259,10 +259,10 @@ public final class RogueCurrencyInfoOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof RogueCurrencyInfo)) {
+      if (!(o instanceof RogueVirtualItems)) {
         return false;
       }
-      RogueCurrencyInfo other = (RogueCurrencyInfo) o;
+      RogueVirtualItems other = (RogueVirtualItems) o;
       return bitField0_ == other.bitField0_
         && (!hasALLDDMKKICK() || aLLDDMKKICK == other.aLLDDMKKICK)
         && (!hasDOMMGENHGKE() || dOMMGENHGKE == other.dOMMGENHGKE)
@@ -310,7 +310,7 @@ public final class RogueCurrencyInfoOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public RogueCurrencyInfo mergeFrom(final ProtoSource input) throws IOException {
+    public RogueVirtualItems mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
@@ -384,7 +384,7 @@ public final class RogueCurrencyInfoOuterClass {
     }
 
     @Override
-    public RogueCurrencyInfo mergeFrom(final JsonSource input) throws IOException {
+    public RogueVirtualItems mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -446,8 +446,8 @@ public final class RogueCurrencyInfoOuterClass {
     }
 
     @Override
-    public RogueCurrencyInfo clone() {
-      return new RogueCurrencyInfo().copyFrom(this);
+    public RogueVirtualItems clone() {
+      return new RogueVirtualItems().copyFrom(this);
     }
 
     @Override
@@ -455,32 +455,32 @@ public final class RogueCurrencyInfoOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static RogueCurrencyInfo parseFrom(final byte[] data) throws
+    public static RogueVirtualItems parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new RogueCurrencyInfo(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new RogueVirtualItems(), data).checkInitialized();
     }
 
-    public static RogueCurrencyInfo parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new RogueCurrencyInfo(), input).checkInitialized();
+    public static RogueVirtualItems parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new RogueVirtualItems(), input).checkInitialized();
     }
 
-    public static RogueCurrencyInfo parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new RogueCurrencyInfo(), input).checkInitialized();
+    public static RogueVirtualItems parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new RogueVirtualItems(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating RogueCurrencyInfo messages
+     * @return factory for creating RogueVirtualItems messages
      */
-    public static MessageFactory<RogueCurrencyInfo> getFactory() {
-      return RogueCurrencyInfoFactory.INSTANCE;
+    public static MessageFactory<RogueVirtualItems> getFactory() {
+      return RogueVirtualItemsFactory.INSTANCE;
     }
 
-    private enum RogueCurrencyInfoFactory implements MessageFactory<RogueCurrencyInfo> {
+    private enum RogueVirtualItemsFactory implements MessageFactory<RogueVirtualItems> {
       INSTANCE;
 
       @Override
-      public RogueCurrencyInfo create() {
-        return RogueCurrencyInfo.newInstance();
+      public RogueVirtualItems create() {
+        return RogueVirtualItems.newInstance();
       }
     }
 
