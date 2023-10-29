@@ -2,6 +2,7 @@
 package emu.lunarcore.proto;
 
 import java.io.IOException;
+import us.hebi.quickbuf.FieldName;
 import us.hebi.quickbuf.InvalidProtocolBufferException;
 import us.hebi.quickbuf.JsonSink;
 import us.hebi.quickbuf.JsonSource;
@@ -17,6 +18,11 @@ public final class NpcExtraInfoOuterClass {
   public static final class NpcExtraInfo extends ProtoMessage<NpcExtraInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
+    /**
+     * <code>optional .NpcRogueInfo rogue_info = 12;</code>
+     */
+    private final NpcRogueInfoOuterClass.NpcRogueInfo rogueInfo = NpcRogueInfoOuterClass.NpcRogueInfo.newInstance();
+
     private NpcExtraInfo() {
     }
 
@@ -27,9 +33,81 @@ public final class NpcExtraInfoOuterClass {
       return new NpcExtraInfo();
     }
 
+    public boolean hasInfo() {
+      return (((bitField0_ & 0x00000001)) != 0);
+    }
+
+    public NpcExtraInfo clearInfo() {
+      if (hasInfo()) {
+        clearRogueInfo();
+      }
+      return this;
+    }
+
+    /**
+     * <code>optional .NpcRogueInfo rogue_info = 12;</code>
+     * @return whether the rogueInfo field is set
+     */
+    public boolean hasRogueInfo() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional .NpcRogueInfo rogue_info = 12;</code>
+     * @return this
+     */
+    public NpcExtraInfo clearRogueInfo() {
+      bitField0_ &= ~0x00000001;
+      rogueInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .NpcRogueInfo rogue_info = 12;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public NpcRogueInfoOuterClass.NpcRogueInfo getRogueInfo() {
+      return rogueInfo;
+    }
+
+    /**
+     * <code>optional .NpcRogueInfo rogue_info = 12;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public NpcRogueInfoOuterClass.NpcRogueInfo getMutableRogueInfo() {
+      bitField0_ |= 0x00000001;
+      return rogueInfo;
+    }
+
+    /**
+     * <code>optional .NpcRogueInfo rogue_info = 12;</code>
+     * @param value the rogueInfo to set
+     * @return this
+     */
+    public NpcExtraInfo setRogueInfo(final NpcRogueInfoOuterClass.NpcRogueInfo value) {
+      bitField0_ |= 0x00000001;
+      rogueInfo.copyFrom(value);
+      return this;
+    }
+
     @Override
     public NpcExtraInfo copyFrom(final NpcExtraInfo other) {
       cachedSize = other.cachedSize;
+      if ((bitField0_ | other.bitField0_) != 0) {
+        bitField0_ = other.bitField0_;
+        rogueInfo.copyFrom(other.rogueInfo);
+      }
       return this;
     }
 
@@ -39,6 +117,9 @@ public final class NpcExtraInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasRogueInfo()) {
+        getMutableRogueInfo().mergeFrom(other.rogueInfo);
+      }
       return this;
     }
 
@@ -48,6 +129,8 @@ public final class NpcExtraInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      bitField0_ = 0;
+      rogueInfo.clear();
       return this;
     }
 
@@ -57,6 +140,8 @@ public final class NpcExtraInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      bitField0_ = 0;
+      rogueInfo.clearQuick();
       return this;
     }
 
@@ -69,16 +154,24 @@ public final class NpcExtraInfoOuterClass {
         return false;
       }
       NpcExtraInfo other = (NpcExtraInfo) o;
-      return true;
+      return bitField0_ == other.bitField0_
+        && (!hasRogueInfo() || rogueInfo.equals(other.rogueInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
+      if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 98);
+        output.writeMessageNoTag(rogueInfo);
+      }
     }
 
     @Override
     protected int computeSerializedSize() {
       int size = 0;
+      if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueInfo);
+      }
       return size;
     }
 
@@ -89,6 +182,15 @@ public final class NpcExtraInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 98: {
+            // rogueInfo
+            input.readMessage(rogueInfo);
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 0) {
+              break;
+            }
+          }
           case 0: {
             return this;
           }
@@ -106,6 +208,9 @@ public final class NpcExtraInfoOuterClass {
     @Override
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
+      if ((bitField0_ & 0x00000001) != 0) {
+        output.writeMessage(FieldNames.rogueInfo, rogueInfo);
+      }
       output.endObject();
     }
 
@@ -116,6 +221,18 @@ public final class NpcExtraInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 655808936:
+          case -1124583437: {
+            if (input.isAtField(FieldNames.rogueInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(rogueInfo);
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           default: {
             input.skipUnknownField();
             break;
@@ -168,6 +285,7 @@ public final class NpcExtraInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName rogueInfo = FieldName.forField("rogueInfo", "rogue_info");
     }
   }
 }

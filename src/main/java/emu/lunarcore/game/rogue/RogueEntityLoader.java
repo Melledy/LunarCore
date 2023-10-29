@@ -1,18 +1,23 @@
 package emu.lunarcore.game.rogue;
 
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
+import emu.lunarcore.data.config.NpcInfo;
 import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.data.excel.RogueMonsterExcel;
+import emu.lunarcore.data.excel.RogueNPCExcel;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneEntityLoader;
 import emu.lunarcore.game.scene.entity.EntityMonster;
+import emu.lunarcore.game.scene.entity.EntityNpc;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.extra.PropRogueData;
+import emu.lunarcore.util.Utils;
 
 public class RogueEntityLoader extends SceneEntityLoader {
     
@@ -102,5 +107,18 @@ public class RogueEntityLoader extends SceneEntityLoader {
         }
         
         return prop;
+    }
+    
+    public EntityNpc loadNpc(Scene scene, GroupInfo group, NpcInfo npcInfo) {
+        // Create npc from group npc info
+        EntityNpc npc = super.loadNpc(scene, group, npcInfo);
+        
+        // Add rogue dialogue
+        if (npc.getNpcId() == 3013) {
+            RogueNPCExcel rogueNpcExcel = Utils.randomElement(GameDepot.getRogueRandomNpcList());
+            npc.setRogueNpcId(rogueNpcExcel.getId());
+        }
+        
+        return npc;
     }
 }
