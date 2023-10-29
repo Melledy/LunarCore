@@ -213,6 +213,14 @@ public class RogueInstance {
         return nextRoom;
     }
     
+    // Dialogue stuff
+    
+    public void selectDialogue(int dialogueEventId) {
+    
+    }
+    
+    // Battle
+    
     public synchronized void onBattleStart(Battle battle) {
         for (var buff : this.getBuffs().values()) {
             battle.addBuff(buff.toMazeBuff());
