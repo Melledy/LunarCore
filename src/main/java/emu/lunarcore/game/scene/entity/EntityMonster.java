@@ -1,5 +1,7 @@
 package emu.lunarcore.game.scene.entity;
 
+import emu.lunarcore.data.config.GroupInfo;
+import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
@@ -24,11 +26,13 @@ public class EntityMonster implements GameEntity {
     private final Position pos;
     private final Position rot;
     
-    public EntityMonster(Scene scene, NpcMonsterExcel excel, Position pos) {
+    public EntityMonster(Scene scene, NpcMonsterExcel excel, GroupInfo group, MonsterInfo monsterInfo) {
         this.scene = scene;
         this.excel = excel;
-        this.pos = pos;
-        this.rot = new Position();
+        this.pos = monsterInfo.getPos().clone();
+        this.rot = monsterInfo.getRot().clone();
+        this.groupId = group.getId();
+        this.instId = monsterInfo.getID();
     }
     
     public int getStageId() {

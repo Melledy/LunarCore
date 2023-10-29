@@ -38,10 +38,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         if (npcMonster == null) return null;
         
         // Actually create the monster now
-        EntityMonster monster = new EntityMonster(scene, npcMonster, monsterInfo.getPos());
-        monster.getRot().set(monsterInfo.getRot());
-        monster.setGroupId(group.getId());
-        monster.setInstId(monsterInfo.getID());
+        EntityMonster monster = new EntityMonster(scene, npcMonster, group, monsterInfo);
         monster.setEventId(rogueMonster.getEventID());
         monster.setOverrideStageId(rogueMonster.getEventID());
         
@@ -89,11 +86,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         if (propExcel == null) return null;
         
         // Create prop from prop info
-        EntityProp prop = new EntityProp(scene, propExcel, propInfo.getPos());
-        prop.getRot().set(propInfo.getRot());
-        prop.setPropInfo(propInfo);
-        prop.setGroupId(group.getId());
-        prop.setInstId(propInfo.getID());
+        EntityProp prop = new EntityProp(scene, propExcel, group, propInfo);
         prop.setState(state, false);
         
         // Overrides

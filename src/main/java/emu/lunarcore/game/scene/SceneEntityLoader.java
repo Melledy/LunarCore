@@ -25,10 +25,7 @@ public class SceneEntityLoader {
         if (npcMonsterExcel == null) return null;
         
         // Create monster from group monster info
-        EntityMonster monster = new EntityMonster(scene, npcMonsterExcel, monsterInfo.getPos());
-        monster.getRot().set(monsterInfo.getRot());
-        monster.setGroupId(group.getId());
-        monster.setInstId(monsterInfo.getID());
+        EntityMonster monster = new EntityMonster(scene, npcMonsterExcel, group, monsterInfo);
         monster.setEventId(monsterInfo.getEventID());
         monster.setWorldLevel(scene.getPlayer().getWorldLevel());
         
@@ -44,11 +41,7 @@ public class SceneEntityLoader {
         if (propExcel == null) return null;
         
         // Create prop from group prop info
-        EntityProp prop = new EntityProp(scene, propExcel, propInfo.getPos());
-        prop.getRot().set(propInfo.getRot());
-        prop.setPropInfo(propInfo);
-        prop.setGroupId(group.getId());
-        prop.setInstId(propInfo.getID());
+        EntityProp prop = new EntityProp(scene, propExcel, group, propInfo);
         prop.setState(propInfo.getState(), false);
         
         // Cache
@@ -90,12 +83,7 @@ public class SceneEntityLoader {
         }
         if (haseDuplicateNpcId) return null;
         
-        // Create npc from group npc info
-        EntityNpc npc = new EntityNpc(scene, npcInfo.getNPCID(), npcInfo.getPos());
-        npc.getRot().set(npcInfo.getRot());
-        npc.setInstId(npcInfo.getID());
-        npc.setGroupId(group.getId());
-        
-        return npc;
+        // Create npc from group and npc info
+        return new EntityNpc(scene, group, npcInfo);
     }
 }

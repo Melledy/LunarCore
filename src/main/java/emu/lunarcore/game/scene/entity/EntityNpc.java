@@ -1,5 +1,7 @@
 package emu.lunarcore.game.scene.entity;
 
+import emu.lunarcore.data.config.GroupInfo;
+import emu.lunarcore.data.config.NpcInfo;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.NpcRogueInfoOuterClass.NpcRogueInfo;
@@ -22,11 +24,13 @@ public class EntityNpc implements GameEntity {
     
     @Setter private int rogueNpcId; 
     
-    public EntityNpc(Scene scene, int npcId, Position pos) {
+    public EntityNpc(Scene scene, GroupInfo group, NpcInfo npcInfo) {
         this.scene = scene;
-        this.npcId = npcId;
-        this.pos = pos;
-        this.rot = new Position();
+        this.npcId = npcInfo.getNPCID();
+        this.pos = npcInfo.getPos().clone();
+        this.rot = npcInfo.getRot().clone();
+        this.groupId = group.getId();
+        this.instId = npcInfo.getID();
     }
 
     @Override

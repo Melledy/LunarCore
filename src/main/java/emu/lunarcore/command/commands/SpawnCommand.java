@@ -4,6 +4,7 @@ import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.PropExcel;
@@ -42,16 +43,16 @@ public class SpawnCommand implements CommandHandler {
         NpcMonsterExcel monsterExcel = GameData.getNpcMonsterExcelMap().get(id);
         if (monsterExcel != null) {
             // Try to find monster config
-            int groupId = 0;
+            GroupInfo group = null;
             MonsterInfo monsterInfo = null;
             
-            for (var group : target.getScene().getFloorInfo().getGroups().values()) {
-                if (group.getMonsterList().size() == 0) continue;
+            for (var groupInfo : target.getScene().getFloorInfo().getGroups().values()) {
+                if (groupInfo.getMonsterList().size() == 0) continue;
                 
-                for (var m : group.getMonsterList()) {
+                for (var m : groupInfo.getMonsterList()) {
                     if (m.getFarmElementID() == 0) {
-                        groupId = group.getId();
-                        monsterInfo = group.getMonsterList().get(0);
+                        group = groupInfo;
+                        monsterInfo = groupInfo.getMonsterList().get(0);
                         break;
                     }
                 }
@@ -69,9 +70,8 @@ public class SpawnCommand implements CommandHandler {
             // Spawn monster
             for (int i = 0; i < amount; i++) {
                 Position pos = target.getPos().clone().add(Utils.randomRange(-radius, radius), 0, Utils.randomRange(-radius, radius));
-                EntityMonster monster = new EntityMonster(target.getScene(), monsterExcel, pos);
-                monster.setGroupId(groupId);
-                monster.setInstId(monsterInfo.getID());
+                EntityMonster monster = new EntityMonster(target.getScene(), monsterExcel, group, monsterInfo);
+                monster.getPos().set(pos);
                 monster.setEventId(monsterInfo.getEventID());
                 monster.setOverrideStageId(stage);
                 
@@ -88,7 +88,8 @@ public class SpawnCommand implements CommandHandler {
             // Spawn props
             for (int i = 0; i < amount; i++) {
                 Position pos = target.getPos().clone().add(Utils.randomRange(-radius, radius), 0, Utils.randomRange(-radius, radius));
-                EntityProp prop = new EntityProp(target.getScene(), propExcel, pos);
+                EntityProp prop = new EntityProp(target.getScene(), propExcel, null, null);
+                prop.getPos().set(pos);
                 prop.setState(PropState.Open);
                 
                 target.getScene().addEntity(prop, true);

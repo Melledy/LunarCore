@@ -94,9 +94,7 @@ public class ChallengeInstance {
             if (npcMonsterExcel == null) continue;
             
             // Create monster with excels
-            EntityMonster monster = new EntityMonster(getScene(), npcMonsterExcel, monsterInfo.getPos());
-            monster.getRot().setY((int) (monsterInfo.getRotY() * 1000f));
-            monster.setGroupId(group.getId());
+            EntityMonster monster = new EntityMonster(getScene(), npcMonsterExcel, group, monsterInfo);
             monster.setInstId(instId);
             monster.setEventId(eventId);
             monster.setOverrideStageId(eventId);

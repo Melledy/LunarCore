@@ -1,5 +1,6 @@
 package emu.lunarcore.game.scene.entity;
 
+import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.enums.PropState;
@@ -29,12 +30,23 @@ public class EntityProp implements GameEntity {
 
     @Setter private PropRogueData rogueData;
     
-    public EntityProp(Scene scene, PropExcel excel, Position pos) {
+    public EntityProp(Scene scene, PropExcel excel, GroupInfo group, PropInfo propInfo) {
         this.scene = scene;
         this.excel = excel;
-        this.pos = pos;
+        this.pos = new Position();
         this.rot = new Position();
         this.state = PropState.Closed;
+        
+        if (propInfo != null) {
+            this.propInfo = propInfo;
+            this.instId = propInfo.getID();
+            this.getPos().set(propInfo.getPos());
+            this.getRot().set(propInfo.getRot());
+        }
+        
+        if (group != null) {
+            this.groupId = group.getId();
+        }
     }
     
     public int getPropId() {
