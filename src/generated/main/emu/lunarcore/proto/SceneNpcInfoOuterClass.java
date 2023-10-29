@@ -23,6 +23,11 @@ public final class SceneNpcInfoOuterClass {
      */
     private int npcId;
 
+    /**
+     * <code>optional .NpcExtraInfo extra_info = 10;</code>
+     */
+    private final NpcExtraInfoOuterClass.NpcExtraInfo extraInfo = NpcExtraInfoOuterClass.NpcExtraInfo.newInstance();
+
     private SceneNpcInfo() {
     }
 
@@ -70,12 +75,70 @@ public final class SceneNpcInfoOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .NpcExtraInfo extra_info = 10;</code>
+     * @return whether the extraInfo field is set
+     */
+    public boolean hasExtraInfo() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional .NpcExtraInfo extra_info = 10;</code>
+     * @return this
+     */
+    public SceneNpcInfo clearExtraInfo() {
+      bitField0_ &= ~0x00000002;
+      extraInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .NpcExtraInfo extra_info = 10;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableExtraInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public NpcExtraInfoOuterClass.NpcExtraInfo getExtraInfo() {
+      return extraInfo;
+    }
+
+    /**
+     * <code>optional .NpcExtraInfo extra_info = 10;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public NpcExtraInfoOuterClass.NpcExtraInfo getMutableExtraInfo() {
+      bitField0_ |= 0x00000002;
+      return extraInfo;
+    }
+
+    /**
+     * <code>optional .NpcExtraInfo extra_info = 10;</code>
+     * @param value the extraInfo to set
+     * @return this
+     */
+    public SceneNpcInfo setExtraInfo(final NpcExtraInfoOuterClass.NpcExtraInfo value) {
+      bitField0_ |= 0x00000002;
+      extraInfo.copyFrom(value);
+      return this;
+    }
+
     @Override
     public SceneNpcInfo copyFrom(final SceneNpcInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         npcId = other.npcId;
+        extraInfo.copyFrom(other.extraInfo);
       }
       return this;
     }
@@ -89,6 +152,9 @@ public final class SceneNpcInfoOuterClass {
       if (other.hasNpcId()) {
         setNpcId(other.npcId);
       }
+      if (other.hasExtraInfo()) {
+        getMutableExtraInfo().mergeFrom(other.extraInfo);
+      }
       return this;
     }
 
@@ -100,6 +166,7 @@ public final class SceneNpcInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       npcId = 0;
+      extraInfo.clear();
       return this;
     }
 
@@ -110,6 +177,7 @@ public final class SceneNpcInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      extraInfo.clearQuick();
       return this;
     }
 
@@ -123,7 +191,8 @@ public final class SceneNpcInfoOuterClass {
       }
       SceneNpcInfo other = (SceneNpcInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasNpcId() || npcId == other.npcId);
+        && (!hasNpcId() || npcId == other.npcId)
+        && (!hasExtraInfo() || extraInfo.equals(other.extraInfo));
     }
 
     @Override
@@ -132,6 +201,10 @@ public final class SceneNpcInfoOuterClass {
         output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(npcId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 82);
+        output.writeMessageNoTag(extraInfo);
+      }
     }
 
     @Override
@@ -139,6 +212,9 @@ public final class SceneNpcInfoOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(npcId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(extraInfo);
       }
       return size;
     }
@@ -154,6 +230,15 @@ public final class SceneNpcInfoOuterClass {
             // npcId
             npcId = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 82) {
+              break;
+            }
+          }
+          case 82: {
+            // extraInfo
+            input.readMessage(extraInfo);
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -179,6 +264,9 @@ public final class SceneNpcInfoOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.npcId, npcId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeMessage(FieldNames.extraInfo, extraInfo);
+      }
       output.endObject();
     }
 
@@ -195,6 +283,18 @@ public final class SceneNpcInfoOuterClass {
               if (!input.trySkipNullValue()) {
                 npcId = input.readUInt32();
                 bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -253631266:
+          case 747541373: {
+            if (input.isAtField(FieldNames.extraInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(extraInfo);
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -254,6 +354,8 @@ public final class SceneNpcInfoOuterClass {
      */
     static class FieldNames {
       static final FieldName npcId = FieldName.forField("npcId", "npc_id");
+
+      static final FieldName extraInfo = FieldName.forField("extraInfo", "extra_info");
     }
   }
 }

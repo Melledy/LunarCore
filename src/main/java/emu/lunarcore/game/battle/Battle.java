@@ -35,6 +35,7 @@ public class Battle {
     private final List<GameItem> drops;
     private final long timestamp;
     
+    @Setter private int levelOverride;
     @Setter private int roundsLimit;
     
     private Battle(Player player, PlayerLineup lineup) {
@@ -175,6 +176,10 @@ public class Battle {
                 var wave = SceneMonsterWave.newInstance()
                         .setWaveId(1) // Probably not named correctly
                         .setStageId(stage.getId());
+                
+                if (this.levelOverride > 0) {
+                    wave.getMutableWaveParam().setLevel(this.levelOverride);
+                }
                 
                 for (int monsterId : sceneMonsterWave) {
                     var monster = SceneMonster.newInstance().setMonsterId(monsterId);
