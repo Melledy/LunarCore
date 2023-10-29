@@ -57,13 +57,13 @@ public class ChallengeManager extends BasePlayerManager {
             // Set technique points
             lineup.setMp(5);
         }
-        
-        // Set first lineup before we enter scenes
-        getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE, false);
-        
+
         // Set challenge data for player
         ChallengeInstance instance = new ChallengeInstance(getPlayer(), excel);
         getPlayer().setChallengeInstance(instance);
+        
+        // Set first lineup before we enter scenes
+        getPlayer().getLineupManager().setCurrentExtraLineup(instance.getCurrentExtraLineup(), false);
         
         // Enter scene
         boolean success = getPlayer().enterScene(excel.getMapEntranceID(), 0, false);

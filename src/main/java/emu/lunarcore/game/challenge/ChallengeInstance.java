@@ -1,5 +1,6 @@
 package emu.lunarcore.game.challenge;
 
+import dev.morphia.annotations.Entity;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
@@ -20,30 +21,35 @@ import emu.lunarcore.util.Position;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter
+@Getter @Entity(useDiscriminator = false)
 public class ChallengeInstance {
-    private final Player player;
-    private final ChallengeExcel excel;
+    private transient Player player;
+    private transient ChallengeExcel excel;
     private Position startPos;
     private Position startRot;
     
-    private boolean hasAvatarDied;
+    private int challengeId;
     private int currentStage;
-    private ExtraLineupType currentExtraLineup;
-    private ChallengeStatus status;
+    private int currentExtraLineup;
+    private int status;
+    private boolean hasAvatarDied;
     
     @Setter private int roundsLeft;
     @Setter private int stars;
+    
+    @Deprecated // Morphia only
+    public ChallengeInstance() {}
 
     public ChallengeInstance(Player player, ChallengeExcel excel) {
         this.player = player;
         this.excel = excel;
+        this.challengeId = excel.getId();
         this.startPos = new Position();
         this.startRot = new Position();
         this.currentStage = 1;
         this.roundsLeft = excel.getChallengeCountDown();
-        this.status = ChallengeStatus.CHALLENGE_DOING;
-        this.currentExtraLineup = ExtraLineupType.LINEUP_CHALLENGE;
+        this.setStatus(ChallengeStatus.CHALLENGE_DOING);
+        this.setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE);
     }
     
     private Scene getScene() {
@@ -52,6 +58,14 @@ public class ChallengeInstance {
     
     private int getChallengeId() {
         return this.getExcel().getId();
+    }
+    
+    private void setStatus(ChallengeStatus status) {
+        this.status = status.getNumber();
+    }
+    
+    private void setCurrentExtraLineup(ExtraLineupType type) {
+        this.currentExtraLineup = type.getNumber();
     }
     
     protected void setupStage1() {
@@ -110,7 +124,7 @@ public class ChallengeInstance {
     }
 
     public boolean isWin() {
-        return status == ChallengeStatus.CHALLENGE_FINISH;
+        return status == ChallengeStatus.CHALLENGE_FINISH_VALUE;
     }
     
     public void onBattleStart(Battle battle) {
@@ -133,7 +147,7 @@ public class ChallengeInstance {
                 // Progress to the next stage
                 if (this.currentStage >= excel.getStageNum()) {
                     // Last stage
-                    this.status = ChallengeStatus.CHALLENGE_FINISH;
+                    this.setStatus(ChallengeStatus.CHALLENGE_FINISH);
                     this.stars = this.calculateStars();
                     // Save history
                     player.getChallengeManager().addHistory(this.getChallengeId(), this.getStars());
@@ -144,7 +158,7 @@ public class ChallengeInstance {
                     this.currentStage++;
                     this.setupStage2();
                     // Change player line up
-                    this.currentExtraLineup = ExtraLineupType.LINEUP_CHALLENGE_2;
+                    this.setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE_2);
                     player.getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), true);
                     player.sendPacket(new PacketChallengeLineupNotify(this.getCurrentExtraLineup()));
                     // Move player
@@ -156,13 +170,13 @@ public class ChallengeInstance {
             this.roundsLeft = Math.min(Math.max(this.roundsLeft - stats.getRoundCnt(), 0), this.roundsLeft);
         } else {
             // Fail challenge
-            this.status = ChallengeStatus.CHALLENGE_FAILED;
+            this.setStatus(ChallengeStatus.CHALLENGE_FAILED);
         }
     }
 
     public void onUpdate() {
         // End challenge if its done
-        if (status != ChallengeStatus.CHALLENGE_DOING) {
+        if (status != ChallengeStatus.CHALLENGE_DOING_VALUE) {
             getPlayer().setChallengeInstance(null);
         }
     }
@@ -193,13 +207,22 @@ public class ChallengeInstance {
         
         return Math.min(stars, 7);
     }
+
+    public boolean validate(Player player) {
+        if (this.player == null) {
+            this.player = player;
+        }
+        
+        this.excel = GameData.getChallengeExcelMap().get(this.challengeId);
+        return this.excel != null;
+    }
     
     public ChallengeInfo toProto() {
         var proto = ChallengeInfo.newInstance()
                 .setChallengeId(this.getExcel().getId())
-                .setStatus(this.getStatus())
+                .setStatusValue(this.getStatus())
                 .setRoundCount(this.getRoundsElapsed())
-                .setExtraLineupType(this.getCurrentExtraLineup());
+                .setExtraLineupTypeValue(this.getCurrentExtraLineup());
         
         return proto;
     }

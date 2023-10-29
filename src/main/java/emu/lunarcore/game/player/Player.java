@@ -97,14 +97,16 @@ public class Player {
     // Database persistent data
     private LineupManager lineupManager;
     private PlayerGachaInfo gachaInfo;
+
+    // Instances
+    @Setter private ChallengeInstance challengeInstance;
+    @Setter private transient RogueInstance rogueInstance;
     
     // Etc
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
     
     @Setter private transient boolean paused;
-    @Setter private transient ChallengeInstance challengeInstance;
-    @Setter private transient RogueInstance rogueInstance;
     
     @Deprecated // Morphia only
     public Player() {
@@ -553,6 +555,12 @@ public class Player {
         
         // Post database load
         this.getAvatars().setupHeroPaths();
+        
+        // Check instances
+        if (this.getChallengeInstance() != null && !this.getChallengeInstance().validate(this)) {
+            // Delete instance if it failed to validate (example: missing an excel)
+            this.challengeInstance = null;
+        }
 
         // Load into saved scene (should happen after everything else loads)
         this.loadScene(planeId, floorId, entryId, this.getPos(), this.getRot());
