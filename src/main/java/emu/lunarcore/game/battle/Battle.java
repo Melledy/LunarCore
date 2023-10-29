@@ -12,7 +12,7 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.StageType;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.player.PlayerLineup;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
 import emu.lunarcore.proto.SceneMonsterOuterClass.SceneMonster;

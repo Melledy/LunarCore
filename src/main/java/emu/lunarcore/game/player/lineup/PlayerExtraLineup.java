@@ -1,20 +1,19 @@
-package emu.lunarcore.game.player;
+package emu.lunarcore.game.player.lineup;
 
+import dev.morphia.annotations.Entity;
 import emu.lunarcore.GameConstants;
+import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 
+@Entity(value = "lineupsExtra", useDiscriminator = false)
 public class PlayerExtraLineup extends PlayerLineup {
-    private int extraLineupType;
     private int mp;
     
     @Deprecated // Morphia only!
-    public PlayerExtraLineup() {
-
-    }
+    public PlayerExtraLineup() {}
     
     public PlayerExtraLineup(Player player, int extraLineupType) {
-        super(player, 0);
-        this.extraLineupType = extraLineupType;
+        super(player, extraLineupType);
     }
 
     @Override
@@ -23,8 +22,13 @@ public class PlayerExtraLineup extends PlayerLineup {
     }
     
     @Override
+    public int getIndex() {
+        return 0;
+    }
+    
+    @Override
     public int getExtraLineupType() {
-        return extraLineupType;
+        return this.index;
     }
     
     @Override

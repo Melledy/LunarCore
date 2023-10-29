@@ -9,11 +9,11 @@ import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.PlaneType;
-import emu.lunarcore.game.player.PlayerLineup;
 import emu.lunarcore.game.scene.entity.*;
 import emu.lunarcore.game.scene.triggers.PropTrigger;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneGroupStateOuterClass.SceneGroupState;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
@@ -316,7 +316,7 @@ public class Scene {
 
         // Get current lineup
         PlayerLineup lineup = getPlayer().getCurrentLineup();
-        int leaderAvatarId = lineup.getAvatars().get(getPlayer().getLineupManager().getCurrentLeader());
+        int leaderAvatarId = lineup.getAvatars().get(lineup.getLeader());
 
         // Sort entities into groups
         var groups = new Int2ObjectOpenHashMap<SceneEntityGroupInfo>();

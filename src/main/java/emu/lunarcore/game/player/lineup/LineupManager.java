@@ -1,38 +1,44 @@
-package emu.lunarcore.game.player;
+package emu.lunarcore.game.player.lineup;
 
 import java.util.List;
 
 import dev.morphia.annotations.Entity;
 import emu.lunarcore.GameConstants;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
-import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+
 import lombok.Getter;
 
 @Entity(useDiscriminator = false) @Getter
 public class LineupManager {
     private transient Player player;
-
-    private PlayerLineup[] lineups;
+    
     private int currentIndex; // Team index
-    private int currentLeader;
+    private int currentExtraIndex;
     private int mp;
     
-    // Extra lineups for challenges/simulated universe/etc
-    private transient int currentExtraLineup;
-    private transient Int2ObjectMap<PlayerExtraLineup> extraLineups;
+    private transient PlayerLineup[] lineups;
+    private transient PlayerExtraLineup[] extraLineups;
 
     @Deprecated // Morphia only!
     public LineupManager() {
-        this.extraLineups = new Int2ObjectOpenHashMap<>();
+        this.lineups = new PlayerLineup[GameConstants.DEFAULT_TEAMS];
+        this.extraLineups = new PlayerExtraLineup[ExtraLineupType.values().length];
     }
 
     public LineupManager(Player player) {
         this();
+        this.player = player;
         this.mp = 5;
-        this.validate(player);
+        
+        this.validate();
+    }
+    
+    public void setPlayer(Player player) {
+        this.player = player;
     }
     
     protected void addMp(int i) {
@@ -54,8 +60,8 @@ public class LineupManager {
      * @param sync Whether or not to sync lineup with scene. Not needed when changing scenes.
      */
     public void setCurrentExtraLineup(int type, boolean sync) {
-        this.currentExtraLineup = type;
-        this.currentLeader = 0;
+        this.currentExtraIndex = type;
+        this.getPlayer().save();
 
         if (sync) {
             // Sync with scene entities
@@ -65,47 +71,77 @@ public class LineupManager {
         }
     }
     
+    /**
+     * Sets the player's current extra lineup type.
+     * @param type Extra lineup type
+     * @param sync Whether or not to sync lineup with scene. Not needed when changing scenes.
+     */
     public void setCurrentExtraLineup(ExtraLineupType type, boolean sync) {
         this.setCurrentExtraLineup(type.getNumber(), sync);
     }
     
-    public PlayerLineup getLineupByIndex(int index, int extraLineup) {
+    /**
+     * Returns a lineup by the type
+     * @param index Regular lineup index
+     * @param extraLineup
+     * @return
+     */
+    public PlayerLineup getLineupByIndex(int index, int extraLineupType) {
         // Sanity
-        if (extraLineup > 0) {
-            return getExtraLineupByType(extraLineup);
+        if (extraLineupType > 0) {
+            return getExtraLineupByType(extraLineupType);
         } else {
             return getLineupByIndex(index);
         }
     }
-
-    /*
-     * Get player lineup by index. Only normal lineups are returned
+    
+    /**
+     * Gets a regular player lineup by index. Only normal lineups are returned
      */
     public PlayerLineup getLineupByIndex(int index) {
-        // Sanity
-        if (index < 0 || index >= this.getLineups().length) {
+        // Sanity check
+        if (index < 0 || index >= this.lineups.length) {
             return null;
         }
-
+        
         return this.lineups[index];
     }
     
     /**
-     * Gets player lineup by ExtraLineupType. Creates a lineup for the player if it doesnt exist.
-     * @param extraLineupType
-     * @return
+     * Returns a lineup by ExtraLineupType. Creates a lineup for the player if it doesnt exist.
+     * @param type ExtraLineupType
      */
-    private PlayerLineup getExtraLineupByType(int extraLineupType) {
-        return getExtraLineups().computeIfAbsent(extraLineupType, type -> new PlayerExtraLineup(getPlayer(), type));
-    }
-
-    public PlayerLineup getCurrentLineup() {
-        return this.getLineupByIndex(this.currentIndex, this.getCurrentExtraLineup());
+    public PlayerLineup getExtraLineupByType(int type) {
+        // Sanity check to make sure the extra lineup type actually exists
+        if (type <= 0 || type >= this.extraLineups.length) {
+            return null;
+        }
+        
+        // Actually get the lineup
+        PlayerExtraLineup lineup = this.extraLineups[type];
+        
+        if (lineup == null) {
+            lineup = new PlayerExtraLineup(this.getPlayer(), type);
+            this.extraLineups[type] = lineup;
+        }
+        
+        return lineup;
     }
     
+    /**
+     * Returns the current lineup that the player is using.
+     */
+    public PlayerLineup getCurrentLineup() {
+        return this.getLineupByIndex(this.currentIndex, this.currentExtraIndex);
+    }
+    
+    /**
+     * Returns the avatar that the player is playing as from the current lineup.
+     */
     public GameAvatar getCurrentLeaderAvatar() {
         try {
-            int avatarId = this.getCurrentLineup().getAvatars().get(currentLeader);
+            PlayerLineup lineup = this.getCurrentLineup();
+            int avatarId = lineup.getAvatars().get(lineup.getLeader());
             return this.getPlayer().getAvatarById(avatarId);
         } catch (Exception e) {
             return null;
@@ -115,8 +151,10 @@ public class LineupManager {
     // Lineup functions
 
     public boolean changeLeader(int slot) {
-        if (slot >= 0 && slot < this.getCurrentLineup().size()) {
-            this.currentLeader = slot;
+        PlayerLineup lineup = this.getCurrentLineup();
+        
+        if (slot >= 0 && slot < lineup.size()) {
+            lineup.setLeader(slot);
             return true;
         }
 
@@ -147,7 +185,7 @@ public class LineupManager {
         }
         
         // Save
-        this.getPlayer().save();
+        lineup.save();
 
         // Sync lineup with scene
         if (isCurrentLineup) {
@@ -180,13 +218,13 @@ public class LineupManager {
             return false;
         }
 
-        // Validate leader index
-        if (this.getCurrentLeader() >= lineup.size()) {
-            this.currentLeader = 0;
+        // Validate leader slot
+        if (lineup.getLeader() >= lineup.size()) {
+            lineup.setLeader(0);
         }
 
         // Save
-        this.getPlayer().save();
+        lineup.save();
 
         // Sync lineup with scene
         if (isCurrentLineup) {
@@ -201,7 +239,7 @@ public class LineupManager {
 
     public boolean switchLineup(int index) {
         // Sanity + Prevent lineups from being changed when the player is using an extra lineup
-        if (index == this.getCurrentIndex() || this.currentExtraLineup > 0) {
+        if (index == this.getCurrentIndex() || this.currentExtraIndex > 0) {
             return false;
         }
 
@@ -215,9 +253,8 @@ public class LineupManager {
 
         // Set index
         this.currentIndex = index;
-        this.currentLeader = 0;
 
-        // Save
+        // Save player
         this.getPlayer().save();
 
         // Sync lineup data
@@ -248,13 +285,13 @@ public class LineupManager {
             }
         }
 
-        // Validate leader index
-        if (this.getCurrentLeader() >= lineup.size()) {
-            this.currentLeader = 0;
+        // Validate leader slot
+        if (lineup.getLeader() >= lineup.size()) {
+            lineup.setLeader(0);
         }
 
         // Save
-        this.getPlayer().save();
+        lineup.save();
 
         // Sync lineup with scene
         if (lineup == getCurrentLineup()) {
@@ -289,7 +326,7 @@ public class LineupManager {
         lineup.getAvatars().set(dest, srcId);
 
         // Save
-        this.getPlayer().save();
+        lineup.save();
 
         // Sync lineup data
         player.sendPacket(new PacketSyncLineupNotify(lineup));
@@ -302,38 +339,78 @@ public class LineupManager {
         PlayerLineup lineup = this.getLineupByIndex(index);
         if (lineup == null) return false;
 
-        // Change name
+        // Change name and save lineup
         lineup.setName(name);
+        lineup.save();
+        
         return true;
     }
-
-    // Max sure all lineups exist in the array
-    public void validate(Player player) {
-        // Set player
-        this.player = player;
-
-        // Make sure lineups exist
-        if (this.getLineups() == null) {
-            this.lineups = new PlayerLineup[GameConstants.DEFAULT_TEAMS];
-        } else if (this.getLineups().length != GameConstants.DEFAULT_TEAMS) {
-            // TODO move lineups from old array to this new one
-            this.lineups = new PlayerLineup[GameConstants.DEFAULT_TEAMS];
-        }
-
-        // Create new lineups for any missing ones
-        for (int i = 0; i < this.lineups.length; i++) {
-            if (this.lineups[i] == null) {
-                this.lineups[i] = new PlayerLineup(getPlayer(), i);
-            } else {
-                this.lineups[i].setOwnerAndIndex(getPlayer(), i);
+    
+    public void loadFromDatabase() {
+        // Load lineups from database
+        var list = LunarCore.getGameDatabase()
+                .getObjects(PlayerLineup.class, "ownerUid", getPlayer().getUid())
+                .toList();
+        
+        for (var lineup : list) {
+            // Set owner
+            lineup.setOwner(this.getPlayer());
+            
+            // Add to lineups
+            try {
+                this.lineups[lineup.getIndex()] = lineup; 
+            } catch (Exception e) {
+                lineup.delete();
             }
         }
-
-        // Set current index if out of bounds
-        if (this.currentIndex < 0) {
+        
+        // Load extra lineups from database
+        var extraList = LunarCore.getGameDatabase()
+                .getObjects(PlayerExtraLineup.class, "ownerUid", getPlayer().getUid())
+                .toList();
+        
+        for (var lineup : extraList) {
+            // Set owner
+            lineup.setOwner(this.getPlayer());
+            
+            // Add to lineups
+            try {
+                this.extraLineups[lineup.getExtraLineupType()] = lineup; 
+            } catch (Exception e) {
+                lineup.delete();
+            }
+        }
+        
+        // Validate lineups
+        this.validate();
+    }
+    
+    private void validate() {
+        // Populate all lineups
+        for (int i = 0; i < GameConstants.DEFAULT_TEAMS; i++) {
+            PlayerLineup lineup = this.lineups[i];
+            
+            if (lineup == null) {
+                lineup = new PlayerLineup(this.getPlayer(), i);
+                this.lineups[i] = lineup;
+            } else {
+                lineup.setOwner(this.getPlayer());
+            }
+        }
+        
+        // Make sure current lineup has at least one avatar
+        PlayerLineup lineup = this.getCurrentLineup();
+        if (lineup == null) {
             this.currentIndex = 0;
-        } else if (this.currentIndex >= this.lineups.length) {
-            this.currentIndex = this.lineups.length - 1;
+            this.currentExtraIndex = 0;
+            lineup = this.getCurrentLineup();
+        }
+        
+        if (lineup.getAvatars().size() == 0) {
+            GameAvatar avatar = this.getPlayer().getAvatarById(GameConstants.TRAILBLAZER_AVATAR_ID);
+            if (avatar != null) {
+                lineup.getAvatars().add(avatar.getAvatarId());
+            }
         }
     }
 }

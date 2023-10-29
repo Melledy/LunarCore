@@ -1,57 +1,65 @@
-package emu.lunarcore.game.player;
+package emu.lunarcore.game.player.lineup;
 
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
+import org.bson.types.ObjectId;
+
 import dev.morphia.annotations.Entity;
+import dev.morphia.annotations.Id;
+import dev.morphia.annotations.Indexed;
 import emu.lunarcore.GameConstants;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.LineupInfoOuterClass.LineupInfo;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import lombok.Getter;
+import lombok.Setter;
 
-@Entity(useDiscriminator = false) @Getter
+@Entity(value = "lineups", useDiscriminator = false) @Getter
 public class PlayerLineup {
+    @Id private ObjectId id;
+    
+    @Indexed private int ownerUid;
     private transient Player owner;
-    private transient int index;
-
-    private String name;
-    private List<Integer> avatars;
+    
+    protected int index;
+    protected List<Integer> avatars;
+    
+    @Setter private int leader;
+    @Setter private String name;
 
     @Deprecated // Morphia only!
-    public PlayerLineup() {
-
-    }
+    public PlayerLineup() {}
     
     public PlayerLineup(Player player, int index) {
         this.owner = player;
+        this.ownerUid = player.getUid();
         this.index = index;
         this.avatars = new ArrayList<>(GameConstants.MAX_AVATARS_IN_TEAM);
         
         // Set team name if not an extra lineup
         if (!this.isExtraLineup()) {
             this.name = "Team " + (index + 1);
-        } else {
-            this.name = "";
         }
     }
 
-    protected void setOwnerAndIndex(Player player, int index) {
+    protected void setOwner(Player player) {
         this.owner = player;
-        this.index = index;
     }
     
     public boolean isExtraLineup() {
         return false;
     }
     
+    public int getIndex() {
+        return this.index;
+    }
+    
     public int getExtraLineupType() {
         return 0;
-    }
-
-    public void setName(String name) {
-        this.name = name;
     }
 
     public synchronized List<Integer> getAvatars() {
@@ -114,15 +122,30 @@ public class PlayerLineup {
             consumer.accept(avatar);
         }
     }
+    
+    // Database
+    
+    public void save() {
+        LunarCore.getGameDatabase().save(this);
+    }
+    
+    public void delete() {
+        LunarCore.getGameDatabase().delete(this);
+    }
+    
+    // Serialization
 
     public LineupInfo toProto() {
         var proto = LineupInfo.newInstance()
-                .setIndex(index)
-                .setName(this.getName())
-                .setLeaderSlot(this.getOwner().getLineupManager().getCurrentLeader())
+                .setIndex(this.getIndex())
+                .setLeaderSlot(this.getLeader())
                 .setMp(this.getMp())
                 .setMaxMp(GameConstants.MAX_MP)
                 .setExtraLineupTypeValue(this.getExtraLineupType());
+        
+        if (this.getName() != null) {
+            proto.setName(this.getName());
+        }
 
         for (int slot = 0; slot < this.getAvatars().size(); slot++) {
             GameAvatar avatar = owner.getAvatars().getAvatarById(getAvatars().get(slot));

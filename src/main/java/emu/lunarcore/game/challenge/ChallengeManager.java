@@ -7,7 +7,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ChallengeExcel;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.player.PlayerLineup;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.server.packet.send.PacketStartChallengeScRsp;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -34,7 +34,7 @@ public class ChallengeManager extends BasePlayerManager {
         // Sanity check lineups
         if (excel.getStageNum() >= 1) {
             // Get lineup
-            PlayerLineup lineup = getPlayer().getLineupManager().getLineupByIndex(0, ExtraLineupType.LINEUP_CHALLENGE_VALUE);
+            PlayerLineup lineup = getPlayer().getLineupManager().getExtraLineupByType(ExtraLineupType.LINEUP_CHALLENGE_VALUE);
             // Make sure this lineup has avatars set
             if (lineup.getAvatars().size() == 0) return;
             // Reset hp/sp
@@ -46,7 +46,7 @@ public class ChallengeManager extends BasePlayerManager {
             lineup.setMp(5);
         }
         if (excel.getStageNum() >= 2) {
-            PlayerLineup lineup = getPlayer().getLineupManager().getLineupByIndex(0, ExtraLineupType.LINEUP_CHALLENGE_2_VALUE);
+            PlayerLineup lineup = getPlayer().getLineupManager().getExtraLineupByType(ExtraLineupType.LINEUP_CHALLENGE_2_VALUE);
             // Make sure this lineup has avatars set
             if (lineup.getAvatars().size() == 0) return;
             // Reset hp/sp
@@ -59,7 +59,7 @@ public class ChallengeManager extends BasePlayerManager {
         }
         
         // Set first lineup before we enter scenes
-        getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE_VALUE, false);
+        getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE, false);
         
         // Set challenge data for player
         ChallengeInstance instance = new ChallengeInstance(getPlayer(), excel);

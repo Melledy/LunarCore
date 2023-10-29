@@ -16,7 +16,7 @@ import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.player.PlayerLineup;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.AvatarOuterClass.Avatar;

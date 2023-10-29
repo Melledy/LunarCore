@@ -1,4 +1,4 @@
-package emu.lunarcore.game.service;
+package emu.lunarcore.game.inventory;
 
 import java.util.ArrayList;
 import java.util.Collection;
@@ -9,7 +9,6 @@ import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.excel.*;
 import emu.lunarcore.data.excel.ItemComposeExcel.FormulaType;
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;

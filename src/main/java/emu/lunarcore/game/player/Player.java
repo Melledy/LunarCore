@@ -29,6 +29,8 @@ import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.Inventory;
 import emu.lunarcore.game.mail.Mailbox;
+import emu.lunarcore.game.player.lineup.LineupManager;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.rogue.RogueInstance;
 import emu.lunarcore.game.rogue.RogueManager;
 import emu.lunarcore.game.scene.Scene;
@@ -138,9 +140,9 @@ public class Player {
         // Setup hero paths
         this.getAvatars().setupHeroPaths();
 
-        // Give us a starter character and add it to our main lineup.
+        // Give us the main character
         // TODO script tutorial
-        GameAvatar avatar = new GameAvatar(this.getCurHeroPath());
+        GameAvatar avatar = new GameAvatar(GameConstants.TRAILBLAZER_AVATAR_ID);
         this.addAvatar(avatar);
         this.getCurrentLineup().getAvatars().add(avatar.getAvatarId());
     }
@@ -264,12 +266,7 @@ public class Player {
     }
     
     public GameAvatar getCurrentLeaderAvatar() {
-        try {
-            int avatarId = getCurrentLineup().getAvatars().get(this.getLineupManager().getCurrentLeader());
-            return this.getAvatarById(avatarId);
-        } catch (Exception e) {
-            return null;
-        }
+        return this.getLineupManager().getCurrentLeaderAvatar();
     }
 
     private void initUid() {
@@ -544,17 +541,17 @@ public class Player {
 
     public void onLogin() {
         // Validate
-        if (this.getRot() == null) this.rot = new Position();
-        
+        this.getLineupManager().setPlayer(this);
+
         // Load avatars and inventory first
         this.getAvatars().loadFromDatabase();
         this.getInventory().loadFromDatabase();
+        this.getLineupManager().loadFromDatabase();
         this.getMailbox().loadFromDatabase();
         this.getChallengeManager().loadFromDatabase();
         this.getRogueManager().loadFromDatabase();
         
-        // Load Etc
-        this.getLineupManager().validate(this);
+        // Post database load
         this.getAvatars().setupHeroPaths();
 
         // Load into saved scene (should happen after everything else loads)

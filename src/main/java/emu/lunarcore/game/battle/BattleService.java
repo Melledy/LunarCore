@@ -118,6 +118,7 @@ public class BattleService extends BaseGameService {
             // Add buffs to battle
             if (isPlayerCaster) {
                 GameAvatar avatar = player.getCurrentLeaderAvatar();
+                
                 if (avatar != null) {
                     // Maze skill attack event
                     if (castedSkill) { // Dont need to null check maze skill since we already did it in HandlerSceneCastSkillCsReq
@@ -126,9 +127,9 @@ public class BattleService extends BaseGameService {
                         avatar.getExcel().getMazeAttack().onAttack(avatar, battle);
                     }
                     // Add elemental weakness buff to enemies
-                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), player.getLineupManager().getCurrentLeader());
+                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), battle.getLineup().getLeader());
                     if (buff != null) {
-                        buff.addTargetIndex(player.getLineupManager().getCurrentLeader());
+                        buff.addTargetIndex(battle.getLineup().getLeader());
                         buff.addDynamicValue("SkillIndex", castedSkill ? 2 : 1);
                     }
                 }

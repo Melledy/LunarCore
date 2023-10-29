@@ -10,7 +10,7 @@ import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.excel.RogueTalentExcel;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.player.PlayerLineup;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.proto.RogueAeonInfoOuterClass.RogueAeonInfo;
 import emu.lunarcore.proto.RogueAreaOuterClass.RogueArea;

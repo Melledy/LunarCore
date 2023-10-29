@@ -1,7 +1,7 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.player.PlayerLineup;
-import emu.lunarcore.game.player.LineupManager;
+import emu.lunarcore.game.player.lineup.LineupManager;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.GetAllLineupDataScRspOuterClass.GetAllLineupDataScRsp;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;

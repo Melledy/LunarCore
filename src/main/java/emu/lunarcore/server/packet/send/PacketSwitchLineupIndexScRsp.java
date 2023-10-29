@@ -1,6 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.player.PlayerLineup;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.SwitchLineupIndexScRspOuterClass.SwitchLineupIndexScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
