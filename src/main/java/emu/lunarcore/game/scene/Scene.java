@@ -89,9 +89,6 @@ public class Scene {
         if (getExcel().getPlaneType() != PlaneType.Challenge && getExcel().getPlaneType() != PlaneType.Rogue) {
             this.initSpawns();
         }
-        
-        // Done
-        this.loaded = true;
     }
     
     public PlaneType getPlaneType() {
@@ -123,7 +120,7 @@ public class Scene {
             for (MonsterInfo monsterInfo : group.getMonsterList()) {
                 try {
                     EntityMonster monster = this.getEntityLoader().loadMonster(this, group, monsterInfo);
-                    this.addEntity(monster);
+                    this.addEntity(monster, this.isLoaded());
                 } catch (Exception e) {
                     // Ignored
                 }
@@ -135,7 +132,7 @@ public class Scene {
             for (PropInfo propInfo : group.getPropList()) {
                 try {
                     EntityProp prop = this.getEntityLoader().loadProp(this, group, propInfo);
-                    this.addEntity(prop);
+                    this.addEntity(prop, this.isLoaded());
                 } catch (Exception e) {
                     // Ignored
                 }
@@ -147,7 +144,7 @@ public class Scene {
             for (NpcInfo npcInfo : group.getNPCList()) {
                 try {
                     EntityNpc npc = this.getEntityLoader().loadNpc(this, group, npcInfo);
-                    this.addEntity(npc);
+                    this.addEntity(npc, this.isLoaded());
                 } catch (Exception e) {
                     // Ignored
                 }
@@ -306,6 +303,9 @@ public class Scene {
     }
     
     public synchronized SceneInfo toProto() {
+        // Set loaded flag
+        this.loaded = true;
+        
         // Proto
         var proto = SceneInfo.newInstance()
                 .setWorldId(this.getExcel().getWorldID())
@@ -352,7 +352,6 @@ public class Scene {
                     .setIsDefault(true);
             
             proto.addGroupStateList(state);
-            proto.addJBDDBBAMMNH(entry.getIntKey());
         }
 
         // Done
