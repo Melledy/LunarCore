@@ -160,6 +160,8 @@ public class ChallengeInstance {
     public boolean validate(Player player) {
         if (this.player == null) {
             this.player = player;
+            // Force extra lineup type to be set during login
+            this.player.getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), false);
         }
         
         this.excel = GameData.getChallengeExcelMap().get(this.challengeId);
