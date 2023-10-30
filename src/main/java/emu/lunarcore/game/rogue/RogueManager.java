@@ -95,15 +95,15 @@ public class RogueManager extends BasePlayerManager {
         }
         
         // Get entrance id
-        RogueInstance data = new RogueInstance(getPlayer(), rogueAreaExcel, aeonExcel);
-        getPlayer().setRogueInstance(data);
+        RogueInstance instance = new RogueInstance(getPlayer(), rogueAreaExcel, aeonExcel);
+        getPlayer().setRogueInstance(instance);
         
         // Reset hp/sp
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
             avatar.setCurrentSp(lineup, avatar.getMaxSp());
             
-            data.getBaseAvatarIds().add(avatar.getAvatarId());
+            instance.getBaseAvatarIds().add(avatar.getAvatarId());
         });
         lineup.setMp(5); // Set technique points
         
@@ -111,7 +111,7 @@ public class RogueManager extends BasePlayerManager {
         getPlayer().getLineupManager().setCurrentExtraLineup(ExtraLineupType.LINEUP_ROGUE, false);
 
         // Enter rogue
-        RogueRoomData room = data.enterRoom(data.getStartSiteId());
+        RogueRoomData room = instance.enterRoom(instance.getStartSiteId());
         
         if (room == null) {
             // Reset lineup/instance if entering scene failed

@@ -5,6 +5,7 @@ import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.config.NpcInfo;
 import emu.lunarcore.data.config.PropInfo;
+import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.enums.PropState;
@@ -15,6 +16,18 @@ import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
 
 public class SceneEntityLoader {
+    
+    public void onSceneLoad(Scene scene) {
+        for (GroupInfo group : scene.getFloorInfo().getGroups().values()) {
+            // Skip non-server groups
+            if (group.getLoadSide() != GroupLoadSide.Server) {
+                continue;
+            }
+            
+            // Load group
+            scene.loadGroup(group);
+        }
+    }
     
     public EntityMonster loadMonster(Scene scene, GroupInfo group, MonsterInfo monsterInfo) {
         // Don't spawn entity if they have the IsDelete flag in group info

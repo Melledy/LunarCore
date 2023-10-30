@@ -21,6 +21,23 @@ import emu.lunarcore.util.Utils;
 
 public class RogueEntityLoader extends SceneEntityLoader {
     
+    @Override
+    public void onSceneLoad(Scene scene) {
+        // Make sure player is in a rogue instance
+        RogueInstance rogue = scene.getPlayer().getRogueInstance();
+        if (rogue == null) return;
+        
+        // Get current room
+        RogueRoomData room = rogue.getCurrentRoom();
+        if (room == null) return;
+        
+        // Load scene groups
+        for (int key : room.getExcel().getGroupWithContent().keySet()) {
+            scene.loadGroup(key);
+        }
+    }
+    
+    @Override
     public EntityMonster loadMonster(Scene scene, GroupInfo group, MonsterInfo monsterInfo) {
         // Make sure player is in a rogue instance
         RogueInstance rogue = scene.getPlayer().getRogueInstance();
@@ -45,6 +62,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         return monster;
     }
     
+    @Override
     public EntityProp loadProp(Scene scene, GroupInfo group, PropInfo propInfo) {
         // Make sure player is in a rogue instance
         RogueInstance rogue = scene.getPlayer().getRogueInstance();
@@ -102,6 +120,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         return prop;
     }
     
+    @Override
     public EntityNpc loadNpc(Scene scene, GroupInfo group, NpcInfo npcInfo) {
         // Create npc from group npc info
         EntityNpc npc = super.loadNpc(scene, group, npcInfo);

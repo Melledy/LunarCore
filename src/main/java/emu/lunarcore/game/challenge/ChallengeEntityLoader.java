@@ -17,6 +17,16 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 public class ChallengeEntityLoader extends SceneEntityLoader {
     
     @Override
+    public void onSceneLoad(Scene scene) {
+        // Get challenge instance
+        ChallengeInstance instance = scene.getPlayer().getChallengeInstance();
+        if (instance == null) return;
+        
+        // Setup first stage
+        scene.loadGroup(instance.getExcel().getMazeGroupID1());
+    }
+    
+    @Override
     public EntityMonster loadMonster(Scene scene, GroupInfo group, MonsterInfo monsterInfo) {
         // Get challenge instance
         ChallengeInstance instance = scene.getPlayer().getChallengeInstance();

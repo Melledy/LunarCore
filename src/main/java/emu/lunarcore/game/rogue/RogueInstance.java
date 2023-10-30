@@ -169,7 +169,7 @@ public class RogueInstance {
     
     public synchronized RogueRoomData enterRoom(int siteId) {
         // Set status on previous room
-        RogueRoomData prevRoom = getCurrentRoom();
+        RogueRoomData prevRoom = this.getCurrentRoom();
         if (prevRoom != null) {
             // Make sure the site we want to go into is connected to the current room we are in
             if (!Utils.arrayContains(prevRoom.getNextSiteIds(), siteId)) {
@@ -197,11 +197,6 @@ public class RogueInstance {
         if (anchor != null) {
             getPlayer().getPos().set(anchor.getPos());
             getPlayer().getRot().set(anchor.getRot());
-        }
-        
-        // Load scene groups. THIS NEEDS TO BE LAST
-        for (int key : nextRoom.getExcel().getGroupWithContent().keySet()) {
-            getPlayer().getScene().loadGroup(key);
         }
         
         // Send packet if we are not entering the rogue instance for the first time

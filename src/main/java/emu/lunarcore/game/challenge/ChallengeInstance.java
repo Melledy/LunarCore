@@ -67,14 +67,6 @@ public class ChallengeInstance {
         this.currentExtraLineup = type.getNumber();
     }
     
-    protected void setupStage1() {
-        this.getScene().loadGroup(excel.getMazeGroupID1());
-    }
-    
-    protected void setupStage2() {
-        this.getScene().loadGroup(excel.getMazeGroupID2());
-    }
-    
     private int getRoundsElapsed() {
         return getExcel().getChallengeCountDown() - this.roundsLeft;
     }
@@ -112,7 +104,8 @@ public class ChallengeInstance {
                 } else {
                     // Increment and reset stage
                     this.currentStage++;
-                    this.setupStage2();
+                    // Load scene group for stage 2
+                    this.getScene().loadGroup(excel.getMazeGroupID2());
                     // Change player line up
                     this.setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE_2);
                     player.getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), true);

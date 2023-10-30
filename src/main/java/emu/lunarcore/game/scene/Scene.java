@@ -5,7 +5,6 @@ import java.util.List;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.*;
-import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.PlaneType;
@@ -85,26 +84,12 @@ public class Scene {
         this.floorInfo = GameData.getFloorInfo(this.planeId, this.floorId);
         if (floorInfo == null) return;
         
-        // Spawn from groups
-        if (getExcel().getPlaneType() != PlaneType.Challenge && getExcel().getPlaneType() != PlaneType.Rogue) {
-            this.initSpawns();
-        }
+        // Spawn entities from groups
+        this.getPlaneType().getSceneEntityLoader().onSceneLoad(this);
     }
     
     public PlaneType getPlaneType() {
         return this.getExcel().getPlaneType();
-    }
-    
-    private void initSpawns() {
-        for (GroupInfo group : getFloorInfo().getGroups().values()) {
-            // Skip non-server groups
-            if (group.getLoadSide() != GroupLoadSide.Server) {
-                continue;
-            }
-            
-            // Load group
-            this.loadGroup(group);
-        }
     }
     
     public void loadGroup(int groupId) {
@@ -114,7 +99,7 @@ public class Scene {
         }
     }
     
-    private void loadGroup(GroupInfo group) {
+    public void loadGroup(GroupInfo group) {
         // Add monsters
         if (group.getMonsterList() != null && group.getMonsterList().size() > 0) {
             for (MonsterInfo monsterInfo : group.getMonsterList()) {

@@ -79,9 +79,6 @@ public class ChallengeManager extends BasePlayerManager {
         // Save start positions
         instance.getStartPos().set(getPlayer().getPos());
         instance.getStartRot().set(getPlayer().getRot());
-        
-        // Setup first challenge stage
-        instance.setupStage1();
 
         // Send packet
         getPlayer().sendPacket(new PacketStartChallengeScRsp(getPlayer(), challengeId));
