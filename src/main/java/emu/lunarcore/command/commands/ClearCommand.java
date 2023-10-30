@@ -46,7 +46,7 @@ public class ClearCommand implements CommandHandler {
                     }
                 }
             }
-            case "items" -> {
+            case "items", "all" -> {
                 for (GameItem item : args.getTarget().getInventory().getItems().values()) {
                     if (!item.isLocked() && !item.isEquipped()) {
                         toRemove.add(item);

@@ -117,7 +117,7 @@ public class Inventory extends BasePlayerManager {
     
     public List<GameItem> addItems(Collection<GameItem> items, boolean showHint) {
         // Init results
-        List<GameItem> results = new ArrayList<GameItem>(items.size());
+        List<GameItem> results = new ArrayList<>(items.size());
         
         // Sanity
         if (items.size() == 0) {

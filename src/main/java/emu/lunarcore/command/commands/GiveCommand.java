@@ -8,7 +8,9 @@ import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
+import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.inventory.GameItem;
+import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
@@ -36,9 +38,47 @@ public class GiveCommand implements CommandHandler {
         // Setup items
         List<GameItem> items = new LinkedList<>();
         
-        if (itemData.isEquippable()) {
+        if (itemData.getItemMainType() == ItemMainType.AvatarCard) {
+            // Add avatar
+            GameAvatar avatar = new GameAvatar(itemData.getId());
+            if (args.getTarget().addAvatar(avatar)) {
+                // Try to set level
+                if (args.getLevel() > 0) {
+                    avatar.setLevel(Math.min(args.getLevel(), 80));
+                }
+                
+                // Try to set promotion
+                if (args.getPromotion() >= 0) {
+                    avatar.setPromotion(Math.min(args.getPromotion(), avatar.getExcel().getMaxPromotion()));
+                }
+                
+                // Try to set rank
+                if (args.getRank() >= 0) {
+                    avatar.setRank(Math.min(args.getRank(), avatar.getExcel().getMaxRank()));
+                }
+            }
+        } else if (itemData.isEquippable()) {
             for (int i = 0; i < amount; i++) {
-                items.add(new GameItem(itemData));
+                GameItem item = new GameItem(itemData);
+                
+                if (item.getExcel().isEquipment()) {
+                    // Try to set level
+                    if (args.getLevel() > 0) {
+                        item.setLevel(Math.min(args.getLevel(), 80));
+                    }
+                    
+                    // Try to set promotion
+                    if (args.getPromotion() >= 0) {
+                        item.setPromotion(Math.min(args.getPromotion(), item.getExcel().getEquipmentExcel().getMaxPromotion()));
+                    }
+                    
+                    // Try to set rank (superimposition)
+                    if (args.getRank() >= 0) {
+                        item.setRank(Math.min(args.getRank(), item.getExcel().getEquipmentExcel().getMaxRank()));
+                    }
+                }
+                
+                items.add(item);
             }
         } else {
             items.add(new GameItem(itemData, amount));
