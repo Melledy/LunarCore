@@ -1,5 +1,6 @@
 package emu.lunarcore.game.enums;
 
+import emu.lunarcore.game.challenge.ChallengeEntityLoader;
 import emu.lunarcore.game.rogue.RogueEntityLoader;
 import emu.lunarcore.game.scene.SceneEntityLoader;
 import lombok.Getter;
@@ -10,7 +11,7 @@ public enum PlaneType {
     Town            (1),
     Maze            (2),
     Train           (3),
-    Challenge       (4),
+    Challenge       (4, new ChallengeEntityLoader()),
     Rogue           (5, new RogueEntityLoader()),
     Raid            (6),
     AetherDivide    (7),

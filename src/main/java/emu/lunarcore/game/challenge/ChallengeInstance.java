@@ -1,11 +1,9 @@
 package emu.lunarcore.game.challenge;
 
 import dev.morphia.annotations.Entity;
+
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.config.GroupInfo;
-import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.ChallengeExcel;
-import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.Scene;
@@ -18,6 +16,7 @@ import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.server.packet.send.PacketChallengeLineupNotify;
 import emu.lunarcore.server.packet.send.PacketChallengeSettleNotify;
 import emu.lunarcore.util.Position;
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -69,54 +68,11 @@ public class ChallengeInstance {
     }
     
     protected void setupStage1() {
-        this.setupStage(
-                excel.getMazeGroupID1(), 
-                excel.getConfigList1(), 
-                excel.getNpcMonsterIDList1(), 
-                excel.getEventIDList1(),
-                false
-        );
+        this.getScene().loadGroup(excel.getMazeGroupID1());
     }
     
     protected void setupStage2() {
-        this.setupStage(
-                excel.getMazeGroupID2(), 
-                excel.getConfigList2(), 
-                excel.getNpcMonsterIDList2(), 
-                excel.getEventIDList2(),
-                true
-        );
-    }
-    
-    private void setupStage(int groupId, int[] configs, int[] npcMonsters, int[] eventIds, boolean sendPacket) {
-        // Load group
-        GroupInfo group = getScene().getFloorInfo().getGroups().get(groupId);
-        
-        // Replace monsters in scene
-        for (int i = 0; i < configs.length; i++) {
-            // Setup vars
-            int instId = configs[i];
-            int npcMonster = npcMonsters[i];
-            int eventId = eventIds[i];
-            
-            // Get monster info
-            MonsterInfo monsterInfo = group.getMonsterById(instId);
-            if (monsterInfo == null) continue;
-            
-            // Get excels from game data
-            NpcMonsterExcel npcMonsterExcel = GameData.getNpcMonsterExcelMap().get(npcMonster);
-            if (npcMonsterExcel == null) continue;
-            
-            // Create monster with excels
-            EntityMonster monster = new EntityMonster(getScene(), npcMonsterExcel, group, monsterInfo);
-            monster.setInstId(instId);
-            monster.setEventId(eventId);
-            monster.setOverrideStageId(eventId);
-            monster.setWorldLevel(this.getPlayer().getWorldLevel());
-            
-            // Add to scene
-            getScene().addEntity(monster, sendPacket);
-        }
+        this.getScene().loadGroup(excel.getMazeGroupID2());
     }
     
     private int getRoundsElapsed() {
