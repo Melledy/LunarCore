@@ -96,6 +96,7 @@ public class Config {
     
     @Getter
     public static class DownloadData {
+        public String mdkVersion = null;
         public String assetBundleUrl = null;
         public String exResourceUrl = null;
         public String luaUrl = null;
