@@ -117,6 +117,7 @@ public class Handbook {
                 MazePlaneExcel excel = GameData.getMazePlaneExcelMap().get(id);
                 writer.print(excel.getId());
                 writer.print(" : ");
+                writer.print("[" + excel.getPlaneType() + "] ");
                 writer.println(textMap.getOrDefault(excel.getPlaneName(), "null"));
             }
         } catch (IOException e) {

@@ -462,18 +462,10 @@ public class Player {
         if (anchor == null) return false;
 
         // Move player to scene
-        boolean success = this.loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId(), anchor.getPos(), anchor.getRot());
-        
-        // Send packet
-        if (success && sendPacket) {
-            this.sendPacket(new PacketEnterSceneByServerScNotify(this));
-        }
-        
-        // Success
-        return success;
+        return this.loadScene(entry.getPlaneID(), entry.getFloorID(), entry.getId(), anchor.getPos(), anchor.getRot(), sendPacket);
     }
 
-    private boolean loadScene(int planeId, int floorId, int entryId, Position pos, Position rot) {
+    public boolean loadScene(int planeId, int floorId, int entryId, Position pos, Position rot, boolean sendPacket) {
         // Get maze plane excel
         MazePlaneExcel planeExcel = GameData.getMazePlaneExcelMap().get(planeId);
         if (planeExcel == null) return false;
@@ -516,6 +508,11 @@ public class Player {
         // Set player scene
         this.scene = nextScene;
         this.scene.setEntryId(entryId);
+        
+        // Send packet
+        if (sendPacket) {
+            this.sendPacket(new PacketEnterSceneByServerScNotify(this));
+        }
         
         // Done, return success
         return true;
@@ -563,7 +560,7 @@ public class Player {
         }
 
         // Load into saved scene (should happen after everything else loads)
-        this.loadScene(planeId, floorId, entryId, this.getPos(), this.getRot());
+        this.loadScene(planeId, floorId, entryId, this.getPos(), this.getRot(), false);
         
         // Unstuck check in case we couldn't load the scene
         if (this.getScene() == null) {
