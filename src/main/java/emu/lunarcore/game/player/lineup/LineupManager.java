@@ -17,8 +17,9 @@ public class LineupManager {
     private transient Player player;
     
     private int currentIndex; // Team index
-    private int currentExtraIndex;
     private int mp;
+    
+    private transient int currentExtraIndex;
     
     private transient PlayerLineup[] lineups;
     private transient PlayerExtraLineup[] extraLineups;
