@@ -99,7 +99,7 @@ public class Handbook {
 
             // Dump stages
             writer.println(System.lineSeparator());
-            writer.println("# Stages");
+            writer.println("# Battle Stages");
             list = GameData.getStageExcelMap().keySet().intStream().sorted().boxed().toList();
             for (int id : list) {
                 StageExcel excel = GameData.getStageExcelMap().get(id);
@@ -107,6 +107,17 @@ public class Handbook {
                 writer.print(" : ");
                 writer.print("[Level " + excel.getLevel() + "] ");
                 writer.println(textMap.getOrDefault(excel.getStageName(), "null"));
+            }
+            
+            // Dump stages
+            writer.println(System.lineSeparator());
+            writer.println("# Mazes");
+            list = GameData.getMazePlaneExcelMap().keySet().intStream().sorted().boxed().toList();
+            for (int id : list) {
+                MazePlaneExcel excel = GameData.getMazePlaneExcelMap().get(id);
+                writer.print(excel.getId());
+                writer.print(" : ");
+                writer.println(textMap.getOrDefault(excel.getPlaneName(), "null"));
             }
         } catch (IOException e) {
             e.printStackTrace();

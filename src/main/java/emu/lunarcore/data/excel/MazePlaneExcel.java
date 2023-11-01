@@ -12,6 +12,7 @@ import lombok.Getter;
 public class MazePlaneExcel extends GameResource {
     private int PlaneID;
     private int WorldID;
+    private long PlaneName;
     
     @SerializedName(value = "PlaneType")
     private PlaneType planeType = PlaneType.Unknown;
