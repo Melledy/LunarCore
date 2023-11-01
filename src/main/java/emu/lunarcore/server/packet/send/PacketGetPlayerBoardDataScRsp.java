@@ -2,7 +2,6 @@ package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.GetPlayerBoardDataScRspOuterClass.GetPlayerBoardDataScRsp;
-import emu.lunarcore.proto.GetPlayerBoardDataScRspOuterClass.GetPlayerBoardDataScRspUnk1;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
@@ -13,7 +12,7 @@ public class PacketGetPlayerBoardDataScRsp extends BasePacket {
         super(CmdId.GetPlayerBoardDataScRsp);
         
         var data = GetPlayerBoardDataScRsp.newInstance()
-                .setUnk1(GetPlayerBoardDataScRspUnk1.newInstance())
+                .setUnk1("")
                 .setCurrentHeadIconId(player.getHeadIcon())
                 .setSignature(player.getSignature());
         
