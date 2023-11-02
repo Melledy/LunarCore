@@ -20,7 +20,6 @@ public class GameData {
     @Getter private static Int2ObjectMap<ItemExcel> itemExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<EquipmentExcel> equipExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RelicExcel> relicExcelMap = new Int2ObjectOpenHashMap<>();
-    @Getter private static Int2ObjectMap<MonsterExcel> monsterExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<PropExcel> propExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<NpcExcel> npcExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<NpcMonsterExcel> npcMonsterExcelMap = new Int2ObjectOpenHashMap<>();
