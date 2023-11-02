@@ -30,12 +30,6 @@ public class BattleService extends BaseGameService {
     }
 
     public void startBattle(Player player, int casterId, int attackedGroupId, boolean castedSkill, Set<Integer> targets) {
-        // Sanity check to make sure player isnt in a battle
-        if (player.isInBattle()) {
-            player.sendPacket(new PacketSceneCastSkillScRsp());
-            return;
-        }
-        
         // Setup variables
         List<GameEntity> targetEntities = new ArrayList<>();
         boolean isPlayerCaster = false; // Set true if the player is the one casting
