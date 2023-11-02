@@ -494,11 +494,13 @@ public class Player {
         } else {
             nextScene = new Scene(this, planeExcel, floorId);
         }
+        
+        // Set player position
+        this.getPos().set(pos);
+        this.getRot().set(rot);
 
         // Save if scene has changed
         if (this.planeId != planeId || this.floorId != floorId || this.entryId != entryId) {
-            this.getPos().set(pos);
-            this.getRot().set(rot);
             this.planeId = planeId;
             this.floorId = floorId;
             this.entryId = entryId;
