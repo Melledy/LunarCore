@@ -23,7 +23,8 @@ import emu.lunarcore.util.JsonUtils;
 import lombok.Getter;
 
 public class LunarCore {
-    private static Logger log = (Logger) LoggerFactory.getLogger(LunarCore.class);
+    private static final Logger log = (Logger) LoggerFactory.getLogger(LunarCore.class);
+    private static LineReaderImpl reader;
     private static File configFile = new File("./config.json");
     private static Config config;
 
@@ -34,17 +35,26 @@ public class LunarCore {
     @Getter private static GameServer gameServer;
 
     @Getter private static CommandManager commandManager;
+    @Getter private static ServerType serverType = ServerType.BOTH;
 
-    private static ServerType serverType = ServerType.BOTH;
-
-    // Load config first before doing anything
     static {
+        // Setup console reader
+        try {
+            reader = (LineReaderImpl) LineReaderBuilder.builder()
+                    .terminal(TerminalBuilder.builder().dumb(true).build())
+                    .build();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        
+        // Load config
         LunarCore.loadConfig();
     }
 
     public static void main(String[] args) {
         // Start Server
         LunarCore.getLogger().info("Starting Lunar Core...");
+        LunarCore.getLogger().info("Made for game version " + GameConstants.VERSION);
         boolean generateHandbook = true;
         
         // Load commands
@@ -109,6 +119,10 @@ public class LunarCore {
     public static Logger getLogger() {
         return log;
     }
+    
+    public static LineReaderImpl getLineReader() {
+        return reader;
+    }
 
     // Database
 
@@ -154,10 +168,6 @@ public class LunarCore {
     
     private static void startConsole() {
         try {
-            LineReaderImpl reader = (LineReaderImpl) LineReaderBuilder.builder()
-                    .terminal(TerminalBuilder.terminal())
-                    .build();
-            
             while (true) {
                 String input = reader.readLine("> ");
                 if (input == null || input.length() == 0) {

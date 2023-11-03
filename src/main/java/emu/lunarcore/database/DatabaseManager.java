@@ -30,11 +30,11 @@ import emu.lunarcore.LunarCore.ServerType;
 public final class DatabaseManager {
     private MongoServer server;
     private Datastore datastore;
-    private DeleteOptions DELETE_MANY = new DeleteOptions().multi(true);
+    
+    private final DeleteOptions DELETE_MANY = new DeleteOptions().multi(true);
 
-    public DatabaseManager() {
-
-    }
+    // Empty constructor for when we want to start an internal server
+    public DatabaseManager() {}
 
     public DatabaseManager(DatabaseInfo info, ServerType type) {
         // Variables

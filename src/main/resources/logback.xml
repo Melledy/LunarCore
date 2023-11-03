@@ -1,9 +1,6 @@
 <Configuration>
 
-  <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
-    <encoder>
-      <pattern>[%d{HH:mm:ss}] [%level] %msg%n</pattern>
-    </encoder>
+  <appender name="CONSOLE" class="emu.lunarcore.util.LunarConsoleAppender">
   </appender>
 
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
@@ -22,7 +19,7 @@
   <logger name="de.bwaldvogel" level="ERROR" />
   <logger name="io.javalin" level="ERROR" />
   <root level="INFO">
-    <appender-ref ref="STDOUT" />
+    <appender-ref ref="CONSOLE" />
     <appender-ref ref="FILE" />
   </root>
 </Configuration>

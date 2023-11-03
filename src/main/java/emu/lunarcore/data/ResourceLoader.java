@@ -48,6 +48,7 @@ public class ResourceLoader {
 
         // Done
         loaded = true;
+        LunarCore.getLogger().info("Resource loading complete");
     }
 
     private static List<Class<?>> getResourceDefClasses() {
@@ -166,6 +167,9 @@ public class ResourceLoader {
     
     // Might be better to cache
     private static void loadFloorInfos() {
+        //
+        LunarCore.getLogger().info("Loading floor infos... this may take a while.");
+        
         // Load floor infos
         File floorDir = new File(LunarCore.getConfig().getResourceDir() + "/Config/LevelOutput/Floor/");
         
@@ -209,7 +213,7 @@ public class ResourceLoader {
         }
         
         // Done
-        LunarCore.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " FloorInfos.");
+        LunarCore.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " floor infos.");
     }
     
     // Might be better to cache
@@ -249,8 +253,5 @@ public class ResourceLoader {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        // Done
-        LunarCore.getLogger().info("Loaded rogue maps");
     }
 }

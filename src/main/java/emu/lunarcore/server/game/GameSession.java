@@ -169,7 +169,7 @@ public class GameSession {
 
     public void logPacket(String sendOrRecv, int opcode, byte[] payload) {
         LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getOpcodeName(opcode) + " (" + opcode + ")");
-        System.out.println(Utils.bytesToHex(payload));
+        LunarCore.getLineReader().printAbove(Utils.bytesToHex(payload));
     }
 
     public void close() {
