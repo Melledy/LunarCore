@@ -12,20 +12,22 @@ import emu.lunarcore.util.Utils;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import kcp.highway.Ukcp;
+import lombok.AccessLevel;
 import lombok.Getter;
 
+@Getter
 public class GameSession {
-    @Getter private final GameServer server;
-    @Getter private InetSocketAddress address;
+    private final GameServer server;
+    private InetSocketAddress address;
 
-    @Getter private Account account;
-    @Getter private Player player;
+    private Account account;
+    private Player player;
 
     // Network
-    private Ukcp ukcp;
+    @Getter(AccessLevel.PRIVATE) private Ukcp ukcp;
 
     // Flags
-    @Getter private SessionState state = SessionState.WAITING_FOR_TOKEN;
+    private SessionState state = SessionState.WAITING_FOR_TOKEN;
     private boolean useSecretKey;
 
     private GameSession(GameServer server) {
@@ -168,8 +170,7 @@ public class GameSession {
     }
 
     public void logPacket(String sendOrRecv, int opcode, byte[] payload) {
-        LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getOpcodeName(opcode) + " (" + opcode + ")");
-        LunarCore.getLineReader().printAbove(Utils.bytesToHex(payload));
+        LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getOpcodeName(opcode) + " (" + opcode + ")" + System.lineSeparator() + Utils.bytesToHex(payload));
     }
 
     public void close() {

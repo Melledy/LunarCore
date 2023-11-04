@@ -6,6 +6,7 @@ import org.jline.reader.EndOfFileException;
 import org.jline.reader.LineReaderBuilder;
 import org.jline.reader.UserInterruptException;
 import org.jline.reader.impl.LineReaderImpl;
+import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
 import org.slf4j.LoggerFactory;
 
@@ -24,7 +25,6 @@ import lombok.Getter;
 
 public class LunarCore {
     private static final Logger log = (Logger) LoggerFactory.getLogger(LunarCore.class);
-    private static LineReaderImpl reader;
     private static File configFile = new File("./config.json");
     private static Config config;
 
@@ -36,6 +36,9 @@ public class LunarCore {
 
     @Getter private static CommandManager commandManager;
     @Getter private static ServerType serverType = ServerType.BOTH;
+    
+    private static LineReaderImpl reader;
+    @Getter private static boolean usingDumbTerminal;
 
     static {
         // Setup console reader
@@ -43,6 +46,8 @@ public class LunarCore {
             reader = (LineReaderImpl) LineReaderBuilder.builder()
                     .terminal(TerminalBuilder.builder().dumb(true).build())
                     .build();
+            
+            usingDumbTerminal = Terminal.TYPE_DUMB.equals(reader.getTerminal().getType());
         } catch (IOException e) {
             e.printStackTrace();
         }

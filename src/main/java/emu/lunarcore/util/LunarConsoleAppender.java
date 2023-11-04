@@ -1,7 +1,7 @@
 package emu.lunarcore.util;
 
-import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.core.AppenderBase;
+import ch.qos.logback.classic.spi.ILoggingEvent;
 import ch.qos.logback.classic.PatternLayout;
 
 import emu.lunarcore.LunarCore;
@@ -26,6 +26,10 @@ public class LunarConsoleAppender extends AppenderBase<ILoggingEvent> {
     
     @Override
     protected void append(ILoggingEvent event) {
-        LunarCore.getLineReader().printAbove(layout.doLayout(event));
+        if (LunarCore.isUsingDumbTerminal()) {
+            System.out.print(layout.doLayout(event));
+        } else {
+            LunarCore.getLineReader().printAbove(layout.doLayout(event));
+        }
     }
 }
