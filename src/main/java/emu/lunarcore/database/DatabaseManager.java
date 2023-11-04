@@ -2,6 +2,7 @@ package emu.lunarcore.database;
 
 import java.util.stream.Stream;
 
+import org.bson.codecs.configuration.CodecRegistries;
 import org.reflections.Reflections;
 
 import com.mongodb.MongoCommandException;
@@ -15,6 +16,7 @@ import de.bwaldvogel.mongo.MongoBackend;
 import de.bwaldvogel.mongo.MongoServer;
 import de.bwaldvogel.mongo.backend.h2.H2Backend;
 import de.bwaldvogel.mongo.backend.memory.MemoryBackend;
+
 import dev.morphia.Datastore;
 import dev.morphia.DeleteOptions;
 import dev.morphia.Morphia;
@@ -22,10 +24,12 @@ import dev.morphia.annotations.Entity;
 import dev.morphia.mapping.Mapper;
 import dev.morphia.mapping.MapperOptions;
 import dev.morphia.query.filters.Filters;
+
 import emu.lunarcore.Config.DatabaseInfo;
 import emu.lunarcore.Config.InternalMongoInfo;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.LunarCore.ServerType;
+import emu.lunarcore.database.codecs.*;
 
 public final class DatabaseManager {
     private MongoServer server;
@@ -48,11 +52,17 @@ public final class DatabaseManager {
 
         // Initialize
         MongoClient gameMongoClient = MongoClients.create(connectionString);
+        
+        // Add our custom fastutil codecs
+        var codecProvider = CodecRegistries.fromCodecs(
+               new IntSetCodec(), new Int2IntMapCodec()
+        );
 
         // Set mapper options.
         MapperOptions mapperOptions = MapperOptions.builder()
                 .storeEmpties(true)
                 .storeNulls(false)
+                .codecProvider(codecProvider)
                 .build();
 
         // Create data store.

@@ -1,6 +1,5 @@
 package emu.lunarcore.game.avatar;
 
-import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -49,12 +48,12 @@ public class GameAvatar implements GameEntity {
     private transient AvatarExcel excel;
     
     private int avatarId; // Id of avatar
+    private AvatarData data;
     @Setter private int level;
     @Setter private int exp;
     @Setter private int promotion;
-    private AvatarData data;
     
-    private Set<Integer> takenRewards;
+    private IntSet takenRewards;
     private long timestamp;
     
     @Getter(AccessLevel.NONE) private int currentHp;
@@ -110,7 +109,7 @@ public class GameAvatar implements GameEntity {
     
     public Set<Integer> getTakenRewards() {
         if (this.takenRewards == null) {
-            this.takenRewards = new HashSet<>();
+            this.takenRewards = new IntOpenHashSet();
         }
         return this.takenRewards;
     }

@@ -1,6 +1,5 @@
 package emu.lunarcore.game.player;
 
-import java.util.HashSet;
 import java.util.Set;
 
 import dev.morphia.annotations.Entity;
@@ -50,7 +49,8 @@ import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneEntityMoveScNotify;
 import emu.lunarcore.server.packet.send.PacketSyncRogueVirtualItemInfoScNotify;
 import emu.lunarcore.util.Position;
-
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
+import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -83,7 +83,7 @@ public class Player {
     private int floorId;
     private int entryId;
     
-    private Set<Integer> unlockedHeadIcons;
+    private IntSet unlockedHeadIcons;
     
     // Player managers
     private transient GameSession session;
@@ -132,7 +132,7 @@ public class Player {
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
 
-        this.unlockedHeadIcons = new HashSet<>();
+        this.unlockedHeadIcons = new IntOpenHashSet();
         this.lineupManager = new LineupManager(this);
         this.gachaInfo = new PlayerGachaInfo();
 
@@ -205,7 +205,7 @@ public class Player {
     
     public Set<Integer> getUnlockedHeadIcons() {
         if (this.unlockedHeadIcons == null) {
-            this.unlockedHeadIcons = new HashSet<>();
+            this.unlockedHeadIcons = new IntOpenHashSet();
         }
         return this.unlockedHeadIcons;
     }
