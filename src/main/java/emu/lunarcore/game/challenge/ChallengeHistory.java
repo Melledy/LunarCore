@@ -21,6 +21,7 @@ public class ChallengeHistory {
     private int ownerUid;
     
     private int challengeId;
+    private int groupId;
     private int takenReward;
     private int stars;
     
@@ -34,6 +35,14 @@ public class ChallengeHistory {
     
     public void setStars(int stars) {
         this.stars = Math.max(this.stars, stars);
+    }
+    
+    public int getTotalStars() {
+        int total = 0;
+        for (int i = 0; i < 3; i++) {
+            total += (this.stars & (1 << i)) != 0 ? 1 : 0;
+        }
+        return total;
     }
     
     public Challenge toProto() {

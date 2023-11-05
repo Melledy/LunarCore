@@ -1,10 +1,12 @@
 package emu.lunarcore.game.challenge;
 
+import java.util.List;
 import java.util.stream.Stream;
 
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ChallengeExcel;
+import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
@@ -17,10 +19,12 @@ import lombok.Getter;
 @Getter
 public class ChallengeManager extends BasePlayerManager {
     private Int2ObjectMap<ChallengeHistory> history;
+    private Int2ObjectMap<ChallengeGroupReward> takenRewards;
     
     public ChallengeManager(Player player) {
         super(player);
         this.history = new Int2ObjectOpenHashMap<>();
+        this.takenRewards = new Int2ObjectOpenHashMap<>();
     }
     
     public void startChallenge(int challengeId) {
@@ -84,7 +88,7 @@ public class ChallengeManager extends BasePlayerManager {
         getPlayer().sendPacket(new PacketStartChallengeScRsp(getPlayer(), challengeId));
     }
     
-    public void addHistory(int challengeId, int stars) {
+    public synchronized void addHistory(int challengeId, int stars) {
         // Dont write challenge history if the player didnt get any stars
         if (stars <= 0) return;
         
@@ -96,11 +100,66 @@ public class ChallengeManager extends BasePlayerManager {
         info.save();
     }
     
+    public synchronized List<GameItem> takeRewards(int groupId, int starCount) {
+        // Get excels
+        var challengeGroup = GameData.getChallengeGroupExcelMap().get(groupId);
+        if (challengeGroup == null) return null;
+        
+        var challengeReward = GameData.getChallengeRewardExcel(challengeGroup.getRewardLineGroupID(), starCount);
+        if (challengeReward == null) return null;
+        
+        var rewardExcel = GameData.getRewardExcelMap().get(challengeReward.getRewardID());
+        if (rewardExcel == null) return null;
+        
+        // Validate
+        int totalStars = 0;
+        for (ChallengeHistory ch : this.getHistory().values()) {
+            // Legacy compatibility
+            if (ch.getGroupId() == 0) {
+                var challengeExcel = GameData.getChallengeExcelMap().get(ch.getChallengeId());
+                if (challengeExcel == null) continue;
+                
+                ch.setGroupId(challengeExcel.getGroupID());
+                ch.save();
+            }
+            
+            // Add total stars
+            if (ch.getGroupId() == groupId) {
+                totalStars += ch.getTotalStars();
+            }
+        }
+        
+        // Check if the player has enough stars
+        if (totalStars < starCount) {
+            return null;
+        }
+        
+        // Get reward info
+        var reward = this.getTakenRewards().computeIfAbsent(groupId, id -> new ChallengeGroupReward(getPlayer(), groupId));
+        
+        if (reward.hasTakenReward(starCount)) {
+            return null;
+        }
+        
+        reward.setTakenReward(starCount);
+        
+        // Add items to inventory
+        return getPlayer().getInventory().addItemParams(rewardExcel.getRewards());
+    }
+    
     public void loadFromDatabase() {
-        Stream<ChallengeHistory> stream = LunarCore.getGameDatabase().getObjects(ChallengeHistory.class, "ownerUid", this.getPlayer().getUid());
+        // Load challenge history
+        Stream<ChallengeHistory> stream = LunarCore.getGameDatabase().getObjects(ChallengeHistory.class, "ownerUid", getPlayer().getUid());
 
         stream.forEach(info -> {
             this.getHistory().put(info.getChallengeId(), info);
+        });
+        
+        // Load challenge rewards
+        Stream<ChallengeGroupReward> stream2 = LunarCore.getGameDatabase().getObjects(ChallengeGroupReward.class, "ownerUid", getPlayer().getUid());
+
+        stream2.forEach(info -> {
+            this.getTakenRewards().put(info.getGroupId(), info);
         });
     }
 }

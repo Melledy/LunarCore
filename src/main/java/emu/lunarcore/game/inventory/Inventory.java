@@ -142,6 +142,12 @@ public class Inventory extends BasePlayerManager {
         
         return results;
     }
+    
+    public List<GameItem> addItemParams(Collection<ItemParam> params) {
+        // TODO handle params if they are equipment or relics
+        List<GameItem> items = params.stream().map(param -> new GameItem(param.getId(), param.getCount())).toList();
+        return addItems(items, false);
+    }
 
     private synchronized GameItem putItem(GameItem item) {
         // Dont add items that dont have a valid item definition.

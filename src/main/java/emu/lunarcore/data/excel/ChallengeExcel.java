@@ -10,6 +10,7 @@ import lombok.Getter;
 @ResourceType(name = {"ChallengeMazeConfig.json"})
 public class ChallengeExcel extends GameResource {
     private int ID;
+    private int GroupID;
     private int MapEntranceID;
     private int StageNum;
     private int ChallengeCountDown;

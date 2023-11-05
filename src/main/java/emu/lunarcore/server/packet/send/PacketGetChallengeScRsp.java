@@ -16,6 +16,10 @@ public class PacketGetChallengeScRsp extends BasePacket {
             data.addChallengeList(history.toProto());
         }
         
+        for (var reward : player.getChallengeManager().getTakenRewards().values()) {
+            data.addChallengeRewardList(reward.toProto());
+        }
+        
         this.setData(data);
     }
 }
