@@ -27,12 +27,26 @@ public class RogueBuffSelectMenu {
     public RogueBuffSelectMenu(RogueInstance rogue) {
         this.rogue = rogue;
         this.maxBuffs = 3;
+        this.maxRerolls = 1;
         this.buffs = new ArrayList<>();
         
         this.generateRandomBuffs();
     }
     
-    public void generateRandomBuffs() {
+    public void setMaxRerolls(int i) {
+        this.maxBuffs = i;
+    }
+    
+    public void reroll() {
+        this.generateRandomBuffs();
+        this.rerolls++;
+    }
+    
+    public boolean hasRerolls() {
+        return this.maxRerolls > this.rerolls;
+    }
+    
+    private void generateRandomBuffs() {
         if (this.randomBuffs == null) {
             this.randomBuffs = new WeightedList<>();
             

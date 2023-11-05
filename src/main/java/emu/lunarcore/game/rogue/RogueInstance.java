@@ -112,6 +112,15 @@ public class RogueInstance {
         return null;
     }
     
+    public synchronized RogueBuffSelectMenu rollBuffSelect() {
+        if (getBuffSelect() != null && getBuffSelect().hasRerolls()) {
+            this.getBuffSelect().reroll();
+            return this.getBuffSelect();
+        }
+        
+        return null;
+    }
+    
     public synchronized RogueBuffData selectBuff(int buffId) {
         if (this.getBuffSelect() == null) return null;
         
