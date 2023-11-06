@@ -27,8 +27,12 @@ public class RogueBuffSelectMenu {
     public RogueBuffSelectMenu(RogueInstance rogue) {
         this.rogue = rogue;
         this.maxBuffs = 3;
-        this.maxRerolls = 1;
         this.buffs = new ArrayList<>();
+        
+        // Reset blessings talent
+        if (rogue.getPlayer().getRogueManager().hasTalent(11)) {
+            this.maxRerolls = 1;
+        }
         
         this.generateRandomBuffs();
     }
