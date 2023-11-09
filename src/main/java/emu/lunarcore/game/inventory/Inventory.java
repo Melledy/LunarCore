@@ -273,6 +273,9 @@ public class Inventory extends BasePlayerManager {
             if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
                 // Remove credits
                 getPlayer().addSCoin(-param.getCount() * multiplier);
+            } else if (param.getId() == GameConstants.MATERIAL_HCOIN_ID) {
+                // Remove credits
+                getPlayer().addHCoin(-param.getCount() * multiplier);
             } else if (param.getId() == GameConstants.ROGUE_TALENT_POINT_ITEM_ID) {
                 // Remove credits
                 getPlayer().addTalentPoints(-param.getCount() * multiplier);
@@ -394,6 +397,11 @@ public class Inventory extends BasePlayerManager {
                 if (!verifyScoin(param.getCount() * multiplier)) {
                     return false;
                 }
+            } else if (param.getId() == GameConstants.MATERIAL_HCOIN_ID) {
+                // Check jades
+                if (!verifyHcoin(param.getCount() * multiplier)) {
+                    return false;
+                }
             } else if (param.getId() == GameConstants.ROGUE_TALENT_POINT_ITEM_ID) {
                 return this.getPlayer().getTalentPoints() >= param.getCount() * multiplier;
             } else {
@@ -410,6 +418,10 @@ public class Inventory extends BasePlayerManager {
     
     public boolean verifyScoin(int cost) {
         return this.getPlayer().getScoin() >= cost;
+    }
+    
+    public boolean verifyHcoin(int cost) {
+        return this.getPlayer().getHcoin() >= cost;
     }
 
     // Equips
