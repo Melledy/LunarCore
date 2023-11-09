@@ -33,10 +33,10 @@ public class BattleService extends BaseGameService {
     public void startBattle(Player player, int casterId, int attackedGroupId, MazeSkill castedSkill, Set<Integer> targets) {
         // Setup variables
         List<GameEntity> targetEntities = new ArrayList<>();
-        boolean isPlayerCaster = false; // Set true if the player is the one casting
+        boolean isPlayerCaster = player.getScene().getAvatarEntityIds().contains(casterId);
         
         // Check if attacker is the player or not
-        if (player.getScene().getAvatarEntityIds().contains(casterId)) {
+        if (isPlayerCaster) {
             // Player is the attacker
             for (int entityId : targets) {
                 GameEntity entity = player.getScene().getEntities().get(entityId);
@@ -45,8 +45,6 @@ public class BattleService extends BaseGameService {
                     targetEntities.add(entity);
                 }
             }
-
-            isPlayerCaster = true;
         } else {
             // Player is ambushed
             GameEntity entity = player.getScene().getEntities().get(casterId);
@@ -114,16 +112,14 @@ public class BattleService extends BaseGameService {
             if (isPlayerCaster) {
                 GameAvatar avatar = player.getCurrentLeaderAvatar();
                 
-                if (avatar != null) {
+                if (avatar != null && castedSkill != null) {
                     // Maze skill attack event
-                    if (castedSkill != null) {
-                        castedSkill.onAttack(avatar, battle);
-                    }
+                    castedSkill.onAttack(avatar, battle);
                     // Add elemental weakness buff to enemies
                     MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), battle.getLineup().getLeader());
                     if (buff != null) {
                         buff.addTargetIndex(battle.getLineup().getLeader());
-                        buff.addDynamicValue("SkillIndex", castedSkill != null ? castedSkill.getIndex() : 1);
+                        buff.addDynamicValue("SkillIndex", castedSkill.getIndex());
                     }
                 }
             }
