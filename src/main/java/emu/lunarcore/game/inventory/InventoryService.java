@@ -607,7 +607,7 @@ public class InventoryService extends BaseGameService {
 
         ItemExcel itemExcel = GameData.getItemExcelMap().get(goods.getItemID());
         if (!itemExcel.isEquippable()) {
-            GameItem item = new GameItem(itemExcel, goods.getItemCount());
+            GameItem item = new GameItem(itemExcel, goods.getItemCount() * count);
             items.add(item);
         } else {
             int num = goods.getItemCount() * count;
