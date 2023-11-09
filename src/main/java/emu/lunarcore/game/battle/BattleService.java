@@ -8,6 +8,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.CocoonExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.game.enums.StageType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityMonster;
@@ -29,7 +30,7 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void startBattle(Player player, int casterId, int attackedGroupId, boolean castedSkill, Set<Integer> targets) {
+    public void startBattle(Player player, int casterId, int attackedGroupId, MazeSkill castedSkill, Set<Integer> targets) {
         // Setup variables
         List<GameEntity> targetEntities = new ArrayList<>();
         boolean isPlayerCaster = false; // Set true if the player is the one casting
@@ -115,16 +116,14 @@ public class BattleService extends BaseGameService {
                 
                 if (avatar != null) {
                     // Maze skill attack event
-                    if (castedSkill) { // Dont need to null check maze skill since we already did it in HandlerSceneCastSkillCsReq
-                        avatar.getExcel().getMazeSkill().onAttack(avatar, battle);
-                    } else if (avatar.getExcel().getMazeAttack() != null) {
-                        avatar.getExcel().getMazeAttack().onAttack(avatar, battle);
+                    if (castedSkill != null) {
+                        castedSkill.onAttack(avatar, battle);
                     }
                     // Add elemental weakness buff to enemies
                     MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), battle.getLineup().getLeader());
                     if (buff != null) {
                         buff.addTargetIndex(battle.getLineup().getLeader());
-                        buff.addDynamicValue("SkillIndex", castedSkill ? 2 : 1);
+                        buff.addDynamicValue("SkillIndex", castedSkill != null ? castedSkill.getIndex() : 1);
                     }
                 }
             }

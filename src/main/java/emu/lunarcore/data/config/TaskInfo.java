@@ -18,10 +18,12 @@ public class TaskInfo {
     @SerializedName(value = "ID", alternate = {"SummonUnitID"})
     private int ID;
     
+    private boolean TriggerBattle = true;
     private DynamicFloat LifeTime;
     
     private List<TaskInfo> OnAttack;
     private List<TaskInfo> SuccessTaskList;
+    private List<TaskInfo> OnProjectileHit;
     
     public String getType() {
         return this.$type;

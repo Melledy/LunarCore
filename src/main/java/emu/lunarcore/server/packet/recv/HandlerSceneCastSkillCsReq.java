@@ -5,6 +5,7 @@ import java.util.Set;
 
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.skills.MazeSkill;
+import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.SceneCastSkillCsReqOuterClass.SceneCastSkillCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
@@ -20,20 +21,33 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = SceneCastSkillCsReq.parseFrom(data);
         
-        boolean castedSkill = false;
+        // Setup variables
+        Player player = session.getPlayer();
+        MazeSkill skill = null;
         
         // Check if player casted a maze skill
-        if (req.getSkillIndex() > 0 && session.getPlayer().getScene().getAvatarEntityIds().contains(req.getCasterId())) {
-            // Spend one skill point
-            session.getPlayer().getCurrentLineup().removeMp(1);
-            session.send(new PacketSceneCastSkillMpUpdateScNotify(req.getAttackedGroupId(), session.getPlayer().getLineupManager().getMp()));
-            // Cast skill effects
-            GameAvatar caster = session.getPlayer().getCurrentLeaderAvatar();
-            if (caster != null && caster.getExcel().getMazeSkill() != null) {
-                MazeSkill skill = caster.getExcel().getMazeSkill();
-                skill.onCast(caster, req.getTargetMotion());
-                // Set flag
-                castedSkill = true;
+        if (player.getScene().getAvatarEntityIds().contains(req.getCasterId())) {
+            // Get casting avatar
+            GameAvatar caster = player.getCurrentLeaderAvatar();
+            
+            // Sanity check, but should never happen
+            if (caster == null) {
+                session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
+                return;
+            }
+            
+            // Check if normal attack or technique was used
+            if (req.getSkillIndex() > 0) {
+                // Spend one skill point
+                player.getCurrentLineup().removeMp(1);
+                session.send(new PacketSceneCastSkillMpUpdateScNotify(req.getAttackedGroupId(), player.getCurrentLineup().getMp()));
+                // Cast skill effects
+                if (caster.getExcel().getMazeSkill() != null) {
+                    skill = caster.getExcel().getMazeSkill();
+                    skill.onCast(caster, req.getTargetMotion());
+                }
+            } else {
+                skill = caster.getExcel().getMazeAttack();
             }
         }
         
@@ -43,9 +57,16 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
             req.getHitTargetIdList().forEach(targets::add);
             req.getAssistMonsterIdList().forEach(targets::add);
             
-            // Start battle
-            session.getServer().getBattleService().startBattle(session.getPlayer(), req.getCasterId(), req.getAttackedGroupId(), castedSkill, targets);
+            // Check if we can start a battle
+            if (skill != null && !skill.isTriggerBattle()) {
+                // Skip battle if our technique does not trigger a battle
+                session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
+            } else {
+                // Start battle normally
+                session.getServer().getBattleService().startBattle(player, req.getCasterId(), req.getAttackedGroupId(), skill, targets);
+            }
         } else {
+            // We had no targets for some reason
             session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
         }
     }

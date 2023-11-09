@@ -8,15 +8,21 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class MazeSkill {
     private int id;
+    private int index;
     private List<MazeSkillAction> castActions;
     private List<MazeSkillAction> attackActions;
     
-    public MazeSkill(AvatarExcel excel) {
+    @Setter private boolean triggerBattle;
+    
+    public MazeSkill(AvatarExcel excel, int index) {
         this.id = excel.getAvatarID();
+        this.index = index;
+        this.triggerBattle = true;
         this.castActions = new ArrayList<>();
         this.attackActions = new ArrayList<>();
     }
