@@ -26,6 +26,8 @@ public class EntityMonster implements GameEntity {
     private final Position pos;
     private final Position rot;
     
+    private int farmElementId;
+    
     public EntityMonster(Scene scene, NpcMonsterExcel excel, GroupInfo group, MonsterInfo monsterInfo) {
         this.scene = scene;
         this.excel = excel;
@@ -33,6 +35,11 @@ public class EntityMonster implements GameEntity {
         this.rot = monsterInfo.getRot().clone();
         this.groupId = group.getId();
         this.instId = monsterInfo.getID();
+        this.farmElementId = monsterInfo.getFarmElementID();
+    }
+    
+    public boolean isFarmElement() {
+        return this.farmElementId > 0;
     }
     
     public int getStageId() {

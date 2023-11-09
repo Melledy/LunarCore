@@ -205,6 +205,9 @@ public class BattleService extends BaseGameService {
             case BATTLE_END_WIN -> {
                 // Remove monsters from the map - Could optimize it a little better
                 for (var monster : battle.getNpcMonsters()) {
+                    // Dont remove farmable monsters from the scene when they are defeated
+                    if (monster.isFarmElement()) continue;
+                    // Remove monster
                     player.getScene().removeEntity(monster);
                 }
                 // Drops
