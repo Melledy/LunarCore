@@ -46,7 +46,7 @@ public class EntityMonster implements GameEntity {
     @Override
     public void onRemove() {
         // Try to fire any triggers
-        getScene().fireTrigger(PropTriggerType.MONSTER_DIE, this.getGroupId(), this.getInstId());
+        getScene().invokeTrigger(PropTriggerType.MONSTER_DIE, this.getGroupId(), this.getInstId());
     }
 
     @Override

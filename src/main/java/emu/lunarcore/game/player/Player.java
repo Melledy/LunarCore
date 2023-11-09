@@ -393,7 +393,7 @@ public class Player {
                 // Finish puzzle
                 prop.setState(PropState.Locked);
                 // Trigger event
-                this.getScene().fireTrigger(PropTriggerType.PUZZLE_FINISH, prop.getGroupId(), prop.getInstId());
+                this.getScene().invokeTrigger(PropTriggerType.PUZZLE_FINISH, prop.getGroupId(), prop.getInstId());
                 //
                 return prop;
             }

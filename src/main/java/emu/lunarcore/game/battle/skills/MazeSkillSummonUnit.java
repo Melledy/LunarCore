@@ -9,13 +9,11 @@ public class MazeSkillSummonUnit extends MazeSkillAction {
     @Override
     public void onCast(GameAvatar caster, MotionInfo castPosition) {
         // TODO Auto-generated method stub
-        
     }
 
     @Override
     public void onAttack(GameAvatar caster, Battle battle) {
         // TODO Auto-generated method stub
-        
     }
 
 }

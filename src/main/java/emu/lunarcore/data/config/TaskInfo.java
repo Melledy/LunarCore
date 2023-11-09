@@ -29,7 +29,7 @@ public class TaskInfo {
     
     public int getLifeTime() {
         if (this.LifeTime == null) {
-            return 15; // TODO change
+            return 20; // TODO change
         }
         
         return (int) this.LifeTime.getValue();

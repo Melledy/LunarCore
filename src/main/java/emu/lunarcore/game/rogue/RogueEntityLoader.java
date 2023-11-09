@@ -95,7 +95,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
             }
             
             // Force rogue door to be open
-            propId = 1021; // TODO get proper portal ids
+            propId = 1021;
             state = PropState.Open;
         }
         

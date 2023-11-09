@@ -16,7 +16,7 @@ import io.javalin.http.Handler;
 public class ComboTokenGranterHandler implements Handler {
 
     public ComboTokenGranterHandler() {
-        // TODO Auto-generated constructor stub
+        
     }
 
     @Override

@@ -238,8 +238,7 @@ public class Scene {
         return spring;
     }
     
-    // TODO
-    public void fireTrigger(PropTriggerType type, int param1, int param2) {
+    public void invokeTrigger(PropTriggerType type, int param1, int param2) {
         for (PropTrigger trigger : this.getTriggers()) {
             if (trigger.shouldRun(param1, param2)) {
                 trigger.run(this);

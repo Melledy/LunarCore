@@ -68,7 +68,7 @@ public class Position {
         return this;
     }
 
-    // Operations TODO
+    // Operations
 
     public double get2dDist(Position pos) {
         int x = this.getX() - pos.getX();

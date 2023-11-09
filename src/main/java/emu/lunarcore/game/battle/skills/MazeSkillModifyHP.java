@@ -14,7 +14,6 @@ public class MazeSkillModifyHP extends MazeSkillAction {
     @Override
     public void onCast(GameAvatar caster, MotionInfo castPosition) {
         caster.getOwner().getCurrentLineup().heal(this.amount, false);
-        // TODO Perhaps we should send a sync lineup packet here
     }
 
     @Override

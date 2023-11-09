@@ -64,7 +64,6 @@ public class GachaService extends BaseGameService {
                 getGachaBanners().put(banner.getId(), banner);
             }
         } catch (Exception e) {
-            // TODO Auto-generated catch block
             LunarCore.getLogger().warn("No gacha banners loaded!");
         }
     }
@@ -188,7 +187,7 @@ public class GachaService extends BaseGameService {
                 GameAvatar avatar = player.getAvatars().getAvatarById(avatarId);
                 if (avatar != null) {
                     int dupeLevel = avatar.getRank();
-                    int dupeItemId = avatarId + 10000; // Hacky. TODO optimize by using AvatarRankExcel
+                    int dupeItemId = avatarId + 10000; // Hacky fix so we dont have to fetch data from an excel
                     GameItem dupeItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(dupeItemId);
                     if (dupeItem != null) {
                         dupeLevel += dupeItem.getCount();

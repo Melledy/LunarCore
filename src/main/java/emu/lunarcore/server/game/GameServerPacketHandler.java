@@ -77,9 +77,9 @@ public class GameServerPacketHandler {
                 // Handle packet
                 handler.handle(session, header, data);
             } catch (Exception ex) {
-                // TODO Remove this when no more needed
                 ex.printStackTrace();
             }
+            
             return; // Packet successfully handled
         }
 

@@ -17,7 +17,6 @@ public class MazeSkillModifySP extends MazeSkillAction {
                 caster.getOwner().getCurrentLineup(), 
                 amount + caster.getCurrentSp(caster.getOwner().getCurrentLineup())
         );
-        // TODO Perhaps we should send a sync lineup packet here
     }
 
     @Override
