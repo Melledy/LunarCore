@@ -12,6 +12,11 @@ import lombok.Getter;
 
 // Game data that is parsed by the server goes here
 public class GameDepot {
+    // Exp
+    @Getter private static List<AvatarExpItemExcel> avatarExpExcels = new ArrayList<>();
+    @Getter private static List<EquipmentExpItemExcel> equipmentExpExcels = new ArrayList<>();
+    @Getter private static List<RelicExpItemExcel> relicExpExcels = new ArrayList<>();
+    
     // Relics
     private static Int2ObjectMap<List<RelicMainAffixExcel>> relicMainAffixDepot = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<List<RelicSubAffixExcel>> relicSubAffixDepot = new Int2ObjectOpenHashMap<>();

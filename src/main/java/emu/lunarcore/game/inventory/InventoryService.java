@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.List;
 
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.excel.*;
 import emu.lunarcore.data.excel.ItemComposeExcel.FormulaType;
@@ -15,6 +16,8 @@ import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
+
+import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 
 public class InventoryService extends BaseGameService {
@@ -34,18 +37,18 @@ public class InventoryService extends BaseGameService {
         if (promoteData == null) return;
 
         // Exp gain
-        int expGain = 0;
+        int amount = 0;
 
         // Verify items
         for (ItemParam param : items) {
             GameItem item = player.getInventory().getItemByParam(param);
             if (item == null || item.getExcel().getAvatarExp() == 0 || item.getCount() < param.getCount()) return;
 
-            expGain += item.getExcel().getAvatarExp() * param.getCount();
+            amount += item.getExcel().getAvatarExp() * param.getCount();
         }
 
         // Verify credits
-        int cost = expGain / 10;
+        int cost = amount / 10;
         if (player.getScoin() < cost) {
             player.sendPacket(new PacketAvatarExpUpScRsp());
             return;
@@ -61,11 +64,11 @@ public class InventoryService extends BaseGameService {
         int exp = avatar.getExp();
         int reqExp = GameData.getAvatarExpRequired(avatar.getExcel().getExpGroup(), level);
 
-        while (expGain > 0 && reqExp > 0 && level < maxLevel) {
+        while (amount > 0 && reqExp > 0 && level < maxLevel) {
             // Do calculations
-            int toGain = Math.min(expGain, reqExp - exp);
+            int toGain = Math.min(amount, reqExp - exp);
             exp += toGain;
-            expGain -= toGain;
+            amount -= toGain;
             // Level up
             if (exp >= reqExp) {
                 // Exp
@@ -83,8 +86,28 @@ public class InventoryService extends BaseGameService {
         avatar.save();
         player.save();
 
-        // TODO add back leftover exp
-        List<GameItem> returnItems = new ArrayList<>();
+        // Calculate leftover exp
+        Int2IntMap leftoverItems = new Int2IntOpenHashMap();
+        
+        while (GameDepot.getAvatarExpExcels().size() > 0) {
+            int oldAmount = amount;
+            for (var expExcel : GameDepot.getAvatarExpExcels()) {
+                if (amount >= expExcel.getExp()) {
+                    leftoverItems.put(expExcel.getItemID(), leftoverItems.get(expExcel.getItemID()) + 1);
+                    amount -= expExcel.getExp();
+                    break;
+                }
+            }
+            if (oldAmount == amount) break;
+        }
+        
+        // Create leftover exp items
+        List<GameItem> returnItems = leftoverItems.int2IntEntrySet()
+                .stream()
+                .map(e -> new GameItem(e.getIntKey(), e.getIntValue()))
+                .toList();
+        
+        player.getInventory().addItems(returnItems);
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(avatar));
@@ -246,7 +269,7 @@ public class InventoryService extends BaseGameService {
 
         // Exp gain
         int cost = 0;
-        int expGain = 0;
+        int amount = 0;
 
         // Verify items
         for (ItemParam param : items) {
@@ -258,7 +281,7 @@ public class InventoryService extends BaseGameService {
             }
 
             if (item.getExcel().getEquipmentExp() > 0) {
-                expGain += item.getExcel().getEquipmentExp() * param.getCount();
+                amount += item.getExcel().getEquipmentExp() * param.getCount();
                 cost += item.getExcel().getEquipmentExpCost() * param.getCount();
             }
         }
@@ -279,11 +302,11 @@ public class InventoryService extends BaseGameService {
         int exp = equip.getExp();
         int reqExp = GameData.getEquipmentExpRequired(equip.getExcel().getEquipmentExcel().getExpType(), level);
 
-        while (expGain > 0 && reqExp > 0 && level < maxLevel) {
+        while (amount > 0 && reqExp > 0 && level < maxLevel) {
             // Do calculations
-            int toGain = Math.min(expGain, reqExp - exp);
+            int toGain = Math.min(amount, reqExp - exp);
             exp += toGain;
-            expGain -= toGain;
+            amount -= toGain;
             // Level up
             if (exp >= reqExp) {
                 // Exp
@@ -301,8 +324,28 @@ public class InventoryService extends BaseGameService {
         equip.save();
         player.save();
 
-        // TODO add back leftover exp
-        List<GameItem> returnItems = new ArrayList<>();
+        // Calculate leftover exp
+        Int2IntMap leftoverItems = new Int2IntOpenHashMap();
+        
+        while (GameDepot.getEquipmentExpExcels().size() > 0) {
+            int oldAmount = amount;
+            for (var expExcel : GameDepot.getEquipmentExpExcels()) {
+                if (amount >= expExcel.getExpProvide()) {
+                    leftoverItems.put(expExcel.getItemID(), leftoverItems.get(expExcel.getItemID()) + 1);
+                    amount -= expExcel.getExpProvide();
+                    break;
+                }
+            }
+            if (oldAmount == amount) break;
+        }
+        
+        // Create leftover exp items
+        List<GameItem> returnItems = leftoverItems.int2IntEntrySet()
+                .stream()
+                .map(e -> new GameItem(e.getIntKey(), e.getIntValue()))
+                .toList();
+        
+        player.getInventory().addItems(returnItems);
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
@@ -398,7 +441,7 @@ public class InventoryService extends BaseGameService {
 
         // Exp gain
         int cost = 0;
-        int expGain = 0;
+        int amount = 0;
 
         // Verify items
         for (ItemParam param : items) {
@@ -409,12 +452,12 @@ public class InventoryService extends BaseGameService {
             }
 
             if (item.getExcel().getRelicExp() > 0) {
-                expGain += item.getExcel().getRelicExp() * param.getCount();
+                amount += item.getExcel().getRelicExp() * param.getCount();
                 cost += item.getExcel().getRelicExpCost() * param.getCount();
             }
 
             if (item.getTotalExp() > 0) {
-                expGain += (int) Math.floor(item.getTotalExp() * 0.80D);
+                amount += (int) Math.floor(item.getTotalExp() * 0.80D);
             }
         }
 
@@ -436,12 +479,12 @@ public class InventoryService extends BaseGameService {
         int upgrades = 0;
         int reqExp = GameData.getRelicExpRequired(equip.getExcel().getRelicExcel().getExpType(), level);
 
-        while (expGain > 0 && reqExp > 0 && level < maxLevel) {
+        while (amount > 0 && reqExp > 0 && level < maxLevel) {
             // Do calculations
-            int toGain = Math.min(expGain, reqExp - exp);
+            int toGain = Math.min(amount, reqExp - exp);
             exp += toGain;
             totalExp += toGain;
-            expGain -= toGain;
+            amount -= toGain;
             // Level up
             if (exp >= reqExp) {
                 // Exp
@@ -469,8 +512,28 @@ public class InventoryService extends BaseGameService {
         equip.save();
         player.save();
 
-        // TODO add back leftover exp
-        List<GameItem> returnItems = new ArrayList<>();
+        // Calculate leftover exp
+        Int2IntMap leftoverItems = new Int2IntOpenHashMap();
+
+        while (GameDepot.getRelicExpExcels().size() > 0) {
+            int oldAmount = amount;
+            for (var expExcel : GameDepot.getRelicExpExcels()) {
+                if (amount >= expExcel.getExpProvide()) {
+                    leftoverItems.put(expExcel.getItemID(), leftoverItems.get(expExcel.getItemID()) + 1);
+                    amount -= expExcel.getExpProvide();
+                    break;
+                }
+            }
+            if (oldAmount == amount) break;
+        }
+        
+        // Create leftover exp items
+        List<GameItem> returnItems = leftoverItems.int2IntEntrySet()
+                .stream()
+                .map(e -> new GameItem(e.getIntKey(), e.getIntValue()))
+                .toList();
+        
+        player.getInventory().addItems(returnItems);
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
