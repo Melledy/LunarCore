@@ -15,7 +15,7 @@ public class HandlerSendMsgCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
         var req = SendMsgCsReq.parseFrom(data);
 
-        for (int targetUid : req.getToUid()) {
+        for (int targetUid : req.getToUidList()) {
             if (req.getMsgType() == MsgType.MSG_TYPE_CUSTOM_TEXT) {
                 session.getPlayer().getChatManager().sendChat(targetUid, req.getText());
             } else if (req.getMsgType() == MsgType.MSG_TYPE_EMOJI) {

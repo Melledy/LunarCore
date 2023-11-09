@@ -41,9 +41,9 @@ public final class SendMsgCsReqOuterClass {
     private final Utf8String text = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 toUid = 12;</code>
+     * <code>repeated uint32 to_uid_list = 12;</code>
      */
-    private final RepeatedInt toUid = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt toUidList = RepeatedInt.newEmptyInstance();
 
     private SendMsgCsReq() {
     }
@@ -282,39 +282,39 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 toUid = 12;</code>
-     * @return whether the toUid field is set
+     * <code>repeated uint32 to_uid_list = 12;</code>
+     * @return whether the toUidList field is set
      */
-    public boolean hasToUid() {
+    public boolean hasToUidList() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>repeated uint32 toUid = 12;</code>
+     * <code>repeated uint32 to_uid_list = 12;</code>
      * @return this
      */
-    public SendMsgCsReq clearToUid() {
+    public SendMsgCsReq clearToUidList() {
       bitField0_ &= ~0x00000010;
-      toUid.clear();
+      toUidList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 toUid = 12;</code>
+     * <code>repeated uint32 to_uid_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableToUid()} if you want to modify it.
+     * Use {@link #getMutableToUidList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getToUid() {
-      return toUid;
+    public RepeatedInt getToUidList() {
+      return toUidList;
     }
 
     /**
-     * <code>repeated uint32 toUid = 12;</code>
+     * <code>repeated uint32 to_uid_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -322,30 +322,30 @@ public final class SendMsgCsReqOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableToUid() {
+    public RepeatedInt getMutableToUidList() {
       bitField0_ |= 0x00000010;
-      return toUid;
+      return toUidList;
     }
 
     /**
-     * <code>repeated uint32 toUid = 12;</code>
-     * @param value the toUid to add
+     * <code>repeated uint32 to_uid_list = 12;</code>
+     * @param value the toUidList to add
      * @return this
      */
-    public SendMsgCsReq addToUid(final int value) {
+    public SendMsgCsReq addToUidList(final int value) {
       bitField0_ |= 0x00000010;
-      toUid.add(value);
+      toUidList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 toUid = 12;</code>
-     * @param values the toUid to add
+     * <code>repeated uint32 to_uid_list = 12;</code>
+     * @param values the toUidList to add
      * @return this
      */
-    public SendMsgCsReq addAllToUid(final int... values) {
+    public SendMsgCsReq addAllToUidList(final int... values) {
       bitField0_ |= 0x00000010;
-      toUid.addAll(values);
+      toUidList.addAll(values);
       return this;
     }
 
@@ -358,7 +358,7 @@ public final class SendMsgCsReqOuterClass {
         msgType = other.msgType;
         chatType = other.chatType;
         text.copyFrom(other.text);
-        toUid.copyFrom(other.toUid);
+        toUidList.copyFrom(other.toUidList);
       }
       return this;
     }
@@ -381,8 +381,8 @@ public final class SendMsgCsReqOuterClass {
       if (other.hasText()) {
         getMutableTextBytes().copyFrom(other.text);
       }
-      if (other.hasToUid()) {
-        getMutableToUid().addAll(other.toUid);
+      if (other.hasToUidList()) {
+        getMutableToUidList().addAll(other.toUidList);
       }
       return this;
     }
@@ -398,7 +398,7 @@ public final class SendMsgCsReqOuterClass {
       msgType = 0;
       chatType = 0;
       text.clear();
-      toUid.clear();
+      toUidList.clear();
       return this;
     }
 
@@ -410,7 +410,7 @@ public final class SendMsgCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       text.clear();
-      toUid.clear();
+      toUidList.clear();
       return this;
     }
 
@@ -428,7 +428,7 @@ public final class SendMsgCsReqOuterClass {
         && (!hasMsgType() || msgType == other.msgType)
         && (!hasChatType() || chatType == other.chatType)
         && (!hasText() || text.equals(other.text))
-        && (!hasToUid() || toUid.equals(other.toUid));
+        && (!hasToUidList() || toUidList.equals(other.toUidList));
     }
 
     @Override
@@ -450,9 +450,9 @@ public final class SendMsgCsReqOuterClass {
         output.writeStringNoTag(text);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        for (int i = 0; i < toUid.length(); i++) {
+        for (int i = 0; i < toUidList.length(); i++) {
           output.writeRawByte((byte) 96);
-          output.writeUInt32NoTag(toUid.array()[i]);
+          output.writeUInt32NoTag(toUidList.array()[i]);
         }
       }
     }
@@ -473,7 +473,7 @@ public final class SendMsgCsReqOuterClass {
         size += 1 + ProtoSink.computeStringSizeNoTag(text);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += (1 * toUid.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(toUid);
+        size += (1 * toUidList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(toUidList);
       }
       return size;
     }
@@ -528,8 +528,8 @@ public final class SendMsgCsReqOuterClass {
             }
           }
           case 98: {
-            // toUid [packed=true]
-            input.readPackedUInt32(toUid, tag);
+            // toUidList [packed=true]
+            input.readPackedUInt32(toUidList, tag);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 0) {
@@ -547,8 +547,8 @@ public final class SendMsgCsReqOuterClass {
             break;
           }
           case 96: {
-            // toUid [packed=false]
-            tag = input.readRepeatedUInt32(toUid, tag);
+            // toUidList [packed=false]
+            tag = input.readRepeatedUInt32(toUidList, tag);
             bitField0_ |= 0x00000010;
             break;
           }
@@ -572,7 +572,7 @@ public final class SendMsgCsReqOuterClass {
         output.writeString(FieldNames.text, text);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRepeatedUInt32(FieldNames.toUid, toUid);
+        output.writeRepeatedUInt32(FieldNames.toUidList, toUidList);
       }
       output.endObject();
     }
@@ -640,10 +640,11 @@ public final class SendMsgCsReqOuterClass {
             }
             break;
           }
-          case 110520277: {
-            if (input.isAtField(FieldNames.toUid)) {
+          case -2098685421:
+          case 1162351729: {
+            if (input.isAtField(FieldNames.toUidList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(toUid);
+                input.readRepeatedUInt32(toUidList);
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -711,7 +712,7 @@ public final class SendMsgCsReqOuterClass {
 
       static final FieldName text = FieldName.forField("text");
 
-      static final FieldName toUid = FieldName.forField("toUid");
+      static final FieldName toUidList = FieldName.forField("toUidList", "to_uid_list");
     }
   }
 }
