@@ -1,7 +1,6 @@
 package emu.lunarcore.game.challenge;
 
 import dev.morphia.annotations.Entity;
-
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ChallengeExcel;
 import emu.lunarcore.game.battle.Battle;
@@ -82,8 +81,8 @@ public class ChallengeInstance {
     public void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
         if (result == BattleEndStatus.BATTLE_END_WIN) {
             // Check if any avatar in the lineup has died
-            player.getCurrentLineup().forEachAvatar(avatar -> {
-                if (!avatar.isAlive()) {
+            battle.getLineup().forEachAvatar(avatar -> {
+                if (avatar.getCurrentHp(battle.getLineup()) <= 0) {
                     hasAvatarDied = true;
                 }
             });
