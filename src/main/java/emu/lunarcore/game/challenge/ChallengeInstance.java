@@ -115,7 +115,7 @@ public class ChallengeInstance {
             }
             
             // Calculate rounds left
-            this.roundsLeft = Math.min(Math.max(this.roundsLeft - stats.getRoundCnt(), 0), this.roundsLeft);
+            this.roundsLeft = Math.min(Math.max(this.roundsLeft - stats.getRoundCnt(), 1), this.roundsLeft);
         } else {
             // Fail challenge
             this.setStatus(ChallengeStatus.CHALLENGE_FAILED);
