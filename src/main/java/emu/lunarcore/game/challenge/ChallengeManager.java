@@ -3,6 +3,7 @@ package emu.lunarcore.game.challenge;
 import java.util.List;
 import java.util.stream.Stream;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ChallengeExcel;
@@ -46,10 +47,12 @@ public class ChallengeManager extends BasePlayerManager {
                 avatar.setCurrentHp(lineup, 10000);
                 avatar.setCurrentSp(lineup, avatar.getMaxSp() / 2);
             });
-            // Set technique points
-            lineup.setMp(5);
+            // Set technique points to full
+            lineup.setMp(GameConstants.MAX_MP);
         }
+        
         if (excel.getStageNum() >= 2) {
+            // Get lineup
             PlayerLineup lineup = getPlayer().getLineupManager().getExtraLineupByType(ExtraLineupType.LINEUP_CHALLENGE_2_VALUE);
             // Make sure this lineup has avatars set
             if (lineup.getAvatars().size() == 0) return;
@@ -58,8 +61,8 @@ public class ChallengeManager extends BasePlayerManager {
                 avatar.setCurrentHp(lineup, 10000);
                 avatar.setCurrentSp(lineup, avatar.getMaxSp() / 2);
             });
-            // Set technique points
-            lineup.setMp(5);
+            // Set technique points to full
+            lineup.setMp(GameConstants.MAX_MP);
         }
 
         // Set challenge data for player

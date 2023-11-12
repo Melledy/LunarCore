@@ -59,7 +59,7 @@ public class LunarCore {
     public static void main(String[] args) {
         // Start Server
         LunarCore.getLogger().info("Starting Lunar Core...");
-        LunarCore.getLogger().info("Made for game version " + GameConstants.VERSION);
+        LunarCore.getLogger().info("Game version: " + GameConstants.VERSION);
         boolean generateHandbook = true;
         
         // Load commands

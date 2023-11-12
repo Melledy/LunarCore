@@ -15,6 +15,7 @@ import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.data.excel.RelicMainAffixExcel;
 import emu.lunarcore.data.excel.RelicSubAffixExcel;
 import emu.lunarcore.game.enums.AvatarPropertyType;
+import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.EquipmentOuterClass.Equipment;
 import emu.lunarcore.proto.ItemOuterClass.Item;

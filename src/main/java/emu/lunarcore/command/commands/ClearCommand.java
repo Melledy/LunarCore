@@ -6,8 +6,8 @@ import java.util.List;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
+import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
 
 @Command(label = "clear", permission = "player.clear", desc = "/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.")

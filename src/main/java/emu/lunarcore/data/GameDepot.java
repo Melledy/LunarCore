@@ -29,13 +29,15 @@ public class GameDepot {
     private static Int2ObjectMap<List<RogueMapExcel>> rogueMapDepot = new Int2ObjectOpenHashMap<>();
     
     public static void addRelicMainAffix(RelicMainAffixExcel affix) {
-        List<RelicMainAffixExcel> list = relicMainAffixDepot.computeIfAbsent(affix.getGroupID(), k -> new ArrayList<>());
-        list.add(affix);
+        relicMainAffixDepot
+            .computeIfAbsent(affix.getGroupID(), k -> new ArrayList<>())
+            .add(affix);
     }
 
     public static void addRelicSubAffix(RelicSubAffixExcel affix) {
-        List<RelicSubAffixExcel> list = relicSubAffixDepot.computeIfAbsent(affix.getGroupID(), k -> new ArrayList<>());
-        list.add(affix);
+        relicSubAffixDepot
+            .computeIfAbsent(affix.getGroupID(), k -> new ArrayList<>())
+            .add(affix);
     }
 
     public static RelicMainAffixExcel getRandomRelicMainAffix(int groupId) {
@@ -49,7 +51,7 @@ public class GameDepot {
         return relicSubAffixDepot.get(groupId);
     }
     
-    // TODO cache this so we dont have to run this function everytime we get the schedule
+    // TODO cache this so we don't have to run this function every time we get the schedule
     public static RogueManagerExcel getCurrentRogueSchedule() {
         long time = System.currentTimeMillis() - (GameConstants.CURRENT_ZONEOFFSET.getTotalSeconds() * 1000);
         

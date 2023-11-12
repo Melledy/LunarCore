@@ -14,6 +14,8 @@ import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.enums.ItemMainType;
+import emu.lunarcore.game.enums.ItemSubType;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;

@@ -9,8 +9,8 @@ import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 

@@ -4,7 +4,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
-import emu.lunarcore.game.inventory.RelicType;
+import emu.lunarcore.game.enums.RelicType;
 import lombok.Getter;
 
 @Getter

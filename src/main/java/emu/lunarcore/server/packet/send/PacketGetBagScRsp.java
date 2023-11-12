@@ -1,8 +1,8 @@
 package emu.lunarcore.server.packet.send;
 
+import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.InventoryTab;
-import emu.lunarcore.game.inventory.ItemMainType;
 import emu.lunarcore.proto.GetBagScRspOuterClass.GetBagScRsp;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;

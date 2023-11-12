@@ -8,9 +8,9 @@ import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
+import emu.lunarcore.game.enums.ItemMainType;
+import emu.lunarcore.game.enums.ItemSubType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.inventory.ItemMainType;
-import emu.lunarcore.game.inventory.ItemSubType;
 import emu.lunarcore.game.player.Player;
 
 @Command(label = "giveall", aliases = {"ga"}, permission = "player.give", desc = "/giveall {materials | avatars}. Gives the targeted player items.")
