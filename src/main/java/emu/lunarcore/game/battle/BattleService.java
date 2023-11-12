@@ -211,7 +211,7 @@ public class BattleService extends BaseGameService {
                     player.getScene().removeEntity(monster);
                 }
                 // Drops
-                battle.calculateDrops();
+                getServer().getDropService().calculateDrops(battle);
             }
             case BATTLE_END_LOSE -> {
                 // Set avatar hp to 20% if the player's party is downed

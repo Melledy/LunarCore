@@ -116,49 +116,6 @@ public class Battle {
         this.buffs.clear();
     }
     
-    // Drops
-    
-    public void calculateDrops() {
-        // TODO this isnt the right way drops are calculated on the official server... but its good enough for now
-        if (this.getNpcMonsters().size() == 0) {
-            return;
-        }
-        
-        var dropMap = new Int2IntOpenHashMap();
-        
-        // Get drops from monsters
-        for (EntityMonster monster : this.getNpcMonsters()) {
-            var dropExcel = GameData.getMonsterDropExcel(monster.getExcel().getId(), monster.getWorldLevel());
-            if (dropExcel == null || dropExcel.getDisplayItemList() == null) {
-                continue;
-            }
-            
-            for (ItemParam param : dropExcel.getDisplayItemList()) {
-                int id = param.getId();
-                int count = Utils.randomRange(0, 3);
-                
-                if (id == 2) {
-                    count = dropExcel.getAvatarExpReward();
-                }
-                
-                dropMap.put(id, count + dropMap.get(id));
-            }
-        }
-        
-        for (var entry : dropMap.int2IntEntrySet()) {
-            if (entry.getIntValue() <= 0) {
-                continue;
-            }
-            
-            // Create item and add it to player
-            GameItem item = new GameItem(entry.getIntKey(), entry.getIntValue());
-
-            if (getPlayer().getInventory().addItem(item)) {
-               this.getDrops().add(item);
-            }
-        }
-    }
-    
     // Serialization
     
     public SceneBattleInfo toProto() {

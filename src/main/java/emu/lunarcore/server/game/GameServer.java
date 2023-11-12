@@ -7,6 +7,7 @@ import java.util.List;
 import emu.lunarcore.Config.GameServerConfig;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.battle.BattleService;
+import emu.lunarcore.game.drops.DropService;
 import emu.lunarcore.game.gacha.GachaService;
 import emu.lunarcore.game.inventory.InventoryService;
 import emu.lunarcore.game.player.Player;
@@ -27,6 +28,7 @@ public class GameServer extends KcpServer {
 
     // Managers
     @Getter private final BattleService battleService;
+    @Getter private final DropService dropService;
     @Getter private final InventoryService inventoryService;
     @Getter private final GachaService gachaService;
     
@@ -41,6 +43,7 @@ public class GameServer extends KcpServer {
 
         // Setup managers
         this.battleService = new BattleService(this);
+        this.dropService = new DropService(this);
         this.inventoryService = new InventoryService(this);
         this.gachaService = new GachaService(this);
 
