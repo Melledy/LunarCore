@@ -13,6 +13,7 @@ public class RogueMapExcel extends GameResource {
     private int SiteID;
     private boolean IsStart;
     private int[] NextSiteIDList;
+    private int[] LevelList;
     
     @Override
     public int getId() {

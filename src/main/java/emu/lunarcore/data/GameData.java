@@ -41,6 +41,7 @@ public class GameData {
     @Getter private static Int2ObjectMap<RogueAeonExcel> rogueAeonExcelMap = new Int2ObjectLinkedOpenHashMap<>();
     @Getter private static Int2ObjectMap<RogueAreaExcel> rogueAreaExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RogueRoomExcel> rogueRoomExcelMap = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<RogueMapExcel> rogueMapExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RogueMonsterExcel> rogueMonsterExcelMap = new Int2ObjectOpenHashMap<>();
     
     private static Int2ObjectMap<AvatarPromotionExcel> avatarPromotionExcelMap = new Int2ObjectOpenHashMap<>();
@@ -141,5 +142,9 @@ public class GameData {
     
     public static ChallengeRewardExcel getChallengeRewardExcel(int groupId, int starCount) {
         return challengeRewardExcelMap.get((groupId << 16) + starCount);
+    }
+    
+    public static RogueMapExcel getRogueMapExcel(int rogueMapId, int siteId) {
+        return rogueMapExcelMap.get((rogueMapId << 8) + siteId);
     }
 }

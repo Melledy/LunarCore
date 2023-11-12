@@ -6,6 +6,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.excel.RogueAeonExcel;
 import emu.lunarcore.data.excel.RogueAreaExcel;
+import emu.lunarcore.data.excel.RogueMapExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
@@ -226,8 +227,14 @@ public class RogueInstance {
     // Battle
     
     public synchronized void onBattleStart(Battle battle) {
+        // Add rogue blessings as battle buffs
         for (var buff : this.getBuffs().values()) {
             battle.addBuff(buff.toMazeBuff());
+        }
+        // Set monster level for battle
+        RogueMapExcel mapExcel = GameData.getRogueMapExcel(this.getExcel().getMapId(), this.getCurrentSiteId());
+        if (mapExcel != null && mapExcel.getLevelList() != null && mapExcel.getLevelList().length >= 1) {
+            battle.setLevelOverride(mapExcel.getLevelList()[0]);
         }
     }
     
