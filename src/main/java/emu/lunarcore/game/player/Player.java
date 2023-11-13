@@ -530,6 +530,12 @@ public class Player {
             this.getSession().send(packet);
         }
     }
+    
+    public void onTick() {
+        
+    }
+    
+    // Database
 
     public void save() {
         if (this.uid <= 0) {
@@ -570,7 +576,7 @@ public class Player {
         }
     }
 
-    // Proto
+    // Protobuf serialization
     
     public PlayerBasicInfo toProto() {
         var proto = PlayerBasicInfo.newInstance()

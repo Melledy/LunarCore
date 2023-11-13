@@ -3,6 +3,8 @@ package emu.lunarcore.server.game;
 import java.net.InetSocketAddress;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import emu.lunarcore.Config.GameServerConfig;
 import emu.lunarcore.LunarCore;
@@ -18,20 +20,20 @@ import kcp.highway.KcpServer;
 import lombok.Getter;
 
 public class GameServer extends KcpServer {
+    private final InetSocketAddress address;
     private final GameServerConfig serverConfig;
     private final RegionInfo info;
-    private final InetSocketAddress address;
-
-    @Getter
-    private final GameServerPacketHandler packetHandler;
+    
     private final Int2ObjectMap<Player> players;
-
+    private final Timer gameLoopTimer;
+    
     // Managers
+    @Getter private final GameServerPacketHandler packetHandler;    
     @Getter private final BattleService battleService;
     @Getter private final DropService dropService;
     @Getter private final InventoryService inventoryService;
     @Getter private final GachaService gachaService;
-    
+
     public GameServer(GameServerConfig serverConfig) {
         // Game Server base
         this.serverConfig = serverConfig;
@@ -46,6 +48,15 @@ public class GameServer extends KcpServer {
         this.dropService = new DropService(this);
         this.inventoryService = new InventoryService(this);
         this.gachaService = new GachaService(this);
+        
+        // Game loop
+        this.gameLoopTimer = new Timer();
+        this.gameLoopTimer.scheduleAtFixedRate(new TimerTask() {
+            @Override
+            public void run() {
+                onTick();
+            }
+        }, 0, 1000);
 
         // Hook into shutdown event.
         Runtime.getRuntime().addShutdownHook(new Thread(this::onShutdown));
@@ -96,6 +107,18 @@ public class GameServer extends KcpServer {
 
         // Done
         LunarCore.getLogger().info("Game Server started on " + address.getPort());
+    }
+    
+    private void onTick() {
+        synchronized (this.players) {
+            for (Player player : this.players.values()) {
+                try {
+                    player.onTick();
+                } catch (Exception e) {
+                    LunarCore.getLogger().error("[UID: " + player.getUid() + "] Player tick error: ", e);
+                }
+            }
+        }
     }
 
     private void onShutdown() {
