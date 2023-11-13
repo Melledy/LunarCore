@@ -33,6 +33,7 @@ public class Battle {
     private final List<GameItem> drops;
     private final long timestamp;
     
+    @Setter private int staminaCost;
     @Setter private int levelOverride;
     @Setter private int roundsLimit;
     

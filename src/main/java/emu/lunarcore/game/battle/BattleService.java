@@ -160,7 +160,11 @@ public class BattleService extends BaseGameService {
         // Get waves
         wave = Math.min(Math.max(1, wave), cocoonExcel.getMaxWave());
         
-        // TODO sanity check stamina
+        // Sanity check stamina
+        int cost = cocoonExcel.getStaminaCost() * wave;
+        if (player.getStamina() < cost) {
+            return;
+        }
         
         // Get stages from cocoon
         List<StageExcel> stages = new ArrayList<>();
@@ -181,6 +185,8 @@ public class BattleService extends BaseGameService {
         
         // Build battle from cocoon data
         Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
+        battle.setStaminaCost(cost);
+        
         player.setBattle(battle);
         
         // Send packet
@@ -212,6 +218,10 @@ public class BattleService extends BaseGameService {
                 }
                 // Drops
                 getServer().getDropService().calculateDrops(battle);
+                // Spend stamina
+                if (battle.getStaminaCost() > 0) {
+                    player.spendStamina(battle.getStaminaCost());
+                }
             }
             case BATTLE_END_LOSE -> {
                 // Set avatar hp to 20% if the player's party is downed

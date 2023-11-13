@@ -18,6 +18,7 @@ public class GameConstants {
     public static final int MATERIAL_HCOIN_ID = 1; // Material id for jades. DO NOT CHANGE
     public static final int MATERIAL_COIN_ID = 2; // Material id for credits. DO NOT CHANGE
     public static final int MAX_STAMINA = 240;
+    public static final int MAX_STAMINA_RESERVE = 2400;
     public static final int MAX_AVATARS_IN_TEAM = 4;
     public static final int DEFAULT_TEAMS = 6;
     public static final int MAX_MP = 5; // Client doesnt like more than 5

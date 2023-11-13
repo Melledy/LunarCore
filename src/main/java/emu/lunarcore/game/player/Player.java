@@ -44,10 +44,7 @@ import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.SessionState;
-import emu.lunarcore.server.packet.send.PacketEnterSceneByServerScNotify;
-import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
-import emu.lunarcore.server.packet.send.PacketSceneEntityMoveScNotify;
-import emu.lunarcore.server.packet.send.PacketSyncRogueVirtualItemInfoScNotify;
+import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
@@ -69,11 +66,13 @@ public class Player {
     private int level;
     private int exp;
     private int worldLevel;
-    private int stamina;
     private int scoin; // Credits
     private int hcoin; // Jade
     private int mcoin; // Crystals
-    private int talentPoints;
+    private int talentPoints; // Rogue talent points
+    
+    private int stamina;
+    private long nextStaminaRecover;
 
     private transient Battle battle;
     private transient Scene scene;
@@ -307,11 +306,6 @@ public class Player {
         this.sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this));
     }
 
-    public void addStamina(int amount) {
-        this.stamina = Math.min(this.stamina + amount, GameConstants.MAX_STAMINA);
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
-    }
-
     public void addExp(int amount) {
         // Required exp
         int reqExp = GameData.getPlayerExpRequired(level + 1);
@@ -361,6 +355,42 @@ public class Player {
     
     public void setBattle(Battle battle) {
         this.battle = battle;
+    }
+    
+    public void addStamina(int amount) {
+        this.stamina = Math.min(this.stamina + amount, GameConstants.MAX_STAMINA);
+        this.sendPacket(new PacketStaminaInfoScNotify(this));
+    }
+    
+    public void spendStamina(int amount) {
+        this.stamina = Math.max(this.stamina - amount, 0);
+        this.sendPacket(new PacketStaminaInfoScNotify(this));
+    }
+    
+    private void updateStamina() {
+        // Get current timestamp
+        long time = System.currentTimeMillis();
+        boolean hasChanged = false;
+        
+        // Check if we can add stamina
+        while (time >= this.nextStaminaRecover) {
+            // Add stamina
+            if (this.stamina < GameConstants.MAX_STAMINA) {
+                this.stamina += 1;
+                hasChanged = true;
+            }
+            
+            // Calculate next stamina recover time
+            if (this.stamina >= GameConstants.MAX_STAMINA) {
+                this.nextStaminaRecover = time;
+            }
+            this.nextStaminaRecover += 5 * 60 * 1000;
+        }
+        
+        // Send packet
+        if (hasChanged && this.hasLoggedIn()) {
+            this.getSession().send(new PacketStaminaInfoScNotify(this));
+        }
     }
     
     public EntityProp interactWithProp(int propEntityId) {
@@ -532,7 +562,7 @@ public class Player {
     }
     
     public void onTick() {
-        
+        this.updateStamina();
     }
     
     // Database
@@ -560,6 +590,9 @@ public class Player {
         
         // Post database load
         this.getAvatars().setupHeroPaths();
+        
+        // Update stamina
+        this.updateStamina();
         
         // Check instances
         if (this.getChallengeInstance() != null && !this.getChallengeInstance().validate(this)) {

@@ -13,7 +13,7 @@ public class PacketGetBasicInfoScRsp extends BasePacket {
 
         var data = GetBasicInfoScRsp.newInstance()
                 .setCurDay(1)
-                .setNextRecoverTime(0)
+                .setNextRecoverTime(session.getPlayer().getNextStaminaRecover() / 1000)
                 .setGameplayBirthday(session.getPlayer().getBirthday())
                 .setPlayerSettingInfo(PlayerSettingInfo.newInstance());
 
