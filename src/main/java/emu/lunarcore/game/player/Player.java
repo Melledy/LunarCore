@@ -413,7 +413,10 @@ public class Player {
                 if (prop.getState() == PropState.ChestClosed) {
                     // Open chest
                     prop.setState(PropState.ChestUsed);
-                    // TODO handle drops
+                    // Handle drops
+                    var drops = this.getServer().getDropService().calculateDropsFromProp(prop.getPropId());
+                    this.getInventory().addItems(drops, true);
+                    // Done
                     return prop;
                 } else {
                     return null;

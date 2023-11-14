@@ -1,5 +1,9 @@
 package emu.lunarcore.game.drops;
 
+import java.util.ArrayList;
+import java.util.List;
+
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.game.battle.Battle;
@@ -55,5 +59,16 @@ public class DropService extends BaseGameService {
                 battle.getDrops().add(item);
             }
         }
+    }
+    
+    // TODO filler
+    public List<GameItem> calculateDropsFromProp(int propId) {
+        List<GameItem> drops = new ArrayList<>();
+        
+        drops.add(new GameItem(GameConstants.MATERIAL_HCOIN_ID, 5));
+        drops.add(new GameItem(GameConstants.TRAILBLAZER_EXP_ID, 5));
+        drops.add(new GameItem(GameConstants.MATERIAL_COIN_ID, Utils.randomRange(20, 100)));
+        
+        return drops;
     }
 }
