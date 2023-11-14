@@ -425,6 +425,27 @@ public class Inventory extends BasePlayerManager {
     public boolean verifyHcoin(int cost) {
         return this.getPlayer().getHcoin() >= cost;
     }
+    
+    // Use item
+    
+    public List<GameItem> useItem(int itemId, int count, int baseAvatarId) {
+        // Verify that the player actually has the item
+        GameItem useItem = this.getMaterialByItemId(itemId);
+        if (useItem == null || useItem.getCount() < count) {
+            return null;
+        }
+        
+        // Remove item from inventory
+        this.removeItem(useItem, count);
+        
+        // Use the item now
+        // TODO write better handler for this later
+        if (itemId == 201) {
+            this.getPlayer().addStamina(60 * count);
+        }
+        
+        return null;
+    }
 
     // Equips
 

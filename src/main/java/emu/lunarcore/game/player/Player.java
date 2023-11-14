@@ -360,7 +360,7 @@ public class Player {
     }
     
     public void addStamina(int amount) {
-        this.stamina = Math.min(this.stamina + amount, GameConstants.MAX_STAMINA);
+        this.stamina += amount;
         this.sendPacket(new PacketStaminaInfoScNotify(this));
     }
     
