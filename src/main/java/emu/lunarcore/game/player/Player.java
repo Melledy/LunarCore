@@ -72,6 +72,7 @@ public class Player {
     private int talentPoints; // Rogue talent points
     
     private int stamina;
+    private double staminaReserve;
     private long nextStaminaRecover;
 
     private transient Battle battle;
@@ -130,6 +131,7 @@ public class Player {
         this.headIcon = 200001;
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
+        this.nextStaminaRecover = System.currentTimeMillis();
 
         this.unlockedHeadIcons = new IntOpenHashSet();
         this.lineupManager = new LineupManager(this);
@@ -367,6 +369,20 @@ public class Player {
         this.sendPacket(new PacketStaminaInfoScNotify(this));
     }
     
+    public int exchangeReserveStamina(int amount) {
+        // Sanity checks
+        if (amount <= 0 || this.staminaReserve < amount) {
+            return 0;
+        }
+        
+        this.staminaReserve -= amount;
+        this.stamina += amount;
+        
+        // Update to client
+        this.sendPacket(new PacketStaminaInfoScNotify(this));
+        return amount;
+    }
+    
     private void updateStamina() {
         // Get current timestamp
         long time = System.currentTimeMillis();
@@ -378,12 +394,17 @@ public class Player {
             if (this.stamina < GameConstants.MAX_STAMINA) {
                 this.stamina += 1;
                 hasChanged = true;
+            } else if (this.stamina < GameConstants.MAX_STAMINA_RESERVE) {
+                double amount = (time - this.nextStaminaRecover) / (18D * 60D * 1000D);
+                this.staminaReserve = Math.min(this.staminaReserve + amount, GameConstants.MAX_STAMINA_RESERVE);
+                hasChanged = true;
             }
             
             // Calculate next stamina recover time
             if (this.stamina >= GameConstants.MAX_STAMINA) {
                 this.nextStaminaRecover = time;
             }
+            
             this.nextStaminaRecover += 5 * 60 * 1000;
         }
         

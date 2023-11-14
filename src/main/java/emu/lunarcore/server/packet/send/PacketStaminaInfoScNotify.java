@@ -12,7 +12,8 @@ public class PacketStaminaInfoScNotify extends BasePacket {
         
         var data = StaminaInfoScNotify.newInstance()
                 .setNextRecoverTime(player.getNextStaminaRecover() / 1000)
-                .setStamina(player.getStamina());
+                .setStamina(player.getStamina())
+                .setReserveStamina((int) Math.floor(player.getStaminaReserve()));
         
         this.setData(data);
     }
