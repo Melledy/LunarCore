@@ -72,4 +72,5 @@ Lunar Core Handbook.txt
 config.json
 *.mv
 *.exe
+BuildConfig.java
 Test.java

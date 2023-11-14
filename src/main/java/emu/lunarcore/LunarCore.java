@@ -59,6 +59,7 @@ public class LunarCore {
     public static void main(String[] args) {
         // Start Server
         LunarCore.getLogger().info("Starting Lunar Core...");
+        LunarCore.getLogger().info("Git hash: " + getGitHash());
         LunarCore.getLogger().info("Game version: " + GameConstants.VERSION);
         boolean generateHandbook = true;
         
@@ -167,6 +168,19 @@ public class LunarCore {
         } catch (Exception e) {
             getLogger().error("Config save error");
         }
+    }
+    
+    // Git hash
+
+    private static String getGitHash() {
+        // Safely get the build config without errors even if it hasnt been generated yet
+        try {
+            Class<?> buildConfig = Class.forName("emu.lunarcore.BuildConfig");
+            return buildConfig.getField("GIT_HASH").get(null).toString();
+        } catch (Exception e) {
+            // Ignored
+        }
+        return "Unknown";
     }
 
     // Server console

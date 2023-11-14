@@ -102,6 +102,8 @@ application {
 }
 
 jar {
+	dependsOn 'injectGitHash'
+
 	exclude '*.proto'
 
     manifest {
@@ -143,6 +145,24 @@ eclipse {
             cp.entries.add( new org.gradle.plugins.ide.eclipse.model.SourceFolder('src/generated/main/', null) )
         }
     }
+}
+
+tasks.register('injectGitHash') {
+    def gitCommitHash = {
+        try {
+            return 'git rev-parse --verify --short HEAD'.execute().text.trim()
+        } catch (ignored) {
+            return 'GIT_NOT_FOUND'
+        }
+    }
+
+    new File(project.projectDir.getAbsolutePath() + '/src/main/java/emu/lunarcore/BuildConfig.java').text = """
+package emu.lunarcore;
+
+public final class BuildConfig {
+    public static final String GIT_HASH = \"${gitCommitHash()}\";
+}
+"""
 }
 
 task updateProto {
