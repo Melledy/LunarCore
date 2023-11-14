@@ -365,6 +365,9 @@ public class Player {
     }
     
     public void spendStamina(int amount) {
+        if (!LunarCore.getConfig().getServerOptions().spendStamina) {
+            return;
+        }
         this.stamina = Math.max(this.stamina - amount, 0);
         this.sendPacket(new PacketStaminaInfoScNotify(this));
     }

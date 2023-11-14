@@ -84,6 +84,7 @@ public class Config {
     @Getter
     public static class ServerOptions {
         public int entitySceneLimit = 2000;
+        public boolean spendStamina = true;
         public Set<String> defaultPermissions = Set.of("*");
     }
     
