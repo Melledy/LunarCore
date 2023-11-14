@@ -85,7 +85,17 @@ public class Config {
     public static class ServerOptions {
         public int entitySceneLimit = 2000;
         public boolean spendStamina = true;
+        public int staminaRecoveryRate = 5 * 60;
+        public int staminaReserveRecoveryRate = 18 * 60;
         public Set<String> defaultPermissions = Set.of("*");
+        
+        public int getStaminaRecoveryRate() {
+            return staminaRecoveryRate > 0 ? staminaRecoveryRate : 1;
+        }
+        
+        public int getStaminaReserveRecoveryRate() {
+            return staminaReserveRecoveryRate > 0 ? staminaReserveRecoveryRate : 1;
+        }
     }
     
     @Getter

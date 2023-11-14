@@ -398,7 +398,8 @@ public class Player {
                 this.stamina += 1;
                 hasChanged = true;
             } else if (this.stamina < GameConstants.MAX_STAMINA_RESERVE) {
-                double amount = (time - this.nextStaminaRecover) / (18D * 60D * 1000D);
+                double rate = LunarCore.getConfig().getServerOptions().getStaminaReserveRecoveryRate();
+                double amount = (time - this.nextStaminaRecover) / (rate * 1000D);
                 this.staminaReserve = Math.min(this.staminaReserve + amount, GameConstants.MAX_STAMINA_RESERVE);
                 hasChanged = true;
             }
@@ -408,7 +409,7 @@ public class Player {
                 this.nextStaminaRecover = time;
             }
             
-            this.nextStaminaRecover += 5 * 60 * 1000;
+            this.nextStaminaRecover += LunarCore.getConfig().getServerOptions().getStaminaRecoveryRate() * 1000;
         }
         
         // Send packet
