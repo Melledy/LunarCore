@@ -19,17 +19,17 @@ public final class InteractPropScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <code>optional uint32 retcode = 2;</code>
+     */
+    private int retcode;
+
+    /**
      * <code>optional uint32 prop_entity_id = 3;</code>
      */
     private int propEntityId;
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 prop_state = 12;</code>
+     * <code>optional uint32 prop_state = 15;</code>
      */
     private int propState;
 
@@ -44,11 +44,48 @@ public final class InteractPropScRspOuterClass {
     }
 
     /**
+     * <code>optional uint32 retcode = 2;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 2;</code>
+     * @return this
+     */
+    public InteractPropScRsp clearRetcode() {
+      bitField0_ &= ~0x00000001;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 2;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 2;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public InteractPropScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000001;
+      retcode = value;
+      return this;
+    }
+
+    /**
      * <code>optional uint32 prop_entity_id = 3;</code>
      * @return whether the propEntityId field is set
      */
     public boolean hasPropEntityId() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -56,7 +93,7 @@ public final class InteractPropScRspOuterClass {
      * @return this
      */
     public InteractPropScRsp clearPropEntityId() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       propEntityId = 0;
       return this;
     }
@@ -75,50 +112,13 @@ public final class InteractPropScRspOuterClass {
      * @return this
      */
     public InteractPropScRsp setPropEntityId(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       propEntityId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @return whether the retcode field is set
-     */
-    public boolean hasRetcode() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @return this
-     */
-    public InteractPropScRsp clearRetcode() {
-      bitField0_ &= ~0x00000002;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public InteractPropScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000002;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 prop_state = 12;</code>
+     * <code>optional uint32 prop_state = 15;</code>
      * @return whether the propState field is set
      */
     public boolean hasPropState() {
@@ -126,7 +126,7 @@ public final class InteractPropScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_state = 12;</code>
+     * <code>optional uint32 prop_state = 15;</code>
      * @return this
      */
     public InteractPropScRsp clearPropState() {
@@ -136,7 +136,7 @@ public final class InteractPropScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_state = 12;</code>
+     * <code>optional uint32 prop_state = 15;</code>
      * @return the propState
      */
     public int getPropState() {
@@ -144,7 +144,7 @@ public final class InteractPropScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_state = 12;</code>
+     * <code>optional uint32 prop_state = 15;</code>
      * @param value the propState to set
      * @return this
      */
@@ -159,8 +159,8 @@ public final class InteractPropScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        propEntityId = other.propEntityId;
         retcode = other.retcode;
+        propEntityId = other.propEntityId;
         propState = other.propState;
       }
       return this;
@@ -172,11 +172,11 @@ public final class InteractPropScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPropEntityId()) {
-        setPropEntityId(other.propEntityId);
-      }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasPropEntityId()) {
+        setPropEntityId(other.propEntityId);
       }
       if (other.hasPropState()) {
         setPropState(other.propState);
@@ -191,8 +191,8 @@ public final class InteractPropScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      propEntityId = 0;
       retcode = 0;
+      propEntityId = 0;
       propState = 0;
       return this;
     }
@@ -217,23 +217,23 @@ public final class InteractPropScRspOuterClass {
       }
       InteractPropScRsp other = (InteractPropScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasPropEntityId() || propEntityId == other.propEntityId)
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasPropEntityId() || propEntityId == other.propEntityId)
         && (!hasPropState() || propState == other.propState);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(propEntityId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(retcode);
-      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(propState);
       }
     }
@@ -242,10 +242,10 @@ public final class InteractPropScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(propEntityId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(propEntityId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(propState);
@@ -260,25 +260,25 @@ public final class InteractPropScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 16: {
+            // retcode
+            retcode = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 24) {
+              break;
+            }
+          }
           case 24: {
             // propEntityId
             propEntityId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 48) {
-              break;
-            }
-          }
-          case 48: {
-            // retcode
-            retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 120) {
               break;
             }
           }
-          case 96: {
+          case 120: {
             // propState
             propState = input.readUInt32();
             bitField0_ |= 0x00000004;
@@ -305,10 +305,10 @@ public final class InteractPropScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.propEntityId, propEntityId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.propEntityId, propEntityId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.propState, propState);
@@ -323,11 +323,10 @@ public final class InteractPropScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -68717343:
-          case -57484005: {
-            if (input.isAtField(FieldNames.propEntityId)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                propEntityId = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -335,10 +334,11 @@ public final class InteractPropScRspOuterClass {
             }
             break;
           }
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case -68717343:
+          case -57484005: {
+            if (input.isAtField(FieldNames.propEntityId)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                propEntityId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -411,9 +411,9 @@ public final class InteractPropScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName propEntityId = FieldName.forField("propEntityId", "prop_entity_id");
-
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName propEntityId = FieldName.forField("propEntityId", "prop_entity_id");
 
       static final FieldName propState = FieldName.forField("propState", "prop_state");
     }

@@ -19,17 +19,17 @@ public final class QuitRogueScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 2;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueInfo rogue_info = 1;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      */
     private final RogueInfoOuterClass.RogueInfo rogueInfo = RogueInfoOuterClass.RogueInfo.newInstance();
 
     /**
-     * <code>optional .RogueFinishInfo finish_info = 13;</code>
+     * <code>optional .RogueFinishInfo finish_info = 7;</code>
      */
     private final RogueFinishInfoOuterClass.RogueFinishInfo finishInfo = RogueFinishInfoOuterClass.RogueFinishInfo.newInstance();
 
@@ -44,7 +44,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -52,7 +52,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return this
      */
     public QuitRogueScRsp clearRetcode() {
@@ -62,7 +62,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -70,7 +70,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 1;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      * @return whether the rogueInfo field is set
      */
     public boolean hasRogueInfo() {
@@ -89,7 +89,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 1;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      * @return this
      */
     public QuitRogueScRsp clearRogueInfo() {
@@ -99,7 +99,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 1;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -113,7 +113,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 1;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -127,7 +127,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 1;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      * @param value the rogueInfo to set
      * @return this
      */
@@ -138,7 +138,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueFinishInfo finish_info = 13;</code>
+     * <code>optional .RogueFinishInfo finish_info = 7;</code>
      * @return whether the finishInfo field is set
      */
     public boolean hasFinishInfo() {
@@ -146,7 +146,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueFinishInfo finish_info = 13;</code>
+     * <code>optional .RogueFinishInfo finish_info = 7;</code>
      * @return this
      */
     public QuitRogueScRsp clearFinishInfo() {
@@ -156,7 +156,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueFinishInfo finish_info = 13;</code>
+     * <code>optional .RogueFinishInfo finish_info = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -170,7 +170,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueFinishInfo finish_info = 13;</code>
+     * <code>optional .RogueFinishInfo finish_info = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -184,7 +184,7 @@ public final class QuitRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueFinishInfo finish_info = 13;</code>
+     * <code>optional .RogueFinishInfo finish_info = 7;</code>
      * @param value the finishInfo to set
      * @return this
      */
@@ -267,15 +267,15 @@ public final class QuitRogueScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 10);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(rogueInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(finishInfo);
       }
     }
@@ -302,25 +302,25 @@ public final class QuitRogueScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 16: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 50) {
               break;
             }
           }
-          case 10: {
+          case 50: {
             // rogueInfo
             input.readMessage(rogueInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 58) {
               break;
             }
           }
-          case 106: {
+          case 58: {
             // finishInfo
             input.readMessage(finishInfo);
             bitField0_ |= 0x00000004;

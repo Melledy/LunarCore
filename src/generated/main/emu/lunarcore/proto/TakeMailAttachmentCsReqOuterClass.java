@@ -20,12 +20,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 BBFNEALMHJB = 7;</code>
-     */
-    private int bBFNEALMHJB;
-
-    /**
-     * <code>repeated uint32 mail_id_list = 12;</code>
+     * <code>repeated uint32 mail_id_list = 6;</code>
      */
     private final RepeatedInt mailIdList = RepeatedInt.newEmptyInstance();
 
@@ -40,62 +35,25 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 BBFNEALMHJB = 7;</code>
-     * @return whether the bBFNEALMHJB field is set
+     * <code>repeated uint32 mail_id_list = 6;</code>
+     * @return whether the mailIdList field is set
      */
-    public boolean hasBBFNEALMHJB() {
+    public boolean hasMailIdList() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 BBFNEALMHJB = 7;</code>
-     * @return this
-     */
-    public TakeMailAttachmentCsReq clearBBFNEALMHJB() {
-      bitField0_ &= ~0x00000001;
-      bBFNEALMHJB = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 BBFNEALMHJB = 7;</code>
-     * @return the bBFNEALMHJB
-     */
-    public int getBBFNEALMHJB() {
-      return bBFNEALMHJB;
-    }
-
-    /**
-     * <code>optional uint32 BBFNEALMHJB = 7;</code>
-     * @param value the bBFNEALMHJB to set
-     * @return this
-     */
-    public TakeMailAttachmentCsReq setBBFNEALMHJB(final int value) {
-      bitField0_ |= 0x00000001;
-      bBFNEALMHJB = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 mail_id_list = 12;</code>
-     * @return whether the mailIdList field is set
-     */
-    public boolean hasMailIdList() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 mail_id_list = 12;</code>
+     * <code>repeated uint32 mail_id_list = 6;</code>
      * @return this
      */
     public TakeMailAttachmentCsReq clearMailIdList() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       mailIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 12;</code>
+     * <code>repeated uint32 mail_id_list = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +67,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 12;</code>
+     * <code>repeated uint32 mail_id_list = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -118,28 +76,28 @@ public final class TakeMailAttachmentCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableMailIdList() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       return mailIdList;
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 12;</code>
+     * <code>repeated uint32 mail_id_list = 6;</code>
      * @param value the mailIdList to add
      * @return this
      */
     public TakeMailAttachmentCsReq addMailIdList(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       mailIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 12;</code>
+     * <code>repeated uint32 mail_id_list = 6;</code>
      * @param values the mailIdList to add
      * @return this
      */
     public TakeMailAttachmentCsReq addAllMailIdList(final int... values) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       mailIdList.addAll(values);
       return this;
     }
@@ -149,7 +107,6 @@ public final class TakeMailAttachmentCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        bBFNEALMHJB = other.bBFNEALMHJB;
         mailIdList.copyFrom(other.mailIdList);
       }
       return this;
@@ -161,9 +118,6 @@ public final class TakeMailAttachmentCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBBFNEALMHJB()) {
-        setBBFNEALMHJB(other.bBFNEALMHJB);
-      }
       if (other.hasMailIdList()) {
         getMutableMailIdList().addAll(other.mailIdList);
       }
@@ -177,7 +131,6 @@ public final class TakeMailAttachmentCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      bBFNEALMHJB = 0;
       mailIdList.clear();
       return this;
     }
@@ -203,19 +156,14 @@ public final class TakeMailAttachmentCsReqOuterClass {
       }
       TakeMailAttachmentCsReq other = (TakeMailAttachmentCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasBBFNEALMHJB() || bBFNEALMHJB == other.bBFNEALMHJB)
         && (!hasMailIdList() || mailIdList.equals(other.mailIdList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(bBFNEALMHJB);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < mailIdList.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 48);
           output.writeUInt32NoTag(mailIdList.array()[i]);
         }
       }
@@ -225,9 +173,6 @@ public final class TakeMailAttachmentCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(bBFNEALMHJB);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * mailIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(mailIdList);
       }
       return size;
@@ -240,19 +185,10 @@ public final class TakeMailAttachmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
-            // bBFNEALMHJB
-            bBFNEALMHJB = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 98) {
-              break;
-            }
-          }
-          case 98: {
+          case 50: {
             // mailIdList [packed=true]
             input.readPackedUInt32(mailIdList, tag);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -268,10 +204,10 @@ public final class TakeMailAttachmentCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
+          case 48: {
             // mailIdList [packed=false]
             tag = input.readRepeatedUInt32(mailIdList, tag);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             break;
           }
         }
@@ -282,9 +218,6 @@ public final class TakeMailAttachmentCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.bBFNEALMHJB, bBFNEALMHJB);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedUInt32(FieldNames.mailIdList, mailIdList);
       }
       output.endObject();
@@ -297,23 +230,12 @@ public final class TakeMailAttachmentCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1149456699: {
-            if (input.isAtField(FieldNames.bBFNEALMHJB)) {
-              if (!input.trySkipNullValue()) {
-                bBFNEALMHJB = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1612269328:
           case 1599691450: {
             if (input.isAtField(FieldNames.mailIdList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(mailIdList);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -373,8 +295,6 @@ public final class TakeMailAttachmentCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName bBFNEALMHJB = FieldName.forField("BBFNEALMHJB");
-
       static final FieldName mailIdList = FieldName.forField("mailIdList", "mail_id_list");
     }
   }

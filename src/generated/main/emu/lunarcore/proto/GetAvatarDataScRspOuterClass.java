@@ -25,12 +25,12 @@ public final class GetAvatarDataScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional bool is_get_all = 14;</code>
+     * <code>optional bool is_get_all = 11;</code>
      */
     private boolean isGetAll;
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 3;</code>
      */
     private final RepeatedMessage<AvatarOuterClass.Avatar> avatarList = RepeatedMessage.newEmptyInstance(AvatarOuterClass.Avatar.getFactory());
 
@@ -82,7 +82,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 14;</code>
+     * <code>optional bool is_get_all = 11;</code>
      * @return whether the isGetAll field is set
      */
     public boolean hasIsGetAll() {
@@ -90,7 +90,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 14;</code>
+     * <code>optional bool is_get_all = 11;</code>
      * @return this
      */
     public GetAvatarDataScRsp clearIsGetAll() {
@@ -100,7 +100,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 14;</code>
+     * <code>optional bool is_get_all = 11;</code>
      * @return the isGetAll
      */
     public boolean getIsGetAll() {
@@ -108,7 +108,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 14;</code>
+     * <code>optional bool is_get_all = 11;</code>
      * @param value the isGetAll to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 3;</code>
      * @return whether the avatarList field is set
      */
     public boolean hasAvatarList() {
@@ -127,7 +127,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 3;</code>
      * @return this
      */
     public GetAvatarDataScRsp clearAvatarList() {
@@ -137,7 +137,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +151,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -165,7 +165,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 3;</code>
      * @param value the avatarList to add
      * @return this
      */
@@ -176,7 +176,7 @@ public final class GetAvatarDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 3;</code>
      * @param values the avatarList to add
      * @return this
      */
@@ -262,12 +262,12 @@ public final class GetAvatarDataScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 88);
         output.writeBoolNoTag(isGetAll);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < avatarList.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 26);
           output.writeMessageNoTag(avatarList.get(i));
         }
       }
@@ -300,20 +300,20 @@ public final class GetAvatarDataScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 88) {
               break;
             }
           }
-          case 112: {
+          case 88: {
             // isGetAll
             isGetAll = input.readBool();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 26) {
               break;
             }
           }
-          case 10: {
+          case 26: {
             // avatarList
             tag = input.readRepeatedMessage(avatarList, tag);
             bitField0_ |= 0x00000004;

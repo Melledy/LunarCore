@@ -19,7 +19,7 @@ public final class SelectRogueBuffCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 maze_buff_id = 7;</code>
+     * <code>optional uint32 maze_buff_id = 13;</code>
      */
     private int mazeBuffId;
 
@@ -34,7 +34,7 @@ public final class SelectRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 maze_buff_id = 7;</code>
+     * <code>optional uint32 maze_buff_id = 13;</code>
      * @return whether the mazeBuffId field is set
      */
     public boolean hasMazeBuffId() {
@@ -42,7 +42,7 @@ public final class SelectRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 maze_buff_id = 7;</code>
+     * <code>optional uint32 maze_buff_id = 13;</code>
      * @return this
      */
     public SelectRogueBuffCsReq clearMazeBuffId() {
@@ -52,7 +52,7 @@ public final class SelectRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 maze_buff_id = 7;</code>
+     * <code>optional uint32 maze_buff_id = 13;</code>
      * @return the mazeBuffId
      */
     public int getMazeBuffId() {
@@ -60,7 +60,7 @@ public final class SelectRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 maze_buff_id = 7;</code>
+     * <code>optional uint32 maze_buff_id = 13;</code>
      * @param value the mazeBuffId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SelectRogueBuffCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(mazeBuffId);
       }
     }
@@ -150,7 +150,7 @@ public final class SelectRogueBuffCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 104: {
             // mazeBuffId
             mazeBuffId = input.readUInt32();
             bitField0_ |= 0x00000001;

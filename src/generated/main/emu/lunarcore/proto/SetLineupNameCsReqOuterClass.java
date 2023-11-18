@@ -20,12 +20,12 @@ public final class SetLineupNameCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 index = 1;</code>
+     * <code>optional uint32 index = 7;</code>
      */
     private int index;
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      */
     private final Utf8String name = Utf8String.newEmptyInstance();
 
@@ -40,7 +40,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 1;</code>
+     * <code>optional uint32 index = 7;</code>
      * @return whether the index field is set
      */
     public boolean hasIndex() {
@@ -48,7 +48,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 1;</code>
+     * <code>optional uint32 index = 7;</code>
      * @return this
      */
     public SetLineupNameCsReq clearIndex() {
@@ -58,7 +58,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 1;</code>
+     * <code>optional uint32 index = 7;</code>
      * @return the index
      */
     public int getIndex() {
@@ -66,7 +66,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 1;</code>
+     * <code>optional uint32 index = 7;</code>
      * @param value the index to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      * @return whether the name field is set
      */
     public boolean hasName() {
@@ -85,7 +85,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      * @return this
      */
     public SetLineupNameCsReq clearName() {
@@ -95,7 +95,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      * @return the name
      */
     public String getName() {
@@ -103,7 +103,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      * @return internal {@code Utf8String} representation of name for reading
      */
     public Utf8String getNameBytes() {
@@ -111,7 +111,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      * @return internal {@code Utf8String} representation of name for modifications
      */
     public Utf8String getMutableNameBytes() {
@@ -120,7 +120,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      * @param value the name to set
      * @return this
      */
@@ -131,7 +131,7 @@ public final class SetLineupNameCsReqOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 1;</code>
      * @param value the name to set
      * @return this
      */
@@ -207,11 +207,11 @@ public final class SetLineupNameCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(index);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 66);
+        output.writeRawByte((byte) 10);
         output.writeStringNoTag(name);
       }
     }
@@ -235,16 +235,16 @@ public final class SetLineupNameCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 56: {
             // index
             index = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 10) {
               break;
             }
           }
-          case 66: {
+          case 10: {
             // name
             input.readString(name);
             bitField0_ |= 0x00000002;

@@ -19,19 +19,11 @@ public final class SpBarInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     *  +24
-     * </pre>
-     *
      * <code>optional uint32 cur_sp = 1;</code>
      */
     private int curSp;
 
     /**
-     * <pre>
-     *  +28
-     * </pre>
-     *
      * <code>optional uint32 max_sp = 2;</code>
      */
     private int maxSp;
@@ -47,10 +39,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +24
-     * </pre>
-     *
      * <code>optional uint32 cur_sp = 1;</code>
      * @return whether the curSp field is set
      */
@@ -59,10 +47,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +24
-     * </pre>
-     *
      * <code>optional uint32 cur_sp = 1;</code>
      * @return this
      */
@@ -73,10 +57,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +24
-     * </pre>
-     *
      * <code>optional uint32 cur_sp = 1;</code>
      * @return the curSp
      */
@@ -85,10 +65,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +24
-     * </pre>
-     *
      * <code>optional uint32 cur_sp = 1;</code>
      * @param value the curSp to set
      * @return this
@@ -100,10 +76,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +28
-     * </pre>
-     *
      * <code>optional uint32 max_sp = 2;</code>
      * @return whether the maxSp field is set
      */
@@ -112,10 +84,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +28
-     * </pre>
-     *
      * <code>optional uint32 max_sp = 2;</code>
      * @return this
      */
@@ -126,10 +94,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +28
-     * </pre>
-     *
      * <code>optional uint32 max_sp = 2;</code>
      * @return the maxSp
      */
@@ -138,10 +102,6 @@ public final class SpBarInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  +28
-     * </pre>
-     *
      * <code>optional uint32 max_sp = 2;</code>
      * @param value the maxSp to set
      * @return this

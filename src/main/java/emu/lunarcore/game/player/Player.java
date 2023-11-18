@@ -666,7 +666,7 @@ public class Player {
     
     public RogueVirtualItemInfo toRogueVirtualItemsProto() {
         var proto = RogueVirtualItemInfo.newInstance()
-                .setRogueTalentPoints(this.getTalentPoints());
+                .setRogueAbilityPoint(this.getTalentPoints());
         
         return proto;
     }

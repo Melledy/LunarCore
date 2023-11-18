@@ -19,24 +19,24 @@ public final class RogueVirtualItemInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 ALLDDMKKICK = 1;</code>
+     * <code>optional uint32 rogue_ability_point = 7;</code>
      */
-    private int aLLDDMKKICK;
+    private int rogueAbilityPoint;
 
     /**
-     * <code>optional uint32 DOMMGENHGKE = 4;</code>
+     * <code>optional uint32 rogue_puman_coupon = 8;</code>
      */
-    private int dOMMGENHGKE;
+    private int roguePumanCoupon;
 
     /**
-     * <code>optional uint32 KMAGFHIIALA = 10;</code>
+     * <code>optional uint32 rogue_coin = 10;</code>
      */
-    private int kMAGFHIIALA;
+    private int rogueCoin;
 
     /**
-     * <code>optional uint32 rogue_talent_points = 14;</code>
+     * <code>optional uint32 rogue_immersifier = 13;</code>
      */
-    private int rogueTalentPoints;
+    private int rogueImmersifier;
 
     private RogueVirtualItemInfo() {
     }
@@ -49,150 +49,150 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 ALLDDMKKICK = 1;</code>
-     * @return whether the aLLDDMKKICK field is set
+     * <code>optional uint32 rogue_ability_point = 7;</code>
+     * @return whether the rogueAbilityPoint field is set
      */
-    public boolean hasALLDDMKKICK() {
+    public boolean hasRogueAbilityPoint() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 ALLDDMKKICK = 1;</code>
+     * <code>optional uint32 rogue_ability_point = 7;</code>
      * @return this
      */
-    public RogueVirtualItemInfo clearALLDDMKKICK() {
+    public RogueVirtualItemInfo clearRogueAbilityPoint() {
       bitField0_ &= ~0x00000001;
-      aLLDDMKKICK = 0;
+      rogueAbilityPoint = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 ALLDDMKKICK = 1;</code>
-     * @return the aLLDDMKKICK
+     * <code>optional uint32 rogue_ability_point = 7;</code>
+     * @return the rogueAbilityPoint
      */
-    public int getALLDDMKKICK() {
-      return aLLDDMKKICK;
+    public int getRogueAbilityPoint() {
+      return rogueAbilityPoint;
     }
 
     /**
-     * <code>optional uint32 ALLDDMKKICK = 1;</code>
-     * @param value the aLLDDMKKICK to set
+     * <code>optional uint32 rogue_ability_point = 7;</code>
+     * @param value the rogueAbilityPoint to set
      * @return this
      */
-    public RogueVirtualItemInfo setALLDDMKKICK(final int value) {
+    public RogueVirtualItemInfo setRogueAbilityPoint(final int value) {
       bitField0_ |= 0x00000001;
-      aLLDDMKKICK = value;
+      rogueAbilityPoint = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 DOMMGENHGKE = 4;</code>
-     * @return whether the dOMMGENHGKE field is set
+     * <code>optional uint32 rogue_puman_coupon = 8;</code>
+     * @return whether the roguePumanCoupon field is set
      */
-    public boolean hasDOMMGENHGKE() {
+    public boolean hasRoguePumanCoupon() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 DOMMGENHGKE = 4;</code>
+     * <code>optional uint32 rogue_puman_coupon = 8;</code>
      * @return this
      */
-    public RogueVirtualItemInfo clearDOMMGENHGKE() {
+    public RogueVirtualItemInfo clearRoguePumanCoupon() {
       bitField0_ &= ~0x00000002;
-      dOMMGENHGKE = 0;
+      roguePumanCoupon = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 DOMMGENHGKE = 4;</code>
-     * @return the dOMMGENHGKE
+     * <code>optional uint32 rogue_puman_coupon = 8;</code>
+     * @return the roguePumanCoupon
      */
-    public int getDOMMGENHGKE() {
-      return dOMMGENHGKE;
+    public int getRoguePumanCoupon() {
+      return roguePumanCoupon;
     }
 
     /**
-     * <code>optional uint32 DOMMGENHGKE = 4;</code>
-     * @param value the dOMMGENHGKE to set
+     * <code>optional uint32 rogue_puman_coupon = 8;</code>
+     * @param value the roguePumanCoupon to set
      * @return this
      */
-    public RogueVirtualItemInfo setDOMMGENHGKE(final int value) {
+    public RogueVirtualItemInfo setRoguePumanCoupon(final int value) {
       bitField0_ |= 0x00000002;
-      dOMMGENHGKE = value;
+      roguePumanCoupon = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 KMAGFHIIALA = 10;</code>
-     * @return whether the kMAGFHIIALA field is set
+     * <code>optional uint32 rogue_coin = 10;</code>
+     * @return whether the rogueCoin field is set
      */
-    public boolean hasKMAGFHIIALA() {
+    public boolean hasRogueCoin() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 KMAGFHIIALA = 10;</code>
+     * <code>optional uint32 rogue_coin = 10;</code>
      * @return this
      */
-    public RogueVirtualItemInfo clearKMAGFHIIALA() {
+    public RogueVirtualItemInfo clearRogueCoin() {
       bitField0_ &= ~0x00000004;
-      kMAGFHIIALA = 0;
+      rogueCoin = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 KMAGFHIIALA = 10;</code>
-     * @return the kMAGFHIIALA
+     * <code>optional uint32 rogue_coin = 10;</code>
+     * @return the rogueCoin
      */
-    public int getKMAGFHIIALA() {
-      return kMAGFHIIALA;
+    public int getRogueCoin() {
+      return rogueCoin;
     }
 
     /**
-     * <code>optional uint32 KMAGFHIIALA = 10;</code>
-     * @param value the kMAGFHIIALA to set
+     * <code>optional uint32 rogue_coin = 10;</code>
+     * @param value the rogueCoin to set
      * @return this
      */
-    public RogueVirtualItemInfo setKMAGFHIIALA(final int value) {
+    public RogueVirtualItemInfo setRogueCoin(final int value) {
       bitField0_ |= 0x00000004;
-      kMAGFHIIALA = value;
+      rogueCoin = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 rogue_talent_points = 14;</code>
-     * @return whether the rogueTalentPoints field is set
+     * <code>optional uint32 rogue_immersifier = 13;</code>
+     * @return whether the rogueImmersifier field is set
      */
-    public boolean hasRogueTalentPoints() {
+    public boolean hasRogueImmersifier() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 rogue_talent_points = 14;</code>
+     * <code>optional uint32 rogue_immersifier = 13;</code>
      * @return this
      */
-    public RogueVirtualItemInfo clearRogueTalentPoints() {
+    public RogueVirtualItemInfo clearRogueImmersifier() {
       bitField0_ &= ~0x00000008;
-      rogueTalentPoints = 0;
+      rogueImmersifier = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 rogue_talent_points = 14;</code>
-     * @return the rogueTalentPoints
+     * <code>optional uint32 rogue_immersifier = 13;</code>
+     * @return the rogueImmersifier
      */
-    public int getRogueTalentPoints() {
-      return rogueTalentPoints;
+    public int getRogueImmersifier() {
+      return rogueImmersifier;
     }
 
     /**
-     * <code>optional uint32 rogue_talent_points = 14;</code>
-     * @param value the rogueTalentPoints to set
+     * <code>optional uint32 rogue_immersifier = 13;</code>
+     * @param value the rogueImmersifier to set
      * @return this
      */
-    public RogueVirtualItemInfo setRogueTalentPoints(final int value) {
+    public RogueVirtualItemInfo setRogueImmersifier(final int value) {
       bitField0_ |= 0x00000008;
-      rogueTalentPoints = value;
+      rogueImmersifier = value;
       return this;
     }
 
@@ -201,10 +201,10 @@ public final class RogueVirtualItemInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        aLLDDMKKICK = other.aLLDDMKKICK;
-        dOMMGENHGKE = other.dOMMGENHGKE;
-        kMAGFHIIALA = other.kMAGFHIIALA;
-        rogueTalentPoints = other.rogueTalentPoints;
+        rogueAbilityPoint = other.rogueAbilityPoint;
+        roguePumanCoupon = other.roguePumanCoupon;
+        rogueCoin = other.rogueCoin;
+        rogueImmersifier = other.rogueImmersifier;
       }
       return this;
     }
@@ -215,17 +215,17 @@ public final class RogueVirtualItemInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasALLDDMKKICK()) {
-        setALLDDMKKICK(other.aLLDDMKKICK);
+      if (other.hasRogueAbilityPoint()) {
+        setRogueAbilityPoint(other.rogueAbilityPoint);
       }
-      if (other.hasDOMMGENHGKE()) {
-        setDOMMGENHGKE(other.dOMMGENHGKE);
+      if (other.hasRoguePumanCoupon()) {
+        setRoguePumanCoupon(other.roguePumanCoupon);
       }
-      if (other.hasKMAGFHIIALA()) {
-        setKMAGFHIIALA(other.kMAGFHIIALA);
+      if (other.hasRogueCoin()) {
+        setRogueCoin(other.rogueCoin);
       }
-      if (other.hasRogueTalentPoints()) {
-        setRogueTalentPoints(other.rogueTalentPoints);
+      if (other.hasRogueImmersifier()) {
+        setRogueImmersifier(other.rogueImmersifier);
       }
       return this;
     }
@@ -237,10 +237,10 @@ public final class RogueVirtualItemInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      aLLDDMKKICK = 0;
-      dOMMGENHGKE = 0;
-      kMAGFHIIALA = 0;
-      rogueTalentPoints = 0;
+      rogueAbilityPoint = 0;
+      roguePumanCoupon = 0;
+      rogueCoin = 0;
+      rogueImmersifier = 0;
       return this;
     }
 
@@ -264,29 +264,29 @@ public final class RogueVirtualItemInfoOuterClass {
       }
       RogueVirtualItemInfo other = (RogueVirtualItemInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasALLDDMKKICK() || aLLDDMKKICK == other.aLLDDMKKICK)
-        && (!hasDOMMGENHGKE() || dOMMGENHGKE == other.dOMMGENHGKE)
-        && (!hasKMAGFHIIALA() || kMAGFHIIALA == other.kMAGFHIIALA)
-        && (!hasRogueTalentPoints() || rogueTalentPoints == other.rogueTalentPoints);
+        && (!hasRogueAbilityPoint() || rogueAbilityPoint == other.rogueAbilityPoint)
+        && (!hasRoguePumanCoupon() || roguePumanCoupon == other.roguePumanCoupon)
+        && (!hasRogueCoin() || rogueCoin == other.rogueCoin)
+        && (!hasRogueImmersifier() || rogueImmersifier == other.rogueImmersifier);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(aLLDDMKKICK);
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(rogueAbilityPoint);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(dOMMGENHGKE);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(roguePumanCoupon);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(kMAGFHIIALA);
+        output.writeUInt32NoTag(rogueCoin);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(rogueTalentPoints);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(rogueImmersifier);
       }
     }
 
@@ -294,16 +294,16 @@ public final class RogueVirtualItemInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(aLLDDMKKICK);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueAbilityPoint);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(dOMMGENHGKE);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(roguePumanCoupon);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kMAGFHIIALA);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueCoin);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueTalentPoints);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueImmersifier);
       }
       return size;
     }
@@ -315,18 +315,18 @@ public final class RogueVirtualItemInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // aLLDDMKKICK
-            aLLDDMKKICK = input.readUInt32();
+          case 56: {
+            // rogueAbilityPoint
+            rogueAbilityPoint = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 64) {
               break;
             }
           }
-          case 32: {
-            // dOMMGENHGKE
-            dOMMGENHGKE = input.readUInt32();
+          case 64: {
+            // roguePumanCoupon
+            roguePumanCoupon = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 80) {
@@ -334,17 +334,17 @@ public final class RogueVirtualItemInfoOuterClass {
             }
           }
           case 80: {
-            // kMAGFHIIALA
-            kMAGFHIIALA = input.readUInt32();
+            // rogueCoin
+            rogueCoin = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 104) {
               break;
             }
           }
-          case 112: {
-            // rogueTalentPoints
-            rogueTalentPoints = input.readUInt32();
+          case 104: {
+            // rogueImmersifier
+            rogueImmersifier = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
@@ -369,16 +369,16 @@ public final class RogueVirtualItemInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.aLLDDMKKICK, aLLDDMKKICK);
+        output.writeUInt32(FieldNames.rogueAbilityPoint, rogueAbilityPoint);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.dOMMGENHGKE, dOMMGENHGKE);
+        output.writeUInt32(FieldNames.roguePumanCoupon, roguePumanCoupon);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.kMAGFHIIALA, kMAGFHIIALA);
+        output.writeUInt32(FieldNames.rogueCoin, rogueCoin);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.rogueTalentPoints, rogueTalentPoints);
+        output.writeUInt32(FieldNames.rogueImmersifier, rogueImmersifier);
       }
       output.endObject();
     }
@@ -390,10 +390,11 @@ public final class RogueVirtualItemInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -2066689563: {
-            if (input.isAtField(FieldNames.aLLDDMKKICK)) {
+          case 1319384448:
+          case -1613205354: {
+            if (input.isAtField(FieldNames.rogueAbilityPoint)) {
               if (!input.trySkipNullValue()) {
-                aLLDDMKKICK = input.readUInt32();
+                rogueAbilityPoint = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -401,10 +402,11 @@ public final class RogueVirtualItemInfoOuterClass {
             }
             break;
           }
-          case -323022850: {
-            if (input.isAtField(FieldNames.dOMMGENHGKE)) {
+          case 845104001:
+          case -2086985547: {
+            if (input.isAtField(FieldNames.roguePumanCoupon)) {
               if (!input.trySkipNullValue()) {
-                dOMMGENHGKE = input.readUInt32();
+                roguePumanCoupon = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -412,10 +414,11 @@ public final class RogueVirtualItemInfoOuterClass {
             }
             break;
           }
-          case -2082273588: {
-            if (input.isAtField(FieldNames.kMAGFHIIALA)) {
+          case 655631243:
+          case -1124761130: {
+            if (input.isAtField(FieldNames.rogueCoin)) {
               if (!input.trySkipNullValue()) {
-                kMAGFHIIALA = input.readUInt32();
+                rogueCoin = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -423,11 +426,11 @@ public final class RogueVirtualItemInfoOuterClass {
             }
             break;
           }
-          case -569543703:
-          case -9301519: {
-            if (input.isAtField(FieldNames.rogueTalentPoints)) {
+          case 1115528066:
+          case -1695636777: {
+            if (input.isAtField(FieldNames.rogueImmersifier)) {
               if (!input.trySkipNullValue()) {
-                rogueTalentPoints = input.readUInt32();
+                rogueImmersifier = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -488,13 +491,13 @@ public final class RogueVirtualItemInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName aLLDDMKKICK = FieldName.forField("ALLDDMKKICK");
+      static final FieldName rogueAbilityPoint = FieldName.forField("rogueAbilityPoint", "rogue_ability_point");
 
-      static final FieldName dOMMGENHGKE = FieldName.forField("DOMMGENHGKE");
+      static final FieldName roguePumanCoupon = FieldName.forField("roguePumanCoupon", "rogue_puman_coupon");
 
-      static final FieldName kMAGFHIIALA = FieldName.forField("KMAGFHIIALA");
+      static final FieldName rogueCoin = FieldName.forField("rogueCoin", "rogue_coin");
 
-      static final FieldName rogueTalentPoints = FieldName.forField("rogueTalentPoints", "rogue_talent_points");
+      static final FieldName rogueImmersifier = FieldName.forField("rogueImmersifier", "rogue_immersifier");
     }
   }
 }

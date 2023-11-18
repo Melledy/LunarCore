@@ -19,12 +19,12 @@ public final class RogueHandbookDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 rogue_current_version = 6;</code>
+     * <code>optional uint32 rogue_current_version = 4;</code>
      */
     private int rogueCurrentVersion;
 
     /**
-     * <code>optional bool is_miracle_unlock = 12;</code>
+     * <code>optional bool is_miracle_unlock = 10;</code>
      */
     private boolean isMiracleUnlock;
 
@@ -39,7 +39,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_current_version = 6;</code>
+     * <code>optional uint32 rogue_current_version = 4;</code>
      * @return whether the rogueCurrentVersion field is set
      */
     public boolean hasRogueCurrentVersion() {
@@ -47,7 +47,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_current_version = 6;</code>
+     * <code>optional uint32 rogue_current_version = 4;</code>
      * @return this
      */
     public RogueHandbookData clearRogueCurrentVersion() {
@@ -57,7 +57,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_current_version = 6;</code>
+     * <code>optional uint32 rogue_current_version = 4;</code>
      * @return the rogueCurrentVersion
      */
     public int getRogueCurrentVersion() {
@@ -65,7 +65,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_current_version = 6;</code>
+     * <code>optional uint32 rogue_current_version = 4;</code>
      * @param value the rogueCurrentVersion to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional bool is_miracle_unlock = 12;</code>
+     * <code>optional bool is_miracle_unlock = 10;</code>
      * @return whether the isMiracleUnlock field is set
      */
     public boolean hasIsMiracleUnlock() {
@@ -84,7 +84,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional bool is_miracle_unlock = 12;</code>
+     * <code>optional bool is_miracle_unlock = 10;</code>
      * @return this
      */
     public RogueHandbookData clearIsMiracleUnlock() {
@@ -94,7 +94,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional bool is_miracle_unlock = 12;</code>
+     * <code>optional bool is_miracle_unlock = 10;</code>
      * @return the isMiracleUnlock
      */
     public boolean getIsMiracleUnlock() {
@@ -102,7 +102,7 @@ public final class RogueHandbookDataOuterClass {
     }
 
     /**
-     * <code>optional bool is_miracle_unlock = 12;</code>
+     * <code>optional bool is_miracle_unlock = 10;</code>
      * @param value the isMiracleUnlock to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RogueHandbookDataOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(rogueCurrentVersion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 80);
         output.writeBoolNoTag(isMiracleUnlock);
       }
     }
@@ -205,16 +205,16 @@ public final class RogueHandbookDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 32: {
             // rogueCurrentVersion
             rogueCurrentVersion = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 80) {
               break;
             }
           }
-          case 96: {
+          case 80: {
             // isMiracleUnlock
             isMiracleUnlock = input.readBool();
             bitField0_ |= 0x00000002;

@@ -19,22 +19,22 @@ public final class SceneActorInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 uid = 4;</code>
+     * <code>optional uint32 uid = 1;</code>
      */
     private int uid;
 
     /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      */
     private int baseAvatarId;
 
     /**
-     * <code>optional uint32 map_layer = 11;</code>
+     * <code>optional uint32 map_layer = 7;</code>
      */
     private int mapLayer;
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      */
     private int avatarType;
 
@@ -49,7 +49,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 4;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @return whether the uid field is set
      */
     public boolean hasUid() {
@@ -57,7 +57,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 4;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @return this
      */
     public SceneActorInfo clearUid() {
@@ -67,7 +67,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 4;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @return the uid
      */
     public int getUid() {
@@ -75,7 +75,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 4;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @param value the uid to set
      * @return this
      */
@@ -86,7 +86,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -94,7 +94,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return this
      */
     public SceneActorInfo clearBaseAvatarId() {
@@ -104,7 +104,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -112,7 +112,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 9;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -123,7 +123,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 map_layer = 11;</code>
+     * <code>optional uint32 map_layer = 7;</code>
      * @return whether the mapLayer field is set
      */
     public boolean hasMapLayer() {
@@ -131,7 +131,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 map_layer = 11;</code>
+     * <code>optional uint32 map_layer = 7;</code>
      * @return this
      */
     public SceneActorInfo clearMapLayer() {
@@ -141,7 +141,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 map_layer = 11;</code>
+     * <code>optional uint32 map_layer = 7;</code>
      * @return the mapLayer
      */
     public int getMapLayer() {
@@ -149,7 +149,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 map_layer = 11;</code>
+     * <code>optional uint32 map_layer = 7;</code>
      * @param value the mapLayer to set
      * @return this
      */
@@ -160,7 +160,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @return whether the avatarType field is set
      */
     public boolean hasAvatarType() {
@@ -168,7 +168,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @return this
      */
     public SceneActorInfo clearAvatarType() {
@@ -178,7 +178,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @return the avatarType
      */
     public AvatarTypeOuterClass.AvatarType getAvatarType() {
@@ -211,7 +211,7 @@ public final class SceneActorInfoOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @param value the avatarType to set
      * @return this
      */
@@ -298,19 +298,19 @@ public final class SceneActorInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(uid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(mapLayer);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 96);
         output.writeEnumNoTag(avatarType);
       }
     }
@@ -340,34 +340,34 @@ public final class SceneActorInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 8: {
             // uid
             uid = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 24) {
               break;
             }
           }
-          case 72: {
+          case 24: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 56) {
               break;
             }
           }
-          case 88: {
+          case 56: {
             // mapLayer
             mapLayer = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 96) {
               break;
             }
           }
-          case 16: {
+          case 96: {
             // avatarType
             final int value = input.readInt32();
             if (AvatarTypeOuterClass.AvatarType.forNumber(value) != null) {

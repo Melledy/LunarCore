@@ -19,12 +19,12 @@ public final class AddRogueBuffScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueBuffSource source = 15;</code>
+     * <code>optional .RogueBuffSource source = 4;</code>
      */
     private int source;
 
     /**
-     * <code>optional .RogueBuff maze_buff_info = 11;</code>
+     * <code>optional .RogueBuff maze_buff_info = 1;</code>
      */
     private final RogueBuffOuterClass.RogueBuff mazeBuffInfo = RogueBuffOuterClass.RogueBuff.newInstance();
 
@@ -39,7 +39,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSource source = 15;</code>
+     * <code>optional .RogueBuffSource source = 4;</code>
      * @return whether the source field is set
      */
     public boolean hasSource() {
@@ -47,7 +47,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSource source = 15;</code>
+     * <code>optional .RogueBuffSource source = 4;</code>
      * @return this
      */
     public AddRogueBuffScNotify clearSource() {
@@ -57,7 +57,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSource source = 15;</code>
+     * <code>optional .RogueBuffSource source = 4;</code>
      * @return the source
      */
     public RogueBuffSourceOuterClass.RogueBuffSource getSource() {
@@ -90,7 +90,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSource source = 15;</code>
+     * <code>optional .RogueBuffSource source = 4;</code>
      * @param value the source to set
      * @return this
      */
@@ -101,7 +101,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff maze_buff_info = 11;</code>
+     * <code>optional .RogueBuff maze_buff_info = 1;</code>
      * @return whether the mazeBuffInfo field is set
      */
     public boolean hasMazeBuffInfo() {
@@ -109,7 +109,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff maze_buff_info = 11;</code>
+     * <code>optional .RogueBuff maze_buff_info = 1;</code>
      * @return this
      */
     public AddRogueBuffScNotify clearMazeBuffInfo() {
@@ -119,7 +119,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff maze_buff_info = 11;</code>
+     * <code>optional .RogueBuff maze_buff_info = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -133,7 +133,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff maze_buff_info = 11;</code>
+     * <code>optional .RogueBuff maze_buff_info = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -147,7 +147,7 @@ public final class AddRogueBuffScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff maze_buff_info = 11;</code>
+     * <code>optional .RogueBuff maze_buff_info = 1;</code>
      * @param value the mazeBuffInfo to set
      * @return this
      */
@@ -223,11 +223,11 @@ public final class AddRogueBuffScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 32);
         output.writeEnumNoTag(source);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(mazeBuffInfo);
       }
     }
@@ -251,7 +251,7 @@ public final class AddRogueBuffScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 32: {
             // source
             final int value = input.readInt32();
             if (RogueBuffSourceOuterClass.RogueBuffSource.forNumber(value) != null) {
@@ -259,11 +259,11 @@ public final class AddRogueBuffScNotifyOuterClass {
               bitField0_ |= 0x00000001;
             }
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 10) {
               break;
             }
           }
-          case 90: {
+          case 10: {
             // mazeBuffInfo
             input.readMessage(mazeBuffInfo);
             bitField0_ |= 0x00000002;

@@ -19,9 +19,14 @@ public final class JoinLineupCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
+     * <code>optional uint32 plane_id = 5;</code>
      */
-    private int baseAvatarId;
+    private int planeId;
+
+    /**
+     * <code>optional uint32 index = 6;</code>
+     */
+    private int index;
 
     /**
      * <code>optional uint32 slot = 12;</code>
@@ -29,17 +34,12 @@ public final class JoinLineupCsReqOuterClass {
     private int slot;
 
     /**
-     * <code>optional uint32 index = 13;</code>
+     * <code>optional uint32 base_avatar_id = 13;</code>
      */
-    private int index;
+    private int baseAvatarId;
 
     /**
-     * <code>optional uint32 plane_id = 14;</code>
-     */
-    private int planeId;
-
-    /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 11;</code>
      */
     private int extraLineupType;
 
@@ -49,7 +49,7 @@ public final class JoinLineupCsReqOuterClass {
     private int avatarType;
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 7;</code>
      */
     private boolean isVirtual;
 
@@ -64,39 +64,76 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
-     * @return whether the baseAvatarId field is set
+     * <code>optional uint32 plane_id = 5;</code>
+     * @return whether the planeId field is set
      */
-    public boolean hasBaseAvatarId() {
+    public boolean hasPlaneId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
+     * <code>optional uint32 plane_id = 5;</code>
      * @return this
      */
-    public JoinLineupCsReq clearBaseAvatarId() {
+    public JoinLineupCsReq clearPlaneId() {
       bitField0_ &= ~0x00000001;
-      baseAvatarId = 0;
+      planeId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
-     * @return the baseAvatarId
+     * <code>optional uint32 plane_id = 5;</code>
+     * @return the planeId
      */
-    public int getBaseAvatarId() {
-      return baseAvatarId;
+    public int getPlaneId() {
+      return planeId;
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
-     * @param value the baseAvatarId to set
+     * <code>optional uint32 plane_id = 5;</code>
+     * @param value the planeId to set
      * @return this
      */
-    public JoinLineupCsReq setBaseAvatarId(final int value) {
+    public JoinLineupCsReq setPlaneId(final int value) {
       bitField0_ |= 0x00000001;
-      baseAvatarId = value;
+      planeId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 index = 6;</code>
+     * @return whether the index field is set
+     */
+    public boolean hasIndex() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 index = 6;</code>
+     * @return this
+     */
+    public JoinLineupCsReq clearIndex() {
+      bitField0_ &= ~0x00000002;
+      index = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 index = 6;</code>
+     * @return the index
+     */
+    public int getIndex() {
+      return index;
+    }
+
+    /**
+     * <code>optional uint32 index = 6;</code>
+     * @param value the index to set
+     * @return this
+     */
+    public JoinLineupCsReq setIndex(final int value) {
+      bitField0_ |= 0x00000002;
+      index = value;
       return this;
     }
 
@@ -105,7 +142,7 @@ public final class JoinLineupCsReqOuterClass {
      * @return whether the slot field is set
      */
     public boolean hasSlot() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
@@ -113,7 +150,7 @@ public final class JoinLineupCsReqOuterClass {
      * @return this
      */
     public JoinLineupCsReq clearSlot() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000004;
       slot = 0;
       return this;
     }
@@ -132,87 +169,50 @@ public final class JoinLineupCsReqOuterClass {
      * @return this
      */
     public JoinLineupCsReq setSlot(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       slot = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 index = 13;</code>
-     * @return whether the index field is set
+     * <code>optional uint32 base_avatar_id = 13;</code>
+     * @return whether the baseAvatarId field is set
      */
-    public boolean hasIndex() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 index = 13;</code>
-     * @return this
-     */
-    public JoinLineupCsReq clearIndex() {
-      bitField0_ &= ~0x00000004;
-      index = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 index = 13;</code>
-     * @return the index
-     */
-    public int getIndex() {
-      return index;
-    }
-
-    /**
-     * <code>optional uint32 index = 13;</code>
-     * @param value the index to set
-     * @return this
-     */
-    public JoinLineupCsReq setIndex(final int value) {
-      bitField0_ |= 0x00000004;
-      index = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 14;</code>
-     * @return whether the planeId field is set
-     */
-    public boolean hasPlaneId() {
+    public boolean hasBaseAvatarId() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 plane_id = 14;</code>
+     * <code>optional uint32 base_avatar_id = 13;</code>
      * @return this
      */
-    public JoinLineupCsReq clearPlaneId() {
+    public JoinLineupCsReq clearBaseAvatarId() {
       bitField0_ &= ~0x00000008;
-      planeId = 0;
+      baseAvatarId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 plane_id = 14;</code>
-     * @return the planeId
+     * <code>optional uint32 base_avatar_id = 13;</code>
+     * @return the baseAvatarId
      */
-    public int getPlaneId() {
-      return planeId;
+    public int getBaseAvatarId() {
+      return baseAvatarId;
     }
 
     /**
-     * <code>optional uint32 plane_id = 14;</code>
-     * @param value the planeId to set
+     * <code>optional uint32 base_avatar_id = 13;</code>
+     * @param value the baseAvatarId to set
      * @return this
      */
-    public JoinLineupCsReq setPlaneId(final int value) {
+    public JoinLineupCsReq setBaseAvatarId(final int value) {
       bitField0_ |= 0x00000008;
-      planeId = value;
+      baseAvatarId = value;
       return this;
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 11;</code>
      * @return whether the extraLineupType field is set
      */
     public boolean hasExtraLineupType() {
@@ -220,7 +220,7 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 11;</code>
      * @return this
      */
     public JoinLineupCsReq clearExtraLineupType() {
@@ -230,7 +230,7 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 11;</code>
      * @return the extraLineupType
      */
     public ExtraLineupTypeOuterClass.ExtraLineupType getExtraLineupType() {
@@ -263,7 +263,7 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 11;</code>
      * @param value the extraLineupType to set
      * @return this
      */
@@ -337,7 +337,7 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 7;</code>
      * @return whether the isVirtual field is set
      */
     public boolean hasIsVirtual() {
@@ -345,7 +345,7 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 7;</code>
      * @return this
      */
     public JoinLineupCsReq clearIsVirtual() {
@@ -355,7 +355,7 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 7;</code>
      * @return the isVirtual
      */
     public boolean getIsVirtual() {
@@ -363,7 +363,7 @@ public final class JoinLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 7;</code>
      * @param value the isVirtual to set
      * @return this
      */
@@ -378,10 +378,10 @@ public final class JoinLineupCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        baseAvatarId = other.baseAvatarId;
-        slot = other.slot;
-        index = other.index;
         planeId = other.planeId;
+        index = other.index;
+        slot = other.slot;
+        baseAvatarId = other.baseAvatarId;
         extraLineupType = other.extraLineupType;
         avatarType = other.avatarType;
         isVirtual = other.isVirtual;
@@ -395,17 +395,17 @@ public final class JoinLineupCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBaseAvatarId()) {
-        setBaseAvatarId(other.baseAvatarId);
-      }
-      if (other.hasSlot()) {
-        setSlot(other.slot);
+      if (other.hasPlaneId()) {
+        setPlaneId(other.planeId);
       }
       if (other.hasIndex()) {
         setIndex(other.index);
       }
-      if (other.hasPlaneId()) {
-        setPlaneId(other.planeId);
+      if (other.hasSlot()) {
+        setSlot(other.slot);
+      }
+      if (other.hasBaseAvatarId()) {
+        setBaseAvatarId(other.baseAvatarId);
       }
       if (other.hasExtraLineupType()) {
         setExtraLineupTypeValue(other.extraLineupType);
@@ -426,10 +426,10 @@ public final class JoinLineupCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      baseAvatarId = 0;
-      slot = 0;
-      index = 0;
       planeId = 0;
+      index = 0;
+      slot = 0;
+      baseAvatarId = 0;
       extraLineupType = 0;
       avatarType = 0;
       isVirtual = false;
@@ -456,10 +456,10 @@ public final class JoinLineupCsReqOuterClass {
       }
       JoinLineupCsReq other = (JoinLineupCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId)
-        && (!hasSlot() || slot == other.slot)
-        && (!hasIndex() || index == other.index)
         && (!hasPlaneId() || planeId == other.planeId)
+        && (!hasIndex() || index == other.index)
+        && (!hasSlot() || slot == other.slot)
+        && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId)
         && (!hasExtraLineupType() || extraLineupType == other.extraLineupType)
         && (!hasAvatarType() || avatarType == other.avatarType)
         && (!hasIsVirtual() || isVirtual == other.isVirtual);
@@ -468,23 +468,23 @@ public final class JoinLineupCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(baseAvatarId);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(planeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(index);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(slot);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(index);
-      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(planeId);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 88);
         output.writeEnumNoTag(extraLineupType);
       }
       if ((bitField0_ & 0x00000020) != 0) {
@@ -492,7 +492,7 @@ public final class JoinLineupCsReqOuterClass {
         output.writeEnumNoTag(avatarType);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 56);
         output.writeBoolNoTag(isVirtual);
       }
     }
@@ -501,16 +501,16 @@ public final class JoinLineupCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(index);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(extraLineupType);
@@ -531,10 +531,19 @@ public final class JoinLineupCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
-            // baseAvatarId
-            baseAvatarId = input.readUInt32();
+          case 40: {
+            // planeId
+            planeId = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
+            // index
+            index = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 96) {
               break;
@@ -543,31 +552,22 @@ public final class JoinLineupCsReqOuterClass {
           case 96: {
             // slot
             slot = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 104) {
               break;
             }
           }
           case 104: {
-            // index
-            index = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
-            // planeId
-            planeId = input.readUInt32();
+            // baseAvatarId
+            baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 88) {
               break;
             }
           }
-          case 72: {
+          case 88: {
             // extraLineupType
             final int value = input.readInt32();
             if (ExtraLineupTypeOuterClass.ExtraLineupType.forNumber(value) != null) {
@@ -587,11 +587,11 @@ public final class JoinLineupCsReqOuterClass {
               bitField0_ |= 0x00000020;
             }
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 56) {
               break;
             }
           }
-          case 80: {
+          case 56: {
             // isVirtual
             isVirtual = input.readBool();
             bitField0_ |= 0x00000040;
@@ -618,16 +618,16 @@ public final class JoinLineupCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
+        output.writeUInt32(FieldNames.planeId, planeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.slot, slot);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.index, index);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.slot, slot);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.planeId, planeId);
+        output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeEnum(FieldNames.extraLineupType, extraLineupType, ExtraLineupTypeOuterClass.ExtraLineupType.converter());
@@ -648,23 +648,12 @@ public final class JoinLineupCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 118022725:
-          case -1756826157: {
-            if (input.isAtField(FieldNames.baseAvatarId)) {
+          case -493896553:
+          case 1869097438: {
+            if (input.isAtField(FieldNames.planeId)) {
               if (!input.trySkipNullValue()) {
-                baseAvatarId = input.readUInt32();
+                planeId = input.readUInt32();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 3533310: {
-            if (input.isAtField(FieldNames.slot)) {
-              if (!input.trySkipNullValue()) {
-                slot = input.readUInt32();
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -675,6 +664,17 @@ public final class JoinLineupCsReqOuterClass {
             if (input.isAtField(FieldNames.index)) {
               if (!input.trySkipNullValue()) {
                 index = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 3533310: {
+            if (input.isAtField(FieldNames.slot)) {
+              if (!input.trySkipNullValue()) {
+                slot = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -682,11 +682,11 @@ public final class JoinLineupCsReqOuterClass {
             }
             break;
           }
-          case -493896553:
-          case 1869097438: {
-            if (input.isAtField(FieldNames.planeId)) {
+          case 118022725:
+          case -1756826157: {
+            if (input.isAtField(FieldNames.baseAvatarId)) {
               if (!input.trySkipNullValue()) {
-                planeId = input.readUInt32();
+                baseAvatarId = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -793,13 +793,13 @@ public final class JoinLineupCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName baseAvatarId = FieldName.forField("baseAvatarId", "base_avatar_id");
-
-      static final FieldName slot = FieldName.forField("slot");
+      static final FieldName planeId = FieldName.forField("planeId", "plane_id");
 
       static final FieldName index = FieldName.forField("index");
 
-      static final FieldName planeId = FieldName.forField("planeId", "plane_id");
+      static final FieldName slot = FieldName.forField("slot");
+
+      static final FieldName baseAvatarId = FieldName.forField("baseAvatarId", "base_avatar_id");
 
       static final FieldName extraLineupType = FieldName.forField("extraLineupType", "extra_lineup_type");
 

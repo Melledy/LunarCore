@@ -19,17 +19,12 @@ public final class SceneEntityRefreshInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
-     */
-    private int lFEHNPMNFMG;
-
-    /**
-     * <code>optional uint32 del_entity = 9;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      */
     private int delEntity;
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 6;</code>
+     * <code>optional .SceneEntityInfo add_entity = 14;</code>
      */
     private final SceneEntityInfoOuterClass.SceneEntityInfo addEntity = SceneEntityInfoOuterClass.SceneEntityInfo.newInstance();
 
@@ -44,97 +39,49 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     public boolean hasUpdateType() {
-      return (((bitField0_ & 0x00000007)) != 0);
+      return (((bitField0_ & 0x00000003)) != 0);
     }
 
     public SceneEntityRefreshInfo clearUpdateType() {
       if (hasUpdateType()) {
-        clearLFEHNPMNFMG();
         clearDelEntity();
         clearAddEntity();
       }
       return this;
     }
 
-    private void clearUpdateTypeOtherLFEHNPMNFMG() {
-      if ((((bitField0_ & 0x00000006)) != 0)) {
-        clearDelEntity();
-        clearAddEntity();
-      }
-    }
-
     private void clearUpdateTypeOtherDelEntity() {
-      if ((((bitField0_ & 0x00000005)) != 0)) {
-        clearLFEHNPMNFMG();
+      if ((((bitField0_ & 0x00000002)) != 0)) {
         clearAddEntity();
       }
     }
 
     private void clearUpdateTypeOtherAddEntity() {
-      if ((((bitField0_ & 0x00000003)) != 0)) {
-        clearLFEHNPMNFMG();
+      if ((((bitField0_ & 0x00000001)) != 0)) {
         clearDelEntity();
       }
     }
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
-     * @return whether the lFEHNPMNFMG field is set
+     * <code>optional uint32 del_entity = 7;</code>
+     * @return whether the delEntity field is set
      */
-    public boolean hasLFEHNPMNFMG() {
+    public boolean hasDelEntity() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
-     * @return this
-     */
-    public SceneEntityRefreshInfo clearLFEHNPMNFMG() {
-      bitField0_ &= ~0x00000001;
-      lFEHNPMNFMG = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
-     * @return the lFEHNPMNFMG
-     */
-    public int getLFEHNPMNFMG() {
-      return lFEHNPMNFMG;
-    }
-
-    /**
-     * <code>optional uint32 LFEHNPMNFMG = 3;</code>
-     * @param value the lFEHNPMNFMG to set
-     * @return this
-     */
-    public SceneEntityRefreshInfo setLFEHNPMNFMG(final int value) {
-      clearUpdateTypeOtherLFEHNPMNFMG();
-      bitField0_ |= 0x00000001;
-      lFEHNPMNFMG = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 del_entity = 9;</code>
-     * @return whether the delEntity field is set
-     */
-    public boolean hasDelEntity() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 del_entity = 9;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearDelEntity() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       delEntity = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 del_entity = 9;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      * @return the delEntity
      */
     public int getDelEntity() {
@@ -142,37 +89,37 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 9;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      * @param value the delEntity to set
      * @return this
      */
     public SceneEntityRefreshInfo setDelEntity(final int value) {
       clearUpdateTypeOtherDelEntity();
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       delEntity = value;
       return this;
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 6;</code>
+     * <code>optional .SceneEntityInfo add_entity = 14;</code>
      * @return whether the addEntity field is set
      */
     public boolean hasAddEntity() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 6;</code>
+     * <code>optional .SceneEntityInfo add_entity = 14;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearAddEntity() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       addEntity.clear();
       return this;
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 6;</code>
+     * <code>optional .SceneEntityInfo add_entity = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -186,7 +133,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 6;</code>
+     * <code>optional .SceneEntityInfo add_entity = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -196,19 +143,19 @@ public final class SceneEntityRefreshInfoOuterClass {
      */
     public SceneEntityInfoOuterClass.SceneEntityInfo getMutableAddEntity() {
       clearUpdateTypeOtherAddEntity();
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       return addEntity;
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 6;</code>
+     * <code>optional .SceneEntityInfo add_entity = 14;</code>
      * @param value the addEntity to set
      * @return this
      */
     public SceneEntityRefreshInfo setAddEntity(
         final SceneEntityInfoOuterClass.SceneEntityInfo value) {
       clearUpdateTypeOtherAddEntity();
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       addEntity.copyFrom(value);
       return this;
     }
@@ -218,7 +165,6 @@ public final class SceneEntityRefreshInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        lFEHNPMNFMG = other.lFEHNPMNFMG;
         delEntity = other.delEntity;
         addEntity.copyFrom(other.addEntity);
       }
@@ -231,9 +177,6 @@ public final class SceneEntityRefreshInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasLFEHNPMNFMG()) {
-        setLFEHNPMNFMG(other.lFEHNPMNFMG);
-      }
       if (other.hasDelEntity()) {
         setDelEntity(other.delEntity);
       }
@@ -250,7 +193,6 @@ public final class SceneEntityRefreshInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      lFEHNPMNFMG = 0;
       delEntity = 0;
       addEntity.clear();
       return this;
@@ -277,7 +219,6 @@ public final class SceneEntityRefreshInfoOuterClass {
       }
       SceneEntityRefreshInfo other = (SceneEntityRefreshInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasLFEHNPMNFMG() || lFEHNPMNFMG == other.lFEHNPMNFMG)
         && (!hasDelEntity() || delEntity == other.delEntity)
         && (!hasAddEntity() || addEntity.equals(other.addEntity));
     }
@@ -285,15 +226,11 @@ public final class SceneEntityRefreshInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(lFEHNPMNFMG);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(delEntity);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 50);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 114);
         output.writeMessageNoTag(addEntity);
       }
     }
@@ -302,12 +239,9 @@ public final class SceneEntityRefreshInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(lFEHNPMNFMG);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(delEntity);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(addEntity);
       }
       return size;
@@ -320,31 +254,21 @@ public final class SceneEntityRefreshInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // lFEHNPMNFMG
-            clearUpdateTypeOtherLFEHNPMNFMG();
-            lFEHNPMNFMG = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 72) {
-              break;
-            }
-          }
-          case 72: {
+          case 56: {
             // delEntity
             clearUpdateTypeOtherDelEntity();
             delEntity = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 114) {
               break;
             }
           }
-          case 50: {
+          case 114: {
             // addEntity
             clearUpdateTypeOtherAddEntity();
             input.readMessage(addEntity);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -368,12 +292,9 @@ public final class SceneEntityRefreshInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.lFEHNPMNFMG, lFEHNPMNFMG);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.delEntity, delEntity);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeMessage(FieldNames.addEntity, addEntity);
       }
       output.endObject();
@@ -386,25 +307,13 @@ public final class SceneEntityRefreshInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -657727392: {
-            if (input.isAtField(FieldNames.lFEHNPMNFMG)) {
-              if (!input.trySkipNullValue()) {
-                clearUpdateTypeOtherLFEHNPMNFMG();
-                lFEHNPMNFMG = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1279926322:
           case 314362519: {
             if (input.isAtField(FieldNames.delEntity)) {
               if (!input.trySkipNullValue()) {
                 clearUpdateTypeOtherDelEntity();
                 delEntity = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -417,7 +326,7 @@ public final class SceneEntityRefreshInfoOuterClass {
               if (!input.trySkipNullValue()) {
                 clearUpdateTypeOtherAddEntity();
                 input.readMessage(addEntity);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -477,8 +386,6 @@ public final class SceneEntityRefreshInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName lFEHNPMNFMG = FieldName.forField("LFEHNPMNFMG");
-
       static final FieldName delEntity = FieldName.forField("delEntity", "del_entity");
 
       static final FieldName addEntity = FieldName.forField("addEntity", "add_entity");

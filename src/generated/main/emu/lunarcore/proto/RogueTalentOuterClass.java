@@ -20,17 +20,17 @@ public final class RogueTalentOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 talent_id = 6;</code>
+     * <code>optional uint32 talent_id = 3;</code>
      */
     private int talentId;
 
     /**
-     * <code>optional .RogueTalentStatus status = 7;</code>
+     * <code>optional .RogueTalentStatus status = 14;</code>
      */
     private int status;
 
     /**
-     * <code>repeated .RogueUnlockProgress unlock_progress_list = 8;</code>
+     * <code>repeated .RogueUnlockProgress unlock_progress_list = 4;</code>
      */
     private final RepeatedMessage<RogueUnlockProgressOuterClass.RogueUnlockProgress> unlockProgressList = RepeatedMessage.newEmptyInstance(RogueUnlockProgressOuterClass.RogueUnlockProgress.getFactory());
 
@@ -45,7 +45,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 6;</code>
+     * <code>optional uint32 talent_id = 3;</code>
      * @return whether the talentId field is set
      */
     public boolean hasTalentId() {
@@ -53,7 +53,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 6;</code>
+     * <code>optional uint32 talent_id = 3;</code>
      * @return this
      */
     public RogueTalent clearTalentId() {
@@ -63,7 +63,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 6;</code>
+     * <code>optional uint32 talent_id = 3;</code>
      * @return the talentId
      */
     public int getTalentId() {
@@ -71,7 +71,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 6;</code>
+     * <code>optional uint32 talent_id = 3;</code>
      * @param value the talentId to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentStatus status = 7;</code>
+     * <code>optional .RogueTalentStatus status = 14;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -90,7 +90,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentStatus status = 7;</code>
+     * <code>optional .RogueTalentStatus status = 14;</code>
      * @return this
      */
     public RogueTalent clearStatus() {
@@ -100,7 +100,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentStatus status = 7;</code>
+     * <code>optional .RogueTalentStatus status = 14;</code>
      * @return the status
      */
     public RogueTalentStatusOuterClass.RogueTalentStatus getStatus() {
@@ -133,7 +133,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentStatus status = 7;</code>
+     * <code>optional .RogueTalentStatus status = 14;</code>
      * @param value the status to set
      * @return this
      */
@@ -144,7 +144,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>repeated .RogueUnlockProgress unlock_progress_list = 8;</code>
+     * <code>repeated .RogueUnlockProgress unlock_progress_list = 4;</code>
      * @return whether the unlockProgressList field is set
      */
     public boolean hasUnlockProgressList() {
@@ -152,7 +152,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>repeated .RogueUnlockProgress unlock_progress_list = 8;</code>
+     * <code>repeated .RogueUnlockProgress unlock_progress_list = 4;</code>
      * @return this
      */
     public RogueTalent clearUnlockProgressList() {
@@ -162,7 +162,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>repeated .RogueUnlockProgress unlock_progress_list = 8;</code>
+     * <code>repeated .RogueUnlockProgress unlock_progress_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -177,7 +177,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>repeated .RogueUnlockProgress unlock_progress_list = 8;</code>
+     * <code>repeated .RogueUnlockProgress unlock_progress_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -192,7 +192,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>repeated .RogueUnlockProgress unlock_progress_list = 8;</code>
+     * <code>repeated .RogueUnlockProgress unlock_progress_list = 4;</code>
      * @param value the unlockProgressList to add
      * @return this
      */
@@ -204,7 +204,7 @@ public final class RogueTalentOuterClass {
     }
 
     /**
-     * <code>repeated .RogueUnlockProgress unlock_progress_list = 8;</code>
+     * <code>repeated .RogueUnlockProgress unlock_progress_list = 4;</code>
      * @param values the unlockProgressList to add
      * @return this
      */
@@ -287,16 +287,16 @@ public final class RogueTalentOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(talentId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 112);
         output.writeEnumNoTag(status);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < unlockProgressList.length(); i++) {
-          output.writeRawByte((byte) 66);
+          output.writeRawByte((byte) 34);
           output.writeMessageNoTag(unlockProgressList.get(i));
         }
       }
@@ -324,16 +324,16 @@ public final class RogueTalentOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 24: {
             // talentId
             talentId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 112) {
               break;
             }
           }
-          case 56: {
+          case 112: {
             // status
             final int value = input.readInt32();
             if (RogueTalentStatusOuterClass.RogueTalentStatus.forNumber(value) != null) {
@@ -341,11 +341,11 @@ public final class RogueTalentOuterClass {
               bitField0_ |= 0x00000002;
             }
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 34) {
               break;
             }
           }
-          case 66: {
+          case 34: {
             // unlockProgressList
             tag = input.readRepeatedMessage(unlockProgressList, tag);
             bitField0_ |= 0x00000004;

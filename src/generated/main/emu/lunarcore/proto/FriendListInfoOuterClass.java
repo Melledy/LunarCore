@@ -10,7 +10,6 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.Utf8String;
 
 public final class FriendListInfoOuterClass {
   /**
@@ -20,14 +19,9 @@ public final class FriendListInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .SimpleInfo simple_info = 11;</code>
+     * <code>optional .SimpleInfo simple_info = 14;</code>
      */
     private final SimpleInfoOuterClass.SimpleInfo simpleInfo = SimpleInfoOuterClass.SimpleInfo.newInstance();
-
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     */
-    private final Utf8String iJHBIGOHDIC = Utf8String.newEmptyInstance();
 
     private FriendListInfo() {
     }
@@ -40,7 +34,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 11;</code>
+     * <code>optional .SimpleInfo simple_info = 14;</code>
      * @return whether the simpleInfo field is set
      */
     public boolean hasSimpleInfo() {
@@ -48,7 +42,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 11;</code>
+     * <code>optional .SimpleInfo simple_info = 14;</code>
      * @return this
      */
     public FriendListInfo clearSimpleInfo() {
@@ -58,7 +52,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 11;</code>
+     * <code>optional .SimpleInfo simple_info = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -72,7 +66,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 11;</code>
+     * <code>optional .SimpleInfo simple_info = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -86,7 +80,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 11;</code>
+     * <code>optional .SimpleInfo simple_info = 14;</code>
      * @param value the simpleInfo to set
      * @return this
      */
@@ -96,78 +90,12 @@ public final class FriendListInfoOuterClass {
       return this;
     }
 
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     * @return whether the iJHBIGOHDIC field is set
-     */
-    public boolean hasIJHBIGOHDIC() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     * @return this
-     */
-    public FriendListInfo clearIJHBIGOHDIC() {
-      bitField0_ &= ~0x00000002;
-      iJHBIGOHDIC.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     * @return the iJHBIGOHDIC
-     */
-    public String getIJHBIGOHDIC() {
-      return iJHBIGOHDIC.getString();
-    }
-
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     * @return internal {@code Utf8String} representation of iJHBIGOHDIC for reading
-     */
-    public Utf8String getIJHBIGOHDICBytes() {
-      return this.iJHBIGOHDIC;
-    }
-
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     * @return internal {@code Utf8String} representation of iJHBIGOHDIC for modifications
-     */
-    public Utf8String getMutableIJHBIGOHDICBytes() {
-      bitField0_ |= 0x00000002;
-      return this.iJHBIGOHDIC;
-    }
-
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     * @param value the iJHBIGOHDIC to set
-     * @return this
-     */
-    public FriendListInfo setIJHBIGOHDIC(final CharSequence value) {
-      bitField0_ |= 0x00000002;
-      iJHBIGOHDIC.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string IJHBIGOHDIC = 2;</code>
-     * @param value the iJHBIGOHDIC to set
-     * @return this
-     */
-    public FriendListInfo setIJHBIGOHDIC(final Utf8String value) {
-      bitField0_ |= 0x00000002;
-      iJHBIGOHDIC.copyFrom(value);
-      return this;
-    }
-
     @Override
     public FriendListInfo copyFrom(final FriendListInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         simpleInfo.copyFrom(other.simpleInfo);
-        iJHBIGOHDIC.copyFrom(other.iJHBIGOHDIC);
       }
       return this;
     }
@@ -181,9 +109,6 @@ public final class FriendListInfoOuterClass {
       if (other.hasSimpleInfo()) {
         getMutableSimpleInfo().mergeFrom(other.simpleInfo);
       }
-      if (other.hasIJHBIGOHDIC()) {
-        getMutableIJHBIGOHDICBytes().copyFrom(other.iJHBIGOHDIC);
-      }
       return this;
     }
 
@@ -195,7 +120,6 @@ public final class FriendListInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       simpleInfo.clear();
-      iJHBIGOHDIC.clear();
       return this;
     }
 
@@ -207,7 +131,6 @@ public final class FriendListInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       simpleInfo.clearQuick();
-      iJHBIGOHDIC.clear();
       return this;
     }
 
@@ -221,19 +144,14 @@ public final class FriendListInfoOuterClass {
       }
       FriendListInfo other = (FriendListInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasSimpleInfo() || simpleInfo.equals(other.simpleInfo))
-        && (!hasIJHBIGOHDIC() || iJHBIGOHDIC.equals(other.iJHBIGOHDIC));
+        && (!hasSimpleInfo() || simpleInfo.equals(other.simpleInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 114);
         output.writeMessageNoTag(simpleInfo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 18);
-        output.writeStringNoTag(iJHBIGOHDIC);
       }
     }
 
@@ -242,9 +160,6 @@ public final class FriendListInfoOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(simpleInfo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(iJHBIGOHDIC);
       }
       return size;
     }
@@ -256,19 +171,10 @@ public final class FriendListInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 90: {
+          case 114: {
             // simpleInfo
             input.readMessage(simpleInfo);
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 18) {
-              break;
-            }
-          }
-          case 18: {
-            // iJHBIGOHDIC
-            input.readString(iJHBIGOHDIC);
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -294,9 +200,6 @@ public final class FriendListInfoOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeMessage(FieldNames.simpleInfo, simpleInfo);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeString(FieldNames.iJHBIGOHDIC, iJHBIGOHDIC);
-      }
       output.endObject();
     }
 
@@ -313,17 +216,6 @@ public final class FriendListInfoOuterClass {
               if (!input.trySkipNullValue()) {
                 input.readMessage(simpleInfo);
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 554201932: {
-            if (input.isAtField(FieldNames.iJHBIGOHDIC)) {
-              if (!input.trySkipNullValue()) {
-                input.readString(iJHBIGOHDIC);
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -384,8 +276,6 @@ public final class FriendListInfoOuterClass {
      */
     static class FieldNames {
       static final FieldName simpleInfo = FieldName.forField("simpleInfo", "simple_info");
-
-      static final FieldName iJHBIGOHDIC = FieldName.forField("IJHBIGOHDIC");
     }
   }
 }

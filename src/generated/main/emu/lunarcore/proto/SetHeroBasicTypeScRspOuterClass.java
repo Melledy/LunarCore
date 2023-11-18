@@ -19,12 +19,12 @@ public final class SetHeroBasicTypeScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 12;</code>
      */
     private int basicType;
 
@@ -39,7 +39,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return this
      */
     public SetHeroBasicTypeScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 12;</code>
      * @return whether the basicType field is set
      */
     public boolean hasBasicType() {
@@ -84,7 +84,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 12;</code>
      * @return this
      */
     public SetHeroBasicTypeScRsp clearBasicType() {
@@ -94,7 +94,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 12;</code>
      * @return the basicType
      */
     public HeroBasicTypeOuterClass.HeroBasicType getBasicType() {
@@ -127,7 +127,7 @@ public final class SetHeroBasicTypeScRspOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 12;</code>
      * @param value the basicType to set
      * @return this
      */
@@ -202,11 +202,11 @@ public final class SetHeroBasicTypeScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 96);
         output.writeEnumNoTag(basicType);
       }
     }
@@ -230,16 +230,16 @@ public final class SetHeroBasicTypeScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 64: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 96) {
               break;
             }
           }
-          case 56: {
+          case 96: {
             // basicType
             final int value = input.readInt32();
             if (HeroBasicTypeOuterClass.HeroBasicType.forNumber(value) != null) {

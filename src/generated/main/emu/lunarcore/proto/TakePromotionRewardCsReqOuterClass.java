@@ -19,7 +19,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 promotion = 11;</code>
+     * <code>optional uint32 promotion = 5;</code>
      */
     private int promotion;
 
@@ -39,7 +39,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 11;</code>
+     * <code>optional uint32 promotion = 5;</code>
      * @return whether the promotion field is set
      */
     public boolean hasPromotion() {
@@ -47,7 +47,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 11;</code>
+     * <code>optional uint32 promotion = 5;</code>
      * @return this
      */
     public TakePromotionRewardCsReq clearPromotion() {
@@ -57,7 +57,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 11;</code>
+     * <code>optional uint32 promotion = 5;</code>
      * @return the promotion
      */
     public int getPromotion() {
@@ -65,7 +65,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 11;</code>
+     * <code>optional uint32 promotion = 5;</code>
      * @param value the promotion to set
      * @return this
      */
@@ -177,7 +177,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(promotion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -205,7 +205,7 @@ public final class TakePromotionRewardCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 40: {
             // promotion
             promotion = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -19,12 +19,12 @@ public final class UseItemScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 use_item_id = 6;</code>
+     * <code>optional uint32 use_item_id = 2;</code>
      */
     private int useItemId;
 
     /**
-     * <code>optional uint32 use_item_count = 10;</code>
+     * <code>optional uint32 use_item_count = 12;</code>
      */
     private int useItemCount;
 
@@ -34,7 +34,7 @@ public final class UseItemScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .ItemList return_data = 9;</code>
+     * <code>optional .ItemList return_data = 8;</code>
      */
     private final ItemListOuterClass.ItemList returnData = ItemListOuterClass.ItemList.newInstance();
 
@@ -49,7 +49,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_id = 6;</code>
+     * <code>optional uint32 use_item_id = 2;</code>
      * @return whether the useItemId field is set
      */
     public boolean hasUseItemId() {
@@ -57,7 +57,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_id = 6;</code>
+     * <code>optional uint32 use_item_id = 2;</code>
      * @return this
      */
     public UseItemScRsp clearUseItemId() {
@@ -67,7 +67,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_id = 6;</code>
+     * <code>optional uint32 use_item_id = 2;</code>
      * @return the useItemId
      */
     public int getUseItemId() {
@@ -75,7 +75,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_id = 6;</code>
+     * <code>optional uint32 use_item_id = 2;</code>
      * @param value the useItemId to set
      * @return this
      */
@@ -86,7 +86,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_count = 10;</code>
+     * <code>optional uint32 use_item_count = 12;</code>
      * @return whether the useItemCount field is set
      */
     public boolean hasUseItemCount() {
@@ -94,7 +94,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_count = 10;</code>
+     * <code>optional uint32 use_item_count = 12;</code>
      * @return this
      */
     public UseItemScRsp clearUseItemCount() {
@@ -104,7 +104,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_count = 10;</code>
+     * <code>optional uint32 use_item_count = 12;</code>
      * @return the useItemCount
      */
     public int getUseItemCount() {
@@ -112,7 +112,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_item_count = 10;</code>
+     * <code>optional uint32 use_item_count = 12;</code>
      * @param value the useItemCount to set
      * @return this
      */
@@ -160,7 +160,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_data = 9;</code>
+     * <code>optional .ItemList return_data = 8;</code>
      * @return whether the returnData field is set
      */
     public boolean hasReturnData() {
@@ -168,7 +168,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_data = 9;</code>
+     * <code>optional .ItemList return_data = 8;</code>
      * @return this
      */
     public UseItemScRsp clearReturnData() {
@@ -178,7 +178,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_data = 9;</code>
+     * <code>optional .ItemList return_data = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -192,7 +192,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_data = 9;</code>
+     * <code>optional .ItemList return_data = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -206,7 +206,7 @@ public final class UseItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_data = 9;</code>
+     * <code>optional .ItemList return_data = 8;</code>
      * @param value the returnData to set
      * @return this
      */
@@ -294,11 +294,11 @@ public final class UseItemScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(useItemId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(useItemCount);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -306,7 +306,7 @@ public final class UseItemScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 74);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(returnData);
       }
     }
@@ -336,16 +336,16 @@ public final class UseItemScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 16: {
             // useItemId
             useItemId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 96) {
               break;
             }
           }
-          case 80: {
+          case 96: {
             // useItemCount
             useItemCount = input.readUInt32();
             bitField0_ |= 0x00000002;
@@ -359,11 +359,11 @@ public final class UseItemScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 66) {
               break;
             }
           }
-          case 74: {
+          case 66: {
             // returnData
             input.readMessage(returnData);
             bitField0_ |= 0x00000008;

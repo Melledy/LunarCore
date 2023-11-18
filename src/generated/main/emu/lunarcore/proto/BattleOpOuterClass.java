@@ -10,7 +10,6 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.Utf8String;
 
 public final class BattleOpOuterClass {
   /**
@@ -53,11 +52,6 @@ public final class BattleOpOuterClass {
      * <code>optional uint32 operation_counter = 7;</code>
      */
     private int operationCounter;
-
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     */
-    private final Utf8String fHPBGOGGOBH = Utf8String.newEmptyInstance();
 
     private BattleOp() {
     }
@@ -328,71 +322,6 @@ public final class BattleOpOuterClass {
       return this;
     }
 
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     * @return whether the fHPBGOGGOBH field is set
-     */
-    public boolean hasFHPBGOGGOBH() {
-      return (bitField0_ & 0x00000080) != 0;
-    }
-
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     * @return this
-     */
-    public BattleOp clearFHPBGOGGOBH() {
-      bitField0_ &= ~0x00000080;
-      fHPBGOGGOBH.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     * @return the fHPBGOGGOBH
-     */
-    public String getFHPBGOGGOBH() {
-      return fHPBGOGGOBH.getString();
-    }
-
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     * @return internal {@code Utf8String} representation of fHPBGOGGOBH for reading
-     */
-    public Utf8String getFHPBGOGGOBHBytes() {
-      return this.fHPBGOGGOBH;
-    }
-
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     * @return internal {@code Utf8String} representation of fHPBGOGGOBH for modifications
-     */
-    public Utf8String getMutableFHPBGOGGOBHBytes() {
-      bitField0_ |= 0x00000080;
-      return this.fHPBGOGGOBH;
-    }
-
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     * @param value the fHPBGOGGOBH to set
-     * @return this
-     */
-    public BattleOp setFHPBGOGGOBH(final CharSequence value) {
-      bitField0_ |= 0x00000080;
-      fHPBGOGGOBH.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string FHPBGOGGOBH = 8;</code>
-     * @param value the fHPBGOGGOBH to set
-     * @return this
-     */
-    public BattleOp setFHPBGOGGOBH(final Utf8String value) {
-      bitField0_ |= 0x00000080;
-      fHPBGOGGOBH.copyFrom(value);
-      return this;
-    }
-
     @Override
     public BattleOp copyFrom(final BattleOp other) {
       cachedSize = other.cachedSize;
@@ -405,7 +334,6 @@ public final class BattleOpOuterClass {
         opType = other.opType;
         skillIndex = other.skillIndex;
         operationCounter = other.operationCounter;
-        fHPBGOGGOBH.copyFrom(other.fHPBGOGGOBH);
       }
       return this;
     }
@@ -437,9 +365,6 @@ public final class BattleOpOuterClass {
       if (other.hasOperationCounter()) {
         setOperationCounter(other.operationCounter);
       }
-      if (other.hasFHPBGOGGOBH()) {
-        getMutableFHPBGOGGOBHBytes().copyFrom(other.fHPBGOGGOBH);
-      }
       return this;
     }
 
@@ -457,7 +382,6 @@ public final class BattleOpOuterClass {
       opType = 0;
       skillIndex = 0;
       operationCounter = 0;
-      fHPBGOGGOBH.clear();
       return this;
     }
 
@@ -468,7 +392,6 @@ public final class BattleOpOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      fHPBGOGGOBH.clear();
       return this;
     }
 
@@ -488,8 +411,7 @@ public final class BattleOpOuterClass {
         && (!hasTargetEntityId() || targetEntityId == other.targetEntityId)
         && (!hasOpType() || opType == other.opType)
         && (!hasSkillIndex() || skillIndex == other.skillIndex)
-        && (!hasOperationCounter() || operationCounter == other.operationCounter)
-        && (!hasFHPBGOGGOBH() || fHPBGOGGOBH.equals(other.fHPBGOGGOBH));
+        && (!hasOperationCounter() || operationCounter == other.operationCounter);
     }
 
     @Override
@@ -522,10 +444,6 @@ public final class BattleOpOuterClass {
         output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(operationCounter);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 66);
-        output.writeStringNoTag(fHPBGOGGOBH);
-      }
     }
 
     @Override
@@ -551,9 +469,6 @@ public final class BattleOpOuterClass {
       }
       if ((bitField0_ & 0x00000040) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(operationCounter);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(fHPBGOGGOBH);
       }
       return size;
     }
@@ -624,15 +539,6 @@ public final class BattleOpOuterClass {
             operationCounter = input.readUInt32();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 66) {
-              break;
-            }
-          }
-          case 66: {
-            // fHPBGOGGOBH
-            input.readString(fHPBGOGGOBH);
-            bitField0_ |= 0x00000080;
-            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -674,9 +580,6 @@ public final class BattleOpOuterClass {
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeUInt32(FieldNames.operationCounter, operationCounter);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeString(FieldNames.fHPBGOGGOBH, fHPBGOGGOBH);
       }
       output.endObject();
     }
@@ -771,17 +674,6 @@ public final class BattleOpOuterClass {
             }
             break;
           }
-          case -1084999847: {
-            if (input.isAtField(FieldNames.fHPBGOGGOBH)) {
-              if (!input.trySkipNullValue()) {
-                input.readString(fHPBGOGGOBH);
-                bitField0_ |= 0x00000080;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           default: {
             input.skipUnknownField();
             break;
@@ -847,8 +739,6 @@ public final class BattleOpOuterClass {
       static final FieldName skillIndex = FieldName.forField("skillIndex", "skill_index");
 
       static final FieldName operationCounter = FieldName.forField("operationCounter", "operation_counter");
-
-      static final FieldName fHPBGOGGOBH = FieldName.forField("FHPBGOGGOBH");
     }
   }
 }

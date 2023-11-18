@@ -19,12 +19,12 @@ public final class GetNpcTakenRewardScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 3;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 npc_id = 9;</code>
+     * <code>optional uint32 npc_id = 13;</code>
      */
     private int npcId;
 
@@ -39,7 +39,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return this
      */
     public GetNpcTakenRewardScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 9;</code>
+     * <code>optional uint32 npc_id = 13;</code>
      * @return whether the npcId field is set
      */
     public boolean hasNpcId() {
@@ -84,7 +84,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 9;</code>
+     * <code>optional uint32 npc_id = 13;</code>
      * @return this
      */
     public GetNpcTakenRewardScRsp clearNpcId() {
@@ -94,7 +94,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 9;</code>
+     * <code>optional uint32 npc_id = 13;</code>
      * @return the npcId
      */
     public int getNpcId() {
@@ -102,7 +102,7 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 9;</code>
+     * <code>optional uint32 npc_id = 13;</code>
      * @param value the npcId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class GetNpcTakenRewardScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(npcId);
       }
     }
@@ -205,16 +205,16 @@ public final class GetNpcTakenRewardScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 24: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 104) {
               break;
             }
           }
-          case 72: {
+          case 104: {
             // npcId
             npcId = input.readUInt32();
             bitField0_ |= 0x00000002;

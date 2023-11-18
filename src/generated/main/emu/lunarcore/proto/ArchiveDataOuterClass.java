@@ -20,19 +20,14 @@ public final class ArchiveDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 archive_equipment_id_list = 2;</code>
+     * <code>repeated uint32 archive_equipment_id_list = 3;</code>
      */
     private final RepeatedInt archiveEquipmentIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 archive_avatar_id_list = 3;</code>
+     * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      */
     private final RepeatedInt archiveAvatarIdList = RepeatedInt.newEmptyInstance();
-
-    /**
-     * <code>repeated uint32 BDPEEIFDDFK = 11;</code>
-     */
-    private final RepeatedInt bDPEEIFDDFK = RepeatedInt.newEmptyInstance();
 
     private ArchiveData() {
     }
@@ -45,7 +40,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_equipment_id_list = 2;</code>
+     * <code>repeated uint32 archive_equipment_id_list = 3;</code>
      * @return whether the archiveEquipmentIdList field is set
      */
     public boolean hasArchiveEquipmentIdList() {
@@ -53,7 +48,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_equipment_id_list = 2;</code>
+     * <code>repeated uint32 archive_equipment_id_list = 3;</code>
      * @return this
      */
     public ArchiveData clearArchiveEquipmentIdList() {
@@ -63,7 +58,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_equipment_id_list = 2;</code>
+     * <code>repeated uint32 archive_equipment_id_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -77,7 +72,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_equipment_id_list = 2;</code>
+     * <code>repeated uint32 archive_equipment_id_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -91,7 +86,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_equipment_id_list = 2;</code>
+     * <code>repeated uint32 archive_equipment_id_list = 3;</code>
      * @param value the archiveEquipmentIdList to add
      * @return this
      */
@@ -102,7 +97,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_equipment_id_list = 2;</code>
+     * <code>repeated uint32 archive_equipment_id_list = 3;</code>
      * @param values the archiveEquipmentIdList to add
      * @return this
      */
@@ -113,7 +108,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_avatar_id_list = 3;</code>
+     * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      * @return whether the archiveAvatarIdList field is set
      */
     public boolean hasArchiveAvatarIdList() {
@@ -121,7 +116,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_avatar_id_list = 3;</code>
+     * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      * @return this
      */
     public ArchiveData clearArchiveAvatarIdList() {
@@ -131,7 +126,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_avatar_id_list = 3;</code>
+     * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -145,7 +140,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_avatar_id_list = 3;</code>
+     * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -159,7 +154,7 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_avatar_id_list = 3;</code>
+     * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      * @param value the archiveAvatarIdList to add
      * @return this
      */
@@ -170,81 +165,13 @@ public final class ArchiveDataOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_avatar_id_list = 3;</code>
+     * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      * @param values the archiveAvatarIdList to add
      * @return this
      */
     public ArchiveData addAllArchiveAvatarIdList(final int... values) {
       bitField0_ |= 0x00000002;
       archiveAvatarIdList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 BDPEEIFDDFK = 11;</code>
-     * @return whether the bDPEEIFDDFK field is set
-     */
-    public boolean hasBDPEEIFDDFK() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 BDPEEIFDDFK = 11;</code>
-     * @return this
-     */
-    public ArchiveData clearBDPEEIFDDFK() {
-      bitField0_ &= ~0x00000004;
-      bDPEEIFDDFK.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 BDPEEIFDDFK = 11;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableBDPEEIFDDFK()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getBDPEEIFDDFK() {
-      return bDPEEIFDDFK;
-    }
-
-    /**
-     * <code>repeated uint32 BDPEEIFDDFK = 11;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableBDPEEIFDDFK() {
-      bitField0_ |= 0x00000004;
-      return bDPEEIFDDFK;
-    }
-
-    /**
-     * <code>repeated uint32 BDPEEIFDDFK = 11;</code>
-     * @param value the bDPEEIFDDFK to add
-     * @return this
-     */
-    public ArchiveData addBDPEEIFDDFK(final int value) {
-      bitField0_ |= 0x00000004;
-      bDPEEIFDDFK.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 BDPEEIFDDFK = 11;</code>
-     * @param values the bDPEEIFDDFK to add
-     * @return this
-     */
-    public ArchiveData addAllBDPEEIFDDFK(final int... values) {
-      bitField0_ |= 0x00000004;
-      bDPEEIFDDFK.addAll(values);
       return this;
     }
 
@@ -255,7 +182,6 @@ public final class ArchiveDataOuterClass {
         bitField0_ = other.bitField0_;
         archiveEquipmentIdList.copyFrom(other.archiveEquipmentIdList);
         archiveAvatarIdList.copyFrom(other.archiveAvatarIdList);
-        bDPEEIFDDFK.copyFrom(other.bDPEEIFDDFK);
       }
       return this;
     }
@@ -272,9 +198,6 @@ public final class ArchiveDataOuterClass {
       if (other.hasArchiveAvatarIdList()) {
         getMutableArchiveAvatarIdList().addAll(other.archiveAvatarIdList);
       }
-      if (other.hasBDPEEIFDDFK()) {
-        getMutableBDPEEIFDDFK().addAll(other.bDPEEIFDDFK);
-      }
       return this;
     }
 
@@ -287,7 +210,6 @@ public final class ArchiveDataOuterClass {
       bitField0_ = 0;
       archiveEquipmentIdList.clear();
       archiveAvatarIdList.clear();
-      bDPEEIFDDFK.clear();
       return this;
     }
 
@@ -300,7 +222,6 @@ public final class ArchiveDataOuterClass {
       bitField0_ = 0;
       archiveEquipmentIdList.clear();
       archiveAvatarIdList.clear();
-      bDPEEIFDDFK.clear();
       return this;
     }
 
@@ -315,28 +236,21 @@ public final class ArchiveDataOuterClass {
       ArchiveData other = (ArchiveData) o;
       return bitField0_ == other.bitField0_
         && (!hasArchiveEquipmentIdList() || archiveEquipmentIdList.equals(other.archiveEquipmentIdList))
-        && (!hasArchiveAvatarIdList() || archiveAvatarIdList.equals(other.archiveAvatarIdList))
-        && (!hasBDPEEIFDDFK() || bDPEEIFDDFK.equals(other.bDPEEIFDDFK));
+        && (!hasArchiveAvatarIdList() || archiveAvatarIdList.equals(other.archiveAvatarIdList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < archiveEquipmentIdList.length(); i++) {
-          output.writeRawByte((byte) 16);
+          output.writeRawByte((byte) 24);
           output.writeUInt32NoTag(archiveEquipmentIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < archiveAvatarIdList.length(); i++) {
-          output.writeRawByte((byte) 24);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(archiveAvatarIdList.array()[i]);
-        }
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < bDPEEIFDDFK.length(); i++) {
-          output.writeRawByte((byte) 88);
-          output.writeUInt32NoTag(bDPEEIFDDFK.array()[i]);
         }
       }
     }
@@ -350,9 +264,6 @@ public final class ArchiveDataOuterClass {
       if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * archiveAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(archiveAvatarIdList);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * bDPEEIFDDFK.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(bDPEEIFDDFK);
-      }
       return size;
     }
 
@@ -363,28 +274,19 @@ public final class ArchiveDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 18: {
+          case 26: {
             // archiveEquipmentIdList [packed=true]
             input.readPackedUInt32(archiveEquipmentIdList, tag);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 34) {
               break;
             }
           }
-          case 26: {
+          case 34: {
             // archiveAvatarIdList [packed=true]
             input.readPackedUInt32(archiveAvatarIdList, tag);
             bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 90) {
-              break;
-            }
-          }
-          case 90: {
-            // bDPEEIFDDFK [packed=true]
-            input.readPackedUInt32(bDPEEIFDDFK, tag);
-            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -400,22 +302,16 @@ public final class ArchiveDataOuterClass {
             tag = input.readTag();
             break;
           }
-          case 16: {
+          case 24: {
             // archiveEquipmentIdList [packed=false]
             tag = input.readRepeatedUInt32(archiveEquipmentIdList, tag);
             bitField0_ |= 0x00000001;
             break;
           }
-          case 24: {
+          case 32: {
             // archiveAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(archiveAvatarIdList, tag);
             bitField0_ |= 0x00000002;
-            break;
-          }
-          case 88: {
-            // bDPEEIFDDFK [packed=false]
-            tag = input.readRepeatedUInt32(bDPEEIFDDFK, tag);
-            bitField0_ |= 0x00000004;
             break;
           }
         }
@@ -430,9 +326,6 @@ public final class ArchiveDataOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedUInt32(FieldNames.archiveAvatarIdList, archiveAvatarIdList);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.bDPEEIFDDFK, bDPEEIFDDFK);
       }
       output.endObject();
     }
@@ -462,17 +355,6 @@ public final class ArchiveDataOuterClass {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(archiveAvatarIdList);
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1579550416: {
-            if (input.isAtField(FieldNames.bDPEEIFDDFK)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(bDPEEIFDDFK);
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -534,8 +416,6 @@ public final class ArchiveDataOuterClass {
       static final FieldName archiveEquipmentIdList = FieldName.forField("archiveEquipmentIdList", "archive_equipment_id_list");
 
       static final FieldName archiveAvatarIdList = FieldName.forField("archiveAvatarIdList", "archive_avatar_id_list");
-
-      static final FieldName bDPEEIFDDFK = FieldName.forField("BDPEEIFDDFK");
     }
   }
 }

@@ -20,7 +20,7 @@ public final class TakeOffRelicCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 14;</code>
      */
     private int baseAvatarId;
 
@@ -40,7 +40,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 14;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -48,7 +48,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 14;</code>
      * @return this
      */
     public TakeOffRelicCsReq clearBaseAvatarId() {
@@ -58,7 +58,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 14;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -66,7 +66,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 14;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -210,7 +210,7 @@ public final class TakeOffRelicCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -240,7 +240,7 @@ public final class TakeOffRelicCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 112: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;

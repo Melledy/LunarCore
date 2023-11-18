@@ -19,12 +19,12 @@ public final class ExpUpRelicCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 relic_unique_id = 7;</code>
+     * <code>optional uint32 relic_unique_id = 14;</code>
      */
     private int relicUniqueId;
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 8;</code>
+     * <code>optional .ItemCostList item_cost_list = 12;</code>
      */
     private final ItemCostListOuterClass.ItemCostList itemCostList = ItemCostListOuterClass.ItemCostList.newInstance();
 
@@ -39,7 +39,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 7;</code>
+     * <code>optional uint32 relic_unique_id = 14;</code>
      * @return whether the relicUniqueId field is set
      */
     public boolean hasRelicUniqueId() {
@@ -47,7 +47,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 7;</code>
+     * <code>optional uint32 relic_unique_id = 14;</code>
      * @return this
      */
     public ExpUpRelicCsReq clearRelicUniqueId() {
@@ -57,7 +57,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 7;</code>
+     * <code>optional uint32 relic_unique_id = 14;</code>
      * @return the relicUniqueId
      */
     public int getRelicUniqueId() {
@@ -65,7 +65,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 7;</code>
+     * <code>optional uint32 relic_unique_id = 14;</code>
      * @param value the relicUniqueId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 8;</code>
+     * <code>optional .ItemCostList item_cost_list = 12;</code>
      * @return whether the itemCostList field is set
      */
     public boolean hasItemCostList() {
@@ -84,7 +84,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 8;</code>
+     * <code>optional .ItemCostList item_cost_list = 12;</code>
      * @return this
      */
     public ExpUpRelicCsReq clearItemCostList() {
@@ -94,7 +94,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 8;</code>
+     * <code>optional .ItemCostList item_cost_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 8;</code>
+     * <code>optional .ItemCostList item_cost_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class ExpUpRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 8;</code>
+     * <code>optional .ItemCostList item_cost_list = 12;</code>
      * @param value the itemCostList to set
      * @return this
      */
@@ -198,11 +198,11 @@ public final class ExpUpRelicCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(relicUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 66);
+        output.writeRawByte((byte) 98);
         output.writeMessageNoTag(itemCostList);
       }
     }
@@ -226,16 +226,16 @@ public final class ExpUpRelicCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 112: {
             // relicUniqueId
             relicUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 98) {
               break;
             }
           }
-          case 66: {
+          case 98: {
             // itemCostList
             input.readMessage(itemCostList);
             bitField0_ |= 0x00000002;

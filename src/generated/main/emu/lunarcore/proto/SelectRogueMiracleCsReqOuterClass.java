@@ -19,14 +19,9 @@ public final class SelectRogueMiracleCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 miracle_id = 2;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      */
     private int miracleId;
-
-    /**
-     * <code>optional uint32 EGBBHFMJLCB = 5;</code>
-     */
-    private int eGBBHFMJLCB;
 
     private SelectRogueMiracleCsReq() {
     }
@@ -39,7 +34,7 @@ public final class SelectRogueMiracleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 2;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @return whether the miracleId field is set
      */
     public boolean hasMiracleId() {
@@ -47,7 +42,7 @@ public final class SelectRogueMiracleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 2;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @return this
      */
     public SelectRogueMiracleCsReq clearMiracleId() {
@@ -57,7 +52,7 @@ public final class SelectRogueMiracleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 2;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @return the miracleId
      */
     public int getMiracleId() {
@@ -65,7 +60,7 @@ public final class SelectRogueMiracleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 2;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @param value the miracleId to set
      * @return this
      */
@@ -75,50 +70,12 @@ public final class SelectRogueMiracleCsReqOuterClass {
       return this;
     }
 
-    /**
-     * <code>optional uint32 EGBBHFMJLCB = 5;</code>
-     * @return whether the eGBBHFMJLCB field is set
-     */
-    public boolean hasEGBBHFMJLCB() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 EGBBHFMJLCB = 5;</code>
-     * @return this
-     */
-    public SelectRogueMiracleCsReq clearEGBBHFMJLCB() {
-      bitField0_ &= ~0x00000002;
-      eGBBHFMJLCB = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 EGBBHFMJLCB = 5;</code>
-     * @return the eGBBHFMJLCB
-     */
-    public int getEGBBHFMJLCB() {
-      return eGBBHFMJLCB;
-    }
-
-    /**
-     * <code>optional uint32 EGBBHFMJLCB = 5;</code>
-     * @param value the eGBBHFMJLCB to set
-     * @return this
-     */
-    public SelectRogueMiracleCsReq setEGBBHFMJLCB(final int value) {
-      bitField0_ |= 0x00000002;
-      eGBBHFMJLCB = value;
-      return this;
-    }
-
     @Override
     public SelectRogueMiracleCsReq copyFrom(final SelectRogueMiracleCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         miracleId = other.miracleId;
-        eGBBHFMJLCB = other.eGBBHFMJLCB;
       }
       return this;
     }
@@ -132,9 +89,6 @@ public final class SelectRogueMiracleCsReqOuterClass {
       if (other.hasMiracleId()) {
         setMiracleId(other.miracleId);
       }
-      if (other.hasEGBBHFMJLCB()) {
-        setEGBBHFMJLCB(other.eGBBHFMJLCB);
-      }
       return this;
     }
 
@@ -146,7 +100,6 @@ public final class SelectRogueMiracleCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       miracleId = 0;
-      eGBBHFMJLCB = 0;
       return this;
     }
 
@@ -170,19 +123,14 @@ public final class SelectRogueMiracleCsReqOuterClass {
       }
       SelectRogueMiracleCsReq other = (SelectRogueMiracleCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasMiracleId() || miracleId == other.miracleId)
-        && (!hasEGBBHFMJLCB() || eGBBHFMJLCB == other.eGBBHFMJLCB);
+        && (!hasMiracleId() || miracleId == other.miracleId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(miracleId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(eGBBHFMJLCB);
       }
     }
 
@@ -191,9 +139,6 @@ public final class SelectRogueMiracleCsReqOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(miracleId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(eGBBHFMJLCB);
       }
       return size;
     }
@@ -205,19 +150,10 @@ public final class SelectRogueMiracleCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 24: {
             // miracleId
             miracleId = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 40) {
-              break;
-            }
-          }
-          case 40: {
-            // eGBBHFMJLCB
-            eGBBHFMJLCB = input.readUInt32();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -243,9 +179,6 @@ public final class SelectRogueMiracleCsReqOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.miracleId, miracleId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.eGBBHFMJLCB, eGBBHFMJLCB);
-      }
       output.endObject();
     }
 
@@ -262,17 +195,6 @@ public final class SelectRogueMiracleCsReqOuterClass {
               if (!input.trySkipNullValue()) {
                 miracleId = input.readUInt32();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1078492686: {
-            if (input.isAtField(FieldNames.eGBBHFMJLCB)) {
-              if (!input.trySkipNullValue()) {
-                eGBBHFMJLCB = input.readUInt32();
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -333,8 +255,6 @@ public final class SelectRogueMiracleCsReqOuterClass {
      */
     static class FieldNames {
       static final FieldName miracleId = FieldName.forField("miracleId", "miracle_id");
-
-      static final FieldName eGBBHFMJLCB = FieldName.forField("EGBBHFMJLCB");
     }
   }
 }

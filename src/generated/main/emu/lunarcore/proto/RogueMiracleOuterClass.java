@@ -20,27 +20,22 @@ public final class RogueMiracleOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 total_count = 1;</code>
+     * <code>optional uint32 total_count = 2;</code>
      */
     private int totalCount;
 
     /**
-     * <code>optional uint32 use_count = 2;</code>
-     */
-    private int useCount;
-
-    /**
-     * <code>optional uint32 miracle_id = 9;</code>
+     * <code>optional uint32 miracle_id = 6;</code>
      */
     private int miracleId;
 
     /**
-     * <code>optional uint32 EGBBHFMJLCB = 12;</code>
+     * <code>optional uint32 use_count = 12;</code>
      */
-    private int eGBBHFMJLCB;
+    private int useCount;
 
     /**
-     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 14;</code>
+     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 11;</code>
      */
     private final RepeatedMessage<EffectCountEntry> effectCount = RepeatedMessage.newEmptyInstance(EffectCountEntry.getFactory());
 
@@ -55,7 +50,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_count = 1;</code>
+     * <code>optional uint32 total_count = 2;</code>
      * @return whether the totalCount field is set
      */
     public boolean hasTotalCount() {
@@ -63,7 +58,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_count = 1;</code>
+     * <code>optional uint32 total_count = 2;</code>
      * @return this
      */
     public RogueMiracle clearTotalCount() {
@@ -73,7 +68,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_count = 1;</code>
+     * <code>optional uint32 total_count = 2;</code>
      * @return the totalCount
      */
     public int getTotalCount() {
@@ -81,7 +76,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_count = 1;</code>
+     * <code>optional uint32 total_count = 2;</code>
      * @param value the totalCount to set
      * @return this
      */
@@ -92,62 +87,25 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 use_count = 2;</code>
-     * @return whether the useCount field is set
+     * <code>optional uint32 miracle_id = 6;</code>
+     * @return whether the miracleId field is set
      */
-    public boolean hasUseCount() {
+    public boolean hasMiracleId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 use_count = 2;</code>
-     * @return this
-     */
-    public RogueMiracle clearUseCount() {
-      bitField0_ &= ~0x00000002;
-      useCount = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 use_count = 2;</code>
-     * @return the useCount
-     */
-    public int getUseCount() {
-      return useCount;
-    }
-
-    /**
-     * <code>optional uint32 use_count = 2;</code>
-     * @param value the useCount to set
-     * @return this
-     */
-    public RogueMiracle setUseCount(final int value) {
-      bitField0_ |= 0x00000002;
-      useCount = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 miracle_id = 9;</code>
-     * @return whether the miracleId field is set
-     */
-    public boolean hasMiracleId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 miracle_id = 9;</code>
+     * <code>optional uint32 miracle_id = 6;</code>
      * @return this
      */
     public RogueMiracle clearMiracleId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       miracleId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 miracle_id = 9;</code>
+     * <code>optional uint32 miracle_id = 6;</code>
      * @return the miracleId
      */
     public int getMiracleId() {
@@ -155,73 +113,73 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 9;</code>
+     * <code>optional uint32 miracle_id = 6;</code>
      * @param value the miracleId to set
      * @return this
      */
     public RogueMiracle setMiracleId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       miracleId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 EGBBHFMJLCB = 12;</code>
-     * @return whether the eGBBHFMJLCB field is set
+     * <code>optional uint32 use_count = 12;</code>
+     * @return whether the useCount field is set
      */
-    public boolean hasEGBBHFMJLCB() {
+    public boolean hasUseCount() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 use_count = 12;</code>
+     * @return this
+     */
+    public RogueMiracle clearUseCount() {
+      bitField0_ &= ~0x00000004;
+      useCount = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 use_count = 12;</code>
+     * @return the useCount
+     */
+    public int getUseCount() {
+      return useCount;
+    }
+
+    /**
+     * <code>optional uint32 use_count = 12;</code>
+     * @param value the useCount to set
+     * @return this
+     */
+    public RogueMiracle setUseCount(final int value) {
+      bitField0_ |= 0x00000004;
+      useCount = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 11;</code>
+     * @return whether the effectCount field is set
+     */
+    public boolean hasEffectCount() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 EGBBHFMJLCB = 12;</code>
-     * @return this
-     */
-    public RogueMiracle clearEGBBHFMJLCB() {
-      bitField0_ &= ~0x00000008;
-      eGBBHFMJLCB = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 EGBBHFMJLCB = 12;</code>
-     * @return the eGBBHFMJLCB
-     */
-    public int getEGBBHFMJLCB() {
-      return eGBBHFMJLCB;
-    }
-
-    /**
-     * <code>optional uint32 EGBBHFMJLCB = 12;</code>
-     * @param value the eGBBHFMJLCB to set
-     * @return this
-     */
-    public RogueMiracle setEGBBHFMJLCB(final int value) {
-      bitField0_ |= 0x00000008;
-      eGBBHFMJLCB = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 14;</code>
-     * @return whether the effectCount field is set
-     */
-    public boolean hasEffectCount() {
-      return (bitField0_ & 0x00000010) != 0;
-    }
-
-    /**
-     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 14;</code>
+     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 11;</code>
      * @return this
      */
     public RogueMiracle clearEffectCount() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000008;
       effectCount.clear();
       return this;
     }
 
     /**
-     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 14;</code>
+     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -235,7 +193,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 14;</code>
+     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -244,28 +202,28 @@ public final class RogueMiracleOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<EffectCountEntry> getMutableEffectCount() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       return effectCount;
     }
 
     /**
-     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 14;</code>
+     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 11;</code>
      * @param value the effectCount to add
      * @return this
      */
     public RogueMiracle addEffectCount(final EffectCountEntry value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       effectCount.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 14;</code>
+     * <code>repeated .RogueMiracle.EffectCountEntry effect_count = 11;</code>
      * @param values the effectCount to add
      * @return this
      */
     public RogueMiracle addAllEffectCount(final EffectCountEntry... values) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       effectCount.addAll(values);
       return this;
     }
@@ -276,9 +234,8 @@ public final class RogueMiracleOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         totalCount = other.totalCount;
-        useCount = other.useCount;
         miracleId = other.miracleId;
-        eGBBHFMJLCB = other.eGBBHFMJLCB;
+        useCount = other.useCount;
         effectCount.copyFrom(other.effectCount);
       }
       return this;
@@ -293,14 +250,11 @@ public final class RogueMiracleOuterClass {
       if (other.hasTotalCount()) {
         setTotalCount(other.totalCount);
       }
-      if (other.hasUseCount()) {
-        setUseCount(other.useCount);
-      }
       if (other.hasMiracleId()) {
         setMiracleId(other.miracleId);
       }
-      if (other.hasEGBBHFMJLCB()) {
-        setEGBBHFMJLCB(other.eGBBHFMJLCB);
+      if (other.hasUseCount()) {
+        setUseCount(other.useCount);
       }
       if (other.hasEffectCount()) {
         getMutableEffectCount().addAll(other.effectCount);
@@ -316,9 +270,8 @@ public final class RogueMiracleOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       totalCount = 0;
-      useCount = 0;
       miracleId = 0;
-      eGBBHFMJLCB = 0;
+      useCount = 0;
       effectCount.clear();
       return this;
     }
@@ -345,33 +298,28 @@ public final class RogueMiracleOuterClass {
       RogueMiracle other = (RogueMiracle) o;
       return bitField0_ == other.bitField0_
         && (!hasTotalCount() || totalCount == other.totalCount)
-        && (!hasUseCount() || useCount == other.useCount)
         && (!hasMiracleId() || miracleId == other.miracleId)
-        && (!hasEGBBHFMJLCB() || eGBBHFMJLCB == other.eGBBHFMJLCB)
+        && (!hasUseCount() || useCount == other.useCount)
         && (!hasEffectCount() || effectCount.equals(other.effectCount));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(totalCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(useCount);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(miracleId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(eGBBHFMJLCB);
+        output.writeUInt32NoTag(useCount);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < effectCount.length(); i++) {
-          output.writeRawByte((byte) 114);
+          output.writeRawByte((byte) 90);
           output.writeMessageNoTag(effectCount.get(i));
         }
       }
@@ -384,15 +332,12 @@ public final class RogueMiracleOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(totalCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(useCount);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(miracleId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(eGBBHFMJLCB);
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(useCount);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         size += (1 * effectCount.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(effectCount);
       }
       return size;
@@ -405,46 +350,37 @@ public final class RogueMiracleOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 16: {
             // totalCount
             totalCount = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 48) {
               break;
             }
           }
-          case 16: {
-            // useCount
-            useCount = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 72) {
-              break;
-            }
-          }
-          case 72: {
+          case 48: {
             // miracleId
             miracleId = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 96) {
               break;
             }
           }
           case 96: {
-            // eGBBHFMJLCB
-            eGBBHFMJLCB = input.readUInt32();
-            bitField0_ |= 0x00000008;
+            // useCount
+            useCount = input.readUInt32();
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 90) {
               break;
             }
           }
-          case 114: {
+          case 90: {
             // effectCount
             tag = input.readRepeatedMessage(effectCount, tag);
-            bitField0_ |= 0x00000010;
+            bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
             }
@@ -470,15 +406,12 @@ public final class RogueMiracleOuterClass {
         output.writeUInt32(FieldNames.totalCount, totalCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.useCount, useCount);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.miracleId, miracleId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.eGBBHFMJLCB, eGBBHFMJLCB);
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.useCount, useCount);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRepeatedMessage(FieldNames.effectCount, effectCount);
       }
       output.endObject();
@@ -503,11 +436,11 @@ public final class RogueMiracleOuterClass {
             }
             break;
           }
-          case -309069880:
-          case -200869801: {
-            if (input.isAtField(FieldNames.useCount)) {
+          case -164571796:
+          case -806736983: {
+            if (input.isAtField(FieldNames.miracleId)) {
               if (!input.trySkipNullValue()) {
-                useCount = input.readUInt32();
+                miracleId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -515,23 +448,12 @@ public final class RogueMiracleOuterClass {
             }
             break;
           }
-          case -164571796:
-          case -806736983: {
-            if (input.isAtField(FieldNames.miracleId)) {
+          case -309069880:
+          case -200869801: {
+            if (input.isAtField(FieldNames.useCount)) {
               if (!input.trySkipNullValue()) {
-                miracleId = input.readUInt32();
+                useCount = input.readUInt32();
                 bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1078492686: {
-            if (input.isAtField(FieldNames.eGBBHFMJLCB)) {
-              if (!input.trySkipNullValue()) {
-                eGBBHFMJLCB = input.readUInt32();
-                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -543,7 +465,7 @@ public final class RogueMiracleOuterClass {
             if (input.isAtField(FieldNames.effectCount)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(effectCount);
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -929,11 +851,9 @@ public final class RogueMiracleOuterClass {
     static class FieldNames {
       static final FieldName totalCount = FieldName.forField("totalCount", "total_count");
 
-      static final FieldName useCount = FieldName.forField("useCount", "use_count");
-
       static final FieldName miracleId = FieldName.forField("miracleId", "miracle_id");
 
-      static final FieldName eGBBHFMJLCB = FieldName.forField("EGBBHFMJLCB");
+      static final FieldName useCount = FieldName.forField("useCount", "use_count");
 
       static final FieldName effectCount = FieldName.forField("effectCount", "effect_count");
     }

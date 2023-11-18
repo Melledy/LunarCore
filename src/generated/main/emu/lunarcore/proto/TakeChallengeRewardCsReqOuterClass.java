@@ -19,14 +19,14 @@ public final class TakeChallengeRewardCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 group_id = 2;</code>
-     */
-    private int groupId;
-
-    /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      */
     private int starCount;
+
+    /**
+     * <code>optional uint32 group_id = 15;</code>
+     */
+    private int groupId;
 
     private TakeChallengeRewardCsReq() {
     }
@@ -39,62 +39,25 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 2;</code>
-     * @return whether the groupId field is set
+     * <code>optional uint32 star_count = 8;</code>
+     * @return whether the starCount field is set
      */
-    public boolean hasGroupId() {
+    public boolean hasStarCount() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 group_id = 2;</code>
-     * @return this
-     */
-    public TakeChallengeRewardCsReq clearGroupId() {
-      bitField0_ &= ~0x00000001;
-      groupId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 2;</code>
-     * @return the groupId
-     */
-    public int getGroupId() {
-      return groupId;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 2;</code>
-     * @param value the groupId to set
-     * @return this
-     */
-    public TakeChallengeRewardCsReq setGroupId(final int value) {
-      bitField0_ |= 0x00000001;
-      groupId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 star_count = 13;</code>
-     * @return whether the starCount field is set
-     */
-    public boolean hasStarCount() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      * @return this
      */
     public TakeChallengeRewardCsReq clearStarCount() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       starCount = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      * @return the starCount
      */
     public int getStarCount() {
@@ -102,13 +65,50 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      * @param value the starCount to set
      * @return this
      */
     public TakeChallengeRewardCsReq setStarCount(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       starCount = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 group_id = 15;</code>
+     * @return whether the groupId field is set
+     */
+    public boolean hasGroupId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 group_id = 15;</code>
+     * @return this
+     */
+    public TakeChallengeRewardCsReq clearGroupId() {
+      bitField0_ &= ~0x00000002;
+      groupId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 group_id = 15;</code>
+     * @return the groupId
+     */
+    public int getGroupId() {
+      return groupId;
+    }
+
+    /**
+     * <code>optional uint32 group_id = 15;</code>
+     * @param value the groupId to set
+     * @return this
+     */
+    public TakeChallengeRewardCsReq setGroupId(final int value) {
+      bitField0_ |= 0x00000002;
+      groupId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class TakeChallengeRewardCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        groupId = other.groupId;
         starCount = other.starCount;
+        groupId = other.groupId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class TakeChallengeRewardCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasGroupId()) {
-        setGroupId(other.groupId);
-      }
       if (other.hasStarCount()) {
         setStarCount(other.starCount);
+      }
+      if (other.hasGroupId()) {
+        setGroupId(other.groupId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class TakeChallengeRewardCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      groupId = 0;
       starCount = 0;
+      groupId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class TakeChallengeRewardCsReqOuterClass {
       }
       TakeChallengeRewardCsReq other = (TakeChallengeRewardCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasGroupId() || groupId == other.groupId)
-        && (!hasStarCount() || starCount == other.starCount);
+        && (!hasStarCount() || starCount == other.starCount)
+        && (!hasGroupId() || groupId == other.groupId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(groupId);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(starCount);
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(groupId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class TakeChallengeRewardCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(starCount);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class TakeChallengeRewardCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // groupId
-            groupId = input.readUInt32();
+          case 64: {
+            // starCount
+            starCount = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 120) {
               break;
             }
           }
-          case 104: {
-            // starCount
-            starCount = input.readUInt32();
+          case 120: {
+            // groupId
+            groupId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class TakeChallengeRewardCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.groupId, groupId);
+        output.writeUInt32(FieldNames.starCount, starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.starCount, starCount);
+        output.writeUInt32(FieldNames.groupId, groupId);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class TakeChallengeRewardCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 293428218:
-          case 506361563: {
-            if (input.isAtField(FieldNames.groupId)) {
+          case 2121235933:
+          case 2124166370: {
+            if (input.isAtField(FieldNames.starCount)) {
               if (!input.trySkipNullValue()) {
-                groupId = input.readUInt32();
+                starCount = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class TakeChallengeRewardCsReqOuterClass {
             }
             break;
           }
-          case 2121235933:
-          case 2124166370: {
-            if (input.isAtField(FieldNames.starCount)) {
+          case 293428218:
+          case 506361563: {
+            if (input.isAtField(FieldNames.groupId)) {
               if (!input.trySkipNullValue()) {
-                starCount = input.readUInt32();
+                groupId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class TakeChallengeRewardCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName groupId = FieldName.forField("groupId", "group_id");
-
       static final FieldName starCount = FieldName.forField("starCount", "star_count");
+
+      static final FieldName groupId = FieldName.forField("groupId", "group_id");
     }
   }
 }

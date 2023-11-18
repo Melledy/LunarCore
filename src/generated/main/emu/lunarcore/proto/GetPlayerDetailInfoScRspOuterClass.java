@@ -19,7 +19,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 5;</code>
      */
     private int retcode;
 
@@ -34,7 +34,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -42,7 +42,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return this
      */
     public GetPlayerDetailInfoScRsp clearRetcode() {
@@ -52,7 +52,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -60,7 +60,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -150,7 +150,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 40: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;

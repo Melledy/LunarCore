@@ -19,12 +19,12 @@ public final class EnableRogueTalentScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 8;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 15;</code>
+     * <code>optional .RogueTalentInfo talent_info = 7;</code>
      */
     private final RogueTalentInfoOuterClass.RogueTalentInfo talentInfo = RogueTalentInfoOuterClass.RogueTalentInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return this
      */
     public EnableRogueTalentScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 15;</code>
+     * <code>optional .RogueTalentInfo talent_info = 7;</code>
      * @return whether the talentInfo field is set
      */
     public boolean hasTalentInfo() {
@@ -84,7 +84,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 15;</code>
+     * <code>optional .RogueTalentInfo talent_info = 7;</code>
      * @return this
      */
     public EnableRogueTalentScRsp clearTalentInfo() {
@@ -94,7 +94,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 15;</code>
+     * <code>optional .RogueTalentInfo talent_info = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 15;</code>
+     * <code>optional .RogueTalentInfo talent_info = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 15;</code>
+     * <code>optional .RogueTalentInfo talent_info = 7;</code>
      * @param value the talentInfo to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class EnableRogueTalentScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 122);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(talentInfo);
       }
     }
@@ -227,16 +227,16 @@ public final class EnableRogueTalentScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 64: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 58) {
               break;
             }
           }
-          case 122: {
+          case 58: {
             // talentInfo
             input.readMessage(talentInfo);
             bitField0_ |= 0x00000002;

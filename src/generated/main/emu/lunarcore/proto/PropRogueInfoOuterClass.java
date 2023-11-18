@@ -19,22 +19,12 @@ public final class PropRogueInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 IKCJDPMPMKL = 5;</code>
-     */
-    private int iKCJDPMPMKL;
-
-    /**
-     * <code>optional uint32 room_id = 6;</code>
+     * <code>optional uint32 room_id = 2;</code>
      */
     private int roomId;
 
     /**
-     * <code>optional uint32 LDDCAIKLKDO = 7;</code>
-     */
-    private int lDDCAIKLKDO;
-
-    /**
-     * <code>optional uint32 site_id = 13;</code>
+     * <code>optional uint32 site_id = 10;</code>
      */
     private int siteId;
 
@@ -49,62 +39,25 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 IKCJDPMPMKL = 5;</code>
-     * @return whether the iKCJDPMPMKL field is set
+     * <code>optional uint32 room_id = 2;</code>
+     * @return whether the roomId field is set
      */
-    public boolean hasIKCJDPMPMKL() {
+    public boolean hasRoomId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 IKCJDPMPMKL = 5;</code>
-     * @return this
-     */
-    public PropRogueInfo clearIKCJDPMPMKL() {
-      bitField0_ &= ~0x00000001;
-      iKCJDPMPMKL = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 IKCJDPMPMKL = 5;</code>
-     * @return the iKCJDPMPMKL
-     */
-    public int getIKCJDPMPMKL() {
-      return iKCJDPMPMKL;
-    }
-
-    /**
-     * <code>optional uint32 IKCJDPMPMKL = 5;</code>
-     * @param value the iKCJDPMPMKL to set
-     * @return this
-     */
-    public PropRogueInfo setIKCJDPMPMKL(final int value) {
-      bitField0_ |= 0x00000001;
-      iKCJDPMPMKL = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 room_id = 6;</code>
-     * @return whether the roomId field is set
-     */
-    public boolean hasRoomId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 room_id = 6;</code>
+     * <code>optional uint32 room_id = 2;</code>
      * @return this
      */
     public PropRogueInfo clearRoomId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       roomId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 room_id = 6;</code>
+     * <code>optional uint32 room_id = 2;</code>
      * @return the roomId
      */
     public int getRoomId() {
@@ -112,73 +65,36 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 6;</code>
+     * <code>optional uint32 room_id = 2;</code>
      * @param value the roomId to set
      * @return this
      */
     public PropRogueInfo setRoomId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       roomId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 LDDCAIKLKDO = 7;</code>
-     * @return whether the lDDCAIKLKDO field is set
-     */
-    public boolean hasLDDCAIKLKDO() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 LDDCAIKLKDO = 7;</code>
-     * @return this
-     */
-    public PropRogueInfo clearLDDCAIKLKDO() {
-      bitField0_ &= ~0x00000004;
-      lDDCAIKLKDO = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 LDDCAIKLKDO = 7;</code>
-     * @return the lDDCAIKLKDO
-     */
-    public int getLDDCAIKLKDO() {
-      return lDDCAIKLKDO;
-    }
-
-    /**
-     * <code>optional uint32 LDDCAIKLKDO = 7;</code>
-     * @param value the lDDCAIKLKDO to set
-     * @return this
-     */
-    public PropRogueInfo setLDDCAIKLKDO(final int value) {
-      bitField0_ |= 0x00000004;
-      lDDCAIKLKDO = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 site_id = 13;</code>
+     * <code>optional uint32 site_id = 10;</code>
      * @return whether the siteId field is set
      */
     public boolean hasSiteId() {
-      return (bitField0_ & 0x00000008) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 site_id = 13;</code>
+     * <code>optional uint32 site_id = 10;</code>
      * @return this
      */
     public PropRogueInfo clearSiteId() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000002;
       siteId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 site_id = 13;</code>
+     * <code>optional uint32 site_id = 10;</code>
      * @return the siteId
      */
     public int getSiteId() {
@@ -186,12 +102,12 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 13;</code>
+     * <code>optional uint32 site_id = 10;</code>
      * @param value the siteId to set
      * @return this
      */
     public PropRogueInfo setSiteId(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000002;
       siteId = value;
       return this;
     }
@@ -201,9 +117,7 @@ public final class PropRogueInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        iKCJDPMPMKL = other.iKCJDPMPMKL;
         roomId = other.roomId;
-        lDDCAIKLKDO = other.lDDCAIKLKDO;
         siteId = other.siteId;
       }
       return this;
@@ -215,14 +129,8 @@ public final class PropRogueInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasIKCJDPMPMKL()) {
-        setIKCJDPMPMKL(other.iKCJDPMPMKL);
-      }
       if (other.hasRoomId()) {
         setRoomId(other.roomId);
-      }
-      if (other.hasLDDCAIKLKDO()) {
-        setLDDCAIKLKDO(other.lDDCAIKLKDO);
       }
       if (other.hasSiteId()) {
         setSiteId(other.siteId);
@@ -237,9 +145,7 @@ public final class PropRogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      iKCJDPMPMKL = 0;
       roomId = 0;
-      lDDCAIKLKDO = 0;
       siteId = 0;
       return this;
     }
@@ -264,28 +170,18 @@ public final class PropRogueInfoOuterClass {
       }
       PropRogueInfo other = (PropRogueInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasIKCJDPMPMKL() || iKCJDPMPMKL == other.iKCJDPMPMKL)
         && (!hasRoomId() || roomId == other.roomId)
-        && (!hasLDDCAIKLKDO() || lDDCAIKLKDO == other.lDDCAIKLKDO)
         && (!hasSiteId() || siteId == other.siteId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(iKCJDPMPMKL);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(roomId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(lDDCAIKLKDO);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 104);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(siteId);
       }
     }
@@ -294,15 +190,9 @@ public final class PropRogueInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(iKCJDPMPMKL);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(roomId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(lDDCAIKLKDO);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(siteId);
       }
       return size;
@@ -315,37 +205,19 @@ public final class PropRogueInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // iKCJDPMPMKL
-            iKCJDPMPMKL = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 48) {
-              break;
-            }
-          }
-          case 48: {
+          case 16: {
             // roomId
             roomId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 80) {
               break;
             }
           }
-          case 56: {
-            // lDDCAIKLKDO
-            lDDCAIKLKDO = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
+          case 80: {
             // siteId
             siteId = input.readUInt32();
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -369,15 +241,9 @@ public final class PropRogueInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.iKCJDPMPMKL, iKCJDPMPMKL);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.roomId, roomId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.lDDCAIKLKDO, lDDCAIKLKDO);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.siteId, siteId);
       }
       output.endObject();
@@ -390,34 +256,12 @@ public final class PropRogueInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1976118198: {
-            if (input.isAtField(FieldNames.iKCJDPMPMKL)) {
-              if (!input.trySkipNullValue()) {
-                iKCJDPMPMKL = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -925319338:
           case 1379892991: {
             if (input.isAtField(FieldNames.roomId)) {
               if (!input.trySkipNullValue()) {
                 roomId = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1731282410: {
-            if (input.isAtField(FieldNames.lDDCAIKLKDO)) {
-              if (!input.trySkipNullValue()) {
-                lDDCAIKLKDO = input.readUInt32();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -429,7 +273,7 @@ public final class PropRogueInfoOuterClass {
             if (input.isAtField(FieldNames.siteId)) {
               if (!input.trySkipNullValue()) {
                 siteId = input.readUInt32();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -488,11 +332,7 @@ public final class PropRogueInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName iKCJDPMPMKL = FieldName.forField("IKCJDPMPMKL");
-
       static final FieldName roomId = FieldName.forField("roomId", "room_id");
-
-      static final FieldName lDDCAIKLKDO = FieldName.forField("LDDCAIKLKDO");
 
       static final FieldName siteId = FieldName.forField("siteId", "site_id");
     }

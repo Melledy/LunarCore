@@ -20,7 +20,7 @@ public final class RogueAvatarInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 8;</code>
+     * <code>repeated uint32 base_avatar_id_list = 14;</code>
      */
     private final RepeatedInt baseAvatarIdList = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 8;</code>
+     * <code>repeated uint32 base_avatar_id_list = 14;</code>
      * @return whether the baseAvatarIdList field is set
      */
     public boolean hasBaseAvatarIdList() {
@@ -43,7 +43,7 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 8;</code>
+     * <code>repeated uint32 base_avatar_id_list = 14;</code>
      * @return this
      */
     public RogueAvatarInfo clearBaseAvatarIdList() {
@@ -53,7 +53,7 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 8;</code>
+     * <code>repeated uint32 base_avatar_id_list = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 8;</code>
+     * <code>repeated uint32 base_avatar_id_list = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 8;</code>
+     * <code>repeated uint32 base_avatar_id_list = 14;</code>
      * @param value the baseAvatarIdList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 8;</code>
+     * <code>repeated uint32 base_avatar_id_list = 14;</code>
      * @param values the baseAvatarIdList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class RogueAvatarInfoOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < baseAvatarIdList.length(); i++) {
-          output.writeRawByte((byte) 64);
+          output.writeRawByte((byte) 112);
           output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class RogueAvatarInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 66: {
+          case 114: {
             // baseAvatarIdList [packed=true]
             input.readPackedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class RogueAvatarInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 64: {
+          case 112: {
             // baseAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000001;

@@ -19,12 +19,12 @@ public final class AddRogueMiracleScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueMiracleSource source = 7;</code>
+     * <code>optional .RogueMiracleSource source = 15;</code>
      */
     private int source;
 
     /**
-     * <code>optional .RogueMiracle rogue_miracle = 11;</code>
+     * <code>optional .RogueMiracle rogue_miracle = 4;</code>
      */
     private final RogueMiracleOuterClass.RogueMiracle rogueMiracle = RogueMiracleOuterClass.RogueMiracle.newInstance();
 
@@ -39,7 +39,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSource source = 7;</code>
+     * <code>optional .RogueMiracleSource source = 15;</code>
      * @return whether the source field is set
      */
     public boolean hasSource() {
@@ -47,7 +47,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSource source = 7;</code>
+     * <code>optional .RogueMiracleSource source = 15;</code>
      * @return this
      */
     public AddRogueMiracleScNotify clearSource() {
@@ -57,7 +57,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSource source = 7;</code>
+     * <code>optional .RogueMiracleSource source = 15;</code>
      * @return the source
      */
     public RogueMiracleSourceOuterClass.RogueMiracleSource getSource() {
@@ -90,7 +90,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSource source = 7;</code>
+     * <code>optional .RogueMiracleSource source = 15;</code>
      * @param value the source to set
      * @return this
      */
@@ -102,7 +102,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracle rogue_miracle = 11;</code>
+     * <code>optional .RogueMiracle rogue_miracle = 4;</code>
      * @return whether the rogueMiracle field is set
      */
     public boolean hasRogueMiracle() {
@@ -110,7 +110,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracle rogue_miracle = 11;</code>
+     * <code>optional .RogueMiracle rogue_miracle = 4;</code>
      * @return this
      */
     public AddRogueMiracleScNotify clearRogueMiracle() {
@@ -120,7 +120,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracle rogue_miracle = 11;</code>
+     * <code>optional .RogueMiracle rogue_miracle = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -134,7 +134,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracle rogue_miracle = 11;</code>
+     * <code>optional .RogueMiracle rogue_miracle = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -148,7 +148,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracle rogue_miracle = 11;</code>
+     * <code>optional .RogueMiracle rogue_miracle = 4;</code>
      * @param value the rogueMiracle to set
      * @return this
      */
@@ -225,11 +225,11 @@ public final class AddRogueMiracleScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 120);
         output.writeEnumNoTag(source);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 34);
         output.writeMessageNoTag(rogueMiracle);
       }
     }
@@ -253,7 +253,7 @@ public final class AddRogueMiracleScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 120: {
             // source
             final int value = input.readInt32();
             if (RogueMiracleSourceOuterClass.RogueMiracleSource.forNumber(value) != null) {
@@ -261,11 +261,11 @@ public final class AddRogueMiracleScNotifyOuterClass {
               bitField0_ |= 0x00000001;
             }
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 34) {
               break;
             }
           }
-          case 90: {
+          case 34: {
             // rogueMiracle
             input.readMessage(rogueMiracle);
             bitField0_ |= 0x00000002;

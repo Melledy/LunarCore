@@ -19,7 +19,7 @@ public final class MarkReadMailCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 id = 12;</code>
+     * <code>optional uint32 id = 7;</code>
      */
     private int id;
 
@@ -34,7 +34,7 @@ public final class MarkReadMailCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 12;</code>
+     * <code>optional uint32 id = 7;</code>
      * @return whether the id field is set
      */
     public boolean hasId() {
@@ -42,7 +42,7 @@ public final class MarkReadMailCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 12;</code>
+     * <code>optional uint32 id = 7;</code>
      * @return this
      */
     public MarkReadMailCsReq clearId() {
@@ -52,7 +52,7 @@ public final class MarkReadMailCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 12;</code>
+     * <code>optional uint32 id = 7;</code>
      * @return the id
      */
     public int getId() {
@@ -60,7 +60,7 @@ public final class MarkReadMailCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 12;</code>
+     * <code>optional uint32 id = 7;</code>
      * @param value the id to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class MarkReadMailCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(id);
       }
     }
@@ -150,7 +150,7 @@ public final class MarkReadMailCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 56: {
             // id
             id = input.readUInt32();
             bitField0_ |= 0x00000001;

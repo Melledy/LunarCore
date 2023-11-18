@@ -19,7 +19,7 @@ public final class ReserveStaminaExchangeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 10;</code>
      */
     private int num;
 
@@ -34,7 +34,7 @@ public final class ReserveStaminaExchangeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 10;</code>
      * @return whether the num field is set
      */
     public boolean hasNum() {
@@ -42,7 +42,7 @@ public final class ReserveStaminaExchangeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 10;</code>
      * @return this
      */
     public ReserveStaminaExchangeCsReq clearNum() {
@@ -52,7 +52,7 @@ public final class ReserveStaminaExchangeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 10;</code>
      * @return the num
      */
     public int getNum() {
@@ -60,7 +60,7 @@ public final class ReserveStaminaExchangeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 10;</code>
      * @param value the num to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class ReserveStaminaExchangeCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(num);
       }
     }
@@ -150,7 +150,7 @@ public final class ReserveStaminaExchangeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 80: {
             // num
             num = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -19,7 +19,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 slot = 2;</code>
+     * <code>optional uint32 slot = 3;</code>
      */
     private int slot;
 
@@ -39,7 +39,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 2;</code>
+     * <code>optional uint32 slot = 3;</code>
      * @return whether the slot field is set
      */
     public boolean hasSlot() {
@@ -47,7 +47,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 2;</code>
+     * <code>optional uint32 slot = 3;</code>
      * @return this
      */
     public ChangeLineupLeaderScRsp clearSlot() {
@@ -57,7 +57,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 2;</code>
+     * <code>optional uint32 slot = 3;</code>
      * @return the slot
      */
     public int getSlot() {
@@ -65,7 +65,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 2;</code>
+     * <code>optional uint32 slot = 3;</code>
      * @param value the slot to set
      * @return this
      */
@@ -177,7 +177,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -205,7 +205,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 24: {
             // slot
             slot = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -20,36 +20,32 @@ public final class ReplaceLineupCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 plane_id = 2;</code>
+     * <code>optional uint32 plane_id = 7;</code>
      */
     private int planeId;
 
     /**
-     * <code>optional uint32 leader_slot = 7;</code>
-     */
-    private int leaderSlot;
-
-    /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 11;</code>
      */
     private int index;
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional uint32 leader_slot = 13;</code>
+     */
+    private int leaderSlot;
+
+    /**
+     * <code>optional .ExtraLineupType extra_lineup_type = 5;</code>
      */
     private int extraLineupType;
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 6;</code>
      */
     private boolean isVirtual;
 
     /**
-     * <pre>
-     *  PFPMJIICDJP
-     * </pre>
-     *
-     * <code>repeated .LineupSlotData slots = 1;</code>
+     * <code>repeated .LineupSlotData slots = 12;</code>
      */
     private final RepeatedMessage<LineupSlotDataOuterClass.LineupSlotData> slots = RepeatedMessage.newEmptyInstance(LineupSlotDataOuterClass.LineupSlotData.getFactory());
 
@@ -64,7 +60,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 2;</code>
+     * <code>optional uint32 plane_id = 7;</code>
      * @return whether the planeId field is set
      */
     public boolean hasPlaneId() {
@@ -72,7 +68,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 2;</code>
+     * <code>optional uint32 plane_id = 7;</code>
      * @return this
      */
     public ReplaceLineupCsReq clearPlaneId() {
@@ -82,7 +78,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 2;</code>
+     * <code>optional uint32 plane_id = 7;</code>
      * @return the planeId
      */
     public int getPlaneId() {
@@ -90,7 +86,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 2;</code>
+     * <code>optional uint32 plane_id = 7;</code>
      * @param value the planeId to set
      * @return this
      */
@@ -101,62 +97,25 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 leader_slot = 7;</code>
-     * @return whether the leaderSlot field is set
+     * <code>optional uint32 index = 11;</code>
+     * @return whether the index field is set
      */
-    public boolean hasLeaderSlot() {
+    public boolean hasIndex() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 leader_slot = 7;</code>
-     * @return this
-     */
-    public ReplaceLineupCsReq clearLeaderSlot() {
-      bitField0_ &= ~0x00000002;
-      leaderSlot = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 leader_slot = 7;</code>
-     * @return the leaderSlot
-     */
-    public int getLeaderSlot() {
-      return leaderSlot;
-    }
-
-    /**
-     * <code>optional uint32 leader_slot = 7;</code>
-     * @param value the leaderSlot to set
-     * @return this
-     */
-    public ReplaceLineupCsReq setLeaderSlot(final int value) {
-      bitField0_ |= 0x00000002;
-      leaderSlot = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 index = 8;</code>
-     * @return whether the index field is set
-     */
-    public boolean hasIndex() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 11;</code>
      * @return this
      */
     public ReplaceLineupCsReq clearIndex() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       index = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 11;</code>
      * @return the index
      */
     public int getIndex() {
@@ -164,18 +123,55 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 11;</code>
      * @param value the index to set
      * @return this
      */
     public ReplaceLineupCsReq setIndex(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       index = value;
       return this;
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional uint32 leader_slot = 13;</code>
+     * @return whether the leaderSlot field is set
+     */
+    public boolean hasLeaderSlot() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 leader_slot = 13;</code>
+     * @return this
+     */
+    public ReplaceLineupCsReq clearLeaderSlot() {
+      bitField0_ &= ~0x00000004;
+      leaderSlot = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 leader_slot = 13;</code>
+     * @return the leaderSlot
+     */
+    public int getLeaderSlot() {
+      return leaderSlot;
+    }
+
+    /**
+     * <code>optional uint32 leader_slot = 13;</code>
+     * @param value the leaderSlot to set
+     * @return this
+     */
+    public ReplaceLineupCsReq setLeaderSlot(final int value) {
+      bitField0_ |= 0x00000004;
+      leaderSlot = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .ExtraLineupType extra_lineup_type = 5;</code>
      * @return whether the extraLineupType field is set
      */
     public boolean hasExtraLineupType() {
@@ -183,7 +179,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 5;</code>
      * @return this
      */
     public ReplaceLineupCsReq clearExtraLineupType() {
@@ -193,7 +189,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 5;</code>
      * @return the extraLineupType
      */
     public ExtraLineupTypeOuterClass.ExtraLineupType getExtraLineupType() {
@@ -226,7 +222,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 9;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 5;</code>
      * @param value the extraLineupType to set
      * @return this
      */
@@ -238,7 +234,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 6;</code>
      * @return whether the isVirtual field is set
      */
     public boolean hasIsVirtual() {
@@ -246,7 +242,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 6;</code>
      * @return this
      */
     public ReplaceLineupCsReq clearIsVirtual() {
@@ -256,7 +252,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 6;</code>
      * @return the isVirtual
      */
     public boolean getIsVirtual() {
@@ -264,7 +260,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_virtual = 10;</code>
+     * <code>optional bool is_virtual = 6;</code>
      * @param value the isVirtual to set
      * @return this
      */
@@ -275,11 +271,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  PFPMJIICDJP
-     * </pre>
-     *
-     * <code>repeated .LineupSlotData slots = 1;</code>
+     * <code>repeated .LineupSlotData slots = 12;</code>
      * @return whether the slots field is set
      */
     public boolean hasSlots() {
@@ -287,11 +279,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  PFPMJIICDJP
-     * </pre>
-     *
-     * <code>repeated .LineupSlotData slots = 1;</code>
+     * <code>repeated .LineupSlotData slots = 12;</code>
      * @return this
      */
     public ReplaceLineupCsReq clearSlots() {
@@ -301,11 +289,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  PFPMJIICDJP
-     * </pre>
-     *
-     * <code>repeated .LineupSlotData slots = 1;</code>
+     * <code>repeated .LineupSlotData slots = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -319,11 +303,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  PFPMJIICDJP
-     * </pre>
-     *
-     * <code>repeated .LineupSlotData slots = 1;</code>
+     * <code>repeated .LineupSlotData slots = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -337,11 +317,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  PFPMJIICDJP
-     * </pre>
-     *
-     * <code>repeated .LineupSlotData slots = 1;</code>
+     * <code>repeated .LineupSlotData slots = 12;</code>
      * @param value the slots to add
      * @return this
      */
@@ -352,11 +328,7 @@ public final class ReplaceLineupCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  PFPMJIICDJP
-     * </pre>
-     *
-     * <code>repeated .LineupSlotData slots = 1;</code>
+     * <code>repeated .LineupSlotData slots = 12;</code>
      * @param values the slots to add
      * @return this
      */
@@ -372,8 +344,8 @@ public final class ReplaceLineupCsReqOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         planeId = other.planeId;
-        leaderSlot = other.leaderSlot;
         index = other.index;
+        leaderSlot = other.leaderSlot;
         extraLineupType = other.extraLineupType;
         isVirtual = other.isVirtual;
         slots.copyFrom(other.slots);
@@ -390,11 +362,11 @@ public final class ReplaceLineupCsReqOuterClass {
       if (other.hasPlaneId()) {
         setPlaneId(other.planeId);
       }
-      if (other.hasLeaderSlot()) {
-        setLeaderSlot(other.leaderSlot);
-      }
       if (other.hasIndex()) {
         setIndex(other.index);
+      }
+      if (other.hasLeaderSlot()) {
+        setLeaderSlot(other.leaderSlot);
       }
       if (other.hasExtraLineupType()) {
         setExtraLineupTypeValue(other.extraLineupType);
@@ -416,8 +388,8 @@ public final class ReplaceLineupCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       planeId = 0;
-      leaderSlot = 0;
       index = 0;
+      leaderSlot = 0;
       extraLineupType = 0;
       isVirtual = false;
       slots.clear();
@@ -446,8 +418,8 @@ public final class ReplaceLineupCsReqOuterClass {
       ReplaceLineupCsReq other = (ReplaceLineupCsReq) o;
       return bitField0_ == other.bitField0_
         && (!hasPlaneId() || planeId == other.planeId)
-        && (!hasLeaderSlot() || leaderSlot == other.leaderSlot)
         && (!hasIndex() || index == other.index)
+        && (!hasLeaderSlot() || leaderSlot == other.leaderSlot)
         && (!hasExtraLineupType() || extraLineupType == other.extraLineupType)
         && (!hasIsVirtual() || isVirtual == other.isVirtual)
         && (!hasSlots() || slots.equals(other.slots));
@@ -456,28 +428,28 @@ public final class ReplaceLineupCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(planeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(leaderSlot);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(index);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(leaderSlot);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 40);
         output.writeEnumNoTag(extraLineupType);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 48);
         output.writeBoolNoTag(isVirtual);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         for (int i = 0; i < slots.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 98);
           output.writeMessageNoTag(slots.get(i));
         }
       }
@@ -490,10 +462,10 @@ public final class ReplaceLineupCsReqOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(leaderSlot);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(index);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(index);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(leaderSlot);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(extraLineupType);
@@ -514,34 +486,34 @@ public final class ReplaceLineupCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 56: {
             // planeId
             planeId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 88) {
               break;
             }
           }
-          case 56: {
-            // leaderSlot
-            leaderSlot = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
+          case 88: {
             // index
             index = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 104) {
               break;
             }
           }
-          case 72: {
+          case 104: {
+            // leaderSlot
+            leaderSlot = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 40) {
+              break;
+            }
+          }
+          case 40: {
             // extraLineupType
             final int value = input.readInt32();
             if (ExtraLineupTypeOuterClass.ExtraLineupType.forNumber(value) != null) {
@@ -549,20 +521,20 @@ public final class ReplaceLineupCsReqOuterClass {
               bitField0_ |= 0x00000008;
             }
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 48) {
               break;
             }
           }
-          case 80: {
+          case 48: {
             // isVirtual
             isVirtual = input.readBool();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 98) {
               break;
             }
           }
-          case 10: {
+          case 98: {
             // slots
             tag = input.readRepeatedMessage(slots, tag);
             bitField0_ |= 0x00000020;
@@ -591,10 +563,10 @@ public final class ReplaceLineupCsReqOuterClass {
         output.writeUInt32(FieldNames.planeId, planeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.leaderSlot, leaderSlot);
+        output.writeUInt32(FieldNames.index, index);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.index, index);
+        output.writeUInt32(FieldNames.leaderSlot, leaderSlot);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeEnum(FieldNames.extraLineupType, extraLineupType, ExtraLineupTypeOuterClass.ExtraLineupType.converter());
@@ -627,11 +599,10 @@ public final class ReplaceLineupCsReqOuterClass {
             }
             break;
           }
-          case 1191442087:
-          case -1708713100: {
-            if (input.isAtField(FieldNames.leaderSlot)) {
+          case 100346066: {
+            if (input.isAtField(FieldNames.index)) {
               if (!input.trySkipNullValue()) {
-                leaderSlot = input.readUInt32();
+                index = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -639,10 +610,11 @@ public final class ReplaceLineupCsReqOuterClass {
             }
             break;
           }
-          case 100346066: {
-            if (input.isAtField(FieldNames.index)) {
+          case 1191442087:
+          case -1708713100: {
+            if (input.isAtField(FieldNames.leaderSlot)) {
               if (!input.trySkipNullValue()) {
-                index = input.readUInt32();
+                leaderSlot = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -745,9 +717,9 @@ public final class ReplaceLineupCsReqOuterClass {
     static class FieldNames {
       static final FieldName planeId = FieldName.forField("planeId", "plane_id");
 
-      static final FieldName leaderSlot = FieldName.forField("leaderSlot", "leader_slot");
-
       static final FieldName index = FieldName.forField("index");
+
+      static final FieldName leaderSlot = FieldName.forField("leaderSlot", "leader_slot");
 
       static final FieldName extraLineupType = FieldName.forField("extraLineupType", "extra_lineup_type");
 

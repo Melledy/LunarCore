@@ -19,17 +19,12 @@ public final class MaterialOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 LIFACBDIHGM = 13;</code>
-     */
-    private long lIFACBDIHGM;
-
-    /**
-     * <code>optional uint32 num = 5;</code>
+     * <code>optional uint32 num = 6;</code>
      */
     private int num;
 
     /**
-     * <code>optional uint32 tid = 9;</code>
+     * <code>optional uint32 tid = 8;</code>
      */
     private int tid;
 
@@ -44,62 +39,25 @@ public final class MaterialOuterClass {
     }
 
     /**
-     * <code>optional uint64 LIFACBDIHGM = 13;</code>
-     * @return whether the lIFACBDIHGM field is set
+     * <code>optional uint32 num = 6;</code>
+     * @return whether the num field is set
      */
-    public boolean hasLIFACBDIHGM() {
+    public boolean hasNum() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint64 LIFACBDIHGM = 13;</code>
-     * @return this
-     */
-    public Material clearLIFACBDIHGM() {
-      bitField0_ &= ~0x00000001;
-      lIFACBDIHGM = 0L;
-      return this;
-    }
-
-    /**
-     * <code>optional uint64 LIFACBDIHGM = 13;</code>
-     * @return the lIFACBDIHGM
-     */
-    public long getLIFACBDIHGM() {
-      return lIFACBDIHGM;
-    }
-
-    /**
-     * <code>optional uint64 LIFACBDIHGM = 13;</code>
-     * @param value the lIFACBDIHGM to set
-     * @return this
-     */
-    public Material setLIFACBDIHGM(final long value) {
-      bitField0_ |= 0x00000001;
-      lIFACBDIHGM = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 num = 5;</code>
-     * @return whether the num field is set
-     */
-    public boolean hasNum() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 num = 5;</code>
+     * <code>optional uint32 num = 6;</code>
      * @return this
      */
     public Material clearNum() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       num = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 num = 5;</code>
+     * <code>optional uint32 num = 6;</code>
      * @return the num
      */
     public int getNum() {
@@ -107,36 +65,36 @@ public final class MaterialOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 5;</code>
+     * <code>optional uint32 num = 6;</code>
      * @param value the num to set
      * @return this
      */
     public Material setNum(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       num = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 tid = 9;</code>
+     * <code>optional uint32 tid = 8;</code>
      * @return whether the tid field is set
      */
     public boolean hasTid() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 tid = 9;</code>
+     * <code>optional uint32 tid = 8;</code>
      * @return this
      */
     public Material clearTid() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       tid = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 tid = 9;</code>
+     * <code>optional uint32 tid = 8;</code>
      * @return the tid
      */
     public int getTid() {
@@ -144,12 +102,12 @@ public final class MaterialOuterClass {
     }
 
     /**
-     * <code>optional uint32 tid = 9;</code>
+     * <code>optional uint32 tid = 8;</code>
      * @param value the tid to set
      * @return this
      */
     public Material setTid(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       tid = value;
       return this;
     }
@@ -159,7 +117,6 @@ public final class MaterialOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        lIFACBDIHGM = other.lIFACBDIHGM;
         num = other.num;
         tid = other.tid;
       }
@@ -172,9 +129,6 @@ public final class MaterialOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasLIFACBDIHGM()) {
-        setLIFACBDIHGM(other.lIFACBDIHGM);
-      }
       if (other.hasNum()) {
         setNum(other.num);
       }
@@ -191,7 +145,6 @@ public final class MaterialOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      lIFACBDIHGM = 0L;
       num = 0;
       tid = 0;
       return this;
@@ -217,7 +170,6 @@ public final class MaterialOuterClass {
       }
       Material other = (Material) o;
       return bitField0_ == other.bitField0_
-        && (!hasLIFACBDIHGM() || lIFACBDIHGM == other.lIFACBDIHGM)
         && (!hasNum() || num == other.num)
         && (!hasTid() || tid == other.tid);
     }
@@ -225,15 +177,11 @@ public final class MaterialOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt64NoTag(lIFACBDIHGM);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(num);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 72);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(tid);
       }
     }
@@ -242,12 +190,9 @@ public final class MaterialOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt64SizeNoTag(lIFACBDIHGM);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(num);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(tid);
       }
       return size;
@@ -260,28 +205,19 @@ public final class MaterialOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
-            // lIFACBDIHGM
-            lIFACBDIHGM = input.readUInt64();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 40) {
-              break;
-            }
-          }
-          case 40: {
+          case 48: {
             // num
             num = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 64) {
               break;
             }
           }
-          case 72: {
+          case 64: {
             // tid
             tid = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -305,12 +241,9 @@ public final class MaterialOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt64(FieldNames.lIFACBDIHGM, lIFACBDIHGM);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.num, num);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.tid, tid);
       }
       output.endObject();
@@ -323,22 +256,11 @@ public final class MaterialOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 343601554: {
-            if (input.isAtField(FieldNames.lIFACBDIHGM)) {
-              if (!input.trySkipNullValue()) {
-                lIFACBDIHGM = input.readUInt64();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 109446: {
             if (input.isAtField(FieldNames.num)) {
               if (!input.trySkipNullValue()) {
                 num = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -349,7 +271,7 @@ public final class MaterialOuterClass {
             if (input.isAtField(FieldNames.tid)) {
               if (!input.trySkipNullValue()) {
                 tid = input.readUInt32();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -408,8 +330,6 @@ public final class MaterialOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName lIFACBDIHGM = FieldName.forField("LIFACBDIHGM");
-
       static final FieldName num = FieldName.forField("num");
 
       static final FieldName tid = FieldName.forField("tid");

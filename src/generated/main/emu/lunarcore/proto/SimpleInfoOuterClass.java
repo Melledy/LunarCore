@@ -25,64 +25,44 @@ public final class SimpleInfoOuterClass {
     private long lastActiveTime;
 
     /**
-     * <code>optional uint32 profile_picture = 1;</code>
-     */
-    private int profilePicture;
-
-    /**
-     * <code>optional uint32 uid = 2;</code>
-     */
-    private int uid;
-
-    /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 2;</code>
      */
     private int level;
 
     /**
-     * <code>optional uint32 KBLFCBBJKOA = 6;</code>
+     * <code>optional uint32 profile_picture = 10;</code>
      */
-    private int kBLFCBBJKOA;
+    private int profilePicture;
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 7;</code>
+     * <code>optional uint32 uid = 12;</code>
      */
-    private int onlineStatus;
+    private int uid;
 
     /**
-     * <code>optional .PlatformType platform_type = 11;</code>
+     * <code>optional .PlatformType platform_type = 7;</code>
      */
     private int platformType;
 
     /**
-     * <code>optional bool HACOPLBOGPN = 8;</code>
+     * <code>optional .FriendOnlineStatus online_status = 15;</code>
      */
-    private boolean hACOPLBOGPN;
+    private int onlineStatus;
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 5;</code>
+     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
      */
     private final FriendAvatarInfoOuterClass.FriendAvatarInfo friendAvatarInfo = FriendAvatarInfoOuterClass.FriendAvatarInfo.newInstance();
 
     /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     */
-    private final Utf8String bEBEMMGFELC = Utf8String.newEmptyInstance();
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     */
-    private final Utf8String fKNMNLICHIF = Utf8String.newEmptyInstance();
-
-    /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      */
     private final Utf8String nickname = Utf8String.newEmptyInstance();
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
+     * <code>optional string signature = 9;</code>
      */
-    private final Utf8String lAAPGMDLJHL = Utf8String.newEmptyInstance();
+    private final Utf8String signature = Utf8String.newEmptyInstance();
 
     private SimpleInfo() {
     }
@@ -132,99 +112,25 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 profile_picture = 1;</code>
-     * @return whether the profilePicture field is set
+     * <code>optional uint32 level = 2;</code>
+     * @return whether the level field is set
      */
-    public boolean hasProfilePicture() {
+    public boolean hasLevel() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 profile_picture = 1;</code>
-     * @return this
-     */
-    public SimpleInfo clearProfilePicture() {
-      bitField0_ &= ~0x00000002;
-      profilePicture = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 profile_picture = 1;</code>
-     * @return the profilePicture
-     */
-    public int getProfilePicture() {
-      return profilePicture;
-    }
-
-    /**
-     * <code>optional uint32 profile_picture = 1;</code>
-     * @param value the profilePicture to set
-     * @return this
-     */
-    public SimpleInfo setProfilePicture(final int value) {
-      bitField0_ |= 0x00000002;
-      profilePicture = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 uid = 2;</code>
-     * @return whether the uid field is set
-     */
-    public boolean hasUid() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 uid = 2;</code>
-     * @return this
-     */
-    public SimpleInfo clearUid() {
-      bitField0_ &= ~0x00000004;
-      uid = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 uid = 2;</code>
-     * @return the uid
-     */
-    public int getUid() {
-      return uid;
-    }
-
-    /**
-     * <code>optional uint32 uid = 2;</code>
-     * @param value the uid to set
-     * @return this
-     */
-    public SimpleInfo setUid(final int value) {
-      bitField0_ |= 0x00000004;
-      uid = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 level = 3;</code>
-     * @return whether the level field is set
-     */
-    public boolean hasLevel() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 2;</code>
      * @return this
      */
     public SimpleInfo clearLevel() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000002;
       level = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 2;</code>
      * @return the level
      */
     public int getLevel() {
@@ -232,55 +138,154 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 2;</code>
      * @param value the level to set
      * @return this
      */
     public SimpleInfo setLevel(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000002;
       level = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 KBLFCBBJKOA = 6;</code>
-     * @return whether the kBLFCBBJKOA field is set
+     * <code>optional uint32 profile_picture = 10;</code>
+     * @return whether the profilePicture field is set
      */
-    public boolean hasKBLFCBBJKOA() {
+    public boolean hasProfilePicture() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 profile_picture = 10;</code>
+     * @return this
+     */
+    public SimpleInfo clearProfilePicture() {
+      bitField0_ &= ~0x00000004;
+      profilePicture = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 profile_picture = 10;</code>
+     * @return the profilePicture
+     */
+    public int getProfilePicture() {
+      return profilePicture;
+    }
+
+    /**
+     * <code>optional uint32 profile_picture = 10;</code>
+     * @param value the profilePicture to set
+     * @return this
+     */
+    public SimpleInfo setProfilePicture(final int value) {
+      bitField0_ |= 0x00000004;
+      profilePicture = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 uid = 12;</code>
+     * @return whether the uid field is set
+     */
+    public boolean hasUid() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 uid = 12;</code>
+     * @return this
+     */
+    public SimpleInfo clearUid() {
+      bitField0_ &= ~0x00000008;
+      uid = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 uid = 12;</code>
+     * @return the uid
+     */
+    public int getUid() {
+      return uid;
+    }
+
+    /**
+     * <code>optional uint32 uid = 12;</code>
+     * @param value the uid to set
+     * @return this
+     */
+    public SimpleInfo setUid(final int value) {
+      bitField0_ |= 0x00000008;
+      uid = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .PlatformType platform_type = 7;</code>
+     * @return whether the platformType field is set
+     */
+    public boolean hasPlatformType() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional uint32 KBLFCBBJKOA = 6;</code>
+     * <code>optional .PlatformType platform_type = 7;</code>
      * @return this
      */
-    public SimpleInfo clearKBLFCBBJKOA() {
+    public SimpleInfo clearPlatformType() {
       bitField0_ &= ~0x00000010;
-      kBLFCBBJKOA = 0;
+      platformType = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 KBLFCBBJKOA = 6;</code>
-     * @return the kBLFCBBJKOA
+     * <code>optional .PlatformType platform_type = 7;</code>
+     * @return the platformType
      */
-    public int getKBLFCBBJKOA() {
-      return kBLFCBBJKOA;
+    public PlatformTypeOuterClass.PlatformType getPlatformType() {
+      return PlatformTypeOuterClass.PlatformType.forNumber(platformType);
     }
 
     /**
-     * <code>optional uint32 KBLFCBBJKOA = 6;</code>
-     * @param value the kBLFCBBJKOA to set
+     * Gets the value of the internal enum store. The result is
+     * equivalent to {@link SimpleInfo#getPlatformType()}.getNumber().
+     *
+     * @return numeric wire representation
+     */
+    public int getPlatformTypeValue() {
+      return platformType;
+    }
+
+    /**
+     * Sets the value of the internal enum store. This does not
+     * do any validity checks, so be sure to use appropriate value
+     * constants from {@link PlatformTypeOuterClass.PlatformType}. Setting an invalid value
+     * can cause {@link SimpleInfo#getPlatformType()} to return null
+     *
+     * @param value the numeric wire value to set
      * @return this
      */
-    public SimpleInfo setKBLFCBBJKOA(final int value) {
+    public SimpleInfo setPlatformTypeValue(final int value) {
       bitField0_ |= 0x00000010;
-      kBLFCBBJKOA = value;
+      platformType = value;
       return this;
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 7;</code>
+     * <code>optional .PlatformType platform_type = 7;</code>
+     * @param value the platformType to set
+     * @return this
+     */
+    public SimpleInfo setPlatformType(final PlatformTypeOuterClass.PlatformType value) {
+      bitField0_ |= 0x00000010;
+      platformType = value.getNumber();
+      return this;
+    }
+
+    /**
+     * <code>optional .FriendOnlineStatus online_status = 15;</code>
      * @return whether the onlineStatus field is set
      */
     public boolean hasOnlineStatus() {
@@ -288,7 +293,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 7;</code>
+     * <code>optional .FriendOnlineStatus online_status = 15;</code>
      * @return this
      */
     public SimpleInfo clearOnlineStatus() {
@@ -298,7 +303,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 7;</code>
+     * <code>optional .FriendOnlineStatus online_status = 15;</code>
      * @return the onlineStatus
      */
     public FriendOnlineStatusOuterClass.FriendOnlineStatus getOnlineStatus() {
@@ -331,7 +336,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 7;</code>
+     * <code>optional .FriendOnlineStatus online_status = 15;</code>
      * @param value the onlineStatus to set
      * @return this
      */
@@ -342,124 +347,25 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 11;</code>
-     * @return whether the platformType field is set
+     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
+     * @return whether the friendAvatarInfo field is set
      */
-    public boolean hasPlatformType() {
+    public boolean hasFriendAvatarInfo() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 11;</code>
-     * @return this
-     */
-    public SimpleInfo clearPlatformType() {
-      bitField0_ &= ~0x00000040;
-      platformType = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional .PlatformType platform_type = 11;</code>
-     * @return the platformType
-     */
-    public PlatformTypeOuterClass.PlatformType getPlatformType() {
-      return PlatformTypeOuterClass.PlatformType.forNumber(platformType);
-    }
-
-    /**
-     * Gets the value of the internal enum store. The result is
-     * equivalent to {@link SimpleInfo#getPlatformType()}.getNumber().
-     *
-     * @return numeric wire representation
-     */
-    public int getPlatformTypeValue() {
-      return platformType;
-    }
-
-    /**
-     * Sets the value of the internal enum store. This does not
-     * do any validity checks, so be sure to use appropriate value
-     * constants from {@link PlatformTypeOuterClass.PlatformType}. Setting an invalid value
-     * can cause {@link SimpleInfo#getPlatformType()} to return null
-     *
-     * @param value the numeric wire value to set
-     * @return this
-     */
-    public SimpleInfo setPlatformTypeValue(final int value) {
-      bitField0_ |= 0x00000040;
-      platformType = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .PlatformType platform_type = 11;</code>
-     * @param value the platformType to set
-     * @return this
-     */
-    public SimpleInfo setPlatformType(final PlatformTypeOuterClass.PlatformType value) {
-      bitField0_ |= 0x00000040;
-      platformType = value.getNumber();
-      return this;
-    }
-
-    /**
-     * <code>optional bool HACOPLBOGPN = 8;</code>
-     * @return whether the hACOPLBOGPN field is set
-     */
-    public boolean hasHACOPLBOGPN() {
-      return (bitField0_ & 0x00000080) != 0;
-    }
-
-    /**
-     * <code>optional bool HACOPLBOGPN = 8;</code>
-     * @return this
-     */
-    public SimpleInfo clearHACOPLBOGPN() {
-      bitField0_ &= ~0x00000080;
-      hACOPLBOGPN = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool HACOPLBOGPN = 8;</code>
-     * @return the hACOPLBOGPN
-     */
-    public boolean getHACOPLBOGPN() {
-      return hACOPLBOGPN;
-    }
-
-    /**
-     * <code>optional bool HACOPLBOGPN = 8;</code>
-     * @param value the hACOPLBOGPN to set
-     * @return this
-     */
-    public SimpleInfo setHACOPLBOGPN(final boolean value) {
-      bitField0_ |= 0x00000080;
-      hACOPLBOGPN = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 5;</code>
-     * @return whether the friendAvatarInfo field is set
-     */
-    public boolean hasFriendAvatarInfo() {
-      return (bitField0_ & 0x00000100) != 0;
-    }
-
-    /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 5;</code>
+     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
      * @return this
      */
     public SimpleInfo clearFriendAvatarInfo() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000040;
       friendAvatarInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 5;</code>
+     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -473,7 +379,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 5;</code>
+     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -482,171 +388,41 @@ public final class SimpleInfoOuterClass {
      * @return internal storage object for modifications
      */
     public FriendAvatarInfoOuterClass.FriendAvatarInfo getMutableFriendAvatarInfo() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000040;
       return friendAvatarInfo;
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 5;</code>
+     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
      * @param value the friendAvatarInfo to set
      * @return this
      */
     public SimpleInfo setFriendAvatarInfo(final FriendAvatarInfoOuterClass.FriendAvatarInfo value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000040;
       friendAvatarInfo.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     * @return whether the bEBEMMGFELC field is set
-     */
-    public boolean hasBEBEMMGFELC() {
-      return (bitField0_ & 0x00000200) != 0;
-    }
-
-    /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     * @return this
-     */
-    public SimpleInfo clearBEBEMMGFELC() {
-      bitField0_ &= ~0x00000200;
-      bEBEMMGFELC.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     * @return the bEBEMMGFELC
-     */
-    public String getBEBEMMGFELC() {
-      return bEBEMMGFELC.getString();
-    }
-
-    /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     * @return internal {@code Utf8String} representation of bEBEMMGFELC for reading
-     */
-    public Utf8String getBEBEMMGFELCBytes() {
-      return this.bEBEMMGFELC;
-    }
-
-    /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     * @return internal {@code Utf8String} representation of bEBEMMGFELC for modifications
-     */
-    public Utf8String getMutableBEBEMMGFELCBytes() {
-      bitField0_ |= 0x00000200;
-      return this.bEBEMMGFELC;
-    }
-
-    /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     * @param value the bEBEMMGFELC to set
-     * @return this
-     */
-    public SimpleInfo setBEBEMMGFELC(final CharSequence value) {
-      bitField0_ |= 0x00000200;
-      bEBEMMGFELC.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string BEBEMMGFELC = 4;</code>
-     * @param value the bEBEMMGFELC to set
-     * @return this
-     */
-    public SimpleInfo setBEBEMMGFELC(final Utf8String value) {
-      bitField0_ |= 0x00000200;
-      bEBEMMGFELC.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     * @return whether the fKNMNLICHIF field is set
-     */
-    public boolean hasFKNMNLICHIF() {
-      return (bitField0_ & 0x00000400) != 0;
-    }
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     * @return this
-     */
-    public SimpleInfo clearFKNMNLICHIF() {
-      bitField0_ &= ~0x00000400;
-      fKNMNLICHIF.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     * @return the fKNMNLICHIF
-     */
-    public String getFKNMNLICHIF() {
-      return fKNMNLICHIF.getString();
-    }
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     * @return internal {@code Utf8String} representation of fKNMNLICHIF for reading
-     */
-    public Utf8String getFKNMNLICHIFBytes() {
-      return this.fKNMNLICHIF;
-    }
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     * @return internal {@code Utf8String} representation of fKNMNLICHIF for modifications
-     */
-    public Utf8String getMutableFKNMNLICHIFBytes() {
-      bitField0_ |= 0x00000400;
-      return this.fKNMNLICHIF;
-    }
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     * @param value the fKNMNLICHIF to set
-     * @return this
-     */
-    public SimpleInfo setFKNMNLICHIF(final CharSequence value) {
-      bitField0_ |= 0x00000400;
-      fKNMNLICHIF.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string FKNMNLICHIF = 9;</code>
-     * @param value the fKNMNLICHIF to set
-     * @return this
-     */
-    public SimpleInfo setFKNMNLICHIF(final Utf8String value) {
-      bitField0_ |= 0x00000400;
-      fKNMNLICHIF.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      * @return whether the nickname field is set
      */
     public boolean hasNickname() {
-      return (bitField0_ & 0x00000800) != 0;
+      return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      * @return this
      */
     public SimpleInfo clearNickname() {
-      bitField0_ &= ~0x00000800;
+      bitField0_ &= ~0x00000080;
       nickname.clear();
       return this;
     }
 
     /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      * @return the nickname
      */
     public String getNickname() {
@@ -654,7 +430,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      * @return internal {@code Utf8String} representation of nickname for reading
      */
     public Utf8String getNicknameBytes() {
@@ -662,98 +438,98 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      * @return internal {@code Utf8String} representation of nickname for modifications
      */
     public Utf8String getMutableNicknameBytes() {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000080;
       return this.nickname;
     }
 
     /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      * @param value the nickname to set
      * @return this
      */
     public SimpleInfo setNickname(final CharSequence value) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000080;
       nickname.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string nickname = 10;</code>
+     * <code>optional string nickname = 4;</code>
      * @param value the nickname to set
      * @return this
      */
     public SimpleInfo setNickname(final Utf8String value) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00000080;
       nickname.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
-     * @return whether the lAAPGMDLJHL field is set
+     * <code>optional string signature = 9;</code>
+     * @return whether the signature field is set
      */
-    public boolean hasLAAPGMDLJHL() {
-      return (bitField0_ & 0x00001000) != 0;
+    public boolean hasSignature() {
+      return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
+     * <code>optional string signature = 9;</code>
      * @return this
      */
-    public SimpleInfo clearLAAPGMDLJHL() {
-      bitField0_ &= ~0x00001000;
-      lAAPGMDLJHL.clear();
+    public SimpleInfo clearSignature() {
+      bitField0_ &= ~0x00000100;
+      signature.clear();
       return this;
     }
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
-     * @return the lAAPGMDLJHL
+     * <code>optional string signature = 9;</code>
+     * @return the signature
      */
-    public String getLAAPGMDLJHL() {
-      return lAAPGMDLJHL.getString();
+    public String getSignature() {
+      return signature.getString();
     }
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
-     * @return internal {@code Utf8String} representation of lAAPGMDLJHL for reading
+     * <code>optional string signature = 9;</code>
+     * @return internal {@code Utf8String} representation of signature for reading
      */
-    public Utf8String getLAAPGMDLJHLBytes() {
-      return this.lAAPGMDLJHL;
+    public Utf8String getSignatureBytes() {
+      return this.signature;
     }
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
-     * @return internal {@code Utf8String} representation of lAAPGMDLJHL for modifications
+     * <code>optional string signature = 9;</code>
+     * @return internal {@code Utf8String} representation of signature for modifications
      */
-    public Utf8String getMutableLAAPGMDLJHLBytes() {
-      bitField0_ |= 0x00001000;
-      return this.lAAPGMDLJHL;
+    public Utf8String getMutableSignatureBytes() {
+      bitField0_ |= 0x00000100;
+      return this.signature;
     }
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
-     * @param value the lAAPGMDLJHL to set
+     * <code>optional string signature = 9;</code>
+     * @param value the signature to set
      * @return this
      */
-    public SimpleInfo setLAAPGMDLJHL(final CharSequence value) {
-      bitField0_ |= 0x00001000;
-      lAAPGMDLJHL.copyFrom(value);
+    public SimpleInfo setSignature(final CharSequence value) {
+      bitField0_ |= 0x00000100;
+      signature.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string LAAPGMDLJHL = 12;</code>
-     * @param value the lAAPGMDLJHL to set
+     * <code>optional string signature = 9;</code>
+     * @param value the signature to set
      * @return this
      */
-    public SimpleInfo setLAAPGMDLJHL(final Utf8String value) {
-      bitField0_ |= 0x00001000;
-      lAAPGMDLJHL.copyFrom(value);
+    public SimpleInfo setSignature(final Utf8String value) {
+      bitField0_ |= 0x00000100;
+      signature.copyFrom(value);
       return this;
     }
 
@@ -763,18 +539,14 @@ public final class SimpleInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         lastActiveTime = other.lastActiveTime;
+        level = other.level;
         profilePicture = other.profilePicture;
         uid = other.uid;
-        level = other.level;
-        kBLFCBBJKOA = other.kBLFCBBJKOA;
-        onlineStatus = other.onlineStatus;
         platformType = other.platformType;
-        hACOPLBOGPN = other.hACOPLBOGPN;
+        onlineStatus = other.onlineStatus;
         friendAvatarInfo.copyFrom(other.friendAvatarInfo);
-        bEBEMMGFELC.copyFrom(other.bEBEMMGFELC);
-        fKNMNLICHIF.copyFrom(other.fKNMNLICHIF);
         nickname.copyFrom(other.nickname);
-        lAAPGMDLJHL.copyFrom(other.lAAPGMDLJHL);
+        signature.copyFrom(other.signature);
       }
       return this;
     }
@@ -788,41 +560,29 @@ public final class SimpleInfoOuterClass {
       if (other.hasLastActiveTime()) {
         setLastActiveTime(other.lastActiveTime);
       }
+      if (other.hasLevel()) {
+        setLevel(other.level);
+      }
       if (other.hasProfilePicture()) {
         setProfilePicture(other.profilePicture);
       }
       if (other.hasUid()) {
         setUid(other.uid);
       }
-      if (other.hasLevel()) {
-        setLevel(other.level);
-      }
-      if (other.hasKBLFCBBJKOA()) {
-        setKBLFCBBJKOA(other.kBLFCBBJKOA);
+      if (other.hasPlatformType()) {
+        setPlatformTypeValue(other.platformType);
       }
       if (other.hasOnlineStatus()) {
         setOnlineStatusValue(other.onlineStatus);
       }
-      if (other.hasPlatformType()) {
-        setPlatformTypeValue(other.platformType);
-      }
-      if (other.hasHACOPLBOGPN()) {
-        setHACOPLBOGPN(other.hACOPLBOGPN);
-      }
       if (other.hasFriendAvatarInfo()) {
         getMutableFriendAvatarInfo().mergeFrom(other.friendAvatarInfo);
-      }
-      if (other.hasBEBEMMGFELC()) {
-        getMutableBEBEMMGFELCBytes().copyFrom(other.bEBEMMGFELC);
-      }
-      if (other.hasFKNMNLICHIF()) {
-        getMutableFKNMNLICHIFBytes().copyFrom(other.fKNMNLICHIF);
       }
       if (other.hasNickname()) {
         getMutableNicknameBytes().copyFrom(other.nickname);
       }
-      if (other.hasLAAPGMDLJHL()) {
-        getMutableLAAPGMDLJHLBytes().copyFrom(other.lAAPGMDLJHL);
+      if (other.hasSignature()) {
+        getMutableSignatureBytes().copyFrom(other.signature);
       }
       return this;
     }
@@ -835,18 +595,14 @@ public final class SimpleInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       lastActiveTime = 0L;
+      level = 0;
       profilePicture = 0;
       uid = 0;
-      level = 0;
-      kBLFCBBJKOA = 0;
-      onlineStatus = 0;
       platformType = 0;
-      hACOPLBOGPN = false;
+      onlineStatus = 0;
       friendAvatarInfo.clear();
-      bEBEMMGFELC.clear();
-      fKNMNLICHIF.clear();
       nickname.clear();
-      lAAPGMDLJHL.clear();
+      signature.clear();
       return this;
     }
 
@@ -858,10 +614,8 @@ public final class SimpleInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       friendAvatarInfo.clearQuick();
-      bEBEMMGFELC.clear();
-      fKNMNLICHIF.clear();
       nickname.clear();
-      lAAPGMDLJHL.clear();
+      signature.clear();
       return this;
     }
 
@@ -876,18 +630,14 @@ public final class SimpleInfoOuterClass {
       SimpleInfo other = (SimpleInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasLastActiveTime() || lastActiveTime == other.lastActiveTime)
+        && (!hasLevel() || level == other.level)
         && (!hasProfilePicture() || profilePicture == other.profilePicture)
         && (!hasUid() || uid == other.uid)
-        && (!hasLevel() || level == other.level)
-        && (!hasKBLFCBBJKOA() || kBLFCBBJKOA == other.kBLFCBBJKOA)
-        && (!hasOnlineStatus() || onlineStatus == other.onlineStatus)
         && (!hasPlatformType() || platformType == other.platformType)
-        && (!hasHACOPLBOGPN() || hACOPLBOGPN == other.hACOPLBOGPN)
+        && (!hasOnlineStatus() || onlineStatus == other.onlineStatus)
         && (!hasFriendAvatarInfo() || friendAvatarInfo.equals(other.friendAvatarInfo))
-        && (!hasBEBEMMGFELC() || bEBEMMGFELC.equals(other.bEBEMMGFELC))
-        && (!hasFKNMNLICHIF() || fKNMNLICHIF.equals(other.fKNMNLICHIF))
         && (!hasNickname() || nickname.equals(other.nickname))
-        && (!hasLAAPGMDLJHL() || lAAPGMDLJHL.equals(other.lAAPGMDLJHL));
+        && (!hasSignature() || signature.equals(other.signature));
     }
 
     @Override
@@ -897,52 +647,36 @@ public final class SimpleInfoOuterClass {
         output.writeInt64NoTag(lastActiveTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(profilePicture);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(uid);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(level);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(profilePicture);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(uid);
+      }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(kBLFCBBJKOA);
+        output.writeRawByte((byte) 56);
+        output.writeEnumNoTag(platformType);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 120);
         output.writeEnumNoTag(onlineStatus);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeEnumNoTag(platformType);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeBoolNoTag(hACOPLBOGPN);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 26);
         output.writeMessageNoTag(friendAvatarInfo);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 34);
-        output.writeStringNoTag(bEBEMMGFELC);
-      }
-      if ((bitField0_ & 0x00000400) != 0) {
-        output.writeRawByte((byte) 74);
-        output.writeStringNoTag(fKNMNLICHIF);
-      }
-      if ((bitField0_ & 0x00000800) != 0) {
-        output.writeRawByte((byte) 82);
         output.writeStringNoTag(nickname);
       }
-      if ((bitField0_ & 0x00001000) != 0) {
-        output.writeRawByte((byte) 98);
-        output.writeStringNoTag(lAAPGMDLJHL);
+      if ((bitField0_ & 0x00000100) != 0) {
+        output.writeRawByte((byte) 74);
+        output.writeStringNoTag(signature);
       }
     }
 
@@ -953,40 +687,28 @@ public final class SimpleInfoOuterClass {
         size += 1 + ProtoSink.computeInt64SizeNoTag(lastActiveTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(profilePicture);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(uid);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(profilePicture);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(uid);
+      }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kBLFCBBJKOA);
+        size += 1 + ProtoSink.computeEnumSizeNoTag(platformType);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(onlineStatus);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeEnumSizeNoTag(platformType);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        size += 2;
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(friendAvatarInfo);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(bEBEMMGFELC);
-      }
-      if ((bitField0_ & 0x00000400) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(fKNMNLICHIF);
-      }
-      if ((bitField0_ & 0x00000800) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeStringSizeNoTag(nickname);
       }
-      if ((bitField0_ & 0x00001000) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(lAAPGMDLJHL);
+      if ((bitField0_ & 0x00000100) != 0) {
+        size += 1 + ProtoSink.computeStringSizeNoTag(signature);
       }
       return size;
     }
@@ -1003,47 +725,50 @@ public final class SimpleInfoOuterClass {
             lastActiveTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 8) {
-              break;
-            }
-          }
-          case 8: {
-            // profilePicture
-            profilePicture = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
             if (tag != 16) {
               break;
             }
           }
           case 16: {
-            // uid
-            uid = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
             // level
             level = input.readUInt32();
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 80) {
               break;
             }
           }
-          case 48: {
-            // kBLFCBBJKOA
-            kBLFCBBJKOA = input.readUInt32();
-            bitField0_ |= 0x00000010;
+          case 80: {
+            // profilePicture
+            profilePicture = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
+            // uid
+            uid = input.readUInt32();
+            bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 56) {
               break;
             }
           }
           case 56: {
+            // platformType
+            final int value = input.readInt32();
+            if (PlatformTypeOuterClass.PlatformType.forNumber(value) != null) {
+              platformType = value;
+              bitField0_ |= 0x00000010;
+            }
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
             // onlineStatus
             final int value = input.readInt32();
             if (FriendOnlineStatusOuterClass.FriendOnlineStatus.forNumber(value) != null) {
@@ -1051,71 +776,32 @@ public final class SimpleInfoOuterClass {
               bitField0_ |= 0x00000020;
             }
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 26) {
               break;
             }
           }
-          case 88: {
-            // platformType
-            final int value = input.readInt32();
-            if (PlatformTypeOuterClass.PlatformType.forNumber(value) != null) {
-              platformType = value;
-              bitField0_ |= 0x00000040;
-            }
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
-            // hACOPLBOGPN
-            hACOPLBOGPN = input.readBool();
-            bitField0_ |= 0x00000080;
-            tag = input.readTag();
-            if (tag != 42) {
-              break;
-            }
-          }
-          case 42: {
+          case 26: {
             // friendAvatarInfo
             input.readMessage(friendAvatarInfo);
-            bitField0_ |= 0x00000100;
+            bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 34) {
               break;
             }
           }
           case 34: {
-            // bEBEMMGFELC
-            input.readString(bEBEMMGFELC);
-            bitField0_ |= 0x00000200;
+            // nickname
+            input.readString(nickname);
+            bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 74) {
               break;
             }
           }
           case 74: {
-            // fKNMNLICHIF
-            input.readString(fKNMNLICHIF);
-            bitField0_ |= 0x00000400;
-            tag = input.readTag();
-            if (tag != 82) {
-              break;
-            }
-          }
-          case 82: {
-            // nickname
-            input.readString(nickname);
-            bitField0_ |= 0x00000800;
-            tag = input.readTag();
-            if (tag != 98) {
-              break;
-            }
-          }
-          case 98: {
-            // lAAPGMDLJHL
-            input.readString(lAAPGMDLJHL);
-            bitField0_ |= 0x00001000;
+            // signature
+            input.readString(signature);
+            bitField0_ |= 0x00000100;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -1142,40 +828,28 @@ public final class SimpleInfoOuterClass {
         output.writeInt64(FieldNames.lastActiveTime, lastActiveTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.profilePicture, profilePicture);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.uid, uid);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.level, level);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.profilePicture, profilePicture);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.uid, uid);
+      }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.kBLFCBBJKOA, kBLFCBBJKOA);
+        output.writeEnum(FieldNames.platformType, platformType, PlatformTypeOuterClass.PlatformType.converter());
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeEnum(FieldNames.onlineStatus, onlineStatus, FriendOnlineStatusOuterClass.FriendOnlineStatus.converter());
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeEnum(FieldNames.platformType, platformType, PlatformTypeOuterClass.PlatformType.converter());
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeBool(FieldNames.hACOPLBOGPN, hACOPLBOGPN);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
         output.writeMessage(FieldNames.friendAvatarInfo, friendAvatarInfo);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
-        output.writeString(FieldNames.bEBEMMGFELC, bEBEMMGFELC);
-      }
-      if ((bitField0_ & 0x00000400) != 0) {
-        output.writeString(FieldNames.fKNMNLICHIF, fKNMNLICHIF);
-      }
-      if ((bitField0_ & 0x00000800) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeString(FieldNames.nickname, nickname);
       }
-      if ((bitField0_ & 0x00001000) != 0) {
-        output.writeString(FieldNames.lAAPGMDLJHL, lAAPGMDLJHL);
+      if ((bitField0_ & 0x00000100) != 0) {
+        output.writeString(FieldNames.signature, signature);
       }
       output.endObject();
     }
@@ -1199,12 +873,23 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
+          case 102865796: {
+            if (input.isAtField(FieldNames.level)) {
+              if (!input.trySkipNullValue()) {
+                level = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1406866667:
           case 1782764648: {
             if (input.isAtField(FieldNames.profilePicture)) {
               if (!input.trySkipNullValue()) {
                 profilePicture = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -1215,17 +900,6 @@ public final class SimpleInfoOuterClass {
             if (input.isAtField(FieldNames.uid)) {
               if (!input.trySkipNullValue()) {
                 uid = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 102865796: {
-            if (input.isAtField(FieldNames.level)) {
-              if (!input.trySkipNullValue()) {
-                level = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -1233,11 +907,17 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
-          case 1383658213: {
-            if (input.isAtField(FieldNames.kBLFCBBJKOA)) {
+          case 155581005:
+          case 538062726: {
+            if (input.isAtField(FieldNames.platformType)) {
               if (!input.trySkipNullValue()) {
-                kBLFCBBJKOA = input.readUInt32();
-                bitField0_ |= 0x00000010;
+                final PlatformTypeOuterClass.PlatformType value = input.readEnum(PlatformTypeOuterClass.PlatformType.converter());
+                if (value != null) {
+                  platformType = value.getNumber();
+                  bitField0_ |= 0x00000010;
+                } else {
+                  input.skipUnknownEnumValue();
+                }
               }
             } else {
               input.skipUnknownField();
@@ -1261,62 +941,12 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
-          case 155581005:
-          case 538062726: {
-            if (input.isAtField(FieldNames.platformType)) {
-              if (!input.trySkipNullValue()) {
-                final PlatformTypeOuterClass.PlatformType value = input.readEnum(PlatformTypeOuterClass.PlatformType.converter());
-                if (value != null) {
-                  platformType = value.getNumber();
-                  bitField0_ |= 0x00000040;
-                } else {
-                  input.skipUnknownEnumValue();
-                }
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -792214057: {
-            if (input.isAtField(FieldNames.hACOPLBOGPN)) {
-              if (!input.trySkipNullValue()) {
-                hACOPLBOGPN = input.readBool();
-                bitField0_ |= 0x00000080;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 2012020453:
           case 1631238067: {
             if (input.isAtField(FieldNames.friendAvatarInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(friendAvatarInfo);
-                bitField0_ |= 0x00000100;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -456808681: {
-            if (input.isAtField(FieldNames.bEBEMMGFELC)) {
-              if (!input.trySkipNullValue()) {
-                input.readString(bEBEMMGFELC);
-                bitField0_ |= 0x00000200;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1469838153: {
-            if (input.isAtField(FieldNames.fKNMNLICHIF)) {
-              if (!input.trySkipNullValue()) {
-                input.readString(fKNMNLICHIF);
-                bitField0_ |= 0x00000400;
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -1327,18 +957,18 @@ public final class SimpleInfoOuterClass {
             if (input.isAtField(FieldNames.nickname)) {
               if (!input.trySkipNullValue()) {
                 input.readString(nickname);
-                bitField0_ |= 0x00000800;
+                bitField0_ |= 0x00000080;
               }
             } else {
               input.skipUnknownField();
             }
             break;
           }
-          case -1989509316: {
-            if (input.isAtField(FieldNames.lAAPGMDLJHL)) {
+          case 1073584312: {
+            if (input.isAtField(FieldNames.signature)) {
               if (!input.trySkipNullValue()) {
-                input.readString(lAAPGMDLJHL);
-                bitField0_ |= 0x00001000;
+                input.readString(signature);
+                bitField0_ |= 0x00000100;
               }
             } else {
               input.skipUnknownField();
@@ -1399,29 +1029,21 @@ public final class SimpleInfoOuterClass {
     static class FieldNames {
       static final FieldName lastActiveTime = FieldName.forField("lastActiveTime", "last_active_time");
 
+      static final FieldName level = FieldName.forField("level");
+
       static final FieldName profilePicture = FieldName.forField("profilePicture", "profile_picture");
 
       static final FieldName uid = FieldName.forField("uid");
 
-      static final FieldName level = FieldName.forField("level");
-
-      static final FieldName kBLFCBBJKOA = FieldName.forField("KBLFCBBJKOA");
+      static final FieldName platformType = FieldName.forField("platformType", "platform_type");
 
       static final FieldName onlineStatus = FieldName.forField("onlineStatus", "online_status");
 
-      static final FieldName platformType = FieldName.forField("platformType", "platform_type");
-
-      static final FieldName hACOPLBOGPN = FieldName.forField("HACOPLBOGPN");
-
       static final FieldName friendAvatarInfo = FieldName.forField("friendAvatarInfo", "friend_avatar_info");
-
-      static final FieldName bEBEMMGFELC = FieldName.forField("BEBEMMGFELC");
-
-      static final FieldName fKNMNLICHIF = FieldName.forField("FKNMNLICHIF");
 
       static final FieldName nickname = FieldName.forField("nickname");
 
-      static final FieldName lAAPGMDLJHL = FieldName.forField("LAAPGMDLJHL");
+      static final FieldName signature = FieldName.forField("signature");
     }
   }
 }

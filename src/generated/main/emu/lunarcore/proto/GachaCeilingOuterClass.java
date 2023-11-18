@@ -20,17 +20,7 @@ public final class GachaCeilingOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 LAHIAEICENE = 6;</code>
-     */
-    private int lAHIAEICENE;
-
-    /**
-     * <code>optional bool JOOHKLJIKOF = 2;</code>
-     */
-    private boolean jOOHKLJIKOF;
-
-    /**
-     * <code>repeated .GachaCeilingAvatar avatar_list = 5;</code>
+     * <code>repeated .GachaCeilingAvatar avatar_list = 15;</code>
      */
     private final RepeatedMessage<GachaCeilingAvatarOuterClass.GachaCeilingAvatar> avatarList = RepeatedMessage.newEmptyInstance(GachaCeilingAvatarOuterClass.GachaCeilingAvatar.getFactory());
 
@@ -45,99 +35,25 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional uint32 LAHIAEICENE = 6;</code>
-     * @return whether the lAHIAEICENE field is set
+     * <code>repeated .GachaCeilingAvatar avatar_list = 15;</code>
+     * @return whether the avatarList field is set
      */
-    public boolean hasLAHIAEICENE() {
+    public boolean hasAvatarList() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 LAHIAEICENE = 6;</code>
-     * @return this
-     */
-    public GachaCeiling clearLAHIAEICENE() {
-      bitField0_ &= ~0x00000001;
-      lAHIAEICENE = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 LAHIAEICENE = 6;</code>
-     * @return the lAHIAEICENE
-     */
-    public int getLAHIAEICENE() {
-      return lAHIAEICENE;
-    }
-
-    /**
-     * <code>optional uint32 LAHIAEICENE = 6;</code>
-     * @param value the lAHIAEICENE to set
-     * @return this
-     */
-    public GachaCeiling setLAHIAEICENE(final int value) {
-      bitField0_ |= 0x00000001;
-      lAHIAEICENE = value;
-      return this;
-    }
-
-    /**
-     * <code>optional bool JOOHKLJIKOF = 2;</code>
-     * @return whether the jOOHKLJIKOF field is set
-     */
-    public boolean hasJOOHKLJIKOF() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional bool JOOHKLJIKOF = 2;</code>
-     * @return this
-     */
-    public GachaCeiling clearJOOHKLJIKOF() {
-      bitField0_ &= ~0x00000002;
-      jOOHKLJIKOF = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool JOOHKLJIKOF = 2;</code>
-     * @return the jOOHKLJIKOF
-     */
-    public boolean getJOOHKLJIKOF() {
-      return jOOHKLJIKOF;
-    }
-
-    /**
-     * <code>optional bool JOOHKLJIKOF = 2;</code>
-     * @param value the jOOHKLJIKOF to set
-     * @return this
-     */
-    public GachaCeiling setJOOHKLJIKOF(final boolean value) {
-      bitField0_ |= 0x00000002;
-      jOOHKLJIKOF = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated .GachaCeilingAvatar avatar_list = 5;</code>
-     * @return whether the avatarList field is set
-     */
-    public boolean hasAvatarList() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>repeated .GachaCeilingAvatar avatar_list = 5;</code>
+     * <code>repeated .GachaCeilingAvatar avatar_list = 15;</code>
      * @return this
      */
     public GachaCeiling clearAvatarList() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       avatarList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .GachaCeilingAvatar avatar_list = 5;</code>
+     * <code>repeated .GachaCeilingAvatar avatar_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +67,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>repeated .GachaCeilingAvatar avatar_list = 5;</code>
+     * <code>repeated .GachaCeilingAvatar avatar_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -160,29 +76,29 @@ public final class GachaCeilingOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<GachaCeilingAvatarOuterClass.GachaCeilingAvatar> getMutableAvatarList() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       return avatarList;
     }
 
     /**
-     * <code>repeated .GachaCeilingAvatar avatar_list = 5;</code>
+     * <code>repeated .GachaCeilingAvatar avatar_list = 15;</code>
      * @param value the avatarList to add
      * @return this
      */
     public GachaCeiling addAvatarList(final GachaCeilingAvatarOuterClass.GachaCeilingAvatar value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       avatarList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .GachaCeilingAvatar avatar_list = 5;</code>
+     * <code>repeated .GachaCeilingAvatar avatar_list = 15;</code>
      * @param values the avatarList to add
      * @return this
      */
     public GachaCeiling addAllAvatarList(
         final GachaCeilingAvatarOuterClass.GachaCeilingAvatar... values) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       avatarList.addAll(values);
       return this;
     }
@@ -192,8 +108,6 @@ public final class GachaCeilingOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        lAHIAEICENE = other.lAHIAEICENE;
-        jOOHKLJIKOF = other.jOOHKLJIKOF;
         avatarList.copyFrom(other.avatarList);
       }
       return this;
@@ -205,12 +119,6 @@ public final class GachaCeilingOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasLAHIAEICENE()) {
-        setLAHIAEICENE(other.lAHIAEICENE);
-      }
-      if (other.hasJOOHKLJIKOF()) {
-        setJOOHKLJIKOF(other.jOOHKLJIKOF);
-      }
       if (other.hasAvatarList()) {
         getMutableAvatarList().addAll(other.avatarList);
       }
@@ -224,8 +132,6 @@ public final class GachaCeilingOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      lAHIAEICENE = 0;
-      jOOHKLJIKOF = false;
       avatarList.clear();
       return this;
     }
@@ -251,24 +157,14 @@ public final class GachaCeilingOuterClass {
       }
       GachaCeiling other = (GachaCeiling) o;
       return bitField0_ == other.bitField0_
-        && (!hasLAHIAEICENE() || lAHIAEICENE == other.lAHIAEICENE)
-        && (!hasJOOHKLJIKOF() || jOOHKLJIKOF == other.jOOHKLJIKOF)
         && (!hasAvatarList() || avatarList.equals(other.avatarList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(lAHIAEICENE);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeBoolNoTag(jOOHKLJIKOF);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < avatarList.length(); i++) {
-          output.writeRawByte((byte) 42);
+          output.writeRawByte((byte) 122);
           output.writeMessageNoTag(avatarList.get(i));
         }
       }
@@ -278,12 +174,6 @@ public final class GachaCeilingOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(lAHIAEICENE);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 2;
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += (1 * avatarList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(avatarList);
       }
       return size;
@@ -296,28 +186,10 @@ public final class GachaCeilingOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // lAHIAEICENE
-            lAHIAEICENE = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 16) {
-              break;
-            }
-          }
-          case 16: {
-            // jOOHKLJIKOF
-            jOOHKLJIKOF = input.readBool();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 42) {
-              break;
-            }
-          }
-          case 42: {
+          case 122: {
             // avatarList
             tag = input.readRepeatedMessage(avatarList, tag);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000001;
             if (tag != 0) {
               break;
             }
@@ -340,12 +212,6 @@ public final class GachaCeilingOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.lAHIAEICENE, lAHIAEICENE);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.jOOHKLJIKOF, jOOHKLJIKOF);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRepeatedMessage(FieldNames.avatarList, avatarList);
       }
       output.endObject();
@@ -358,34 +224,12 @@ public final class GachaCeilingOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1968665032: {
-            if (input.isAtField(FieldNames.lAHIAEICENE)) {
-              if (!input.trySkipNullValue()) {
-                lAHIAEICENE = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1787903332: {
-            if (input.isAtField(FieldNames.jOOHKLJIKOF)) {
-              if (!input.trySkipNullValue()) {
-                jOOHKLJIKOF = input.readBool();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -403402345:
           case 397055940: {
             if (input.isAtField(FieldNames.avatarList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(avatarList);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -444,10 +288,6 @@ public final class GachaCeilingOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName lAHIAEICENE = FieldName.forField("LAHIAEICENE");
-
-      static final FieldName jOOHKLJIKOF = FieldName.forField("JOOHKLJIKOF");
-
       static final FieldName avatarList = FieldName.forField("avatarList", "avatar_list");
     }
   }

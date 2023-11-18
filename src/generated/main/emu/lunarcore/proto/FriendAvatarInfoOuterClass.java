@@ -19,19 +19,19 @@ public final class FriendAvatarInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
+     * <code>optional uint32 level = 8;</code>
+     */
+    private int level;
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
      */
     private int equipmentUniqueId;
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 15;</code>
      */
     private int avatarId;
-
-    /**
-     * <code>optional uint32 level = 10;</code>
-     */
-    private int level;
 
     private FriendAvatarInfo() {
     }
@@ -44,99 +44,25 @@ public final class FriendAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @return whether the equipmentUniqueId field is set
+     * <code>optional uint32 level = 8;</code>
+     * @return whether the level field is set
      */
-    public boolean hasEquipmentUniqueId() {
+    public boolean hasLevel() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @return this
-     */
-    public FriendAvatarInfo clearEquipmentUniqueId() {
-      bitField0_ &= ~0x00000001;
-      equipmentUniqueId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @return the equipmentUniqueId
-     */
-    public int getEquipmentUniqueId() {
-      return equipmentUniqueId;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @param value the equipmentUniqueId to set
-     * @return this
-     */
-    public FriendAvatarInfo setEquipmentUniqueId(final int value) {
-      bitField0_ |= 0x00000001;
-      equipmentUniqueId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 6;</code>
-     * @return whether the avatarId field is set
-     */
-    public boolean hasAvatarId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 6;</code>
-     * @return this
-     */
-    public FriendAvatarInfo clearAvatarId() {
-      bitField0_ &= ~0x00000002;
-      avatarId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 6;</code>
-     * @return the avatarId
-     */
-    public int getAvatarId() {
-      return avatarId;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 6;</code>
-     * @param value the avatarId to set
-     * @return this
-     */
-    public FriendAvatarInfo setAvatarId(final int value) {
-      bitField0_ |= 0x00000002;
-      avatarId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 level = 10;</code>
-     * @return whether the level field is set
-     */
-    public boolean hasLevel() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return this
      */
     public FriendAvatarInfo clearLevel() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       level = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return the level
      */
     public int getLevel() {
@@ -144,13 +70,87 @@ public final class FriendAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @param value the level to set
      * @return this
      */
     public FriendAvatarInfo setLevel(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       level = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @return whether the equipmentUniqueId field is set
+     */
+    public boolean hasEquipmentUniqueId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @return this
+     */
+    public FriendAvatarInfo clearEquipmentUniqueId() {
+      bitField0_ &= ~0x00000002;
+      equipmentUniqueId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @return the equipmentUniqueId
+     */
+    public int getEquipmentUniqueId() {
+      return equipmentUniqueId;
+    }
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @param value the equipmentUniqueId to set
+     * @return this
+     */
+    public FriendAvatarInfo setEquipmentUniqueId(final int value) {
+      bitField0_ |= 0x00000002;
+      equipmentUniqueId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 15;</code>
+     * @return whether the avatarId field is set
+     */
+    public boolean hasAvatarId() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 15;</code>
+     * @return this
+     */
+    public FriendAvatarInfo clearAvatarId() {
+      bitField0_ &= ~0x00000004;
+      avatarId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 15;</code>
+     * @return the avatarId
+     */
+    public int getAvatarId() {
+      return avatarId;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 15;</code>
+     * @param value the avatarId to set
+     * @return this
+     */
+    public FriendAvatarInfo setAvatarId(final int value) {
+      bitField0_ |= 0x00000004;
+      avatarId = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class FriendAvatarInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        level = other.level;
         equipmentUniqueId = other.equipmentUniqueId;
         avatarId = other.avatarId;
-        level = other.level;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class FriendAvatarInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasLevel()) {
+        setLevel(other.level);
+      }
       if (other.hasEquipmentUniqueId()) {
         setEquipmentUniqueId(other.equipmentUniqueId);
       }
       if (other.hasAvatarId()) {
         setAvatarId(other.avatarId);
-      }
-      if (other.hasLevel()) {
-        setLevel(other.level);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class FriendAvatarInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      level = 0;
       equipmentUniqueId = 0;
       avatarId = 0;
-      level = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class FriendAvatarInfoOuterClass {
       }
       FriendAvatarInfo other = (FriendAvatarInfo) o;
       return bitField0_ == other.bitField0_
+        && (!hasLevel() || level == other.level)
         && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
-        && (!hasAvatarId() || avatarId == other.avatarId)
-        && (!hasLevel() || level == other.level);
+        && (!hasAvatarId() || avatarId == other.avatarId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(equipmentUniqueId);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(avatarId);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(level);
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(avatarId);
       }
     }
 
@@ -242,13 +242,13 @@ public final class FriendAvatarInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
       }
       return size;
     }
@@ -260,27 +260,27 @@ public final class FriendAvatarInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // equipmentUniqueId
-            equipmentUniqueId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 48) {
-              break;
-            }
-          }
-          case 48: {
-            // avatarId
-            avatarId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
+          case 64: {
             // level
             level = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 104) {
+              break;
+            }
+          }
+          case 104: {
+            // equipmentUniqueId
+            equipmentUniqueId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // avatarId
+            avatarId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class FriendAvatarInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
+        output.writeUInt32(FieldNames.level, level);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.avatarId, avatarId);
+        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.level, level);
+        output.writeUInt32(FieldNames.avatarId, avatarId);
       }
       output.endObject();
     }
@@ -323,12 +323,23 @@ public final class FriendAvatarInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 102865796: {
+            if (input.isAtField(FieldNames.level)) {
+              if (!input.trySkipNullValue()) {
+                level = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1867136902:
           case 760467160: {
             if (input.isAtField(FieldNames.equipmentUniqueId)) {
               if (!input.trySkipNullValue()) {
                 equipmentUniqueId = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -340,17 +351,6 @@ public final class FriendAvatarInfoOuterClass {
             if (input.isAtField(FieldNames.avatarId)) {
               if (!input.trySkipNullValue()) {
                 avatarId = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 102865796: {
-            if (input.isAtField(FieldNames.level)) {
-              if (!input.trySkipNullValue()) {
-                level = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -411,11 +411,11 @@ public final class FriendAvatarInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName level = FieldName.forField("level");
+
       static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
 
       static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
-
-      static final FieldName level = FieldName.forField("level");
     }
   }
 }

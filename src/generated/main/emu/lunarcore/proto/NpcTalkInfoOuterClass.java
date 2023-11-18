@@ -19,14 +19,9 @@ public final class NpcTalkInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 npc_talk_id = 13;</code>
+     * <code>optional uint32 npc_talk_id = 14;</code>
      */
     private int npcTalkId;
-
-    /**
-     * <code>optional bool NEFMOJIHOFJ = 5;</code>
-     */
-    private boolean nEFMOJIHOFJ;
 
     private NpcTalkInfo() {
     }
@@ -39,7 +34,7 @@ public final class NpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_talk_id = 13;</code>
+     * <code>optional uint32 npc_talk_id = 14;</code>
      * @return whether the npcTalkId field is set
      */
     public boolean hasNpcTalkId() {
@@ -47,7 +42,7 @@ public final class NpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_talk_id = 13;</code>
+     * <code>optional uint32 npc_talk_id = 14;</code>
      * @return this
      */
     public NpcTalkInfo clearNpcTalkId() {
@@ -57,7 +52,7 @@ public final class NpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_talk_id = 13;</code>
+     * <code>optional uint32 npc_talk_id = 14;</code>
      * @return the npcTalkId
      */
     public int getNpcTalkId() {
@@ -65,7 +60,7 @@ public final class NpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_talk_id = 13;</code>
+     * <code>optional uint32 npc_talk_id = 14;</code>
      * @param value the npcTalkId to set
      * @return this
      */
@@ -75,50 +70,12 @@ public final class NpcTalkInfoOuterClass {
       return this;
     }
 
-    /**
-     * <code>optional bool NEFMOJIHOFJ = 5;</code>
-     * @return whether the nEFMOJIHOFJ field is set
-     */
-    public boolean hasNEFMOJIHOFJ() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional bool NEFMOJIHOFJ = 5;</code>
-     * @return this
-     */
-    public NpcTalkInfo clearNEFMOJIHOFJ() {
-      bitField0_ &= ~0x00000002;
-      nEFMOJIHOFJ = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool NEFMOJIHOFJ = 5;</code>
-     * @return the nEFMOJIHOFJ
-     */
-    public boolean getNEFMOJIHOFJ() {
-      return nEFMOJIHOFJ;
-    }
-
-    /**
-     * <code>optional bool NEFMOJIHOFJ = 5;</code>
-     * @param value the nEFMOJIHOFJ to set
-     * @return this
-     */
-    public NpcTalkInfo setNEFMOJIHOFJ(final boolean value) {
-      bitField0_ |= 0x00000002;
-      nEFMOJIHOFJ = value;
-      return this;
-    }
-
     @Override
     public NpcTalkInfo copyFrom(final NpcTalkInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         npcTalkId = other.npcTalkId;
-        nEFMOJIHOFJ = other.nEFMOJIHOFJ;
       }
       return this;
     }
@@ -132,9 +89,6 @@ public final class NpcTalkInfoOuterClass {
       if (other.hasNpcTalkId()) {
         setNpcTalkId(other.npcTalkId);
       }
-      if (other.hasNEFMOJIHOFJ()) {
-        setNEFMOJIHOFJ(other.nEFMOJIHOFJ);
-      }
       return this;
     }
 
@@ -146,7 +100,6 @@ public final class NpcTalkInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       npcTalkId = 0;
-      nEFMOJIHOFJ = false;
       return this;
     }
 
@@ -170,19 +123,14 @@ public final class NpcTalkInfoOuterClass {
       }
       NpcTalkInfo other = (NpcTalkInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasNpcTalkId() || npcTalkId == other.npcTalkId)
-        && (!hasNEFMOJIHOFJ() || nEFMOJIHOFJ == other.nEFMOJIHOFJ);
+        && (!hasNpcTalkId() || npcTalkId == other.npcTalkId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(npcTalkId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeBoolNoTag(nEFMOJIHOFJ);
       }
     }
 
@@ -191,9 +139,6 @@ public final class NpcTalkInfoOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(npcTalkId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 2;
       }
       return size;
     }
@@ -205,19 +150,10 @@ public final class NpcTalkInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 112: {
             // npcTalkId
             npcTalkId = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 40) {
-              break;
-            }
-          }
-          case 40: {
-            // nEFMOJIHOFJ
-            nEFMOJIHOFJ = input.readBool();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -243,9 +179,6 @@ public final class NpcTalkInfoOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.npcTalkId, npcTalkId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.nEFMOJIHOFJ, nEFMOJIHOFJ);
-      }
       output.endObject();
     }
 
@@ -262,17 +195,6 @@ public final class NpcTalkInfoOuterClass {
               if (!input.trySkipNullValue()) {
                 npcTalkId = input.readUInt32();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -731622309: {
-            if (input.isAtField(FieldNames.nEFMOJIHOFJ)) {
-              if (!input.trySkipNullValue()) {
-                nEFMOJIHOFJ = input.readBool();
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -332,8 +254,6 @@ public final class NpcTalkInfoOuterClass {
      */
     static class FieldNames {
       static final FieldName npcTalkId = FieldName.forField("npcTalkId", "npc_talk_id");
-
-      static final FieldName nEFMOJIHOFJ = FieldName.forField("NEFMOJIHOFJ");
     }
   }
 }

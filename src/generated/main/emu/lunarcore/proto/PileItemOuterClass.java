@@ -19,12 +19,12 @@ public final class PileItemOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 item_num = 3;</code>
+     * <code>optional uint32 item_num = 6;</code>
      */
     private int itemNum;
 
     /**
-     * <code>optional uint32 item_id = 13;</code>
+     * <code>optional uint32 item_id = 8;</code>
      */
     private int itemId;
 
@@ -39,7 +39,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 3;</code>
+     * <code>optional uint32 item_num = 6;</code>
      * @return whether the itemNum field is set
      */
     public boolean hasItemNum() {
@@ -47,7 +47,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 3;</code>
+     * <code>optional uint32 item_num = 6;</code>
      * @return this
      */
     public PileItem clearItemNum() {
@@ -57,7 +57,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 3;</code>
+     * <code>optional uint32 item_num = 6;</code>
      * @return the itemNum
      */
     public int getItemNum() {
@@ -65,7 +65,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 3;</code>
+     * <code>optional uint32 item_num = 6;</code>
      * @param value the itemNum to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 13;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @return whether the itemId field is set
      */
     public boolean hasItemId() {
@@ -84,7 +84,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 13;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @return this
      */
     public PileItem clearItemId() {
@@ -94,7 +94,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 13;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @return the itemId
      */
     public int getItemId() {
@@ -102,7 +102,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_id = 13;</code>
+     * <code>optional uint32 item_id = 8;</code>
      * @param value the itemId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class PileItemOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(itemNum);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(itemId);
       }
     }
@@ -205,16 +205,16 @@ public final class PileItemOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 48: {
             // itemNum
             itemNum = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 64) {
               break;
             }
           }
-          case 104: {
+          case 64: {
             // itemId
             itemId = input.readUInt32();
             bitField0_ |= 0x00000002;
