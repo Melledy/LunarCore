@@ -13,6 +13,7 @@ import emu.lunarcore.game.drops.DropService;
 import emu.lunarcore.game.gacha.GachaService;
 import emu.lunarcore.game.inventory.InventoryService;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.shop.ShopService;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import kcp.highway.ChannelConfig;
@@ -35,6 +36,7 @@ public class GameServer extends KcpServer {
     @Getter private final DropService dropService;
     @Getter private final InventoryService inventoryService;
     @Getter private final GachaService gachaService;
+    @Getter private final ShopService shopService;
 
     public GameServer(GameServerConfig serverConfig) {
         // Game Server base
@@ -51,6 +53,7 @@ public class GameServer extends KcpServer {
         this.dropService = new DropService(this);
         this.inventoryService = new InventoryService(this);
         this.gachaService = new GachaService(this);
+        this.shopService = new ShopService(this);
         
         // Game loop
         this.gameLoopTimer = new Timer();
