@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.send.PacketGetCurChallengeScRsp;
 public class HandlerGetCurChallengeCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         // Send packet first
         session.send(new PacketGetCurChallengeScRsp(session.getPlayer()));
         // Update challenge details for client

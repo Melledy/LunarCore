@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketBuyGoodsScRsp;
 public class HandlerBuyGoodsCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = BuyGoodsCsReq.parseFrom(data);
         
         var items = session.getServer().getInventoryService().buyShopGoods(session.getPlayer(), req.getShopId(), req.getGoodsId(), req.getGoodsNum());

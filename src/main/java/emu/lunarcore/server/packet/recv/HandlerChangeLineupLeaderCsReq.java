@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketChangeLineupLeaderScRsp;
 public class HandlerChangeLineupLeaderCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = ChangeLineupLeaderCsReq.parseFrom(data);
 
         session.getPlayer().getLineupManager().changeLeader(req.getSlot());

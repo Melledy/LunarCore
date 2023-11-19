@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.send.PacketGetArchiveDataScRsp;
 public class HandlerGetArchiveDataCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         // TODO The client does not send this packet right now to the server so we send it in HandlerPlayerLoginFinishCsReq instead
         session.send(new PacketGetArchiveDataScRsp());
     }

@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketPlayerHeartBeatScRsp;
 public class HandlerPlayerHeartBeatCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         // Parse req data
         var req = PlayerHeartbeatCsReq.parseFrom(data);
 

@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketGetMissionStatusScRsp;
 public class HandlerGetMissionStatusCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetMissionStatusCsReq.parseFrom(data);
 
         session.send(new PacketGetMissionStatusScRsp(req));

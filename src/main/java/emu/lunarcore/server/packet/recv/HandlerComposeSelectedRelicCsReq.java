@@ -14,7 +14,7 @@ import emu.lunarcore.server.packet.send.PacketComposeSelectedRelicScRsp;
 public class HandlerComposeSelectedRelicCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = ComposeSelectedRelicCsReq.parseFrom(data);
         
         List<GameItem> returnList = session.getServer().getInventoryService().composeRelic(

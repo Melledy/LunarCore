@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketSyncClientResVersionScRsp;
 public class HandlerSyncClientResVersionCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = SyncClientResVersionCsReq.parseFrom(data);
 
         session.send(new PacketSyncClientResVersionScRsp(req.getClientResVersion()));

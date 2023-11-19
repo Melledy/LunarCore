@@ -109,10 +109,10 @@ public class GameSession {
                 int opcode = packet.readShort();
                 int headerLength = packet.readShort();
                 int dataLength = packet.readInt();
-                byte[] header = new byte[headerLength];
+                
                 byte[] data = new byte[dataLength];
 
-                packet.readBytes(header);
+                packet.skipBytes(headerLength);
                 packet.readBytes(data);
 
                 // Packet tail sanity check
@@ -127,7 +127,7 @@ public class GameSession {
                 }
 
                 // Handle
-                getServer().getPacketHandler().handle(this, opcode, header, data);
+                getServer().getPacketHandler().handle(this, opcode, data);
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -157,8 +157,10 @@ public class GameSession {
      * @param cmdId
      */
     public void send(int cmdId) {
-        // TODO optimize to send bytes with cmdId instead of creating a new base packet object
-        this.send(new BasePacket(cmdId));
+        if (this.ukcp != null) {
+            // Get packet from the server's packet cache. This will allow us to reuse empty packets if needed.
+            this.ukcp.write(this.getServer().getPacketCache().getCachedPacket(cmdId));
+        }
     }
 
     private void send(byte[] bytes) {

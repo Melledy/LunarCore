@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerLeaveChallengeCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         // Make sure client is in a challenge scene
         if (session.getPlayer().getScene() != null && session.getPlayer().getScene().getPlaneType() == PlaneType.Challenge) {
             // As of 1.5.0, the server now has to handle the player leaving battle too

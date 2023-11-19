@@ -14,7 +14,7 @@ import emu.lunarcore.server.packet.send.PacketTakeChallengeRewardScRsp;
 public class HandlerTakeChallengeRewardCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = TakeChallengeRewardCsReq.parseFrom(data);
         
         List<GameItem> rewards = session.getPlayer().getChallengeManager().takeRewards(req.getGroupId(), req.getStarCount());

@@ -5,5 +5,5 @@ import emu.lunarcore.server.game.GameSession;
 public abstract class PacketHandler {
     protected static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
 
-    public abstract void handle(GameSession session, byte[] header, byte[] data) throws Exception;
+    public abstract void handle(GameSession session, byte[] data) throws Exception;
 }

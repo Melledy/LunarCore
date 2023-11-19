@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketSwitchLineupIndexScRsp;
 public class HandlerSwitchLineupIndexCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = SwitchLineupIndexCsReq.parseFrom(data);
 
         session.getPlayer().getLineupManager().switchLineup(req.getIndex());

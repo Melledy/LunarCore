@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerTakeOffEquipmentCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = TakeOffEquipmentCsReq.parseFrom(data);
 
         session.getPlayer().getInventory().unequipItem(req.getBaseAvatarId(), GameConstants.EQUIPMENT_SLOT_ID);

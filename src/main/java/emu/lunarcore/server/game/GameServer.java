@@ -28,7 +28,9 @@ public class GameServer extends KcpServer {
     private final Timer gameLoopTimer;
     
     // Managers
-    @Getter private final GameServerPacketHandler packetHandler;    
+    @Getter private final GameServerPacketHandler packetHandler;
+    @Getter private final GameServerPacketCache packetCache;
+    
     @Getter private final BattleService battleService;
     @Getter private final DropService dropService;
     @Getter private final InventoryService inventoryService;
@@ -39,11 +41,12 @@ public class GameServer extends KcpServer {
         this.serverConfig = serverConfig;
         this.info = new RegionInfo(this);
         this.address = new InetSocketAddress(serverConfig.bindAddress, serverConfig.getPort());
-        this.packetHandler = new GameServerPacketHandler();
-
         this.players = new Int2ObjectOpenHashMap<>();
 
         // Setup managers
+        this.packetHandler = new GameServerPacketHandler();
+        this.packetCache = new GameServerPacketCache();
+        
         this.battleService = new BattleService(this);
         this.dropService = new DropService(this);
         this.inventoryService = new InventoryService(this);

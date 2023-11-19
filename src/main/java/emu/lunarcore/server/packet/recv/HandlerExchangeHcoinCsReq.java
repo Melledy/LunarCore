@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerExchangeHcoinCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = ExchangeHcoinCsReq.parseFrom(data);
         
         if (session.getPlayer().getMcoin() >= req.getNum()) {

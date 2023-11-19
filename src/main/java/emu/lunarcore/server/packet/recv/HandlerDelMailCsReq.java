@@ -12,7 +12,7 @@ import it.unimi.dsi.fastutil.ints.IntList;
 public class HandlerDelMailCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = DelMailCsReq.parseFrom(data);
         
         IntList deleted = session.getPlayer().getMailbox().deleteMail(req.getIdList());

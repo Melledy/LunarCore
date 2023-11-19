@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketSetHeroBasicTypeScRsp;
 public class HandlerSetHeroBasicTypeCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetHeroBasicTypeCsReq.parseFrom(data);
         
         session.getPlayer().setHeroBasicType(req.getBasicTypeValue());

@@ -29,10 +29,8 @@ public class GameServerPacketHandler {
             if (opcode == null || opcode.disabled() || opcode.value() <= 0) {
                 return;
             }
-
-            PacketHandler packetHandler = handlerClass.getDeclaredConstructor().newInstance();
-
-            this.handlers.put(opcode.value(), packetHandler);
+            
+            this.handlers.put(opcode.value(), handlerClass.getDeclaredConstructor().newInstance());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,25 +44,24 @@ public class GameServerPacketHandler {
             this.registerPacketHandler((Class<? extends PacketHandler>) obj);
         }
 
-        // Debug
         LunarCore.getLogger().info("Game Server registered " + this.handlers.size() + " packet handlers");
     }
 
-    public void handle(GameSession session, int opcode, byte[] header, byte[] data) {
-        PacketHandler handler = this.handlers.get(opcode);
+    public void handle(GameSession session, int cmdId, byte[] data) {
+        PacketHandler handler = this.handlers.get(cmdId);
 
         if (handler != null) {
             try {
                 // Make sure session is ready for packets
                 SessionState state = session.getState();
 
-                if (opcode == CmdId.PlayerHeartBeatCsReq) {
+                if (cmdId == CmdId.PlayerHeartBeatCsReq) {
                     // Always continue if packet is ping request
-                } else if (opcode == CmdId.PlayerGetTokenCsReq) {
+                } else if (cmdId == CmdId.PlayerGetTokenCsReq) {
                     if (state != SessionState.WAITING_FOR_TOKEN) {
                         return;
                     }
-                } else if (opcode == CmdId.PlayerLoginCsReq) {
+                } else if (cmdId == CmdId.PlayerLoginCsReq) {
                     if (state != SessionState.WAITING_FOR_LOGIN) {
                         return;
                     }
@@ -75,7 +72,7 @@ public class GameServerPacketHandler {
                 }
 
                 // Handle packet
-                handler.handle(session, header, data);
+                handler.handle(session, data);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
@@ -84,6 +81,6 @@ public class GameServerPacketHandler {
         }
 
         // Log unhandled packets
-        //LunarCore.getLogger().info("Unhandled packet (" + opcode + "): " + CmdIdUtils.getOpcodeName(opcode));
+        //LunarCore.getLogger().info("Unhandled packet (" + cmdId + "): " + CmdIdUtils.getOpcodeName(cmdId));
     }
 }

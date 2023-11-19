@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerLockRelicCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = LockRelicCsReq.parseFrom(data);
 
         session.getServer().getInventoryService().lockEquip(session.getPlayer(), req.getRelicUniqueId(), req.getIsProtected());

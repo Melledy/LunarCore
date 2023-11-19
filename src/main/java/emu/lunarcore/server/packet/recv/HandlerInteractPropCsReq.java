@@ -12,7 +12,7 @@ import emu.lunarcore.server.packet.send.PacketInteractPropScRsp;
 public class HandlerInteractPropCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = InteractPropCsReq.parseFrom(data);
         
         EntityProp prop = session.getPlayer().interactWithProp(req.getPropEntityId());

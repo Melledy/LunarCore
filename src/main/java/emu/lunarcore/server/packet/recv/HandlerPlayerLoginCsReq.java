@@ -12,7 +12,7 @@ import emu.lunarcore.server.packet.send.PacketStaminaInfoScNotify;
 public class HandlerPlayerLoginCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         // Set session flag
         session.setState(SessionState.ACTIVE);
 

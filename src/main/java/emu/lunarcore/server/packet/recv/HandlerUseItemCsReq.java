@@ -14,7 +14,7 @@ import emu.lunarcore.server.packet.send.PacketUseItemScRsp;
 public class HandlerUseItemCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = UseItemCsReq.parseFrom(data);
         
         List<GameItem> returnItems = session.getPlayer().getInventory().useItem(req.getUseItemId(), req.getUseItemCount(), req.getBaseAvatarId());

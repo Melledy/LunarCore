@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketGetNpcTakenRewardScRsp;
 public class HandlerGetNpcTakenRewardCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetNpcTakenRewardCsReq.parseFrom(data);
         
         session.send(new PacketGetNpcTakenRewardScRsp(req.getNpcId()));

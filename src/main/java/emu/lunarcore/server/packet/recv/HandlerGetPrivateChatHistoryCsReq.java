@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketGetPrivateChatHistoryScRsp;
 public class HandlerGetPrivateChatHistoryCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetPrivateChatHistoryCsReq.parseFrom(data);
         
         var messages = session.getPlayer().getChatManager().getHistoryByUid(req.getToUid());

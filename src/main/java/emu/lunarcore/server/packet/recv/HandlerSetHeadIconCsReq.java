@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketSetHeadIconScRsp;
 public class HandlerSetHeadIconCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetHeadIconCsReq.parseFrom(data);
         
         if (session.getPlayer().setHeadIcon(req.getId())) {

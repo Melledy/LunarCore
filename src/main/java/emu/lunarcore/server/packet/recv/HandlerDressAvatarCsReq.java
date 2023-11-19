@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerDressAvatarCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = DressAvatarCsReq.parseFrom(data);
 
         session.getPlayer().getInventory().equipItem(req.getBaseAvatarId(), req.getEquipmentUniqueId());

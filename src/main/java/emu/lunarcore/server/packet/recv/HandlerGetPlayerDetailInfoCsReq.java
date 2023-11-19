@@ -12,7 +12,7 @@ public class HandlerGetPlayerDetailInfoCsReq extends PacketHandler {
 
     @SuppressWarnings("unused")
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetPlayerDetailInfoCsReq.parseFrom(data);
 
         session.send(new PacketGetPlayerDetailInfoScRsp());

@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerQuitLineupCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = QuitLineupCsReq.parseFrom(data);
 
         session.getPlayer().getLineupManager().quitLineup(req.getIndex(), req.getBaseAvatarId());

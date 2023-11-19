@@ -15,7 +15,7 @@ import emu.lunarcore.server.packet.send.PacketPlayerGetTokenScRsp;
 public class HandlerPlayerGetTokenCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         // Parse packet data
         var req = PlayerGetTokenCsReq.parseFrom(data);
 

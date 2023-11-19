@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerStartCocoonStageCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = StartCocoonStageCsReq.parseFrom(data);
         
         session.getServer().getBattleService().startCocoon(session.getPlayer(), req.getCocoonId(), req.getWorldLevel(), req.getWave());

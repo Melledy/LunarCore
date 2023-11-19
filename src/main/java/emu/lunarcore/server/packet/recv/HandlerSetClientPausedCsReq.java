@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketSetClientPausedScRsp;
 public class HandlerSetClientPausedCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetClientPausedCsReq.parseFrom(data);
         
         session.getPlayer().setPaused(req.getPaused());

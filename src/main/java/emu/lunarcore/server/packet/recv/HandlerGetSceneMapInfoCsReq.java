@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketGetSceneMapInfoScRsp;
 public class HandlerGetSceneMapInfoCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetSceneMapInfoCsReq.parseFrom(data);
 
         session.send(new PacketGetSceneMapInfoScRsp(req.getEntryIdList()));

@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketSetGameplayBirthdayScRsp;
 public class HandlerSetGameplayBirthdayCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetGameplayBirthdayCsReq.parseFrom(data);
         
         int birthday = session.getPlayer().setBirthday(req.getBirthday());

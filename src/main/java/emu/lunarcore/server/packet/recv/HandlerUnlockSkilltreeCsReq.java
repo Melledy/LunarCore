@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerUnlockSkilltreeCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = UnlockSkilltreeCsReq.parseFrom(data);
 
         session.getServer().getInventoryService().unlockSkillTreeAvatar(session.getPlayer(), req.getPointId());

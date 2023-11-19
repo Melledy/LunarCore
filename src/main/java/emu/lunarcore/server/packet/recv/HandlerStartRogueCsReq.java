@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerStartRogueCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = StartRogueCsReq.parseFrom(data);
         
         session.getPlayer().getRogueManager().startRogue(req.getAreaId(), req.getBuffAeonId(), req.getBaseAvatarIdList());

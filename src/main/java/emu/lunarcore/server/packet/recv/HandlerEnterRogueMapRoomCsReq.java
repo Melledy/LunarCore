@@ -12,7 +12,7 @@ import emu.lunarcore.server.packet.send.PacketEnterRogueMapRoomScRsp;
 public class HandlerEnterRogueMapRoomCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = EnterRogueMapRoomCsReq.parseFrom(data);
         
         RogueRoomData enteredRoom = null;

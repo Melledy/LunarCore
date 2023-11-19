@@ -10,7 +10,7 @@ import emu.lunarcore.server.packet.send.PacketGetBagScRsp;
 public class HandlerGetBagCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         session.send(new PacketGetBagScRsp(session));
     }
 

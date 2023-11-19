@@ -15,7 +15,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 public class HandlerAvatarExpUpCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = AvatarExpUpCsReq.parseFrom(data);
 
         List<ItemParam> items = new ArrayList<>(req.getItemCostList().getItemList().length());

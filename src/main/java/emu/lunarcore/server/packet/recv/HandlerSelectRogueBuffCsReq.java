@@ -13,7 +13,7 @@ import emu.lunarcore.server.packet.send.PacketSelectRogueBuffScRsp;
 public class HandlerSelectRogueBuffCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = SelectRogueBuffCsReq.parseFrom(data);
         
         if (session.getPlayer().getRogueInstance() != null) {

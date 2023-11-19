@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketReserveStaminaExchangeScRsp;
 public class HandlerReserveStaminaExchangeCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = ReserveStaminaExchangeCsReq.parseFrom(data);
         
         int exchangedAmount = session.getPlayer().exchangeReserveStamina(req.getNum());

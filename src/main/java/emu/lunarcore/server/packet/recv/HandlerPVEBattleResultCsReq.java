@@ -12,7 +12,7 @@ import emu.lunarcore.server.packet.send.PacketPVEBattleResultScRsp;
 public class HandlerPVEBattleResultCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         var req = PVEBattleResultCsReq.parseFrom(data);
 
         Battle battle = session.getServer().getBattleService().finishBattle(

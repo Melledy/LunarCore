@@ -11,7 +11,7 @@ import emu.lunarcore.server.packet.send.PacketRollRogueBuffScRsp;
 public class HandlerRollRogueBuffCsReq extends PacketHandler {
 
     @Override
-    public void handle(GameSession session, byte[] header, byte[] data) throws Exception {
+    public void handle(GameSession session, byte[] data) throws Exception {
         RogueBuffSelectMenu selectMenu = null;
         
         if (session.getPlayer().getRogueInstance() != null) {
