@@ -43,6 +43,7 @@ import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
+import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
@@ -359,6 +360,13 @@ public class Player {
         this.battle = battle;
     }
     
+    public void forceQuitBattle() {
+        if (this.battle != null) {
+            this.battle = null;
+            this.getSession().send(CmdId.QuitBattleScNotify);  
+        }
+    }
+    
     public void addStamina(int amount) {
         this.stamina += amount;
         this.sendPacket(new PacketStaminaInfoScNotify(this));
@@ -670,4 +678,5 @@ public class Player {
         
         return proto;
     }
+    
 }
