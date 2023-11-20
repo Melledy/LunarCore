@@ -4,6 +4,7 @@ import org.jetbrains.annotations.NotNull;
 
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.account.Account;
+import emu.lunarcore.game.account.AccountHelper;
 import emu.lunarcore.server.http.objects.LoginAccountReqJson;
 import emu.lunarcore.server.http.objects.LoginResJson;
 import emu.lunarcore.server.http.objects.LoginResJson.VerifyData;
@@ -33,13 +34,20 @@ public class UsernameLoginHandler implements Handler {
             return;
         }
 
-        // Login
+        // Login - Get account data
         Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "username", req.account);
 
         if (account == null) {
-            res.retcode = -201;
-            res.message = "Username not found.";
-        } else {
+            // Auto create an account for the player if allowed in the config
+            if (LunarCore.getConfig().getServerOptions().autoCreateAccount) {
+                account = AccountHelper.createAccount(req.account, null, 0);
+            } else {
+                res.retcode = -201;
+                res.message = "Username not found.";
+            }
+        } 
+        
+        if (account != null) {
             res.message = "OK";
             res.data = new VerifyData(account.getUid(), account.getEmail(), account.generateDispatchToken());
         }

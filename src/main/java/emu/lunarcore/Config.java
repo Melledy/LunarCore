@@ -83,6 +83,7 @@ public class Config {
     
     @Getter
     public static class ServerOptions {
+        public boolean autoCreateAccount = true;
         public int entitySceneLimit = 2000;
         public boolean spendStamina = true;
         public int staminaRecoveryRate = 5 * 60;
