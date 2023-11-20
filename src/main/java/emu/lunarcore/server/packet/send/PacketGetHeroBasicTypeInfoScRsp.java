@@ -1,6 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.avatar.HeroPath;
+import emu.lunarcore.game.avatar.AvatarHeroPath;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.GetHeroBasicTypeInfoScRspOuterClass.GetHeroBasicTypeInfoScRsp;
 import emu.lunarcore.server.packet.BasePacket;
@@ -15,7 +15,7 @@ public class PacketGetHeroBasicTypeInfoScRsp extends BasePacket {
                 .setGenderValue(player.getGender().getVal())
                 .setCurBasicTypeValue(player.getCurBasicType());
         
-        for (HeroPath path : player.getAvatars().getHeroPaths().values()) {
+        for (AvatarHeroPath path : player.getAvatars().getHeroPaths().values()) {
             data.addAllBasicTypeInfoList(path.toProto());
         }
 

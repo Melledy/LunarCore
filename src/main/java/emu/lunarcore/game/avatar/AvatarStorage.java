@@ -19,7 +19,7 @@ import lombok.Getter;
 @Getter
 public class AvatarStorage extends BasePlayerManager implements Iterable<GameAvatar> {
     private final Int2ObjectMap<GameAvatar> avatars;
-    private final Int2ObjectMap<HeroPath> heroPaths;
+    private final Int2ObjectMap<AvatarHeroPath> heroPaths;
     
     public AvatarStorage(Player player) {
         super(player);
@@ -65,7 +65,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
         return true;
     }
     
-    public HeroPath getHeroPathById(int id) {
+    public AvatarHeroPath getHeroPathById(int id) {
         return getHeroPaths().get(id);
     }
     
@@ -79,7 +79,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
             AvatarExcel excel = GameData.getAvatarExcelMap().get(heroExcel.getId());
             if (excel == null) continue;
             
-            HeroPath path = new HeroPath(getPlayer(), excel);
+            AvatarHeroPath path = new AvatarHeroPath(getPlayer(), excel);
             path.save();
             getHeroPaths().put(path.getId(), path);
         }
@@ -94,7 +94,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
 
     public void loadFromDatabase() {
         // Load hero paths
-        Stream<HeroPath> heroStream = LunarCore.getGameDatabase().getObjects(HeroPath.class, "ownerUid", this.getPlayer().getUid());
+        Stream<AvatarHeroPath> heroStream = LunarCore.getGameDatabase().getObjects(AvatarHeroPath.class, "ownerUid", this.getPlayer().getUid());
 
         heroStream.forEach(heroPath -> {
             // Load avatar excel data

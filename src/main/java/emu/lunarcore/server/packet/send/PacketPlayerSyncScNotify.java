@@ -3,10 +3,9 @@ package emu.lunarcore.server.packet.send;
 import java.util.Collection;
 
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.avatar.HeroPath;
+import emu.lunarcore.game.avatar.AvatarHeroPath;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.proto.AvatarSyncOuterClass.AvatarSync;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.PlayerSyncScNotifyOuterClass.PlayerSyncScNotify;
 import emu.lunarcore.server.packet.BasePacket;
@@ -109,7 +108,7 @@ public class PacketPlayerSyncScNotify extends BasePacket {
         }
     }
     
-    public PacketPlayerSyncScNotify(HeroPath heroPath) {
+    public PacketPlayerSyncScNotify(AvatarHeroPath heroPath) {
         this();
 
         var data = PlayerSyncScNotify.newInstance()

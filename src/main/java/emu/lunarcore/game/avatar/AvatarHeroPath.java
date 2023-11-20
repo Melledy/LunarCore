@@ -17,11 +17,9 @@ import lombok.Setter;
 
 @Getter
 @Entity(value = "heroPaths", useDiscriminator = false)
-public class HeroPath {
-    @Id 
-    private int id; // Equivalent to HeroBaseType
-    @Indexed 
-    private int ownerUid;
+public class AvatarHeroPath {
+    @Id private int id; // Equivalent to HeroBaseType
+    @Indexed private int ownerUid;
     
     private AvatarData data;
     
@@ -29,11 +27,11 @@ public class HeroPath {
     private transient AvatarExcel excel;
     
     @Deprecated // Morphia only!
-    public HeroPath() {
+    public AvatarHeroPath() {
         
     }
     
-    public HeroPath(Player player, AvatarExcel excel) {
+    public AvatarHeroPath(Player player, AvatarExcel excel) {
         // Set excel avatar id as id
         this.id = excel.getId();
         this.ownerUid = player.getUid();

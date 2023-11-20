@@ -92,6 +92,31 @@ public class GameServer extends KcpServer {
             return this.players.get(uid);
         }
     }
+    
+    public Player getOnlinePlayerByAccountId(String accountUid) {
+        synchronized (this.players) {
+            return this.players.values()
+                    .stream()
+                    .filter(p -> accountUid.equals(p.getAccountUid()))
+                    .findFirst()
+                    .orElse(null);
+        }
+    }
+    
+    public boolean deletePlayer(String accountUid) {
+        // Check if player exists
+        Player player = this.getOnlinePlayerByAccountId(accountUid);
+
+        // Try to get player from database
+        if (player == null) {
+            player = LunarCore.getGameDatabase().getObjectByField(Player.class, "accountUid", accountUid);
+            if (player == null) return false;
+        }
+        
+        // Delete the player
+        player.delete();
+        return true;
+    }
 
     public void start() {
         // Setup config and init server

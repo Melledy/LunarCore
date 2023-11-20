@@ -7,18 +7,18 @@ import emu.lunarcore.LunarCore;
  */
 public class AccountHelper {
 
-    public static boolean createAccount(String username, String password, int reservedUid) {
+    public static Account createAccount(String username, String password, int reservedUid) {
         Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "username", username);
         
         if (account != null) {
-            return false;
+            return null;
         }
         
         account = new Account(username);
         account.setReservedPlayerUid(reservedUid);
         account.save();
         
-        return true;
+        return account;
     }
     
     public static boolean deleteAccount(String username) {
@@ -28,6 +28,13 @@ public class AccountHelper {
             return false;
         }
         
+        // Delete the player too
+        // IMPORTANT: This will only delete the player from the current game server
+        if (LunarCore.getGameServer() != null) {
+            LunarCore.getGameServer().deletePlayer(account.getUid());
+        }
+        
+        // Delete the account first
         return LunarCore.getAccountDatabase().delete(account);
     }
     

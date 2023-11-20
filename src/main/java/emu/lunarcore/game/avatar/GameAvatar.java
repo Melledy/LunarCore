@@ -64,7 +64,7 @@ public class GameAvatar implements GameEntity {
     private transient int entityId;
     private transient Int2ObjectMap<GameItem> equips;
     private transient Int2LongMap buffs;
-    private transient HeroPath heroPath;
+    private transient AvatarHeroPath heroPath;
 
     @Deprecated // Morphia only
     public GameAvatar() {
@@ -86,7 +86,7 @@ public class GameAvatar implements GameEntity {
         this.setExcel(excel);
     }
     
-    public GameAvatar(HeroPath path) {
+    public GameAvatar(AvatarHeroPath path) {
         this();
         this.avatarId = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.timestamp = System.currentTimeMillis() / 1000;
@@ -188,7 +188,7 @@ public class GameAvatar implements GameEntity {
         return this.getData().getSkills();
     }
     
-    public void setHeroPath(HeroPath heroPath) {
+    public void setHeroPath(AvatarHeroPath heroPath) {
         // Clear prev set hero path from avatar
         if (this.getHeroPath() != null) {
             this.getHeroPath().setAvatar(null);

@@ -2,6 +2,8 @@ package emu.lunarcore.game.player;
 
 import java.util.Set;
 
+import com.mongodb.client.model.Filters;
+
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
@@ -17,8 +19,10 @@ import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.avatar.HeroPath;
+import emu.lunarcore.game.avatar.AvatarHeroPath;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.challenge.ChallengeGroupReward;
+import emu.lunarcore.game.challenge.ChallengeHistory;
 import emu.lunarcore.game.challenge.ChallengeInstance;
 import emu.lunarcore.game.challenge.ChallengeManager;
 import emu.lunarcore.game.chat.ChatManager;
@@ -26,12 +30,16 @@ import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.game.enums.PlaneType;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
+import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.Inventory;
+import emu.lunarcore.game.mail.Mail;
 import emu.lunarcore.game.mail.Mailbox;
 import emu.lunarcore.game.player.lineup.LineupManager;
+import emu.lunarcore.game.player.lineup.PlayerExtraLineup;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.rogue.RogueInstance;
 import emu.lunarcore.game.rogue.RogueManager;
+import emu.lunarcore.game.rogue.RogueTalentData;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
@@ -332,12 +340,12 @@ public class Player {
         return this.exp - GameData.getPlayerExpRequired(this.level);
     }
     
-    public HeroPath getCurHeroPath() {
+    public AvatarHeroPath getCurHeroPath() {
         return this.getAvatars().getHeroPathById(this.getCurBasicType());
     }
     
     public void setHeroBasicType(int heroType) {
-        HeroPath path = this.getAvatars().getHeroPathById(heroType);
+        AvatarHeroPath path = this.getAvatars().getHeroPathById(heroType);
         if (path == null) return;
         
         GameAvatar mainCharacter = this.getAvatarById(GameConstants.TRAILBLAZER_AVATAR_ID);
@@ -601,17 +609,6 @@ public class Player {
         this.updateStamina();
     }
     
-    // Database
-
-    public void save() {
-        if (this.uid <= 0) {
-            LunarCore.getLogger().error("Tried to save a player object without a uid!");
-            return;
-        }
-
-        LunarCore.getGameDatabase().save(this);
-    }
-
     public void onLogin() {
         // Validate
         this.getLineupManager().setPlayer(this);
@@ -645,6 +642,42 @@ public class Player {
         }
     }
 
+    
+    // Database
+
+    public void save() {
+        if (this.uid <= 0) {
+            LunarCore.getLogger().error("Tried to save a player object without a uid!");
+            return;
+        }
+
+        LunarCore.getGameDatabase().save(this);
+    }
+    
+    public void delete() {
+        // Close session first
+        if (this.getSession() != null) {
+            this.getSession().close();
+        }
+        
+        // Cache filter object so we can reuse it for our delete queries
+        var filter = Filters.eq("ownerUid", uid);
+        
+        // Delete data from collections
+        LunarCore.getGameDatabase().getDatastore().getCollection(GameAvatar.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(ChallengeHistory.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(ChallengeGroupReward.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(AvatarHeroPath.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(GameItem.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(PlayerLineup.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(PlayerExtraLineup.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(Mail.class).deleteMany(filter);
+        LunarCore.getGameDatabase().getDatastore().getCollection(RogueTalentData.class).deleteMany(filter);
+        
+        // Delete the player last
+        LunarCore.getGameDatabase().delete(this);
+    }
+    
     // Protobuf serialization
     
     public PlayerBasicInfo toProto() {
@@ -678,5 +711,4 @@ public class Player {
         
         return proto;
     }
-    
 }

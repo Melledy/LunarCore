@@ -176,6 +176,8 @@ public class GameSession {
     }
 
     public void close() {
-        this.ukcp.close();
+        if (this.ukcp != null) {
+            this.ukcp.close();
+        }
     }
 }

@@ -29,7 +29,7 @@ public class AccountCommand implements CommandHandler {
                     reservedUid = Utils.parseSafeInt(args.get(2));
                 }
     
-                if (AccountHelper.createAccount(username, null, reservedUid)) {
+                if (AccountHelper.createAccount(username, null, reservedUid) != null) {
                     this.sendMessage(sender, "Account created");
                 } else {
                     this.sendMessage(sender, "Account already exists");
