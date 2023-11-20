@@ -132,22 +132,22 @@ public class Player {
     // Called when player is created
     public Player(GameSession session) {
         this();
-        this.resetPosition();
         this.session = session;
         this.accountUid = getAccount().getUid();
+        this.initUid();
+        this.resetPosition();
+        
+        // Setup player data
         this.name = GameConstants.DEFAULT_NAME;
         this.signature = "";
         this.headIcon = 200001;
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
         this.nextStaminaRecover = System.currentTimeMillis();
-
+        
         this.unlockedHeadIcons = new IntOpenHashSet();
         this.lineupManager = new LineupManager(this);
         this.gachaInfo = new PlayerGachaInfo();
-
-        // Setup uid
-        this.initUid();
         
         // Setup hero paths
         this.getAvatars().setupHeroPaths();
@@ -157,6 +157,7 @@ public class Player {
         GameAvatar avatar = new GameAvatar(GameConstants.TRAILBLAZER_AVATAR_ID);
         this.addAvatar(avatar);
         this.getCurrentLineup().getAvatars().add(avatar.getAvatarId());
+        this.getCurrentLineup().save();
     }
 
     public GameServer getServer() {
