@@ -13,7 +13,7 @@ public class PacketRollRogueBuffScRsp extends BasePacket {
         var data = RollRogueBuffScRsp.newInstance();
         
         if (selectMenu != null) {
-            data.setRogueBuffSelectInfo(selectMenu.toProto());
+            data.setBuffSelectInfo(selectMenu.toProto());
         } else {
             data.setRetcode(1);
         }

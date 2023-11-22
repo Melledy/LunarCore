@@ -19,14 +19,14 @@ public final class RollRogueBuffScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 1;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueBuffSelectInfo rogue_buff_select_info = 10;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 5;</code>
      */
-    private final RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo rogueBuffSelectInfo = RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo.newInstance();
+    private final RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo buffSelectInfo = RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo.newInstance();
 
     private RollRogueBuffScRsp() {
     }
@@ -39,7 +39,7 @@ public final class RollRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class RollRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return this
      */
     public RollRogueBuffScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class RollRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class RollRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,39 +76,39 @@ public final class RollRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo rogue_buff_select_info = 10;</code>
-     * @return whether the rogueBuffSelectInfo field is set
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 5;</code>
+     * @return whether the buffSelectInfo field is set
      */
-    public boolean hasRogueBuffSelectInfo() {
+    public boolean hasBuffSelectInfo() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo rogue_buff_select_info = 10;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 5;</code>
      * @return this
      */
-    public RollRogueBuffScRsp clearRogueBuffSelectInfo() {
+    public RollRogueBuffScRsp clearBuffSelectInfo() {
       bitField0_ &= ~0x00000002;
-      rogueBuffSelectInfo.clear();
+      buffSelectInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo rogue_buff_select_info = 10;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableRogueBuffSelectInfo()} if you want to modify it.
+     * Use {@link #getMutableBuffSelectInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo getRogueBuffSelectInfo() {
-      return rogueBuffSelectInfo;
+    public RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo getBuffSelectInfo() {
+      return buffSelectInfo;
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo rogue_buff_select_info = 10;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -116,20 +116,20 @@ public final class RollRogueBuffScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo getMutableRogueBuffSelectInfo() {
+    public RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo getMutableBuffSelectInfo() {
       bitField0_ |= 0x00000002;
-      return rogueBuffSelectInfo;
+      return buffSelectInfo;
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo rogue_buff_select_info = 10;</code>
-     * @param value the rogueBuffSelectInfo to set
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 5;</code>
+     * @param value the buffSelectInfo to set
      * @return this
      */
-    public RollRogueBuffScRsp setRogueBuffSelectInfo(
+    public RollRogueBuffScRsp setBuffSelectInfo(
         final RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo value) {
       bitField0_ |= 0x00000002;
-      rogueBuffSelectInfo.copyFrom(value);
+      buffSelectInfo.copyFrom(value);
       return this;
     }
 
@@ -139,7 +139,7 @@ public final class RollRogueBuffScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        rogueBuffSelectInfo.copyFrom(other.rogueBuffSelectInfo);
+        buffSelectInfo.copyFrom(other.buffSelectInfo);
       }
       return this;
     }
@@ -153,8 +153,8 @@ public final class RollRogueBuffScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasRogueBuffSelectInfo()) {
-        getMutableRogueBuffSelectInfo().mergeFrom(other.rogueBuffSelectInfo);
+      if (other.hasBuffSelectInfo()) {
+        getMutableBuffSelectInfo().mergeFrom(other.buffSelectInfo);
       }
       return this;
     }
@@ -167,7 +167,7 @@ public final class RollRogueBuffScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      rogueBuffSelectInfo.clear();
+      buffSelectInfo.clear();
       return this;
     }
 
@@ -178,7 +178,7 @@ public final class RollRogueBuffScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueBuffSelectInfo.clearQuick();
+      buffSelectInfo.clearQuick();
       return this;
     }
 
@@ -193,18 +193,18 @@ public final class RollRogueBuffScRspOuterClass {
       RollRogueBuffScRsp other = (RollRogueBuffScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasRogueBuffSelectInfo() || rogueBuffSelectInfo.equals(other.rogueBuffSelectInfo));
+        && (!hasBuffSelectInfo() || buffSelectInfo.equals(other.buffSelectInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 82);
-        output.writeMessageNoTag(rogueBuffSelectInfo);
+        output.writeRawByte((byte) 42);
+        output.writeMessageNoTag(buffSelectInfo);
       }
     }
 
@@ -215,7 +215,7 @@ public final class RollRogueBuffScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueBuffSelectInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(buffSelectInfo);
       }
       return size;
     }
@@ -227,18 +227,18 @@ public final class RollRogueBuffScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 112: {
+          case 8: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 42) {
               break;
             }
           }
-          case 82: {
-            // rogueBuffSelectInfo
-            input.readMessage(rogueBuffSelectInfo);
+          case 42: {
+            // buffSelectInfo
+            input.readMessage(buffSelectInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -266,7 +266,7 @@ public final class RollRogueBuffScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.rogueBuffSelectInfo, rogueBuffSelectInfo);
+        output.writeMessage(FieldNames.buffSelectInfo, buffSelectInfo);
       }
       output.endObject();
     }
@@ -289,11 +289,11 @@ public final class RollRogueBuffScRspOuterClass {
             }
             break;
           }
-          case -2050730761:
-          case 1692632042: {
-            if (input.isAtField(FieldNames.rogueBuffSelectInfo)) {
+          case -255242115:
+          case 1500540965: {
+            if (input.isAtField(FieldNames.buffSelectInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rogueBuffSelectInfo);
+                input.readMessage(buffSelectInfo);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -356,7 +356,7 @@ public final class RollRogueBuffScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
-      static final FieldName rogueBuffSelectInfo = FieldName.forField("rogueBuffSelectInfo", "rogue_buff_select_info");
+      static final FieldName buffSelectInfo = FieldName.forField("buffSelectInfo", "buff_select_info");
     }
   }
 }

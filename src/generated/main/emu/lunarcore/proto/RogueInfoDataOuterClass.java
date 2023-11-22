@@ -19,12 +19,12 @@ public final class RogueInfoDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueSeasonInfo rogue_season_info = 3;</code>
+     * <code>optional .RogueSeasonInfo rogue_season_info = 6;</code>
      */
     private final RogueSeasonInfoOuterClass.RogueSeasonInfo rogueSeasonInfo = RogueSeasonInfoOuterClass.RogueSeasonInfo.newInstance();
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 6;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 15;</code>
      */
     private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo rogueScoreInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueSeasonInfo rogue_season_info = 3;</code>
+     * <code>optional .RogueSeasonInfo rogue_season_info = 6;</code>
      * @return whether the rogueSeasonInfo field is set
      */
     public boolean hasRogueSeasonInfo() {
@@ -47,7 +47,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueSeasonInfo rogue_season_info = 3;</code>
+     * <code>optional .RogueSeasonInfo rogue_season_info = 6;</code>
      * @return this
      */
     public RogueInfoData clearRogueSeasonInfo() {
@@ -57,7 +57,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueSeasonInfo rogue_season_info = 3;</code>
+     * <code>optional .RogueSeasonInfo rogue_season_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -71,7 +71,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueSeasonInfo rogue_season_info = 3;</code>
+     * <code>optional .RogueSeasonInfo rogue_season_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -85,7 +85,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueSeasonInfo rogue_season_info = 3;</code>
+     * <code>optional .RogueSeasonInfo rogue_season_info = 6;</code>
      * @param value the rogueSeasonInfo to set
      * @return this
      */
@@ -96,7 +96,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 6;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 15;</code>
      * @return whether the rogueScoreInfo field is set
      */
     public boolean hasRogueScoreInfo() {
@@ -104,7 +104,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 6;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 15;</code>
      * @return this
      */
     public RogueInfoData clearRogueScoreInfo() {
@@ -114,7 +114,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 6;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -128,7 +128,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 6;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -142,7 +142,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 6;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 15;</code>
      * @param value the rogueScoreInfo to set
      * @return this
      */
@@ -220,11 +220,11 @@ public final class RogueInfoDataOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 26);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(rogueSeasonInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 122);
         output.writeMessageNoTag(rogueScoreInfo);
       }
     }
@@ -248,16 +248,16 @@ public final class RogueInfoDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 26: {
+          case 50: {
             // rogueSeasonInfo
             input.readMessage(rogueSeasonInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 122) {
               break;
             }
           }
-          case 50: {
+          case 122: {
             // rogueScoreInfo
             input.readMessage(rogueScoreInfo);
             bitField0_ |= 0x00000002;

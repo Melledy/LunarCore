@@ -19,22 +19,22 @@ public final class SelectRogueBuffScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 maze_buff_level = 6;</code>
-     */
-    private int mazeBuffLevel;
-
-    /**
-     * <code>optional uint32 maze_buff_id = 12;</code>
+     * <code>optional uint32 maze_buff_id = 4;</code>
      */
     private int mazeBuffId;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 7;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 2;</code>
+     * <code>optional uint32 maze_buff_level = 14;</code>
+     */
+    private int mazeBuffLevel;
+
+    /**
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 6;</code>
      */
     private final RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo buffSelectInfo = RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo.newInstance();
 
@@ -49,62 +49,25 @@ public final class SelectRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 maze_buff_level = 6;</code>
-     * @return whether the mazeBuffLevel field is set
+     * <code>optional uint32 maze_buff_id = 4;</code>
+     * @return whether the mazeBuffId field is set
      */
-    public boolean hasMazeBuffLevel() {
+    public boolean hasMazeBuffId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 maze_buff_level = 6;</code>
-     * @return this
-     */
-    public SelectRogueBuffScRsp clearMazeBuffLevel() {
-      bitField0_ &= ~0x00000001;
-      mazeBuffLevel = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 maze_buff_level = 6;</code>
-     * @return the mazeBuffLevel
-     */
-    public int getMazeBuffLevel() {
-      return mazeBuffLevel;
-    }
-
-    /**
-     * <code>optional uint32 maze_buff_level = 6;</code>
-     * @param value the mazeBuffLevel to set
-     * @return this
-     */
-    public SelectRogueBuffScRsp setMazeBuffLevel(final int value) {
-      bitField0_ |= 0x00000001;
-      mazeBuffLevel = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 maze_buff_id = 12;</code>
-     * @return whether the mazeBuffId field is set
-     */
-    public boolean hasMazeBuffId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 maze_buff_id = 12;</code>
+     * <code>optional uint32 maze_buff_id = 4;</code>
      * @return this
      */
     public SelectRogueBuffScRsp clearMazeBuffId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       mazeBuffId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 maze_buff_id = 12;</code>
+     * <code>optional uint32 maze_buff_id = 4;</code>
      * @return the mazeBuffId
      */
     public int getMazeBuffId() {
@@ -112,36 +75,36 @@ public final class SelectRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 maze_buff_id = 12;</code>
+     * <code>optional uint32 maze_buff_id = 4;</code>
      * @param value the mazeBuffId to set
      * @return this
      */
     public SelectRogueBuffScRsp setMazeBuffId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       mazeBuffId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 7;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 7;</code>
      * @return this
      */
     public SelectRogueBuffScRsp clearRetcode() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 7;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -149,18 +112,55 @@ public final class SelectRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 7;</code>
      * @param value the retcode to set
      * @return this
      */
     public SelectRogueBuffScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       retcode = value;
       return this;
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 2;</code>
+     * <code>optional uint32 maze_buff_level = 14;</code>
+     * @return whether the mazeBuffLevel field is set
+     */
+    public boolean hasMazeBuffLevel() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 maze_buff_level = 14;</code>
+     * @return this
+     */
+    public SelectRogueBuffScRsp clearMazeBuffLevel() {
+      bitField0_ &= ~0x00000004;
+      mazeBuffLevel = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 maze_buff_level = 14;</code>
+     * @return the mazeBuffLevel
+     */
+    public int getMazeBuffLevel() {
+      return mazeBuffLevel;
+    }
+
+    /**
+     * <code>optional uint32 maze_buff_level = 14;</code>
+     * @param value the mazeBuffLevel to set
+     * @return this
+     */
+    public SelectRogueBuffScRsp setMazeBuffLevel(final int value) {
+      bitField0_ |= 0x00000004;
+      mazeBuffLevel = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 6;</code>
      * @return whether the buffSelectInfo field is set
      */
     public boolean hasBuffSelectInfo() {
@@ -168,7 +168,7 @@ public final class SelectRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 2;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 6;</code>
      * @return this
      */
     public SelectRogueBuffScRsp clearBuffSelectInfo() {
@@ -178,7 +178,7 @@ public final class SelectRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 2;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -192,7 +192,7 @@ public final class SelectRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 2;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -206,7 +206,7 @@ public final class SelectRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 2;</code>
+     * <code>optional .RogueBuffSelectInfo buff_select_info = 6;</code>
      * @param value the buffSelectInfo to set
      * @return this
      */
@@ -222,9 +222,9 @@ public final class SelectRogueBuffScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        mazeBuffLevel = other.mazeBuffLevel;
         mazeBuffId = other.mazeBuffId;
         retcode = other.retcode;
+        mazeBuffLevel = other.mazeBuffLevel;
         buffSelectInfo.copyFrom(other.buffSelectInfo);
       }
       return this;
@@ -236,14 +236,14 @@ public final class SelectRogueBuffScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasMazeBuffLevel()) {
-        setMazeBuffLevel(other.mazeBuffLevel);
-      }
       if (other.hasMazeBuffId()) {
         setMazeBuffId(other.mazeBuffId);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasMazeBuffLevel()) {
+        setMazeBuffLevel(other.mazeBuffLevel);
       }
       if (other.hasBuffSelectInfo()) {
         getMutableBuffSelectInfo().mergeFrom(other.buffSelectInfo);
@@ -258,9 +258,9 @@ public final class SelectRogueBuffScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      mazeBuffLevel = 0;
       mazeBuffId = 0;
       retcode = 0;
+      mazeBuffLevel = 0;
       buffSelectInfo.clear();
       return this;
     }
@@ -286,28 +286,28 @@ public final class SelectRogueBuffScRspOuterClass {
       }
       SelectRogueBuffScRsp other = (SelectRogueBuffScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasMazeBuffLevel() || mazeBuffLevel == other.mazeBuffLevel)
         && (!hasMazeBuffId() || mazeBuffId == other.mazeBuffId)
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasMazeBuffLevel() || mazeBuffLevel == other.mazeBuffLevel)
         && (!hasBuffSelectInfo() || buffSelectInfo.equals(other.buffSelectInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(mazeBuffLevel);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(mazeBuffId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 120);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(retcode);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(mazeBuffLevel);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(buffSelectInfo);
       }
     }
@@ -316,13 +316,13 @@ public final class SelectRogueBuffScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(mazeBuffLevel);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(mazeBuffId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(mazeBuffLevel);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(buffSelectInfo);
@@ -337,34 +337,34 @@ public final class SelectRogueBuffScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // mazeBuffLevel
-            mazeBuffLevel = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
+          case 32: {
             // mazeBuffId
             mazeBuffId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 56) {
               break;
             }
           }
-          case 120: {
+          case 56: {
             // retcode
             retcode = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 112) {
               break;
             }
           }
-          case 18: {
+          case 112: {
+            // mazeBuffLevel
+            mazeBuffLevel = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 50) {
+              break;
+            }
+          }
+          case 50: {
             // buffSelectInfo
             input.readMessage(buffSelectInfo);
             bitField0_ |= 0x00000008;
@@ -391,13 +391,13 @@ public final class SelectRogueBuffScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.mazeBuffLevel, mazeBuffLevel);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.mazeBuffId, mazeBuffId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.mazeBuffLevel, mazeBuffLevel);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeMessage(FieldNames.buffSelectInfo, buffSelectInfo);
@@ -412,24 +412,12 @@ public final class SelectRogueBuffScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1204221426:
-          case 854643992: {
-            if (input.isAtField(FieldNames.mazeBuffLevel)) {
-              if (!input.trySkipNullValue()) {
-                mazeBuffLevel = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 144210285:
           case 896621575: {
             if (input.isAtField(FieldNames.mazeBuffId)) {
               if (!input.trySkipNullValue()) {
                 mazeBuffId = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -440,6 +428,18 @@ public final class SelectRogueBuffScRspOuterClass {
             if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1204221426:
+          case 854643992: {
+            if (input.isAtField(FieldNames.mazeBuffLevel)) {
+              if (!input.trySkipNullValue()) {
+                mazeBuffLevel = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -512,11 +512,11 @@ public final class SelectRogueBuffScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName mazeBuffLevel = FieldName.forField("mazeBuffLevel", "maze_buff_level");
-
       static final FieldName mazeBuffId = FieldName.forField("mazeBuffId", "maze_buff_id");
 
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName mazeBuffLevel = FieldName.forField("mazeBuffLevel", "maze_buff_level");
 
       static final FieldName buffSelectInfo = FieldName.forField("buffSelectInfo", "buff_select_info");
     }

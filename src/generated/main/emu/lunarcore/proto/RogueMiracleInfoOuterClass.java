@@ -19,14 +19,14 @@ public final class RogueMiracleInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 6;</code>
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 2;</code>
      */
-    private final RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo miracleSelectInfo = RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo.newInstance();
+    private final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo rogueMiracleInfo = RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo.newInstance();
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 10;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 3;</code>
      */
-    private final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo achivedMiracleInfo = RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo.newInstance();
+    private final RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo miracleSelectInfo = RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo.newInstance();
 
     private RogueMiracleInfo() {
     }
@@ -39,25 +39,83 @@ public final class RogueMiracleInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 6;</code>
-     * @return whether the miracleSelectInfo field is set
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 2;</code>
+     * @return whether the rogueMiracleInfo field is set
      */
-    public boolean hasMiracleSelectInfo() {
+    public boolean hasRogueMiracleInfo() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 6;</code>
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 2;</code>
+     * @return this
+     */
+    public RogueMiracleInfo clearRogueMiracleInfo() {
+      bitField0_ &= ~0x00000001;
+      rogueMiracleInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 2;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueMiracleInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getRogueMiracleInfo() {
+      return rogueMiracleInfo;
+    }
+
+    /**
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 2;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getMutableRogueMiracleInfo() {
+      bitField0_ |= 0x00000001;
+      return rogueMiracleInfo;
+    }
+
+    /**
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 2;</code>
+     * @param value the rogueMiracleInfo to set
+     * @return this
+     */
+    public RogueMiracleInfo setRogueMiracleInfo(
+        final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo value) {
+      bitField0_ |= 0x00000001;
+      rogueMiracleInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 3;</code>
+     * @return whether the miracleSelectInfo field is set
+     */
+    public boolean hasMiracleSelectInfo() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 3;</code>
      * @return this
      */
     public RogueMiracleInfo clearMiracleSelectInfo() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       miracleSelectInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 6;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -71,7 +129,7 @@ public final class RogueMiracleInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 6;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,78 +138,19 @@ public final class RogueMiracleInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo getMutableMiracleSelectInfo() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return miracleSelectInfo;
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 6;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 3;</code>
      * @param value the miracleSelectInfo to set
      * @return this
      */
     public RogueMiracleInfo setMiracleSelectInfo(
         final RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       miracleSelectInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 10;</code>
-     * @return whether the achivedMiracleInfo field is set
-     */
-    public boolean hasAchivedMiracleInfo() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 10;</code>
-     * @return this
-     */
-    public RogueMiracleInfo clearAchivedMiracleInfo() {
-      bitField0_ &= ~0x00000002;
-      achivedMiracleInfo.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 10;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableAchivedMiracleInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getAchivedMiracleInfo() {
-      return achivedMiracleInfo;
-    }
-
-    /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 10;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getMutableAchivedMiracleInfo(
-        ) {
-      bitField0_ |= 0x00000002;
-      return achivedMiracleInfo;
-    }
-
-    /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 10;</code>
-     * @param value the achivedMiracleInfo to set
-     * @return this
-     */
-    public RogueMiracleInfo setAchivedMiracleInfo(
-        final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo value) {
-      bitField0_ |= 0x00000002;
-      achivedMiracleInfo.copyFrom(value);
       return this;
     }
 
@@ -160,8 +159,8 @@ public final class RogueMiracleInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        rogueMiracleInfo.copyFrom(other.rogueMiracleInfo);
         miracleSelectInfo.copyFrom(other.miracleSelectInfo);
-        achivedMiracleInfo.copyFrom(other.achivedMiracleInfo);
       }
       return this;
     }
@@ -172,11 +171,11 @@ public final class RogueMiracleInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasRogueMiracleInfo()) {
+        getMutableRogueMiracleInfo().mergeFrom(other.rogueMiracleInfo);
+      }
       if (other.hasMiracleSelectInfo()) {
         getMutableMiracleSelectInfo().mergeFrom(other.miracleSelectInfo);
-      }
-      if (other.hasAchivedMiracleInfo()) {
-        getMutableAchivedMiracleInfo().mergeFrom(other.achivedMiracleInfo);
       }
       return this;
     }
@@ -188,8 +187,8 @@ public final class RogueMiracleInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      rogueMiracleInfo.clear();
       miracleSelectInfo.clear();
-      achivedMiracleInfo.clear();
       return this;
     }
 
@@ -200,8 +199,8 @@ public final class RogueMiracleInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      rogueMiracleInfo.clearQuick();
       miracleSelectInfo.clearQuick();
-      achivedMiracleInfo.clearQuick();
       return this;
     }
 
@@ -215,19 +214,19 @@ public final class RogueMiracleInfoOuterClass {
       }
       RogueMiracleInfo other = (RogueMiracleInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasMiracleSelectInfo() || miracleSelectInfo.equals(other.miracleSelectInfo))
-        && (!hasAchivedMiracleInfo() || achivedMiracleInfo.equals(other.achivedMiracleInfo));
+        && (!hasRogueMiracleInfo() || rogueMiracleInfo.equals(other.rogueMiracleInfo))
+        && (!hasMiracleSelectInfo() || miracleSelectInfo.equals(other.miracleSelectInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(miracleSelectInfo);
+        output.writeRawByte((byte) 18);
+        output.writeMessageNoTag(rogueMiracleInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 82);
-        output.writeMessageNoTag(achivedMiracleInfo);
+        output.writeRawByte((byte) 26);
+        output.writeMessageNoTag(miracleSelectInfo);
       }
     }
 
@@ -235,10 +234,10 @@ public final class RogueMiracleInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(miracleSelectInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueMiracleInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(achivedMiracleInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(miracleSelectInfo);
       }
       return size;
     }
@@ -250,18 +249,18 @@ public final class RogueMiracleInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
-            // miracleSelectInfo
-            input.readMessage(miracleSelectInfo);
+          case 18: {
+            // rogueMiracleInfo
+            input.readMessage(rogueMiracleInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 26) {
               break;
             }
           }
-          case 82: {
-            // achivedMiracleInfo
-            input.readMessage(achivedMiracleInfo);
+          case 26: {
+            // miracleSelectInfo
+            input.readMessage(miracleSelectInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -286,10 +285,10 @@ public final class RogueMiracleInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.miracleSelectInfo, miracleSelectInfo);
+        output.writeMessage(FieldNames.rogueMiracleInfo, rogueMiracleInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.achivedMiracleInfo, achivedMiracleInfo);
+        output.writeMessage(FieldNames.miracleSelectInfo, miracleSelectInfo);
       }
       output.endObject();
     }
@@ -301,11 +300,11 @@ public final class RogueMiracleInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1009314021:
-          case -1608054973: {
-            if (input.isAtField(FieldNames.miracleSelectInfo)) {
+          case -452511099:
+          case 1925436929: {
+            if (input.isAtField(FieldNames.rogueMiracleInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(miracleSelectInfo);
+                input.readMessage(rogueMiracleInfo);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -313,11 +312,11 @@ public final class RogueMiracleInfoOuterClass {
             }
             break;
           }
-          case -213623475:
-          case -431790391: {
-            if (input.isAtField(FieldNames.achivedMiracleInfo)) {
+          case -1009314021:
+          case -1608054973: {
+            if (input.isAtField(FieldNames.miracleSelectInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(achivedMiracleInfo);
+                input.readMessage(miracleSelectInfo);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -378,9 +377,9 @@ public final class RogueMiracleInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName miracleSelectInfo = FieldName.forField("miracleSelectInfo", "miracle_select_info");
+      static final FieldName rogueMiracleInfo = FieldName.forField("rogueMiracleInfo", "rogue_miracle_info");
 
-      static final FieldName achivedMiracleInfo = FieldName.forField("achivedMiracleInfo", "achived_miracle_info");
+      static final FieldName miracleSelectInfo = FieldName.forField("miracleSelectInfo", "miracle_select_info");
     }
   }
 }

@@ -19,19 +19,19 @@ public final class SelectRogueMiracleScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 2;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 8;</code>
      */
     private final RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo miracleSelectInfo = RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo.newInstance();
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 6;</code>
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 11;</code>
      */
-    private final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo achivedMiracleInfo = RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo.newInstance();
+    private final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo rogueMiracleInfo = RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo.newInstance();
 
     private SelectRogueMiracleScRsp() {
     }
@@ -44,7 +44,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -52,7 +52,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public SelectRogueMiracleScRsp clearRetcode() {
@@ -62,7 +62,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -70,7 +70,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 2;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 8;</code>
      * @return whether the miracleSelectInfo field is set
      */
     public boolean hasMiracleSelectInfo() {
@@ -89,7 +89,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 2;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 8;</code>
      * @return this
      */
     public SelectRogueMiracleScRsp clearMiracleSelectInfo() {
@@ -99,7 +99,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 2;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -113,7 +113,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 2;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -127,7 +127,7 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 2;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 8;</code>
      * @param value the miracleSelectInfo to set
      * @return this
      */
@@ -139,39 +139,39 @@ public final class SelectRogueMiracleScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 6;</code>
-     * @return whether the achivedMiracleInfo field is set
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 11;</code>
+     * @return whether the rogueMiracleInfo field is set
      */
-    public boolean hasAchivedMiracleInfo() {
+    public boolean hasRogueMiracleInfo() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 6;</code>
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 11;</code>
      * @return this
      */
-    public SelectRogueMiracleScRsp clearAchivedMiracleInfo() {
+    public SelectRogueMiracleScRsp clearRogueMiracleInfo() {
       bitField0_ &= ~0x00000004;
-      achivedMiracleInfo.clear();
+      rogueMiracleInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 6;</code>
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableAchivedMiracleInfo()} if you want to modify it.
+     * Use {@link #getMutableRogueMiracleInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getAchivedMiracleInfo() {
-      return achivedMiracleInfo;
+    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getRogueMiracleInfo() {
+      return rogueMiracleInfo;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 6;</code>
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -179,21 +179,20 @@ public final class SelectRogueMiracleScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getMutableAchivedMiracleInfo(
-        ) {
+    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getMutableRogueMiracleInfo() {
       bitField0_ |= 0x00000004;
-      return achivedMiracleInfo;
+      return rogueMiracleInfo;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo achived_miracle_info = 6;</code>
-     * @param value the achivedMiracleInfo to set
+     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 11;</code>
+     * @param value the rogueMiracleInfo to set
      * @return this
      */
-    public SelectRogueMiracleScRsp setAchivedMiracleInfo(
+    public SelectRogueMiracleScRsp setRogueMiracleInfo(
         final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo value) {
       bitField0_ |= 0x00000004;
-      achivedMiracleInfo.copyFrom(value);
+      rogueMiracleInfo.copyFrom(value);
       return this;
     }
 
@@ -204,7 +203,7 @@ public final class SelectRogueMiracleScRspOuterClass {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
         miracleSelectInfo.copyFrom(other.miracleSelectInfo);
-        achivedMiracleInfo.copyFrom(other.achivedMiracleInfo);
+        rogueMiracleInfo.copyFrom(other.rogueMiracleInfo);
       }
       return this;
     }
@@ -221,8 +220,8 @@ public final class SelectRogueMiracleScRspOuterClass {
       if (other.hasMiracleSelectInfo()) {
         getMutableMiracleSelectInfo().mergeFrom(other.miracleSelectInfo);
       }
-      if (other.hasAchivedMiracleInfo()) {
-        getMutableAchivedMiracleInfo().mergeFrom(other.achivedMiracleInfo);
+      if (other.hasRogueMiracleInfo()) {
+        getMutableRogueMiracleInfo().mergeFrom(other.rogueMiracleInfo);
       }
       return this;
     }
@@ -236,7 +235,7 @@ public final class SelectRogueMiracleScRspOuterClass {
       bitField0_ = 0;
       retcode = 0;
       miracleSelectInfo.clear();
-      achivedMiracleInfo.clear();
+      rogueMiracleInfo.clear();
       return this;
     }
 
@@ -248,7 +247,7 @@ public final class SelectRogueMiracleScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       miracleSelectInfo.clearQuick();
-      achivedMiracleInfo.clearQuick();
+      rogueMiracleInfo.clearQuick();
       return this;
     }
 
@@ -264,22 +263,22 @@ public final class SelectRogueMiracleScRspOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
         && (!hasMiracleSelectInfo() || miracleSelectInfo.equals(other.miracleSelectInfo))
-        && (!hasAchivedMiracleInfo() || achivedMiracleInfo.equals(other.achivedMiracleInfo));
+        && (!hasRogueMiracleInfo() || rogueMiracleInfo.equals(other.rogueMiracleInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(miracleSelectInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(achivedMiracleInfo);
+        output.writeRawByte((byte) 90);
+        output.writeMessageNoTag(rogueMiracleInfo);
       }
     }
 
@@ -293,7 +292,7 @@ public final class SelectRogueMiracleScRspOuterClass {
         size += 1 + ProtoSink.computeMessageSizeNoTag(miracleSelectInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(achivedMiracleInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueMiracleInfo);
       }
       return size;
     }
@@ -305,27 +304,27 @@ public final class SelectRogueMiracleScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 66) {
               break;
             }
           }
-          case 18: {
+          case 66: {
             // miracleSelectInfo
             input.readMessage(miracleSelectInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 90) {
               break;
             }
           }
-          case 50: {
-            // achivedMiracleInfo
-            input.readMessage(achivedMiracleInfo);
+          case 90: {
+            // rogueMiracleInfo
+            input.readMessage(rogueMiracleInfo);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -356,7 +355,7 @@ public final class SelectRogueMiracleScRspOuterClass {
         output.writeMessage(FieldNames.miracleSelectInfo, miracleSelectInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeMessage(FieldNames.achivedMiracleInfo, achivedMiracleInfo);
+        output.writeMessage(FieldNames.rogueMiracleInfo, rogueMiracleInfo);
       }
       output.endObject();
     }
@@ -391,11 +390,11 @@ public final class SelectRogueMiracleScRspOuterClass {
             }
             break;
           }
-          case -213623475:
-          case -431790391: {
-            if (input.isAtField(FieldNames.achivedMiracleInfo)) {
+          case -452511099:
+          case 1925436929: {
+            if (input.isAtField(FieldNames.rogueMiracleInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(achivedMiracleInfo);
+                input.readMessage(rogueMiracleInfo);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -460,7 +459,7 @@ public final class SelectRogueMiracleScRspOuterClass {
 
       static final FieldName miracleSelectInfo = FieldName.forField("miracleSelectInfo", "miracle_select_info");
 
-      static final FieldName achivedMiracleInfo = FieldName.forField("achivedMiracleInfo", "achived_miracle_info");
+      static final FieldName rogueMiracleInfo = FieldName.forField("rogueMiracleInfo", "rogue_miracle_info");
     }
   }
 }

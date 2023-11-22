@@ -23,8 +23,9 @@ import emu.lunarcore.proto.RogueTalentInfoOuterClass.RogueTalentInfo;
 import emu.lunarcore.proto.RogueTalentOuterClass.RogueTalent;
 import emu.lunarcore.proto.RogueTalentStatusOuterClass.RogueTalentStatus;
 import emu.lunarcore.server.packet.CmdId;
+import emu.lunarcore.server.packet.send.PacketLeaveRogueScRsp;
 import emu.lunarcore.server.packet.send.PacketStartRogueScRsp;
-
+import emu.lunarcore.server.packet.send.PacketSyncRogueFinishScNotify;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.Getter;
@@ -126,15 +127,34 @@ public class RogueManager extends BasePlayerManager {
         getPlayer().sendPacket(new PacketStartRogueScRsp(getPlayer()));
     }
     
+    public void leaveRogue() {
+        if (getPlayer().getRogueInstance() == null) {
+            getPlayer().getSession().send(CmdId.LeaveRogueScRsp);
+            return;
+        }
+        
+        // Clear rogue instance
+        getPlayer().setRogueInstance(null);
+        
+        // Leave scene
+        getPlayer().getLineupManager().setCurrentExtraLineup(0, false);
+        getPlayer().enterScene(GameConstants.ROGUE_ENTRANCE, 0, false); // Make sure we dont send an enter scene packet here
+        
+        // Send packet
+        getPlayer().sendPacket(new PacketLeaveRogueScRsp(this.getPlayer()));
+    }
+    
     public void quitRogue() {
         if (getPlayer().getRogueInstance() == null) {
             getPlayer().getSession().send(CmdId.QuitRogueScRsp);
             return;
         }
         
-        getPlayer().setRogueInstance(null);
-        getPlayer().enterScene(GameConstants.ROGUE_ENTRANCE, 0, true); // Test
         getPlayer().getSession().send(CmdId.QuitRogueScRsp);
+        getPlayer().getSession().send(new PacketSyncRogueFinishScNotify(getPlayer()));
+        
+        // This isnt correct behavior, but it does the job
+        this.leaveRogue();
     }
 
     public RogueInfo toProto() {
@@ -163,7 +183,7 @@ public class RogueManager extends BasePlayerManager {
                 .setRogueSeasonInfo(season);
         
         var aeonInfo = RogueAeonInfo.newInstance()
-                .setUnlockedAeonNum(GameData.getRogueAeonExcelMap().size());
+                .setUnlockAeonNum(GameData.getRogueAeonExcelMap().size());
         
         for (var aeonExcel : GameData.getRogueAeonExcelMap().values()) {
             aeonInfo.addAeonIdList(aeonExcel.getAeonID());
@@ -174,7 +194,6 @@ public class RogueManager extends BasePlayerManager {
                 .setRogueAeonInfo(aeonInfo)
                 .setRogueData(data)
                 .setRogueVirtualItemInfo(getPlayer().toRogueVirtualItemsProto())
-                .setTalentPoints(getPlayer().getTalentPoints())
                 .setSeasonId(seasonId)
                 .setBeginTime(beginTime)
                 .setEndTime(endTime);

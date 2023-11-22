@@ -9,15 +9,21 @@ import emu.lunarcore.data.excel.RogueAreaExcel;
 import emu.lunarcore.data.excel.RogueMapExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.player.lineup.PlayerLineup;
+import emu.lunarcore.proto.AvatarTypeOuterClass.AvatarType;
 import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
 import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
+import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.proto.RogueAvatarInfoOuterClass.RogueAvatarInfo;
 import emu.lunarcore.proto.RogueBuffInfoOuterClass.RogueBuffInfo;
 import emu.lunarcore.proto.RogueBuffSourceOuterClass.RogueBuffSource;
 import emu.lunarcore.proto.RogueCurrentInfoOuterClass.RogueCurrentInfo;
+import emu.lunarcore.proto.RogueFinishInfoOuterClass.RogueFinishInfo;
 import emu.lunarcore.proto.RogueMapInfoOuterClass.RogueMapInfo;
 import emu.lunarcore.proto.RogueMiracleInfoOuterClass.RogueMiracleInfo;
 import emu.lunarcore.proto.RogueMiracleSourceOuterClass.RogueMiracleSource;
+import emu.lunarcore.proto.RogueRecordAvatarOuterClass.RogueRecordAvatar;
+import emu.lunarcore.proto.RogueRecordInfoOuterClass.RogueRecordInfo;
 import emu.lunarcore.proto.RogueRoomStatusOuterClass.RogueRoomStatus;
 import emu.lunarcore.proto.RogueStatusOuterClass.RogueStatus;
 import emu.lunarcore.server.packet.send.*;
@@ -46,6 +52,7 @@ public class RogueInstance {
     
     private int aeonId;
     private int aeonBuffType;
+    private boolean isWin;
     
     @Deprecated // Morphia only!
     public RogueInstance() {}
@@ -324,11 +331,46 @@ public class RogueInstance {
         }
         
         // Set flag for this so it gets serialized
-        proto.getMutableAchivedMiracleInfo();
+        proto.getMutableRogueMiracleInfo();
         
         for (var miracle : this.getMiracles().values()) {
-            proto.getMutableAchivedMiracleInfo().addRogueMiracleList(miracle.toProto());
+            proto.getMutableRogueMiracleInfo().addRogueMiracleList(miracle.toProto());
         }
+        
+        return proto;
+    }
+
+    public RogueFinishInfo toFinishInfoProto() {
+        // Rogue record info
+        var recordInfo = RogueRecordInfo.newInstance();
+        
+        for (var buff : this.getBuffs().values()) {
+            recordInfo.addBuffList(buff.toProto());
+        }
+        
+        for (var miracle : this.getMiracles().values()) {
+            recordInfo.addRogueMiracleList(miracle.getId());
+        }
+        
+        PlayerLineup lineup = getPlayer().getLineupManager().getExtraLineupByType(ExtraLineupType.LINEUP_ROGUE_VALUE);
+        if (lineup != null) {
+            for (int i = 0; i < lineup.getAvatars().size(); i++) {
+                var recordAvatar = RogueRecordAvatar.newInstance()
+                        .setId(lineup.getAvatars().get(i))
+                        .setSlot(i)
+                        .setAvatarType(AvatarType.AVATAR_FORMAL_TYPE);
+                
+                recordInfo.addAvatarList(recordAvatar);
+            }
+        }
+        
+        // Create rogue finish info
+        var proto = RogueFinishInfo.newInstance()
+                .setAreaId(this.getAreaId())
+                .setIsWin(this.isWin())
+                .setPassRoomCount(this.getCurrentSiteId())
+                .setReachRoomCount(this.getCurrentRoomProgress())
+                .setRecordInfo(recordInfo);
         
         return proto;
     }

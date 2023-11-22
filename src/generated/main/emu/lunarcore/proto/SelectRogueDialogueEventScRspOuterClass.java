@@ -19,17 +19,12 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      */
     private int retcode;
 
     /**
-     * <pre>
-     * RogueDialogueEvent selected_dialogue_event = 14;
-     * ODKKECCOLLB JJNBIFDOLFH = 15;
-     * </pre>
-     *
-     * <code>optional uint32 dialogue_event_id = 10;</code>
+     * <code>optional uint32 dialogue_event_id = 12;</code>
      */
     private int dialogueEventId;
 
@@ -44,7 +39,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -52,7 +47,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return this
      */
     public SelectRogueDialogueEventScRsp clearRetcode() {
@@ -62,7 +57,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -70,7 +65,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -81,12 +76,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * RogueDialogueEvent selected_dialogue_event = 14;
-     * ODKKECCOLLB JJNBIFDOLFH = 15;
-     * </pre>
-     *
-     * <code>optional uint32 dialogue_event_id = 10;</code>
+     * <code>optional uint32 dialogue_event_id = 12;</code>
      * @return whether the dialogueEventId field is set
      */
     public boolean hasDialogueEventId() {
@@ -94,12 +84,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * RogueDialogueEvent selected_dialogue_event = 14;
-     * ODKKECCOLLB JJNBIFDOLFH = 15;
-     * </pre>
-     *
-     * <code>optional uint32 dialogue_event_id = 10;</code>
+     * <code>optional uint32 dialogue_event_id = 12;</code>
      * @return this
      */
     public SelectRogueDialogueEventScRsp clearDialogueEventId() {
@@ -109,12 +94,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * RogueDialogueEvent selected_dialogue_event = 14;
-     * ODKKECCOLLB JJNBIFDOLFH = 15;
-     * </pre>
-     *
-     * <code>optional uint32 dialogue_event_id = 10;</code>
+     * <code>optional uint32 dialogue_event_id = 12;</code>
      * @return the dialogueEventId
      */
     public int getDialogueEventId() {
@@ -122,12 +102,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * RogueDialogueEvent selected_dialogue_event = 14;
-     * ODKKECCOLLB JJNBIFDOLFH = 15;
-     * </pre>
-     *
-     * <code>optional uint32 dialogue_event_id = 10;</code>
+     * <code>optional uint32 dialogue_event_id = 12;</code>
      * @param value the dialogueEventId to set
      * @return this
      */
@@ -202,11 +177,11 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(dialogueEventId);
       }
     }
@@ -230,16 +205,16 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 8: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 96) {
               break;
             }
           }
-          case 80: {
+          case 96: {
             // dialogueEventId
             dialogueEventId = input.readUInt32();
             bitField0_ |= 0x00000002;

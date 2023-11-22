@@ -19,12 +19,7 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 COMHCIAONKJ = 4;</code>
-     */
-    private int cOMHCIAONKJ;
-
-    /**
-     * <code>optional uint32 dialogue_event_id = 15;</code>
+     * <code>optional uint32 dialogue_event_id = 5;</code>
      */
     private int dialogueEventId;
 
@@ -39,62 +34,25 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 COMHCIAONKJ = 4;</code>
-     * @return whether the cOMHCIAONKJ field is set
+     * <code>optional uint32 dialogue_event_id = 5;</code>
+     * @return whether the dialogueEventId field is set
      */
-    public boolean hasCOMHCIAONKJ() {
+    public boolean hasDialogueEventId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 COMHCIAONKJ = 4;</code>
-     * @return this
-     */
-    public SelectRogueDialogueEventCsReq clearCOMHCIAONKJ() {
-      bitField0_ &= ~0x00000001;
-      cOMHCIAONKJ = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 COMHCIAONKJ = 4;</code>
-     * @return the cOMHCIAONKJ
-     */
-    public int getCOMHCIAONKJ() {
-      return cOMHCIAONKJ;
-    }
-
-    /**
-     * <code>optional uint32 COMHCIAONKJ = 4;</code>
-     * @param value the cOMHCIAONKJ to set
-     * @return this
-     */
-    public SelectRogueDialogueEventCsReq setCOMHCIAONKJ(final int value) {
-      bitField0_ |= 0x00000001;
-      cOMHCIAONKJ = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 dialogue_event_id = 15;</code>
-     * @return whether the dialogueEventId field is set
-     */
-    public boolean hasDialogueEventId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 dialogue_event_id = 15;</code>
+     * <code>optional uint32 dialogue_event_id = 5;</code>
      * @return this
      */
     public SelectRogueDialogueEventCsReq clearDialogueEventId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       dialogueEventId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 dialogue_event_id = 15;</code>
+     * <code>optional uint32 dialogue_event_id = 5;</code>
      * @return the dialogueEventId
      */
     public int getDialogueEventId() {
@@ -102,12 +60,12 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_event_id = 15;</code>
+     * <code>optional uint32 dialogue_event_id = 5;</code>
      * @param value the dialogueEventId to set
      * @return this
      */
     public SelectRogueDialogueEventCsReq setDialogueEventId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       dialogueEventId = value;
       return this;
     }
@@ -117,7 +75,6 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        cOMHCIAONKJ = other.cOMHCIAONKJ;
         dialogueEventId = other.dialogueEventId;
       }
       return this;
@@ -129,9 +86,6 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasCOMHCIAONKJ()) {
-        setCOMHCIAONKJ(other.cOMHCIAONKJ);
-      }
       if (other.hasDialogueEventId()) {
         setDialogueEventId(other.dialogueEventId);
       }
@@ -145,7 +99,6 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      cOMHCIAONKJ = 0;
       dialogueEventId = 0;
       return this;
     }
@@ -170,18 +123,13 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       }
       SelectRogueDialogueEventCsReq other = (SelectRogueDialogueEventCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasCOMHCIAONKJ() || cOMHCIAONKJ == other.cOMHCIAONKJ)
         && (!hasDialogueEventId() || dialogueEventId == other.dialogueEventId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(cOMHCIAONKJ);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(dialogueEventId);
       }
     }
@@ -190,9 +138,6 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(cOMHCIAONKJ);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(dialogueEventId);
       }
       return size;
@@ -205,19 +150,10 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // cOMHCIAONKJ
-            cOMHCIAONKJ = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
+          case 40: {
             // dialogueEventId
             dialogueEventId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -241,9 +177,6 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.cOMHCIAONKJ, cOMHCIAONKJ);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.dialogueEventId, dialogueEventId);
       }
       output.endObject();
@@ -256,23 +189,12 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -2097477198: {
-            if (input.isAtField(FieldNames.cOMHCIAONKJ)) {
-              if (!input.trySkipNullValue()) {
-                cOMHCIAONKJ = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 88389725:
           case 1671736167: {
             if (input.isAtField(FieldNames.dialogueEventId)) {
               if (!input.trySkipNullValue()) {
                 dialogueEventId = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -334,8 +256,6 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName cOMHCIAONKJ = FieldName.forField("COMHCIAONKJ");
-
       static final FieldName dialogueEventId = FieldName.forField("dialogueEventId", "dialogue_event_id");
     }
   }
