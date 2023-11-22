@@ -150,7 +150,7 @@ public class Player {
         this.gachaInfo = new PlayerGachaInfo();
         
         // Setup hero paths
-        this.getAvatars().setupHeroPaths();
+        this.getAvatars().validateHeroPaths();
 
         // Give us the main character
         // TODO script tutorial
@@ -621,9 +621,6 @@ public class Player {
         this.getMailbox().loadFromDatabase();
         this.getChallengeManager().loadFromDatabase();
         this.getRogueManager().loadFromDatabase();
-        
-        // Post database load
-        this.getAvatars().setupHeroPaths();
         
         // Update stamina
         this.updateStamina();

@@ -72,7 +72,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
     /**
      * Updates hero types for players. Will create hero types if they dont exist already.
      */
-    public void setupHeroPaths() {
+    public void validateHeroPaths() {
         for (HeroExcel heroExcel : GameData.getHeroExcelMap().values()) {
             if (getHeroPaths().containsKey(heroExcel.getId())) continue;
             
@@ -107,6 +107,9 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
             
             this.heroPaths.put(heroPath.getId(), heroPath);
         });
+        
+        // Setup hero paths if they dont exist
+        this.validateHeroPaths();
         
         // Load avatars
         Stream<GameAvatar> stream = LunarCore.getGameDatabase().getObjects(GameAvatar.class, "ownerUid", this.getPlayer().getUid());
