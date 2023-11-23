@@ -30,7 +30,9 @@ import emu.lunarcore.Config.InternalMongoInfo;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.LunarCore.ServerType;
 import emu.lunarcore.database.codecs.*;
+import lombok.Getter;
 
+@Getter
 public final class DatabaseManager {
     private MongoServer server;
     private Datastore datastore;
@@ -99,16 +101,8 @@ public final class DatabaseManager {
         ensureIndexes();
     }
 
-    public MongoServer getServer() {
-        return server;
-    }
-
     public MongoDatabase getDatabase() {
         return getDatastore().getDatabase();
-    }
-
-    public Datastore getDatastore() {
-        return datastore;
     }
 
     private void ensureIndexes() {
@@ -129,7 +123,7 @@ public final class DatabaseManager {
         }
     }
 
-    //
+    // Internal mongo server
 
     public String startInternalMongoServer(InternalMongoInfo internalMongo) {
         // Get backend
@@ -168,12 +162,12 @@ public final class DatabaseManager {
         return getDatastore().find(cls).filter(Filters.eq(filter, value)).first();
     }
 
-    public <T> T getObjectByField(Class<T> cls, String filter, int value) {
+    public <T> T getObjectByField(Class<T> cls, String filter, long value) {
         return getDatastore().find(cls).filter(Filters.eq(filter, value)).first();
     }
 
-    public <T> Stream<T> getObjects(Class<T> cls, String filter, long uid) {
-        return getDatastore().find(cls).filter(Filters.eq(filter, uid)).stream();
+    public <T> Stream<T> getObjects(Class<T> cls, String filter, long value) {
+        return getDatastore().find(cls).filter(Filters.eq(filter, value)).stream();
     }
 
     public <T> Stream<T> getObjects(Class<T> cls) {
