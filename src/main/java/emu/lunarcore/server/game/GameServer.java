@@ -86,11 +86,25 @@ public class GameServer extends KcpServer {
             }
         }
     }
+    
+    public Player getPlayerByUid(int uid, boolean allowOffline) {
+        Player target = null;
+        
+        // Get player if online
+        synchronized (this.players) {
+            target = this.players.get(uid);
+        }
+        
+        // Player is not online, but we arent requesting an online one
+        if (target == null && allowOffline) {
+            target = LunarCore.getGameDatabase().getObjectByUid(Player.class, uid);
+        }
+        
+        return target;
+    }
 
     public Player getOnlinePlayerByUid(int uid) {
-        synchronized (this.players) {
-            return this.players.get(uid);
-        }
+        return this.getPlayerByUid(uid, false);
     }
     
     public Player getOnlinePlayerByAccountId(String accountUid) {

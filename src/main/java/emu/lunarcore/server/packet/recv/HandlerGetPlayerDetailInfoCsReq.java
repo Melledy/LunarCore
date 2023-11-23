@@ -1,5 +1,6 @@
 package emu.lunarcore.server.packet.recv;
 
+import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.GetPlayerDetailInfoCsReqOuterClass.GetPlayerDetailInfoCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
@@ -14,8 +15,9 @@ public class HandlerGetPlayerDetailInfoCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetPlayerDetailInfoCsReq.parseFrom(data);
-
-        session.send(new PacketGetPlayerDetailInfoScRsp());
+        
+        Player player = session.getServer().getPlayerByUid(req.getUid(), true);
+        session.send(new PacketGetPlayerDetailInfoScRsp(player));
     }
 
 }

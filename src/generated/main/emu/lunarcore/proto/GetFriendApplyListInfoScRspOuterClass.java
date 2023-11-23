@@ -10,36 +10,37 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
+import us.hebi.quickbuf.RepeatedMessage;
 
-public final class GetPlayerDetailInfoScRspOuterClass {
+public final class GetFriendApplyListInfoScRspOuterClass {
   /**
-   * Protobuf type {@code GetPlayerDetailInfoScRsp}
+   * Protobuf type {@code GetFriendApplyListInfoScRsp}
    */
-  public static final class GetPlayerDetailInfoScRsp extends ProtoMessage<GetPlayerDetailInfoScRsp> implements Cloneable {
+  public static final class GetFriendApplyListInfoScRsp extends ProtoMessage<GetFriendApplyListInfoScRsp> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 4;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .PlayerDetailInfo player_detail_info = 6;</code>
+     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
      */
-    private final PlayerDetailInfoOuterClass.PlayerDetailInfo playerDetailInfo = PlayerDetailInfoOuterClass.PlayerDetailInfo.newInstance();
+    private final RepeatedMessage<FriendApplyListInfoOuterClass.FriendApplyListInfo> friendApplyList = RepeatedMessage.newEmptyInstance(FriendApplyListInfoOuterClass.FriendApplyListInfo.getFactory());
 
-    private GetPlayerDetailInfoScRsp() {
+    private GetFriendApplyListInfoScRsp() {
     }
 
     /**
-     * @return a new empty instance of {@code GetPlayerDetailInfoScRsp}
+     * @return a new empty instance of {@code GetFriendApplyListInfoScRsp}
      */
-    public static GetPlayerDetailInfoScRsp newInstance() {
-      return new GetPlayerDetailInfoScRsp();
+    public static GetFriendApplyListInfoScRsp newInstance() {
+      return new GetFriendApplyListInfoScRsp();
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,17 +48,17 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return this
      */
-    public GetPlayerDetailInfoScRsp clearRetcode() {
+    public GetFriendApplyListInfoScRsp clearRetcode() {
       bitField0_ &= ~0x00000001;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,50 +66,50 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @param value the retcode to set
      * @return this
      */
-    public GetPlayerDetailInfoScRsp setRetcode(final int value) {
+    public GetFriendApplyListInfoScRsp setRetcode(final int value) {
       bitField0_ |= 0x00000001;
       retcode = value;
       return this;
     }
 
     /**
-     * <code>optional .PlayerDetailInfo player_detail_info = 6;</code>
-     * @return whether the playerDetailInfo field is set
+     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * @return whether the friendApplyList field is set
      */
-    public boolean hasPlayerDetailInfo() {
+    public boolean hasFriendApplyList() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .PlayerDetailInfo player_detail_info = 6;</code>
+     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
      * @return this
      */
-    public GetPlayerDetailInfoScRsp clearPlayerDetailInfo() {
+    public GetFriendApplyListInfoScRsp clearFriendApplyList() {
       bitField0_ &= ~0x00000002;
-      playerDetailInfo.clear();
+      friendApplyList.clear();
       return this;
     }
 
     /**
-     * <code>optional .PlayerDetailInfo player_detail_info = 6;</code>
+     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutablePlayerDetailInfo()} if you want to modify it.
+     * Use {@link #getMutableFriendApplyList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public PlayerDetailInfoOuterClass.PlayerDetailInfo getPlayerDetailInfo() {
-      return playerDetailInfo;
+    public RepeatedMessage<FriendApplyListInfoOuterClass.FriendApplyListInfo> getFriendApplyList() {
+      return friendApplyList;
     }
 
     /**
-     * <code>optional .PlayerDetailInfo player_detail_info = 6;</code>
+     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -116,36 +117,49 @@ public final class GetPlayerDetailInfoScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public PlayerDetailInfoOuterClass.PlayerDetailInfo getMutablePlayerDetailInfo() {
+    public RepeatedMessage<FriendApplyListInfoOuterClass.FriendApplyListInfo> getMutableFriendApplyList(
+        ) {
       bitField0_ |= 0x00000002;
-      return playerDetailInfo;
+      return friendApplyList;
     }
 
     /**
-     * <code>optional .PlayerDetailInfo player_detail_info = 6;</code>
-     * @param value the playerDetailInfo to set
+     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * @param value the friendApplyList to add
      * @return this
      */
-    public GetPlayerDetailInfoScRsp setPlayerDetailInfo(
-        final PlayerDetailInfoOuterClass.PlayerDetailInfo value) {
+    public GetFriendApplyListInfoScRsp addFriendApplyList(
+        final FriendApplyListInfoOuterClass.FriendApplyListInfo value) {
       bitField0_ |= 0x00000002;
-      playerDetailInfo.copyFrom(value);
+      friendApplyList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * @param values the friendApplyList to add
+     * @return this
+     */
+    public GetFriendApplyListInfoScRsp addAllFriendApplyList(
+        final FriendApplyListInfoOuterClass.FriendApplyListInfo... values) {
+      bitField0_ |= 0x00000002;
+      friendApplyList.addAll(values);
       return this;
     }
 
     @Override
-    public GetPlayerDetailInfoScRsp copyFrom(final GetPlayerDetailInfoScRsp other) {
+    public GetFriendApplyListInfoScRsp copyFrom(final GetFriendApplyListInfoScRsp other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        playerDetailInfo.copyFrom(other.playerDetailInfo);
+        friendApplyList.copyFrom(other.friendApplyList);
       }
       return this;
     }
 
     @Override
-    public GetPlayerDetailInfoScRsp mergeFrom(final GetPlayerDetailInfoScRsp other) {
+    public GetFriendApplyListInfoScRsp mergeFrom(final GetFriendApplyListInfoScRsp other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -153,32 +167,32 @@ public final class GetPlayerDetailInfoScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasPlayerDetailInfo()) {
-        getMutablePlayerDetailInfo().mergeFrom(other.playerDetailInfo);
+      if (other.hasFriendApplyList()) {
+        getMutableFriendApplyList().addAll(other.friendApplyList);
       }
       return this;
     }
 
     @Override
-    public GetPlayerDetailInfoScRsp clear() {
+    public GetFriendApplyListInfoScRsp clear() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      playerDetailInfo.clear();
+      friendApplyList.clear();
       return this;
     }
 
     @Override
-    public GetPlayerDetailInfoScRsp clearQuick() {
+    public GetFriendApplyListInfoScRsp clearQuick() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      playerDetailInfo.clearQuick();
+      friendApplyList.clearQuick();
       return this;
     }
 
@@ -187,24 +201,26 @@ public final class GetPlayerDetailInfoScRspOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof GetPlayerDetailInfoScRsp)) {
+      if (!(o instanceof GetFriendApplyListInfoScRsp)) {
         return false;
       }
-      GetPlayerDetailInfoScRsp other = (GetPlayerDetailInfoScRsp) o;
+      GetFriendApplyListInfoScRsp other = (GetFriendApplyListInfoScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasPlayerDetailInfo() || playerDetailInfo.equals(other.playerDetailInfo));
+        && (!hasFriendApplyList() || friendApplyList.equals(other.friendApplyList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(playerDetailInfo);
+        for (int i = 0; i < friendApplyList.length(); i++) {
+          output.writeRawByte((byte) 66);
+          output.writeMessageNoTag(friendApplyList.get(i));
+        }
       }
     }
 
@@ -215,32 +231,31 @@ public final class GetPlayerDetailInfoScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(playerDetailInfo);
+        size += (1 * friendApplyList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(friendApplyList);
       }
       return size;
     }
 
     @Override
     @SuppressWarnings("fallthrough")
-    public GetPlayerDetailInfoScRsp mergeFrom(final ProtoSource input) throws IOException {
+    public GetFriendApplyListInfoScRsp mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 32: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 66) {
               break;
             }
           }
-          case 50: {
-            // playerDetailInfo
-            input.readMessage(playerDetailInfo);
+          case 66: {
+            // friendApplyList
+            tag = input.readRepeatedMessage(friendApplyList, tag);
             bitField0_ |= 0x00000002;
-            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -266,13 +281,13 @@ public final class GetPlayerDetailInfoScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.playerDetailInfo, playerDetailInfo);
+        output.writeRepeatedMessage(FieldNames.friendApplyList, friendApplyList);
       }
       output.endObject();
     }
 
     @Override
-    public GetPlayerDetailInfoScRsp mergeFrom(final JsonSource input) throws IOException {
+    public GetFriendApplyListInfoScRsp mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -289,11 +304,11 @@ public final class GetPlayerDetailInfoScRspOuterClass {
             }
             break;
           }
-          case 2035249760:
-          case -1408876674: {
-            if (input.isAtField(FieldNames.playerDetailInfo)) {
+          case -1582340050:
+          case 1375926032: {
+            if (input.isAtField(FieldNames.friendApplyList)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(playerDetailInfo);
+                input.readRepeatedMessage(friendApplyList);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -312,8 +327,8 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     }
 
     @Override
-    public GetPlayerDetailInfoScRsp clone() {
-      return new GetPlayerDetailInfoScRsp().copyFrom(this);
+    public GetFriendApplyListInfoScRsp clone() {
+      return new GetFriendApplyListInfoScRsp().copyFrom(this);
     }
 
     @Override
@@ -321,32 +336,33 @@ public final class GetPlayerDetailInfoScRspOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static GetPlayerDetailInfoScRsp parseFrom(final byte[] data) throws
+    public static GetFriendApplyListInfoScRsp parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new GetPlayerDetailInfoScRsp(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new GetFriendApplyListInfoScRsp(), data).checkInitialized();
     }
 
-    public static GetPlayerDetailInfoScRsp parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new GetPlayerDetailInfoScRsp(), input).checkInitialized();
+    public static GetFriendApplyListInfoScRsp parseFrom(final ProtoSource input) throws
+        IOException {
+      return ProtoMessage.mergeFrom(new GetFriendApplyListInfoScRsp(), input).checkInitialized();
     }
 
-    public static GetPlayerDetailInfoScRsp parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new GetPlayerDetailInfoScRsp(), input).checkInitialized();
+    public static GetFriendApplyListInfoScRsp parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new GetFriendApplyListInfoScRsp(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating GetPlayerDetailInfoScRsp messages
+     * @return factory for creating GetFriendApplyListInfoScRsp messages
      */
-    public static MessageFactory<GetPlayerDetailInfoScRsp> getFactory() {
-      return GetPlayerDetailInfoScRspFactory.INSTANCE;
+    public static MessageFactory<GetFriendApplyListInfoScRsp> getFactory() {
+      return GetFriendApplyListInfoScRspFactory.INSTANCE;
     }
 
-    private enum GetPlayerDetailInfoScRspFactory implements MessageFactory<GetPlayerDetailInfoScRsp> {
+    private enum GetFriendApplyListInfoScRspFactory implements MessageFactory<GetFriendApplyListInfoScRsp> {
       INSTANCE;
 
       @Override
-      public GetPlayerDetailInfoScRsp create() {
-        return GetPlayerDetailInfoScRsp.newInstance();
+      public GetFriendApplyListInfoScRsp create() {
+        return GetFriendApplyListInfoScRsp.newInstance();
       }
     }
 
@@ -356,7 +372,7 @@ public final class GetPlayerDetailInfoScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
-      static final FieldName playerDetailInfo = FieldName.forField("playerDetailInfo", "player_detail_info");
+      static final FieldName friendApplyList = FieldName.forField("friendApplyList", "friend_apply_list");
     }
   }
 }

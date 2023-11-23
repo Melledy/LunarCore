@@ -30,9 +30,9 @@ public final class SimpleInfoOuterClass {
     private int level;
 
     /**
-     * <code>optional uint32 profile_picture = 10;</code>
+     * <code>optional uint32 head_icon = 10;</code>
      */
-    private int profilePicture;
+    private int headIcon;
 
     /**
      * <code>optional uint32 uid = 12;</code>
@@ -50,9 +50,9 @@ public final class SimpleInfoOuterClass {
     private int onlineStatus;
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
+     * <code>optional .SimpleAvatarInfo simple_avatar_info = 3;</code>
      */
-    private final FriendAvatarInfoOuterClass.FriendAvatarInfo friendAvatarInfo = FriendAvatarInfoOuterClass.FriendAvatarInfo.newInstance();
+    private final SimpleAvatarInfoOuterClass.SimpleAvatarInfo simpleAvatarInfo = SimpleAvatarInfoOuterClass.SimpleAvatarInfo.newInstance();
 
     /**
      * <code>optional string nickname = 4;</code>
@@ -149,39 +149,39 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 profile_picture = 10;</code>
-     * @return whether the profilePicture field is set
+     * <code>optional uint32 head_icon = 10;</code>
+     * @return whether the headIcon field is set
      */
-    public boolean hasProfilePicture() {
+    public boolean hasHeadIcon() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 profile_picture = 10;</code>
+     * <code>optional uint32 head_icon = 10;</code>
      * @return this
      */
-    public SimpleInfo clearProfilePicture() {
+    public SimpleInfo clearHeadIcon() {
       bitField0_ &= ~0x00000004;
-      profilePicture = 0;
+      headIcon = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 profile_picture = 10;</code>
-     * @return the profilePicture
+     * <code>optional uint32 head_icon = 10;</code>
+     * @return the headIcon
      */
-    public int getProfilePicture() {
-      return profilePicture;
+    public int getHeadIcon() {
+      return headIcon;
     }
 
     /**
-     * <code>optional uint32 profile_picture = 10;</code>
-     * @param value the profilePicture to set
+     * <code>optional uint32 head_icon = 10;</code>
+     * @param value the headIcon to set
      * @return this
      */
-    public SimpleInfo setProfilePicture(final int value) {
+    public SimpleInfo setHeadIcon(final int value) {
       bitField0_ |= 0x00000004;
-      profilePicture = value;
+      headIcon = value;
       return this;
     }
 
@@ -347,39 +347,39 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
-     * @return whether the friendAvatarInfo field is set
+     * <code>optional .SimpleAvatarInfo simple_avatar_info = 3;</code>
+     * @return whether the simpleAvatarInfo field is set
      */
-    public boolean hasFriendAvatarInfo() {
+    public boolean hasSimpleAvatarInfo() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
+     * <code>optional .SimpleAvatarInfo simple_avatar_info = 3;</code>
      * @return this
      */
-    public SimpleInfo clearFriendAvatarInfo() {
+    public SimpleInfo clearSimpleAvatarInfo() {
       bitField0_ &= ~0x00000040;
-      friendAvatarInfo.clear();
+      simpleAvatarInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
+     * <code>optional .SimpleAvatarInfo simple_avatar_info = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableFriendAvatarInfo()} if you want to modify it.
+     * Use {@link #getMutableSimpleAvatarInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public FriendAvatarInfoOuterClass.FriendAvatarInfo getFriendAvatarInfo() {
-      return friendAvatarInfo;
+    public SimpleAvatarInfoOuterClass.SimpleAvatarInfo getSimpleAvatarInfo() {
+      return simpleAvatarInfo;
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
+     * <code>optional .SimpleAvatarInfo simple_avatar_info = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -387,19 +387,19 @@ public final class SimpleInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public FriendAvatarInfoOuterClass.FriendAvatarInfo getMutableFriendAvatarInfo() {
+    public SimpleAvatarInfoOuterClass.SimpleAvatarInfo getMutableSimpleAvatarInfo() {
       bitField0_ |= 0x00000040;
-      return friendAvatarInfo;
+      return simpleAvatarInfo;
     }
 
     /**
-     * <code>optional .FriendAvatarInfo friend_avatar_info = 3;</code>
-     * @param value the friendAvatarInfo to set
+     * <code>optional .SimpleAvatarInfo simple_avatar_info = 3;</code>
+     * @param value the simpleAvatarInfo to set
      * @return this
      */
-    public SimpleInfo setFriendAvatarInfo(final FriendAvatarInfoOuterClass.FriendAvatarInfo value) {
+    public SimpleInfo setSimpleAvatarInfo(final SimpleAvatarInfoOuterClass.SimpleAvatarInfo value) {
       bitField0_ |= 0x00000040;
-      friendAvatarInfo.copyFrom(value);
+      simpleAvatarInfo.copyFrom(value);
       return this;
     }
 
@@ -540,11 +540,11 @@ public final class SimpleInfoOuterClass {
         bitField0_ = other.bitField0_;
         lastActiveTime = other.lastActiveTime;
         level = other.level;
-        profilePicture = other.profilePicture;
+        headIcon = other.headIcon;
         uid = other.uid;
         platformType = other.platformType;
         onlineStatus = other.onlineStatus;
-        friendAvatarInfo.copyFrom(other.friendAvatarInfo);
+        simpleAvatarInfo.copyFrom(other.simpleAvatarInfo);
         nickname.copyFrom(other.nickname);
         signature.copyFrom(other.signature);
       }
@@ -563,8 +563,8 @@ public final class SimpleInfoOuterClass {
       if (other.hasLevel()) {
         setLevel(other.level);
       }
-      if (other.hasProfilePicture()) {
-        setProfilePicture(other.profilePicture);
+      if (other.hasHeadIcon()) {
+        setHeadIcon(other.headIcon);
       }
       if (other.hasUid()) {
         setUid(other.uid);
@@ -575,8 +575,8 @@ public final class SimpleInfoOuterClass {
       if (other.hasOnlineStatus()) {
         setOnlineStatusValue(other.onlineStatus);
       }
-      if (other.hasFriendAvatarInfo()) {
-        getMutableFriendAvatarInfo().mergeFrom(other.friendAvatarInfo);
+      if (other.hasSimpleAvatarInfo()) {
+        getMutableSimpleAvatarInfo().mergeFrom(other.simpleAvatarInfo);
       }
       if (other.hasNickname()) {
         getMutableNicknameBytes().copyFrom(other.nickname);
@@ -596,11 +596,11 @@ public final class SimpleInfoOuterClass {
       bitField0_ = 0;
       lastActiveTime = 0L;
       level = 0;
-      profilePicture = 0;
+      headIcon = 0;
       uid = 0;
       platformType = 0;
       onlineStatus = 0;
-      friendAvatarInfo.clear();
+      simpleAvatarInfo.clear();
       nickname.clear();
       signature.clear();
       return this;
@@ -613,7 +613,7 @@ public final class SimpleInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      friendAvatarInfo.clearQuick();
+      simpleAvatarInfo.clearQuick();
       nickname.clear();
       signature.clear();
       return this;
@@ -631,11 +631,11 @@ public final class SimpleInfoOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasLastActiveTime() || lastActiveTime == other.lastActiveTime)
         && (!hasLevel() || level == other.level)
-        && (!hasProfilePicture() || profilePicture == other.profilePicture)
+        && (!hasHeadIcon() || headIcon == other.headIcon)
         && (!hasUid() || uid == other.uid)
         && (!hasPlatformType() || platformType == other.platformType)
         && (!hasOnlineStatus() || onlineStatus == other.onlineStatus)
-        && (!hasFriendAvatarInfo() || friendAvatarInfo.equals(other.friendAvatarInfo))
+        && (!hasSimpleAvatarInfo() || simpleAvatarInfo.equals(other.simpleAvatarInfo))
         && (!hasNickname() || nickname.equals(other.nickname))
         && (!hasSignature() || signature.equals(other.signature));
     }
@@ -652,7 +652,7 @@ public final class SimpleInfoOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(profilePicture);
+        output.writeUInt32NoTag(headIcon);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 96);
@@ -668,7 +668,7 @@ public final class SimpleInfoOuterClass {
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawByte((byte) 26);
-        output.writeMessageNoTag(friendAvatarInfo);
+        output.writeMessageNoTag(simpleAvatarInfo);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 34);
@@ -690,7 +690,7 @@ public final class SimpleInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(profilePicture);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(headIcon);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(uid);
@@ -702,7 +702,7 @@ public final class SimpleInfoOuterClass {
         size += 1 + ProtoSink.computeEnumSizeNoTag(onlineStatus);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(friendAvatarInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(simpleAvatarInfo);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeStringSizeNoTag(nickname);
@@ -739,8 +739,8 @@ public final class SimpleInfoOuterClass {
             }
           }
           case 80: {
-            // profilePicture
-            profilePicture = input.readUInt32();
+            // headIcon
+            headIcon = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 96) {
@@ -781,8 +781,8 @@ public final class SimpleInfoOuterClass {
             }
           }
           case 26: {
-            // friendAvatarInfo
-            input.readMessage(friendAvatarInfo);
+            // simpleAvatarInfo
+            input.readMessage(simpleAvatarInfo);
             bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 34) {
@@ -831,7 +831,7 @@ public final class SimpleInfoOuterClass {
         output.writeUInt32(FieldNames.level, level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.profilePicture, profilePicture);
+        output.writeUInt32(FieldNames.headIcon, headIcon);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.uid, uid);
@@ -843,7 +843,7 @@ public final class SimpleInfoOuterClass {
         output.writeEnum(FieldNames.onlineStatus, onlineStatus, FriendOnlineStatusOuterClass.FriendOnlineStatus.converter());
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeMessage(FieldNames.friendAvatarInfo, friendAvatarInfo);
+        output.writeMessage(FieldNames.simpleAvatarInfo, simpleAvatarInfo);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeString(FieldNames.nickname, nickname);
@@ -884,11 +884,11 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
-          case -1406866667:
-          case 1782764648: {
-            if (input.isAtField(FieldNames.profilePicture)) {
+          case -1116107143:
+          case -219098248: {
+            if (input.isAtField(FieldNames.headIcon)) {
               if (!input.trySkipNullValue()) {
-                profilePicture = input.readUInt32();
+                headIcon = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -941,11 +941,11 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
-          case 2012020453:
-          case 1631238067: {
-            if (input.isAtField(FieldNames.friendAvatarInfo)) {
+          case 272129273:
+          case 338092231: {
+            if (input.isAtField(FieldNames.simpleAvatarInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(friendAvatarInfo);
+                input.readMessage(simpleAvatarInfo);
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -1031,7 +1031,7 @@ public final class SimpleInfoOuterClass {
 
       static final FieldName level = FieldName.forField("level");
 
-      static final FieldName profilePicture = FieldName.forField("profilePicture", "profile_picture");
+      static final FieldName headIcon = FieldName.forField("headIcon", "head_icon");
 
       static final FieldName uid = FieldName.forField("uid");
 
@@ -1039,7 +1039,7 @@ public final class SimpleInfoOuterClass {
 
       static final FieldName onlineStatus = FieldName.forField("onlineStatus", "online_status");
 
-      static final FieldName friendAvatarInfo = FieldName.forField("friendAvatarInfo", "friend_avatar_info");
+      static final FieldName simpleAvatarInfo = FieldName.forField("simpleAvatarInfo", "simple_avatar_info");
 
       static final FieldName nickname = FieldName.forField("nickname");
 

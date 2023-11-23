@@ -29,6 +29,7 @@ import emu.lunarcore.game.chat.ChatManager;
 import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.game.enums.PlaneType;
 import emu.lunarcore.game.enums.PropState;
+import emu.lunarcore.game.friends.FriendList;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.Inventory;
@@ -45,16 +46,21 @@ import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
+import emu.lunarcore.proto.FriendOnlineStatusOuterClass.FriendOnlineStatus;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
+import emu.lunarcore.proto.PlatformTypeOuterClass.PlatformType;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
+import emu.lunarcore.proto.PlayerDetailInfoOuterClass.PlayerDetailInfo;
 import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
+import emu.lunarcore.proto.SimpleAvatarInfoOuterClass.SimpleAvatarInfo;
+import emu.lunarcore.proto.SimpleInfoOuterClass.SimpleInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
-import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
+
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.Getter;
@@ -99,6 +105,7 @@ public class Player {
     private transient final AvatarStorage avatars;
     private transient final Inventory inventory;
     private transient final ChatManager chatManager;
+    private transient final FriendList friendList;
     private transient final Mailbox mailbox;
     private transient final ChallengeManager challengeManager;
     private transient final RogueManager rogueManager;
@@ -112,6 +119,7 @@ public class Player {
     @Setter private transient RogueInstance rogueInstance;
     
     // Etc
+    private transient boolean loggedIn;
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
     
@@ -124,6 +132,7 @@ public class Player {
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
         this.chatManager = new ChatManager(this);
+        this.friendList = new FriendList(this);
         this.mailbox = new Mailbox(this);
         this.challengeManager = new ChallengeManager(this);
         this.rogueManager = new RogueManager(this);
@@ -166,6 +175,10 @@ public class Player {
 
     public Account getAccount() {
         return session.getAccount();
+    }
+    
+    public boolean isOnline() {
+        return this.getSession() != null && this.loggedIn;
     }
 
     public void setSession(GameSession session) {
@@ -238,7 +251,7 @@ public class Player {
     }
     
     public void resetPosition() {
-        if (this.hasLoggedIn()) {
+        if (this.isOnline()) {
             return;
         }
         
@@ -247,10 +260,6 @@ public class Player {
         this.planeId = GameConstants.START_PLANE_ID;
         this.floorId = GameConstants.START_FLOOR_ID;
         this.entryId = GameConstants.START_ENTRY_ID;
-    }
-
-    public boolean hasLoggedIn() {
-        return this.getSession() != null && this.getSession().getState() != SessionState.WAITING_FOR_TOKEN;
     }
 
     public boolean addAvatar(GameAvatar avatar) {
@@ -430,7 +439,7 @@ public class Player {
         }
         
         // Send packet
-        if (hasChanged && this.hasLoggedIn()) {
+        if (hasChanged && this.isOnline()) {
             this.getSession().send(new PacketStaminaInfoScNotify(this));
         }
     }
@@ -601,7 +610,7 @@ public class Player {
     }
 
     public void sendPacket(BasePacket packet) {
-        if (this.hasLoggedIn()) {
+        if (this.isOnline()) {
             this.getSession().send(packet);
         }
     }
@@ -618,6 +627,7 @@ public class Player {
         this.getAvatars().loadFromDatabase();
         this.getInventory().loadFromDatabase();
         this.getLineupManager().loadFromDatabase();
+        this.getFriendList().loadFromDatabase();
         this.getMailbox().loadFromDatabase();
         this.getChallengeManager().loadFromDatabase();
         this.getRogueManager().loadFromDatabase();
@@ -638,8 +648,10 @@ public class Player {
         if (this.getScene() == null) {
             this.enterScene(GameConstants.START_ENTRY_ID, 0, false);
         }
+        
+        // Set flag
+        this.loggedIn = true;
     }
-
     
     // Database
 
@@ -688,6 +700,34 @@ public class Player {
                 .setHcoin(this.getHcoin())
                 .setMcoin(this.getMcoin())
                 .setStamina(this.getStamina());
+        
+        return proto;
+    }
+    
+    public PlayerDetailInfo toDetailInfo() {
+        var proto = PlayerDetailInfo.newInstance()
+                .setUid(this.getUid())
+                .setNickname(this.getName())
+                .setSignature(this.getSignature())
+                .setLevel(this.getLevel())
+                .setWorldLevel(this.getWorldLevel())
+                .setPlatformType(PlatformType.PC)
+                .setRecordInfo("")
+                .setHeadIcon(this.getHeadIcon());
+        
+        return proto;
+    }
+    
+    public SimpleInfo toSimpleInfo() {
+        var proto = SimpleInfo.newInstance()
+                .setUid(this.getUid())
+                .setNickname(this.getName())
+                .setSignature(this.getSignature())
+                .setLevel(this.getLevel())
+                .setOnlineStatus(this.isOnline() ? FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE : FriendOnlineStatus.FRIEND_ONLINE_STATUS_OFFLINE)
+                .setPlatformType(PlatformType.PC)
+                .setSimpleAvatarInfo(SimpleAvatarInfo.newInstance().setAvatarId(GameConstants.TRAILBLAZER_AVATAR_ID).setLevel(1)) // TODO
+                .setHeadIcon(this.getHeadIcon());
         
         return proto;
     }

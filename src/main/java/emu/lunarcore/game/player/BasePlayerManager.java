@@ -1,5 +1,7 @@
 package emu.lunarcore.game.player;
 
+import emu.lunarcore.server.game.GameServer;
+
 public abstract class BasePlayerManager {
     private transient Player player;
 
@@ -9,5 +11,9 @@ public abstract class BasePlayerManager {
 
     public Player getPlayer() {
         return player;
+    }
+    
+    public GameServer getServer() {
+        return player.getServer();
     }
 }

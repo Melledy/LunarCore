@@ -11,11 +11,11 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class FriendAvatarInfoOuterClass {
+public final class SimpleAvatarInfoOuterClass {
   /**
-   * Protobuf type {@code FriendAvatarInfo}
+   * Protobuf type {@code SimpleAvatarInfo}
    */
-  public static final class FriendAvatarInfo extends ProtoMessage<FriendAvatarInfo> implements Cloneable {
+  public static final class SimpleAvatarInfo extends ProtoMessage<SimpleAvatarInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
@@ -33,14 +33,14 @@ public final class FriendAvatarInfoOuterClass {
      */
     private int avatarId;
 
-    private FriendAvatarInfo() {
+    private SimpleAvatarInfo() {
     }
 
     /**
-     * @return a new empty instance of {@code FriendAvatarInfo}
+     * @return a new empty instance of {@code SimpleAvatarInfo}
      */
-    public static FriendAvatarInfo newInstance() {
-      return new FriendAvatarInfo();
+    public static SimpleAvatarInfo newInstance() {
+      return new SimpleAvatarInfo();
     }
 
     /**
@@ -55,7 +55,7 @@ public final class FriendAvatarInfoOuterClass {
      * <code>optional uint32 level = 8;</code>
      * @return this
      */
-    public FriendAvatarInfo clearLevel() {
+    public SimpleAvatarInfo clearLevel() {
       bitField0_ &= ~0x00000001;
       level = 0;
       return this;
@@ -74,7 +74,7 @@ public final class FriendAvatarInfoOuterClass {
      * @param value the level to set
      * @return this
      */
-    public FriendAvatarInfo setLevel(final int value) {
+    public SimpleAvatarInfo setLevel(final int value) {
       bitField0_ |= 0x00000001;
       level = value;
       return this;
@@ -92,7 +92,7 @@ public final class FriendAvatarInfoOuterClass {
      * <code>optional uint32 equipment_unique_id = 13;</code>
      * @return this
      */
-    public FriendAvatarInfo clearEquipmentUniqueId() {
+    public SimpleAvatarInfo clearEquipmentUniqueId() {
       bitField0_ &= ~0x00000002;
       equipmentUniqueId = 0;
       return this;
@@ -111,7 +111,7 @@ public final class FriendAvatarInfoOuterClass {
      * @param value the equipmentUniqueId to set
      * @return this
      */
-    public FriendAvatarInfo setEquipmentUniqueId(final int value) {
+    public SimpleAvatarInfo setEquipmentUniqueId(final int value) {
       bitField0_ |= 0x00000002;
       equipmentUniqueId = value;
       return this;
@@ -129,7 +129,7 @@ public final class FriendAvatarInfoOuterClass {
      * <code>optional uint32 avatar_id = 15;</code>
      * @return this
      */
-    public FriendAvatarInfo clearAvatarId() {
+    public SimpleAvatarInfo clearAvatarId() {
       bitField0_ &= ~0x00000004;
       avatarId = 0;
       return this;
@@ -148,14 +148,14 @@ public final class FriendAvatarInfoOuterClass {
      * @param value the avatarId to set
      * @return this
      */
-    public FriendAvatarInfo setAvatarId(final int value) {
+    public SimpleAvatarInfo setAvatarId(final int value) {
       bitField0_ |= 0x00000004;
       avatarId = value;
       return this;
     }
 
     @Override
-    public FriendAvatarInfo copyFrom(final FriendAvatarInfo other) {
+    public SimpleAvatarInfo copyFrom(final SimpleAvatarInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
@@ -167,7 +167,7 @@ public final class FriendAvatarInfoOuterClass {
     }
 
     @Override
-    public FriendAvatarInfo mergeFrom(final FriendAvatarInfo other) {
+    public SimpleAvatarInfo mergeFrom(final SimpleAvatarInfo other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -185,7 +185,7 @@ public final class FriendAvatarInfoOuterClass {
     }
 
     @Override
-    public FriendAvatarInfo clear() {
+    public SimpleAvatarInfo clear() {
       if (isEmpty()) {
         return this;
       }
@@ -198,7 +198,7 @@ public final class FriendAvatarInfoOuterClass {
     }
 
     @Override
-    public FriendAvatarInfo clearQuick() {
+    public SimpleAvatarInfo clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -212,10 +212,10 @@ public final class FriendAvatarInfoOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof FriendAvatarInfo)) {
+      if (!(o instanceof SimpleAvatarInfo)) {
         return false;
       }
-      FriendAvatarInfo other = (FriendAvatarInfo) o;
+      SimpleAvatarInfo other = (SimpleAvatarInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasLevel() || level == other.level)
         && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
@@ -255,7 +255,7 @@ public final class FriendAvatarInfoOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public FriendAvatarInfo mergeFrom(final ProtoSource input) throws IOException {
+    public SimpleAvatarInfo mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
@@ -317,7 +317,7 @@ public final class FriendAvatarInfoOuterClass {
     }
 
     @Override
-    public FriendAvatarInfo mergeFrom(final JsonSource input) throws IOException {
+    public SimpleAvatarInfo mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -369,8 +369,8 @@ public final class FriendAvatarInfoOuterClass {
     }
 
     @Override
-    public FriendAvatarInfo clone() {
-      return new FriendAvatarInfo().copyFrom(this);
+    public SimpleAvatarInfo clone() {
+      return new SimpleAvatarInfo().copyFrom(this);
     }
 
     @Override
@@ -378,32 +378,32 @@ public final class FriendAvatarInfoOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static FriendAvatarInfo parseFrom(final byte[] data) throws
+    public static SimpleAvatarInfo parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new FriendAvatarInfo(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new SimpleAvatarInfo(), data).checkInitialized();
     }
 
-    public static FriendAvatarInfo parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new FriendAvatarInfo(), input).checkInitialized();
+    public static SimpleAvatarInfo parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new SimpleAvatarInfo(), input).checkInitialized();
     }
 
-    public static FriendAvatarInfo parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new FriendAvatarInfo(), input).checkInitialized();
+    public static SimpleAvatarInfo parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new SimpleAvatarInfo(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating FriendAvatarInfo messages
+     * @return factory for creating SimpleAvatarInfo messages
      */
-    public static MessageFactory<FriendAvatarInfo> getFactory() {
-      return FriendAvatarInfoFactory.INSTANCE;
+    public static MessageFactory<SimpleAvatarInfo> getFactory() {
+      return SimpleAvatarInfoFactory.INSTANCE;
     }
 
-    private enum FriendAvatarInfoFactory implements MessageFactory<FriendAvatarInfo> {
+    private enum SimpleAvatarInfoFactory implements MessageFactory<SimpleAvatarInfo> {
       INSTANCE;
 
       @Override
-      public FriendAvatarInfo create() {
-        return FriendAvatarInfo.newInstance();
+      public SimpleAvatarInfo create() {
+        return SimpleAvatarInfo.newInstance();
       }
     }
 

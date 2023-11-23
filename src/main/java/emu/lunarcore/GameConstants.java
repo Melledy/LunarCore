@@ -18,6 +18,7 @@ public class GameConstants {
     public static final int MAX_STAMINA = 240;
     public static final int MAX_STAMINA_RESERVE = 2400;
     public static final int MAX_AVATARS_IN_TEAM = 4;
+    public static final int MAX_FRIENDSHIPS = 100;
     public static final int DEFAULT_TEAMS = 6;
     public static final int MAX_MP = 5; // Client doesnt like more than 5
 
