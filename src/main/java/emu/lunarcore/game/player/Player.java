@@ -99,6 +99,7 @@ public class Player {
     private int entryId;
     
     private IntSet unlockedHeadIcons;
+    private long lastActiveTime;
     
     // Player managers
     private transient GameSession session;
@@ -649,8 +650,14 @@ public class Player {
             this.enterScene(GameConstants.START_ENTRY_ID, 0, false);
         }
         
-        // Set flag
+        // Set logged in flag
+        this.lastActiveTime = System.currentTimeMillis() / 1000;
         this.loggedIn = true;
+    }
+    
+    public void onLogout() {
+        this.loggedIn = false;
+        this.lastActiveTime = System.currentTimeMillis() / 1000;
     }
     
     // Database
@@ -726,6 +733,7 @@ public class Player {
                 .setLevel(this.getLevel())
                 .setOnlineStatus(this.isOnline() ? FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE : FriendOnlineStatus.FRIEND_ONLINE_STATUS_OFFLINE)
                 .setPlatformType(PlatformType.PC)
+                .setLastActiveTime(this.getLastActiveTime())
                 .setSimpleAvatarInfo(SimpleAvatarInfo.newInstance().setAvatarId(GameConstants.TRAILBLAZER_AVATAR_ID).setLevel(1)) // TODO
                 .setHeadIcon(this.getHeadIcon());
         

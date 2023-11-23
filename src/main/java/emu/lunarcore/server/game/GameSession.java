@@ -80,9 +80,13 @@ public class GameSession {
         this.state = SessionState.INACTIVE;
 
         if (player != null) {
+            // Handle player logout event
+            player.onLogout();
+            
             // Save first
             player.save();
-            // Deregister
+            
+            // Deregister player from server
             this.getServer().deregisterPlayer(player);
         }
     }
