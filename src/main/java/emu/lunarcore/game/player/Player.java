@@ -30,6 +30,7 @@ import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.game.enums.PlaneType;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.friends.FriendList;
+import emu.lunarcore.game.friends.Friendship;
 import emu.lunarcore.game.gacha.PlayerGachaInfo;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.inventory.Inventory;
@@ -679,17 +680,21 @@ public class Player {
         
         // Cache filter object so we can reuse it for our delete queries
         var filter = Filters.eq("ownerUid", uid);
+        var datastore = LunarCore.getGameDatabase().getDatastore();
         
         // Delete data from collections
-        LunarCore.getGameDatabase().getDatastore().getCollection(GameAvatar.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(ChallengeHistory.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(ChallengeGroupReward.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(AvatarHeroPath.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(GameItem.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(PlayerLineup.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(PlayerExtraLineup.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(Mail.class).deleteMany(filter);
-        LunarCore.getGameDatabase().getDatastore().getCollection(RogueTalentData.class).deleteMany(filter);
+        datastore.getCollection(GameAvatar.class).deleteMany(filter);
+        datastore.getCollection(ChallengeHistory.class).deleteMany(filter);
+        datastore.getCollection(ChallengeGroupReward.class).deleteMany(filter);
+        datastore.getCollection(AvatarHeroPath.class).deleteMany(filter);
+        datastore.getCollection(GameItem.class).deleteMany(filter);
+        datastore.getCollection(PlayerLineup.class).deleteMany(filter);
+        datastore.getCollection(PlayerExtraLineup.class).deleteMany(filter);
+        datastore.getCollection(Mail.class).deleteMany(filter);
+        datastore.getCollection(RogueTalentData.class).deleteMany(filter);
+        
+        // Delete friendships
+        datastore.getCollection(Friendship.class).deleteMany(Filters.or(Filters.eq("ownerUid", uid), Filters.eq("friendUid", uid)));
         
         // Delete the player last
         LunarCore.getGameDatabase().delete(this);
