@@ -86,6 +86,7 @@ public class Config {
         public boolean autoCreateAccount = true;
         public int entitySceneLimit = 2000;
         public boolean spendStamina = true;
+        public boolean unlockAllChallenges = true;
         public int staminaRecoveryRate = 5 * 60;
         public int staminaReserveRecoveryRate = 18 * 60;
         public Set<String> defaultPermissions = Set.of("*");
