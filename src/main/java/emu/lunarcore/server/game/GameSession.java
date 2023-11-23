@@ -160,6 +160,11 @@ public class GameSession {
         if (this.ukcp != null) {
             // Get packet from the server's packet cache. This will allow us to reuse empty packets if needed.
             this.ukcp.write(this.getServer().getPacketCache().getCachedPacket(cmdId));
+            
+            // Log
+            if (LunarCore.getConfig().getLogOptions().packets) {
+                logPacket("SEND", cmdId, null);
+            }
         }
     }
 
