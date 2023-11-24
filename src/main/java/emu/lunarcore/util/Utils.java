@@ -1,13 +1,11 @@
 package emu.lunarcore.util;
 
 import java.io.File;
-import java.security.SecureRandom;
 import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
-    private static final SecureRandom secureRandom = new SecureRandom();
     private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
 
     public static final Object EMPTY_OBJECT = new Object();
@@ -77,15 +75,9 @@ public class Utils {
     public static long getCurrentSeconds() {
         return Math.floorDiv(System.currentTimeMillis(), 1000);
     }
-
-    public static byte[] generateRandomBytes(int length) {
-        byte[] bytes = new byte[length];
-        secureRandom.nextBytes(bytes);
-        return bytes;
-    }
-
-    public static String generateRandomString(int length) {
-        return bytesToHex(generateRandomBytes(length));
+    
+    public static int getMinPromotionForLevel(int level) {
+        return Math.max(Math.min((int) ((level - 11) / 10D), 6), 0);
     }
 
     public static int parseSafeInt(String s) {

@@ -45,6 +45,7 @@ public class GiveCommand implements CommandHandler {
                 // Try to set level
                 if (args.getLevel() > 0) {
                     avatar.setLevel(Math.min(args.getLevel(), 80));
+                    avatar.setPromotion(Utils.getMinPromotionForLevel(avatar.getLevel()));
                 }
                 
                 // Try to set promotion
@@ -65,6 +66,7 @@ public class GiveCommand implements CommandHandler {
                     // Try to set level
                     if (args.getLevel() > 0) {
                         item.setLevel(Math.min(args.getLevel(), 80));
+                        item.setPromotion(Utils.getMinPromotionForLevel(item.getLevel()));
                     }
                     
                     // Try to set promotion

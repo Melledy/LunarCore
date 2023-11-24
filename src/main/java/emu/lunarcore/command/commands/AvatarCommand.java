@@ -7,6 +7,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
+import emu.lunarcore.util.Utils;
 
 @Command(label = "avatar", aliases = {"a"}, permission = "player.avatar", desc = "/avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties")
 public class AvatarCommand implements CommandHandler {
@@ -37,6 +38,7 @@ public class AvatarCommand implements CommandHandler {
         // Try to set level
         if (args.getLevel() > 0) {
             avatar.setLevel(Math.min(args.getLevel(), 80));
+            avatar.setPromotion(Utils.getMinPromotionForLevel(avatar.getLevel()));
             hasChanged = true;
         }
         
