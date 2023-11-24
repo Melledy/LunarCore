@@ -22,9 +22,10 @@ public class Handbook {
         // Load text map
         Map<Long, String> textMap = null;
         List<Integer> list = null;
+        String language = LunarCore.getConfig().getServerOptions().language;
 
         try {
-            textMap = JsonUtils.loadToMap(LunarCore.getConfig().getResourceDir() + "/TextMap/TextMapEN.json", Long.class, String.class);
+            textMap = JsonUtils.loadToMap(LunarCore.getConfig().getResourceDir() + "/TextMap/TextMap" + language + ".json", Long.class, String.class);
         } catch (Exception e) {
             e.printStackTrace();
             return;
@@ -45,9 +46,9 @@ public class Handbook {
             // Dump commands
             writer.println(System.lineSeparator());
             writer.println("# Commands");
-            list = GameData.getAvatarExcelMap().keySet().intStream().sorted().boxed().toList();
-            for (var entry : LunarCore.getCommandManager().getLabels().entrySet()) {
-                Command command = entry.getValue().getClass().getAnnotation(Command.class);
+            var labels = LunarCore.getCommandManager().getLabels().keySet().stream().sorted().toList();
+            for (var label : labels) {
+                Command command = LunarCore.getCommandManager().getLabels().get(label).getClass().getAnnotation(Command.class);
                 if (command == null) continue;
                 
                 writer.println(command.desc());

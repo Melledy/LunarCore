@@ -9,6 +9,7 @@ A game server reimplementation for version 1.5.0 of a certain turn based anime g
 - Npc shops handled
 - Gacha system
 - Mail system
+- Friend system (Assists are not working yet)
 - Forgotten hall (with 1.4.0 features)
 - Simulated universe (Runs can be finished, but many features are missing)
 
@@ -52,17 +53,17 @@ class Handlers
 Server commands can be run in the server console or in-game. There is a dummy user named "Server" in every player's friends list that you can message to use in-game commands.
 
 ```
-/mail [content]. Sends the targeted player a system mail.
-/avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties
-/giveall {materials | avatars}. Gives the targeted player items.
 /account {create | delete} [username] (reserved player uid). Creates or deletes an account.
-/unstuck @[player id]. Unstucks an offline player if theyre in a scene that doesnt load.
-/gender {male | female}. Sets the player gender.
-/spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.
-/give [item id] x[amount]. Gives the targetted player an item.
-/permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
+/avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties
 /clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.
-/worldlevel [world level]. Sets the targeted player's equilibrium level.
+/gender {male | female}. Sets the player gender.
+/give [item id] x[amount]. Gives the targetted player an item.
+/giveall {materials | avatars}. Gives the targeted player items.
+/mail [content]. Sends the targeted player a system mail.
+/permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
 /reload. Reloads the server config.
 /scene [scene id] [floor id]. Teleports the player to the specified scene.
+/spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.
+/unstuck @[player id]. Unstucks an offline player if theyre in a scene that doesnt load.
+/worldlevel [world level]. Sets the targeted player's equilibrium level.
 ```

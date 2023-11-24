@@ -89,6 +89,7 @@ public class Config {
         public boolean unlockAllChallenges = true;
         public int staminaRecoveryRate = 5 * 60;
         public int staminaReserveRecoveryRate = 18 * 60;
+        public String language = "EN";
         public Set<String> defaultPermissions = Set.of("*");
         
         public int getStaminaRecoveryRate() {
