@@ -13,6 +13,9 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 
 import lombok.Getter;
 
+/**
+ *  Original name: LevelFloorInfo
+ */
 @Getter
 public class FloorInfo {
     private int FloorID;

@@ -7,7 +7,7 @@ import emu.lunarcore.game.battle.skills.*;
 import lombok.Getter;
 
 /**
- * The equivalent of the SkillAbilityConfig class in anime game.
+ *  Original name: SkillAbilityConfig
  */
 public class SkillAbilityInfo {
     private List<AbilityInfo> AbilityList;

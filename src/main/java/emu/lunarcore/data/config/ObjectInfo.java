@@ -3,6 +3,9 @@ package emu.lunarcore.data.config;
 import emu.lunarcore.util.Position;
 import lombok.Getter;
 
+/**
+ *  Original name: LevelObjectInfo
+ */
 @Getter
 public class ObjectInfo {
     public int ID;
@@ -13,6 +16,7 @@ public class ObjectInfo {
     public String Name;
     public float RotY;
     
+    // Cached position and rotation to avoid recalculating positions all the time
     protected transient Position pos;
     protected transient Position rot;
     

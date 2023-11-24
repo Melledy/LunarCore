@@ -4,6 +4,9 @@ import java.util.List;
 
 import lombok.Getter;
 
+/**
+ *  Original name: LevelGroupInfo
+ */
 @Getter
 public class GroupInfo {
     private transient int id;

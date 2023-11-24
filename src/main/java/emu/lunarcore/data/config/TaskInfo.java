@@ -8,7 +8,7 @@ import lombok.AccessLevel;
 import lombok.Getter;
 
 /**
- * The equivalent of the TaskConfig class in anime game.
+ * Original name: TaskConfig
  */
 @Getter
 public class TaskInfo {

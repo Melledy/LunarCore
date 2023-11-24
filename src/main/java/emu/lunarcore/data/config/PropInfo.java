@@ -8,6 +8,9 @@ import emu.lunarcore.util.Position;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ *  Original name: LevelPropInfo
+ */
 @Getter
 public class PropInfo extends ObjectInfo {
     private float RotX;
