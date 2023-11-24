@@ -6,6 +6,7 @@ import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
+import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.enums.PropState;
@@ -42,35 +43,33 @@ public class SpawnCommand implements CommandHandler {
         // Spawn monster
         NpcMonsterExcel monsterExcel = GameData.getNpcMonsterExcelMap().get(id);
         if (monsterExcel != null) {
-            // Try to find monster config
-            GroupInfo group = null;
+            // Get first monster config from floor info that isnt a boss monster
+            GroupInfo groupInfo = null;
             MonsterInfo monsterInfo = null;
             
-            for (var groupInfo : target.getScene().getFloorInfo().getGroups().values()) {
-                if (groupInfo.getMonsterList().size() == 0) continue;
+            for (var group : target.getScene().getFloorInfo().getGroups().values()) {
+                if (group.getMonsterList().size() == 0) continue;
                 
-                for (var m : groupInfo.getMonsterList()) {
+                for (var m : group.getMonsterList()) {
                     if (m.getFarmElementID() == 0) {
-                        group = groupInfo;
-                        monsterInfo = groupInfo.getMonsterList().get(0);
+                        groupInfo = group;
+                        monsterInfo = m;
                         break;
                     }
                 }
                 
-                if (monsterInfo != null) {
-                    break; 
-                }
+                if (monsterInfo != null) break;
             }
             
-            if (monsterInfo == null) {
-                this.sendMessage(sender, "Error: No monster config found in this scene");
+            if (monsterInfo == null || groupInfo == null) {
+                this.sendMessage(sender, "Error: No existing monster config found in this scene");
                 return;
             }
             
             // Spawn monster
             for (int i = 0; i < amount; i++) {
                 Position pos = target.getPos().clone().add(Utils.randomRange(-radius, radius), 0, Utils.randomRange(-radius, radius));
-                EntityMonster monster = new EntityMonster(target.getScene(), monsterExcel, group, monsterInfo);
+                EntityMonster monster = new EntityMonster(target.getScene(), monsterExcel, groupInfo, monsterInfo);
                 monster.getPos().set(pos);
                 monster.setEventId(monsterInfo.getEventID());
                 monster.setOverrideStageId(stage);
@@ -85,11 +84,35 @@ public class SpawnCommand implements CommandHandler {
         
         PropExcel propExcel = GameData.getPropExcelMap().get(id);
         if (propExcel != null) {
+            // Get first prop config from floor info
+            GroupInfo groupInfo = null;
+            PropInfo propInfo = null;
+            
+            for (var group : target.getScene().getFloorInfo().getGroups().values()) {
+                if (group.getPropList().size() == 0) continue;
+                
+                for (var p : group.getPropList()) {
+                    if (p.getFarmElementID() == 0 && p.getAnchorID() == 0 && p.getCocoonID() == 0) {
+                        groupInfo = group;
+                        propInfo = p;
+                        break;
+                    }
+                }
+                
+                if (propInfo != null) break;
+            }
+            
+            if (propInfo == null || groupInfo == null) {
+                this.sendMessage(sender, "Error: No existing prop config found in this scene");
+                return;
+            }
+            
             // Spawn props
             for (int i = 0; i < amount; i++) {
                 Position pos = target.getPos().clone().add(Utils.randomRange(-radius, radius), 0, Utils.randomRange(-radius, radius));
-                EntityProp prop = new EntityProp(target.getScene(), propExcel, null, null);
+                EntityProp prop = new EntityProp(target.getScene(), propExcel, groupInfo, propInfo);
                 prop.getPos().set(pos);
+                prop.getRot().set(0, 0, 0);
                 prop.setState(PropState.Open);
                 
                 target.getScene().addEntity(prop, true);
