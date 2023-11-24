@@ -4,11 +4,12 @@ import java.util.*;
 import java.util.stream.Stream;
 
 import dev.morphia.annotations.*;
+
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.database.AccountDatabaseOnly;
 import emu.lunarcore.util.Crypto;
 import emu.lunarcore.util.Snowflake32;
-import emu.lunarcore.util.Utils;
+
 import lombok.Getter;
 
 @Getter
@@ -137,13 +138,13 @@ public class Account {
     // Tokens
 
     public String generateComboToken() {
-        this.comboToken = Utils.bytesToHex(Crypto.createSessionKey(32)); // TODO make unique
+        this.comboToken = Crypto.createSessionKey(this.getUid());
         this.save();
         return this.comboToken;
     }
 
     public String generateDispatchToken() {
-        this.dispatchToken = Utils.bytesToHex(Crypto.createSessionKey(32)); // TODO make unique
+        this.dispatchToken = Crypto.createSessionKey(this.getUid());
         this.save();
         return this.dispatchToken;
     }
