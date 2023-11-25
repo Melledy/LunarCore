@@ -59,6 +59,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /gender {male | female}. Sets the player gender.
 /give [item id] x[amount]. Gives the targetted player an item.
 /giveall {materials | avatars}. Gives the targeted player items.
+/help. Displays a list of available commands.
 /mail [content]. Sends the targeted player a system mail.
 /permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
 /reload. Reloads the server config.
