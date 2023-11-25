@@ -114,13 +114,13 @@ public class Config {
         public WelcomeMail() {
             this.title = "Welcome to a LunarCore server";
             this.sender = "Server";
-            this.content = "Welcome to Lunar Core! Please take these items as a starter gift. For a list of commands, type /help in the server chat window. <a type=OpenURL1 href=https://discord.gg/cfPKJ6N5hw>Check out our Discord for more information about the server.</a>";
+            this.content = "Welcome to Lunar Core! Please take these items as a starter gift. For a list of commands, type /help in the server chat window. Check out our <a type=OpenURL1 href=https://discord.gg/cfPKJ6N5hw>Discord</a> and <a type=OpenURL1 href=https://github.com/Melledy/LunarCore>Github</a> for more information about the server.";
             this.attachments = List.of(
-                    new ItemParam(2, 1000000),
-                    new ItemParam(101, 100),
-                    new ItemParam(102, 100),
-                    new ItemParam(1001, 1),
-                    new ItemParam(1002, 1)
+                new ItemParam(2, 1000000),
+                new ItemParam(101, 100),
+                new ItemParam(102, 100),
+                new ItemParam(1001, 1),
+                new ItemParam(1002, 1)
             );
         }
     }

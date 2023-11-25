@@ -11,7 +11,6 @@ public class HelpCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        StringBuilder help = new StringBuilder();
         this.sendMessage(sender, "Displaying list of commands:");
         
         var labels = LunarCore.getCommandManager().getLabels().keySet().stream().sorted().toList();
