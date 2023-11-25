@@ -13,7 +13,7 @@ public class ItemParam {
     @SerializedName(value = "count", alternate = {"ItemCount", "ItemNum"})
     private int count;
 
-    private ItemParamType type = ItemParamType.PILE;
+    private transient ItemParamType type = ItemParamType.PILE;
 
     public ItemParam() {
         // Gson

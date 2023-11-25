@@ -1,7 +1,9 @@
 package emu.lunarcore;
 
+import java.util.List;
 import java.util.Set;
 
+import emu.lunarcore.data.common.ItemParam;
 import lombok.Getter;
 
 @Getter
@@ -91,6 +93,7 @@ public class Config {
         public int staminaReserveRecoveryRate = 18 * 60;
         public String language = "EN";
         public Set<String> defaultPermissions = Set.of("*");
+        public WelcomeMail welcomeMail = new WelcomeMail();
         
         public int getStaminaRecoveryRate() {
             return staminaRecoveryRate > 0 ? staminaRecoveryRate : 1;
@@ -98,6 +101,27 @@ public class Config {
         
         public int getStaminaReserveRecoveryRate() {
             return staminaReserveRecoveryRate > 0 ? staminaReserveRecoveryRate : 1;
+        }
+    }
+    
+    @Getter
+    public static class WelcomeMail {
+        public String title;
+        public String sender;
+        public String content;
+        public List<ItemParam> attachments;
+        
+        public WelcomeMail() {
+            this.title = "Welcome to a LunarCore server";
+            this.sender = "Server";
+            this.content = "Welcome to Lunar Core! Please take these items as a starter gift. For a list of commands, type /help in the server chat window. <a type=OpenURL1 href=https://discord.gg/cfPKJ6N5hw>Check out our Discord for more information about the server.</a>";
+            this.attachments = List.of(
+                    new ItemParam(2, 1000000),
+                    new ItemParam(101, 100),
+                    new ItemParam(102, 100),
+                    new ItemParam(1001, 1),
+                    new ItemParam(1002, 1)
+            );
         }
     }
     

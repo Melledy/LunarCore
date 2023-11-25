@@ -169,6 +169,9 @@ public class Player {
         this.addAvatar(avatar);
         this.getCurrentLineup().getAvatars().add(avatar.getAvatarId());
         this.getCurrentLineup().save();
+        
+        // Welcome mail
+        this.getMailbox().sendWelcomeMail();
     }
 
     public GameServer getServer() {
