@@ -14,6 +14,7 @@ public class HandlerPromoteAvatarCsReq extends PacketHandler {
         var req = PromoteAvatarCsReq.parseFrom(data);
 
         session.getServer().getInventoryService().promoteAvatar(session.getPlayer(), req.getBaseAvatarId());
+        session.send(CmdId.PromoteAvatarScRsp);
     }
 
 }

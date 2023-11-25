@@ -14,17 +14,13 @@ public class PacketAvatarExpUpScRsp extends BasePacket {
 
         var data = AvatarExpUpScRsp.newInstance();
 
-        for (GameItem item : returnItems) {
-            data.addReturnItemList(item.toPileProto());
+        if (returnItems != null) {
+            for (GameItem item : returnItems) {
+                data.addReturnItemList(item.toPileProto());
+            }
+        } else {
+            data.setRetcode(1);
         }
-
-        this.setData(data);
-    }
-
-    public PacketAvatarExpUpScRsp() {
-        super(CmdId.AvatarExpUpScRsp);
-
-        var data = AvatarExpUpScRsp.newInstance().setRetcode(1);
 
         this.setData(data);
     }

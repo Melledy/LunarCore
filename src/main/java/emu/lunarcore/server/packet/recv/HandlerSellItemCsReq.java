@@ -10,6 +10,7 @@ import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
+import emu.lunarcore.server.packet.send.PacketSellItemScRsp;
 
 @Opcodes(CmdId.SellItemCsReq)
 public class HandlerSellItemCsReq extends PacketHandler {
@@ -23,7 +24,8 @@ public class HandlerSellItemCsReq extends PacketHandler {
             items.add(new ItemParam(cost));
         }
 
-        session.getServer().getInventoryService().sellItems(session.getPlayer(), items);
+        var returnItems = session.getServer().getInventoryService().sellItems(session.getPlayer(), items);
+        session.send(new PacketSellItemScRsp(returnItems));
     }
 
 }

@@ -14,6 +14,7 @@ public class HandlerPromoteEquipmentCsReq extends PacketHandler {
         var req = PromoteEquipmentCsReq.parseFrom(data);
 
         session.getServer().getInventoryService().promoteEquipment(session.getPlayer(), req.getEquipmentUniqueId());
+        session.send(CmdId.PromoteEquipmentScRsp);
     }
 
 }

@@ -14,6 +14,7 @@ public class HandlerRankUpAvatarCsReq extends PacketHandler {
         var req = RankUpAvatarCsReq.parseFrom(data);
 
         session.getServer().getInventoryService().rankUpAvatar(session.getPlayer(), req.getBaseAvatarId());
+        session.send(CmdId.RankUpAvatarScRsp);
     }
 
 }

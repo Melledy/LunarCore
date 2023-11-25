@@ -24,6 +24,7 @@ public class HandlerRankUpEquipmentCsReq extends PacketHandler {
         }
 
         session.getServer().getInventoryService().rankUpEquipment(session.getPlayer(), req.getEquipmentUniqueId(), items);
+        session.send(CmdId.RankUpEquipmentScRsp);
     }
 
 }

@@ -10,6 +10,7 @@ import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
+import emu.lunarcore.server.packet.send.PacketExpUpEquipmentScRsp;
 
 @Opcodes(CmdId.ExpUpEquipmentCsReq)
 public class HandlerExpUpEquipmentCsReq extends PacketHandler {
@@ -23,7 +24,8 @@ public class HandlerExpUpEquipmentCsReq extends PacketHandler {
             items.add(new ItemParam(cost));
         }
 
-        session.getServer().getInventoryService().levelUpEquipment(session.getPlayer(), req.getEquipmentUniqueId(), items);
+        var returnItems = session.getServer().getInventoryService().levelUpEquipment(session.getPlayer(), req.getEquipmentUniqueId(), items);
+        session.send(new PacketExpUpEquipmentScRsp(returnItems));
     }
 
 }

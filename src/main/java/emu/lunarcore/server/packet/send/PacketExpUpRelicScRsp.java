@@ -14,18 +14,14 @@ public class PacketExpUpRelicScRsp extends BasePacket {
 
         var data = ExpUpRelicScRsp.newInstance();
 
-        for (GameItem item : returnItems) {
-            data.addReturnItemList(item.toPileProto());
+        if (returnItems != null) {
+            for (GameItem item : returnItems) {
+                data.addReturnItemList(item.toPileProto());
+            }
+        } else {
+            data.setRetcode(1);
         }
-
-        this.setData(data);
-    }
-
-    public PacketExpUpRelicScRsp() {
-        super(CmdId.ExpUpRelicScRsp);
-
-        var data = ExpUpRelicScRsp.newInstance().setRetcode(1);
-
+        
         this.setData(data);
     }
 }

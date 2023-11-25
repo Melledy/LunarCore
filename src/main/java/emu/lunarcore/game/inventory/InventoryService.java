@@ -13,8 +13,6 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
-import emu.lunarcore.server.packet.BasePacket;
-import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
 
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
@@ -28,13 +26,13 @@ public class InventoryService extends BaseGameService {
 
     // === Avatars ===
 
-    public void levelUpAvatar(Player player, int avatarId, Collection<ItemParam> items) {
+    public List<GameItem> levelUpAvatar(Player player, int avatarId, Collection<ItemParam> items) {
         // Get avatar
         GameAvatar avatar = player.getAvatarById(avatarId);
-        if (avatar == null) return;
+        if (avatar == null) return null;
 
         AvatarPromotionExcel promoteData = GameData.getAvatarPromotionExcel(avatarId, avatar.getPromotion());
-        if (promoteData == null) return;
+        if (promoteData == null) return null;
 
         // Exp gain
         int amount = 0;
@@ -42,7 +40,9 @@ public class InventoryService extends BaseGameService {
         // Verify items
         for (ItemParam param : items) {
             GameItem item = player.getInventory().getItemByParam(param);
-            if (item == null || item.getExcel().getAvatarExp() == 0 || item.getCount() < param.getCount()) return;
+            if (item == null || item.getExcel().getAvatarExp() == 0 || item.getCount() < param.getCount()) {
+                return null;
+            }
 
             amount += item.getExcel().getAvatarExp() * param.getCount();
         }
@@ -50,8 +50,7 @@ public class InventoryService extends BaseGameService {
         // Verify credits
         int cost = amount / 10;
         if (player.getScoin() < cost) {
-            player.sendPacket(new PacketAvatarExpUpScRsp());
-            return;
+            return null;
         }
 
         // Pay items
@@ -111,24 +110,23 @@ public class InventoryService extends BaseGameService {
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(avatar));
-        player.sendPacket(new PacketAvatarExpUpScRsp(returnItems));
+        return returnItems;
     }
 
-    public void promoteAvatar(Player player, int avatarId) {
+    public boolean promoteAvatar(Player player, int avatarId) {
         // Get avatar
         GameAvatar avatar = player.getAvatarById(avatarId);
-        if (avatar == null || avatar.getPromotion() >= avatar.getExcel().getMaxPromotion()) return;
+        if (avatar == null || avatar.getPromotion() >= avatar.getExcel().getMaxPromotion()) return false;
 
         AvatarPromotionExcel promotion = GameData.getAvatarPromotionExcel(avatarId, avatar.getPromotion());
         // Sanity check
         if ((promotion == null) || avatar.getLevel() < promotion.getMaxLevel() || player.getLevel() < promotion.getPlayerLevelRequire() || player.getWorldLevel() < promotion.getWorldLevelRequire()) {
-            return;
+            return false;
         }
 
         // Verify item params
         if (!player.getInventory().verifyItems(promotion.getPromotionCostList())) {
-            player.sendPacket(new BasePacket(CmdId.PromoteAvatarScRsp));
-            return;
+            return false;
         }
 
         // Pay items
@@ -142,26 +140,24 @@ public class InventoryService extends BaseGameService {
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(avatar));
-        player.sendPacket(new BasePacket(CmdId.PromoteAvatarScRsp));
+        return true;
     }
 
-    public void unlockSkillTreeAvatar(Player player, int pointId) {
-        // Hacky way to get avatar id
-        int avatarId = pointId / 1000;
-
+    public boolean unlockSkillTreeAvatar(Player player, int avatarId, int pointId) {
         // Get avatar + Skill Tree data
         GameAvatar avatar = player.getAvatarById(avatarId);
-        if (avatar == null) return;
+        if (avatar == null) return false;
 
         int nextLevel = avatar.getSkills().getOrDefault(pointId, 0) + 1;
 
         AvatarSkillTreeExcel skillTree = GameData.getAvatarSkillTreeExcel(pointId, nextLevel);
-        if (skillTree == null || skillTree.getAvatarID() != avatar.getExcel().getAvatarID()) return;
+        if (skillTree == null || skillTree.getAvatarID() != avatar.getExcel().getAvatarID()) {
+            return false;
+        }
 
         // Verify item params
         if (!player.getInventory().verifyItems(skillTree.getMaterialList())) {
-            player.sendPacket(new PacketUnlockSkilltreeScRsp());
-            return;
+            return false;
         }
 
         // Pay items
@@ -180,23 +176,22 @@ public class InventoryService extends BaseGameService {
             player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         }
         
-        player.sendPacket(new PacketUnlockSkilltreeScRsp(avatarId, pointId, nextLevel));
+        return true;
     }
 
-    public void rankUpAvatar(Player player, int avatarId) {
+    public boolean rankUpAvatar(Player player, int avatarId) {
         // Get avatar
         GameAvatar avatar = player.getAvatarById(avatarId);
-        if (avatar == null || avatar.getRank() >= avatar.getExcel().getMaxRank()) return;
+        if (avatar == null || avatar.getRank() >= avatar.getExcel().getMaxRank()) return false;
 
         AvatarRankExcel rankData = GameData.getAvatarRankExcel(avatar.getExcel().getRankId(avatar.getRank()));
-        if (rankData == null) return;
+        if (rankData == null) return false;
 
         // Verify items
         for (ItemParam param : rankData.getUnlockCost()) {
             GameItem item = player.getInventory().getItemByParam(param);
             if (item == null || item.getCount() < param.getCount()) {
-                player.sendPacket(new BasePacket(CmdId.RankUpAvatarScRsp));
-                return;
+                return false;
             }
         }
 
@@ -214,27 +209,24 @@ public class InventoryService extends BaseGameService {
             player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         }
         
-        player.sendPacket(new BasePacket(CmdId.RankUpAvatarScRsp));
+        return true;
     }
     
-    public void takePromotionRewardAvatar(Player player, int avatarId, int promotion) {
+    public List<GameItem> takePromotionRewardAvatar(Player player, int avatarId, int promotion) {
         // Get avatar
         GameAvatar avatar = player.getAvatarById(avatarId);
         if (avatar == null) {
-            player.sendPacket(new PacketTakePromotionRewardScRsp());
-            return;
+            return null;
         }
         
         // Sanity
         if (promotion <= 0 || promotion > avatar.getPromotion()) {
-            player.sendPacket(new PacketTakePromotionRewardScRsp());
-            return;
+            return null;
         }
         
         // Make sure promotion level is odd + Make sure promotion reward isnt already taken
         if (promotion % 2 == 0 || avatar.getTakenRewards().contains(promotion)) {
-            player.sendPacket(new PacketTakePromotionRewardScRsp());
-            return;
+            return null;
         }
         
         // Set reward as taken
@@ -250,22 +242,21 @@ public class InventoryService extends BaseGameService {
         
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(avatar));
-        player.sendPacket(new PacketTakePromotionRewardScRsp(rewards));
+        return rewards;
     }
 
     // === Equipment ===
 
-    public void levelUpEquipment(Player player, int equipId, Collection<ItemParam> items) {
+    public List<GameItem> levelUpEquipment(Player player, int equipId, Collection<ItemParam> items) {
         // Get equipment
         GameItem equip = player.getInventory().getItemByUid(equipId);
 
         if (equip == null || !equip.getExcel().isEquipment()) {
-            player.sendPacket(new PacketExpUpEquipmentScRsp());
-            return;
+            return null;
         }
 
         EquipmentPromotionExcel promoteData = GameData.getEquipmentPromotionExcel(equip.getItemId(), equip.getPromotion());
-        if (promoteData == null) return;
+        if (promoteData == null) return null;
 
         // Exp gain
         int cost = 0;
@@ -274,10 +265,8 @@ public class InventoryService extends BaseGameService {
         // Verify items
         for (ItemParam param : items) {
             GameItem item = player.getInventory().getItemByParam(param);
-            System.out.println(param.getId());
             if (item == null || item.isLocked() || item.getCount() < param.getCount()) {
-                player.sendPacket(new PacketExpUpEquipmentScRsp());
-                return;
+                return null;
             }
 
             if (item.getExcel().getEquipmentExp() > 0) {
@@ -288,8 +277,7 @@ public class InventoryService extends BaseGameService {
 
         // Verify credits
         if (player.getScoin() < cost) {
-            player.sendPacket(new PacketExpUpEquipmentScRsp());
-            return;
+            return null;
         }
 
         // Pay items
@@ -349,38 +337,34 @@ public class InventoryService extends BaseGameService {
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
-        player.sendPacket(new PacketExpUpEquipmentScRsp(returnItems));
+        return returnItems;
     }
 
-    public void promoteEquipment(Player player, int equipId) {
+    public boolean promoteEquipment(Player player, int equipId) {
         // Get equipment
         GameItem equip = player.getInventory().getItemByUid(equipId);
 
         if (equip == null || !equip.getExcel().isEquipment() || equip.getPromotion() >= equip.getExcel().getEquipmentExcel().getMaxPromotion()) {
-            player.sendPacket(new BasePacket(CmdId.PromoteEquipmentScRsp));
-            return;
+            return false;
         }
 
         EquipmentPromotionExcel promotion = GameData.getEquipmentPromotionExcel(equip.getItemId(), equip.getPromotion());
         // Sanity check
         if ((promotion == null) || equip.getLevel() < promotion.getMaxLevel() || player.getLevel() < promotion.getPlayerLevelRequire() || player.getWorldLevel() < promotion.getWorldLevelRequire()) {
-            player.sendPacket(new BasePacket(CmdId.PromoteEquipmentScRsp));
-            return;
+            return false;
         }
 
         // Verify items
         for (ItemParam param : promotion.getPromotionCostList()) {
             GameItem item = player.getInventory().getItemByParam(param);
             if (item == null || item.getCount() < param.getCount()) {
-                player.sendPacket(new BasePacket(CmdId.PromoteEquipmentScRsp));
-                return;
+                return false;
             }
         }
 
         // Verify credits
         if (player.getScoin() < promotion.getPromotionCostCoin()) {
-            player.sendPacket(new BasePacket(CmdId.PromoteEquipmentScRsp));
-            return;
+            return false;
         }
 
         // Pay items
@@ -395,48 +379,50 @@ public class InventoryService extends BaseGameService {
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
-        player.sendPacket(new BasePacket(CmdId.PromoteEquipmentScRsp));
+        return true;
     }
 
-    public void rankUpEquipment(Player player, int equipId, List<ItemParam> items) {
+    public boolean rankUpEquipment(Player player, int equipId, List<ItemParam> items) {
         // Get avatar
         GameItem equip = player.getInventory().getItemByUid(equipId);
 
         if (equip == null || !equip.getExcel().isEquipment() || equip.getRank() >= equip.getExcel().getEquipmentExcel().getMaxRank()) {
-            player.sendPacket(new BasePacket(CmdId.RankUpEquipmentScRsp));
-            return;
+            return false;
         }
+        
+        // Rank up amount
+        int amount = 0;
 
         // Verify items
         for (ItemParam param : items) {
             GameItem item = player.getInventory().getItemByParam(param);
             if (item == null || !equip.getExcel().getEquipmentExcel().isRankUpItem(item) || item.getCount() < param.getCount()) {
-                player.sendPacket(new BasePacket(CmdId.RankUpEquipmentScRsp));
-                return;
+                return false;
             }
+            
+            amount += item.getRank();
         }
 
         // Pay items
         player.getInventory().removeItemsByParams(items);
 
         // Add rank
-        equip.setRank(Math.min(equip.getRank() + items.size(), equip.getExcel().getEquipmentExcel().getMaxRank()));
+        equip.setRank(Math.min(equip.getRank() + amount, equip.getExcel().getEquipmentExcel().getMaxRank()));
         equip.save();
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
-        player.sendPacket(new BasePacket(CmdId.RankUpEquipmentScRsp));
+        return true;
     }
 
     // === Relic ===
 
-    public void levelUpRelic(Player player, int equipId, Collection<ItemParam> items) {
+    public List<GameItem> levelUpRelic(Player player, int equipId, Collection<ItemParam> items) {
         // Get relic
         GameItem equip = player.getInventory().getItemByUid(equipId);
 
         if (equip == null || !equip.getExcel().isRelic()) {
-            player.sendPacket(new PacketExpUpRelicScRsp());
-            return;
+            return null;
         }
 
         // Exp gain
@@ -447,8 +433,7 @@ public class InventoryService extends BaseGameService {
         for (ItemParam param : items) {
             GameItem item = player.getInventory().getItemByParam(param);
             if (item == null || item.isLocked() || item.getCount() < param.getCount()) {
-                player.sendPacket(new PacketExpUpRelicScRsp());
-                return;
+                return null;
             }
 
             if (item.getExcel().getRelicExp() > 0) {
@@ -463,8 +448,7 @@ public class InventoryService extends BaseGameService {
 
         // Verify credits
         if (player.getScoin() < cost) {
-            player.sendPacket(new PacketExpUpRelicScRsp());
-            return;
+            return null;
         }
 
         // Pay items
@@ -537,7 +521,7 @@ public class InventoryService extends BaseGameService {
 
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
-        player.sendPacket(new PacketExpUpRelicScRsp(returnItems));
+        return returnItems;
     }
 
     // === Etc ===
@@ -556,15 +540,14 @@ public class InventoryService extends BaseGameService {
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
     }
 
-    public void sellItems(Player player, List<ItemParam> items) {
+    public Int2IntMap sellItems(Player player, List<ItemParam> items) {
         // Verify items
         var returnItems = new Int2IntOpenHashMap();
 
         for (ItemParam param : items) {
             GameItem item = player.getInventory().getItemByParam(param);
             if (item == null || item.isLocked() || item.getCount() < param.getCount()) {
-                player.sendPacket(new PacketSellItemScRsp(null));
-                return;
+                return null;
             }
 
             // Add return items
@@ -582,8 +565,8 @@ public class InventoryService extends BaseGameService {
             player.getInventory().addItem(returnItem.getIntKey(), returnItem.getIntValue());
         }
 
-        // Send packet
-        player.sendPacket(new PacketSellItemScRsp(returnItems));
+        // Done
+        return returnItems;
     }
     
     public List<GameItem> composeItem(Player player, int composeId, int count) {
