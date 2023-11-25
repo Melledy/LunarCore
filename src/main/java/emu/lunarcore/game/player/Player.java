@@ -121,6 +121,7 @@ public class Player {
     @Setter private transient RogueInstance rogueInstance;
     
     // Etc
+    private transient boolean isNew;
     private transient boolean loggedIn;
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
@@ -145,6 +146,7 @@ public class Player {
         this();
         this.session = session;
         this.accountUid = getAccount().getUid();
+        this.isNew = true;
         this.initUid();
         this.resetPosition();
         
@@ -169,9 +171,6 @@ public class Player {
         this.addAvatar(avatar);
         this.getCurrentLineup().getAvatars().add(avatar.getAvatarId());
         this.getCurrentLineup().save();
-        
-        // Welcome mail
-        this.getMailbox().sendWelcomeMail();
     }
 
     public GameServer getServer() {
@@ -652,6 +651,11 @@ public class Player {
         // Unstuck check in case we couldn't load the scene
         if (this.getScene() == null) {
             this.enterScene(GameConstants.START_ENTRY_ID, 0, false);
+        }
+        
+        // Send welcome mail after we load managers from the database
+        if (this.isNew) {
+            this.getMailbox().sendWelcomeMail();
         }
         
         // Set logged in flag
