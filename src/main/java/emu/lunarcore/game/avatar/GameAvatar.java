@@ -139,7 +139,7 @@ public class GameAvatar implements GameEntity {
     }
 
     public int getMaxSp() {
-        return this.getExcel().getMaxSp();
+        return 10000;
     }
     
     public int getCurrentHp(PlayerLineup lineup) {
