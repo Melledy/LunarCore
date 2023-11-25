@@ -22,10 +22,12 @@ A game server reimplementation for version 1.5.0 of a certain turn based anime g
 * [MongoDB 4.0+](https://www.mongodb.com/try/download/community)
 
 ### Starting up the server
-1. Compile the server with `./gradlew jar`
-2. Create a folder named `resources` in your server directory, you will need to download the `TextMap` and `ExcelBin` folders which you can get from a repo like [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) into your resources folder.
-3. Run the server with `java -jar LunarCore.jar`. Lunar Core comes with a built in internal mongo server for its database, so no Mongodb installation is required. However, it is highly recomended to install Mongodb anyways.
-4. Create an account if you haven't already using the `/account` command
+1. Open your system terminal, and compile the server with `./gradlew jar`
+2. Create a folder named `resources` in your server directory
+3. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
+4. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resouces folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
+5. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built in internal mongo server for its database, so no Mongodb installation is required. However, it is highly recomended to install Mongodb anyways.
+6. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
 
 ### Connecting with the client (Fiddler)
 1. Login with the client to an official server and hoyo account **at least once** to download game data.
@@ -48,6 +50,8 @@ class Handlers
     }
 };
 ```
+
+5. Login with your account name, the password can be set to anything.
 
 ### Server commands
 Server commands can be run in the server console or in-game. There is a dummy user named "Server" in every player's friends list that you can message to use in-game commands.
