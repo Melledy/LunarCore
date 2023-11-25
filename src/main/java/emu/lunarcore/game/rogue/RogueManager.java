@@ -99,10 +99,13 @@ public class RogueManager extends BasePlayerManager {
         RogueInstance instance = new RogueInstance(getPlayer(), rogueAreaExcel, aeonExcel);
         getPlayer().setRogueInstance(instance);
         
+        // Set starting SP
+        boolean extraSP = this.hasTalent(32);
+        
         // Reset hp/sp
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
-            avatar.setCurrentSp(lineup, avatar.getMaxSp());
+            avatar.setCurrentSp(lineup, extraSP ? avatar.getMaxSp() : avatar.getMaxSp() / 2);
             
             instance.getBaseAvatarIds().add(avatar.getAvatarId());
         });
@@ -181,22 +184,28 @@ public class RogueManager extends BasePlayerManager {
         var data = RogueInfoData.newInstance()
                 .setRogueScoreInfo(score)
                 .setRogueSeasonInfo(season);
-        
-        var aeonInfo = RogueAeonInfo.newInstance()
-                .setUnlockAeonNum(GameData.getRogueAeonExcelMap().size());
-        
-        for (var aeonExcel : GameData.getRogueAeonExcelMap().values()) {
-            aeonInfo.addAeonIdList(aeonExcel.getAeonID());
-        }
 
         var proto = RogueInfo.newInstance()
                 .setRogueScoreInfo(score)
-                .setRogueAeonInfo(aeonInfo)
                 .setRogueData(data)
                 .setRogueVirtualItemInfo(getPlayer().toRogueVirtualItemsProto())
                 .setSeasonId(seasonId)
                 .setBeginTime(beginTime)
                 .setEndTime(endTime);
+        
+        // Path resonance
+        var aeonInfo = RogueAeonInfo.newInstance();
+        
+        if (this.hasTalent(1)) {
+            aeonInfo = RogueAeonInfo.newInstance()
+                    .setUnlockAeonNum(GameData.getRogueAeonExcelMap().size());
+            
+            for (var aeonExcel : GameData.getRogueAeonExcelMap().values()) {
+                aeonInfo.addAeonIdList(aeonExcel.getAeonID());
+            }
+            
+            proto.setRogueAeonInfo(aeonInfo);
+        }
         
         // Rogue data
         RogueInstance instance = this.getPlayer().getRogueInstance();

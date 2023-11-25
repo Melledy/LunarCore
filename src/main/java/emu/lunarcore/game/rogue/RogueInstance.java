@@ -50,6 +50,7 @@ public class RogueInstance {
     private int pendingMiracleSelects;
     private RogueMiracleSelectMenu miracleSelect;
     
+    private int baseRerolls;
     private int aeonId;
     private int aeonBuffType;
     private boolean isWin;
@@ -72,6 +73,7 @@ public class RogueInstance {
         }
         
         this.initRooms();
+        this.initTalents();
     }
     
     public RogueStatus getStatus() {
@@ -90,6 +92,17 @@ public class RogueInstance {
             if (mapExcel.isIsStart()) {
                 this.startSiteId = roomData.getSiteId();
             }
+        }
+    }
+    
+    private void initTalents() {
+        // Reset blessings
+        if (player.getRogueManager().hasTalent(11)) {
+            this.baseRerolls = 1;
+        }
+        // Extra blessings
+        if (player.getRogueManager().hasTalent(21)) {
+            this.pendingBuffSelects += 1;
         }
     }
     
