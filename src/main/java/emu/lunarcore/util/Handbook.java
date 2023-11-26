@@ -27,7 +27,11 @@ public class Handbook {
         try {
             textMap = JsonUtils.loadToMap(LunarCore.getConfig().getResourceDir() + "/TextMap/TextMap" + language + ".json", Long.class, String.class);
         } catch (Exception e) {
-            e.printStackTrace();
+            LunarCore.getLogger().error("Error loading text map: " + language, e);
+            return;
+        }
+
+        if (textMap == null) {
             return;
         }
 
@@ -42,7 +46,7 @@ public class Handbook {
             // Header
             writer.println("# Lunar Core " + GameConstants.VERSION + " Handbook");
             writer.println("# Created " + dtf.format(now));
-            
+
             // Dump commands
             writer.println(System.lineSeparator());
             writer.println("# Commands");
@@ -50,7 +54,7 @@ public class Handbook {
             for (var label : labels) {
                 Command command = LunarCore.getCommandManager().getLabels().get(label).getClass().getAnnotation(Command.class);
                 if (command == null) continue;
-                
+
                 writer.println(command.desc());
             }
 
@@ -75,7 +79,7 @@ public class Handbook {
                 writer.print(" : ");
                 writer.println(textMap.getOrDefault(excel.getItemName(), "null"));
             }
-            
+
             // Dump props
             writer.println(System.lineSeparator());
             writer.println("# Props (Spawnable)");
@@ -109,7 +113,7 @@ public class Handbook {
                 writer.print("[Level " + excel.getLevel() + "] ");
                 writer.println(textMap.getOrDefault(excel.getStageName(), "null"));
             }
-            
+
             // Dump stages
             writer.println(System.lineSeparator());
             writer.println("# Mazes");
