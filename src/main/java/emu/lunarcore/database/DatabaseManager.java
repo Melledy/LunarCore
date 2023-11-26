@@ -34,13 +34,10 @@ import lombok.Getter;
 
 @Getter
 public final class DatabaseManager {
-    private MongoServer server;
+    @Getter private static MongoServer server;
     private Datastore datastore;
     
     private final DeleteOptions DELETE_MANY = new DeleteOptions().multi(true);
-
-    // Empty constructor for when we want to start an internal server
-    public DatabaseManager() {}
 
     public DatabaseManager(DatabaseInfo info, ServerType type) {
         // Variables
@@ -123,31 +120,6 @@ public final class DatabaseManager {
         }
     }
 
-    // Internal mongo server
-
-    public String startInternalMongoServer(InternalMongoInfo internalMongo) {
-        // Get backend
-        MongoBackend backend = null;
-
-        if (internalMongo.filePath != null && internalMongo.filePath.length() > 0) {
-            backend = new H2Backend(internalMongo.filePath);
-        } else {
-            backend = new MemoryBackend();
-        }
-
-        // Create the local mongo server and replace the connection string
-        server = new MongoServer(backend);
-
-        // Bind to address of it exists
-        if (internalMongo.getAddress() != null && internalMongo.getPort() != 0) {
-            server.bind(internalMongo.getAddress(), internalMongo.getPort());
-        } else {
-            server.bind(); // Binds to random port
-        }
-
-        return server.getConnectionString();
-    }
-
     // Database Functions
 
     public boolean checkIfObjectExists(Class<?> cls, long uid) {
@@ -198,5 +170,30 @@ public final class DatabaseManager {
         } finally {
             getDatastore().save(counter);
         }
+    }
+    
+    // Internal MongoDB server
+
+    public static String startInternalMongoServer(InternalMongoInfo internalMongo) {
+        // Get backend
+        MongoBackend backend = null;
+
+        if (internalMongo.filePath != null && internalMongo.filePath.length() > 0) {
+            backend = new H2Backend(internalMongo.filePath);
+        } else {
+            backend = new MemoryBackend();
+        }
+
+        // Create the local mongo server and replace the connection string
+        server = new MongoServer(backend);
+
+        // Bind to address of it exists
+        if (internalMongo.getAddress() != null && internalMongo.getPort() != 0) {
+            server.bind(internalMongo.getAddress(), internalMongo.getPort());
+        } else {
+            server.bind(); // Binds to random port
+        }
+
+        return server.getConnectionString();
     }
 }

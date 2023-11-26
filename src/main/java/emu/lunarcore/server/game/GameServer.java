@@ -63,9 +63,6 @@ public class GameServer extends KcpServer {
                 onTick();
             }
         }, 0, 1000);
-
-        // Hook into shutdown event.
-        Runtime.getRuntime().addShutdownHook(new Thread(this::onShutdown));
     }
 
     public GameServerConfig getServerConfig() {
@@ -166,7 +163,7 @@ public class GameServer extends KcpServer {
         }
     }
 
-    private void onShutdown() {
+    public void onShutdown() {
         // Close server socket
         this.stop();
         

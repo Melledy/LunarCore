@@ -81,9 +81,8 @@ public class LunarCore {
                 break;
             case "-database":
                 // Database only
-                DatabaseManager databaseManager = new DatabaseManager();
-                databaseManager.startInternalMongoServer(LunarCore.getConfig().getInternalMongoServer());
-                LunarCore.getLogger().info("Running local mongo server at " + databaseManager.getServer().getConnectionString());
+                DatabaseManager.startInternalMongoServer(LunarCore.getConfig().getInternalMongoServer());
+                LunarCore.getLogger().info("Running local mongo server at " + DatabaseManager.getServer().getConnectionString());
                 // Console
                 LunarCore.startConsole();
                 return;
@@ -113,6 +112,9 @@ public class LunarCore {
             gameServer = new GameServer(getConfig().getGameServer());
             gameServer.start();
         }
+        
+        // Hook into shutdown event
+        Runtime.getRuntime().addShutdownHook(new Thread(LunarCore::onShutdown));
 
         // Start console
         LunarCore.startConsole();
@@ -200,6 +202,14 @@ public class LunarCore {
             System.exit(0);
         } catch (Exception e) {
             LunarCore.getLogger().error("Terminal error: ", e);
+        }
+    }
+    
+    // Shutdown event
+    
+    private static void onShutdown() {
+        if (gameServer != null) {
+            gameServer.onShutdown();
         }
     }
 
