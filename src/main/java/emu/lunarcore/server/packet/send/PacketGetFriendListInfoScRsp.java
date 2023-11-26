@@ -20,6 +20,7 @@ public class PacketGetFriendListInfoScRsp extends BasePacket {
         var consoleFriend = SimpleInfo.newInstance()
                 .setUid(GameConstants.SERVER_CONSOLE_UID)
                 .setNickname("Server")
+                .setSignature("Type /help for a list of commands")
                 .setLevel(1)
                 .setOnlineStatus(FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE)
                 .setPlatformType(PlatformType.PC)
