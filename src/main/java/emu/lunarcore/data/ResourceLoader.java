@@ -81,6 +81,8 @@ public class ResourceLoader {
 
             try {
                 loadFromResource(resourceDefinition, type, map);
+            } catch (FileNotFoundException e) {
+                LunarCore.getLogger().error("Resource file not found: {}.", Arrays.toString(type.name()));
             } catch (Exception e) {
                 LunarCore.getLogger().error("Error loading resource file: " + Arrays.toString(type.name()), e);
             }
@@ -164,20 +166,20 @@ public class ResourceLoader {
             return count.get();
         }
     }
-    
+
     // Might be better to cache
     private static void loadFloorInfos() {
         //
         LunarCore.getLogger().info("Loading floor infos... this may take a while.");
-        
+
         // Load floor infos
         File floorDir = new File(LunarCore.getConfig().getResourceDir() + "/Config/LevelOutput/Floor/");
-        
+
         if (!floorDir.exists()) {
             LunarCore.getLogger().warn("Floor infos are missing, please check your resources.");
             return;
         }
-        
+
         // Dump
         for (File file : floorDir.listFiles()) {
             try (FileReader reader = new FileReader(file)) {
@@ -188,16 +190,16 @@ public class ResourceLoader {
                 e.printStackTrace();
             }
         }
-        
+
         // Load group infos
         for (FloorInfo floor : GameData.getFloorInfos().values()) {
             for (FloorGroupSimpleInfo simpleGroup : floor.getSimpleGroupList()) {
                 File file = new File(LunarCore.getConfig().getResourceDir() + "/" + simpleGroup.getGroupPath());
-                
+
                 if (!file.exists()) {
                     continue;
                 }
-                
+
                 // TODO optimize
                 try (FileReader reader = new FileReader(file)) {
                     GroupInfo group = gson.fromJson(reader, GroupInfo.class);
@@ -207,27 +209,27 @@ public class ResourceLoader {
                     e.printStackTrace();
                 }
             }
-            
+
             // Post load callback to cache floor info
             floor.onLoad();
         }
-        
+
         // Done
         LunarCore.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " floor infos.");
     }
-    
+
     // Might be better to cache
     private static void loadMazeAbilities() {
         int count = 0;
-        
+
         for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
             // Get file
             File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + avatarExcel.getNameKey() + "_Ability.json");
             if (!file.exists()) continue;
-            
+
             try (FileReader reader = new FileReader(file)) {
                 SkillAbilityInfo avatarSkills = gson.fromJson(reader, SkillAbilityInfo.class);
-                
+
                 if (avatarSkills.parse(avatarExcel)) {
                     count++;
                 }
@@ -235,15 +237,15 @@ public class ResourceLoader {
                 e.printStackTrace();
             }
         }
-        
+
         // Done
         LunarCore.getLogger().info("Loaded " + count + " maze abilities for avatars.");
     }
-    
+
     private static void loadRogueMapGen() {
         File file = new File(LunarCore.getConfig().getDataDir() + "/RogueMapGen.json");
         if (!file.exists()) return;
-        
+
         try (FileReader reader = new FileReader(file)) {
             Map<Integer, int[]> rogue = gson.fromJson(reader, TypeToken.getParameterized(Map.class, Integer.class, int[].class).getType());
 
