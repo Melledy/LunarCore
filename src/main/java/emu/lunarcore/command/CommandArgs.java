@@ -3,6 +3,9 @@ package emu.lunarcore.command;
 import java.util.List;
 
 import emu.lunarcore.LunarCore;
+import emu.lunarcore.data.GameData;
+import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
@@ -80,5 +83,92 @@ public class CommandArgs {
             return EMPTY_STRING;
         }
         return this.list.get(index);
+    }
+    
+    // Utility commands
+    
+    /**
+     * Changes the properties of an avatar based on the arguments provided
+     * @param avatar The targeted avatar to change
+     * @return A boolean of whether or not any changes were made to the avatar
+     */
+    public boolean setProperties(GameAvatar avatar) {
+        boolean hasChanged = false;
+        
+        // Try to set level
+        if (this.getLevel() > 0) {
+            avatar.setLevel(this.getLevel());
+            hasChanged = true;
+        }
+        
+        // Try to set level
+        if (this.getLevel() > 0) {
+            avatar.setLevel(Math.min(this.getLevel(), 80));
+            avatar.setPromotion(Utils.getMinPromotionForLevel(avatar.getLevel()));
+            hasChanged = true;
+        }
+        
+        // Try to set promotion (ascension level)
+        if (this.getPromotion() >= 0) {
+            avatar.setPromotion(Math.min(this.getPromotion(), avatar.getExcel().getMaxPromotion()));
+            hasChanged = true;
+        }
+        
+        // Try to set rank (eidolons)
+        if (this.getRank() >= 0) {
+            avatar.setRank(Math.min(this.getRank(), avatar.getExcel().getMaxRank()));
+            hasChanged = true;
+        }
+        
+        // Try to set skill trees
+        if (this.getStage() > 0) {
+            for (int pointId : avatar.getExcel().getSkillTreeIds()) {
+                var skillTree = GameData.getAvatarSkillTreeExcel(pointId, 1);
+                if (skillTree == null) continue;
+                
+                int minLevel = skillTree.isDefaultUnlock() ? 1 : 0;
+                int pointLevel = Math.max(Math.min(this.getStage(), skillTree.getMaxLevel()), minLevel);
+                
+                avatar.getSkills().put(pointId, pointLevel);
+            }
+            hasChanged = true;
+        }
+        
+        return hasChanged;
+    }
+    
+    /**
+     * Changes the properties of an item based on the arguments provided
+     * @param item The targeted item to change
+     * @return A boolean of whether or not any changes were made to the item
+     */
+    public boolean setProperties(GameItem item) {
+        boolean hasChanged = false;
+        
+        if (item.getExcel().isEquipment()) {
+            // Try to set level
+            if (this.getLevel() > 0) {
+                item.setLevel(Math.min(this.getLevel(), 80));
+                item.setPromotion(Utils.getMinPromotionForLevel(item.getLevel()));
+            }
+            
+            // Try to set promotion
+            if (this.getPromotion() >= 0) {
+                item.setPromotion(Math.min(this.getPromotion(), item.getExcel().getEquipmentExcel().getMaxPromotion()));
+            }
+            
+            // Try to set rank (superimposition)
+            if (this.getRank() >= 0) {
+                item.setRank(Math.min(this.getRank(), item.getExcel().getEquipmentExcel().getMaxRank()));
+            }
+        } else if (item.getExcel().isRelic()) {
+            // Try to set level
+            if (this.getLevel() > 0) {
+                item.setLevel(Math.min(this.getLevel(), 15));
+                // TODO add substats
+            }
+        }
+        
+        return hasChanged;
     }
 }

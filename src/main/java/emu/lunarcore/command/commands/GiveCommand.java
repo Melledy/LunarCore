@@ -41,22 +41,10 @@ public class GiveCommand implements CommandHandler {
         if (itemData.getItemMainType() == ItemMainType.AvatarCard) {
             // Add avatar
             GameAvatar avatar = new GameAvatar(itemData.getId());
+            
             if (args.getTarget().addAvatar(avatar)) {
-                // Try to set level
-                if (args.getLevel() > 0) {
-                    avatar.setLevel(Math.min(args.getLevel(), 80));
-                    avatar.setPromotion(Utils.getMinPromotionForLevel(avatar.getLevel()));
-                }
-                
-                // Try to set promotion
-                if (args.getPromotion() >= 0) {
-                    avatar.setPromotion(Math.min(args.getPromotion(), avatar.getExcel().getMaxPromotion()));
-                }
-                
-                // Try to set rank
-                if (args.getRank() >= 0) {
-                    avatar.setRank(Math.min(args.getRank(), avatar.getExcel().getMaxRank()));
-                }
+                // Change avatar properties
+                args.setProperties(avatar);
             }
         } else if (itemData.isEquippable()) {
             for (int i = 0; i < amount; i++) {

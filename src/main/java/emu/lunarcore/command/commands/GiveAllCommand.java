@@ -8,6 +8,7 @@ import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
+import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.enums.ItemRarity;
 import emu.lunarcore.game.enums.ItemSubType;
@@ -25,6 +26,7 @@ public class GiveAllCommand implements CommandHandler {
             return;
         }
         
+        Player target = args.getTarget();
         String type = args.get(0).toLowerCase();
         
         switch (type) {
@@ -43,51 +45,72 @@ public class GiveAllCommand implements CommandHandler {
                 items.add(new GameItem(2, 50_000_000));
                 
                 // Add to target's inventory
-                args.getTarget().getInventory().addItems(items, true);
+                target.getInventory().addItems(items, true);
                 
                 // Send message
-                this.sendMessage(sender, "Giving " + args.getTarget().getName() + " " + items.size() + " items");
+                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " items");
             }
             case "lc", "lightcones" -> {
                 // Get lightcones
                 List<GameItem> items = GameData.getItemExcelMap().values()
                         .stream()
                         .filter(ItemExcel::isEquipment)
-                        .map(excel -> new GameItem(excel, 1))
+                        .map(excel -> {
+                            var item = new GameItem(excel, 1);
+                            args.setProperties(item);
+                            return item;
+                        })
                         .toList();
                 
                 // Add to target's inventory
-                args.getTarget().getInventory().addItems(items, true);
+                target.getInventory().addItems(items, true);
                 
                 // Send message
-                this.sendMessage(sender, "Giving " + args.getTarget().getName() + " " + items.size() + " light cones");
+                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " light cones");
             }
             case "r", "relics" -> {
                 // Get relics
                 List<GameItem> items = GameData.getItemExcelMap().values()
                         .stream()
                         .filter(excel -> excel.isRelic() && excel.getRarity() == ItemRarity.SuperRare)
-                        .map(excel -> new GameItem(excel, 1))
+                        .map(excel -> {
+                            var item = new GameItem(excel, 1);
+                            args.setProperties(item);
+                            return item;
+                        })
                         .toList();
                 
                 // Add to target's inventory
-                args.getTarget().getInventory().addItems(items, true);
+                target.getInventory().addItems(items, true);
                 
                 // Send message
-                this.sendMessage(sender, "Giving " + args.getTarget().getName() + " " + items.size() + " relics");
+                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " relics");
             }
             case "a", "characters", "avatars" -> {
                 // All avatars and their eidolons
                 for (ItemExcel excel : GameData.getItemExcelMap().values()) {
                     if (excel.getItemMainType() == ItemMainType.AvatarCard) {
-                        args.getTarget().getInventory().addItem(excel, 1);
+                        // Skip if target already has this avatar
+                        if (target.getAvatars().hasAvatar(excel.getId())) {
+                            continue;
+                        }
+                        
+                        // Add avatar
+                        target.getInventory().addItem(excel, 1);
+                        
+                        // Set avatar properties
+                        GameAvatar avatar = target.getAvatarById(excel.getId());
+                        if (avatar != null) {
+                            args.setProperties(avatar);
+                        }
                     } else if (excel.getItemSubType() == ItemSubType.Eidolon) {
-                        args.getTarget().getInventory().addItem(excel, 6);
+                        // Add eidolons
+                        target.getInventory().addItem(excel, 6);
                     }
                 }
                 
                 // Send message
-                this.sendMessage(sender, "Giving " + args.getTarget().getName() + " all avatars");
+                this.sendMessage(sender, "Giving " + target.getName() + " all avatars");
             }
         }
     }
