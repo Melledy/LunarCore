@@ -59,6 +59,28 @@ public class ItemExcel extends GameResource {
         return this.relicExp;
     }
 
+    public int getRarityNum() {
+        if (this.getRarity() == ItemRarity.Unknown) {
+            return 0;
+        }
+        if (this.getRarity() == ItemRarity.Normal) {
+            return 1;
+        }
+        if (this.getRarity() == ItemRarity.NotNormal) {
+            return 2;
+        }
+        if (this.getRarity() == ItemRarity.Rare) {
+            return 3;
+        }
+        if (this.getRarity() == ItemRarity.VeryRare) {
+            return 4;
+        }
+        if (this.getRarity() == ItemRarity.SuperRare) {
+            return 5;
+        }
+        return 0;
+    }
+
     public int getRelicExpCost() {
         if (this.relicExcel != null) {
             return this.relicExcel.getCoinCost();
