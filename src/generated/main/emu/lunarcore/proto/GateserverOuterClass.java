@@ -35,9 +35,19 @@ public final class GateserverOuterClass {
     private boolean unk2;
 
     /**
+     * <code>optional bool unk5 = 678;</code>
+     */
+    private boolean unk5;
+
+    /**
      * <code>optional bool unk3 = 1461;</code>
      */
     private boolean unk3;
+
+    /**
+     * <code>optional bool unk6 = 1727;</code>
+     */
+    private boolean unk6;
 
     /**
      * <code>optional bool unk4 = 1764;</code>
@@ -75,18 +85,27 @@ public final class GateserverOuterClass {
     private final Utf8String ifixUrl = Utf8String.newEmptyInstance();
 
     /**
+     * <code>optional string client_secret_key = 1200;</code>
+     */
+    private final Utf8String clientSecretKey = Utf8String.newEmptyInstance();
+
+    /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      */
     private final Utf8String mdkResVersion = Utf8String.newEmptyInstance();
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
+     * <code>optional string ifix_version = 1268;</code>
      */
-    private final Utf8String clientSecretKey = Utf8String.newEmptyInstance();
+    private final Utf8String ifixVersion = Utf8String.newEmptyInstance();
 
     private Gateserver() {
     }
@@ -210,11 +229,48 @@ public final class GateserverOuterClass {
     }
 
     /**
+     * <code>optional bool unk5 = 678;</code>
+     * @return whether the unk5 field is set
+     */
+    public boolean hasUnk5() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional bool unk5 = 678;</code>
+     * @return this
+     */
+    public Gateserver clearUnk5() {
+      bitField0_ &= ~0x00000008;
+      unk5 = false;
+      return this;
+    }
+
+    /**
+     * <code>optional bool unk5 = 678;</code>
+     * @return the unk5
+     */
+    public boolean getUnk5() {
+      return unk5;
+    }
+
+    /**
+     * <code>optional bool unk5 = 678;</code>
+     * @param value the unk5 to set
+     * @return this
+     */
+    public Gateserver setUnk5(final boolean value) {
+      bitField0_ |= 0x00000008;
+      unk5 = value;
+      return this;
+    }
+
+    /**
      * <code>optional bool unk3 = 1461;</code>
      * @return whether the unk3 field is set
      */
     public boolean hasUnk3() {
-      return (bitField0_ & 0x00000008) != 0;
+      return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
@@ -222,7 +278,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearUnk3() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000010;
       unk3 = false;
       return this;
     }
@@ -241,8 +297,45 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setUnk3(final boolean value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000010;
       unk3 = value;
+      return this;
+    }
+
+    /**
+     * <code>optional bool unk6 = 1727;</code>
+     * @return whether the unk6 field is set
+     */
+    public boolean hasUnk6() {
+      return (bitField0_ & 0x00000020) != 0;
+    }
+
+    /**
+     * <code>optional bool unk6 = 1727;</code>
+     * @return this
+     */
+    public Gateserver clearUnk6() {
+      bitField0_ &= ~0x00000020;
+      unk6 = false;
+      return this;
+    }
+
+    /**
+     * <code>optional bool unk6 = 1727;</code>
+     * @return the unk6
+     */
+    public boolean getUnk6() {
+      return unk6;
+    }
+
+    /**
+     * <code>optional bool unk6 = 1727;</code>
+     * @param value the unk6 to set
+     * @return this
+     */
+    public Gateserver setUnk6(final boolean value) {
+      bitField0_ |= 0x00000020;
+      unk6 = value;
       return this;
     }
 
@@ -251,7 +344,7 @@ public final class GateserverOuterClass {
      * @return whether the unk4 field is set
      */
     public boolean hasUnk4() {
-      return (bitField0_ & 0x00000010) != 0;
+      return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
@@ -259,7 +352,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearUnk4() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000040;
       unk4 = false;
       return this;
     }
@@ -278,7 +371,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setUnk4(final boolean value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000040;
       unk4 = value;
       return this;
     }
@@ -288,7 +381,7 @@ public final class GateserverOuterClass {
      * @return whether the regionName field is set
      */
     public boolean hasRegionName() {
-      return (bitField0_ & 0x00000020) != 0;
+      return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
@@ -296,7 +389,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearRegionName() {
-      bitField0_ &= ~0x00000020;
+      bitField0_ &= ~0x00000080;
       regionName.clear();
       return this;
     }
@@ -322,7 +415,7 @@ public final class GateserverOuterClass {
      * @return internal {@code Utf8String} representation of regionName for modifications
      */
     public Utf8String getMutableRegionNameBytes() {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000080;
       return this.regionName;
     }
 
@@ -332,7 +425,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setRegionName(final CharSequence value) {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000080;
       regionName.copyFrom(value);
       return this;
     }
@@ -343,7 +436,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setRegionName(final Utf8String value) {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000080;
       regionName.copyFrom(value);
       return this;
     }
@@ -353,7 +446,7 @@ public final class GateserverOuterClass {
      * @return whether the luaUrl field is set
      */
     public boolean hasLuaUrl() {
-      return (bitField0_ & 0x00000040) != 0;
+      return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
@@ -361,7 +454,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearLuaUrl() {
-      bitField0_ &= ~0x00000040;
+      bitField0_ &= ~0x00000100;
       luaUrl.clear();
       return this;
     }
@@ -387,7 +480,7 @@ public final class GateserverOuterClass {
      * @return internal {@code Utf8String} representation of luaUrl for modifications
      */
     public Utf8String getMutableLuaUrlBytes() {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000100;
       return this.luaUrl;
     }
 
@@ -397,7 +490,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setLuaUrl(final CharSequence value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000100;
       luaUrl.copyFrom(value);
       return this;
     }
@@ -408,7 +501,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setLuaUrl(final Utf8String value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000100;
       luaUrl.copyFrom(value);
       return this;
     }
@@ -418,7 +511,7 @@ public final class GateserverOuterClass {
      * @return whether the exResourceUrl field is set
      */
     public boolean hasExResourceUrl() {
-      return (bitField0_ & 0x00000080) != 0;
+      return (bitField0_ & 0x00000200) != 0;
     }
 
     /**
@@ -426,7 +519,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearExResourceUrl() {
-      bitField0_ &= ~0x00000080;
+      bitField0_ &= ~0x00000200;
       exResourceUrl.clear();
       return this;
     }
@@ -452,7 +545,7 @@ public final class GateserverOuterClass {
      * @return internal {@code Utf8String} representation of exResourceUrl for modifications
      */
     public Utf8String getMutableExResourceUrlBytes() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000200;
       return this.exResourceUrl;
     }
 
@@ -462,7 +555,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setExResourceUrl(final CharSequence value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000200;
       exResourceUrl.copyFrom(value);
       return this;
     }
@@ -473,7 +566,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setExResourceUrl(final Utf8String value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000200;
       exResourceUrl.copyFrom(value);
       return this;
     }
@@ -483,7 +576,7 @@ public final class GateserverOuterClass {
      * @return whether the assetBundleUrl field is set
      */
     public boolean hasAssetBundleUrl() {
-      return (bitField0_ & 0x00000100) != 0;
+      return (bitField0_ & 0x00000400) != 0;
     }
 
     /**
@@ -491,7 +584,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearAssetBundleUrl() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000400;
       assetBundleUrl.clear();
       return this;
     }
@@ -517,7 +610,7 @@ public final class GateserverOuterClass {
      * @return internal {@code Utf8String} representation of assetBundleUrl for modifications
      */
     public Utf8String getMutableAssetBundleUrlBytes() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       return this.assetBundleUrl;
     }
 
@@ -527,7 +620,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setAssetBundleUrl(final CharSequence value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       assetBundleUrl.copyFrom(value);
       return this;
     }
@@ -538,7 +631,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setAssetBundleUrl(final Utf8String value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       assetBundleUrl.copyFrom(value);
       return this;
     }
@@ -548,7 +641,7 @@ public final class GateserverOuterClass {
      * @return whether the ip field is set
      */
     public boolean hasIp() {
-      return (bitField0_ & 0x00000200) != 0;
+      return (bitField0_ & 0x00000800) != 0;
     }
 
     /**
@@ -556,7 +649,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearIp() {
-      bitField0_ &= ~0x00000200;
+      bitField0_ &= ~0x00000800;
       ip.clear();
       return this;
     }
@@ -582,7 +675,7 @@ public final class GateserverOuterClass {
      * @return internal {@code Utf8String} representation of ip for modifications
      */
     public Utf8String getMutableIpBytes() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000800;
       return this.ip;
     }
 
@@ -592,7 +685,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setIp(final CharSequence value) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000800;
       ip.copyFrom(value);
       return this;
     }
@@ -603,7 +696,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setIp(final Utf8String value) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000800;
       ip.copyFrom(value);
       return this;
     }
@@ -613,7 +706,7 @@ public final class GateserverOuterClass {
      * @return whether the ifixUrl field is set
      */
     public boolean hasIfixUrl() {
-      return (bitField0_ & 0x00000400) != 0;
+      return (bitField0_ & 0x00001000) != 0;
     }
 
     /**
@@ -621,7 +714,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver clearIfixUrl() {
-      bitField0_ &= ~0x00000400;
+      bitField0_ &= ~0x00001000;
       ifixUrl.clear();
       return this;
     }
@@ -647,7 +740,7 @@ public final class GateserverOuterClass {
      * @return internal {@code Utf8String} representation of ifixUrl for modifications
      */
     public Utf8String getMutableIfixUrlBytes() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00001000;
       return this.ifixUrl;
     }
 
@@ -657,7 +750,7 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setIfixUrl(final CharSequence value) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00001000;
       ifixUrl.copyFrom(value);
       return this;
     }
@@ -668,30 +761,107 @@ public final class GateserverOuterClass {
      * @return this
      */
     public Gateserver setIfixUrl(final Utf8String value) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00001000;
       ifixUrl.copyFrom(value);
       return this;
     }
 
     /**
+     * <code>optional string client_secret_key = 1200;</code>
+     * @return whether the clientSecretKey field is set
+     */
+    public boolean hasClientSecretKey() {
+      return (bitField0_ & 0x00002000) != 0;
+    }
+
+    /**
+     * <code>optional string client_secret_key = 1200;</code>
+     * @return this
+     */
+    public Gateserver clearClientSecretKey() {
+      bitField0_ &= ~0x00002000;
+      clientSecretKey.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional string client_secret_key = 1200;</code>
+     * @return the clientSecretKey
+     */
+    public String getClientSecretKey() {
+      return clientSecretKey.getString();
+    }
+
+    /**
+     * <code>optional string client_secret_key = 1200;</code>
+     * @return internal {@code Utf8String} representation of clientSecretKey for reading
+     */
+    public Utf8String getClientSecretKeyBytes() {
+      return this.clientSecretKey;
+    }
+
+    /**
+     * <code>optional string client_secret_key = 1200;</code>
+     * @return internal {@code Utf8String} representation of clientSecretKey for modifications
+     */
+    public Utf8String getMutableClientSecretKeyBytes() {
+      bitField0_ |= 0x00002000;
+      return this.clientSecretKey;
+    }
+
+    /**
+     * <code>optional string client_secret_key = 1200;</code>
+     * @param value the clientSecretKey to set
+     * @return this
+     */
+    public Gateserver setClientSecretKey(final CharSequence value) {
+      bitField0_ |= 0x00002000;
+      clientSecretKey.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional string client_secret_key = 1200;</code>
+     * @param value the clientSecretKey to set
+     * @return this
+     */
+    public Gateserver setClientSecretKey(final Utf8String value) {
+      bitField0_ |= 0x00002000;
+      clientSecretKey.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      * @return whether the mdkResVersion field is set
      */
     public boolean hasMdkResVersion() {
-      return (bitField0_ & 0x00000800) != 0;
+      return (bitField0_ & 0x00004000) != 0;
     }
 
     /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      * @return this
      */
     public Gateserver clearMdkResVersion() {
-      bitField0_ &= ~0x00000800;
+      bitField0_ &= ~0x00004000;
       mdkResVersion.clear();
       return this;
     }
 
     /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      * @return the mdkResVersion
      */
@@ -700,6 +870,10 @@ public final class GateserverOuterClass {
     }
 
     /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      * @return internal {@code Utf8String} representation of mdkResVersion for reading
      */
@@ -708,126 +882,138 @@ public final class GateserverOuterClass {
     }
 
     /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      * @return internal {@code Utf8String} representation of mdkResVersion for modifications
      */
     public Utf8String getMutableMdkResVersionBytes() {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00004000;
       return this.mdkResVersion;
     }
 
     /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      * @param value the mdkResVersion to set
      * @return this
      */
     public Gateserver setMdkResVersion(final CharSequence value) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00004000;
       mdkResVersion.copyFrom(value);
       return this;
     }
 
     /**
+     * <pre>
+     *  lua version
+     * </pre>
+     *
      * <code>optional string mdk_res_version = 1213;</code>
      * @param value the mdkResVersion to set
      * @return this
      */
     public Gateserver setMdkResVersion(final Utf8String value) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00004000;
       mdkResVersion.copyFrom(value);
       return this;
     }
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
-     * @return whether the clientSecretKey field is set
+     * <code>optional string ifix_version = 1268;</code>
+     * @return whether the ifixVersion field is set
      */
-    public boolean hasClientSecretKey() {
-      return (bitField0_ & 0x00001000) != 0;
+    public boolean hasIfixVersion() {
+      return (bitField0_ & 0x00008000) != 0;
     }
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
+     * <code>optional string ifix_version = 1268;</code>
      * @return this
      */
-    public Gateserver clearClientSecretKey() {
-      bitField0_ &= ~0x00001000;
-      clientSecretKey.clear();
+    public Gateserver clearIfixVersion() {
+      bitField0_ &= ~0x00008000;
+      ifixVersion.clear();
       return this;
     }
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
-     * @return the clientSecretKey
+     * <code>optional string ifix_version = 1268;</code>
+     * @return the ifixVersion
      */
-    public String getClientSecretKey() {
-      return clientSecretKey.getString();
+    public String getIfixVersion() {
+      return ifixVersion.getString();
     }
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
-     * @return internal {@code Utf8String} representation of clientSecretKey for reading
+     * <code>optional string ifix_version = 1268;</code>
+     * @return internal {@code Utf8String} representation of ifixVersion for reading
      */
-    public Utf8String getClientSecretKeyBytes() {
-      return this.clientSecretKey;
+    public Utf8String getIfixVersionBytes() {
+      return this.ifixVersion;
     }
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
-     * @return internal {@code Utf8String} representation of clientSecretKey for modifications
+     * <code>optional string ifix_version = 1268;</code>
+     * @return internal {@code Utf8String} representation of ifixVersion for modifications
      */
-    public Utf8String getMutableClientSecretKeyBytes() {
-      bitField0_ |= 0x00001000;
-      return this.clientSecretKey;
+    public Utf8String getMutableIfixVersionBytes() {
+      bitField0_ |= 0x00008000;
+      return this.ifixVersion;
     }
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
-     * @param value the clientSecretKey to set
+     * <code>optional string ifix_version = 1268;</code>
+     * @param value the ifixVersion to set
      * @return this
      */
-    public Gateserver setClientSecretKey(final CharSequence value) {
-      bitField0_ |= 0x00001000;
-      clientSecretKey.copyFrom(value);
+    public Gateserver setIfixVersion(final CharSequence value) {
+      bitField0_ |= 0x00008000;
+      ifixVersion.copyFrom(value);
       return this;
     }
 
     /**
      * <pre>
-     *  Filler
+     *  ifix version
      * </pre>
      *
-     * <code>optional string client_secret_key = 9999;</code>
-     * @param value the clientSecretKey to set
+     * <code>optional string ifix_version = 1268;</code>
+     * @param value the ifixVersion to set
      * @return this
      */
-    public Gateserver setClientSecretKey(final Utf8String value) {
-      bitField0_ |= 0x00001000;
-      clientSecretKey.copyFrom(value);
+    public Gateserver setIfixVersion(final Utf8String value) {
+      bitField0_ |= 0x00008000;
+      ifixVersion.copyFrom(value);
       return this;
     }
 
@@ -839,7 +1025,9 @@ public final class GateserverOuterClass {
         port = other.port;
         unk1 = other.unk1;
         unk2 = other.unk2;
+        unk5 = other.unk5;
         unk3 = other.unk3;
+        unk6 = other.unk6;
         unk4 = other.unk4;
         regionName.copyFrom(other.regionName);
         luaUrl.copyFrom(other.luaUrl);
@@ -847,8 +1035,9 @@ public final class GateserverOuterClass {
         assetBundleUrl.copyFrom(other.assetBundleUrl);
         ip.copyFrom(other.ip);
         ifixUrl.copyFrom(other.ifixUrl);
-        mdkResVersion.copyFrom(other.mdkResVersion);
         clientSecretKey.copyFrom(other.clientSecretKey);
+        mdkResVersion.copyFrom(other.mdkResVersion);
+        ifixVersion.copyFrom(other.ifixVersion);
       }
       return this;
     }
@@ -868,8 +1057,14 @@ public final class GateserverOuterClass {
       if (other.hasUnk2()) {
         setUnk2(other.unk2);
       }
+      if (other.hasUnk5()) {
+        setUnk5(other.unk5);
+      }
       if (other.hasUnk3()) {
         setUnk3(other.unk3);
+      }
+      if (other.hasUnk6()) {
+        setUnk6(other.unk6);
       }
       if (other.hasUnk4()) {
         setUnk4(other.unk4);
@@ -892,11 +1087,14 @@ public final class GateserverOuterClass {
       if (other.hasIfixUrl()) {
         getMutableIfixUrlBytes().copyFrom(other.ifixUrl);
       }
+      if (other.hasClientSecretKey()) {
+        getMutableClientSecretKeyBytes().copyFrom(other.clientSecretKey);
+      }
       if (other.hasMdkResVersion()) {
         getMutableMdkResVersionBytes().copyFrom(other.mdkResVersion);
       }
-      if (other.hasClientSecretKey()) {
-        getMutableClientSecretKeyBytes().copyFrom(other.clientSecretKey);
+      if (other.hasIfixVersion()) {
+        getMutableIfixVersionBytes().copyFrom(other.ifixVersion);
       }
       return this;
     }
@@ -911,7 +1109,9 @@ public final class GateserverOuterClass {
       port = 0;
       unk1 = false;
       unk2 = false;
+      unk5 = false;
       unk3 = false;
+      unk6 = false;
       unk4 = false;
       regionName.clear();
       luaUrl.clear();
@@ -919,8 +1119,9 @@ public final class GateserverOuterClass {
       assetBundleUrl.clear();
       ip.clear();
       ifixUrl.clear();
-      mdkResVersion.clear();
       clientSecretKey.clear();
+      mdkResVersion.clear();
+      ifixVersion.clear();
       return this;
     }
 
@@ -937,8 +1138,9 @@ public final class GateserverOuterClass {
       assetBundleUrl.clear();
       ip.clear();
       ifixUrl.clear();
-      mdkResVersion.clear();
       clientSecretKey.clear();
+      mdkResVersion.clear();
+      ifixVersion.clear();
       return this;
     }
 
@@ -955,7 +1157,9 @@ public final class GateserverOuterClass {
         && (!hasPort() || port == other.port)
         && (!hasUnk1() || unk1 == other.unk1)
         && (!hasUnk2() || unk2 == other.unk2)
+        && (!hasUnk5() || unk5 == other.unk5)
         && (!hasUnk3() || unk3 == other.unk3)
+        && (!hasUnk6() || unk6 == other.unk6)
         && (!hasUnk4() || unk4 == other.unk4)
         && (!hasRegionName() || regionName.equals(other.regionName))
         && (!hasLuaUrl() || luaUrl.equals(other.luaUrl))
@@ -963,8 +1167,9 @@ public final class GateserverOuterClass {
         && (!hasAssetBundleUrl() || assetBundleUrl.equals(other.assetBundleUrl))
         && (!hasIp() || ip.equals(other.ip))
         && (!hasIfixUrl() || ifixUrl.equals(other.ifixUrl))
+        && (!hasClientSecretKey() || clientSecretKey.equals(other.clientSecretKey))
         && (!hasMdkResVersion() || mdkResVersion.equals(other.mdkResVersion))
-        && (!hasClientSecretKey() || clientSecretKey.equals(other.clientSecretKey));
+        && (!hasIfixVersion() || ifixVersion.equals(other.ifixVersion));
     }
 
     @Override
@@ -982,45 +1187,56 @@ public final class GateserverOuterClass {
         output.writeBoolNoTag(unk2);
       }
       if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawLittleEndian16((short) 10928);
+        output.writeBoolNoTag(unk5);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawLittleEndian16((short) 23464);
         output.writeBoolNoTag(unk3);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000020) != 0) {
+        output.writeRawLittleEndian16((short) 27640);
+        output.writeBoolNoTag(unk6);
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawLittleEndian16((short) 28320);
         output.writeBoolNoTag(unk4);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 18);
         output.writeStringNoTag(regionName);
       }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawByte((byte) 42);
         output.writeStringNoTag(luaUrl);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
+      if ((bitField0_ & 0x00000200) != 0) {
         output.writeRawByte((byte) 66);
         output.writeStringNoTag(exResourceUrl);
       }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000400) != 0) {
         output.writeRawByte((byte) 90);
         output.writeStringNoTag(assetBundleUrl);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000800) != 0) {
         output.writeRawByte((byte) 106);
         output.writeStringNoTag(ip);
       }
-      if ((bitField0_ & 0x00000400) != 0) {
+      if ((bitField0_ & 0x00001000) != 0) {
         output.writeRawLittleEndian16((short) 17538);
         output.writeStringNoTag(ifixUrl);
       }
-      if ((bitField0_ & 0x00000800) != 0) {
+      if ((bitField0_ & 0x00002000) != 0) {
+        output.writeRawLittleEndian16((short) 19330);
+        output.writeStringNoTag(clientSecretKey);
+      }
+      if ((bitField0_ & 0x00004000) != 0) {
         output.writeRawLittleEndian16((short) 19434);
         output.writeStringNoTag(mdkResVersion);
       }
-      if ((bitField0_ & 0x00001000) != 0) {
-        output.writeRawLittleEndian16((short) 61690);
-        output.writeRawByte((byte) 4);
-        output.writeStringNoTag(clientSecretKey);
+      if ((bitField0_ & 0x00008000) != 0) {
+        output.writeRawLittleEndian16((short) 20386);
+        output.writeStringNoTag(ifixVersion);
       }
     }
 
@@ -1043,28 +1259,37 @@ public final class GateserverOuterClass {
         size += 3;
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(regionName);
+        size += 3;
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(luaUrl);
+        size += 3;
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(exResourceUrl);
+        size += 1 + ProtoSink.computeStringSizeNoTag(regionName);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(assetBundleUrl);
+        size += 1 + ProtoSink.computeStringSizeNoTag(luaUrl);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(ip);
+        size += 1 + ProtoSink.computeStringSizeNoTag(exResourceUrl);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        size += 2 + ProtoSink.computeStringSizeNoTag(ifixUrl);
+        size += 1 + ProtoSink.computeStringSizeNoTag(assetBundleUrl);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        size += 2 + ProtoSink.computeStringSizeNoTag(mdkResVersion);
+        size += 1 + ProtoSink.computeStringSizeNoTag(ip);
       }
       if ((bitField0_ & 0x00001000) != 0) {
-        size += 3 + ProtoSink.computeStringSizeNoTag(clientSecretKey);
+        size += 2 + ProtoSink.computeStringSizeNoTag(ifixUrl);
+      }
+      if ((bitField0_ & 0x00002000) != 0) {
+        size += 2 + ProtoSink.computeStringSizeNoTag(clientSecretKey);
+      }
+      if ((bitField0_ & 0x00004000) != 0) {
+        size += 2 + ProtoSink.computeStringSizeNoTag(mdkResVersion);
+      }
+      if ((bitField0_ & 0x00008000) != 0) {
+        size += 2 + ProtoSink.computeStringSizeNoTag(ifixVersion);
       }
       return size;
     }
@@ -1099,6 +1324,15 @@ public final class GateserverOuterClass {
             unk2 = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
+            if (tag != 5424) {
+              break;
+            }
+          }
+          case 5424: {
+            // unk5
+            unk5 = input.readBool();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
             if (tag != 11688) {
               break;
             }
@@ -1106,7 +1340,16 @@ public final class GateserverOuterClass {
           case 11688: {
             // unk3
             unk3 = input.readBool();
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 13816) {
+              break;
+            }
+          }
+          case 13816: {
+            // unk6
+            unk6 = input.readBool();
+            bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 14112) {
               break;
@@ -1115,7 +1358,7 @@ public final class GateserverOuterClass {
           case 14112: {
             // unk4
             unk4 = input.readBool();
-            bitField0_ |= 0x00000010;
+            bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 18) {
               break;
@@ -1124,7 +1367,7 @@ public final class GateserverOuterClass {
           case 18: {
             // regionName
             input.readString(regionName);
-            bitField0_ |= 0x00000020;
+            bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 42) {
               break;
@@ -1133,7 +1376,7 @@ public final class GateserverOuterClass {
           case 42: {
             // luaUrl
             input.readString(luaUrl);
-            bitField0_ |= 0x00000040;
+            bitField0_ |= 0x00000100;
             tag = input.readTag();
             if (tag != 66) {
               break;
@@ -1142,7 +1385,7 @@ public final class GateserverOuterClass {
           case 66: {
             // exResourceUrl
             input.readString(exResourceUrl);
-            bitField0_ |= 0x00000080;
+            bitField0_ |= 0x00000200;
             tag = input.readTag();
             if (tag != 90) {
               break;
@@ -1151,7 +1394,7 @@ public final class GateserverOuterClass {
           case 90: {
             // assetBundleUrl
             input.readString(assetBundleUrl);
-            bitField0_ |= 0x00000100;
+            bitField0_ |= 0x00000400;
             tag = input.readTag();
             if (tag != 106) {
               break;
@@ -1160,7 +1403,7 @@ public final class GateserverOuterClass {
           case 106: {
             // ip
             input.readString(ip);
-            bitField0_ |= 0x00000200;
+            bitField0_ |= 0x00000800;
             tag = input.readTag();
             if (tag != 8706) {
               break;
@@ -1169,7 +1412,16 @@ public final class GateserverOuterClass {
           case 8706: {
             // ifixUrl
             input.readString(ifixUrl);
-            bitField0_ |= 0x00000400;
+            bitField0_ |= 0x00001000;
+            tag = input.readTag();
+            if (tag != 9602) {
+              break;
+            }
+          }
+          case 9602: {
+            // clientSecretKey
+            input.readString(clientSecretKey);
+            bitField0_ |= 0x00002000;
             tag = input.readTag();
             if (tag != 9706) {
               break;
@@ -1178,16 +1430,16 @@ public final class GateserverOuterClass {
           case 9706: {
             // mdkResVersion
             input.readString(mdkResVersion);
-            bitField0_ |= 0x00000800;
+            bitField0_ |= 0x00004000;
             tag = input.readTag();
-            if (tag != 79994) {
+            if (tag != 10146) {
               break;
             }
           }
-          case 79994: {
-            // clientSecretKey
-            input.readString(clientSecretKey);
-            bitField0_ |= 0x00001000;
+          case 10146: {
+            // ifixVersion
+            input.readString(ifixVersion);
+            bitField0_ |= 0x00008000;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -1220,34 +1472,43 @@ public final class GateserverOuterClass {
         output.writeBool(FieldNames.unk2, unk2);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeBool(FieldNames.unk3, unk3);
+        output.writeBool(FieldNames.unk5, unk5);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeBool(FieldNames.unk4, unk4);
+        output.writeBool(FieldNames.unk3, unk3);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeString(FieldNames.regionName, regionName);
+        output.writeBool(FieldNames.unk6, unk6);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeString(FieldNames.luaUrl, luaUrl);
+        output.writeBool(FieldNames.unk4, unk4);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeString(FieldNames.exResourceUrl, exResourceUrl);
+        output.writeString(FieldNames.regionName, regionName);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeString(FieldNames.assetBundleUrl, assetBundleUrl);
+        output.writeString(FieldNames.luaUrl, luaUrl);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeString(FieldNames.ip, ip);
+        output.writeString(FieldNames.exResourceUrl, exResourceUrl);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        output.writeString(FieldNames.ifixUrl, ifixUrl);
+        output.writeString(FieldNames.assetBundleUrl, assetBundleUrl);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        output.writeString(FieldNames.mdkResVersion, mdkResVersion);
+        output.writeString(FieldNames.ip, ip);
       }
       if ((bitField0_ & 0x00001000) != 0) {
+        output.writeString(FieldNames.ifixUrl, ifixUrl);
+      }
+      if ((bitField0_ & 0x00002000) != 0) {
         output.writeString(FieldNames.clientSecretKey, clientSecretKey);
+      }
+      if ((bitField0_ & 0x00004000) != 0) {
+        output.writeString(FieldNames.mdkResVersion, mdkResVersion);
+      }
+      if ((bitField0_ & 0x00008000) != 0) {
+        output.writeString(FieldNames.ifixVersion, ifixVersion);
       }
       output.endObject();
     }
@@ -1292,11 +1553,33 @@ public final class GateserverOuterClass {
             }
             break;
           }
+          case 3594627: {
+            if (input.isAtField(FieldNames.unk5)) {
+              if (!input.trySkipNullValue()) {
+                unk5 = input.readBool();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 3594625: {
             if (input.isAtField(FieldNames.unk3)) {
               if (!input.trySkipNullValue()) {
                 unk3 = input.readBool();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000010;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 3594628: {
+            if (input.isAtField(FieldNames.unk6)) {
+              if (!input.trySkipNullValue()) {
+                unk6 = input.readBool();
+                bitField0_ |= 0x00000020;
               }
             } else {
               input.skipUnknownField();
@@ -1307,7 +1590,7 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.unk4)) {
               if (!input.trySkipNullValue()) {
                 unk4 = input.readBool();
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -1319,7 +1602,7 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.regionName)) {
               if (!input.trySkipNullValue()) {
                 input.readString(regionName);
-                bitField0_ |= 0x00000020;
+                bitField0_ |= 0x00000080;
               }
             } else {
               input.skipUnknownField();
@@ -1331,7 +1614,7 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.luaUrl)) {
               if (!input.trySkipNullValue()) {
                 input.readString(luaUrl);
-                bitField0_ |= 0x00000040;
+                bitField0_ |= 0x00000100;
               }
             } else {
               input.skipUnknownField();
@@ -1343,7 +1626,7 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.exResourceUrl)) {
               if (!input.trySkipNullValue()) {
                 input.readString(exResourceUrl);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000200;
               }
             } else {
               input.skipUnknownField();
@@ -1355,7 +1638,7 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.assetBundleUrl)) {
               if (!input.trySkipNullValue()) {
                 input.readString(assetBundleUrl);
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00000400;
               }
             } else {
               input.skipUnknownField();
@@ -1366,7 +1649,7 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.ip)) {
               if (!input.trySkipNullValue()) {
                 input.readString(ip);
-                bitField0_ |= 0x00000200;
+                bitField0_ |= 0x00000800;
               }
             } else {
               input.skipUnknownField();
@@ -1378,19 +1661,7 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.ifixUrl)) {
               if (!input.trySkipNullValue()) {
                 input.readString(ifixUrl);
-                bitField0_ |= 0x00000400;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1415579412:
-          case -204279250: {
-            if (input.isAtField(FieldNames.mdkResVersion)) {
-              if (!input.trySkipNullValue()) {
-                input.readString(mdkResVersion);
-                bitField0_ |= 0x00000800;
+                bitField0_ |= 0x00001000;
               }
             } else {
               input.skipUnknownField();
@@ -1402,7 +1673,31 @@ public final class GateserverOuterClass {
             if (input.isAtField(FieldNames.clientSecretKey)) {
               if (!input.trySkipNullValue()) {
                 input.readString(clientSecretKey);
-                bitField0_ |= 0x00001000;
+                bitField0_ |= 0x00002000;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1415579412:
+          case -204279250: {
+            if (input.isAtField(FieldNames.mdkResVersion)) {
+              if (!input.trySkipNullValue()) {
+                input.readString(mdkResVersion);
+                bitField0_ |= 0x00004000;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1625073708:
+          case -827048283: {
+            if (input.isAtField(FieldNames.ifixVersion)) {
+              if (!input.trySkipNullValue()) {
+                input.readString(ifixVersion);
+                bitField0_ |= 0x00008000;
               }
             } else {
               input.skipUnknownField();
@@ -1467,7 +1762,11 @@ public final class GateserverOuterClass {
 
       static final FieldName unk2 = FieldName.forField("unk2");
 
+      static final FieldName unk5 = FieldName.forField("unk5");
+
       static final FieldName unk3 = FieldName.forField("unk3");
+
+      static final FieldName unk6 = FieldName.forField("unk6");
 
       static final FieldName unk4 = FieldName.forField("unk4");
 
@@ -1483,9 +1782,11 @@ public final class GateserverOuterClass {
 
       static final FieldName ifixUrl = FieldName.forField("ifixUrl", "ifix_url");
 
+      static final FieldName clientSecretKey = FieldName.forField("clientSecretKey", "client_secret_key");
+
       static final FieldName mdkResVersion = FieldName.forField("mdkResVersion", "mdk_res_version");
 
-      static final FieldName clientSecretKey = FieldName.forField("clientSecretKey", "client_secret_key");
+      static final FieldName ifixVersion = FieldName.forField("ifixVersion", "ifix_version");
     }
   }
 }
