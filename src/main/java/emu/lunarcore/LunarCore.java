@@ -26,7 +26,7 @@ import lombok.Getter;
 public class LunarCore {
     private static final Logger log = (Logger) LoggerFactory.getLogger(LunarCore.class);
     private static File configFile = new File("./config.json");
-    private static Config config;
+    @Getter private static Config config;
 
     @Getter private static DatabaseManager accountDatabase;
     @Getter private static DatabaseManager gameDatabase;
@@ -36,7 +36,7 @@ public class LunarCore {
 
     @Getter private static CommandManager commandManager;
     @Getter private static ServerType serverType = ServerType.BOTH;
-    
+
     private static LineReaderImpl reader;
     @Getter private static boolean usingDumbTerminal;
 
@@ -46,12 +46,12 @@ public class LunarCore {
             reader = (LineReaderImpl) LineReaderBuilder.builder()
                     .terminal(TerminalBuilder.builder().dumb(true).build())
                     .build();
-            
+
             usingDumbTerminal = Terminal.TYPE_DUMB.equals(reader.getTerminal().getType());
         } catch (IOException e) {
             e.printStackTrace();
         }
-        
+
         // Load config
         LunarCore.loadConfig();
     }
@@ -62,7 +62,7 @@ public class LunarCore {
         LunarCore.getLogger().info("Git hash: " + getGitHash());
         LunarCore.getLogger().info("Game version: " + GameConstants.VERSION);
         boolean generateHandbook = true;
-        
+
         // Load commands
         LunarCore.commandManager = new CommandManager();
 
@@ -88,7 +88,7 @@ public class LunarCore {
                 return;
             }
         }
-        
+
         // Skip these if we are only running the http server in dispatch mode
         if (serverType.runGame()) {
             // Load resources
@@ -100,19 +100,29 @@ public class LunarCore {
             }
         }
 
-        // Start Database(s)
-        LunarCore.initDatabases();
+        try {
+            // Start Database(s)
+            LunarCore.initDatabases();
+        } catch (Exception exception) {
+            LunarCore.getLogger().error("Unable to start the database(s).", exception);
+        }
 
-        // Always run http server as it is needed by for dispatch and gateserver
-        httpServer = new HttpServer(serverType);
-        httpServer.start();
+        try {
+            // Always run http server as it is needed by for dispatch and gateserver
+            httpServer = new HttpServer(serverType);
+            httpServer.start();
+        } catch (Exception exception) {
+            LunarCore.getLogger().error("Unable to start the HTTP server.", exception);
+        }
 
         // Start game server
-        if (serverType.runGame()) {
+        if (serverType.runGame()) try {
             gameServer = new GameServer(getConfig().getGameServer());
             gameServer.start();
+        } catch (Exception exception) {
+            LunarCore.getLogger().error("Unable to start the game server.", exception);
         }
-        
+
         // Hook into shutdown event
         Runtime.getRuntime().addShutdownHook(new Thread(LunarCore::onShutdown));
 
@@ -120,14 +130,10 @@ public class LunarCore {
         LunarCore.startConsole();
     }
 
-    public static Config getConfig() {
-        return config;
-    }
-
     public static Logger getLogger() {
         return log;
     }
-    
+
     public static LineReaderImpl getLineReader() {
         return reader;
     }
@@ -171,7 +177,7 @@ public class LunarCore {
             getLogger().error("Config save error");
         }
     }
-    
+
     // Git hash
 
     private static String getGitHash() {
@@ -186,7 +192,7 @@ public class LunarCore {
     }
 
     // Server console
-    
+
     private static void startConsole() {
         try {
             while (true) {
@@ -194,9 +200,9 @@ public class LunarCore {
                 if (input == null || input.length() == 0) {
                     continue;
                 }
-                
+
                 LunarCore.getCommandManager().invoke(null, input);
-            } 
+            }
         } catch (UserInterruptException | EndOfFileException e) {
             // CTRL + C / CTRL + D
             System.exit(0);
@@ -204,9 +210,9 @@ public class LunarCore {
             LunarCore.getLogger().error("Terminal error: ", e);
         }
     }
-    
+
     // Shutdown event
-    
+
     private static void onShutdown() {
         if (gameServer != null) {
             gameServer.onShutdown();
@@ -222,7 +228,7 @@ public class LunarCore {
 
         private final int flags;
 
-        private ServerType(int flags) {
+        ServerType(int flags) {
             this.flags = flags;
         }
 
