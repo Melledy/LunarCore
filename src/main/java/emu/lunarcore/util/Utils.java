@@ -1,6 +1,10 @@
 package emu.lunarcore.util;
 
 import java.io.File;
+import java.net.InetAddress;
+import java.net.InetSocketAddress;
+import java.net.ServerSocket;
+import java.net.Socket;
 import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -75,7 +79,7 @@ public class Utils {
     public static long getCurrentSeconds() {
         return Math.floorDiv(System.currentTimeMillis(), 1000);
     }
-    
+
     public static int getMinPromotionForLevel(int level) {
         return Math.max(Math.min((int) ((level - 11) / 10D), 6), 0);
     }
@@ -84,7 +88,7 @@ public class Utils {
         if (s == null) {
             return 0;
         }
-        
+
         int i = 0;
 
         try {
@@ -100,7 +104,7 @@ public class Utils {
         if (s == null) {
             return 0;
         }
-        
+
         long i = 0;
 
         try {
@@ -127,7 +131,7 @@ public class Utils {
     public static <T> T randomElement(List<T> list) {
         return list.get(ThreadLocalRandom.current().nextInt(0, list.size()));
     }
-    
+
     /**
      * Checks if an integer array contains a value
      * @param array
@@ -135,7 +139,7 @@ public class Utils {
      */
     public static boolean arrayContains(int[] array, int value) {
         for (int i = 0; i < array.length; i++) {
-            if (array[i] == value) return true; 
+            if (array[i] == value) return true;
         }
         return false;
     }
@@ -156,5 +160,22 @@ public class Utils {
      */
     public static byte[] base64Decode(String toDecode) {
         return Base64.getDecoder().decode(toDecode);
+    }
+
+    /**
+     * Checks if a port is open on a given host.
+     *
+     * @param host The host to check.
+     * @param port The port to check.
+     * @return True if the port is open, false otherwise.
+     */
+    public static boolean isPortOpen(String host, int port) {
+        try (var serverSocket = new ServerSocket()) {
+            serverSocket.setReuseAddress(false);
+            serverSocket.bind(new InetSocketAddress(InetAddress.getByName(host), port), 1);
+            return true;
+        } catch (Exception ex) {
+            return false;
+        }
     }
 }

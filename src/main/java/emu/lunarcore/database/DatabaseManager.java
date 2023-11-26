@@ -2,6 +2,7 @@ package emu.lunarcore.database;
 
 import java.util.stream.Stream;
 
+import emu.lunarcore.util.Utils;
 import org.bson.codecs.configuration.CodecRegistries;
 import org.reflections.Reflections;
 
@@ -36,22 +37,23 @@ import lombok.Getter;
 public final class DatabaseManager {
     @Getter private static MongoServer server;
     private Datastore datastore;
-    
+
     private final DeleteOptions DELETE_MANY = new DeleteOptions().multi(true);
 
     public DatabaseManager(DatabaseInfo info, ServerType type) {
         // Variables
+        var internalConfig = LunarCore.getConfig().getInternalMongoServer();
         String connectionString = info.getUri();
 
         // Local mongo server
-        if (info.isUseInternal()) {
-            connectionString = startInternalMongoServer(LunarCore.getConfig().getInternalMongoServer());
+        if (info.isUseInternal() && Utils.isPortOpen(internalConfig.getAddress(), internalConfig.getPort())) {
+            connectionString = startInternalMongoServer(internalConfig);
             LunarCore.getLogger().info("Using local mongo server at " + server.getConnectionString());
         }
 
         // Initialize
         MongoClient gameMongoClient = MongoClients.create(connectionString);
-        
+
         // Add our custom fastutil codecs
         var codecProvider = CodecRegistries.fromCodecs(
                new IntSetCodec(), new Int2IntMapCodec()
@@ -76,13 +78,13 @@ public final class DatabaseManager {
                     return e != null && !e.value().equals(Mapper.IGNORED_FIELDNAME);
                 })
                 .toList();
-        
+
         if (type.runDispatch()) {
             // Only map account related entities
             var map = entities.stream().filter(cls -> {
                 return cls.getAnnotation(AccountDatabaseOnly.class) != null;
             }).toArray(Class<?>[]::new);
-            
+
             datastore.getMapper().map(map);
         }
         if (type.runGame()) {
@@ -90,7 +92,7 @@ public final class DatabaseManager {
             var map = entities.stream().filter(cls -> {
                 return cls.getAnnotation(AccountDatabaseOnly.class) == null;
             }).toArray(Class<?>[]::new);
-            
+
             datastore.getMapper().map(map);
         }
 
@@ -171,7 +173,7 @@ public final class DatabaseManager {
             getDatastore().save(counter);
         }
     }
-    
+
     // Internal MongoDB server
 
     public static String startInternalMongoServer(InternalMongoInfo internalMongo) {
