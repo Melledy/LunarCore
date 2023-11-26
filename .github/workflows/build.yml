@@ -41,4 +41,4 @@ jobs:
           uses: actions/upload-artifact@v3
           with:
             name: LunarCore
-            path: LunarCore-*.jar
+            path: LunarCore.jar
