@@ -1,9 +1,6 @@
 package emu.lunarcore.util;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 import java.util.List;
 import java.util.Map;
@@ -13,6 +10,7 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonElement;
 import com.google.gson.reflect.TypeToken;
+import emu.lunarcore.LunarCore;
 
 public class JsonUtils {
     private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
@@ -101,6 +99,9 @@ public class JsonUtils {
     public static <T1, T2> Map<T1, T2> loadToMap(String filename, Class<T1> keyType, Class<T2> valueType) throws IOException {
         try (InputStreamReader fileReader = new InputStreamReader(new FileInputStream(Utils.toFilePath(filename)), StandardCharsets.UTF_8)) {
             return loadToMap(fileReader, keyType, valueType);
+        } catch (FileNotFoundException ignored) {
+            LunarCore.getLogger().error("File not found: {}.", filename);
+            return null;
         }
     }
 }
