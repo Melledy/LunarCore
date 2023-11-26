@@ -26,6 +26,8 @@ compileTestJava.options.encoding = "UTF-8"
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
+version = '1.0.0'
+
 var shouldGenerateProto = System.getenv("GENERATE_PROTO") == "true"
 System.out.println(shouldGenerateProto ?
         "Generating proto files" :
@@ -178,6 +180,7 @@ tasks.register('injectGitHash') {
 package emu.lunarcore;
 
 public final class BuildConfig {
+	public static final String VERSION = \"${version}\";
     public static final String GIT_HASH = \"${gitCommitHash()}\";
 }
 """
