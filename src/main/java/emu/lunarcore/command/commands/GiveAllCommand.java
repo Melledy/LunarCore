@@ -96,12 +96,12 @@ public class GiveAllCommand implements CommandHandler {
                         }
                         
                         // Add avatar
-                        target.getInventory().addItem(excel, 1);
-                        
-                        // Set avatar properties
-                        GameAvatar avatar = target.getAvatarById(excel.getId());
-                        if (avatar != null) {
-                            args.setProperties(avatar);
+                        var avatarExcel = GameData.getAvatarExcelMap().get(excel.getId());
+                        if (avatarExcel != null) {
+                            GameAvatar avatar = new GameAvatar(avatarExcel);
+                            args.setProperties(avatar); // Set avatar properties
+                            
+                            target.getAvatars().addAvatar(avatar);
                         }
                     } else if (excel.getItemSubType() == ItemSubType.Eidolon) {
                         // Add eidolons

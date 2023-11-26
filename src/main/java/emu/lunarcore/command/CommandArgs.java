@@ -94,13 +94,7 @@ public class CommandArgs {
      */
     public boolean setProperties(GameAvatar avatar) {
         boolean hasChanged = false;
-        
-        // Try to set level
-        if (this.getLevel() > 0) {
-            avatar.setLevel(this.getLevel());
-            hasChanged = true;
-        }
-        
+
         // Try to set level
         if (this.getLevel() > 0) {
             avatar.setLevel(Math.min(this.getLevel(), 80));
