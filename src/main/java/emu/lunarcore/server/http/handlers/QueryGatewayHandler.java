@@ -26,14 +26,10 @@ public class QueryGatewayHandler implements Handler {
                 .setPort(LunarCore.getConfig().getGameServer().getPort())
                 .setUnk1(true)
                 .setUnk2(true)
-                .setUnk3(true);
-        
-        // Set streaming data
-        if (data.mdkVersion != null) {
-            gateserver.setMdkResVersion(data.mdkVersion);
-        } else {
-            gateserver.setMdkResVersion("");
-        }
+                .setUnk3(true)
+                .setUnk4(true)
+                .setUnk5(true)
+                .setUnk6(true);
         
         if (data.assetBundleUrl != null) {
             gateserver.setAssetBundleUrl(data.assetBundleUrl);
@@ -43,9 +39,15 @@ public class QueryGatewayHandler implements Handler {
         }
         if (data.luaUrl != null) {
             gateserver.setLuaUrl(data.luaUrl);
+            gateserver.setMdkResVersion(
+                data.luaUrl.split("/")[data.luaUrl.split("/").length - 1].split("_")[1]
+            );
         }
         if (data.ifixUrl != null) {
             gateserver.setIfixUrl(data.ifixUrl);
+            gateserver.setIfixVersion(
+                data.ifixUrl.split("/")[data.ifixUrl.split("/").length - 1].split("_")[1]
+            );
         }
 
         // Log
