@@ -104,7 +104,9 @@ configurations.all {
 }
 
 clean {
-    delete protobuf.generatedFilesBaseDir
+    if (shouldGenerateProto) {
+        delete protobuf.generatedFilesBaseDir
+    }
 }
 
 application {
