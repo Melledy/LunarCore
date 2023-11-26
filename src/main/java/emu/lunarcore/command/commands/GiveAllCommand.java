@@ -25,14 +25,15 @@ public class GiveAllCommand implements CommandHandler {
             this.sendMessage(sender, "Error: Targeted player not found or offline");
             return;
         }
-        
+
         Player target = args.getTarget();
         String type = args.get(0).toLowerCase();
-        
+
         switch (type) {
+            default -> this.sendMessage(sender, "Error: Invalid type");
             case "m", "materials", "mats" -> {
                 List<GameItem> items = new ArrayList<>();
-                
+
                 // Character/Relic/Lightcone upgrade materials
                 for (ItemExcel excel : GameData.getItemExcelMap().values()) {
                     int purpose = excel.getPurposeType();
@@ -40,13 +41,13 @@ public class GiveAllCommand implements CommandHandler {
                         items.add(new GameItem(excel, 1000));
                     }
                 }
-                
+
                 // Credits
                 items.add(new GameItem(2, 50_000_000));
-                
+
                 // Add to target's inventory
                 target.getInventory().addItems(items, true);
-                
+
                 // Send message
                 this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " items");
             }
@@ -61,10 +62,10 @@ public class GiveAllCommand implements CommandHandler {
                             return item;
                         })
                         .toList();
-                
+
                 // Add to target's inventory
                 target.getInventory().addItems(items, true);
-                
+
                 // Send message
                 this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " light cones");
             }
@@ -79,10 +80,10 @@ public class GiveAllCommand implements CommandHandler {
                             return item;
                         })
                         .toList();
-                
+
                 // Add to target's inventory
                 target.getInventory().addItems(items, true);
-                
+
                 // Send message
                 this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " relics");
             }
@@ -94,13 +95,13 @@ public class GiveAllCommand implements CommandHandler {
                         if (target.getAvatars().hasAvatar(excel.getId())) {
                             continue;
                         }
-                        
+
                         // Add avatar
                         var avatarExcel = GameData.getAvatarExcelMap().get(excel.getId());
                         if (avatarExcel != null) {
                             GameAvatar avatar = new GameAvatar(avatarExcel);
                             args.setProperties(avatar); // Set avatar properties
-                            
+
                             target.getAvatars().addAvatar(avatar);
                         }
                     } else if (excel.getItemSubType() == ItemSubType.Eidolon) {
@@ -108,7 +109,7 @@ public class GiveAllCommand implements CommandHandler {
                         target.getInventory().addItem(excel, 6);
                     }
                 }
-                
+
                 // Send message
                 this.sendMessage(sender, "Giving " + target.getName() + " all avatars");
             }
