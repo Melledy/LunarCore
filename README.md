@@ -1,5 +1,6 @@
 # Lunar Core
-A game server reimplementation for version 1.5.0 of a certain turn-based anime game for educational purposes. For any extra support, questions, or discussions, check out our [discord](https://discord.gg/cfPKJ6N5hw).
+A game server reimplementation for version 1.5.0 of a certain turn-based anime game for educational purposes.\
+For any extra support, questions, or discussions, check out our [Discord](https://discord.gg/cfPKJ6N5hw).
 
 ### Notable features
 - Basic game features: Logging in, team setup, inventory, basic scene/entity management
@@ -26,15 +27,15 @@ A game server reimplementation for version 1.5.0 of a certain turn-based anime g
 2. Open your system terminal, and compile the server with `./gradlew jar`
 3. Create a folder named `resources` in your server directory
 4. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
-5. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resouces folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
-6. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway.
+5. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resources folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
+6. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no MongoDB installation is required. However, it is highly recommended to install Mongodb anyway.
 7. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
 
 ### Connecting with the client (Fiddler)
-1. **Login with the client to an official server and Hoyoverse account at least once to download game data.**
+1. **Login with the client to an official server and HoYoverse account at least once to download game data.**
 2. Install and have [Fiddler Classic](https://www.telerik.com/fiddler) running.
-3. Set fiddler to decrypt https traffic. (Tools -> Options -> HTTPS -> Decrypt HTTPS traffic) Make sure `ignore server certificate errors` is checked as well.
-4. Copy and paste the following code into the Fiddlerscript tab of Fiddler Classic:
+3. Set Fiddler to decrypt https traffic. (Tools -> Options -> HTTPS -> Decrypt HTTPS traffic) Make sure `Ignore server certificate errors` is checked as well.
+4. Copy and paste the following code into the `Fiddlerscript` tab of Fiddler Classic:
 
 ```
 import System;
