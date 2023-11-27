@@ -1,3 +1,5 @@
+[EN](README.md) | [简中](docs/README_zh-CN.md) | [日本語](docs/README_ja-JP.md)
+
 # Lunar Core
 A game server reimplementation for version 1.5.0 of a certain turn-based anime game for educational purposes. For any extra support, questions, or discussions, check out our [discord](https://discord.gg/cfPKJ6N5hw).
 
