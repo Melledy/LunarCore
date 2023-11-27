@@ -206,6 +206,14 @@ public class GameItem {
         ItemSubAffix subAffix = Utils.randomElement(this.subAffixes);
         subAffix.incrementCount();
     }
+    
+    public int getTotalSubAffixCount() {
+        if (this.subAffixes == null) return 0;
+        
+        return this.subAffixes
+                .stream()
+                .reduce(0, (subtotal, subAffix) -> subtotal + subAffix.getCount(), Integer::sum);
+    }
 
     // Database
 
@@ -277,4 +285,5 @@ public class GameItem {
                 .setPromotion(this.getPromotion())
                 .setUniqueId(this.getInternalUid());
     }
+
 }

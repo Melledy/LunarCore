@@ -144,22 +144,39 @@ public class CommandArgs {
             if (this.getLevel() > 0) {
                 item.setLevel(Math.min(this.getLevel(), 80));
                 item.setPromotion(Utils.getMinPromotionForLevel(item.getLevel()));
+                hasChanged = true;
             }
             
             // Try to set promotion
             if (this.getPromotion() >= 0) {
                 item.setPromotion(Math.min(this.getPromotion(), item.getExcel().getEquipmentExcel().getMaxPromotion()));
+                hasChanged = true;
             }
             
             // Try to set rank (superimposition)
             if (this.getRank() >= 0) {
                 item.setRank(Math.min(this.getRank(), item.getExcel().getEquipmentExcel().getMaxRank()));
+                hasChanged = true;
             }
         } else if (item.getExcel().isRelic()) {
             // Try to set level
             if (this.getLevel() > 0) {
+                int oldLevel = item.getLevel();
+                int upgrades = 0;
+                
                 item.setLevel(Math.min(this.getLevel(), 15));
-                // TODO add substats
+                
+                for (int i = oldLevel + 1; i <= item.getLevel(); i++) {
+                    if (i % 3 == 0) {
+                        upgrades++;
+                    }
+                }
+                
+                if (upgrades > 0) {
+                    item.addSubAffixes(upgrades);
+                }
+                
+                hasChanged = true;
             }
         }
         
