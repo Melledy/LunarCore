@@ -34,6 +34,9 @@ public class ShopGoodsExcel extends GameResource {
     
     @Override
     public void onLoad() {
+        // Skip if we dont have an item id associated with this goods excel
+        if (this.getItemID() == 0) return;
+        
         // Add to shop excel
         ShopExcel shop = GameData.getShopExcelMap().get(this.ShopID);
         if (shop == null) return;
