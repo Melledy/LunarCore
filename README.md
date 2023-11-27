@@ -1,3 +1,5 @@
+[EN](README.md) | [简中](docs/README_zh-CN.md) | [日本語](docs/README_ja-JP.md)
+
 # Lunar Core
 **_Language_**
 
