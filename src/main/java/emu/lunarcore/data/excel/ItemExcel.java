@@ -44,6 +44,10 @@ public class ItemExcel extends GameResource {
         return ItemMainType == emu.lunarcore.game.enums.ItemMainType.Equipment && this.getEquipmentExcel() != null;
     }
 
+    public boolean isHeadIcon() {
+        return ItemSubType == emu.lunarcore.game.enums.ItemSubType.HeadIcon;
+    }
+
     public boolean isRelic() {
         return ItemMainType == emu.lunarcore.game.enums.ItemMainType.Relic && this.getRelicExcel() != null;
     }

@@ -31,6 +31,7 @@ public class GameData {
     @Getter private static Int2ObjectMap<HeroExcel> heroExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ShopExcel> shopExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RewardExcel> rewardExcelMap = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<PlayerIconExcel> playerIconExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ItemComposeExcel> itemComposeExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ActivityPanelExcel> activityPanelExcelMap = new Int2ObjectOpenHashMap<>();
     
@@ -102,6 +103,17 @@ public class GameData {
         for (Int2ObjectMap.Entry<PhoneThemeExcel> entry : phoneThemeExcelMap.int2ObjectEntrySet()) {
             PhoneThemeExcel phoneThemeExcel = entry.getValue();
             allIds.add(phoneThemeExcel.getId());
+        }
+
+        return allIds;
+    }
+
+    public static List<Integer> getAllIconHeads() {
+        List<Integer> allIds = new ArrayList<>();
+
+        for (Int2ObjectMap.Entry<PlayerIconExcel> entry : playerIconExcelMap.int2ObjectEntrySet()) {
+            PlayerIconExcel playerIconExcel = entry.getValue();
+            allIds.add(playerIconExcel.getId());
         }
 
         return allIds;
