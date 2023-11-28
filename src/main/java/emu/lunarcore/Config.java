@@ -130,6 +130,7 @@ public class Config {
         public boolean commands = true;
         public boolean connections = true;
         public boolean packets = false;
+        public boolean loopPackets = false;
     }
     
     @Getter
