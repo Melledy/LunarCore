@@ -128,9 +128,9 @@ public class CommandManager {
             }
         } else {
             if (sender != null) {
-                sender.sendMessage("Inavlid Command!");
+                sender.sendMessage("Invalid Command!");
             } else {
-                LunarCore.getLogger().info("Inavlid Command!");
+                LunarCore.getLogger().info("Invalid Command!");
             }
         }
     }
