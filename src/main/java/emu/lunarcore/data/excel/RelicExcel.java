@@ -26,6 +26,9 @@ public class RelicExcel extends GameResource {
     public int getId() {
         return ID;
     }
+    public int getSetId() {
+        return SetID;
+    }
 
     @Override
     public void onLoad() {
