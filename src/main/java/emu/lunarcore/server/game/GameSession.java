@@ -127,7 +127,7 @@ public class GameSession {
 
                 // Log packet
                 if (LunarCore.getConfig().getLogOptions().packets) {
-                    if (LunarCore.getConfig().getLogOptions().loopPackets && CmdIdUtils.LOOP_PACKETS.contains(opcode)) {
+                    if (LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(opcode)) {
                         return;
                     }
                     
@@ -156,7 +156,7 @@ public class GameSession {
 
         // Log
         if (LunarCore.getConfig().getLogOptions().packets) {
-            if (LunarCore.getConfig().getLogOptions().loopPackets && CmdIdUtils.LOOP_PACKETS.contains(packet.getOpcode())) {
+            if (LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(packet.getOpcode())) {
                 return;
             }
             
@@ -175,7 +175,7 @@ public class GameSession {
             
             // Log
             if (LunarCore.getConfig().getLogOptions().packets) {
-                if (LunarCore.getConfig().getLogOptions().loopPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId)) {
+                if (LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId)) {
                     return;
                 }
 
