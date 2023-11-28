@@ -75,6 +75,8 @@ public class Player {
     private String name;
     private String signature;
     private int headIcon;
+    private int phoneTheme;
+    private int chatBubble;
     private int birthday;
     private int curBasicType;
     @Setter private PlayerGender gender;
@@ -154,6 +156,8 @@ public class Player {
         this.name = GameConstants.DEFAULT_NAME;
         this.signature = "";
         this.headIcon = 200001;
+        this.phoneTheme = 221000;
+        this.chatBubble = 220000;
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
         this.nextStaminaRecover = System.currentTimeMillis();
@@ -229,6 +233,26 @@ public class Player {
         this.worldLevel = level;
         this.save();
         this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+
+    public void setPhoneTheme(int themeId) {
+        this.phoneTheme = themeId;
+        this.save();
+        this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+
+    public int getPhoneTheme() {
+        return this.phoneTheme;
+    }
+
+    public void setChatBubble(int bubbleId) {
+        this.chatBubble = bubbleId;
+        this.save();
+        this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+
+    public int getChatBubble() {
+        return this.chatBubble;
     }
     
     public Set<Integer> getUnlockedHeadIcons() {

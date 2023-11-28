@@ -2,6 +2,8 @@ package emu.lunarcore.data;
 
 import java.lang.reflect.Field;
 
+import java.util.List;
+import java.util.ArrayList;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.excel.*;
 import emu.lunarcore.game.battle.MazeBuff;
@@ -51,6 +53,8 @@ public class GameData {
     private static Int2ObjectMap<EquipmentPromotionExcel> equipmentPromotionExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<MazeBuffExcel> mazeBuffExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<CocoonExcel> cocoonExcelMap = new Int2ObjectOpenHashMap<>();
+    private static Int2ObjectMap<ChatBubbleExcel> chatBubbleExcelMap = new Int2ObjectOpenHashMap<>();
+    private static Int2ObjectMap<PhoneThemeExcel> phoneThemeExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<MonsterDropExcel> monsterDropExcelMap = new Int2ObjectOpenHashMap<>();
     
     private static Int2ObjectMap<PlayerLevelExcel> playerLevelExcelMap = new Int2ObjectOpenHashMap<>();
@@ -79,6 +83,28 @@ public class GameData {
         }
 
         return map;
+    }
+
+    public static List<Integer> getAllChatBubbleIds() {
+        List<Integer> allIds = new ArrayList<>();
+
+        for (Int2ObjectMap.Entry<ChatBubbleExcel> entry : chatBubbleExcelMap.int2ObjectEntrySet()) {
+            ChatBubbleExcel chatBubbleExcel = entry.getValue();
+            allIds.add(chatBubbleExcel.getId());
+        }
+
+        return allIds;
+    }
+
+    public static List<Integer> getAllPhoneThemes() {
+        List<Integer> allIds = new ArrayList<>();
+
+        for (Int2ObjectMap.Entry<PhoneThemeExcel> entry : phoneThemeExcelMap.int2ObjectEntrySet()) {
+            PhoneThemeExcel phoneThemeExcel = entry.getValue();
+            allIds.add(phoneThemeExcel.getId());
+        }
+
+        return allIds;
     }
 
     public static AvatarPromotionExcel getAvatarPromotionExcel(int id, int promotion) {
