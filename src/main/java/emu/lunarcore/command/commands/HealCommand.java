@@ -20,6 +20,7 @@ public class HealCommand implements CommandHandler {
         
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
+            avatar.save();
         });
 
         lineup.save();
