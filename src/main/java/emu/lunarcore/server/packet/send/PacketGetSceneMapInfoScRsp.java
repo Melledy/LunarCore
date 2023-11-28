@@ -30,7 +30,7 @@ public class PacketGetSceneMapInfoScRsp extends BasePacket {
                     .setEntryId(entryId);
             
             // Map sections. TODO un hardcode
-            for (int i = 0; i < 25; i++) {
+            for (int i = 0; i < 100; i++) {
                 mazeMap.addAllLightenSectionList(i);
             }
 
