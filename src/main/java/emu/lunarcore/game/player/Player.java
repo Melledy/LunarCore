@@ -100,6 +100,8 @@ public class Player {
     private int planeId;
     private int floorId;
     private int entryId;
+
+    private int currentBgm;
     
     private IntSet unlockedHeadIcons;
     private long lastActiveTime;
@@ -161,6 +163,8 @@ public class Player {
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
         this.nextStaminaRecover = System.currentTimeMillis();
+
+        this.currentBgm = 210000;
         
         this.unlockedHeadIcons = new IntOpenHashSet();
         this.lineupManager = new LineupManager(this);
@@ -253,6 +257,19 @@ public class Player {
 
     public int getChatBubble() {
         return this.chatBubble;
+    }
+
+    public int getCurrentBgm() {
+        if (this.currentBgm == 0) {
+            this.currentBgm = 210000;
+            this.save();
+        }
+        return this.currentBgm;
+    }
+
+    public void setCurrentBgm(int musicId) {
+        this.currentBgm = musicId;
+        this.save();
     }
     
     public Set<Integer> getUnlockedHeadIcons() {

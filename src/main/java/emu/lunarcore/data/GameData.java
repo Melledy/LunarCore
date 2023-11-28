@@ -34,6 +34,7 @@ public class GameData {
     @Getter private static Int2ObjectMap<PlayerIconExcel> playerIconExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ItemComposeExcel> itemComposeExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ActivityPanelExcel> activityPanelExcelMap = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<BackGroundMusicExcel> backGroundMusicExcelMap = new Int2ObjectOpenHashMap<>();
     
     @Getter private static Int2ObjectMap<ChallengeGroupExcel> challengeGroupExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ChallengeExcel> challengeExcelMap = new Int2ObjectOpenHashMap<>();
@@ -95,6 +96,22 @@ public class GameData {
         }
 
         return allIds;
+    }
+
+    public static List<Integer> getAllMusicIds() {
+        List<Integer> allIds = new ArrayList<>();
+
+        for (Int2ObjectMap.Entry<BackGroundMusicExcel> entry : backGroundMusicExcelMap.int2ObjectEntrySet()) {
+            BackGroundMusicExcel backGroundMusicExcel = entry.getValue();
+            allIds.add(backGroundMusicExcel.getId());
+        }
+
+        return allIds;
+    }
+
+    public static int getMusicGroupId(int musicId) {
+        var excel = backGroundMusicExcelMap.get(musicId);
+        return excel != null ? excel.getGroupId() : 0;
     }
 
     public static List<Integer> getAllPhoneThemes() {
