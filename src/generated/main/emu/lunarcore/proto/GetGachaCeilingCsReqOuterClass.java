@@ -19,9 +19,9 @@ public final class GetGachaCeilingCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 unkfield = 4;</code>
+     * <code>optional uint32 gacha_type = 4;</code>
      */
-    private int unkfield;
+    private int gachaType;
 
     private GetGachaCeilingCsReq() {
     }
@@ -34,39 +34,39 @@ public final class GetGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 unkfield = 4;</code>
-     * @return whether the unkfield field is set
+     * <code>optional uint32 gacha_type = 4;</code>
+     * @return whether the gachaType field is set
      */
-    public boolean hasUnkfield() {
+    public boolean hasGachaType() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 unkfield = 4;</code>
+     * <code>optional uint32 gacha_type = 4;</code>
      * @return this
      */
-    public GetGachaCeilingCsReq clearUnkfield() {
+    public GetGachaCeilingCsReq clearGachaType() {
       bitField0_ &= ~0x00000001;
-      unkfield = 0;
+      gachaType = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 unkfield = 4;</code>
-     * @return the unkfield
+     * <code>optional uint32 gacha_type = 4;</code>
+     * @return the gachaType
      */
-    public int getUnkfield() {
-      return unkfield;
+    public int getGachaType() {
+      return gachaType;
     }
 
     /**
-     * <code>optional uint32 unkfield = 4;</code>
-     * @param value the unkfield to set
+     * <code>optional uint32 gacha_type = 4;</code>
+     * @param value the gachaType to set
      * @return this
      */
-    public GetGachaCeilingCsReq setUnkfield(final int value) {
+    public GetGachaCeilingCsReq setGachaType(final int value) {
       bitField0_ |= 0x00000001;
-      unkfield = value;
+      gachaType = value;
       return this;
     }
 
@@ -75,7 +75,7 @@ public final class GetGachaCeilingCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        unkfield = other.unkfield;
+        gachaType = other.gachaType;
       }
       return this;
     }
@@ -86,8 +86,8 @@ public final class GetGachaCeilingCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasUnkfield()) {
-        setUnkfield(other.unkfield);
+      if (other.hasGachaType()) {
+        setGachaType(other.gachaType);
       }
       return this;
     }
@@ -99,7 +99,7 @@ public final class GetGachaCeilingCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      unkfield = 0;
+      gachaType = 0;
       return this;
     }
 
@@ -123,14 +123,14 @@ public final class GetGachaCeilingCsReqOuterClass {
       }
       GetGachaCeilingCsReq other = (GetGachaCeilingCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasUnkfield() || unkfield == other.unkfield);
+        && (!hasGachaType() || gachaType == other.gachaType);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(unkfield);
+        output.writeUInt32NoTag(gachaType);
       }
     }
 
@@ -138,7 +138,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(unkfield);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaType);
       }
       return size;
     }
@@ -151,8 +151,8 @@ public final class GetGachaCeilingCsReqOuterClass {
       while (true) {
         switch (tag) {
           case 32: {
-            // unkfield
-            unkfield = input.readUInt32();
+            // gachaType
+            gachaType = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
@@ -177,7 +177,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.unkfield, unkfield);
+        output.writeUInt32(FieldNames.gachaType, gachaType);
       }
       output.endObject();
     }
@@ -189,10 +189,11 @@ public final class GetGachaCeilingCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -247717048: {
-            if (input.isAtField(FieldNames.unkfield)) {
+          case 802848732:
+          case -871474217: {
+            if (input.isAtField(FieldNames.gachaType)) {
               if (!input.trySkipNullValue()) {
-                unkfield = input.readUInt32();
+                gachaType = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -253,7 +254,7 @@ public final class GetGachaCeilingCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName unkfield = FieldName.forField("unkfield");
+      static final FieldName gachaType = FieldName.forField("gachaType", "gacha_type");
     }
   }
 }

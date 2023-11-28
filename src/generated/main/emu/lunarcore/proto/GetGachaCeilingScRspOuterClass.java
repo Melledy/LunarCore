@@ -19,9 +19,9 @@ public final class GetGachaCeilingScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 unkfield = 14;</code>
+     * <code>optional uint32 gacha_type = 14;</code>
      */
-    private int unkfield;
+    private int gachaType;
 
     /**
      * <code>optional uint32 retcode = 15;</code>
@@ -44,39 +44,39 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 unkfield = 14;</code>
-     * @return whether the unkfield field is set
+     * <code>optional uint32 gacha_type = 14;</code>
+     * @return whether the gachaType field is set
      */
-    public boolean hasUnkfield() {
+    public boolean hasGachaType() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 unkfield = 14;</code>
+     * <code>optional uint32 gacha_type = 14;</code>
      * @return this
      */
-    public GetGachaCeilingScRsp clearUnkfield() {
+    public GetGachaCeilingScRsp clearGachaType() {
       bitField0_ &= ~0x00000001;
-      unkfield = 0;
+      gachaType = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 unkfield = 14;</code>
-     * @return the unkfield
+     * <code>optional uint32 gacha_type = 14;</code>
+     * @return the gachaType
      */
-    public int getUnkfield() {
-      return unkfield;
+    public int getGachaType() {
+      return gachaType;
     }
 
     /**
-     * <code>optional uint32 unkfield = 14;</code>
-     * @param value the unkfield to set
+     * <code>optional uint32 gacha_type = 14;</code>
+     * @param value the gachaType to set
      * @return this
      */
-    public GetGachaCeilingScRsp setUnkfield(final int value) {
+    public GetGachaCeilingScRsp setGachaType(final int value) {
       bitField0_ |= 0x00000001;
-      unkfield = value;
+      gachaType = value;
       return this;
     }
 
@@ -179,7 +179,7 @@ public final class GetGachaCeilingScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        unkfield = other.unkfield;
+        gachaType = other.gachaType;
         retcode = other.retcode;
         gachaCeiling.copyFrom(other.gachaCeiling);
       }
@@ -192,8 +192,8 @@ public final class GetGachaCeilingScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasUnkfield()) {
-        setUnkfield(other.unkfield);
+      if (other.hasGachaType()) {
+        setGachaType(other.gachaType);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
@@ -211,7 +211,7 @@ public final class GetGachaCeilingScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      unkfield = 0;
+      gachaType = 0;
       retcode = 0;
       gachaCeiling.clear();
       return this;
@@ -238,7 +238,7 @@ public final class GetGachaCeilingScRspOuterClass {
       }
       GetGachaCeilingScRsp other = (GetGachaCeilingScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasUnkfield() || unkfield == other.unkfield)
+        && (!hasGachaType() || gachaType == other.gachaType)
         && (!hasRetcode() || retcode == other.retcode)
         && (!hasGachaCeiling() || gachaCeiling.equals(other.gachaCeiling));
     }
@@ -247,7 +247,7 @@ public final class GetGachaCeilingScRspOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(unkfield);
+        output.writeUInt32NoTag(gachaType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 120);
@@ -263,7 +263,7 @@ public final class GetGachaCeilingScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(unkfield);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
@@ -282,8 +282,8 @@ public final class GetGachaCeilingScRspOuterClass {
       while (true) {
         switch (tag) {
           case 112: {
-            // unkfield
-            unkfield = input.readUInt32();
+            // gachaType
+            gachaType = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 120) {
@@ -326,7 +326,7 @@ public final class GetGachaCeilingScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.unkfield, unkfield);
+        output.writeUInt32(FieldNames.gachaType, gachaType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
@@ -344,10 +344,11 @@ public final class GetGachaCeilingScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -247717048: {
-            if (input.isAtField(FieldNames.unkfield)) {
+          case 802848732:
+          case -871474217: {
+            if (input.isAtField(FieldNames.gachaType)) {
               if (!input.trySkipNullValue()) {
-                unkfield = input.readUInt32();
+                gachaType = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -431,7 +432,7 @@ public final class GetGachaCeilingScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName unkfield = FieldName.forField("unkfield");
+      static final FieldName gachaType = FieldName.forField("gachaType", "gacha_type");
 
       static final FieldName retcode = FieldName.forField("retcode");
 
