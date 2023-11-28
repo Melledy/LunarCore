@@ -77,4 +77,5 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.
 /unstuck @[player id]. Unstucks an offline player if theyre in a scene that doesnt load.
 /worldlevel [world level]. Sets the targeted player's equilibrium level.
+/refill. Refills your skill points in open world.
 ```
