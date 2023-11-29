@@ -31,7 +31,7 @@ A game server reimplementation for version 1.5.0 of a certain turn-based anime g
 2. Open your system terminal, and compile the server with `./gradlew jar`
 3. Create a folder named `resources` in your server directory
 4. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
-5. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resouces folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
+5. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resources folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
 6. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway.
 7. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
 
