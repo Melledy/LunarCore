@@ -15,8 +15,8 @@ public class PacketGetQuestDataScRsp extends BasePacket {
 
         var allIds = GameData.getAllQuestIds();
 
-        var data = GetQuestDataScRsp.newInstance()
-            .setTotalAchievementExp(69);
+        var data = GetQuestDataScRsp.newInstance();
+            //.setTotalAchievementExp(69);
 
         for (int questId : allIds) {
             var questItem = Quest.newInstance()
