@@ -1,7 +1,7 @@
 # Lunar Core
 
 **_Language_**
-[EN](README.md) | [简中](README_zh-CN.md) | [日本語](README_ja-JP.md)
+[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md) | [日本語](README_ja-JP.md)
 
 #
 出于研究目的的某个回合制动漫游戏的1.5.0版本服务端的重新实现。如果需要任何额外的支持、问题或者讨论，请查看我们的[discord](https://discord.gg/cfPKJ6N5hw).
