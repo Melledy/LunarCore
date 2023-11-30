@@ -19,7 +19,8 @@ public class CmdIdUtils {
         CmdId.PlayerHeartBeatCsReq,
         CmdId.PlayerHeartBeatScRsp,
         CmdId.SceneEntityMoveCsReq,
-        CmdId.SceneEntityMoveScRsp
+        CmdId.SceneEntityMoveScRsp,
+        CmdId.GetQuestDataScRsp
     );
 
     private static Int2ObjectMap<String> opcodeMap;
