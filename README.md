@@ -4,7 +4,7 @@
 [EN](README.md) | [简中](README_zh-CN.md) | [日本語](README_ja-JP.md)
 
 #
-A game server reimplementation for version 1.5.0 of a certain turn-based anime game for educational purposes. For any extra support, questions, or discussions, check out our [discord](https://discord.gg/cfPKJ6N5hw).
+A game server reimplementation for version 1.5.0 of a certain turn-based anime game for educational purposes. For any extra support, questions, or discussions, check out our [Discord](https://discord.gg/cfPKJ6N5hw).
 
 ### Notable features
 - Basic game features: Logging in, team setup, inventory, basic scene/entity management
