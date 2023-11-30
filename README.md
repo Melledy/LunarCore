@@ -1,47 +1,46 @@
 # Lunar Core
 
 **_Language_**
-[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-CN.md) | [日本語](README_ja-JP.md)
+[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md) | [日本語](README_ja-JP.md)
 
 #
-出於教育目的的某一個回合制不知名動漫遊戲1.5.0版本伺服器端的逆向工程。如果需要任何額外的支持、問題或者討論，請查看我們的[Discord](https://discord.gg/cfPKJ6N5hw)。
+A game server reimplementation for version 1.5.0 of a certain turn-based anime game for educational purposes. For any extra support, questions, or discussions, check out our [Discord](https://discord.gg/cfPKJ6N5hw).
 
-### 當前功能
-- 基本遊戲功能：登錄、隊伍配置、背包、基本場景/實體管理
-- 戰鬥功能
-- 自然世界怪物/道具/NPC生成
-- 大多數角色技能
-- NPC商店
-- 躍遷/抽卡系統
-- 郵件系統
-- 好友系統（支援角色尚未實現）
-- 忘卻之庭（帶有1.4.0功能）
-- 模擬宇宙（可以運行，但缺少許多功能）
+### Notable features
+- Basic game features: Logging in, team setup, inventory, basic scene/entity management
+- Monster battles working
+- Natural world monster/prop/NPC spawns
+- Most character techniques are handled
+- Npc shops handled
+- Gacha system
+- Mail system
+- Friend system (Assists are not working yet)
+- Forgotten hall (with 1.4.0 features)
+- Simulated universe (Runs can be finished, but many features are missing)
 
-# 運行伺服器端和用戶端
+# Running the server and client
 
-### 必需條件
+### Prerequisites
 * [Java 17 JDK](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
 
-### 推薦安裝
+### Recommended
 * [MongoDB 4.0+](https://www.mongodb.com/try/download/community)
 
-### 編譯伺服器端核心
-1. 從 [https://gitlab.com/Melledy/LunarCore-Protos](https://gitlab.com/Melledy/LunarCore-Protos) 下載文件並將proto文件夾放入伺服器目錄
-2. 打開系統終端，使用 `./gradlew jar` 編譯伺服器端核心
-3. 在伺服器目錄中創建一個名為 `resources` 的文件夾
-4. 從 [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) 下載 `Config`、`TextMap` 和 `ExcelBin` 文件夾，並將它們放入資源文件夾
-5. 從 [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) 下載 `Config` 文件夾，並將其放入資源文件夾。替換系統詢問的任何文件。這些文件用於世界生成，對伺服器非常重要。
-6. 從系統終端使用 `java -jar LunarCore.jar` 運行伺服器端。Lunar Core帶有一個內建的MongoDB資料庫服務，因此不需要安裝MongoDB。但是還是強烈建議安裝MongoDB。
-7. 如果在配置中將 `autoCreateAccount` 設置為true，則可以跳過創建帳戶的步驟。否則，需要在伺服器控制台使用 `/account` 命令創建一個帳戶。
+### Compiling the server
+1. Open your system terminal, and compile the server with `./gradlew jar`
+2. Create a folder named `resources` in your server directory
+3. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
+4. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resources folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
+5. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway.
+6. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
 
-### 與用戶端連接（Fiddler）
-1. **使用用戶端至少一次登錄到官方伺服器和Hoyoverse帳戶以下載遊戲數據。**
-2. 安裝並運行 [Fiddler Classic](https://www.telerik.com/fiddler)。
-3. 將Fiddler設置為解密https流量（工具 -> 選項 -> HTTPS -> 解密HTTPS流量），確保選中 `忽略伺服器證書錯誤 (Ignore server certificate errors)`。
-4. 將以下代碼複製並黏貼到Fiddler Classic的Fiddlerscript選項卡中：
+### Connecting with the client (Fiddler)
+1. **Login with the client to an official server and Hoyoverse account at least once to download game data.**
+2. Install and have [Fiddler Classic](https://www.telerik.com/fiddler) running.
+3. Set fiddler to decrypt https traffic. (Tools -> Options -> HTTPS -> Decrypt HTTPS traffic) Make sure `ignore server certificate errors` is checked as well.
+4. Copy and paste the following code into the Fiddlerscript tab of Fiddler Classic:
 
-```javascript
+```
 import System;
 import System.Windows.Forms;
 import Fiddler;
@@ -49,32 +48,35 @@ import System.Text.RegularExpressions;
 
 class Handlers
 {
-static function OnBeforeRequest(oS: Session) {
-if (oS.host.EndsWith(".starrails.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com") || oS.host.EndsWith(".bhsr.com")) {
-oS.host = "localhost"; // 這也可以替換為其他IP位址。
-}
-}
+    static function OnBeforeRequest(oS: Session) {
+        if (oS.host.EndsWith(".starrails.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com") || oS.host.EndsWith(".bhsr.com")) {
+            oS.host = "localhost"; // This can also be replaced with another IP address.
+        }
+    }
 };
 ```
 
-5. 使用您的帳戶名稱登入，密碼可以隨機輸入。
+5. Login with your account name, the password can be set to anything.
 
-### 伺服器命令
-伺服器命令可以在伺服器控制台或遊戲中運行。每個玩家的好友列表中都有一個名為 "Server" 的虛擬用戶，您可以向其發送消息以使用遊戲中的命令。
+### Server commands
+Server commands can be run in the server console or in-game. There is a dummy user named "Server" in every player's friends list that you can message to use in-game commands.
 
 ```
-/account {create | delete} [username] (玩家UID). 創建或刪除一個帳戶。
-/avatar lv(level) p(ascension) r(eidolon) s(skill levels) 設置當前角色的屬性。
-/clear {relics | lightcones | materials | items} 從玩家庫存中刪除過濾的物品。
-/gender {male | female} 設置目標玩家性別。
-/give [item id] x[amount] 給予目標玩家指定物品。
-/giveall {materials | avatars} 給予目標玩家所有物品／角色。
-/help 顯示可用命令列表。
-/mail [content] 發送系統郵件給目標玩家。
-/permission {add | remove | clear} [permission] 向目標玩家授予/移除權限。
-/reload 重載伺服器配置。
-/scene [scene id] [floor id] 將玩家傳送到指定的場景。
-/spawn [monster/prop id] x[amount] s[stage id] 在目標玩家附近生成怪物或實體。
-/unstuck @[player id]. 如果離線目標玩家卡在無法載入的場景中，將會把目標玩家傳送到初始場景。
-/worldlevel [world level]. 設置目標玩家的均衡等級。
-``` 
+/account {create | delete} [username] (reserved player uid). Creates or deletes an account.
+/avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties
+/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.
+/gender {male | female}. Sets the player gender.
+/give [item id] x[amount]. Gives the targetted player an item.
+/giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.
+/heal. Heals your avatars.
+/help. Displays a list of available commands.
+/kick @[player id]. Kicks a player from the server.
+/mail [content]. Sends the targeted player a system mail.
+/permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
+/refill - refill your skill points in open world.
+/reload. Reloads the server config.
+/scene [scene id] [floor id]. Teleports the player to the specified scene.
+/spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.
+/unstuck @[player id]. Unstucks an offline player if theyre in a scene that doesnt load.
+/worldlevel [world level]. Sets the targeted player's equilibrium level.
+```
