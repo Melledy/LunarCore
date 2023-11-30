@@ -54,6 +54,9 @@ public class RogueInstance {
     private int aeonId;
     private int aeonBuffType;
     private int maxAeonBuffs;
+    
+    private int roomScore;
+    private int earnedTalentCoin;
     private boolean isWin;
     
     @Deprecated // Morphia only!
@@ -289,6 +292,21 @@ public class RogueInstance {
         return nextRoom;
     }
     
+    public void onFinish() {
+        // Calculate completed rooms
+        int completedRooms = Math.max(this.currentRoomProgress - (this.isWin() ? 0 : 1), 0);
+        
+        // Calculate score and talent point rewards
+        this.roomScore = this.getExcel().getScoreMap().get(completedRooms);
+        this.earnedTalentCoin = this.roomScore / 10;
+        
+        // Add
+        if (this.earnedTalentCoin > 0) {
+            this.getPlayer().addTalentPoints(this.earnedTalentCoin);
+            this.getPlayer().save();
+        }
+    }
+    
     // Dialogue stuff
     
     public void selectDialogue(int dialogueEventId) {
@@ -311,8 +329,15 @@ public class RogueInstance {
     
     public synchronized void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
         if (result == BattleEndStatus.BATTLE_END_WIN) {
-            int amount = battle.getNpcMonsters().size();
-            this.createBuffSelect(amount);
+            int roomType = this.getCurrentRoom().getExcel().getRogueRoomType();
+            if (roomType == RogueRoomType.BOSS.getVal()) {
+                // Final boss
+                this.isWin = true;
+            } else {
+                // Give blessings to player
+                int amount = battle.getNpcMonsters().size();
+                this.createBuffSelect(amount);
+            }
         }
     }
     
@@ -430,6 +455,8 @@ public class RogueInstance {
         
         // Create rogue finish info
         var proto = RogueFinishInfo.newInstance()
+                .setTotalScore(this.getRoomScore())
+                .setTalentCoin(this.getEarnedTalentCoin())
                 .setAreaId(this.getAreaId())
                 .setIsWin(this.isWin())
                 .setPassRoomCount(this.getCurrentSiteId())
