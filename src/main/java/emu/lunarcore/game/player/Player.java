@@ -239,6 +239,10 @@ public class Player {
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
 
+    public int getWorldLevel() {
+        return this.worldLevel;
+    }
+
     public void setPhoneTheme(int themeId) {
         this.phoneTheme = themeId;
         this.save();
