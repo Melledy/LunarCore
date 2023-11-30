@@ -319,15 +319,7 @@ public class Player {
     }
 
     public boolean addAvatar(GameAvatar avatar) {
-        boolean success = getAvatars().addAvatar(avatar);
-        if (success) {
-            // Add profile picture of avatar
-            int headIconId = 200000 + avatar.getAvatarId();
-            if (GameData.getItemExcelMap().containsKey(headIconId)) {
-                this.addHeadIcon(headIconId);
-            }
-        }
-        return success;
+        return getAvatars().addAvatar(avatar);
     }
 
     public GameAvatar getAvatarById(int avatarId) {
