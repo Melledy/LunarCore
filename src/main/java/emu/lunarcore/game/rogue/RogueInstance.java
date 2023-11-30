@@ -8,6 +8,7 @@ import emu.lunarcore.data.excel.RogueAeonExcel;
 import emu.lunarcore.data.excel.RogueAreaExcel;
 import emu.lunarcore.data.excel.RogueMapExcel;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.enums.RogueBuffAeonType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.AvatarTypeOuterClass.AvatarType;
@@ -74,7 +75,7 @@ public class RogueInstance {
         
         if (aeonExcel != null) {
             this.aeonId = aeonExcel.getAeonID();
-            this.aeonBuffType = aeonExcel.getRogueBuffType(); 
+            this.aeonBuffType = aeonExcel.getRogueBuffType();
         }
         
         this.initRooms();
@@ -300,7 +301,7 @@ public class RogueInstance {
         this.roomScore = this.getExcel().getScoreMap().get(completedRooms);
         this.earnedTalentCoin = this.roomScore / 10;
         
-        // Add
+        // Add coins to player
         if (this.earnedTalentCoin > 0) {
             this.getPlayer().addTalentPoints(this.earnedTalentCoin);
             this.getPlayer().save();
@@ -309,7 +310,7 @@ public class RogueInstance {
     
     // Dialogue stuff
     
-    public void selectDialogue(int dialogueEventId) {
+    public void onSelectDialogue(int dialogueEventId) {
     
     }
     
@@ -318,7 +319,15 @@ public class RogueInstance {
     public synchronized void onBattleStart(Battle battle) {
         // Add rogue blessings as battle buffs
         for (var buff : this.getBuffs().values()) {
+            // Convert blessing to battle buff
             battle.addBuff(buff.toMazeBuff());
+            // Set battle buff energy to max
+            if (buff.getExcel().getBattleEventBuffType() == RogueBuffAeonType.BattleEventBuff) {
+                RogueBuffType type = RogueBuffType.getById(getAeonBuffType());
+                if (type != null && type.getBattleEventSkill() != 0) {
+                    battle.getTurnSnapshotList().add(type.getBattleEventSkill());
+                }
+            }
         }
         // Set monster level for battle
         RogueMapExcel mapExcel = GameData.getRogueMapExcel(this.getExcel().getMapId(), this.getCurrentSiteId());

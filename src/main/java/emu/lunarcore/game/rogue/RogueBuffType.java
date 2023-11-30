@@ -1,6 +1,11 @@
 package emu.lunarcore.game.rogue;
 
+import java.util.Arrays;
+
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public enum RogueBuffType {
@@ -15,8 +20,19 @@ public enum RogueBuffType {
     Propagation     (127);
     
     private final int val;
+    @Setter private int battleEventSkill;
+    
+    private static final Int2ObjectMap<RogueBuffType> map = new Int2ObjectOpenHashMap<>();
+    
+    static {
+        Arrays.stream(values()).forEach(type -> map.put(type.getVal(), type));
+    }
     
     private RogueBuffType(int val) {
         this.val = val;
+    }
+    
+    public static RogueBuffType getById(int id) {
+        return map.get(id);
     }
 }

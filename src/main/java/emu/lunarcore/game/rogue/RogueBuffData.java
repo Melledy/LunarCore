@@ -27,7 +27,7 @@ public class RogueBuffData {
     }
     
     public MazeBuff toMazeBuff() {
-        return new MazeBuff(id, level, 0, 0xffffffff);
+        return new MazeBuff(id, level, 0xffffffff, 0xffffffff);
     }
     
     public RogueBuff toProto() {
