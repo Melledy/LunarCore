@@ -61,6 +61,7 @@ public class GameData {
     private static Int2ObjectMap<MonsterDropExcel> monsterDropExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<MonsterExcel> monsterExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<QuestExcel> questExcelMap = new Int2ObjectLinkedOpenHashMap<>();
+    private static Int2ObjectMap<TextJoinExcel> textJoinExcelMap = new Int2ObjectLinkedOpenHashMap<>();
     
     private static Int2ObjectMap<PlayerLevelExcel> playerLevelExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<ExpTypeExcel> expTypeExcelMap = new Int2ObjectOpenHashMap<>();
