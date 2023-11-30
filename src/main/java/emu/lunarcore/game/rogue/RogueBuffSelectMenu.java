@@ -25,12 +25,20 @@ public class RogueBuffSelectMenu {
     public RogueBuffSelectMenu() {}
     
     public RogueBuffSelectMenu(RogueInstance rogue) {
+        this(rogue, false);
+    }
+    
+    public RogueBuffSelectMenu(RogueInstance rogue, boolean generateAeonBuffs) {
         this.rogue = rogue;
         this.maxBuffs = 3;
         this.maxRerolls = rogue.getBaseRerolls();
         this.buffs = new ArrayList<>();
         
-        this.generateRandomBuffs();
+        if (generateAeonBuffs) {
+            this.generateAeonBuffs();
+        } else {
+            this.generateRandomBuffs();
+        }
     }
     
     public void setMaxRerolls(int i) {
@@ -71,6 +79,26 @@ public class RogueBuffSelectMenu {
         while (this.getBuffs().size() < this.getMaxBuffs()) {
             var excel = this.randomBuffs.next();
             this.getBuffs().add(new RogueBuffData(excel.getMazeBuffID(), 1));
+        }
+    }
+    
+    private void generateAeonBuffs() {
+        this.getBuffs().clear();
+        
+        var aeonBuffExcel = GameDepot.getRogueAeonBuffs().get(getRogue().getAeonId());
+        if (aeonBuffExcel == null) return;
+        
+        // Check for rogue aeon buffs
+        if (!this.getRogue().getBuffs().containsKey(aeonBuffExcel.getMazeBuffID())) {
+            // We dont have the first aeon buff yet
+            this.getBuffs().add(new RogueBuffData(aeonBuffExcel.getMazeBuffID(), 1));
+        } else {
+            // Add path resonances that we currently dont have
+            for (var aeonEnhanceExcel : GameDepot.getRogueAeonEnhanceBuffs().get(getRogue().getAeonId())) {
+                if (!this.getRogue().getBuffs().containsKey(aeonEnhanceExcel.getMazeBuffID())) {
+                    this.getBuffs().add(new RogueBuffData(aeonEnhanceExcel.getMazeBuffID(), 1));
+                }
+            }
         }
     }
     

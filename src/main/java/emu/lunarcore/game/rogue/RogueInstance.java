@@ -53,6 +53,7 @@ public class RogueInstance {
     private int baseRerolls;
     private int aeonId;
     private int aeonBuffType;
+    private int maxAeonBuffs;
     private boolean isWin;
     
     @Deprecated // Morphia only!
@@ -66,6 +67,7 @@ public class RogueInstance {
         this.baseAvatarIds = new HashSet<>();
         this.buffs = new HashMap<>();
         this.miracles = new HashMap<>();
+        this.maxAeonBuffs = 4;
         
         if (aeonExcel != null) {
             this.aeonId = aeonExcel.getAeonID();
@@ -114,6 +116,42 @@ public class RogueInstance {
         return this.getRoomBySiteId(this.getCurrentSiteId());
     }
     
+    private boolean shouldAddAeonBuff() {
+        int pathBuffs = 0; // Buffs on the current path
+        int aeonBuffs = 0;
+        
+        for (var b : this.getBuffs().values()) {
+            var excel = b.getExcel();
+            if (excel == null) continue;
+            
+            if (excel.getRogueBuffType() == this.getAeonBuffType()) {
+                if (excel.isAeonBuff()) {
+                    aeonBuffs++;
+                } else {
+                    pathBuffs++;
+                }
+            }
+        }
+        
+        // Skip if we are already at max aeon buffs
+        if (aeonBuffs >= this.maxAeonBuffs) {
+            return false;
+        }
+        
+        switch (aeonBuffs) {
+            case 0:
+                return pathBuffs >= 3;
+            case 1:
+                return pathBuffs >= 6;
+            case 2:
+                return pathBuffs >= 10;
+            case 3:
+                return pathBuffs >= 14;
+            default:
+                return false;
+        }
+    }
+    
     public synchronized void createBuffSelect(int amount) {
         this.pendingBuffSelects += amount;
         
@@ -124,9 +162,19 @@ public class RogueInstance {
     }
     
     public synchronized RogueBuffSelectMenu updateBuffSelect() {
-        if (this.pendingBuffSelects > 0 && this.getBuffSelect() == null) {
-            this.buffSelect = new RogueBuffSelectMenu(this);
-            this.pendingBuffSelects--;
+        if (this.getBuffSelect() == null) {
+            // Creates a new blessing selection menu if we have any pending buff selects
+            if (this.pendingBuffSelects > 0) {
+                // Regular blessing selection with 3 random blessings
+                this.buffSelect = new RogueBuffSelectMenu(this, false);
+                this.pendingBuffSelects--;
+            } else if (this.getAeonId() != 0) {
+                // Check if we should add aeon blessings
+                if (shouldAddAeonBuff()) {
+                    this.buffSelect = new RogueBuffSelectMenu(this, true);
+                }
+            }
+            
             return this.buffSelect;
         }
         
@@ -143,8 +191,10 @@ public class RogueInstance {
     }
     
     public synchronized RogueBuffData selectBuff(int buffId) {
+        // Sanity
         if (this.getBuffSelect() == null) return null;
         
+        // Validate buff from buff select menu
         RogueBuffData buff = this.getBuffSelect().getBuffs()
                 .stream()
                 .filter(b -> b.getId() == buffId)
@@ -153,6 +203,7 @@ public class RogueInstance {
         
         if (buff == null) return null;
         
+        // Add buff
         this.buffSelect = null;
         this.getBuffs().put(buff.getId(), buff);
         getPlayer().sendPacket(new PacketAddRogueBuffScNotify(buff, RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_SELECT));
