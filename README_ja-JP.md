@@ -1,7 +1,7 @@
 # Lunar Core
 
 **_Language_**
-[EN](README.md) | [简中](README_zh-CN.md) | [日本語](README_ja-JP.md)
+[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md) | [日本語](README_ja-JP.md)
 
 #
 これは、教育目的でとあるターン制アニメゲームのバージョン1.5.0を再実装したゲームサーバーです。追加のサポート、質問、または議論がある場合は、[discord](https://discord.gg/cfPKJ6N5hw)をご覧ください。
