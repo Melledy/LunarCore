@@ -1,11 +1,8 @@
 package emu.lunarcore.command.commands;
 
-import emu.lunarcore.LunarCore;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
-import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
-import emu.lunarcore.game.player.lineup.LineupManager;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.player.Player;
 
@@ -14,21 +11,20 @@ public class HealCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
+        // Check target
+        if (args.getTarget() == null) {
+            this.sendMessage(sender, "Error: Targeted player not found or offline");
+            return;
+        }
 
-        LineupManager lineupManager = sender.getLineupManager();
-        PlayerLineup lineup = lineupManager.getLineupByIndex(lineupManager.getCurrentIndex());  
-        
+        PlayerLineup lineup = args.getTarget().getCurrentLineup();
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
             avatar.save();
         });
+        lineup.refreshLineup();
 
-        lineup.save();
-
-        sender.getScene().syncLineup();
-        sender.sendPacket(new PacketSyncLineupNotify(lineup));
-
-        this.sendMessage(sender, "Healed all avatars.");
+        this.sendMessage(sender, "Healed all avatars for " + args.getTarget().getName());
     }
 
 }

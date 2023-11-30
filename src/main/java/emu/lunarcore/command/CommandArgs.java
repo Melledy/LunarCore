@@ -35,22 +35,25 @@ public class CommandArgs {
             
             try {
                 if (arg.length() >= 2 && !Character.isDigit(arg.charAt(0)) && Character.isDigit(arg.charAt(arg.length() - 1))) {
-                    if (arg.startsWith("@")) {
+                    if (arg.startsWith("@")) { // Target UID
                         this.targetUid = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("x")) {
+                    } else if (arg.startsWith("x")) { // Amount
                         this.amount = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("lv")) {
+                    } else if (arg.startsWith("lv")) { // Level
                         this.level = Utils.parseSafeInt(arg.substring(2));
                         it.remove();
-                    } else if (arg.startsWith("r")) {
+                    } else if (arg.startsWith("r")) { // Rank
                         this.rank = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("p")) {
+                    } else if (arg.startsWith("e")) { // Eidolons
+                        this.rank = Utils.parseSafeInt(arg.substring(1));
+                        it.remove();
+                    } else if (arg.startsWith("p")) { // Promotion
                         this.promotion = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("s")) {
+                    } else if (arg.startsWith("s")) { // Stage or Superimposition
                         this.stage = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
                     }
@@ -156,6 +159,9 @@ public class CommandArgs {
             // Try to set rank (superimposition)
             if (this.getRank() >= 0) {
                 item.setRank(Math.min(this.getRank(), item.getExcel().getEquipmentExcel().getMaxRank()));
+                hasChanged = true;
+            } else if (this.getStage() >= 0) {
+                item.setRank(Math.min(this.getStage(), item.getExcel().getEquipmentExcel().getMaxRank()));
                 hasChanged = true;
             }
         } else if (item.getExcel().isRelic()) {

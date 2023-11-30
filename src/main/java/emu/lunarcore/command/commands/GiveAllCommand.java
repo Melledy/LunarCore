@@ -5,7 +5,6 @@ import java.util.List;
 
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
-import java.util.stream.Collectors;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;

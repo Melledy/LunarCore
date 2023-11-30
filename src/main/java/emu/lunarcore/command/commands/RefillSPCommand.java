@@ -1,10 +1,6 @@
 package emu.lunarcore.command.commands;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import emu.lunarcore.command.Command;
-import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
@@ -15,18 +11,20 @@ public class RefillSPCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
+        // Check target
+        if (args.getTarget() == null) {
+            this.sendMessage(sender, "Error: Targeted player not found or offline");
+            return;
+        }
 
-        PlayerLineup lineup = sender.getCurrentLineup();
-        for (int i = 0; i < lineup.getAvatars().size(); i++) {
-            GameAvatar avatar = sender.getAvatarById(lineup.getAvatars().get(i));
-            if (avatar == null) continue;
+        PlayerLineup lineup = args.getTarget().getCurrentLineup();
+        lineup.forEachAvatar(avatar -> {
             avatar.setCurrentSp(lineup, 10000);
             avatar.save();
-        }
-        lineup.save();
-        
+        });
         lineup.refreshLineup();
-        this.sendMessage(sender, "Refilled SP");
+        
+        this.sendMessage(sender, "Refilled SP for " + args.getTarget().getName());
     }
 
 }
