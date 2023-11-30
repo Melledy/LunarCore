@@ -27,13 +27,12 @@ A game server reimplementation for version 1.5.0 of a certain turn-based anime g
 * [MongoDB 4.0+](https://www.mongodb.com/try/download/community)
 
 ### Compiling the server
-1. Download the files from [https://gitlab.com/Melledy/LunarCore-Protos](https://gitlab.com/Melledy/LunarCore-Protos) and place the proto folder into your server directory
-2. Open your system terminal, and compile the server with `./gradlew jar`
-3. Create a folder named `resources` in your server directory
-4. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
-5. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resources folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
-6. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway.
-7. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
+1. Open your system terminal, and compile the server with `./gradlew jar`
+2. Create a folder named `resources` in your server directory
+3. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
+4. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resources folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
+5. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway.
+6. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
 
 ### Connecting with the client (Fiddler)
 1. **Login with the client to an official server and Hoyoverse account at least once to download game data.**
@@ -68,14 +67,16 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.
 /gender {male | female}. Sets the player gender.
 /give [item id] x[amount]. Gives the targetted player an item.
-/giveall {materials | avatars}. Gives the targeted player items.
+/giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.
+/heal. Heals your avatars.
 /help. Displays a list of available commands.
+/kick @[player id]. Kicks a player from the server.
 /mail [content]. Sends the targeted player a system mail.
 /permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
+/refill - refill your skill points in open world.
 /reload. Reloads the server config.
 /scene [scene id] [floor id]. Teleports the player to the specified scene.
 /spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.
 /unstuck @[player id]. Unstucks an offline player if theyre in a scene that doesnt load.
 /worldlevel [world level]. Sets the targeted player's equilibrium level.
-/refill. Refills your skill points in open world.
 ```
