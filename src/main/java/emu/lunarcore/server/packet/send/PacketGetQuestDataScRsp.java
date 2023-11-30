@@ -21,7 +21,7 @@ public class PacketGetQuestDataScRsp extends BasePacket {
         for (int questId : allIds) {
             var questItem = Quest.newInstance()
                 .setId(questId)
-                .setStatus(QuestStatus.QUEST_FINISH)
+                .setStatus(QuestStatus.QUEST_CLOSE)
                 .setFinishTime(10000L)
                 .setProgress(1);
             data.addQuestList(questItem);
