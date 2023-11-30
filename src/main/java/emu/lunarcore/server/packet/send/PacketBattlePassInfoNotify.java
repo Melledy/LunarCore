@@ -1,7 +1,5 @@
 package emu.lunarcore.server.packet.send;
 
-import java.util.*;
-import java.math.*;
 import emu.lunarcore.proto.BattlePassInfoNotifyOuterClass.BattlePassInfoNotify;
 import emu.lunarcore.proto.BattlePassInfoNotifyOuterClass.BattlePassInfoNotify.BpTierType;
 import emu.lunarcore.server.packet.BasePacket;
@@ -13,10 +11,10 @@ public class PacketBattlePassInfoNotify extends BasePacket {
         super(CmdId.BattlePassInfoNotify);
 
         var data = BattlePassInfoNotify.newInstance()
-            //.setTakenFreeReward(9223372036854775806L)
-            //.setTakenPremiumReward1(9223372036854775806L)
-            //.setTakenPremiumReward2(2251799813685246L)
-            //.setTakenPremiumOptionalReward(2251799813685246L)
+            .setTakenFreeReward(0xFFFFFFFFFFFFFFFFL)
+            .setTakenPremiumReward1(0xFFFFFFFFFFFFFFFFL)
+            .setTakenPremiumReward2(0x7FFFFFFFFFFFEL)
+            .setTakenPremiumOptionalReward(0x7FFFFFFFFFFFEL)
             .setTakenFreeExtendedReward(127)
             .setTakenPremiumExtendedReward(127)
             .setUnkfield(4)
@@ -25,6 +23,7 @@ public class PacketBattlePassInfoNotify extends BasePacket {
             .setExp(800)
             .setCurBpId(5) // doesn't matter
             .setBpTierType(BpTierType.BP_TIER_TYPE_PREMIUM_2);
+        
         this.setData(data);
     }
 }
