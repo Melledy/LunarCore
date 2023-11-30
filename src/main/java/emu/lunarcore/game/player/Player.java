@@ -188,6 +188,16 @@ public class Player {
     public Account getAccount() {
         return session.getAccount();
     }
+
+    public void setLevel(int newLevel) {
+        if (newLevel >= 71) {
+            newLevel = 70;
+        }
+        this.level = (newLevel);
+        this.exp = 0;
+        this.sendPacket(new PacketPlayerSyncScNotify(this));
+        this.save();
+    }
     
     public boolean isOnline() {
         return this.getSession() != null && this.loggedIn;
