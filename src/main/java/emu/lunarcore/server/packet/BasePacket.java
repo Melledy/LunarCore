@@ -23,8 +23,8 @@ public class BasePacket {
         this.data = data;
     }
     
-    public void setOpcode(int opcode) {
-        this.cmdId = opcode;
+    public void setCmdId(int cmdId) {
+        this.cmdId = cmdId;
     }
 
     public void setData(byte[] data) {
