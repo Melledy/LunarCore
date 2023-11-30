@@ -70,6 +70,24 @@ public class PacketPlayerSyncScNotify extends BasePacket {
 
         this.setData(data);
     }
+    
+    public PacketPlayerSyncScNotify(GameAvatar... avatars) { // Ugly workaround
+        this();
+
+        var data = PlayerSyncScNotify.newInstance();
+        
+        for (var avatar : avatars) {
+            // Sync avatar
+            data.getMutableAvatarSync().addAvatarList(avatar.toProto());
+            
+            // Also update hero basic type info if were updating the main character
+            if (avatar.getHeroPath() != null) {
+                data.getMutableBasicTypeInfoList().add(avatar.getHeroPath().toProto());
+            }
+        }
+        
+        this.setData(data);
+    }
 
     public PacketPlayerSyncScNotify(Collection<GameItem> items) {
         this();
