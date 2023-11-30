@@ -113,6 +113,10 @@ public class PlayerLineup {
             getOwner().sendPacket(new PacketSyncLineupNotify(this));
         }
     }
+
+    public void refreshLineup() {
+        this.getOwner().sendPacket(new PacketSyncLineupNotify(this));
+    }
     
     public void forEachAvatar(Consumer<GameAvatar> consumer) {
         for (int avatarId : this.getAvatars()) {
