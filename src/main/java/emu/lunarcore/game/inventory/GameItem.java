@@ -148,6 +148,14 @@ public class GameItem {
     }
 
     // Sub affixes
+    
+    public void resetSubAffixes() {
+        if (this.subAffixes != null) {
+            this.subAffixes.clear();
+        } else {
+            this.subAffixes = new ArrayList<>();
+        }
+    }
 
     public void addSubAffixes(int quantity) {
         for (int i = 0; i < quantity; i++) {
@@ -207,12 +215,22 @@ public class GameItem {
         subAffix.incrementCount();
     }
     
-    public int getTotalSubAffixCount() {
+    /**
+     * Returns the current count of sub affixes this item has
+     */
+    public int getCurrentSubAffixCount() {
         if (this.subAffixes == null) return 0;
         
         return this.subAffixes
                 .stream()
                 .reduce(0, (subtotal, subAffix) -> subtotal + subAffix.getCount(), Integer::sum);
+    }
+    
+    /**
+     * Returns the maximum amount of sub affixes this item should normally have
+     */
+    public int getMaxNormalSubAffixCount() {
+        return (getExcel().getRarity().getVal() - 1) + (int) Math.floor(this.getLevel() / 3.0);
     }
 
     // Database
@@ -285,5 +303,4 @@ public class GameItem {
                 .setPromotion(this.getPromotion())
                 .setUniqueId(this.getInternalUid());
     }
-
 }

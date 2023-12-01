@@ -19,8 +19,12 @@ public class ItemSubAffix {
     }
 
     public ItemSubAffix(RelicSubAffixExcel subAffix) {
+        this(subAffix, 1);
+    }
+    
+    public ItemSubAffix(RelicSubAffixExcel subAffix, int count) {
         this.id = subAffix.getAffixID();
-        this.count = 1;
+        this.count = count;
         this.step = Utils.randomRange(0, subAffix.getStepNum());
     }
 
