@@ -14,19 +14,20 @@ import lombok.Setter;
 
 @Getter
 public class EntityMonster implements GameEntity {
+    @Setter private NpcMonsterExcel excel;
     @Setter private int entityId;
     @Setter private int worldLevel;
     @Setter private int groupId;
     @Setter private int instId;
     @Setter private int eventId;
-    @Setter private int overrideStageId;
-    @Setter private NpcMonsterExcel excel;
     
     private final Scene scene;
     private final Position pos;
     private final Position rot;
     
     private int farmElementId;
+    @Setter private int overrideStageId;
+    @Setter private int overrideLevel;
     
     public EntityMonster(Scene scene, NpcMonsterExcel excel, GroupInfo group, MonsterInfo monsterInfo) {
         this.scene = scene;

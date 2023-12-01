@@ -106,7 +106,15 @@ public class BattleService extends BaseGameService {
             
             // Create battle and add npc monsters to it
             Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
-            battle.getNpcMonsters().addAll(monsters);
+            
+            // Add npc monsters
+            for (var npcMonster : monsters) {
+                battle.getNpcMonsters().add(npcMonster);
+                
+                if (npcMonster.getOverrideLevel() > 0) {
+                    battle.setLevelOverride(npcMonster.getOverrideLevel());
+                }
+            }
             
             // Add buffs to battle
             if (isPlayerCaster) {

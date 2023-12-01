@@ -16,7 +16,7 @@ import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.util.Position;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "spawn", permission = "player.spawn", requireTarget = true, desc = "/spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.")
+@Command(label = "spawn", permission = "player.spawn", requireTarget = true, desc = "/spawn [monster/prop id] [stage id] x[amount] lv[level] r[radius]. Spawns a monster or prop near the targeted player.")
 public class SpawnCommand implements CommandHandler {
 
     @Override
@@ -67,6 +67,10 @@ public class SpawnCommand implements CommandHandler {
                 monster.getPos().set(pos);
                 monster.setEventId(monsterInfo.getEventID());
                 monster.setOverrideStageId(stage);
+                
+                if (args.getLevel() > 0) {
+                    monster.setOverrideLevel(Math.min(args.getLevel(), 100));
+                }
                 
                 target.getScene().addEntity(monster, true);
             }
