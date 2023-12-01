@@ -1,7 +1,5 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.proto.ServerAnnounceNotifyOuterClass.ServerAnnounceNotify;
-import emu.lunarcore.proto.ServerAnnounceNotifyOuterClass.ServerAnnounceNotify.AnnounceData;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 

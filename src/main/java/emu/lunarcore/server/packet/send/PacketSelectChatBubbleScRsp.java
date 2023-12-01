@@ -1,9 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
-import java.util.Collection;
-
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.chat.ChatMessage;
 import emu.lunarcore.proto.SelectChatBubbleScRspOuterClass.SelectChatBubbleScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;

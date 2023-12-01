@@ -9,7 +9,7 @@ import lombok.Getter;
 public class RogueAeonExcel extends GameResource {
     private int AeonID;
     private int RogueBuffType;
-    
+
     @Override
     public int getId() {
         return AeonID;

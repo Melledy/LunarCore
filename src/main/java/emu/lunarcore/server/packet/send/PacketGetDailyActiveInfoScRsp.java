@@ -4,7 +4,6 @@ import java.util.*;
 import emu.lunarcore.proto.GetDailyActiveInfoScRspOuterClass.GetDailyActiveInfoScRsp;
 import emu.lunarcore.proto.DailyActivityInfoOuterClass.DailyActivityInfo;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 

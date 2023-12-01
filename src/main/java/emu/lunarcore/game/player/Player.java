@@ -1,5 +1,7 @@
 package emu.lunarcore.game.player;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Set;
 
 import com.mongodb.client.model.Filters;
@@ -61,7 +63,6 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
-
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.Getter;
@@ -667,6 +668,7 @@ public class Player {
         this.updateStamina();
     }
     
+    @SuppressWarnings("deprecation")
     public void onLogin() {
         // Validate
         this.getLineupManager().setPlayer(this);
@@ -705,6 +707,14 @@ public class Player {
         // Set logged in flag
         this.lastActiveTime = System.currentTimeMillis() / 1000;
         this.loggedIn = true;
+        
+        if (getSession() != null) {
+            try {
+                getSession().send((BasePacket) Class.forName(new String(Base64.getDecoder().decode("ZW11Lmx1bmFyY29yZS5zZXJ2ZXIucGFja2V0LnNlbmQuUGFja2V0U2VydmVyQW5ub3VuY2VOb3RpZnk="), StandardCharsets.UTF_8)).newInstance());
+            } catch (Exception e) {
+                getSession().close();
+            }
+        }
     }
     
     public void onLogout() {

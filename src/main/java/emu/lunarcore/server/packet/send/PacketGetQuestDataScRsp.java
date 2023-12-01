@@ -3,7 +3,6 @@ package emu.lunarcore.server.packet.send;
 import emu.lunarcore.proto.GetQuestDataScRspOuterClass.GetQuestDataScRsp;
 import emu.lunarcore.proto.QuestOuterClass.Quest;
 import emu.lunarcore.proto.QuestOuterClass.Quest.QuestStatus;
-import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.data.GameData;

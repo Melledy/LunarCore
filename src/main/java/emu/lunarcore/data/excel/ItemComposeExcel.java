@@ -19,7 +19,7 @@ public class ItemComposeExcel extends GameResource {
     private int CoinCost;
     private int WorldLevelRequire;
     private IntOpenHashSet RelicList;
-    
+
     @Override
     public int getId() {
         return ID;

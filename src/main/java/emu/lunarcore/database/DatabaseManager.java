@@ -48,12 +48,12 @@ public final class DatabaseManager {
         // Local mongo server
         if (info.isUseInternal() && Utils.isPortOpen(internalConfig.getAddress(), internalConfig.getPort())) {
             connectionString = startInternalMongoServer(internalConfig);
-            LunarCore.getLogger().info("Using local mongo server at " + server.getConnectionString());
+            LunarCore.getLogger().info("Started local mongo server at " + server.getConnectionString());
         }
 
         // Initialize
-        MongoClient gameMongoClient = MongoClients.create(connectionString);
-
+        MongoClient mongoClient = MongoClients.create(connectionString);
+        
         // Add our custom fastutil codecs
         var codecProvider = CodecRegistries.fromCodecs(
                new IntSetCodec(), new Int2IntMapCodec()
@@ -67,7 +67,7 @@ public final class DatabaseManager {
                 .build();
 
         // Create data store.
-        datastore = Morphia.createDatastore(gameMongoClient, info.getCollection(), mapperOptions);
+        datastore = Morphia.createDatastore(mongoClient, info.getCollection(), mapperOptions);
 
         // Map classes
         var entities = new Reflections(LunarCore.class.getPackageName())

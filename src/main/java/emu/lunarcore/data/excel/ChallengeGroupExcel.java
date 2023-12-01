@@ -9,7 +9,7 @@ import lombok.Getter;
 public class ChallengeGroupExcel extends GameResource {
     private int GroupID;
     private int RewardLineGroupID;
-    
+
     @Override
     public int getId() {
         return GroupID;

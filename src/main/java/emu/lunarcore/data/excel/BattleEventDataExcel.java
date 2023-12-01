@@ -14,9 +14,9 @@ import lombok.Getter;
 public class BattleEventDataExcel extends GameResource {
     private int BattleEventID;
     private String Config;
-    
+
     private static final Pattern roguePattern = Pattern.compile("(?<=Avatar_RogueBattleevent)(.*?)(?=_Config.json)");
-    
+
     @Override
     public int getId() {
         return BattleEventID;
@@ -26,11 +26,11 @@ public class BattleEventDataExcel extends GameResource {
     public void onLoad() {
         try {
             Matcher matcher = roguePattern.matcher(this.Config);
-            
+
             if (matcher.find()) {
                 int rogueBuffType = Utils.parseSafeInt(matcher.group(0));
                 var type = RogueBuffType.getById(rogueBuffType);
-                
+
                 if (type != null) {
                     type.setBattleEventSkill(this.BattleEventID);
                 }

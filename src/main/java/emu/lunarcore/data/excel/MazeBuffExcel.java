@@ -9,7 +9,7 @@ import lombok.Getter;
 public class MazeBuffExcel extends GameResource {
     private int ID;
     private int Lv;
-    
+
     @Override
     public int getId() {
         return (ID << 4) + Lv;

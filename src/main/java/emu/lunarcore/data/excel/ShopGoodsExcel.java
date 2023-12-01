@@ -19,41 +19,41 @@ public class ShopGoodsExcel extends GameResource {
     private int ItemID;
     private int ItemCount;
     private int ShopID;
-    
+
     @Getter(AccessLevel.NONE)
     private int[] CurrencyList;
     @Getter(AccessLevel.NONE)
     private int[] CurrencyCostList;
-    
+
     private transient List<ItemParam> costList;
-    
+
     @Override
     public int getId() {
         return GoodsID;
     }
-    
+
     @Override
     public void onLoad() {
         // Skip if we dont have an item id associated with this goods excel
         if (this.getItemID() == 0) return;
-        
+
         // Add to shop excel
         ShopExcel shop = GameData.getShopExcelMap().get(this.ShopID);
         if (shop == null) return;
-        
+
         shop.getGoods().put(this.GoodsID, this);
-        
+
         // Cache currency cost
         this.costList = new ArrayList<>(CurrencyList.length);
-        
+
         for (int i = 0; i < CurrencyList.length; i++) {
             ItemParam param = new ItemParam(CurrencyList[i], CurrencyCostList[i]);
             this.costList.add(param);
         }
-        
+
         // Done - Clear references to save memory
         this.CurrencyList = null;
-        this.CurrencyCostList = null; 
+        this.CurrencyCostList = null;
     }
 
     public Goods toProto() {
@@ -61,7 +61,7 @@ public class ShopGoodsExcel extends GameResource {
                 .setGoodsId(this.getGoodsID())
                 .setItemId(this.getItemID())
                 .setEndTime(Integer.MAX_VALUE);
-        
+
         return proto;
     }
 }

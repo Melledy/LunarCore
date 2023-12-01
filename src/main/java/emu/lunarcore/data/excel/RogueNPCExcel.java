@@ -10,7 +10,7 @@ import lombok.Getter;
 public class RogueNPCExcel extends GameResource {
     private int RogueNPCID;
     private int NPCID;
-    
+
     @Override
     public int getId() {
         return RogueNPCID;

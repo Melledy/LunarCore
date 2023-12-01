@@ -16,7 +16,7 @@ public class CocoonExcel extends GameResource {
     private int MaxWave;
     private IntArrayList StageIDList;
     private IntArrayList DropList;
-    
+
     @Override
     public int getId() {
         return (ID << 8) + WorldLevel;

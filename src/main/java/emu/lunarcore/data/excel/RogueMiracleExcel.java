@@ -3,7 +3,6 @@ package emu.lunarcore.data.excel;
 import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
-
 import lombok.Getter;
 
 @Getter
@@ -12,7 +11,7 @@ public class RogueMiracleExcel extends GameResource {
     private int MiracleID;
     private boolean IsShow;
     private int MiracleReward;
-    
+
     @Override
     public int getId() {
         return MiracleID;

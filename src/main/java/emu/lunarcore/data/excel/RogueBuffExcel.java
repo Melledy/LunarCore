@@ -18,12 +18,12 @@ public class RogueBuffExcel extends GameResource {
     private int RogueBuffRarity;
     private int AeonID;
     private RogueBuffAeonType BattleEventBuffType = RogueBuffAeonType.Normal;
-    
+
     @Override
     public int getId() {
         return (MazeBuffID << 4) + MazeBuffLevel;
     }
-    
+
     public boolean isAeonBuff() {
         return this.BattleEventBuffType != RogueBuffAeonType.Normal;
     }
@@ -34,7 +34,7 @@ public class RogueBuffExcel extends GameResource {
         if (RogueBuffType >= 120 && RogueBuffType <= 126 && RogueBuffRarity >= 1 && RogueBuffRarity <= 3 && MazeBuffLevel == 1 && AeonID == 0) {
             GameDepot.getRogueRandomBuffList().add(this);
         }
-        
+
         // Add to aeon buff list
         if (BattleEventBuffType == RogueBuffAeonType.BattleEventBuff) {
             GameDepot.getRogueAeonBuffs().put(this.getAeonID(), this);

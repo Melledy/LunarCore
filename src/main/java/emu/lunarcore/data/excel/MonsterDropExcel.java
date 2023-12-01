@@ -13,9 +13,9 @@ public class MonsterDropExcel extends GameResource {
     private int MonsterTemplateID;
     private int WorldLevel;
     private int AvatarExpReward;
-    
+
     private List<ItemParam> DisplayItemList;
-    
+
     @Override
     public int getId() {
         return (MonsterTemplateID << 4) + WorldLevel;

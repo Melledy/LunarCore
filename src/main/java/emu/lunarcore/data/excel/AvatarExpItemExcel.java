@@ -7,7 +7,6 @@ import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
-
 import lombok.Getter;
 
 @Getter
@@ -28,7 +27,7 @@ public class AvatarExpItemExcel extends GameResource {
         if (excel == null) return;
 
         excel.setAvatarExp(Exp);
-        
+
         // Add to game depot
         if (Exp > 0) {
             GameDepot.getAvatarExpExcels().add(this);

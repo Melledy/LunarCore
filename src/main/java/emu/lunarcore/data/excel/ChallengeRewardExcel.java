@@ -10,7 +10,7 @@ public class ChallengeRewardExcel extends GameResource {
     private int GroupID;
     private int StarCount;
     private int RewardID;
-    
+
     @Override
     public int getId() {
         return (GroupID << 16) + StarCount;

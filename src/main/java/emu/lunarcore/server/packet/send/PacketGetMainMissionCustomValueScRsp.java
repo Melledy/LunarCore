@@ -1,6 +1,5 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.data.GameData;
 import emu.lunarcore.proto.GetMainMissionCustomValueScRspOuterClass.GetMainMissionCustomValueScRsp;
 import emu.lunarcore.proto.MainMissionOuterClass.MainMission;
 import emu.lunarcore.server.packet.BasePacket;

@@ -65,13 +65,9 @@ public class GiveAllCommand implements CommandHandler {
             }
             case "ic", "icons" -> {
                 // Get UnlockedHeads
-                for (int iconhead : GameData.getAllIconHeads()) {
-
-                    // Skip if target already has the head icon
-                    if (target.getUnlockedHeadIcons().contains(iconhead)) {
-                        continue;
-                    }
-                    target.addHeadIcon(iconhead);
+                for (var iconhead : GameData.getPlayerIconExcelMap().values()) {
+                    // This function will handle any duplicate head icons
+                    target.addHeadIcon(iconhead.getId());
                 }
 
                 // Send message

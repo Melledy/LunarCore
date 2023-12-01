@@ -16,10 +16,10 @@ public class RogueAreaExcel extends GameResource {
     private int AreaProgress;
     private int Difficulty;
     private Int2IntOpenHashMap ScoreMap;
-    
+
     private transient int mapId;
     private transient List<RogueMapExcel> sites;
-    
+
     @Override
     public int getId() {
         return RogueAreaID;
