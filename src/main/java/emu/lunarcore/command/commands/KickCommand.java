@@ -8,18 +8,13 @@ import emu.lunarcore.game.player.Player;
 @Command(
     label = "kick",
     desc = "/kick @[player id]. Kicks a player from the server.",
+    requireTarget = true,
     permission = "player.kick"
 )
 public final class KickCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-
         // Kick player
         args.getTarget().getSession().close();
 

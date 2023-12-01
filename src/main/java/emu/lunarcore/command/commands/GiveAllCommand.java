@@ -15,17 +15,11 @@ import emu.lunarcore.game.enums.ItemSubType;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "giveall", aliases = {"ga"}, permission = "player.give", desc = "/giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.")
+@Command(label = "giveall", aliases = {"ga"}, permission = "player.give", requireTarget = true, desc = "/giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.")
 public class GiveAllCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-
         Player target = args.getTarget();
         String type = args.get(0).toLowerCase();
 

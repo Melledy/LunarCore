@@ -11,17 +11,11 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 
-@Command(label = "avatar", aliases = {"a"}, permission = "player.avatar", desc = "/avatar {cur | all | lineup} lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties")
+@Command(label = "avatar", aliases = {"a"}, requireTarget = true, permission = "player.avatar", desc = "/avatar {cur | all | lineup} lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties")
 public class AvatarCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-        
         // Temp avatar list
         List<GameAvatar> changeList = new ArrayList<>();
         

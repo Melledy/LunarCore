@@ -10,17 +10,11 @@ import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "scene", aliases = {"sc"}, permission = "player.scene", desc = "/scene [scene id] [floor id]. Teleports the player to the specified scene.")
+@Command(label = "scene", aliases = {"sc"}, permission = "player.scene", requireTarget = true, desc = "/scene [scene id] [floor id]. Teleports the player to the specified scene.")
 public class SceneCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-        
         // Get arguments
         int planeId = Utils.parseSafeInt(args.get(0));
         int floorId = Utils.parseSafeInt(args.get(1));

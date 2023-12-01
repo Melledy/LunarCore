@@ -6,41 +6,28 @@ import java.util.List;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
+import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.mail.Mail;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "mail", aliases = {"m"}, permission = "player.mail", desc = "/mail [content]. Sends the targeted player a system mail.")
+@Command(label = "mail", aliases = {"m"}, permission = "player.mail", requireTarget = true, desc = "/mail [content]. Sends the targeted player a system mail.")
 public class MailCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-        
         // Get attachments
         List<GameItem> attachments = new ArrayList<>();
-        
-        var it = args.getList().iterator();
-        while (it.hasNext()) {
-            try {
-                String str = it.next();
+
+        if (args.getMap() != null) {
+            for (var entry : args.getMap().int2IntEntrySet()) {
+                if (entry.getIntValue() <= 0) continue;
                 
-                if (str.contains(":")) {
-                    String[] split = str.split(":");
-                    
-                    int itemId = Integer.parseInt(split[0]);
-                    int count = Integer.parseInt(split[1]);
-                    
-                    attachments.add(new GameItem(itemId, count));
-                    
-                    it.remove();
-                }
-            } catch (Exception e) {
+                ItemExcel itemExcel = GameData.getItemExcelMap().get(entry.getIntKey());
+                if (itemExcel == null) continue;
                 
+                attachments.add(new GameItem(itemExcel, entry.getIntValue()));
             }
         }
         

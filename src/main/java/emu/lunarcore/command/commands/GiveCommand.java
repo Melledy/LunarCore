@@ -14,17 +14,11 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "give", aliases = {"g"}, permission = "player.give", desc = "/give [item id] x[amount]. Gives the targetted player an item.")
+@Command(label = "give", aliases = {"g"}, permission = "player.give", requireTarget = true, desc = "/give [item id] x[amount]. Gives the targetted player an item.")
 public class GiveCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-        
         int itemId = Utils.parseSafeInt(args.get(0));
         int amount = Math.max(args.getAmount(), 1);
         

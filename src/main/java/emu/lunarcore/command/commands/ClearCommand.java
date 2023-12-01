@@ -10,17 +10,11 @@ import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "clear", permission = "player.clear", desc = "/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.")
+@Command(label = "clear", permission = "player.clear", requireTarget = true, desc = "/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.")
 public class ClearCommand implements CommandHandler {
 
     @Override
     public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-
         List<GameItem> toRemove = new LinkedList<>();
         String type = args.get(0).toLowerCase();
         
