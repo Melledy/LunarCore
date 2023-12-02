@@ -12,7 +12,7 @@ public class ItemSubAffix {
     private int id; // Affix id
     private int count;
     private int step;
-
+	
     @Deprecated
     public ItemSubAffix() {
         // Morphia only!
@@ -25,11 +25,12 @@ public class ItemSubAffix {
     public ItemSubAffix(RelicSubAffixExcel subAffix, int count) {
         this.id = subAffix.getAffixID();
         this.count = count;
-        this.step = Utils.randomRange(0, subAffix.getStepNum());
+        this.step = this.step = Utils.randomRange(0, count * subAffix.getStepNum());
     }
 
-    public void incrementCount() {
+    public void incrementCount(int stepNum) {
         this.count += 1;
+        this.step += Utils.randomRange(0, stepNum); 
     }
 
     public RelicAffix toProto() {
