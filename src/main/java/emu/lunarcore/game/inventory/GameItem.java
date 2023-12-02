@@ -212,7 +212,8 @@ public class GameItem {
 
     private void upgradeRandomSubAffix() {
         ItemSubAffix subAffix = Utils.randomElement(this.subAffixes);
-        subAffix.incrementCount();
+        var subAffixExcel = GameData.getRelicSubAffixExcel(this.getExcel().getRelicExcel().getSubAffixGroup(), subAffix.getId());
+        subAffix.incrementCount(subAffixExcel.getStepNum());
     }
     
     /**

@@ -2,6 +2,7 @@ package emu.lunarcore.game.inventory;
 
 import dev.morphia.annotations.Entity;
 import emu.lunarcore.data.excel.RelicSubAffixExcel;
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.proto.RelicAffixOuterClass.RelicAffix;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
@@ -12,8 +13,7 @@ public class ItemSubAffix {
     private int id; // Affix id
     private int count;
     private int step;
-    private int stepNum;
-
+	
     @Deprecated
     public ItemSubAffix() {
         // Morphia only!
@@ -23,20 +23,15 @@ public class ItemSubAffix {
         this(subAffix, 1);
     }
     
-    public int getStepNum() {
-        return this.stepNum;
-    }
-    
     public ItemSubAffix(RelicSubAffixExcel subAffix, int count) {
         this.id = subAffix.getAffixID();
         this.count = count;
-        this.stepNum = subAffix.getStepNum();
-        this.step = Utils.randomRange(0, this.getStepNum() * count);
+        this.step = Utils.randomRange(0, 2 * subAffix.getStepNum());
     }
 
-    public void incrementCount() {
+    public void incrementCount(int stepNum) {
         this.count += 1;
-        this.step += Utils.randomRange(0, this.getStepNum());
+        this.step += Utils.randomRange(0, stepNum); 
     }
 
     public RelicAffix toProto() {
