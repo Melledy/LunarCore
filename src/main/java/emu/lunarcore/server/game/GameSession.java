@@ -2,6 +2,7 @@ package emu.lunarcore.server.game;
 
 import java.net.InetSocketAddress;
 
+import ch.qos.logback.classic.Logger;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.player.Player;
@@ -127,11 +128,9 @@ public class GameSession {
 
                 // Log packet
                 if (LunarCore.getConfig().getLogOptions().packets) {
-                    if (LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(opcode)) {
-                        return;
+                    if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(opcode))) {
+                        logPacket("RECV", opcode, data);
                     }
-                    
-                    logPacket("RECV", opcode, data);
                 }
 
                 // Handle
@@ -156,11 +155,9 @@ public class GameSession {
 
         // Log
         if (LunarCore.getConfig().getLogOptions().packets) {
-            if (LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(packet.getCmdId())) {
-                return;
+            if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(packet.getCmdId()))) {
+                logPacket("RECV", packet.getCmdId(), packet.getData());
             }
-            
-            logPacket("SEND", packet.getCmdId(), packet.getData());
         }
     }
 
@@ -175,11 +172,9 @@ public class GameSession {
             
             // Log
             if (LunarCore.getConfig().getLogOptions().packets) {
-                if (LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId)) {
-                    return;
-                }
-
-                logPacket("SEND", cmdId, null);
+                if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId))) {
+                logPacket("RECV", cmdId, null);
+            }
             }
         }
     }
