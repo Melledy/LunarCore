@@ -18,8 +18,10 @@ public class HandlerSearchPlayerCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SearchPlayerCsReq.parseFrom(data);
         
+        // Setup result list
         List<Player> results = new ArrayList<>();
         
+        // Get searched player
         for (int uid : req.getSearchUidList()) {
             Player target = session.getServer().getPlayerByUid(uid, true);
             

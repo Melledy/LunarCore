@@ -114,6 +114,24 @@ public class GameServer extends KcpServer {
         }
     }
     
+    public List<Player> getRandomOnlinePlayers(int amount, Player filter) {
+        List<Player> list = new ArrayList<>();
+        
+        synchronized (this.players) {
+            var iterator = this.players.values().iterator();
+            
+            while (iterator.hasNext() && list.size() < amount) {
+                Player player = iterator.next();
+                
+                if (player != filter) {
+                    list.add(player);
+                }
+            }
+        }
+        
+        return list;
+    }
+    
     public boolean deletePlayer(String accountUid) {
         // Check if player exists
         Player player = this.getOnlinePlayerByAccountId(accountUid);
