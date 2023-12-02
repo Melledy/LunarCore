@@ -3,6 +3,7 @@ package emu.lunarcore.command.commands;
 import java.util.ArrayList;
 import java.util.List;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
@@ -37,7 +38,7 @@ public class LineupCommand implements CommandHandler {
             avatars.add(avatar.getAvatarId());
             
             // Soft cap check
-            if (avatars.size() >= 64) {
+            if (avatars.size() >= GameConstants.MAX_AVATARS_IN_TEAM) {
                 break;
             }
         }
