@@ -12,6 +12,7 @@ public class ItemSubAffix {
     private int id; // Affix id
     private int count;
     private int step;
+    private int stepNum;
 
     @Deprecated
     public ItemSubAffix() {
@@ -22,14 +23,20 @@ public class ItemSubAffix {
         this(subAffix, 1);
     }
     
+    public int getStepNum() {
+        return this.stepNum;
+    }
+    
     public ItemSubAffix(RelicSubAffixExcel subAffix, int count) {
         this.id = subAffix.getAffixID();
         this.count = count;
-        this.step = Utils.randomRange(0, subAffix.getStepNum());
+        this.stepNum = subAffix.getStepNum();
+        this.step = Utils.randomRange(0, this.getStepNum() * count);
     }
 
     public void incrementCount() {
         this.count += 1;
+        this.step += Utils.randomRange(0, this.getStepNum());
     }
 
     public RelicAffix toProto() {
