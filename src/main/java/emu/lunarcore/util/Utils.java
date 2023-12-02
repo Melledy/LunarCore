@@ -83,6 +83,9 @@ public class Utils {
         return Math.max(Math.min((int) ((level - 11) / 10D), 6), 0);
     }
 
+    /**
+     * Parses the string argument as a signed decimal integer. Returns a 0 if the string argument is not an integer.
+     */
     public static int parseSafeInt(String s) {
         if (s == null) {
             return 0;
@@ -99,6 +102,9 @@ public class Utils {
         return i;
     }
 
+    /**
+     * Parses the string argument as a signed decimal long. Returns a 0 if the string argument is not a long.
+     */
     public static long parseSafeLong(String s) {
         if (s == null) {
             return 0;
