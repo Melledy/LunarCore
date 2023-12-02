@@ -797,6 +797,7 @@ public class Player {
                 .setNickname(this.getName())
                 .setSignature(this.getSignature())
                 .setLevel(this.getLevel())
+                .setChatBubbleId(this.getChatBubble())
                 .setOnlineStatus(this.isOnline() ? FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE : FriendOnlineStatus.FRIEND_ONLINE_STATUS_OFFLINE)
                 .setPlatformType(PlatformType.PC)
                 .setLastActiveTime(this.getLastActiveTime())
