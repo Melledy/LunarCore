@@ -2,6 +2,7 @@ package emu.lunarcore.game.inventory;
 
 import dev.morphia.annotations.Entity;
 import emu.lunarcore.data.excel.RelicSubAffixExcel;
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.proto.RelicAffixOuterClass.RelicAffix;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
