@@ -66,7 +66,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties
 /clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.
 /gender {male | female}. Sets the player gender.
-/give [item id] x[amount]. Gives the targetted player an item.
+/give [item id] x[amount] lv[number]. Gives the targetted player an item.
 /giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.
 /heal. Heals your avatars.
 /help. Displays a list of available commands.
