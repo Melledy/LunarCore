@@ -1,10 +1,11 @@
-# Lunar Core
+![LunarCore](https://socialify.git.ci/Melledy/LunarCore/image?description=1&descriptionEditable=A%20game%20server%20reimplementation%20for%20version%201.5.0%20of%20a%20certain%20turn-based%20anime%20game%20for%20educational%20purposes.%20&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Light)
+<div align="center"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Melledy/LunarCore?logo=java&style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Melledy/LunarCore/build.yml?branch=development&logo=github&style=for-the-badge"></div>
 
-**_Language_**
-[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md) | [日本語](README_ja-JP.md)
+<div align="center"><a href="https://discord.gg/cfPKJ6N5hw"><img alt="Discord - Grasscutter" src="https://img.shields.io/discord/1163718404067303444?label=Discord&logo=discord&style=for-the-badge"></a></div>
 
-#
-出於教育目的的某一個回合制不知名動漫遊戲1.5.0版本伺服器端的逆向工程。如果需要任何額外的支持、問題或者討論，請查看我們的[Discord](https://discord.gg/cfPKJ6N5hw)。
+[EN](README.md) | [简中](docs/README_zh-CN.md) | [繁中](docs/README_zh-TW.md) | [JP](docs/README_ja-JP.md) | [RU](docs/README_ru-RU.md) | [FR](docs/README_fr-FR.md) | [KR](docs/README_ko-KR.md)
+
+**請注意:** 如果需要任何額外的支持、問題或者討論，請查看我們的 [Discord](https://discord.gg/cfPKJ6N5hw).
 
 ### 當前功能
 - 基本遊戲功能：登錄、隊伍配置、背包、基本場景/實體管理
@@ -41,7 +42,7 @@
 3. 將Fiddler設置為解密https流量（工具 -> 選項 -> HTTPS -> 解密HTTPS流量），確保選中 `忽略伺服器證書錯誤 (Ignore server certificate errors)`。
 4. 將以下代碼複製並黏貼到Fiddler Classic的Fiddlerscript選項卡中：
 
-```javascript
+```
 import System;
 import System.Windows.Forms;
 import Fiddler;
@@ -49,11 +50,11 @@ import System.Text.RegularExpressions;
 
 class Handlers
 {
-static function OnBeforeRequest(oS: Session) {
-if (oS.host.EndsWith(".starrails.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com") || oS.host.EndsWith(".bhsr.com")) {
-oS.host = "localhost"; // 這也可以替換為其他IP位址。
-}
-}
+    static function OnBeforeRequest(oS: Session) {
+        if (oS.host.EndsWith(".starrails.com") || oS.host.EndsWith(".hoyoverse.com") || oS.host.EndsWith(".mihoyo.com") || oS.host.EndsWith(".bhsr.com")) {
+            oS.host = "localhost"; // 這也可以替換為其他IP位址。
+        }
+    }
 };
 ```
 
@@ -67,11 +68,14 @@ oS.host = "localhost"; // 這也可以替換為其他IP位址。
 /avatar lv(level) p(ascension) r(eidolon) s(skill levels) 設置當前角色的屬性。
 /clear {relics | lightcones | materials | items} 從玩家庫存中刪除過濾的物品。
 /gender {male | female} 設置目標玩家性別。
-/give [item id] x[amount] 給予目標玩家指定物品。
+/give [item id] x[amount] lv[number] 給予目標玩家指定物品。
 /giveall {materials | avatars} 給予目標玩家所有物品／角色。
+/heal. 治癒你的角色。
 /help 顯示可用命令列表。
+/kick @[player id]. 將一名玩家踢出伺服器。
 /mail [content] 發送系統郵件給目標玩家。
 /permission {add | remove | clear} [permission] 向目標玩家授予/移除權限。
+/refill. 在開放世界中補充戰技點。
 /reload 重載伺服器配置。
 /scene [scene id] [floor id] 將玩家傳送到指定的場景。
 /spawn [monster/prop id] x[amount] s[stage id] 在目標玩家附近生成怪物或實體。
