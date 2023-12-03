@@ -11,6 +11,8 @@ import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.util.Utils;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import it.unimi.dsi.fastutil.ints.Int2LongMap;
+import it.unimi.dsi.fastutil.ints.Int2LongOpenHashMap;
 import kcp.highway.Ukcp;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -18,6 +20,7 @@ import lombok.Getter;
 @Getter
 public class GameSession {
     private final GameServer server;
+    private final Int2LongMap packetCooldown;
     private InetSocketAddress address;
 
     private Account account;
@@ -25,13 +28,14 @@ public class GameSession {
 
     // Network
     @Getter(AccessLevel.PRIVATE) private Ukcp ukcp;
-
+    
     // Flags
     private SessionState state = SessionState.WAITING_FOR_TOKEN;
     private boolean useSecretKey;
 
     private GameSession(GameServer server) {
         this.server = server;
+        this.packetCooldown = new Int2LongOpenHashMap();
     }
 
     public GameSession(GameServer server, Ukcp ukcp) {
