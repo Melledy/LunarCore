@@ -44,11 +44,16 @@ public class GiveCommand implements CommandHandler {
             
             // Add item
             if (itemData.getItemMainType() == ItemMainType.AvatarCard) {
-                // Add avatar
+                // Add avatar to target
                 GameAvatar avatar = new GameAvatar(itemData.getId());
                 args.setProperties(avatar);
                 args.getTarget().addAvatar(avatar);
             } else if (itemData.isEquippable()) {
+                // Make sure we dont go over the inventory limit
+                var tab = args.getTarget().getInventory().getInventoryTab(itemData.getItemMainType());
+                amount = Math.min(amount, tab.getAvailableCapacity());
+                
+                // Add items
                 for (int i = 0; i < amount; i++) {
                     GameItem item = new GameItem(itemData);
                     args.setProperties(item);

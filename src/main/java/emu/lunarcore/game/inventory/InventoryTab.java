@@ -10,4 +10,8 @@ public abstract class InventoryTab implements Iterable<GameItem>  {
     public abstract int getSize();
 
     public abstract int getMaxCapacity();
+
+    public int getAvailableCapacity() {
+        return Math.max(getMaxCapacity() - getSize(), 0);
+    }
 }

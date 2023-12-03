@@ -73,7 +73,8 @@ public class GachaService extends BaseGameService {
         // Sanity checks
         if (times != 10 && times != 1) return;
         
-        if (player.getInventory().getInventoryTab(ItemMainType.Equipment).getSize() + times > player.getInventory().getInventoryTab(ItemMainType.Equipment).getMaxCapacity()) {
+        // Prevent player from using gacha if they are at max light cones
+        if (player.getInventory().getInventoryTab(ItemMainType.Equipment).getSize() >= player.getInventory().getInventoryTab(ItemMainType.Equipment).getMaxCapacity()) {
             player.sendPacket(new PacketDoGachaScRsp());
             return;
         }

@@ -36,9 +36,9 @@ public class Inventory extends BasePlayerManager {
         this.store = new Long2ObjectOpenHashMap<>();
         this.inventoryTypes = new Int2ObjectOpenHashMap<>();
 
-        this.createInventoryTab(ItemMainType.Equipment, new EquipInventoryTab(1500));
-        this.createInventoryTab(ItemMainType.Relic, new EquipInventoryTab(1500));
-        this.createInventoryTab(ItemMainType.Material, new MaterialInventoryTab(2000));
+        this.createInventoryTab(ItemMainType.Equipment, new EquipInventoryTab(GameConstants.INVENTORY_MAX_EQUIPMENT));
+        this.createInventoryTab(ItemMainType.Relic, new EquipInventoryTab(GameConstants.INVENTORY_MAX_RELIC));
+        this.createInventoryTab(ItemMainType.Material, new MaterialInventoryTab(GameConstants.INVENTORY_MAX_MATERIAL));
     }
 
     public AvatarStorage getAvatarStorage() {

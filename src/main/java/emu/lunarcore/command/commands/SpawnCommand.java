@@ -1,5 +1,6 @@
 package emu.lunarcore.command.commands;
 
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
@@ -33,6 +34,12 @@ public class SpawnCommand implements CommandHandler {
         int stage = Math.max(Utils.parseSafeInt(args.get(1)), 1);
         int amount = Math.max(args.getAmount(), 1);
         int radius = Math.max(args.getRank(), 5) * 1000;
+        
+        // Enforce scene max entity limit
+        if (target.getScene().getEntities().size() + amount >= LunarCore.getConfig().getServerOptions().getSceneMaxEntites()) {
+            this.sendMessage(sender, "Error: Max entities in scene reached");
+            return;
+        }
         
         // Spawn monster
         NpcMonsterExcel monsterExcel = GameData.getNpcMonsterExcelMap().get(id);

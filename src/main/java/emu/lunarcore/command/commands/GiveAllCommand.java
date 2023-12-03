@@ -46,6 +46,13 @@ public class GiveAllCommand implements CommandHandler {
                 this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " items");
             }
             case "lc", "lightcones" -> {
+                // Make sure we dont go over the inventory limit
+                var tab = args.getTarget().getInventory().getInventoryTab(ItemMainType.Equipment);
+                if (tab.getSize() >= tab.getMaxCapacity()) {
+                    this.sendMessage(sender, target.getName() + " has too many of this item type");
+                    return;
+                }
+                
                 // Get lightcones
                 List<GameItem> items = GameData.getItemExcelMap().values()
                         .stream()
@@ -74,6 +81,13 @@ public class GiveAllCommand implements CommandHandler {
                 this.sendMessage(sender, "Added all icons to " + target.getName());
             }
             case "r", "relics" -> {
+                // Make sure we dont go over the inventory limit
+                var tab = args.getTarget().getInventory().getInventoryTab(ItemMainType.Relic);
+                if (tab.getSize() >= tab.getMaxCapacity()) {
+                    this.sendMessage(sender, target.getName() + " has too many of this item type");
+                    return;
+                }
+                
                 // Get relics
                 List<GameItem> items = GameData.getItemExcelMap().values()
                         .stream()
@@ -84,7 +98,7 @@ public class GiveAllCommand implements CommandHandler {
                             return item;
                         })
                         .toList();
-
+                
                 // Add to target's inventory
                 target.getInventory().addItems(items, true);
 
