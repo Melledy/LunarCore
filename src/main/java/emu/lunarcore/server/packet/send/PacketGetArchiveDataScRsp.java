@@ -5,11 +5,12 @@ import emu.lunarcore.proto.GetArchiveDataScRspOuterClass.GetArchiveDataScRsp;
 import emu.lunarcore.proto.MonsterArchiveOuterClass.MonsterArchive;
 import emu.lunarcore.proto.RelicArchiveOuterClass.RelicArchive;
 import emu.lunarcore.server.packet.BasePacket;
+import emu.lunarcore.server.packet.CacheablePacket;
 import emu.lunarcore.server.packet.CmdId;
 
+@CacheablePacket
 public class PacketGetArchiveDataScRsp extends BasePacket {
 
-    // TODO cache packet
     public PacketGetArchiveDataScRsp() {
         super(CmdId.GetArchiveDataScRsp);
         

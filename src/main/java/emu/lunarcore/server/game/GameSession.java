@@ -2,7 +2,6 @@ package emu.lunarcore.server.game;
 
 import java.net.InetSocketAddress;
 
-import ch.qos.logback.classic.Logger;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.player.Player;
@@ -160,9 +159,9 @@ public class GameSession {
             }
         }
     }
-
+    
     /**
-     * Sends a empty packet with the specified cmd id.
+     * Sends a cached packet with the specified cmd id. If the packet isnt cacheable, then an empty packet is sent.
      * @param cmdId
      */
     public void send(int cmdId) {
@@ -173,8 +172,8 @@ public class GameSession {
             // Log
             if (LunarCore.getConfig().getLogOptions().packets) {
                 if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId))) {
-                logPacket("RECV", cmdId, null);
-            }
+                    logPacket("RECV", cmdId, null);
+                }
             }
         }
     }
@@ -188,7 +187,7 @@ public class GameSession {
     }
 
     public void logPacket(String sendOrRecv, int opcode, byte[] payload) {
-        LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getOpcodeName(opcode) + " (" + opcode + ")" + System.lineSeparator() + Utils.bytesToHex(payload));
+        LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getCmdIdName(opcode) + " (" + opcode + ")" + System.lineSeparator() + Utils.bytesToHex(payload));
     }
 
     public void close() {

@@ -4,8 +4,10 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.proto.ActivityScheduleInfoOuterClass.ActivityScheduleInfo;
 import emu.lunarcore.proto.GetActivityScheduleConfigScRspOuterClass.GetActivityScheduleConfigScRsp;
 import emu.lunarcore.server.packet.BasePacket;
+import emu.lunarcore.server.packet.CacheablePacket;
 import emu.lunarcore.server.packet.CmdId;
 
+@CacheablePacket
 public class PacketGetActivityScheduleConfigScRsp extends BasePacket {
 
     public PacketGetActivityScheduleConfigScRsp() {
