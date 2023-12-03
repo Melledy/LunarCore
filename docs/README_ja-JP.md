@@ -1,10 +1,11 @@
-# Lunar Core
+![LunarCore](https://socialify.git.ci/Melledy/LunarCore/image?description=1&descriptionEditable=A%20game%20server%20reimplementation%20for%20version%201.5.0%20of%20a%20certain%20turn-based%20anime%20game%20for%20educational%20purposes.%20&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Light)
+<div align="center"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Melledy/LunarCore?logo=java&style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Melledy/LunarCore/build.yml?branch=development&logo=github&style=for-the-badge"></div>
 
-**_Language_**
-[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md) | [日本語](README_ja-JP.md)
+<div align="center"><a href="https://discord.gg/cfPKJ6N5hw"><img alt="Discord - Grasscutter" src="https://img.shields.io/discord/1163718404067303444?label=Discord&logo=discord&style=for-the-badge"></a></div>
 
-#
-これは、教育目的でとあるターン制アニメゲームのバージョン1.5.0を再実装したゲームサーバーです。追加のサポート、質問、または議論がある場合は、[discord](https://discord.gg/cfPKJ6N5hw)をご覧ください。
+[EN](README.md) | [简中](docs/README_zh-CN.md) | [繁中](docs/README_zh-TW.md) | [JP](docs/README_ja-JP.md) | [RU](docs/README_ru-RU.md) | [FR](docs/README_fr-FR.md) | [KR](docs/README_ko-KR.md)
+
+**Attention:** 追加のサポート、質問、または議論がある場合は、 [Discord](https://discord.gg/cfPKJ6N5hw).
 
 ### 注目すべき機能
 - 基本ゲーム機能：ログイン、チームのセットアップ、バッグ、基本的なシーン/エンティティの管理
@@ -64,18 +65,20 @@ class Handlers
 
 ```
 /account {create | delete} [username] (予約プレイヤーuid). アカウントを作成または削除します。
-/avatar lv(level) p(ascension) r(eidolon) s(skill levels). 現在のアバターのプロパティを設定します
+/avatar lv(level) p(ascension) r(eidolon) s(skill levels). 現在のアバターのプロパティを設定します。
 /clear {relics | lightcones | materials | items}. プレイヤーのインベントリからフィルタリングされたアイテムを削除します。
 /gender {male | female}. プレイヤーの性別を設定します。
-/give [item id] x[amount]. ターゲットのプレイヤーにアイテムを与えます。
+/give [item id] x[amount] lv[number]. ターゲットのプレイヤーにアイテムを与えます。
 /giveall {materials | avatars}. ターゲットのプレイヤーにアイテムを与えます。
+/heal. あなたのキャラクターを癒します。
 /help. 利用可能なコマンドの一覧を表示します。
+/kick @[player id]. サーバーからプレーヤーをキックする。
 /mail [content]. ターゲットのプレイヤーにシステムメールを送信します。
 /permission {add | remove | clear} [permission]. ターゲットのプレイヤーから権限を付与/削除します。
+/refill. SPを回復します。
 /reload. サーバーコンフィギュレーションを再読み込みします。
 /scene [scene id] [floor id]. プレイヤーを指定したシーンにテレポートします。
 /spawn [monster/prop id] x[amount] s[stage id]. ターゲットのプレイヤーの近くにモンスターまたはプロップを生成します。
 /unstuck @[player id]. オフラインプレイヤーが読み込み不可のシーンにいる場合、スタックを解除します。
 /worldlevel [world level]. ターゲットのプレイヤーの平衡レベルを設定します。
-/refill. SPを回復します。
 ```

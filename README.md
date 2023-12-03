@@ -1,10 +1,11 @@
-# Lunar Core
+![LunarCore](https://socialify.git.ci/Melledy/LunarCore/image?description=1&descriptionEditable=A%20game%20server%20reimplementation%20for%20version%201.5.0%20of%20a%20certain%20turn-based%20anime%20game%20for%20educational%20purposes.%20&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Light)
+<div align="center"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Melledy/LunarCore?logo=java&style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Melledy/LunarCore/build.yml?branch=development&logo=github&style=for-the-badge"></div>
 
-**_Language_**
-[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md) | [日本語](README_ja-JP.md)
+<div align="center"><a href="https://discord.gg/cfPKJ6N5hw"><img alt="Discord - Grasscutter" src="https://img.shields.io/discord/1163718404067303444?label=Discord&logo=discord&style=for-the-badge"></a></div>
 
-#
-A game server reimplementation for version 1.5.0 of a certain turn-based anime game for educational purposes. For any extra support, questions, or discussions, check out our [Discord](https://discord.gg/cfPKJ6N5hw).
+[EN](README.md) | [简中](docs/README_zh-CN.md) | [繁中](docs/README_zh-TW.md) | [JP](docs/README_ja-JP.md) | [RU](docs/README_ru-RU.md) | [FR](docs/README_fr-FR.md) | [KR](docs/README_ko-KR.md)
+
+**Attention:** For any extra support, questions, or discussions, check out our [Discord](https://discord.gg/cfPKJ6N5hw).
 
 ### Notable features
 - Basic game features: Logging in, team setup, inventory, basic scene/entity management
@@ -63,7 +64,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 
 ```
 /account {create | delete} [username] (reserved player uid). Creates or deletes an account.
-/avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties
+/avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties.
 /clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.
 /gender {male | female}. Sets the player gender.
 /give [item id] x[amount] lv[number]. Gives the targetted player an item.
@@ -73,7 +74,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /kick @[player id]. Kicks a player from the server.
 /mail [content]. Sends the targeted player a system mail.
 /permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
-/refill - refill your skill points in open world.
+/refill. Refill your skill points in open world.
 /reload. Reloads the server config.
 /scene [scene id] [floor id]. Teleports the player to the specified scene.
 /spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.

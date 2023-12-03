@@ -1,10 +1,11 @@
-# Lunar Core
+![LunarCore](https://socialify.git.ci/Melledy/LunarCore/image?description=1&descriptionEditable=A%20game%20server%20reimplementation%20for%20version%201.5.0%20of%20a%20certain%20turn-based%20anime%20game%20for%20educational%20purposes.%20&font=Inter&forks=1&issues=1&language=1&name=1&owner=1&pulls=1&stargazers=1&theme=Light)
+<div align="center"><img alt="GitHub release (latest by date)" src="https://img.shields.io/github/v/release/Melledy/LunarCore?logo=java&style=for-the-badge"> <img alt="GitHub" src="https://img.shields.io/github/license/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub last commit" src="https://img.shields.io/github/last-commit/Melledy/LunarCore?style=for-the-badge"> <img alt="GitHub Workflow Status" src="https://img.shields.io/github/actions/workflow/status/Melledy/LunarCore/build.yml?branch=development&logo=github&style=for-the-badge"></div>
 
-**_Language_**
-[EN](README.md) | [简体中文](README_zh-CN.md) | [繁體中文](README_zh-TW.md) | [日本語](README_ja-JP.md)
+<div align="center"><a href="https://discord.gg/cfPKJ6N5hw"><img alt="Discord - Grasscutter" src="https://img.shields.io/discord/1163718404067303444?label=Discord&logo=discord&style=for-the-badge"></a></div>
 
-#
-出于研究目的的某个回合制动漫游戏的1.5.0版本服务端的重新实现。如果需要任何额外的支持、问题或者讨论，请查看我们的[discord](https://discord.gg/cfPKJ6N5hw).
+[EN](README.md) | [简中](docs/README_zh-CN.md) | [繁中](docs/README_zh-TW.md) | [JP](docs/README_ja-JP.md) | [RU](docs/README_ru-RU.md) | [FR](docs/README_fr-FR.md) | [KR](docs/README_ko-KR.md)
+
+**注意:** 如果需要任何额外的支持、问题或者讨论，请查看我们的 [Discord](https://discord.gg/cfPKJ6N5hw).
 
 ### 显著特点
 - 基本游戏功能：登录、队伍配置、背包、基本场景/实体管理
@@ -64,17 +65,20 @@ class Handlers
 
 ```
 /account {create | delete} [username] (保留玩家uid). 创建或删除一个帐户。
-/avatar lv(level) p(ascension) r(eidolon) s(skill levels). 设置当前角色的属性
+/avatar lv(level) p(ascension) r(eidolon) s(skill levels). 设置当前角色的属性。
 /clear {relics | lightcones | materials | items}. 从玩家库存中删除过滤的物品。
 /gender {male | female}. 设置玩家性别。
-/give [item id] x[amount]. 给予目标玩家一个物品。
+/give [item id] x[amount] lv[number]. 给予目标玩家一个物品。
 /giveall {materials | avatars}. 给予目标玩家物品。
+/heal. 治疗你的角色。
 /help 显示可用命令列表。
+/kick @[player id]. 将一名玩家踢出服务器。
 /mail [content]. 发送系统邮件给目标玩家。
 /permission {add | remove | clear} [permission]. 向目标玩家授予/移除权限。
+/refill. 在开放世界中补充战技点。
 /reload. 重载服务器配置。
 /scene [scene id] [floor id]. 将玩家传送到指定的场景。
 /spawn [monster/prop id] x[amount] s[stage id]. 在目标玩家附近生成怪物或道具。
 /unstuck @[player id]. 如果离线玩家卡在不加载的场景中，解除卡住。
-/worldlevel [world level]. 设置目标玩家的平衡等级。
+/worldlevel [world level]. 设置目标玩家的均衡等级。
 ```
