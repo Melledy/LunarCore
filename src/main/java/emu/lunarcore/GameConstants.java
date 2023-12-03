@@ -33,6 +33,9 @@ public class GameConstants {
     public static final int MATERIAL_COIN_ID = 2; // Material id for credits. DO NOT CHANGE
     public static final int TRAILBLAZER_EXP_ID = 22;
     
+    // Battle
+    public static final int BATTLE_AMBUSH_BUFF_ID = 1000102;
+    
     // Gacha
     public static final int GACHA_CEILING_MAX = 300; // Yes, I know this is in an excel
     

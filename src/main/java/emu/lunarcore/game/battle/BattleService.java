@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.CocoonExcel;
 import emu.lunarcore.data.excel.StageExcel;
@@ -130,6 +131,9 @@ public class BattleService extends BaseGameService {
                         buff.addDynamicValue("SkillIndex", castedSkill.getIndex());
                     }
                 }
+            } else {
+                // Ambush buff (for monsters)
+                battle.addBuff(GameConstants.BATTLE_AMBUSH_BUFF_ID, -1, 1);
             }
             
             // Challenge
