@@ -30,7 +30,7 @@
 Компиляция сервера
 1. Откройте системный терминал и скомпилируйте сервер с помощью `./gradlew jar`.
 2. Создайте папку с именем `resources` в каталоге сервера.
-3. Скачайте папки `Config`, `TextMap` и `ExcelBin` с сайта [https://github.com/Dimbreath/StarRailData] (https://github.com/Dimbreath/StarRailData) и поместите их в папку resources.
+3. Скачайте папки `Config`, `TextMap` и `ExcelBin` с сайта [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) и поместите их в папку resources.
 4. Скачайте папку `Config` с сайта [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) и поместите ее в папку resources. Замените все файлы, которые запрашивает ваша система. Они предназначены для спавна мира и очень важны для сервера.
 5. Запустите сервер с помощью команды `java -jar LunarCore.jar` из системного терминала. Lunar Core поставляется со встроенным внутренним сервером MongoDB для своей базы данных, поэтому установка Mongodb не требуется. Однако настоятельно рекомендуется установить Mongodb в любом случае.
 6. Если в конфиге `autoCreateAccount` установлено значение true, то создание учетной записи можно пропустить. В противном случае используйте команду `/account` в консоли сервера для ее создания.

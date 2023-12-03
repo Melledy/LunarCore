@@ -31,13 +31,13 @@
 1. 시스템 터미널을 열고 다음을 사용하여 서버를 컴파일합니다. `./gradlew jar`
 2. 서버 디렉터리에 `resources`라는 이름의 폴더를 만듭니다.
 3. [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) 에서 `Config`, `TextMap`, `ExcelBin` 폴더를 다운로드하여 리소스 폴더에 넣습니다.
-4. https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) 에서 `Config` 폴더를 다운로드하여 리소스 폴더에 넣습니다. 시스템에서 요청하는 파일을 모두 교체하세요. 이 파일들은 월드 스폰을 위한 것으로 서버에 매우 중요합니다.
+4. [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) 에서 `Config` 폴더를 다운로드하여 리소스 폴더에 넣습니다. 시스템에서 요청하는 파일을 모두 교체하세요. 이 파일들은 월드 스폰을 위한 것으로 서버에 매우 중요합니다.
 5. 시스템 터미널에서 `java -jar LunarCore.jar`로 서버를 실행합니다. Lunar Core에는 데이터베이스를 위한 내부 MongoDB 서버가 내장되어 있으므로 Mongodb를 설치할 필요가 없습니다. 하지만 어쨌든 Mongodb를 설치하는 것을 적극 권장합니다.
 6. 설정에서 `autoCreateAccount`가 true로 설정되어 있으면 계정 생성을 건너뛸 수 있습니다. 그렇지 않은 경우 서버 콘솔에서 `/account` 명령을 사용하여 계정을 생성합니다.
 
 ### 클라이언트와 연결하기(피들러)
 1. **게임 데이터를 다운로드하려면 클라이언트로 공식 서버와 호오버스 계정에 한 번 이상 로그인합니다.
-2. 피들러 클래식](https://www.telerik.com/fiddler)을 설치하여 실행합니다.
+2. [Fiddler Classic](https://www.telerik.com/fiddler) 을 설치하여 실행합니다.
 3. 피들러가 https 트래픽을 복호화하도록 설정합니다. (도구 -> 옵션 -> HTTPS -> HTTPS 트래픽 복호화) '서버 인증서 오류 무시'도 체크되어 있는지 확인합니다.
 4. 피들러 클래식의 피들러스크립트 탭에 다음 코드를 복사하여 붙여넣습니다:
 

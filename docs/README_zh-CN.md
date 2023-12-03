@@ -80,5 +80,5 @@ class Handlers
 /scene [scene id] [floor id]. 将玩家传送到指定的场景。
 /spawn [monster/prop id] x[amount] s[stage id]. 在目标玩家附近生成怪物或道具。
 /unstuck @[player id]. 如果离线玩家卡在不加载的场景中，解除卡住。
-/worldlevel [world level]. 设置目标玩家的平衡等级。
+/worldlevel [world level]. 设置目标玩家的均衡等级。
 ```
