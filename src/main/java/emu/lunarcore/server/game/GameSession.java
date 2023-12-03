@@ -16,6 +16,7 @@ import it.unimi.dsi.fastutil.ints.Int2LongOpenHashMap;
 import kcp.highway.Ukcp;
 import lombok.AccessLevel;
 import lombok.Getter;
+import us.hebi.quickbuf.ProtoMessage;
 
 @Getter
 public class GameSession {
@@ -176,7 +177,7 @@ public class GameSession {
             // Log
             if (LunarCore.getConfig().getLogOptions().packets) {
                 if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId))) {
-                    logPacket("RECV", cmdId, null);
+                    logPacket("RECV", cmdId, Utils.EMPTY_BYTE_ARRAY);
                 }
             }
         }
@@ -188,6 +189,10 @@ public class GameSession {
             this.ukcp.write(buf);
             buf.release();
         }
+    }
+    
+    public void logPacket(String sendOrRecv, int opcode, ProtoMessage<?> payload) {
+        logPacket(sendOrRecv, opcode, payload != null ? payload.toByteArray() : Utils.EMPTY_BYTE_ARRAY);
     }
 
     public void logPacket(String sendOrRecv, int opcode, byte[] payload) {

@@ -10,13 +10,14 @@ import java.util.concurrent.ThreadLocalRandom;
 
 public class Utils {
     private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
-
+    
     public static final Object EMPTY_OBJECT = new Object();
     public static final int[] EMPTY_ARRAY = new int[0];
+    public static final byte[] EMPTY_BYTE_ARRAY = new byte[0];
     public static final String EMPTY_STRING = "";
 
     public static String bytesToHex(byte[] bytes) {
-        if (bytes == null) return "";
+        if (bytes == null || bytes.length == 0) return EMPTY_STRING;
         char[] hexChars = new char[bytes.length * 2];
         for (int j = 0; j < bytes.length; j++) {
             int v = bytes[j] & 0xFF;
