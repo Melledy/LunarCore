@@ -15,7 +15,8 @@ public class ItemComposeExcel extends GameResource {
     private int ItemID;
     private FormulaType FormulaType;
     private List<ItemParam> MaterialCost;
-    private int[] SpecialMaterialCost;
+    private IntOpenHashSet SpecialMaterialCost;
+    private int SpecialMaterialCostNumber;
     private int CoinCost;
     private int WorldLevelRequire;
     private IntOpenHashSet RelicList;
