@@ -64,13 +64,13 @@ public class BattleService extends BaseGameService {
             }
         }
         
-        // Give the client an error if no attacked entities detected
+        // Skip if no attacked entities detected
         if (targetEntities.size() == 0) {
-            player.sendPacket(new PacketSceneCastSkillScRsp());
+            player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
             return;
         }
         
-        // Monster list
+        // Separate entities into monster list
         List<EntityMonster> monsters = new ArrayList<>();
         
         // Destroy props
@@ -85,6 +85,15 @@ public class BattleService extends BaseGameService {
                 player.getScene().removeEntity(entity);
             }
         }
+        
+        // Check if we are using a skill that doesnt trigger a battle
+        if (castedSkill != null && !castedSkill.isTriggerBattle()) {
+            // Apply buffs to monsters
+            castedSkill.onAttack(player.getCurrentLeaderAvatar(), monsters);
+            // Skip battle if our technique does not trigger a battle
+            player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
+            return;
+        } 
 
         // Start battle
         if (monsters.size() > 0) {
@@ -109,11 +118,16 @@ public class BattleService extends BaseGameService {
             Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
             
             // Add npc monsters
-            for (var npcMonster : monsters) {
-                battle.getNpcMonsters().add(npcMonster);
+            for (var monster : monsters) {
+                battle.getNpcMonsters().add(monster);
                 
-                if (npcMonster.getOverrideLevel() > 0) {
-                    battle.setLevelOverride(npcMonster.getOverrideLevel());
+                // Handle monster buffs
+                // TODO handle multiple waves properly
+                monster.applyBuffs(battle);
+                
+                // Override level
+                if (monster.getOverrideLevel() > 0) {
+                    battle.setLevelOverride(monster.getOverrideLevel());
                 }
             }
             

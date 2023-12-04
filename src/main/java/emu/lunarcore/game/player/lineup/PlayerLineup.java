@@ -128,6 +128,10 @@ public class PlayerLineup {
         }
     }
     
+    public int indexOf(int ownerId) {
+        return this.getAvatars().indexOf(ownerId);
+    }
+    
     /**
      * Checks if the slot contains an avatar
      * @param slot The slot we are checking for

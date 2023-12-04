@@ -6,6 +6,7 @@ import java.util.List;
 import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import lombok.Getter;
 import lombok.Setter;
@@ -42,6 +43,15 @@ public class MazeSkill {
         
         for (var action : this.getAttackActions()) {
             action.onAttack(caster, battle);
+        }
+    }
+    
+    // Triggered when player attacks an enemy
+    public void onAttack(GameAvatar caster, List<EntityMonster> monsters) {
+        if (this.getAttackActions().size() == 0) return;
+        
+        for (var action : this.getAttackActions()) {
+            action.onAttack(caster, monsters);
         }
     }
 }

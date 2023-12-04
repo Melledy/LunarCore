@@ -121,6 +121,10 @@ public class Battle {
         return buff;
     }
     
+    public boolean hasBuff(int buffId) {
+        return this.buffs.stream().filter(buff -> buff.getId() == buffId).findFirst().isPresent();
+    }
+    
     public void clearBuffs() {
         this.buffs.clear();
     }
