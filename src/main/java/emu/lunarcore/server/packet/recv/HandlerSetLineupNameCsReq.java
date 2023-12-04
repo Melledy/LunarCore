@@ -15,7 +15,7 @@ public class HandlerSetLineupNameCsReq extends PacketHandler {
         var req = SetLineupNameCsReq.parseFrom(data);
 
         var success = session.getPlayer().getLineupManager().changeLineupName(req.getIndex(), req.getName());
-        session.send(new PacketSetLineupNameScRsp(success ? req.getName() : null));
+        session.send(new PacketSetLineupNameScRsp(req.getIndex(), success ? req.getName() : null));
     }
 
 }

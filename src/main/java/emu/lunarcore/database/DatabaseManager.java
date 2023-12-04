@@ -56,7 +56,7 @@ public final class DatabaseManager {
         
         // Add our custom fastutil codecs
         var codecProvider = CodecRegistries.fromCodecs(
-               new IntSetCodec(), new Int2IntMapCodec()
+               new IntSetCodec(), new IntListCodec(), new Int2IntMapCodec()
         );
 
         // Set mapper options.

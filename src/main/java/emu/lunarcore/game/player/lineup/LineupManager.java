@@ -151,6 +151,11 @@ public class LineupManager {
 
     // Lineup functions
 
+    /**
+     * Changes the player's current active avatar
+     * @param slot The slot of the avatar we are changing to
+     * @return true on success
+     */
     public boolean changeLeader(int slot) {
         PlayerLineup lineup = this.getCurrentLineup();
         
@@ -162,6 +167,13 @@ public class LineupManager {
         return false;
     }
 
+    /**
+     * Adds an avatar to a lineup
+     * @param index Index of the lineup we are adding the avatar to
+     * @param slot The slot that we want to put the avatar at
+     * @param avatarId Id of the avatar we are adding
+     * @return true on success
+     */
     public boolean joinLineup(int index, int slot, int avatarId) {
         // Get lineup
         PlayerLineup lineup = this.getLineupByIndex(index);
@@ -174,7 +186,7 @@ public class LineupManager {
         if (avatar == null) return false;
 
         // Join lineup
-        if (slot >= 0 && slot < lineup.size()) {
+        if (lineup.isActiveSlot(slot)) {
             // Replace avatar
             lineup.getAvatars().set(slot, avatarId);
         } else if (lineup.size() < GameConstants.MAX_AVATARS_IN_TEAM) {
@@ -199,6 +211,13 @@ public class LineupManager {
         return true;
     }
 
+    /**
+     * Removes an avatar from a lineup
+     * @param index Index of the lineup we are removing the avatar from
+     * @param slot The slot that we want to remove the avatar from
+     * @param avatarId Id of the avatar we are removing
+     * @return true on success
+     */
     public boolean quitLineup(int index, int avatarId) {
         // Get lineup
         PlayerLineup lineup = this.getLineupByIndex(index);
@@ -211,7 +230,7 @@ public class LineupManager {
             return false;
         }
 
-        //
+        // Remove avatar from lineup
         int i = lineup.getAvatars().indexOf(avatarId);
         if (i != -1) {
             lineup.getAvatars().remove(i);
@@ -238,6 +257,11 @@ public class LineupManager {
         return true;
     }
 
+    /**
+     * Changes the player's active lineup
+     * @param index Index of the lineup we are changing to
+     * @return true on success
+     */
     public boolean switchLineup(int index) {
         // Sanity + Prevent lineups from being changed when the player is using an extra lineup
         if (index == this.getCurrentIndex() || this.currentExtraIndex > 0) {
@@ -247,7 +271,7 @@ public class LineupManager {
         // Get lineup
         PlayerLineup lineup = this.getLineupByIndex(index);
 
-        // Make sure lineup exists and has size
+        // Make sure our next lineup exists and has avatars in it
         if (lineup == null || lineup.size() == 0) {
             return false;
         }
@@ -265,6 +289,13 @@ public class LineupManager {
         return true;
     }
 
+    /**
+     * Sets the avatars of a lineup
+     * @param index Index of the lineup we are replacing the avatars on
+     * @param extraLineupType
+     * @param lineupList New avatar list
+     * @return true on success
+     */
     public boolean replaceLineup(int index, int extraLineupType, List<Integer> lineupList) {
         // Get lineup
         PlayerLineup lineup = this.getLineupByIndex(index, extraLineupType);
@@ -305,17 +336,23 @@ public class LineupManager {
         return true;
     }
 
+    /**
+     * Swaps the positions of 2 avatars on a lineup
+     * @param index Index of the lineup we are swapping avatars on
+     * @param src 1st avatar slot
+     * @param dest 2nd avatar slot
+     * @return true on success
+     */
     public boolean swapLineup(int index, int src, int dest) {
         // Sanity
         if (src == dest) return false;
 
         // Get lineup
         PlayerLineup lineup = this.getLineupByIndex(index);
-        // Validate slots
-        if ((lineup == null) || (src < 0 && src >= lineup.size())) {
-            return false;
-        }
-        if (dest < 0 && dest >= lineup.size()) {
+        if (lineup == null) return false;
+        
+        // Validate slots to make sure avatars are in them
+        if (!lineup.isActiveSlot(src) || !lineup.isActiveSlot(dest)) {
             return false;
         }
 
@@ -335,6 +372,12 @@ public class LineupManager {
         return true;
     }
 
+    /**
+     * Changes a lineup's name
+     * @param index
+     * @param name
+     * @return
+     */
     public boolean changeLineupName(int index, String name) {
         // Get lineup
         PlayerLineup lineup = this.getLineupByIndex(index);
@@ -346,6 +389,8 @@ public class LineupManager {
         
         return true;
     }
+    
+    // Database
     
     public void loadFromDatabase() {
         // Load lineups from database
