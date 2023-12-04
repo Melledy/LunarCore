@@ -170,15 +170,15 @@ public class GameSession {
      * @param cmdId
      */
     public void send(int cmdId) {
+        // Get packet from the server's packet cache. This will allow us to reuse empty packets if needed.
         if (this.ukcp != null) {
-            // Get packet from the server's packet cache. This will allow us to reuse empty packets if needed.
-            this.ukcp.write(this.getServer().getPacketCache().getCachedPacket(cmdId));
-            
-            // Log
-            if (LunarCore.getConfig().getLogOptions().packets) {
-                if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId))) {
-                    logPacket("RECV", cmdId, Utils.EMPTY_BYTE_ARRAY);
-                }
+            this.ukcp.write(getServer().getPacketCache().getCachedPacket(cmdId));
+        }
+        
+        // Log
+        if (LunarCore.getConfig().getLogOptions().packets) {
+            if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.LOOP_PACKETS.contains(cmdId))) {
+                logPacket("SEND", cmdId, Utils.EMPTY_BYTE_ARRAY);
             }
         }
     }
