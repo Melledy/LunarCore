@@ -16,7 +16,7 @@ public class PacketGetActivityScheduleConfigScRsp extends BasePacket {
         var data = GetActivityScheduleConfigScRsp.newInstance();
         
         for (var activity : GameData.getActivityPanelExcelMap().values()) {
-            if (activity.getType() != 5) continue;
+            if (activity.getType() != 18) continue;
             
             var info = ActivityScheduleInfo.newInstance()
                     .setActivityId(activity.getPanelID())
