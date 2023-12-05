@@ -1,7 +1,8 @@
-package emu.lunarcore.game.inventory;
+package emu.lunarcore.game.inventory.tabs;
 
 import java.util.Iterator;
 
+import emu.lunarcore.game.inventory.GameItem;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 

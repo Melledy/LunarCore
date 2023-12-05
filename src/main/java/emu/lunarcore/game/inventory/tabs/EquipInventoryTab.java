@@ -1,8 +1,10 @@
-package emu.lunarcore.game.inventory;
+package emu.lunarcore.game.inventory.tabs;
 
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
+
+import emu.lunarcore.game.inventory.GameItem;
 
 public class EquipInventoryTab extends InventoryTab {
     private final Set<GameItem> items;

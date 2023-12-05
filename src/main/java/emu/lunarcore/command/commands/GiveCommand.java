@@ -49,7 +49,7 @@ public class GiveCommand implements CommandHandler {
                 args.getTarget().addAvatar(avatar);
             } else if (itemData.isEquippable()) {
                 // Make sure we dont go over the inventory limit
-                var tab = args.getTarget().getInventory().getInventoryTab(itemData.getItemMainType());
+                var tab = args.getTarget().getInventory().getTabByItemType(itemData.getItemMainType());
                 amount = Math.min(amount, tab.getAvailableCapacity());
                 
                 // Add items

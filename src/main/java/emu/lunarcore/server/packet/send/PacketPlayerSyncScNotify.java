@@ -102,18 +102,15 @@ public class PacketPlayerSyncScNotify extends BasePacket {
     }
 
     private void addItemToProto(PlayerSyncScNotify data, GameItem item) {
-        switch (item.getExcel().getItemMainType()) {
-            case Material -> {
-                data.addMaterialList(item.toMaterialProto());
-            }
-            case Relic -> {
+        switch (item.getExcel().getItemMainType().getTabType()) {
+            case RELIC -> {
                 if (item.getCount() > 0) {
                     data.addRelicList(item.toRelicProto());
                 } else {
                     data.addDelRelicList(item.getInternalUid());
                 }
             }
-            case Equipment -> {
+            case EQUIPMENT -> {
                 if (item.getCount() > 0) {
                     data.addEquipmentList(item.toEquipmentProto());
                 } else {
@@ -121,7 +118,7 @@ public class PacketPlayerSyncScNotify extends BasePacket {
                 }
             }
             default -> {
-    
+                data.addMaterialList(item.toMaterialProto());
             }
         }
     }

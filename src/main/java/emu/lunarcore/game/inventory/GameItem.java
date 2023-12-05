@@ -49,7 +49,7 @@ public class GameItem {
     @Setter private boolean locked;
 
     @Setter private int mainAffix;
-    private List<ItemSubAffix> subAffixes;
+    private List<GameItemSubAffix> subAffixes;
 
     private int equipAvatar;
 
@@ -188,7 +188,7 @@ public class GameItem {
         }
 
         IntSet blacklist = new IntOpenHashSet();
-        for (ItemSubAffix subAffix : this.getSubAffixes()) {
+        for (GameItemSubAffix subAffix : this.getSubAffixes()) {
             blacklist.add(subAffix.getId());
         }
 
@@ -207,11 +207,11 @@ public class GameItem {
 
         // Add random stat
         RelicSubAffixExcel subAffix = randomList.next();
-        this.subAffixes.add(new ItemSubAffix(subAffix));
+        this.subAffixes.add(new GameItemSubAffix(subAffix));
     }
 
     private void upgradeRandomSubAffix() {
-        ItemSubAffix subAffix = Utils.randomElement(this.subAffixes);
+        GameItemSubAffix subAffix = Utils.randomElement(this.subAffixes);
         var subAffixExcel = GameData.getRelicSubAffixExcel(this.getExcel().getRelicExcel().getSubAffixGroup(), subAffix.getId());
         subAffix.incrementCount(subAffixExcel.getStepNum());
     }

@@ -1,8 +1,8 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.inventory.InventoryTab;
+import emu.lunarcore.game.inventory.tabs.InventoryTab;
+import emu.lunarcore.game.inventory.tabs.InventoryTabType;
 import emu.lunarcore.proto.GetBagScRspOuterClass.GetBagScRsp;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
@@ -15,17 +15,17 @@ public class PacketGetBagScRsp extends BasePacket {
 
         var data = GetBagScRsp.newInstance();
 
-        InventoryTab tabMaterial = session.getPlayer().getInventory().getInventoryTab(ItemMainType.Material);
+        InventoryTab tabMaterial = session.getPlayer().getInventory().getTab(InventoryTabType.MATERIAL);
         for (GameItem item : tabMaterial) {
             data.addMaterialList(item.toMaterialProto());
         }
 
-        InventoryTab tabRelic = session.getPlayer().getInventory().getInventoryTab(ItemMainType.Relic);
+        InventoryTab tabRelic = session.getPlayer().getInventory().getTab(InventoryTabType.RELIC);
         for (GameItem item : tabRelic) {
             data.addRelicList(item.toRelicProto());
         }
 
-        InventoryTab tabEquipment = session.getPlayer().getInventory().getInventoryTab(ItemMainType.Equipment);
+        InventoryTab tabEquipment = session.getPlayer().getInventory().getTab(InventoryTabType.EQUIPMENT);
         for (GameItem item : tabEquipment) {
             data.addEquipmentList(item.toEquipmentProto());
         }

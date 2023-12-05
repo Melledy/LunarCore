@@ -53,7 +53,7 @@ public class GiveAllCommand implements CommandHandler {
             }
             case "lc", "lightcones" -> {
                 // Make sure we dont go over the inventory limit
-                var tab = args.getTarget().getInventory().getInventoryTab(ItemMainType.Equipment);
+                var tab = args.getTarget().getInventory().getTabByItemType(ItemMainType.Equipment);
                 if (tab.getSize() >= tab.getMaxCapacity()) {
                     args.sendMessage(target.getName() + " has too many of this item type");
                     return;
@@ -76,19 +76,9 @@ public class GiveAllCommand implements CommandHandler {
                 // Send message
                 args.sendMessage("Giving " + target.getName() + " " + items.size() + " light cones");
             }
-            case "ic", "icons" -> {
-                // Get UnlockedHeads
-                for (var iconhead : GameData.getPlayerIconExcelMap().values()) {
-                    // This function will handle any duplicate head icons
-                    target.addHeadIcon(iconhead.getId());
-                }
-
-                // Send message
-                args.sendMessage("Added all icons to " + target.getName());
-            }
             case "r", "relics" -> {
                 // Make sure we dont go over the inventory limit
-                var tab = args.getTarget().getInventory().getInventoryTab(ItemMainType.Relic);
+                var tab = args.getTarget().getInventory().getTabByItemType(ItemMainType.Relic);
                 if (tab.getSize() >= tab.getMaxCapacity()) {
                     args.sendMessage(target.getName() + " has too many of this item type");
                     return;
@@ -136,6 +126,30 @@ public class GiveAllCommand implements CommandHandler {
 
                 // Send message
                 args.sendMessage("Giving " + target.getName() + " all avatars");
+            }
+            case "ic", "icons" -> {
+                // Get UnlockedHeads
+                for (var iconhead : GameData.getPlayerIconExcelMap().values()) {
+                    // This function will handle any duplicate head icons
+                    target.addHeadIcon(iconhead.getId());
+                }
+
+                // Send message
+                args.sendMessage("Added all icons to " + target.getName());
+            }
+            case "consumables", "food" -> {
+                // Get consumables
+                List<GameItem> items = GameData.getItemExcelMap().values()
+                        .stream()
+                        .filter(excel -> excel.getItemSubType() == ItemSubType.Food)
+                        .map(excel -> new GameItem(excel, 1000))
+                        .toList();
+                
+                // Add to target's inventory
+                target.getInventory().addItems(items, true);
+
+                // Send message
+                args.sendMessage("Added all consumables to " + target.getName());
             }
         }
     }

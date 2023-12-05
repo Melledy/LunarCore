@@ -74,7 +74,7 @@ public class GachaService extends BaseGameService {
         if (times != 10 && times != 1) return;
         
         // Prevent player from using gacha if they are at max light cones
-        if (player.getInventory().getInventoryTab(ItemMainType.Equipment).getSize() >= player.getInventory().getInventoryTab(ItemMainType.Equipment).getMaxCapacity()) {
+        if (player.getInventory().getTabByItemType(ItemMainType.Equipment).getSize() >= player.getInventory().getTabByItemType(ItemMainType.Equipment).getMaxCapacity()) {
             player.sendPacket(new PacketDoGachaScRsp());
             return;
         }
@@ -88,7 +88,7 @@ public class GachaService extends BaseGameService {
 
         // Spend currency
         if (banner.getGachaType().getCostItem() > 0) {
-            GameItem costItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(banner.getGachaType().getCostItem());
+            GameItem costItem = player.getInventory().getMaterialByItemId(banner.getGachaType().getCostItem());
             if (costItem == null || costItem.getCount() < times) {
                 return;
             }
@@ -195,7 +195,7 @@ public class GachaService extends BaseGameService {
                 if (avatar != null) {
                     int dupeLevel = avatar.getRank();
                     int dupeItemId = avatarId + 10000; // Hacky fix so we dont have to fetch data from an excel
-                    GameItem dupeItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(dupeItemId);
+                    GameItem dupeItem = player.getInventory().getTabByItemType(ItemMainType.Material).getItemById(dupeItemId);
                     if (dupeItem != null) {
                         dupeLevel += dupeItem.getCount();
                     }

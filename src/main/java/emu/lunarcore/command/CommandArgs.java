@@ -6,7 +6,7 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.inventory.ItemSubAffix;
+import emu.lunarcore.game.inventory.GameItemSubAffix;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
@@ -205,7 +205,7 @@ public class CommandArgs {
                     var subAffix = GameData.getRelicSubAffixExcel(item.getExcel().getRelicExcel().getSubAffixGroup(), entry.getIntKey());
                     if (subAffix == null) continue;
                     
-                    item.getSubAffixes().add(new ItemSubAffix(subAffix, entry.getIntValue()));
+                    item.getSubAffixes().add(new GameItemSubAffix(subAffix, entry.getIntValue()));
                 }
             }
             

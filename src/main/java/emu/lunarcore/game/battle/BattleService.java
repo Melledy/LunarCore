@@ -300,6 +300,11 @@ public class BattleService extends BaseGameService {
             }
         }
         
+        // Clear food buffs for player
+        if (player.getFoodBuffs().size() > 0) {
+            player.getFoodBuffs().clear();
+        }
+        
         // Challenge
         if (player.getChallengeInstance() != null) {
             player.getChallengeInstance().onBattleFinish(battle, result, stats);

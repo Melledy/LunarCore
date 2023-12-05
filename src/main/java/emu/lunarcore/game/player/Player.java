@@ -63,6 +63,8 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
+import it.unimi.dsi.fastutil.ints.Int2IntMap;
+import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.Getter;
@@ -101,7 +103,7 @@ public class Player {
     private int planeId;
     private int floorId;
     private int entryId;
-
+    
     private int currentBgm;
     
     private IntSet unlockedHeadIcons;
@@ -130,6 +132,7 @@ public class Player {
     private transient boolean loggedIn;
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
+    private transient Int2IntMap foodBuffs; // TODO
     
     @Setter private transient boolean paused;
     
@@ -137,6 +140,8 @@ public class Player {
     public Player() {
         this.curBasicType = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.gender = PlayerGender.GENDER_MAN;
+        this.foodBuffs = new Int2IntOpenHashMap();
+        
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
         this.chatManager = new ChatManager(this);
