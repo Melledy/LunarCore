@@ -28,13 +28,12 @@
 * [MongoDB 4.0+](https://www.mongodb.com/try/download/community)
 
 ### 編譯伺服器端核心
-1. 從 [https://gitlab.com/Melledy/LunarCore-Protos](https://gitlab.com/Melledy/LunarCore-Protos) 下載文件並將proto文件夾放入伺服器目錄
-2. 打開系統終端，使用 `./gradlew jar` 編譯伺服器端核心
-3. 在伺服器目錄中創建一個名為 `resources` 的文件夾
-4. 從 [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) 下載 `Config`、`TextMap` 和 `ExcelBin` 文件夾，並將它們放入資源文件夾
-5. 從 [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) 下載 `Config` 文件夾，並將其放入資源文件夾。替換系統詢問的任何文件。這些文件用於世界生成，對伺服器非常重要。
-6. 從系統終端使用 `java -jar LunarCore.jar` 運行伺服器端。Lunar Core帶有一個內建的MongoDB資料庫服務，因此不需要安裝MongoDB。但是還是強烈建議安裝MongoDB。
-7. 如果在配置中將 `autoCreateAccount` 設置為true，則可以跳過創建帳戶的步驟。否則，需要在伺服器控制台使用 `/account` 命令創建一個帳戶。
+1. 打開系統終端，使用 `./gradlew jar` 編譯伺服器端核心
+2. 在伺服器目錄中創建一個名為 `resources` 的文件夾
+3. 從 [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) 下載 `Config`、`TextMap` 和 `ExcelBin` 文件夾，並將它們放入資源文件夾
+4. 從 [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) 下載 `Config` 文件夾，並將其放入資源文件夾。替換系統詢問的任何文件。這些文件用於世界生成，對伺服器非常重要。
+5. 從系統終端使用 `java -jar LunarCore.jar` 運行伺服器端。Lunar Core帶有一個內建的MongoDB資料庫服務，因此不需要安裝MongoDB。但是還是強烈建議安裝MongoDB。
+6. 如果在配置中將 `autoCreateAccount` 設置為true，則可以跳過創建帳戶的步驟。否則，需要在伺服器控制台使用 `/account` 命令創建一個帳戶。
 
 ### 與用戶端連接（Fiddler）
 1. **使用用戶端至少一次登錄到官方伺服器和Hoyoverse帳戶以下載遊戲數據。**

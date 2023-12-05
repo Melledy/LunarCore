@@ -28,13 +28,12 @@
 * [MongoDB 4.0+](https://www.mongodb.com/try/download/community)
 
 ### サーバーのコンパイル
-1. [https://gitlab.com/Melledy/LunarCore-Protos](https://gitlab.com/Melledy/LunarCore-Protos) からファイルをダウンロードし、protoフォルダをサーバーディレクトリに配置します。
-2. システムのターミナルを開き、`./gradlew jar` でサーバーをコンパイルします。
-3. サーバーディレクトリに `resources` という名前のフォルダを作成します。
-4. [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) から `Config`、`TextMap`、および `ExcelBin` フォルダをダウンロードし、それらをリソースフォルダに配置します。
-5. [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) から `Config` フォルダをダウンロードし、それをリソースフォルダに配置します。システムが問い合わせているファイルはすべて置き換えます。これらはワールドの生成に関するもので、サーバーにとって非常に重要です。
-6. システムのターミナルから `java -jar LunarCore.jar` を使用してサーバーを実行します。Lunar Coreにはデータベースのための組み込みの内部MongoDBサーバーが付属しているため、MongoDBのインストールは必要ありません。ただし、MongoDBのインストールを強くお勧めします。
-7. 設定で `autoCreateAccount` をtrueに設定している場合は、アカウントの作成をスキップできます。そうでない場合は、サーバーコンソールで `/account` コマンドを使用してアカウントを作成します。
+1. システムのターミナルを開き、`./gradlew jar` でサーバーをコンパイルします。
+2. サーバーディレクトリに `resources` という名前のフォルダを作成します。
+3. [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) から `Config`、`TextMap`、および `ExcelBin` フォルダをダウンロードし、それらをリソースフォルダに配置します。
+4. [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) から `Config` フォルダをダウンロードし、それをリソースフォルダに配置します。システムが問い合わせているファイルはすべて置き換えます。これらはワールドの生成に関するもので、サーバーにとって非常に重要です。
+5. システムのターミナルから `java -jar LunarCore.jar` を使用してサーバーを実行します。Lunar Coreにはデータベースのための組み込みの内部MongoDBサーバーが付属しているため、MongoDBのインストールは必要ありません。ただし、MongoDBのインストールを強くお勧めします。
+6. 設定で `autoCreateAccount` をtrueに設定している場合は、アカウントの作成をスキップできます。そうでない場合は、サーバーコンソールで `/account` コマンドを使用してアカウントを作成します。
 
 ### クライアントとの接続（Fiddler）
 1. **同じクライアントで公式サーバーとHoyoverseアカウントに少なくとも一度ログインしてゲームデータをダウンロードしてください。**
