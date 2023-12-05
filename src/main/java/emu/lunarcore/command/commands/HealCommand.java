@@ -4,13 +4,12 @@ import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
-import emu.lunarcore.game.player.Player;
 
 @Command(label = "heal", permission = "player.heal", requireTarget = true, desc = "/heal. Heals your avatars.")
 public class HealCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         PlayerLineup lineup = args.getTarget().getCurrentLineup();
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
@@ -18,7 +17,7 @@ public class HealCommand implements CommandHandler {
         });
         lineup.refreshLineup();
 
-        this.sendMessage(sender, "Healed all avatars for " + args.getTarget().getName());
+        args.sendMessage("Healed all avatars for " + args.getTarget().getName());
     }
 
 }

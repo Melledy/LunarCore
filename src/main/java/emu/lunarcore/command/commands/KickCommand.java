@@ -3,7 +3,6 @@ package emu.lunarcore.command.commands;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
-import emu.lunarcore.game.player.Player;
 
 @Command(
     label = "kick",
@@ -14,11 +13,11 @@ import emu.lunarcore.game.player.Player;
 public final class KickCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         // Kick player
         args.getTarget().getSession().close();
 
         // Send message
-        this.sendMessage(sender, "Player kicked successfully");
+        args.sendMessage("Player kicked successfully");
     }
 }

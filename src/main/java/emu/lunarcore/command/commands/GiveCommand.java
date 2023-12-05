@@ -11,7 +11,6 @@ import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
 @Command(
@@ -19,12 +18,12 @@ import emu.lunarcore.util.Utils;
         aliases = {"g", "item"}, 
         permission = "player.give", 
         requireTarget = true, 
-        desc = "/give [item id] x(amount). Gives the targeted player an item."
+        desc = "/give [item id] x(amount) lv(level) r(rank) p(promotion). Gives the targeted player an item."
 )
 public class GiveCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         // Setup items
         List<GameItem> items = new LinkedList<>();
         
@@ -38,7 +37,7 @@ public class GiveCommand implements CommandHandler {
             
             ItemExcel itemData = GameData.getItemExcelMap().get(itemId);
             if (itemData == null) {
-                this.sendMessage(sender, "Item \"" + arg + "\" does not exist!");
+                args.sendMessage("Item \"" + arg + "\" does not exist!");
                 continue;
             }
             
@@ -65,7 +64,7 @@ public class GiveCommand implements CommandHandler {
             }
             
             // Send message
-            this.sendMessage(sender, "Giving " + args.getTarget().getName() + " " + amount + " of " + itemId);
+            args.sendMessage("Giving " + args.getTarget().getName() + " " + amount + " of " + itemId);
         }
         
         // Add to player inventory

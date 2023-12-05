@@ -16,13 +16,13 @@ import emu.lunarcore.util.Utils;
 public class LineupCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         // Get target player
         Player target = args.getTarget();
         
         // Do not set lineup while the target player is in a battle
         if (target.isInBattle()) {
-            this.sendMessage(sender, "Error: The targeted player is in a battle");
+            args.sendMessage("Error: The targeted player is in a battle");
             return;
         }
         
@@ -56,9 +56,9 @@ public class LineupCommand implements CommandHandler {
             lineup.refreshLineup();
             target.getScene().syncLineup();
             
-            this.sendMessage(sender, "Set the lineup of " + target.getName() + " successfully");
+            args.sendMessage("Set the lineup of " + target.getName() + " successfully");
         } else {
-            this.sendMessage(sender, "No avatars could be added");
+            args.sendMessage("No avatars could be added");
         }
     }
 

@@ -4,15 +4,14 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
-import emu.lunarcore.game.player.Player;
 
 @Command(label = "reload", permission = "admin.reload", desc = "/reload. Reloads the server config.")
 public class ReloadCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         LunarCore.loadConfig();
-        this.sendMessage(sender, "Reloaded the server config");
+        args.sendMessage("Reloaded the server config");
     }
 
 }

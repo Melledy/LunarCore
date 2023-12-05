@@ -16,6 +16,7 @@ import lombok.Getter;
 @Getter
 public class CommandArgs {
     private List<String> list;
+    private Player sender;
     private Player target;
     
     private int targetUid;
@@ -29,6 +30,7 @@ public class CommandArgs {
     private static String EMPTY_STRING = "";
 
     public CommandArgs(Player sender, List<String> args) {
+        this.sender = sender;
         this.list = args;
         
         // Parse args. Maybe regex is better.
@@ -101,6 +103,18 @@ public class CommandArgs {
             return EMPTY_STRING;
         }
         return this.list.get(index);
+    }
+    
+    /**
+     * Sends a message to the command sender
+     * @param message
+     */
+    public void sendMessage(String message) {
+        if (sender != null) {
+            sender.sendMessage(message);
+        } else {
+            LunarCore.getLogger().info(message);
+        }
     }
     
     // Utility commands

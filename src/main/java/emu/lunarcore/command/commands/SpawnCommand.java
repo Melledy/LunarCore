@@ -21,11 +21,11 @@ import emu.lunarcore.util.Utils;
 public class SpawnCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         Player target = args.getTarget();
         
         if (target.getScene() == null) {
-            this.sendMessage(sender, "Error: Target is not in scene");
+            args.sendMessage("Error: Target is not in scene");
             return;
         }
         
@@ -37,7 +37,7 @@ public class SpawnCommand implements CommandHandler {
         
         // Enforce scene max entity limit
         if (target.getScene().getEntities().size() + amount >= LunarCore.getConfig().getServerOptions().getSceneMaxEntites()) {
-            this.sendMessage(sender, "Error: Max entities in scene reached");
+            args.sendMessage("Error: Max entities in scene reached");
             return;
         }
         
@@ -63,7 +63,7 @@ public class SpawnCommand implements CommandHandler {
             }
             
             if (monsterInfo == null || groupInfo == null) {
-                this.sendMessage(sender, "Error: No existing monster config found in this scene");
+                args.sendMessage("Error: No existing monster config found in this scene");
                 return;
             }
             
@@ -83,7 +83,7 @@ public class SpawnCommand implements CommandHandler {
             }
             
             // Send message when done
-            this.sendMessage(sender, "Spawning " + amount + " monsters");
+            args.sendMessage("Spawning " + amount + " monsters");
             return;
         }
         
@@ -108,7 +108,7 @@ public class SpawnCommand implements CommandHandler {
             }
             
             if (propInfo == null || groupInfo == null) {
-                this.sendMessage(sender, "Error: No existing prop config found in this scene");
+                args.sendMessage("Error: No existing prop config found in this scene");
                 return;
             }
             
@@ -124,11 +124,11 @@ public class SpawnCommand implements CommandHandler {
             }
             
             // Send message when done
-            this.sendMessage(sender, "Spawning " + amount + " props");
+            args.sendMessage("Spawning " + amount + " props");
             return;
         }
 
-        this.sendMessage(sender, "Error: Invalid id");
+        args.sendMessage("Error: Invalid id");
     }
 
 }

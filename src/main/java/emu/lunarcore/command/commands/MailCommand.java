@@ -10,13 +10,12 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.mail.Mail;
-import emu.lunarcore.game.player.Player;
 
 @Command(label = "mail", aliases = {"m"}, permission = "player.mail", requireTarget = true, desc = "/mail [content]. Sends the targeted player a system mail.")
 public class MailCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         // Get attachments
         List<GameItem> attachments = new ArrayList<>();
 
@@ -42,7 +41,7 @@ public class MailCommand implements CommandHandler {
         // Send to target
         args.getTarget().getMailbox().sendMail(mail);
         
-        this.sendMessage(sender, "Sending mail to " + args.getTarget().getName());
+        args.sendMessage("Sending mail to " + args.getTarget().getName());
     }
 
 }

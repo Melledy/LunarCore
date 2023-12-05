@@ -39,11 +39,12 @@ public class CommandManager {
         }
     }
     
+    /**
+     * Adds a command that players and server console users can use. Command handlers must have the proper command annotation attached to them.
+     */
     public CommandManager registerCommand(CommandHandler handler) {
         Command command = handler.getClass().getAnnotation(Command.class);
-        if (command == null) {
-            return this;
-        }
+        if (command == null) return this;
         
         this.getLabels().put(command.label(), handler);
         this.getCommands().put(command.label(), handler);
@@ -55,11 +56,14 @@ public class CommandManager {
         return this;
     }
     
+    /**
+     * Removes a command from use.
+     * @param label The command name
+     * @return
+     */
     public CommandManager unregisterCommand(String label) {
         CommandHandler handler = this.getLabels().get(label);
-        if (handler == null) {
-            return this;
-        }
+        if (handler == null) return this;
         
         Command command = handler.getClass().getAnnotation(Command.class);
         if (command == null) {
@@ -76,6 +80,12 @@ public class CommandManager {
         return this;
     }
     
+    /**
+     * Checks if the sender has permission to use this command. Will always return true if the sender is the server console.
+     * @param sender The sender of the command.
+     * @param command
+     * @return true if the sender has permission to use this command
+     */
     private boolean checkPermission(Player sender, Command command) {
         if (sender == null || command.permission().isEmpty()) {
             return true;
@@ -84,6 +94,12 @@ public class CommandManager {
         return sender.getAccount().hasPermission(command.permission());
     }
     
+    /**
+     * Checks if the sender has permission to use this command on other players. Will always return true if the sender is the server console.
+     * @param sender The sender of the command.
+     * @param command
+     * @return true if the sender has permission to use this command
+     */
     private boolean checkTargetPermission(Player sender, Command command) {
         if (sender == null || command.permission().isEmpty()) {
             return true;
@@ -93,50 +109,54 @@ public class CommandManager {
     }
     
     public void invoke(Player sender, String message) {
+        // Parse message into arguments
         List<String> args = Arrays.stream(message.split(" ")).collect(Collectors.toCollection(ArrayList::new));
         
         // Get command label
         String label = args.remove(0).toLowerCase();
         
+        // Filter out command prefixes
         if (label.startsWith("/") || label.startsWith("!")) {
             label = label.substring(1);
         }
         
-        // Get handler
+        // Get command handler
         CommandHandler handler = this.commands.get(label);
 
-        // Execute
+        // Execute command
         if (handler != null) {
-            // Command annotation data
+            // Get command annotation data
             Command command = handler.getData();
             
-            // Check permission
-            if (this.checkPermission(sender, command)) {
-                // Build command arguments
-                CommandArgs cmdArgs = new CommandArgs(sender, args);
-
-                // Check targeted permission
-                if (sender != cmdArgs.getTarget() && !this.checkTargetPermission(sender, command)) {
-                    handler.sendMessage(sender, "You do not have permission to use this command on another player.");
-                    return;
-                }
-                
-                // Make sure our command has a target
-                if (command.requireTarget() && cmdArgs.getTarget() == null) {
-                    handler.sendMessage(sender, "Error: Targeted player not found or offline");
-                    return;
-                }
-                
-                // Log
-                if (sender != null && LunarCore.getConfig().getLogOptions().commands) {
-                    LunarCore.getLogger().info("[UID: " + sender.getUid() + "] " + sender.getName() + " used command: " + message);
-                }
-                
-                // Run command
-                handler.execute(sender, cmdArgs);
-            } else {
-                handler.sendMessage(sender, "You do not have permission to use this command.");
+            // Check if sender has permission to run the command.
+            if (sender != null && !this.checkPermission(sender, command)) {
+                // We have a double null check here just in case
+                sender.sendMessage("You do not have permission to use this command.");
+                return;
             }
+            
+            // Build command arguments
+            CommandArgs cmdArgs = new CommandArgs(sender, args);
+            
+            // Check targeted permission
+            if (sender != cmdArgs.getTarget() && !this.checkTargetPermission(sender, command)) {
+                cmdArgs.sendMessage("You do not have permission to use this command on another player.");
+                return;
+            }
+            
+            // Make sure our command has a target
+            if (command.requireTarget() && cmdArgs.getTarget() == null) {
+                cmdArgs.sendMessage("Error: Targeted player not found or offline");
+                return;
+            }
+            
+            // Log
+            if (sender != null && LunarCore.getConfig().getLogOptions().commands) {
+                LunarCore.getLogger().info("[UID: " + sender.getUid() + "] " + sender.getName() + " used command: " + message);
+            }
+            
+            // Run command
+            handler.execute(cmdArgs);
         } else {
             if (sender != null) {
                 sender.sendMessage("Invalid Command!");

@@ -8,14 +8,13 @@ import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 
 @Command(label = "avatar", aliases = {"a"}, requireTarget = true, permission = "player.avatar", desc = "/avatar {cur | all | lineup} lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties")
 public class AvatarCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         // Temp avatar list
         List<GameAvatar> changeList = new ArrayList<>();
         
@@ -52,9 +51,9 @@ public class AvatarCommand implements CommandHandler {
             // Send packet
             args.getTarget().sendPacket(new PacketPlayerSyncScNotify(changeList.toArray(GameAvatar[]::new)));
             // Send message
-            this.sendMessage(sender, "Set avatar(s) properties successfully");
+            args.sendMessage("Set avatar(s) properties successfully");
         } else {
-            this.sendMessage(sender, "No avatar properties to change");
+            args.sendMessage("No avatar properties to change");
         }
     }
 

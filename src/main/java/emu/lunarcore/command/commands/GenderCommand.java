@@ -12,7 +12,7 @@ import emu.lunarcore.server.packet.send.PacketGetHeroBasicTypeInfoScRsp;
 public class GenderCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         // Set world level
         Player target = args.getTarget();
         PlayerGender playerGender = null;
@@ -42,9 +42,9 @@ public class GenderCommand implements CommandHandler {
             
             // Send packet and response message
             target.sendPacket(new PacketGetHeroBasicTypeInfoScRsp(target));
-            this.sendMessage(sender, "Gender for " + target.getName() + " set successfully");
+            args.sendMessage("Gender for " + target.getName() + " set successfully");
         } else {
-            this.sendMessage(sender, "Error: Invalid input");
+            args.sendMessage("Error: Invalid input");
         }
     }
 

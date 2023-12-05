@@ -8,13 +8,12 @@ import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.player.Player;
 
-@Command(label = "clear", permission = "player.clear", requireTarget = true, desc = "/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.")
+@Command(label = "clear", permission = "player.clear", requireTarget = true, desc = "/clear {relics | lightcones | materials | items} lv(filter level). Removes filter items from the targeted player's inventory.")
 public class ClearCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         List<GameItem> toRemove = new LinkedList<>();
         String type = args.get(0).toLowerCase();
         
@@ -52,7 +51,7 @@ public class ClearCommand implements CommandHandler {
         }
         
         args.getTarget().getInventory().removeItems(toRemove);
-        this.sendMessage(sender, "Removed " + toRemove.size() + " items");
+        args.sendMessage("Removed " + toRemove.size() + " items");
     }
 
 }

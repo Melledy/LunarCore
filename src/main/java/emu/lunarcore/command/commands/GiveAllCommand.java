@@ -15,16 +15,22 @@ import emu.lunarcore.game.enums.ItemSubType;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "giveall", aliases = {"ga"}, permission = "player.give", requireTarget = true, desc = "/giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.")
+@Command(
+        label = "giveall", 
+        aliases = {"ga"}, 
+        permission = "player.give", 
+        requireTarget = true, 
+        desc = "/giveall {materials | avatars | lightcones | relics} lv(level). Gives the targeted player items."
+)
 public class GiveAllCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         Player target = args.getTarget();
         String type = args.get(0).toLowerCase();
 
         switch (type) {
-            default -> this.sendMessage(sender, "Error: Invalid type");
+            default -> args.sendMessage("Error: Invalid type");
             case "m", "materials", "mats" -> {
                 List<GameItem> items = new ArrayList<>();
 
@@ -43,13 +49,13 @@ public class GiveAllCommand implements CommandHandler {
                 target.getInventory().addItems(items, true);
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " items");
+                args.sendMessage("Giving " + target.getName() + " " + items.size() + " items");
             }
             case "lc", "lightcones" -> {
                 // Make sure we dont go over the inventory limit
                 var tab = args.getTarget().getInventory().getInventoryTab(ItemMainType.Equipment);
                 if (tab.getSize() >= tab.getMaxCapacity()) {
-                    this.sendMessage(sender, target.getName() + " has too many of this item type");
+                    args.sendMessage(target.getName() + " has too many of this item type");
                     return;
                 }
                 
@@ -68,7 +74,7 @@ public class GiveAllCommand implements CommandHandler {
                 target.getInventory().addItems(items, true);
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " light cones");
+                args.sendMessage("Giving " + target.getName() + " " + items.size() + " light cones");
             }
             case "ic", "icons" -> {
                 // Get UnlockedHeads
@@ -78,13 +84,13 @@ public class GiveAllCommand implements CommandHandler {
                 }
 
                 // Send message
-                this.sendMessage(sender, "Added all icons to " + target.getName());
+                args.sendMessage("Added all icons to " + target.getName());
             }
             case "r", "relics" -> {
                 // Make sure we dont go over the inventory limit
                 var tab = args.getTarget().getInventory().getInventoryTab(ItemMainType.Relic);
                 if (tab.getSize() >= tab.getMaxCapacity()) {
-                    this.sendMessage(sender, target.getName() + " has too many of this item type");
+                    args.sendMessage(target.getName() + " has too many of this item type");
                     return;
                 }
                 
@@ -103,7 +109,7 @@ public class GiveAllCommand implements CommandHandler {
                 target.getInventory().addItems(items, true);
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " relics");
+                args.sendMessage("Giving " + target.getName() + " " + items.size() + " relics");
             }
             case "a", "characters", "avatars" -> {
                 // All avatars and their eidolons
@@ -129,7 +135,7 @@ public class GiveAllCommand implements CommandHandler {
                 }
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " all avatars");
+                args.sendMessage("Giving " + target.getName() + " all avatars");
             }
         }
     }
