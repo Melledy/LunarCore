@@ -10,13 +10,13 @@ public enum ItemMainType {
     AvatarCard  (2),
     Equipment   (3, InventoryTabType.EQUIPMENT),
     Relic       (4, InventoryTabType.RELIC),
-    Usable      (5),
-    Material    (6),
-    Mission     (7),
+    Usable      (5, InventoryTabType.MATERIAL),
+    Material    (6, InventoryTabType.MATERIAL),
+    Mission     (7, InventoryTabType.MATERIAL),
     Display     (8);
 
     private int val;
-    private InventoryTabType tabType = InventoryTabType.MATERIAL;
+    private InventoryTabType tabType;
 
     private ItemMainType(int value) {
         this.val = value;

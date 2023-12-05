@@ -58,11 +58,11 @@ public class Inventory extends BasePlayerManager {
     // Inventory tabs
     
     public InventoryTab getTabByItemType(ItemMainType type) {
-        if (type == null) return null;
         return getTab(type.getTabType());
     }
     
     public InventoryTab getTab(InventoryTabType type) {
+        if (type == null) return null;
         return this.inventoryTypes.get(type.getVal());
     }
 
@@ -206,6 +206,11 @@ public class Inventory extends BasePlayerManager {
             if (subType == ItemSubType.HeadIcon) {
                 getPlayer().addHeadIcon(item.getItemId());
                 return item;
+            }
+            
+            // Skip if not food item
+            if (subType != ItemSubType.Food) {
+                return null;
             }
         default:
             if (tab == null) {

@@ -31,8 +31,6 @@ public class CmdIdUtils {
      * Packet ids that will NOT be caught by the spam filter
      */
     public static final IntSet ALLOWED_FILTER_PACKETS = IntOpenHashSet.of(
-        CmdId.PlayerGetTokenCsReq,
-        CmdId.PlayerLoginCsReq,
         CmdId.PlayerHeartBeatCsReq,
         CmdId.GetMissionStatusCsReq,
         CmdId.GetMissionStatusCsReq,

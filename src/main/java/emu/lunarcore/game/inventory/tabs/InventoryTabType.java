@@ -4,9 +4,10 @@ import lombok.Getter;
 
 @Getter
 public enum InventoryTabType {
-    MATERIAL    (0), 
-    EQUIPMENT   (1), 
-    RELIC       (2);
+    NONE        (0),
+    MATERIAL    (1), 
+    EQUIPMENT   (2), 
+    RELIC       (3);
     
     private int val;
     
