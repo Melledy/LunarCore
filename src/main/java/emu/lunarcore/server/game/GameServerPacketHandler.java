@@ -50,7 +50,7 @@ public class GameServerPacketHandler {
         if (handler != null) {
             // Check cooldown to prevent packet spam
             long timestamp = System.currentTimeMillis();
-            if (session.getPacketCooldown().get(cmdId) >= timestamp) {
+            if (session.getPacketCooldown().get(cmdId) >= timestamp && !CmdIdUtils.ALLOWED_FILTER_PACKETS.contains(cmdId)) {
                 //LunarCore.getLogger().warn("Dropped a packet " + CmdIdUtils.getCmdIdName(cmdId));
                 return;
             } else {

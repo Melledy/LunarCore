@@ -16,12 +16,27 @@ import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 
 public class CmdIdUtils {
-    public static final IntSet LOOP_PACKETS = IntOpenHashSet.of(
+    /**
+     * Packet ids that will NOT be logged if "filterLoopingPackets" is true in the config
+     */
+    public static final IntSet IGNORED_LOG_PACKETS = IntOpenHashSet.of(
         CmdId.PlayerHeartBeatCsReq,
         CmdId.PlayerHeartBeatScRsp,
         CmdId.SceneEntityMoveCsReq,
         CmdId.SceneEntityMoveScRsp,
         CmdId.GetQuestDataScRsp
+    );
+    
+    /**
+     * Packet ids that will NOT be caught by the spam filter
+     */
+    public static final IntSet ALLOWED_FILTER_PACKETS = IntOpenHashSet.of(
+        CmdId.PlayerGetTokenCsReq,
+        CmdId.PlayerLoginCsReq,
+        CmdId.PlayerHeartBeatCsReq,
+        CmdId.GetMissionStatusCsReq,
+        CmdId.GetMissionStatusCsReq,
+        CmdId.GetMissionEventDataCsReq
     );
 
     private static Int2ObjectMap<String> cmdIdMap;
