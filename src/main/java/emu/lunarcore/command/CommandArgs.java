@@ -15,6 +15,7 @@ import lombok.Getter;
 
 @Getter
 public class CommandArgs {
+    private String raw;
     private List<String> list;
     private Player sender;
     private Player target;
@@ -31,6 +32,7 @@ public class CommandArgs {
 
     public CommandArgs(Player sender, List<String> args) {
         this.sender = sender;
+        this.raw = String.join(" ", args);
         this.list = args;
         
         // Parse args. Maybe regex is better.

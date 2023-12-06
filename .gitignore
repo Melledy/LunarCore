@@ -58,10 +58,11 @@ tmp/
 .DS_Store
 .directory
 
-# Lunar Core generated/resource/log folders
+# Lunar Core generated/resource/log/plugins folders
 /resources
 /logs
 /proto
+/plugins
 
 # Lunar Core compiled
 /*.jar
