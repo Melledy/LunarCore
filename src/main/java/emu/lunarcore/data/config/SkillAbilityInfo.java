@@ -23,12 +23,12 @@ public class SkillAbilityInfo {
             
             // Skip if not a maze skill
             if (ability.getName().contains("MazeSkill")) {
-                skill = new MazeSkill(avatarExcel, 2);
+                skill = new MazeSkill(avatarExcel, 1);
                 avatarExcel.setMazeSkill(skill);
                 
                 actionList = skill.getCastActions();
             } else if (ability.getName().contains("NormalAtk")) {
-                skill = new MazeSkill(avatarExcel, 1);
+                skill = new MazeSkill(avatarExcel, 0);
                 avatarExcel.setMazeAttack(skill);
                 
                 actionList = skill.getAttackActions();
@@ -70,12 +70,17 @@ public class SkillAbilityInfo {
                     parseTask(skill, skill.getAttackActions(), t);
                 }
             }
-            if (skill.getIndex() == 2) {
+            if (skill.getIndex() == 1) {
                 skill.setTriggerBattle(task.isTriggerBattle());
             }
         } else if (task.getType().contains("AdventureFireProjectile")) {
             if (task.getOnProjectileHit() != null) {
                 for (TaskInfo t : task.getOnProjectileHit()) {
+                    parseTask(skill, skill.getAttackActions(), t);
+                }
+            }
+            if (task.getOnProjectileLifetimeFinish() != null) {
+                for (TaskInfo t : task.getOnProjectileLifetimeFinish()) {
                     parseTask(skill, skill.getAttackActions(), t);
                 }
             }

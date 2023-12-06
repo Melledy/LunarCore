@@ -135,9 +135,11 @@ public class BattleService extends BaseGameService {
             if (isPlayerCaster) {
                 GameAvatar avatar = player.getCurrentLeaderAvatar();
                 
-                if (avatar != null && castedSkill != null) {
+                if (avatar != null) {
                     // Maze skill attack event
-                    castedSkill.onAttack(avatar, battle);
+                    if (castedSkill != null) {
+                        castedSkill.onAttack(avatar, battle);
+                    }
                     // Add elemental weakness buff to enemies
                     MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), battle.getLineup().getLeader());
                     if (buff != null) {

@@ -24,7 +24,6 @@ public class AvatarExcel extends GameResource {
     private long AvatarName;
     private DamageType DamageType;
     private AvatarBaseType AvatarBaseType;
-    private double SPNeed;
 
     private int ExpGroup;
     private int MaxPromotion;
@@ -39,7 +38,6 @@ public class AvatarExcel extends GameResource {
     private transient List<AvatarSkillTreeExcel> defaultSkillTrees;
     private transient IntSet skillTreeIds;
     private transient String nameKey;
-    private transient int maxSp;
 
     @Setter private transient MazeSkill mazeAttack;
     @Setter private transient MazeSkill mazeSkill;
@@ -72,9 +70,6 @@ public class AvatarExcel extends GameResource {
         for (int i = 0; i <= MaxPromotion; i++) {
             this.promotionData[i] = GameData.getAvatarPromotionExcel(getId(), i);
         }
-
-        // Cache max sp
-        this.maxSp = (int) this.SPNeed * 100;
 
         // Get name key
         Matcher matcher = namePattern.matcher(this.JsonPath);
