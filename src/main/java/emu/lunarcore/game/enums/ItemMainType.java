@@ -19,7 +19,7 @@ public enum ItemMainType {
     private InventoryTabType tabType;
 
     private ItemMainType(int value) {
-        this.val = value;
+        this(value, InventoryTabType.NONE);
     }
     
     private ItemMainType(int value, InventoryTabType tabType) {

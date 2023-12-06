@@ -103,6 +103,9 @@ public class PacketPlayerSyncScNotify extends BasePacket {
 
     private void addItemToProto(PlayerSyncScNotify data, GameItem item) {
         switch (item.getExcel().getItemMainType().getTabType()) {
+            case MATERIAL -> {
+                data.addMaterialList(item.toMaterialProto());
+            }
             case RELIC -> {
                 if (item.getCount() > 0) {
                     data.addRelicList(item.toRelicProto());
@@ -118,7 +121,7 @@ public class PacketPlayerSyncScNotify extends BasePacket {
                 }
             }
             default -> {
-                data.addMaterialList(item.toMaterialProto());
+                // Skip
             }
         }
     }

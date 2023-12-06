@@ -62,7 +62,10 @@ public class Inventory extends BasePlayerManager {
     }
     
     public InventoryTab getTab(InventoryTabType type) {
-        if (type == null) return null;
+        if (type == null || type == InventoryTabType.NONE) {
+            return null;
+        }
+        
         return this.inventoryTypes.get(type.getVal());
     }
 
