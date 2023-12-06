@@ -166,13 +166,15 @@ public class InventoryService extends BaseGameService {
         // Add skill
         avatar.getSkills().put(pointId, nextLevel);
 
-        avatar.save();
+        // Save player
         player.save();
 
-        // Send packets
+        // Save avatar and send packets
         if (avatar.getHeroPath() != null) {
+            avatar.getHeroPath().save();
             player.sendPacket(new PacketPlayerSyncScNotify(avatar.getHeroPath()));
         } else {
+            avatar.save();
             player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         }
         
@@ -183,29 +185,27 @@ public class InventoryService extends BaseGameService {
         // Get avatar
         GameAvatar avatar = player.getAvatarById(avatarId);
         if (avatar == null || avatar.getRank() >= avatar.getExcel().getMaxRank()) return false;
-
+        
         AvatarRankExcel rankData = GameData.getAvatarRankExcel(avatar.getExcel().getRankId(avatar.getRank()));
         if (rankData == null) return false;
-
+        
         // Verify items
-        for (ItemParam param : rankData.getUnlockCost()) {
-            GameItem item = player.getInventory().getItemByParam(param);
-            if (item == null || item.getCount() < param.getCount()) {
-                return false;
-            }
+        if (!player.getInventory().verifyItems(rankData.getUnlockCost())) {
+            return false;
         }
-
+        
         // Pay items
         player.getInventory().removeItemsByParams(rankData.getUnlockCost());
 
         // Add rank
         avatar.setRank(avatar.getRank() + 1);
-        avatar.save();
-
-        // Send packets
+        
+        // Save avatar and send packets
         if (avatar.getHeroPath() != null) {
+            avatar.getHeroPath().save();
             player.sendPacket(new PacketPlayerSyncScNotify(avatar.getHeroPath()));
         } else {
+            avatar.save();
             player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         }
         
