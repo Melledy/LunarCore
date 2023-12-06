@@ -1,6 +1,7 @@
 package emu.lunarcore.game.battle;
 
 import emu.lunarcore.data.excel.MazeBuffExcel;
+import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.BattleBuffOuterClass.BattleBuff;
 import emu.lunarcore.proto.BattleBuffOuterClass.BattleBuff.DynamicValuesEntry;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -9,6 +10,7 @@ import it.unimi.dsi.fastutil.objects.Object2DoubleMap;
 import it.unimi.dsi.fastutil.objects.Object2DoubleOpenHashMap;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class MazeBuff {
@@ -19,7 +21,10 @@ public class MazeBuff {
     private IntList targetIndex;
     
     @Getter(AccessLevel.NONE)
-    private Object2DoubleMap<String> dynamicValues; 
+    private Object2DoubleMap<String> dynamicValues;
+    
+    @Setter
+    private transient GameEntity owner;
     
     public MazeBuff(MazeBuffExcel excel, int ownerIndex, int waveFlag) {
         this(excel.getBuffId(), excel.getLv(), ownerIndex, waveFlag);
@@ -52,8 +57,11 @@ public class MazeBuff {
         var proto = BattleBuff.newInstance()
                 .setId(this.getId())
                 .setLevel(this.getLevel())
-                .setOwnerId(this.getOwnerIndex())
                 .setWaveFlag(this.getWaveFlag());
+        
+        if (this.ownerIndex != 0) {
+            proto.setOwnerId(this.getOwnerIndex());
+        }
         
         if (this.targetIndex != null) {
             for (int index : this.targetIndex) {

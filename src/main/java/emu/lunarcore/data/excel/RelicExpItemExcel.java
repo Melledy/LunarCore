@@ -30,7 +30,7 @@ public class RelicExpItemExcel extends GameResource {
 
         excel.setRelicExp(ExpProvide);
         excel.setExpCost(CoinCost);
-        
+
         // Add to game depot
         if (ExpProvide > 0 && excel.getRarity() != ItemRarity.SuperRare) {
             GameDepot.getRelicExpExcels().add(this);

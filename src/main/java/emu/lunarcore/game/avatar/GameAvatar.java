@@ -47,7 +47,7 @@ public class GameAvatar implements GameEntity {
     private transient Player owner;
     private transient AvatarExcel excel;
     
-    private int avatarId; // Id of avatar
+    private int avatarId; // Id of avatar in the excels
     private AvatarData data;
     @Setter private int level;
     @Setter private int exp;

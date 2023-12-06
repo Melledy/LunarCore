@@ -569,34 +569,68 @@ public class InventoryService extends BaseGameService {
         return returnItems;
     }
     
-    public List<GameItem> composeItem(Player player, int composeId, int count) {
+    public List<GameItem> composeItem(Player player, int composeId, int count, List<ItemParam> costItems) {
         // Sanity check
         if (count <= 0) return null;
         
         // Get item compose excel data
         ItemComposeExcel excel = GameData.getItemComposeExcelMap().get(composeId);
-        if (excel == null || excel.getFormulaType() != FormulaType.Normal) {
-            return null;
-        }
+        if (excel == null) return null;
         
-        // Verify items + credits
-        if (!player.getInventory().verifyItems(excel.getMaterialCost(), count) || !player.getInventory().verifyScoin(excel.getCoinCost() * count)) {
-            return null;
-        }
-        
-        // Pay items
-        player.getInventory().removeItemsByParams(excel.getMaterialCost(), count);
-        player.addSCoin(-excel.getCoinCost() * count);
-        
-        // Compose item
+        // Composed item list
         List<GameItem> items = new ArrayList<>();
-        GameItem item = new GameItem(excel.getItemID(), count);
-        items.add(item);
+        
+        if (excel.getFormulaType() == FormulaType.Normal) { // Material synthesis
+            // Verify items + credits
+            if (!player.getInventory().verifyItems(excel.getMaterialCost(), count) || !player.getInventory().verifyScoin(excel.getCoinCost() * count)) {
+                return null;
+            }
+            
+            // Pay items
+            player.getInventory().removeItemsByParams(excel.getMaterialCost(), count);
+            player.addSCoin(-excel.getCoinCost() * count);
+            
+            // Create item
+            items.add(new GameItem(excel.getItemID(), count));
+        } else if (excel.getFormulaType() == FormulaType.Sepcial) { // Material exchange
+            // Verify items
+            int totalAmount = 0;
+            
+            for (ItemParam param : costItems) {
+                // Make sure param item is in special material cost
+                if (!excel.getSpecialMaterialCost().contains(param.getId())) {
+                    return null;
+                }
+
+                // Make sure we have enough
+                GameItem costItem = player.getInventory().getItemByParam(param);
+                if (costItem == null) return null;
+
+                // Verify amount
+                if (costItem.getCount() >= param.getCount()) {
+                    totalAmount += param.getCount();
+                }
+            }
+
+            // Sanity check the amount of materials were exchanging
+            if (totalAmount != count * excel.getSpecialMaterialCostNumber()) {
+                return null;
+            }
+            
+            // Pay items
+            player.getInventory().removeItemsByParams(costItems, count);
+            
+            // Create item
+            items.add(new GameItem(excel.getItemID(), count));
+        }
         
         // Add items to inventory
-        player.getInventory().addItems(items);
-        
-        return items;
+        if (items.size() > 0) {
+            player.getInventory().addItems(items);
+            return items;
+        } else {
+            return null;
+        }
     }
     
     public List<GameItem> composeRelic(Player player, int composeId, int relicId, int mainAffix, int count) {

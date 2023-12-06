@@ -255,4 +255,6 @@ public class LunarCore {
             return (this.flags & 0x2) == 0x2;
         }
     }
+
+    // Hiro was here
 }

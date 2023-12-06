@@ -57,14 +57,8 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
             req.getHitTargetIdList().forEach(targets::add);
             req.getAssistMonsterIdList().forEach(targets::add);
             
-            // Check if we can start a battle
-            if (skill != null && !skill.isTriggerBattle()) {
-                // Skip battle if our technique does not trigger a battle
-                session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
-            } else {
-                // Start battle normally
-                session.getServer().getBattleService().startBattle(player, req.getCasterId(), req.getAttackedGroupId(), skill, targets);
-            }
+            // Start battle
+            session.getServer().getBattleService().startBattle(player, req.getCasterId(), req.getAttackedGroupId(), skill, targets);
         } else {
             // We had no targets for some reason
             session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));

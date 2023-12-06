@@ -114,6 +114,24 @@ public class GameServer extends KcpServer {
         }
     }
     
+    public List<Player> getRandomOnlinePlayers(int amount, Player filter) {
+        List<Player> list = new ArrayList<>();
+        
+        synchronized (this.players) {
+            var iterator = this.players.values().iterator();
+            
+            while (iterator.hasNext() && list.size() < amount) {
+                Player player = iterator.next();
+                
+                if (player != filter) {
+                    list.add(player);
+                }
+            }
+        }
+        
+        return list;
+    }
+    
     public boolean deletePlayer(String accountUid) {
         // Check if player exists
         Player player = this.getOnlinePlayerByAccountId(accountUid);
@@ -149,6 +167,9 @@ public class GameServer extends KcpServer {
 
         // Done
         LunarCore.getLogger().info("Game Server started on " + address.getPort());
+
+        // Anti-seller
+        LunarCore.getLogger().warn("LUNARCORE IS A FREE SOFTWARE. IF YOU PAID FOR IT, YOU HAVE BEEN SCAMMED!");
     }
     
     private void onTick() {

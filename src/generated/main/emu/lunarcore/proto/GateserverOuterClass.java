@@ -91,7 +91,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -106,6 +106,11 @@ public final class GateserverOuterClass {
      * <code>optional string ifix_version = 1268;</code>
      */
     private final Utf8String ifixVersion = Utf8String.newEmptyInstance();
+
+    /**
+     * <code>optional string msg = 1550;</code>
+     */
+    private final Utf8String msg = Utf8String.newEmptyInstance();
 
     private Gateserver() {
     }
@@ -833,7 +838,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -845,7 +850,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -859,7 +864,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -871,7 +876,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -883,7 +888,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -896,7 +901,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -911,7 +916,7 @@ public final class GateserverOuterClass {
 
     /**
      * <pre>
-     *  lua version
+     *  lua versionf
      * </pre>
      *
      * <code>optional string mdk_res_version = 1213;</code>
@@ -1017,6 +1022,71 @@ public final class GateserverOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional string msg = 1550;</code>
+     * @return whether the msg field is set
+     */
+    public boolean hasMsg() {
+      return (bitField0_ & 0x00010000) != 0;
+    }
+
+    /**
+     * <code>optional string msg = 1550;</code>
+     * @return this
+     */
+    public Gateserver clearMsg() {
+      bitField0_ &= ~0x00010000;
+      msg.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional string msg = 1550;</code>
+     * @return the msg
+     */
+    public String getMsg() {
+      return msg.getString();
+    }
+
+    /**
+     * <code>optional string msg = 1550;</code>
+     * @return internal {@code Utf8String} representation of msg for reading
+     */
+    public Utf8String getMsgBytes() {
+      return this.msg;
+    }
+
+    /**
+     * <code>optional string msg = 1550;</code>
+     * @return internal {@code Utf8String} representation of msg for modifications
+     */
+    public Utf8String getMutableMsgBytes() {
+      bitField0_ |= 0x00010000;
+      return this.msg;
+    }
+
+    /**
+     * <code>optional string msg = 1550;</code>
+     * @param value the msg to set
+     * @return this
+     */
+    public Gateserver setMsg(final CharSequence value) {
+      bitField0_ |= 0x00010000;
+      msg.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional string msg = 1550;</code>
+     * @param value the msg to set
+     * @return this
+     */
+    public Gateserver setMsg(final Utf8String value) {
+      bitField0_ |= 0x00010000;
+      msg.copyFrom(value);
+      return this;
+    }
+
     @Override
     public Gateserver copyFrom(final Gateserver other) {
       cachedSize = other.cachedSize;
@@ -1038,6 +1108,7 @@ public final class GateserverOuterClass {
         clientSecretKey.copyFrom(other.clientSecretKey);
         mdkResVersion.copyFrom(other.mdkResVersion);
         ifixVersion.copyFrom(other.ifixVersion);
+        msg.copyFrom(other.msg);
       }
       return this;
     }
@@ -1096,6 +1167,9 @@ public final class GateserverOuterClass {
       if (other.hasIfixVersion()) {
         getMutableIfixVersionBytes().copyFrom(other.ifixVersion);
       }
+      if (other.hasMsg()) {
+        getMutableMsgBytes().copyFrom(other.msg);
+      }
       return this;
     }
 
@@ -1122,6 +1196,7 @@ public final class GateserverOuterClass {
       clientSecretKey.clear();
       mdkResVersion.clear();
       ifixVersion.clear();
+      msg.clear();
       return this;
     }
 
@@ -1141,6 +1216,7 @@ public final class GateserverOuterClass {
       clientSecretKey.clear();
       mdkResVersion.clear();
       ifixVersion.clear();
+      msg.clear();
       return this;
     }
 
@@ -1169,7 +1245,8 @@ public final class GateserverOuterClass {
         && (!hasIfixUrl() || ifixUrl.equals(other.ifixUrl))
         && (!hasClientSecretKey() || clientSecretKey.equals(other.clientSecretKey))
         && (!hasMdkResVersion() || mdkResVersion.equals(other.mdkResVersion))
-        && (!hasIfixVersion() || ifixVersion.equals(other.ifixVersion));
+        && (!hasIfixVersion() || ifixVersion.equals(other.ifixVersion))
+        && (!hasMsg() || msg.equals(other.msg));
     }
 
     @Override
@@ -1238,6 +1315,10 @@ public final class GateserverOuterClass {
         output.writeRawLittleEndian16((short) 20386);
         output.writeStringNoTag(ifixVersion);
       }
+      if ((bitField0_ & 0x00010000) != 0) {
+        output.writeRawLittleEndian16((short) 24818);
+        output.writeStringNoTag(msg);
+      }
     }
 
     @Override
@@ -1290,6 +1371,9 @@ public final class GateserverOuterClass {
       }
       if ((bitField0_ & 0x00008000) != 0) {
         size += 2 + ProtoSink.computeStringSizeNoTag(ifixVersion);
+      }
+      if ((bitField0_ & 0x00010000) != 0) {
+        size += 2 + ProtoSink.computeStringSizeNoTag(msg);
       }
       return size;
     }
@@ -1441,6 +1525,15 @@ public final class GateserverOuterClass {
             input.readString(ifixVersion);
             bitField0_ |= 0x00008000;
             tag = input.readTag();
+            if (tag != 12402) {
+              break;
+            }
+          }
+          case 12402: {
+            // msg
+            input.readString(msg);
+            bitField0_ |= 0x00010000;
+            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -1509,6 +1602,9 @@ public final class GateserverOuterClass {
       }
       if ((bitField0_ & 0x00008000) != 0) {
         output.writeString(FieldNames.ifixVersion, ifixVersion);
+      }
+      if ((bitField0_ & 0x00010000) != 0) {
+        output.writeString(FieldNames.msg, msg);
       }
       output.endObject();
     }
@@ -1704,6 +1800,17 @@ public final class GateserverOuterClass {
             }
             break;
           }
+          case 108417: {
+            if (input.isAtField(FieldNames.msg)) {
+              if (!input.trySkipNullValue()) {
+                input.readString(msg);
+                bitField0_ |= 0x00010000;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           default: {
             input.skipUnknownField();
             break;
@@ -1787,6 +1894,8 @@ public final class GateserverOuterClass {
       static final FieldName mdkResVersion = FieldName.forField("mdkResVersion", "mdk_res_version");
 
       static final FieldName ifixVersion = FieldName.forField("ifixVersion", "ifix_version");
+
+      static final FieldName msg = FieldName.forField("msg");
     }
   }
 }

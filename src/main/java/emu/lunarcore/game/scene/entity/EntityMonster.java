@@ -3,30 +3,36 @@ package emu.lunarcore.game.scene.entity;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
+import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.scene.Scene;
+import emu.lunarcore.game.scene.SceneEntityBuff;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SceneNpcMonsterInfoOuterClass.SceneNpcMonsterInfo;
 import emu.lunarcore.util.Position;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
 public class EntityMonster implements GameEntity {
+    @Setter private NpcMonsterExcel excel;
     @Setter private int entityId;
     @Setter private int worldLevel;
     @Setter private int groupId;
     @Setter private int instId;
     @Setter private int eventId;
-    @Setter private int overrideStageId;
-    @Setter private NpcMonsterExcel excel;
     
     private final Scene scene;
     private final Position pos;
     private final Position rot;
     
+    private Int2ObjectMap<SceneEntityBuff> buffs;
     private int farmElementId;
+    @Setter private int overrideStageId;
+    @Setter private int overrideLevel;
     
     public EntityMonster(Scene scene, NpcMonsterExcel excel, GroupInfo group, MonsterInfo monsterInfo) {
         this.scene = scene;
@@ -47,6 +53,39 @@ public class EntityMonster implements GameEntity {
             return (this.getEventId() * 10) + worldLevel;
         } else {
             return this.overrideStageId;
+        }
+    }
+    
+    public void addBuff(int caster, int buffId, int duration) {
+        if (this.buffs == null) {
+            this.buffs = new Int2ObjectOpenHashMap<>();
+        }
+        
+        this.buffs.put(buffId, new SceneEntityBuff(caster, buffId, duration));
+    }
+    
+    public void applyBuffs(Battle battle) {
+        if (this.buffs == null) return;
+        
+        for (var entry : this.buffs.int2ObjectEntrySet()) {
+            // Check expiry for buff
+            if (entry.getValue().getExpiry() < battle.getTimestamp()) {
+                continue;
+            }
+            
+            // Dont add duplicate buffs
+            if (battle.hasBuff(entry.getIntKey())) {
+                continue;
+            }
+            
+            // Get owner index
+            int ownerIndex = battle.getLineup().indexOf(entry.getValue().getOwner());
+            
+            // Add buff to battle if owner exists
+            if (ownerIndex != -1) {
+                // TODO handle multiple waves properly
+                battle.addBuff(entry.getIntKey(), ownerIndex, 1);
+            }
         }
     }
     

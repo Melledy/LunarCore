@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
@@ -21,21 +22,25 @@ import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.packet.send.PacketDoGachaScRsp;
 import emu.lunarcore.util.JsonUtils;
+import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import lombok.Getter;
 
+@Getter
 public class GachaService extends BaseGameService {
     private final Int2ObjectMap<GachaBanner> gachaBanners;
     private GetGachaInfoScRsp cachedProto;
 
     private int[] yellowAvatars = new int[] {1003, 1004, 1101, 1107, 1104, 1209, 1211};
     private int[] yellowWeapons = new int[] {23000, 23002, 23003, 23004, 23005, 23012, 23013};
-    private int[] purpleAvatars = new int[] {1001, 1002, 1008, 1009, 1013, 1103, 1105, 1106, 1108, 1109, 1111, 1201, 1202, 1206, 1207};
+    private int[] purpleAvatars = new int[] {1001, 1002, 1008, 1009, 1013, 1103, 1105, 1106, 1108, 1109, 1110, 1111, 1201, 1202, 1206, 1207, 1210};
     private int[] purpleWeapons = new int[] {21000, 21001, 21002, 21003, 21004, 21005, 21006, 21007, 21008, 21009, 21010, 21011, 21012, 21013, 21014, 21015, 21016, 21017, 21018, 21019, 21020};
     private int[] blueWeapons = new int[] {20000, 20001, 20002, 20003, 20004, 20005, 20006, 20007, 20008, 20009, 20010, 20011, 20012, 20013, 20014, 20015, 20016, 20017, 20018, 20019, 20020};
-
+    private int[] defaultFeaturedIds = new int[] {23002, 1003, 1101, 1104, 23000, 23003};
+    
     private static int starglightId = 252;
     private static int embersId = 251;
 
@@ -43,10 +48,6 @@ public class GachaService extends BaseGameService {
         super(server);
         this.gachaBanners = new Int2ObjectOpenHashMap<>();
         this.load();
-    }
-
-    public Int2ObjectMap<GachaBanner> getGachaBanners() {
-        return gachaBanners;
     }
 
     public int randomRange(int min, int max) {
@@ -69,11 +70,11 @@ public class GachaService extends BaseGameService {
     }
 
     public synchronized void doPulls(Player player, int gachaId, int times) {
-        // Sanity check
-        if (times != 10 && times != 1) {
-            return;
-        }
-        if (player.getInventory().getInventoryTab(ItemMainType.Equipment).getSize() + times > player.getInventory().getInventoryTab(ItemMainType.Equipment).getMaxCapacity()) {
+        // Sanity checks
+        if (times != 10 && times != 1) return;
+        
+        // Prevent player from using gacha if they are at max light cones
+        if (player.getInventory().getTabByItemType(ItemMainType.Equipment).getSize() >= player.getInventory().getTabByItemType(ItemMainType.Equipment).getMaxCapacity()) {
             player.sendPacket(new PacketDoGachaScRsp());
             return;
         }
@@ -87,12 +88,18 @@ public class GachaService extends BaseGameService {
 
         // Spend currency
         if (banner.getGachaType().getCostItem() > 0) {
-            GameItem costItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(banner.getGachaType().getCostItem());
+            GameItem costItem = player.getInventory().getMaterialByItemId(banner.getGachaType().getCostItem());
             if (costItem == null || costItem.getCount() < times) {
                 return;
             }
 
             player.getInventory().removeItem(costItem, times);
+        }
+        
+        // Add gacha ceiling
+        if (banner.getGachaType() == GachaType.Normal || banner.getGachaType() == GachaType.Newbie) {
+            player.getGachaInfo().addCeilingNum(times);
+            player.save();
         }
 
         // Roll
@@ -188,7 +195,7 @@ public class GachaService extends BaseGameService {
                 if (avatar != null) {
                     int dupeLevel = avatar.getRank();
                     int dupeItemId = avatarId + 10000; // Hacky fix so we dont have to fetch data from an excel
-                    GameItem dupeItem = player.getInventory().getInventoryTab(ItemMainType.Material).getItemById(dupeItemId);
+                    GameItem dupeItem = player.getInventory().getTabByItemType(ItemMainType.Material).getItemById(dupeItemId);
                     if (dupeItem != null) {
                         dupeLevel += dupeItem.getCount();
                     }
@@ -255,24 +262,44 @@ public class GachaService extends BaseGameService {
         }
 
         // Packets
-        player.sendPacket(new PacketDoGachaScRsp(banner, times, list));
+        player.sendPacket(new PacketDoGachaScRsp(player, banner, times, list));
+    }
+    
+    public List<GameItem> exchangeGachaCeiling(Player player, int avatarId) {
+        // Sanity check
+        if (player.getGachaInfo().getCeilingNum() < GameConstants.GACHA_CEILING_MAX || player.getGachaInfo().isCeilingClaimed()) {
+            return null;
+        }
+        
+        // Make sure the player is getting a valid avatar
+        if (!Utils.arrayContains(this.getYellowAvatars(), avatarId)) {
+            return null;
+        }
+        
+        // Add items
+        List<GameItem> items = new ArrayList<>();
+        
+        if (player.getAvatars().hasAvatar(avatarId)) {
+            // Add eidolon if player already has the avatar
+            items.add(new GameItem(avatarId + 10000));
+        } else {
+            items.add(new GameItem(avatarId));
+        }
+        
+        player.getInventory().addItems(items);
+        player.getGachaInfo().setCeilingClaimed(true);
+        player.save();
+        
+        return items;
     }
 
-    private synchronized GetGachaInfoScRsp createProto() {
+    public synchronized GetGachaInfoScRsp toProto(Player player) {
         var proto = GetGachaInfoScRsp.newInstance();
 
         for (GachaBanner banner : getGachaBanners().values()) {
-            proto.addGachaInfoList(banner.toProto());
+            proto.addGachaInfoList(banner.toProto(this, player));
         }
 
         return proto;
-    }
-
-    public GetGachaInfoScRsp toProto() {
-        if (this.cachedProto == null) {
-            this.cachedProto = createProto();
-        }
-
-        return this.cachedProto;
     }
 }

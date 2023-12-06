@@ -153,6 +153,8 @@ public class RogueManager extends BasePlayerManager {
             return;
         }
         
+        getPlayer().getRogueInstance().onFinish();
+        
         getPlayer().getSession().send(CmdId.QuitRogueScRsp);
         getPlayer().getSession().send(new PacketSyncRogueFinishScNotify(getPlayer()));
         

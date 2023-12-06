@@ -1,6 +1,7 @@
 package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.GameConstants;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.friends.FriendList;
 import emu.lunarcore.proto.FriendListInfoOuterClass.FriendListInfo;
 import emu.lunarcore.proto.FriendOnlineStatusOuterClass.FriendOnlineStatus;
@@ -15,17 +16,21 @@ public class PacketGetFriendListInfoScRsp extends BasePacket {
 
     public PacketGetFriendListInfoScRsp(FriendList friendList) {
         super(CmdId.GetFriendListInfoScRsp);
+        
+        // Get friend info from config
+        var serverFriendInfo = LunarCore.getConfig().getServerOptions().getServerFriendInfo();
 
         // Inject server console as friend
         var consoleFriend = SimpleInfo.newInstance()
                 .setUid(GameConstants.SERVER_CONSOLE_UID)
-                .setNickname("Server")
-                .setSignature("Type /help for a list of commands")
-                .setLevel(1)
+                .setNickname(serverFriendInfo.getName())
+                .setSignature(serverFriendInfo.getSignature())
+                .setLevel(serverFriendInfo.getLevel())
+                .setChatBubbleId(serverFriendInfo.getChatBubbleId())
                 .setOnlineStatus(FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE)
                 .setPlatformType(PlatformType.PC)
-                .setSimpleAvatarInfo(SimpleAvatarInfo.newInstance().setAvatarId(1001).setLevel(1))
-                .setHeadIcon(201001);
+                .setSimpleAvatarInfo(SimpleAvatarInfo.newInstance().setAvatarId(serverFriendInfo.getDisplayAvatarId()).setLevel(serverFriendInfo.getDisplayAvatarLevel()))
+                .setHeadIcon(serverFriendInfo.getHeadIcon());
 
         var data = GetFriendListInfoScRsp.newInstance()
                 .addFriendList(FriendListInfo.newInstance().setSimpleInfo(consoleFriend));

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.CocoonExcel;
 import emu.lunarcore.data.excel.StageExcel;
@@ -63,13 +64,13 @@ public class BattleService extends BaseGameService {
             }
         }
         
-        // Give the client an error if no attacked entities detected
+        // Skip if no attacked entities detected
         if (targetEntities.size() == 0) {
-            player.sendPacket(new PacketSceneCastSkillScRsp());
+            player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
             return;
         }
         
-        // Monster list
+        // Separate entities into monster list
         List<EntityMonster> monsters = new ArrayList<>();
         
         // Destroy props
@@ -84,6 +85,15 @@ public class BattleService extends BaseGameService {
                 player.getScene().removeEntity(entity);
             }
         }
+        
+        // Check if we are using a skill that doesnt trigger a battle
+        if (castedSkill != null && !castedSkill.isTriggerBattle()) {
+            // Apply buffs to monsters
+            castedSkill.onAttack(player.getCurrentLeaderAvatar(), monsters);
+            // Skip battle if our technique does not trigger a battle
+            player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
+            return;
+        } 
 
         // Start battle
         if (monsters.size() > 0) {
@@ -106,7 +116,20 @@ public class BattleService extends BaseGameService {
             
             // Create battle and add npc monsters to it
             Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
-            battle.getNpcMonsters().addAll(monsters);
+            
+            // Add npc monsters
+            for (var monster : monsters) {
+                battle.getNpcMonsters().add(monster);
+                
+                // Handle monster buffs
+                // TODO handle multiple waves properly
+                monster.applyBuffs(battle);
+                
+                // Override level
+                if (monster.getOverrideLevel() > 0) {
+                    battle.setLevelOverride(monster.getOverrideLevel());
+                }
+            }
             
             // Add buffs to battle
             if (isPlayerCaster) {
@@ -122,6 +145,9 @@ public class BattleService extends BaseGameService {
                         buff.addDynamicValue("SkillIndex", castedSkill.getIndex());
                     }
                 }
+            } else {
+                // Ambush buff (for monsters)
+                battle.addBuff(GameConstants.BATTLE_AMBUSH_BUFF_ID, -1, 1);
             }
             
             // Challenge
@@ -272,6 +298,11 @@ public class BattleService extends BaseGameService {
                     player.moveTo(anchor.getPos());
                 }
             }
+        }
+        
+        // Clear food buffs for player
+        if (player.getFoodBuffs().size() > 0) {
+            player.getFoodBuffs().clear();
         }
         
         // Challenge

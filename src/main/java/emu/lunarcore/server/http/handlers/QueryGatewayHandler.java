@@ -24,6 +24,7 @@ public class QueryGatewayHandler implements Handler {
                 .setRegionName(LunarCore.getConfig().getGameServer().getId())
                 .setIp(LunarCore.getConfig().getGameServer().getPublicAddress())
                 .setPort(LunarCore.getConfig().getGameServer().getPort())
+                .setMsg("Access verification failed. Please check if you have logged in to the correct account and server.") // in case there is some error idk
                 .setUnk1(true)
                 .setUnk2(true)
                 .setUnk3(true)

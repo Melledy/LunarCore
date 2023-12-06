@@ -72,7 +72,7 @@ public class SceneEntityLoader {
             scene.getHealingSprings().add(prop);
         }
         
-        // Add trigger
+        // Add trigger to scene
         if (propInfo.getTrigger() != null) {
             scene.getTriggers().add(propInfo.getTrigger());
         }

@@ -10,7 +10,7 @@ import lombok.Getter;
 public class HeroExcel extends GameResource {
     private int HeroAvatarID;
     private PlayerGender Gender;
-    
+
     @Override
     public int getId() {
         return HeroAvatarID;

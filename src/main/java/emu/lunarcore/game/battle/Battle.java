@@ -13,11 +13,12 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.scene.entity.EntityMonster;
+import emu.lunarcore.proto.ClientTurnSnapshotOuterClass.ClientTurnSnapshot;
 import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
 import emu.lunarcore.proto.SceneMonsterOuterClass.SceneMonster;
 import emu.lunarcore.proto.SceneMonsterWaveOuterClass.SceneMonsterWave;
 import emu.lunarcore.util.Utils;
-
+import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
 import lombok.Setter;
@@ -32,6 +33,8 @@ public class Battle {
     private final List<StageExcel> stages;
     private final List<GameItem> drops;
     private final long timestamp;
+    
+    private IntList turnSnapshotList; // TODO maybe turn it into a map?
     
     @Setter private int staminaCost;
     @Setter private int levelOverride;
@@ -56,6 +59,13 @@ public class Battle {
     public Battle(Player player, PlayerLineup lineup, Collection<StageExcel> stages) {
         this(player, lineup);
         this.stages.addAll(stages);
+    }
+    
+    public IntList getTurnSnapshotList() {
+        if (this.turnSnapshotList == null) {
+            this.turnSnapshotList = new IntArrayList();
+        }
+        return this.turnSnapshotList;
     }
     
     public StageType getStageType() {
@@ -109,6 +119,10 @@ public class Battle {
     public MazeBuff addBuff(MazeBuff buff) {
         this.buffs.add(buff);
         return buff;
+    }
+    
+    public boolean hasBuff(int buffId) {
+        return this.buffs.stream().filter(buff -> buff.getId() == buffId).findFirst().isPresent();
     }
     
     public void clearBuffs() {
@@ -175,9 +189,31 @@ public class Battle {
             }
         }
         
+        // Apply food buffs to battle
+        if (player.getFoodBuffs().size() > 0) {
+            for (int buffId : player.getFoodBuffs().values()) {
+                this.addBuff(buffId, -1);
+            }
+        }
+        
         // Buffs
         for (MazeBuff buff : this.getBuffs()) {
             proto.addBuffList(buff.toProto());
+        }
+        
+        // Client turn snapshots
+        if (this.turnSnapshotList != null) {
+            for (int id : this.turnSnapshotList) {
+                var snapshot = ClientTurnSnapshot.newInstance()
+                        .setBattleEventId(id);
+                
+                // Temp solution
+                snapshot.getMutableStatus().getMutableSpBar()
+                        .setCurSp(10000)
+                        .setMaxSp(10000);
+                
+                proto.addTurnSnapshotList(snapshot);
+            }
         }
         
         return proto;

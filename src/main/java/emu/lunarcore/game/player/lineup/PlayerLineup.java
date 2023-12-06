@@ -1,6 +1,5 @@
 package emu.lunarcore.game.player.lineup;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -15,6 +14,8 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.LineupInfoOuterClass.LineupInfo;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
+import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -26,7 +27,7 @@ public class PlayerLineup {
     private transient Player owner;
     
     protected int index;
-    protected List<Integer> avatars;
+    protected IntList avatars;
     
     @Setter private int leader;
     @Setter private String name;
@@ -38,7 +39,7 @@ public class PlayerLineup {
         this.owner = player;
         this.ownerUid = player.getUid();
         this.index = index;
-        this.avatars = new ArrayList<>(GameConstants.MAX_AVATARS_IN_TEAM);
+        this.avatars = new IntArrayList(GameConstants.MAX_AVATARS_IN_TEAM);
         
         // Set team name if not an extra lineup
         if (!this.isExtraLineup()) {
@@ -65,7 +66,7 @@ public class PlayerLineup {
     public synchronized List<Integer> getAvatars() {
         return avatars;
     }
-
+    
     public int size() {
         return getAvatars().size();
     }
@@ -113,6 +114,10 @@ public class PlayerLineup {
             getOwner().sendPacket(new PacketSyncLineupNotify(this));
         }
     }
+
+    public void refreshLineup() {
+        this.getOwner().sendPacket(new PacketSyncLineupNotify(this));
+    }
     
     public void forEachAvatar(Consumer<GameAvatar> consumer) {
         for (int avatarId : this.getAvatars()) {
@@ -121,6 +126,19 @@ public class PlayerLineup {
             
             consumer.accept(avatar);
         }
+    }
+    
+    public int indexOf(int ownerId) {
+        return this.getAvatars().indexOf(ownerId);
+    }
+    
+    /**
+     * Checks if the slot contains an avatar
+     * @param slot The slot we are checking for
+     * @return true if the slot contains an avatar
+     */
+    public synchronized boolean isActiveSlot(int slot) {
+        return slot >= 0 && slot < this.size();
     }
     
     // Database

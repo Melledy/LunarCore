@@ -8,24 +8,29 @@ import lombok.Getter;
 
 @Getter
 @Entity(useDiscriminator = false)
-public class ItemSubAffix {
+public class GameItemSubAffix {
     private int id; // Affix id
     private int count;
     private int step;
-
+	
     @Deprecated
-    public ItemSubAffix() {
+    public GameItemSubAffix() {
         // Morphia only!
     }
 
-    public ItemSubAffix(RelicSubAffixExcel subAffix) {
+    public GameItemSubAffix(RelicSubAffixExcel subAffix) {
+        this(subAffix, 1);
+    }
+    
+    public GameItemSubAffix(RelicSubAffixExcel subAffix, int count) {
         this.id = subAffix.getAffixID();
-        this.count = 1;
-        this.step = Utils.randomRange(0, subAffix.getStepNum());
+        this.count = count;
+        this.step = Utils.randomRange(0, count * subAffix.getStepNum());
     }
 
-    public void incrementCount() {
+    public void incrementCount(int stepNum) {
         this.count += 1;
+        this.step += Utils.randomRange(0, stepNum); 
     }
 
     public RelicAffix toProto() {

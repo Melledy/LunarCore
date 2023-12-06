@@ -40,10 +40,10 @@ public class AvatarExcel extends GameResource {
     private transient IntSet skillTreeIds;
     private transient String nameKey;
     private transient int maxSp;
-    
+
     @Setter private transient MazeSkill mazeAttack;
     @Setter private transient MazeSkill mazeSkill;
-    
+
     private static Pattern namePattern = Pattern.compile("(?<=Avatar_)(.*?)(?=_Config)");
 
     public AvatarExcel() {
@@ -75,14 +75,14 @@ public class AvatarExcel extends GameResource {
 
         // Cache max sp
         this.maxSp = (int) this.SPNeed * 100;
-        
+
         // Get name key
         Matcher matcher = namePattern.matcher(this.JsonPath);
-        
+
         if (matcher.find()) {
             this.nameKey = matcher.group(0);
         }
-        
+
         // Clear variable to save memory
         this.JsonPath = null;
     }

@@ -10,16 +10,16 @@ import emu.lunarcore.game.player.Player;
 public class UnstuckCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         // Make sure were on the game server
         if (LunarCore.getGameDatabase() == null) {
-            this.sendMessage(sender, "Error: Game database not connected");
+            args.sendMessage("Error: Game database not connected");
             return;
         }
         
         // TODO add some logic to handle unstucking the target if theyre online
         if (args.getTarget() != null) {
-            this.sendMessage(sender, "Error: Targeted player is online");
+            args.sendMessage("Error: Targeted player is online");
             return;
         }
         
@@ -32,10 +32,10 @@ public class UnstuckCommand implements CommandHandler {
             player.save();
             
             // Done
-            this.sendMessage(sender, "Player unstuck successfully");
+            args.sendMessage("Player unstuck successfully");
         } else {
             // Done
-            this.sendMessage(sender, "Error: Player not found in database");
+            args.sendMessage("Error: Player not found in database");
         }
     }
 

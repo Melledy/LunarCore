@@ -86,13 +86,15 @@ public class Config {
     @Getter
     public static class ServerOptions {
         public boolean autoCreateAccount = true;
-        public int entitySceneLimit = 2000;
+        public int sceneMaxEntites = 500;
         public boolean spendStamina = true;
         public boolean unlockAllChallenges = true;
         public int staminaRecoveryRate = 5 * 60;
         public int staminaReserveRecoveryRate = 18 * 60;
         public String language = "EN";
         public Set<String> defaultPermissions = Set.of("*");
+        
+        public ServerProfile serverFriendInfo = new ServerProfile();
         public WelcomeMail welcomeMail = new WelcomeMail();
         
         public int getStaminaRecoveryRate() {
@@ -102,6 +104,17 @@ public class Config {
         public int getStaminaReserveRecoveryRate() {
             return staminaReserveRecoveryRate > 0 ? staminaReserveRecoveryRate : 1;
         }
+    }
+    
+    @Getter
+    public static class ServerProfile {
+        public String name = "Server";
+        public String signature = "Type /help for a list of commands";
+        public int level = 1;
+        public int headIcon = 201001;
+        public int chatBubbleId = 0;
+        public int displayAvatarId = 1001;
+        public int displayAvatarLevel = 1;
     }
     
     @Getter
@@ -130,6 +143,7 @@ public class Config {
         public boolean commands = true;
         public boolean connections = true;
         public boolean packets = false;
+        public boolean filterLoopingPackets = false;
     }
     
     @Getter

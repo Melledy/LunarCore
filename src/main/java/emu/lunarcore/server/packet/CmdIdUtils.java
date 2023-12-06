@@ -12,19 +12,42 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.util.JsonUtils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
+import it.unimi.dsi.fastutil.ints.IntSet;
 
 public class CmdIdUtils {
-    private static Int2ObjectMap<String> opcodeMap;
+    /**
+     * Packet ids that will NOT be logged if "filterLoopingPackets" is true in the config
+     */
+    public static final IntSet IGNORED_LOG_PACKETS = IntOpenHashSet.of(
+        CmdId.PlayerHeartBeatCsReq,
+        CmdId.PlayerHeartBeatScRsp,
+        CmdId.SceneEntityMoveCsReq,
+        CmdId.SceneEntityMoveScRsp,
+        CmdId.GetQuestDataScRsp
+    );
+    
+    /**
+     * Packet ids that will NOT be caught by the spam filter
+     */
+    public static final IntSet ALLOWED_FILTER_PACKETS = IntOpenHashSet.of(
+        CmdId.PlayerHeartBeatCsReq,
+        CmdId.GetMissionStatusCsReq,
+        CmdId.GetMissionStatusCsReq,
+        CmdId.GetMissionEventDataCsReq
+    );
+
+    private static Int2ObjectMap<String> cmdIdMap;
 
     static {
-        opcodeMap = new Int2ObjectOpenHashMap<>();
+        cmdIdMap = new Int2ObjectOpenHashMap<>();
 
         Field[] fields = CmdId.class.getFields();
 
         for (Field f : fields) {
             if (f.getType().equals(int.class)) {
                 try {
-                    opcodeMap.put(f.getInt(null), f.getName());
+                    cmdIdMap.put(f.getInt(null), f.getName());
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
@@ -32,15 +55,15 @@ public class CmdIdUtils {
         }
     }
 
-    public static String getOpcodeName(int opcode) {
+    public static String getCmdIdName(int opcode) {
         if (opcode <= 0) return "UNKNOWN";
-        return opcodeMap.getOrDefault(opcode, "UNKNOWN");
+        return cmdIdMap.getOrDefault(opcode, "UNKNOWN");
     }
 
     public static void dumpPacketIds() {
         try (FileWriter writer = new FileWriter("./PacketIds_" + GameConstants.VERSION + ".json")) {
             // Create sorted tree map
-            Map<Integer, String> packetIds = opcodeMap.int2ObjectEntrySet().stream()
+            Map<Integer, String> packetIds = cmdIdMap.int2ObjectEntrySet().stream()
                     .filter(e -> e.getIntKey() > 0)
                     .collect(Collectors.toMap(Int2ObjectMap.Entry::getIntKey, Int2ObjectMap.Entry::getValue, (k, v) -> v, TreeMap::new));
             // Write to file

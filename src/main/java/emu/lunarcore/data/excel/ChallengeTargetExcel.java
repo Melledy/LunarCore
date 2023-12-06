@@ -11,7 +11,7 @@ public class ChallengeTargetExcel extends GameResource {
     private int ID;
     private ChallengeType ChallengeTargetType;
     private int ChallengeTargetParam1;
-    
+
     @Override
     public int getId() {
         return ID;

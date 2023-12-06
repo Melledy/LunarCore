@@ -11,72 +11,63 @@ import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
-@Command(label = "give", aliases = {"g"}, permission = "player.give", desc = "/give [item id] x[amount]. Gives the targetted player an item.")
+@Command(
+        label = "give", 
+        aliases = {"g", "item"}, 
+        permission = "player.give", 
+        requireTarget = true, 
+        desc = "/give [item id] x(amount) lv(level) r(rank) p(promotion). Gives the targeted player an item."
+)
 public class GiveCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-        
-        int itemId = Utils.parseSafeInt(args.get(0));
-        int amount = Math.max(args.getAmount(), 1);
-        
-        ItemExcel itemData = GameData.getItemExcelMap().get(itemId);
-        
-        if (itemData == null) {
-            this.sendMessage(sender, "Error: Item data not found");
-            return;
-        }
-        
+    public void execute(CommandArgs args) {
         // Setup items
         List<GameItem> items = new LinkedList<>();
         
-        if (itemData.getItemMainType() == ItemMainType.AvatarCard) {
-            // Add avatar
-            GameAvatar avatar = new GameAvatar(itemData.getId());
+        // Get amount to give
+        int amount = Math.max(args.getAmount(), 1);
+        
+        // Parse items
+        for (String arg : args.getList()) {
+            // Parse item id
+            int itemId = Utils.parseSafeInt(arg);
             
-            if (args.getTarget().addAvatar(avatar)) {
-                // Change avatar properties
+            ItemExcel itemData = GameData.getItemExcelMap().get(itemId);
+            if (itemData == null) {
+                args.sendMessage("Item \"" + arg + "\" does not exist!");
+                continue;
+            }
+            
+            // Add item
+            if (itemData.getItemMainType() == ItemMainType.AvatarCard) {
+                // Add avatar to target
+                GameAvatar avatar = new GameAvatar(itemData.getId());
                 args.setProperties(avatar);
-            }
-        } else if (itemData.isEquippable()) {
-            for (int i = 0; i < amount; i++) {
-                GameItem item = new GameItem(itemData);
+                args.getTarget().addAvatar(avatar);
+            } else if (itemData.isEquippable()) {
+                // Make sure we dont go over the inventory limit
+                var tab = args.getTarget().getInventory().getTabByItemType(itemData.getItemMainType());
+                amount = Math.min(amount, tab.getAvailableCapacity());
                 
-                if (item.getExcel().isEquipment()) {
-                    // Try to set level
-                    if (args.getLevel() > 0) {
-                        item.setLevel(Math.min(args.getLevel(), 80));
-                        item.setPromotion(Utils.getMinPromotionForLevel(item.getLevel()));
-                    }
+                // Add items
+                for (int i = 0; i < amount; i++) {
+                    GameItem item = new GameItem(itemData);
+                    args.setProperties(item);
                     
-                    // Try to set promotion
-                    if (args.getPromotion() >= 0) {
-                        item.setPromotion(Math.min(args.getPromotion(), item.getExcel().getEquipmentExcel().getMaxPromotion()));
-                    }
-                    
-                    // Try to set rank (superimposition)
-                    if (args.getRank() >= 0) {
-                        item.setRank(Math.min(args.getRank(), item.getExcel().getEquipmentExcel().getMaxRank()));
-                    }
+                    items.add(item);
                 }
-                
-                items.add(item);
+            } else {
+                items.add(new GameItem(itemData, amount));
             }
-        } else {
-            items.add(new GameItem(itemData, amount));
+            
+            // Send message
+            args.sendMessage("Giving " + args.getTarget().getName() + " " + amount + " of " + itemId);
         }
         
-        // Add and send message to player
+        // Add to player inventory
         args.getTarget().getInventory().addItems(items, true);
-        args.getTarget().sendMessage("Giving " + args.getTarget().getName() + " " + amount + " of " + itemId);
     }
-
 }

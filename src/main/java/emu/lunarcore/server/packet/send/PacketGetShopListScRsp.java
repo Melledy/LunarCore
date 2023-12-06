@@ -16,7 +16,7 @@ public class PacketGetShopListScRsp extends BasePacket {
                 .setShopType(shopType);
         
         for (ShopExcel shopExcel : GameData.getShopExcelMap().values()) {
-            if (shopExcel.getShopType() != shopType) {
+            if (shopExcel.getShopType() != shopType || shopExcel.getGoods().size() == 0) {
                 continue;
             }
             
@@ -24,7 +24,7 @@ public class PacketGetShopListScRsp extends BasePacket {
                     .setShopId(shopExcel.getId())
                     .setCityLevel(1)
                     .setEndTime(Integer.MAX_VALUE);
-            
+
             for (var goodsExcel : shopExcel.getGoods().values()) {
                 shop.addGoodsList(goodsExcel.toProto());
             }

@@ -12,4 +12,6 @@ public @interface Command {
     public String desc() default "";
     
     public String permission() default "";
+    
+    public boolean requireTarget() default false;
 }

@@ -6,12 +6,13 @@ import emu.lunarcore.server.packet.CmdId;
 
 public class PacketSetLineupNameScRsp extends BasePacket {
 
-    public PacketSetLineupNameScRsp(String name) {
+    public PacketSetLineupNameScRsp(int index, String name) {
         super(CmdId.SetLineupNameScRsp);
 
         var data = SetLineupNameScRsp.newInstance();
 
         if (name != null) {
+            data.setIndex(index);
             data.setName(name);
         } else {
             data.setRetcode(1);

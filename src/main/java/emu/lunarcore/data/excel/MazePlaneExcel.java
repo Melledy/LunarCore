@@ -14,10 +14,10 @@ public class MazePlaneExcel extends GameResource {
     private int WorldID;
     private int StartFloorID;
     private long PlaneName;
-    
+
     @SerializedName(value = "PlaneType")
     private PlaneType planeType = PlaneType.Unknown;
-    
+
     @Override
     public int getId() {
         return PlaneID;

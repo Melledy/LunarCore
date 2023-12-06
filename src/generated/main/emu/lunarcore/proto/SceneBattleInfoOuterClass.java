@@ -59,6 +59,11 @@ public final class SceneBattleInfoOuterClass {
      */
     private final RepeatedMessage<BattleBuffOuterClass.BattleBuff> buffList = RepeatedMessage.newEmptyInstance(BattleBuffOuterClass.BattleBuff.getFactory());
 
+    /**
+     * <code>repeated .ClientTurnSnapshot turn_snapshot_list = 219;</code>
+     */
+    private final RepeatedMessage<ClientTurnSnapshotOuterClass.ClientTurnSnapshot> turnSnapshotList = RepeatedMessage.newEmptyInstance(ClientTurnSnapshotOuterClass.ClientTurnSnapshot.getFactory());
+
     private SceneBattleInfo() {
     }
 
@@ -462,6 +467,77 @@ public final class SceneBattleInfoOuterClass {
       return this;
     }
 
+    /**
+     * <code>repeated .ClientTurnSnapshot turn_snapshot_list = 219;</code>
+     * @return whether the turnSnapshotList field is set
+     */
+    public boolean hasTurnSnapshotList() {
+      return (bitField0_ & 0x00000100) != 0;
+    }
+
+    /**
+     * <code>repeated .ClientTurnSnapshot turn_snapshot_list = 219;</code>
+     * @return this
+     */
+    public SceneBattleInfo clearTurnSnapshotList() {
+      bitField0_ &= ~0x00000100;
+      turnSnapshotList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .ClientTurnSnapshot turn_snapshot_list = 219;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableTurnSnapshotList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<ClientTurnSnapshotOuterClass.ClientTurnSnapshot> getTurnSnapshotList() {
+      return turnSnapshotList;
+    }
+
+    /**
+     * <code>repeated .ClientTurnSnapshot turn_snapshot_list = 219;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<ClientTurnSnapshotOuterClass.ClientTurnSnapshot> getMutableTurnSnapshotList(
+        ) {
+      bitField0_ |= 0x00000100;
+      return turnSnapshotList;
+    }
+
+    /**
+     * <code>repeated .ClientTurnSnapshot turn_snapshot_list = 219;</code>
+     * @param value the turnSnapshotList to add
+     * @return this
+     */
+    public SceneBattleInfo addTurnSnapshotList(
+        final ClientTurnSnapshotOuterClass.ClientTurnSnapshot value) {
+      bitField0_ |= 0x00000100;
+      turnSnapshotList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .ClientTurnSnapshot turn_snapshot_list = 219;</code>
+     * @param values the turnSnapshotList to add
+     * @return this
+     */
+    public SceneBattleInfo addAllTurnSnapshotList(
+        final ClientTurnSnapshotOuterClass.ClientTurnSnapshot... values) {
+      bitField0_ |= 0x00000100;
+      turnSnapshotList.addAll(values);
+      return this;
+    }
+
     @Override
     public SceneBattleInfo copyFrom(final SceneBattleInfo other) {
       cachedSize = other.cachedSize;
@@ -475,6 +551,7 @@ public final class SceneBattleInfoOuterClass {
         battleAvatarList.copyFrom(other.battleAvatarList);
         monsterWaveList.copyFrom(other.monsterWaveList);
         buffList.copyFrom(other.buffList);
+        turnSnapshotList.copyFrom(other.turnSnapshotList);
       }
       return this;
     }
@@ -509,6 +586,9 @@ public final class SceneBattleInfoOuterClass {
       if (other.hasBuffList()) {
         getMutableBuffList().addAll(other.buffList);
       }
+      if (other.hasTurnSnapshotList()) {
+        getMutableTurnSnapshotList().addAll(other.turnSnapshotList);
+      }
       return this;
     }
 
@@ -527,6 +607,7 @@ public final class SceneBattleInfoOuterClass {
       battleAvatarList.clear();
       monsterWaveList.clear();
       buffList.clear();
+      turnSnapshotList.clear();
       return this;
     }
 
@@ -540,6 +621,7 @@ public final class SceneBattleInfoOuterClass {
       battleAvatarList.clearQuick();
       monsterWaveList.clearQuick();
       buffList.clearQuick();
+      turnSnapshotList.clearQuick();
       return this;
     }
 
@@ -560,7 +642,8 @@ public final class SceneBattleInfoOuterClass {
         && (!hasBattleId() || battleId == other.battleId)
         && (!hasBattleAvatarList() || battleAvatarList.equals(other.battleAvatarList))
         && (!hasMonsterWaveList() || monsterWaveList.equals(other.monsterWaveList))
-        && (!hasBuffList() || buffList.equals(other.buffList));
+        && (!hasBuffList() || buffList.equals(other.buffList))
+        && (!hasTurnSnapshotList() || turnSnapshotList.equals(other.turnSnapshotList));
     }
 
     @Override
@@ -603,6 +686,12 @@ public final class SceneBattleInfoOuterClass {
           output.writeMessageNoTag(buffList.get(i));
         }
       }
+      if ((bitField0_ & 0x00000100) != 0) {
+        for (int i = 0; i < turnSnapshotList.length(); i++) {
+          output.writeRawLittleEndian16((short) 3546);
+          output.writeMessageNoTag(turnSnapshotList.get(i));
+        }
+      }
     }
 
     @Override
@@ -631,6 +720,9 @@ public final class SceneBattleInfoOuterClass {
       }
       if ((bitField0_ & 0x00000080) != 0) {
         size += (1 * buffList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(buffList);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        size += (2 * turnSnapshotList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(turnSnapshotList);
       }
       return size;
     }
@@ -707,6 +799,14 @@ public final class SceneBattleInfoOuterClass {
             // buffList
             tag = input.readRepeatedMessage(buffList, tag);
             bitField0_ |= 0x00000080;
+            if (tag != 1754) {
+              break;
+            }
+          }
+          case 1754: {
+            // turnSnapshotList
+            tag = input.readRepeatedMessage(turnSnapshotList, tag);
+            bitField0_ |= 0x00000100;
             if (tag != 0) {
               break;
             }
@@ -751,6 +851,9 @@ public final class SceneBattleInfoOuterClass {
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRepeatedMessage(FieldNames.buffList, buffList);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        output.writeRepeatedMessage(FieldNames.turnSnapshotList, turnSnapshotList);
       }
       output.endObject();
     }
@@ -858,6 +961,18 @@ public final class SceneBattleInfoOuterClass {
             }
             break;
           }
+          case 716339615:
+          case 397197815: {
+            if (input.isAtField(FieldNames.turnSnapshotList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(turnSnapshotList);
+                bitField0_ |= 0x00000100;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           default: {
             input.skipUnknownField();
             break;
@@ -926,6 +1041,8 @@ public final class SceneBattleInfoOuterClass {
       static final FieldName monsterWaveList = FieldName.forField("monsterWaveList", "monster_wave_list");
 
       static final FieldName buffList = FieldName.forField("buffList", "buff_list");
+
+      static final FieldName turnSnapshotList = FieldName.forField("turnSnapshotList", "turn_snapshot_list");
     }
   }
 }
