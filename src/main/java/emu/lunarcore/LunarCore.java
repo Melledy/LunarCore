@@ -2,6 +2,7 @@ package emu.lunarcore;
 
 import java.io.*;
 
+import emu.lunarcore.plugin.PluginManager;
 import org.jline.reader.EndOfFileException;
 import org.jline.reader.LineReaderBuilder;
 import org.jline.reader.UserInterruptException;
@@ -35,6 +36,7 @@ public class LunarCore {
     @Getter private static GameServer gameServer;
 
     @Getter private static CommandManager commandManager;
+    @Getter private static PluginManager pluginManager;
     @Getter private static ServerType serverType = ServerType.BOTH;
 
     private static LineReaderImpl reader;
@@ -65,6 +67,13 @@ public class LunarCore {
 
         // Load commands
         LunarCore.commandManager = new CommandManager();
+        LunarCore.pluginManager = new PluginManager();
+
+        try {
+            LunarCore.getPluginManager().loadPlugins();
+        } catch (Exception exception) {
+            LunarCore.getLogger().error("Unable to load plugins.", exception);
+        }
 
         // Parse arguments
         for (String arg : args) {
@@ -122,6 +131,8 @@ public class LunarCore {
         } catch (Exception exception) {
             LunarCore.getLogger().error("Unable to start the game server.", exception);
         }
+
+        LunarCore.getPluginManager().enablePlugins();
 
         // Hook into shutdown event
         Runtime.getRuntime().addShutdownHook(new Thread(LunarCore::onShutdown));
@@ -216,6 +227,10 @@ public class LunarCore {
     private static void onShutdown() {
         if (gameServer != null) {
             gameServer.onShutdown();
+        }
+
+        if (pluginManager != null) {
+            pluginManager.disablePlugins();
         }
     }
 
