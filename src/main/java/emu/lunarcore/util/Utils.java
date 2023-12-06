@@ -121,6 +121,44 @@ public class Utils {
 
         return i;
     }
+    
+    /**
+     * Add 2 integers without overflowing
+     */
+    public static int safeAdd(int a, int b) {
+        return safeAdd(a, b, Integer.MAX_VALUE, Integer.MIN_VALUE);
+    }
+    
+    public static int safeAdd(int a, int b, long max, long min) {
+        long sum = (long) a + (long) b;
+        
+        if (sum > max) {
+            return (int) max;
+        } else if (sum < min) {
+            return (int) min;
+        }
+        
+        return (int) sum;
+    }
+    
+    /**
+     * Subtract 2 integers without overflowing
+     */
+    public static int safeSubtract(int a, int b) {
+        return safeSubtract(a, b, Integer.MAX_VALUE, Integer.MIN_VALUE);
+    }
+    
+    public static int safeSubtract(int a, int b, long max, long min) {
+        long sum = (long) a - (long) b;
+        
+        if (sum > max) {
+            return (int) max;
+        } else if (sum < min) {
+            return (int) min;
+        }
+        
+        return (int) sum;
+    }
 
     public static double generateRandomDouble() {
         return ThreadLocalRandom.current().nextDouble();

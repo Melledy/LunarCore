@@ -24,6 +24,7 @@ import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.server.packet.send.PacketScenePlaneEventScNotify;
+import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 
@@ -233,8 +234,9 @@ public class Inventory extends BasePlayerManager {
                 item.save();
                 return item;
             } else {
-                // Add count
-                existingItem.setCount(Math.min(existingItem.getCount() + item.getCount(), item.getExcel().getPileLimit()));
+                // Add count to item
+                int amount = Utils.safeAdd(existingItem.getCount(), item.getCount(), item.getExcel().getPileLimit(), 0);
+                existingItem.setCount(amount);
                 existingItem.save();
                 return existingItem;
             }
@@ -381,7 +383,7 @@ public class Inventory extends BasePlayerManager {
         if (item.getExcel() == null || item.getExcel().isEquippable()) {
             item.setCount(0);
         } else {
-            item.setCount(item.getCount() - count);
+            item.setCount(Utils.safeSubtract(item.getCount(), count));
         }
 
         if (item.getCount() <= 0) {

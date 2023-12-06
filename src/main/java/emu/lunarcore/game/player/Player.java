@@ -63,6 +63,7 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
+import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
@@ -362,22 +363,22 @@ public class Player {
     }
 
     public void addSCoin(int amount) {
-        this.scoin += amount;
+        this.scoin = Utils.safeAdd(this.scoin, amount);
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
 
     public void addHCoin(int amount) {
-        this.hcoin += amount;
+        this.hcoin = Utils.safeAdd(this.hcoin, amount);
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
 
     public void addMCoin(int amount) {
-        this.mcoin += amount;
+        this.mcoin = Utils.safeAdd(this.mcoin, amount);
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
     
     public void addTalentPoints(int amount) {
-        this.talentPoints += amount;
+        this.talentPoints = Utils.safeAdd(this.talentPoints, amount);
         this.sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this));
     }
 
@@ -440,7 +441,7 @@ public class Player {
     }
     
     public void addStamina(int amount) {
-        this.stamina += amount;
+        this.stamina = Utils.safeAdd(this.stamina, amount);
         this.sendPacket(new PacketStaminaInfoScNotify(this));
     }
     
