@@ -172,12 +172,20 @@ public class LunarCore {
     // Config
 
     public static void loadConfig() {
+        // Load from file
         try (FileReader file = new FileReader(configFile)) {
-            config = JsonUtils.loadToClass(file, Config.class);
+            LunarCore.config = JsonUtils.loadToClass(file, Config.class);
         } catch (Exception e) {
+            // Ignored
+        }
+        
+        // Sanity check
+        if (LunarCore.getConfig() == null) {
             LunarCore.config = new Config();
         }
-        saveConfig();
+        
+        // Save config
+        LunarCore.saveConfig();
     }
 
     public static void saveConfig() {
