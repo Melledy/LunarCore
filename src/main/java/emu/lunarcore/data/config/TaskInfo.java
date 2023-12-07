@@ -24,6 +24,7 @@ public class TaskInfo {
     private List<TaskInfo> OnAttack;
     private List<TaskInfo> SuccessTaskList;
     private List<TaskInfo> OnProjectileHit;
+    private List<TaskInfo> OnProjectileLifetimeFinish;
     
     public String getType() {
         return this.$type;

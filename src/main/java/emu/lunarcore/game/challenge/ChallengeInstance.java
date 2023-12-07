@@ -14,6 +14,7 @@ import emu.lunarcore.proto.ChallengeStatusOuterClass.ChallengeStatus;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.server.packet.send.PacketChallengeLineupNotify;
 import emu.lunarcore.server.packet.send.PacketChallengeSettleNotify;
+import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import emu.lunarcore.util.Position;
 
 import lombok.Getter;
@@ -32,6 +33,7 @@ public class ChallengeInstance {
     private int status;
     private boolean hasAvatarDied;
     
+    @Setter private int savedMp;
     @Setter private int roundsLeft;
     @Setter private int stars;
     
@@ -79,7 +81,8 @@ public class ChallengeInstance {
     }
     
     public void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
-        if (result == BattleEndStatus.BATTLE_END_WIN) {
+        switch (result) {
+        case BATTLE_END_WIN:
             // Check if any avatar in the lineup has died
             battle.getLineup().forEachAvatar(avatar -> {
                 if (avatar.getCurrentHp(battle.getLineup()) <= 0) {
@@ -109,6 +112,7 @@ public class ChallengeInstance {
                     this.setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE_2);
                     player.getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), true);
                     player.sendPacket(new PacketChallengeLineupNotify(this.getCurrentExtraLineup()));
+                    this.savedMp = player.getCurrentLineup().getMp();
                     // Move player
                     player.moveTo(this.getStartPos(), this.getStartRot());
                 }
@@ -116,9 +120,21 @@ public class ChallengeInstance {
             
             // Calculate rounds left
             this.roundsLeft = Math.min(Math.max(this.roundsLeft - stats.getRoundCnt(), 1), this.roundsLeft);
-        } else {
+            
+            // Set saved technique points (This will be restored if the player resets the challenge)
+            this.savedMp = player.getCurrentLineup().getMp();
+            break;
+        case BATTLE_END_QUIT:
+            // Reset technique points and move back to start position
+            var lineup = player.getCurrentLineup();
+            lineup.setMp(this.savedMp);
+            player.moveTo(this.getStartPos(), this.getStartRot());
+            player.sendPacket(new PacketSyncLineupNotify(lineup));
+            break;
+        default:
             // Fail challenge
             this.setStatus(ChallengeStatus.CHALLENGE_FAILED);
+            break;
         }
     }
 

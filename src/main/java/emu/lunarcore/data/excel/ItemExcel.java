@@ -8,6 +8,7 @@ import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.enums.ItemRarity;
 import emu.lunarcore.game.enums.ItemSubType;
+import emu.lunarcore.game.enums.ItemUseMethod;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,11 +19,14 @@ public class ItemExcel extends GameResource {
     // General item data
     private int ID;
     private long ItemName;
-    private ItemMainType ItemMainType;
-    private ItemSubType ItemSubType;
+    private ItemMainType ItemMainType = emu.lunarcore.game.enums.ItemMainType.Unknown;
+    private ItemSubType ItemSubType = emu.lunarcore.game.enums.ItemSubType.Unknown;
     private ItemRarity Rarity;
     private int PileLimit;
     private int PurposeType;
+    
+    private int UseDataID;
+    private ItemUseMethod UseMethod;
 
     private List<ItemParam> ReturnItemIDList;
 
@@ -44,12 +48,20 @@ public class ItemExcel extends GameResource {
         return ItemMainType == emu.lunarcore.game.enums.ItemMainType.Equipment && this.getEquipmentExcel() != null;
     }
 
+    public boolean isHeadIcon() {
+        return ItemSubType == emu.lunarcore.game.enums.ItemSubType.HeadIcon;
+    }
+
     public boolean isRelic() {
         return ItemMainType == emu.lunarcore.game.enums.ItemMainType.Relic && this.getRelicExcel() != null;
     }
 
     public boolean isEquippable() {
         return ItemMainType == emu.lunarcore.game.enums.ItemMainType.Relic || ItemMainType == emu.lunarcore.game.enums.ItemMainType.Equipment;
+    }
+    
+    public int getRarityNum() {
+        return this.getRarity().getVal();
     }
 
     public int getRelicExp() {
@@ -58,7 +70,7 @@ public class ItemExcel extends GameResource {
         }
         return this.relicExp;
     }
-
+    
     public int getRelicExpCost() {
         if (this.relicExcel != null) {
             return this.relicExcel.getCoinCost();

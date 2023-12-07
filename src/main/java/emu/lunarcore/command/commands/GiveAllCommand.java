@@ -15,22 +15,22 @@ import emu.lunarcore.game.enums.ItemSubType;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 
-@Command(label = "giveall", aliases = {"ga"}, permission = "player.give", desc = "/giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.")
+@Command(
+        label = "giveall", 
+        aliases = {"ga"}, 
+        permission = "player.give", 
+        requireTarget = true, 
+        desc = "/giveall {materials | avatars | lightcones | relics} lv(level). Gives the targeted player items."
+)
 public class GiveAllCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-
+    public void execute(CommandArgs args) {
         Player target = args.getTarget();
         String type = args.get(0).toLowerCase();
 
         switch (type) {
-            default -> this.sendMessage(sender, "Error: Invalid type");
+            default -> args.sendMessage("Error: Invalid type");
             case "m", "materials", "mats" -> {
                 List<GameItem> items = new ArrayList<>();
 
@@ -49,9 +49,16 @@ public class GiveAllCommand implements CommandHandler {
                 target.getInventory().addItems(items, true);
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " items");
+                args.sendMessage("Giving " + target.getName() + " " + items.size() + " items");
             }
             case "lc", "lightcones" -> {
+                // Make sure we dont go over the inventory limit
+                var tab = args.getTarget().getInventory().getTabByItemType(ItemMainType.Equipment);
+                if (tab.getSize() >= tab.getMaxCapacity()) {
+                    args.sendMessage(target.getName() + " has too many of this item type");
+                    return;
+                }
+                
                 // Get lightcones
                 List<GameItem> items = GameData.getItemExcelMap().values()
                         .stream()
@@ -67,9 +74,16 @@ public class GiveAllCommand implements CommandHandler {
                 target.getInventory().addItems(items, true);
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " light cones");
+                args.sendMessage("Giving " + target.getName() + " " + items.size() + " light cones");
             }
             case "r", "relics" -> {
+                // Make sure we dont go over the inventory limit
+                var tab = args.getTarget().getInventory().getTabByItemType(ItemMainType.Relic);
+                if (tab.getSize() >= tab.getMaxCapacity()) {
+                    args.sendMessage(target.getName() + " has too many of this item type");
+                    return;
+                }
+                
                 // Get relics
                 List<GameItem> items = GameData.getItemExcelMap().values()
                         .stream()
@@ -80,12 +94,12 @@ public class GiveAllCommand implements CommandHandler {
                             return item;
                         })
                         .toList();
-
+                
                 // Add to target's inventory
                 target.getInventory().addItems(items, true);
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " " + items.size() + " relics");
+                args.sendMessage("Giving " + target.getName() + " " + items.size() + " relics");
             }
             case "a", "characters", "avatars" -> {
                 // All avatars and their eidolons
@@ -111,7 +125,31 @@ public class GiveAllCommand implements CommandHandler {
                 }
 
                 // Send message
-                this.sendMessage(sender, "Giving " + target.getName() + " all avatars");
+                args.sendMessage("Giving " + target.getName() + " all avatars");
+            }
+            case "ic", "icons" -> {
+                // Get UnlockedHeads
+                for (var iconhead : GameData.getPlayerIconExcelMap().values()) {
+                    // This function will handle any duplicate head icons
+                    target.addHeadIcon(iconhead.getId());
+                }
+
+                // Send message
+                args.sendMessage("Added all icons to " + target.getName());
+            }
+            case "consumables", "food" -> {
+                // Get consumables
+                List<GameItem> items = GameData.getItemExcelMap().values()
+                        .stream()
+                        .filter(excel -> excel.getItemSubType() == ItemSubType.Food)
+                        .map(excel -> new GameItem(excel, 1000))
+                        .toList();
+                
+                // Add to target's inventory
+                target.getInventory().addItems(items, true);
+
+                // Send message
+                args.sendMessage("Added all consumables to " + target.getName());
             }
         }
     }

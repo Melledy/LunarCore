@@ -9,6 +9,6 @@ public class PacketGetGachaInfoScRsp extends BasePacket {
     public PacketGetGachaInfoScRsp(GameSession session) {
         super(CmdId.GetGachaInfoScRsp);
 
-        this.setData(session.getServer().getGachaService().toProto());
+        this.setData(session.getServer().getGachaService().toProto(session.getPlayer()));
     }
 }

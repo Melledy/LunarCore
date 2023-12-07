@@ -8,33 +8,28 @@ import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.inventory.GameItem;
-import emu.lunarcore.game.player.Player;
 
-@Command(label = "clear", permission = "player.clear", desc = "/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.")
+@Command(label = "clear", permission = "player.clear", requireTarget = true, desc = "/clear {relics | lightcones | materials | items} lv(filter level). Removes filter items from the targeted player's inventory.")
 public class ClearCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
-        // Check target
-        if (args.getTarget() == null) {
-            this.sendMessage(sender, "Error: Targeted player not found or offline");
-            return;
-        }
-
+    public void execute(CommandArgs args) {
         List<GameItem> toRemove = new LinkedList<>();
         String type = args.get(0).toLowerCase();
+        
+        int filterLevel = Math.max(args.getLevel(), 1);
         
         switch (type) {
             case "relics", "r" -> {
                 for (GameItem item : args.getTarget().getInventory().getItems().values()) {
-                    if (item.getItemMainType() == ItemMainType.Relic && item.getLevel() <= 1 && item.getExp() == 0 && !item.isLocked() && !item.isEquipped()) {
+                    if (item.getItemMainType() == ItemMainType.Relic && item.getLevel() <= filterLevel && !item.isLocked() && !item.isEquipped()) {
                         toRemove.add(item);
                     }
                 }
             }
             case "equipment", "lightcones", "lc" -> {
                 for (GameItem item : args.getTarget().getInventory().getItems().values()) {
-                    if (item.getItemMainType() == ItemMainType.Equipment && item.getLevel() <= 1 && item.getExp() == 0 && !item.isLocked() && !item.isEquipped()) {
+                    if (item.getItemMainType() == ItemMainType.Equipment && item.getLevel() <= filterLevel && !item.isLocked() && !item.isEquipped()) {
                         toRemove.add(item);
                     }
                 }
@@ -56,7 +51,7 @@ public class ClearCommand implements CommandHandler {
         }
         
         args.getTarget().getInventory().removeItems(toRemove);
-        this.sendMessage(sender, "Removed " + toRemove.size() + " items");
+        args.sendMessage("Removed " + toRemove.size() + " items");
     }
 
 }

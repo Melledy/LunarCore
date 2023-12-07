@@ -4,16 +4,15 @@ import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
 import emu.lunarcore.game.account.AccountHelper;
-import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 
 @Command(label = "account", permission = "admin.account", desc = "/account {create | delete} [username] (reserved player uid). Creates or deletes an account.")
 public class AccountCommand implements CommandHandler {
 
     @Override
-    public void execute(Player sender, CommandArgs args) {
+    public void execute(CommandArgs args) {
         if (args.size() < 2) {
-            this.sendMessage(sender, "Invalid amount of args");
+            args.sendMessage("Invalid amount of args");
             return;
         }
         
@@ -30,16 +29,16 @@ public class AccountCommand implements CommandHandler {
                 }
     
                 if (AccountHelper.createAccount(username, null, reservedUid) != null) {
-                    this.sendMessage(sender, "Account created");
+                    args.sendMessage("Account created");
                 } else {
-                    this.sendMessage(sender, "Account already exists");
+                    args.sendMessage("Account already exists");
                 }
             }
             case "delete" -> {
                 if (AccountHelper.deleteAccount(username)) {
-                    this.sendMessage(sender, "Account deleted");
+                    args.sendMessage("Account deleted");
                 } else {
-                    this.sendMessage(sender, "Account doesnt exist");
+                    args.sendMessage("Account doesnt exist");
                 }
             }
         }

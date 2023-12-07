@@ -16,63 +16,77 @@ import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.enums.ItemSubType;
+import emu.lunarcore.game.inventory.tabs.EquipInventoryTab;
+import emu.lunarcore.game.inventory.tabs.InventoryTab;
+import emu.lunarcore.game.inventory.tabs.InventoryTabType;
+import emu.lunarcore.game.inventory.tabs.MaterialInventoryTab;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.server.packet.send.PacketScenePlaneEventScNotify;
+import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
-import it.unimi.dsi.fastutil.longs.Long2ObjectMap;
-import it.unimi.dsi.fastutil.longs.Long2ObjectOpenHashMap;
 
 public class Inventory extends BasePlayerManager {
-    private final Long2ObjectMap<GameItem> store;
+    private final Int2ObjectMap<GameItem> store;
     private final Int2ObjectMap<InventoryTab> inventoryTypes;
     private int nextInternalUid;
 
     public Inventory(Player player) {
         super(player);
 
-        this.store = new Long2ObjectOpenHashMap<>();
+        this.store = new Int2ObjectOpenHashMap<>();
         this.inventoryTypes = new Int2ObjectOpenHashMap<>();
 
-        this.createInventoryTab(ItemMainType.Equipment, new EquipInventoryTab(1500));
-        this.createInventoryTab(ItemMainType.Relic, new EquipInventoryTab(1500));
-        this.createInventoryTab(ItemMainType.Material, new MaterialInventoryTab(2000));
+        this.createTab(InventoryTabType.EQUIPMENT, new EquipInventoryTab(GameConstants.INVENTORY_MAX_EQUIPMENT));
+        this.createTab(InventoryTabType.RELIC, new EquipInventoryTab(GameConstants.INVENTORY_MAX_RELIC));
+        this.createTab(InventoryTabType.MATERIAL, new MaterialInventoryTab(GameConstants.INVENTORY_MAX_MATERIAL));
     }
 
     public AvatarStorage getAvatarStorage() {
         return this.getPlayer().getAvatars();
     }
 
-    public Long2ObjectMap<GameItem> getItems() {
+    public Int2ObjectMap<GameItem> getItems() {
         return store;
     }
-
-    public Int2ObjectMap<InventoryTab> getInventoryTypes() {
-        return inventoryTypes;
-    }
-
-    public InventoryTab getInventoryTab(ItemMainType type) {
-        return getInventoryTypes().get(type.getVal());
-    }
-
-    public void createInventoryTab(ItemMainType type, InventoryTab tab) {
-        this.getInventoryTypes().put(type.getVal(), tab);
-    }
-
+    
     public int getNextItemInternalUid() {
         return ++nextInternalUid;
     }
 
-    /* Returns an item using its internal uid
-     * */
+    // Inventory tabs
+    
+    public InventoryTab getTabByItemType(ItemMainType type) {
+        return getTab(type.getTabType());
+    }
+    
+    public InventoryTab getTab(InventoryTabType type) {
+        if (type == null || type == InventoryTabType.NONE) {
+            return null;
+        }
+        
+        return this.inventoryTypes.get(type.getVal());
+    }
+
+    public void createTab(InventoryTabType type, InventoryTab tab) {
+        this.inventoryTypes.put(type.getVal(), tab);
+    }
+    
+    // Items
+
+    /**
+     * Returns an item using its internal uid
+     * @param uid
+     * @return
+     */
     public synchronized GameItem getItemByUid(int uid) {
         return this.getItems().get(uid);
     }
 
     public synchronized GameItem getMaterialByItemId(int id) {
-        return this.getInventoryTab(ItemMainType.Material).getItemById(id);
+        return this.getTab(InventoryTabType.MATERIAL).getItemById(id);
     }
 
     public GameItem getItemByParam(ItemParam param) {
@@ -146,8 +160,12 @@ public class Inventory extends BasePlayerManager {
     }
     
     public List<GameItem> addItemParams(Collection<ItemParam> params) {
+        return addItemParams(params, 1);
+    }
+    
+    public List<GameItem> addItemParams(Collection<ItemParam> params, int modifier) {
         // TODO handle params if they are equipment or relics
-        List<GameItem> items = params.stream().map(param -> new GameItem(param.getId(), param.getCount())).toList();
+        List<GameItem> items = params.stream().map(param -> new GameItem(param.getId(), param.getCount() * modifier)).toList();
         return addItems(items, false);
     }
 
@@ -160,7 +178,7 @@ public class Inventory extends BasePlayerManager {
         // Add item to inventory store
         ItemMainType type = item.getExcel().getItemMainType();
         ItemSubType subType = item.getExcel().getItemSubType();
-        InventoryTab tab = getInventoryTab(type);
+        InventoryTab tab = getTabByItemType(type);
 
         // Add
         switch (type) {
@@ -188,12 +206,17 @@ public class Inventory extends BasePlayerManager {
             }
             return null;
         case Usable:
+            // Add head icon
             if (subType == ItemSubType.HeadIcon) {
                 getPlayer().addHeadIcon(item.getItemId());
                 return item;
             }
-            return null;
-        case Material:
+            
+            // Skip if not food item
+            if (subType != ItemSubType.Food) {
+                return null;
+            }
+        default:
             if (tab == null) {
                 return null;
             }
@@ -211,13 +234,12 @@ public class Inventory extends BasePlayerManager {
                 item.save();
                 return item;
             } else {
-                // Add count
-                existingItem.setCount(Math.min(existingItem.getCount() + item.getCount(), item.getExcel().getPileLimit()));
+                // Add count to item
+                int amount = Utils.safeAdd(existingItem.getCount(), item.getCount(), item.getExcel().getPileLimit(), 0);
+                existingItem.setCount(amount);
                 existingItem.save();
                 return existingItem;
             }
-        default:
-            return null;
         }
     }
 
@@ -361,14 +383,14 @@ public class Inventory extends BasePlayerManager {
         if (item.getExcel() == null || item.getExcel().isEquippable()) {
             item.setCount(0);
         } else {
-            item.setCount(item.getCount() - count);
+            item.setCount(Utils.safeSubtract(item.getCount(), count));
         }
 
         if (item.getCount() <= 0) {
             // Remove from inventory tab too
             InventoryTab tab = null;
             if (item.getExcel() != null) {
-                tab = getInventoryTab(item.getExcel().getItemMainType());
+                tab = getTabByItemType(item.getExcel().getItemMainType());
                 
                 if (tab != null) {
                     tab.onRemoveItem(item);
@@ -428,20 +450,37 @@ public class Inventory extends BasePlayerManager {
     
     // Use item
     
-    public List<GameItem> useItem(int itemId, int count, int baseAvatarId) {
-        // Verify that the player actually has the item
-        GameItem useItem = this.getMaterialByItemId(itemId);
-        if (useItem == null || useItem.getCount() < count) {
+    public List<GameItem> useItem(int itemId, int count, int avatarId) {
+        // Sanity
+        if (count <= 0) {
             return null;
         }
         
-        // Remove item from inventory
-        this.removeItem(useItem, count);
+        // Verify that the player actually has the item
+        GameItem useItem = this.getMaterialByItemId(itemId);
+        if (useItem == null || useItem.getCount() < count || useItem.getExcel().getUseMethod() == null) {
+            return null;
+        }
         
-        // Use the item now
+        // Get use excel
+        var itemUseExcel = GameData.getItemUseExcelMap().get(useItem.getExcel().getUseDataID());
+        if (itemUseExcel == null) return null; 
+        
+        // Setup variables
+        boolean usedItem = false;
+        
+        // Handle item useMethod
         // TODO write better handler for this later
-        if (itemId == 201) {
-            this.getPlayer().addStamina(60 * count);
+        usedItem = switch (useItem.getExcel().getUseMethod()) {
+        case FixedRewardGift -> ItemUseHandler.handleFixedRewardGift(getPlayer(), itemUseExcel, avatarId, count);
+        case TeamSpecificFoodBenefit -> ItemUseHandler.handleTeamSpecificFoodBenefit(getPlayer(), itemUseExcel, avatarId, count);
+        case ExternalSystemFoodBenefit -> ItemUseHandler.handleExternalSystemFoodBenefit(getPlayer(), itemUseExcel, avatarId, count);
+        default -> false;
+        };
+        
+        // Remove item from inventory if we used it
+        if (usedItem) {
+            this.removeItem(useItem, count);
         }
         
         return null;
@@ -498,7 +537,7 @@ public class Inventory extends BasePlayerManager {
             item.setExcel(excel);
 
             // Put in inventory
-            InventoryTab tab = getInventoryTab(item.getExcel().getItemMainType());
+            InventoryTab tab = getTabByItemType(item.getExcel().getItemMainType());
             putItem(item, tab);
 
             // Equip to a character if possible

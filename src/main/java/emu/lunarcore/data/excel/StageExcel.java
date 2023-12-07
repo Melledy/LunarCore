@@ -18,10 +18,10 @@ public class StageExcel extends GameResource {
     private long StageName;
     private StageType StageType;
     private int Level;
-    
-    @Getter(AccessLevel.NONE) 
+
+    @Getter(AccessLevel.NONE)
     private List<StageMonsterWave> MonsterList;
-    
+
     // Cache
     private transient List<IntList> monsterWaves;
 
@@ -38,18 +38,18 @@ public class StageExcel extends GameResource {
             this.monsterWaves.add(wave.toList());
         }
     }
-    
+
     public static class StageMonsterWave {
         private int Monster0;
         private int Monster1;
         private int Monster2;
         private int Monster3;
         private int Monster4;
-        
+
         // Sigh...
         public IntList toList() {
             IntList list = new IntArrayList(5);
-            
+
             if (this.Monster0 != 0) {
                 list.add(this.Monster0);
             } if (this.Monster1 != 0) {
@@ -61,7 +61,7 @@ public class StageExcel extends GameResource {
             } if (this.Monster4 != 0) {
                 list.add(this.Monster4);
             }
-            
+
             return list;
         }
     }

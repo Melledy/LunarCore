@@ -7,7 +7,6 @@ import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
-
 import lombok.Getter;
 
 @Getter
@@ -30,7 +29,7 @@ public class EquipmentExpItemExcel extends GameResource {
 
         excel.setEquipmentExp(ExpProvide);
         excel.setExpCost(CoinCost);
-        
+
         // Add to game depot
         if (ExpProvide > 0) {
             GameDepot.getEquipmentExpExcels().add(this);

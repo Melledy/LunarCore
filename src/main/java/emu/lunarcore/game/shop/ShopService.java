@@ -26,18 +26,20 @@ public class ShopService extends BaseGameService {
         ShopGoodsExcel goods = shop.getGoods().get(goodsId);
         if (goods == null) return null;
         
+        ItemExcel itemExcel = GameData.getItemExcelMap().get(goods.getItemID());
+        if (itemExcel == null) return null;
+        
         // Verify item params
         if (!player.getInventory().verifyItems(goods.getCostList(), count)) {
             return null;
         }
         
-        // Pay items
+        // Handle payment
         player.getInventory().removeItemsByParams(goods.getCostList(), count);
         
         // Buy items
         List<GameItem> items = new ArrayList<>();
 
-        ItemExcel itemExcel = GameData.getItemExcelMap().get(goods.getItemID());
         if (!itemExcel.isEquippable()) {
             GameItem item = new GameItem(itemExcel, goods.getItemCount() * count);
             items.add(item);

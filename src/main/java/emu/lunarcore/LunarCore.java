@@ -2,6 +2,7 @@ package emu.lunarcore;
 
 import java.io.*;
 
+import emu.lunarcore.plugin.PluginManager;
 import org.jline.reader.EndOfFileException;
 import org.jline.reader.LineReaderBuilder;
 import org.jline.reader.UserInterruptException;
@@ -35,6 +36,7 @@ public class LunarCore {
     @Getter private static GameServer gameServer;
 
     @Getter private static CommandManager commandManager;
+    @Getter private static PluginManager pluginManager;
     @Getter private static ServerType serverType = ServerType.BOTH;
 
     private static LineReaderImpl reader;
@@ -58,13 +60,20 @@ public class LunarCore {
 
     public static void main(String[] args) {
         // Start Server
-        LunarCore.getLogger().info("Starting Lunar Core...");
+        LunarCore.getLogger().info("Starting Lunar Core " + getJarVersion());
         LunarCore.getLogger().info("Git hash: " + getGitHash());
         LunarCore.getLogger().info("Game version: " + GameConstants.VERSION);
         boolean generateHandbook = true;
 
         // Load commands
         LunarCore.commandManager = new CommandManager();
+        LunarCore.pluginManager = new PluginManager();
+
+        try {
+            LunarCore.getPluginManager().loadPlugins();
+        } catch (Exception exception) {
+            LunarCore.getLogger().error("Unable to load plugins.", exception);
+        }
 
         // Parse arguments
         for (String arg : args) {
@@ -123,6 +132,8 @@ public class LunarCore {
             LunarCore.getLogger().error("Unable to start the game server.", exception);
         }
 
+        LunarCore.getPluginManager().enablePlugins();
+
         // Hook into shutdown event
         Runtime.getRuntime().addShutdownHook(new Thread(LunarCore::onShutdown));
 
@@ -161,12 +172,20 @@ public class LunarCore {
     // Config
 
     public static void loadConfig() {
+        // Load from file
         try (FileReader file = new FileReader(configFile)) {
-            config = JsonUtils.loadToClass(file, Config.class);
+            LunarCore.config = JsonUtils.loadToClass(file, Config.class);
         } catch (Exception e) {
+            // Ignored
+        }
+        
+        // Sanity check
+        if (LunarCore.getConfig() == null) {
             LunarCore.config = new Config();
         }
-        saveConfig();
+        
+        // Save config
+        LunarCore.saveConfig();
     }
 
     public static void saveConfig() {
@@ -178,13 +197,32 @@ public class LunarCore {
         }
     }
 
-    // Git hash
+    // Build Config
+    
+    private static String getJarVersion() {
+        // Safely get the build config class without errors even if it hasnt been generated yet
+        try {
+            Class<?> buildConfig = Class.forName(LunarCore.class.getPackageName() + ".BuildConfig");
+            return buildConfig.getField("VERSION").get(null).toString();
+        } catch (Exception e) {
+            // Ignored
+        }
+        return "";
+    }
 
     private static String getGitHash() {
-        // Safely get the build config without errors even if it hasnt been generated yet
+        // Safely get the build config class without errors even if it hasnt been generated yet
         try {
-            Class<?> buildConfig = Class.forName("emu.lunarcore.BuildConfig");
-            return buildConfig.getField("GIT_HASH").get(null).toString();
+            Class<?> buildConfig = Class.forName(LunarCore.class.getPackageName() + ".BuildConfig");
+            
+            String hash = buildConfig.getField("GIT_HASH").get(null).toString();
+            String date = buildConfig.getField("GIT_HASH_TIME").get(null).toString();
+            
+            if (date == null || date.isEmpty()) {
+                return hash;
+            }
+            
+            return hash + " (" + date + ")";
         } catch (Exception e) {
             // Ignored
         }
@@ -217,6 +255,10 @@ public class LunarCore {
         if (gameServer != null) {
             gameServer.onShutdown();
         }
+
+        if (pluginManager != null) {
+            pluginManager.disablePlugins();
+        }
     }
 
     // Server enums
@@ -240,4 +282,6 @@ public class LunarCore {
             return (this.flags & 0x2) == 0x2;
         }
     }
+
+    // Hiro was here
 }

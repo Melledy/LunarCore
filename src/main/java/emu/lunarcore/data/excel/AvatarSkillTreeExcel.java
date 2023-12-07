@@ -41,7 +41,7 @@ public class AvatarSkillTreeExcel extends GameResource {
         if (this.isDefaultUnlock()) {
             excel.getDefaultSkillTrees().add(this);
         }
-        
+
         // Add point id to avatar excel
         excel.getSkillTreeIds().add(this.getPointID());
     }

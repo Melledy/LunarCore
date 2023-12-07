@@ -14,12 +14,12 @@ public class RogueMapExcel extends GameResource {
     private boolean IsStart;
     private int[] NextSiteIDList;
     private int[] LevelList;
-    
+
     @Override
     public int getId() {
         return (RogueMapID << 8) + SiteID;
     }
-    
+
     @Override
     public void onLoad() {
         GameDepot.getRogueMapsById(this.getRogueMapID()).add(this);

@@ -1,7 +1,10 @@
 package emu.lunarcore.game.battle.skills;
 
+import java.util.List;
+
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 
 public class MazeSkillModifySP extends MazeSkillAction {
@@ -21,6 +24,11 @@ public class MazeSkillModifySP extends MazeSkillAction {
 
     @Override
     public void onAttack(GameAvatar caster, Battle battle) {
+        
+    }
+
+    @Override
+    public void onAttack(GameAvatar caster, List<EntityMonster> monsters) {
         
     }
 

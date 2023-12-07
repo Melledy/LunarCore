@@ -12,7 +12,7 @@ import lombok.Getter;
 public class RogueTalentExcel extends GameResource {
     private int TalentID;
     private List<ItemParam> Cost;
-    
+
     @Override
     public int getId() {
         return TalentID;

@@ -12,15 +12,15 @@ public class PropExcel extends GameResource {
     private long PropName;
     private String JsonPath;
     private PropType PropType;
-    
+
     private transient boolean recoverHp;
     private transient boolean recoverMp;
-    
+
     @Override
     public int getId() {
         return ID;
     }
-    
+
     @Override
     public void onLoad() {
         // Hacky way to determine if a prop will recover hp or mp
@@ -31,7 +31,7 @@ public class PropExcel extends GameResource {
                 this.recoverHp = true;
             }
         }
-        
+
         // Clear for optimization
         this.JsonPath = null;
     }

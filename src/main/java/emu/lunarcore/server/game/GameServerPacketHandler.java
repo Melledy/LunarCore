@@ -5,10 +5,7 @@ import java.util.Set;
 import org.reflections.Reflections;
 
 import emu.lunarcore.LunarCore;
-import emu.lunarcore.server.packet.CmdId;
-import emu.lunarcore.server.packet.Opcodes;
-import emu.lunarcore.server.packet.PacketHandler;
-import emu.lunarcore.server.packet.SessionState;
+import emu.lunarcore.server.packet.*;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 
@@ -51,6 +48,15 @@ public class GameServerPacketHandler {
         PacketHandler handler = this.handlers.get(cmdId);
 
         if (handler != null) {
+            // Check cooldown to prevent packet spam
+            long timestamp = System.currentTimeMillis();
+            if (session.getPacketCooldown().get(cmdId) >= timestamp && !CmdIdUtils.ALLOWED_FILTER_PACKETS.contains(cmdId)) {
+                //LunarCore.getLogger().warn("Dropped a packet " + CmdIdUtils.getCmdIdName(cmdId));
+                return;
+            } else {
+                session.getPacketCooldown().put(cmdId, timestamp + 5);
+            }
+
             try {
                 // Make sure session is ready for packets
                 SessionState state = session.getState();
@@ -70,14 +76,12 @@ public class GameServerPacketHandler {
                         return;
                     }
                 }
-
+                
                 // Handle packet
                 handler.handle(session, data);
             } catch (Exception ex) {
                 ex.printStackTrace();
             }
-            
-            return; // Packet successfully handled
         }
 
         // Log unhandled packets

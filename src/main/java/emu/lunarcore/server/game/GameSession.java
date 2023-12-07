@@ -11,13 +11,17 @@ import emu.lunarcore.server.packet.SessionState;
 import emu.lunarcore.util.Utils;
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
+import it.unimi.dsi.fastutil.ints.Int2LongMap;
+import it.unimi.dsi.fastutil.ints.Int2LongOpenHashMap;
 import kcp.highway.Ukcp;
 import lombok.AccessLevel;
 import lombok.Getter;
+import us.hebi.quickbuf.ProtoMessage;
 
 @Getter
 public class GameSession {
     private final GameServer server;
+    private final Int2LongMap packetCooldown;
     private InetSocketAddress address;
 
     private Account account;
@@ -25,13 +29,14 @@ public class GameSession {
 
     // Network
     @Getter(AccessLevel.PRIVATE) private Ukcp ukcp;
-
+    
     // Flags
     private SessionState state = SessionState.WAITING_FOR_TOKEN;
     private boolean useSecretKey;
 
     private GameSession(GameServer server) {
         this.server = server;
+        this.packetCooldown = new Int2LongOpenHashMap();
     }
 
     public GameSession(GameServer server, Ukcp ukcp) {
@@ -127,7 +132,9 @@ public class GameSession {
 
                 // Log packet
                 if (LunarCore.getConfig().getLogOptions().packets) {
-                    logPacket("RECV", opcode, data);
+                    if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.IGNORED_LOG_PACKETS.contains(opcode))) {
+                        logPacket("RECV", opcode, data);
+                    }
                 }
 
                 // Handle
@@ -142,7 +149,7 @@ public class GameSession {
 
     public void send(BasePacket packet) {
         // Test
-        if (packet.getOpcode() <= 0) {
+        if (packet.getCmdId() <= 0) {
             LunarCore.getLogger().warn("Tried to send packet with missing cmd id!");
             return;
         }
@@ -152,22 +159,26 @@ public class GameSession {
 
         // Log
         if (LunarCore.getConfig().getLogOptions().packets) {
-            logPacket("SEND", packet.getOpcode(), packet.getData());
+            if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.IGNORED_LOG_PACKETS.contains(packet.getCmdId()))) {
+                logPacket("SEND", packet.getCmdId(), packet.getData());
+            }
         }
     }
-
+    
     /**
-     * Sends a empty packet with the specified cmd id.
+     * Sends a cached packet with the specified cmd id. If the packet isnt cacheable, then an empty packet is sent.
      * @param cmdId
      */
     public void send(int cmdId) {
+        // Get packet from the server's packet cache. This will allow us to reuse empty packets if needed.
         if (this.ukcp != null) {
-            // Get packet from the server's packet cache. This will allow us to reuse empty packets if needed.
-            this.ukcp.write(this.getServer().getPacketCache().getCachedPacket(cmdId));
-            
-            // Log
-            if (LunarCore.getConfig().getLogOptions().packets) {
-                logPacket("SEND", cmdId, null);
+            this.ukcp.write(getServer().getPacketCache().getCachedPacket(cmdId));
+        }
+        
+        // Log
+        if (LunarCore.getConfig().getLogOptions().packets) {
+            if (!(LunarCore.getConfig().getLogOptions().filterLoopingPackets && CmdIdUtils.IGNORED_LOG_PACKETS.contains(cmdId))) {
+                logPacket("SEND", cmdId, Utils.EMPTY_BYTE_ARRAY);
             }
         }
     }
@@ -179,9 +190,13 @@ public class GameSession {
             buf.release();
         }
     }
+    
+    public void logPacket(String sendOrRecv, int opcode, ProtoMessage<?> payload) {
+        logPacket(sendOrRecv, opcode, payload != null ? payload.toByteArray() : Utils.EMPTY_BYTE_ARRAY);
+    }
 
     public void logPacket(String sendOrRecv, int opcode, byte[] payload) {
-        LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getOpcodeName(opcode) + " (" + opcode + ")" + System.lineSeparator() + Utils.bytesToHex(payload));
+        LunarCore.getLogger().info(sendOrRecv + ": " + CmdIdUtils.getCmdIdName(opcode) + " (" + opcode + ")" + System.lineSeparator() + Utils.bytesToHex(payload));
     }
 
     public void close() {

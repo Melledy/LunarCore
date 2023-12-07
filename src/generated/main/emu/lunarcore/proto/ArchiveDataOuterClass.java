@@ -11,6 +11,7 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 import us.hebi.quickbuf.RepeatedInt;
+import us.hebi.quickbuf.RepeatedMessage;
 
 public final class ArchiveDataOuterClass {
   /**
@@ -28,6 +29,16 @@ public final class ArchiveDataOuterClass {
      * <code>repeated uint32 archive_avatar_id_list = 4;</code>
      */
     private final RepeatedInt archiveAvatarIdList = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated .MonsterArchive archive_monster_id_list = 7;</code>
+     */
+    private final RepeatedMessage<MonsterArchiveOuterClass.MonsterArchive> archiveMonsterIdList = RepeatedMessage.newEmptyInstance(MonsterArchiveOuterClass.MonsterArchive.getFactory());
+
+    /**
+     * <code>repeated .RelicArchive archive_relic_list = 11;</code>
+     */
+    private final RepeatedMessage<RelicArchiveOuterClass.RelicArchive> archiveRelicList = RepeatedMessage.newEmptyInstance(RelicArchiveOuterClass.RelicArchive.getFactory());
 
     private ArchiveData() {
     }
@@ -175,6 +186,145 @@ public final class ArchiveDataOuterClass {
       return this;
     }
 
+    /**
+     * <code>repeated .MonsterArchive archive_monster_id_list = 7;</code>
+     * @return whether the archiveMonsterIdList field is set
+     */
+    public boolean hasArchiveMonsterIdList() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>repeated .MonsterArchive archive_monster_id_list = 7;</code>
+     * @return this
+     */
+    public ArchiveData clearArchiveMonsterIdList() {
+      bitField0_ &= ~0x00000004;
+      archiveMonsterIdList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .MonsterArchive archive_monster_id_list = 7;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableArchiveMonsterIdList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<MonsterArchiveOuterClass.MonsterArchive> getArchiveMonsterIdList() {
+      return archiveMonsterIdList;
+    }
+
+    /**
+     * <code>repeated .MonsterArchive archive_monster_id_list = 7;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<MonsterArchiveOuterClass.MonsterArchive> getMutableArchiveMonsterIdList(
+        ) {
+      bitField0_ |= 0x00000004;
+      return archiveMonsterIdList;
+    }
+
+    /**
+     * <code>repeated .MonsterArchive archive_monster_id_list = 7;</code>
+     * @param value the archiveMonsterIdList to add
+     * @return this
+     */
+    public ArchiveData addArchiveMonsterIdList(
+        final MonsterArchiveOuterClass.MonsterArchive value) {
+      bitField0_ |= 0x00000004;
+      archiveMonsterIdList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .MonsterArchive archive_monster_id_list = 7;</code>
+     * @param values the archiveMonsterIdList to add
+     * @return this
+     */
+    public ArchiveData addAllArchiveMonsterIdList(
+        final MonsterArchiveOuterClass.MonsterArchive... values) {
+      bitField0_ |= 0x00000004;
+      archiveMonsterIdList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicArchive archive_relic_list = 11;</code>
+     * @return whether the archiveRelicList field is set
+     */
+    public boolean hasArchiveRelicList() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated .RelicArchive archive_relic_list = 11;</code>
+     * @return this
+     */
+    public ArchiveData clearArchiveRelicList() {
+      bitField0_ &= ~0x00000008;
+      archiveRelicList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicArchive archive_relic_list = 11;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableArchiveRelicList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<RelicArchiveOuterClass.RelicArchive> getArchiveRelicList() {
+      return archiveRelicList;
+    }
+
+    /**
+     * <code>repeated .RelicArchive archive_relic_list = 11;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<RelicArchiveOuterClass.RelicArchive> getMutableArchiveRelicList() {
+      bitField0_ |= 0x00000008;
+      return archiveRelicList;
+    }
+
+    /**
+     * <code>repeated .RelicArchive archive_relic_list = 11;</code>
+     * @param value the archiveRelicList to add
+     * @return this
+     */
+    public ArchiveData addArchiveRelicList(final RelicArchiveOuterClass.RelicArchive value) {
+      bitField0_ |= 0x00000008;
+      archiveRelicList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicArchive archive_relic_list = 11;</code>
+     * @param values the archiveRelicList to add
+     * @return this
+     */
+    public ArchiveData addAllArchiveRelicList(final RelicArchiveOuterClass.RelicArchive... values) {
+      bitField0_ |= 0x00000008;
+      archiveRelicList.addAll(values);
+      return this;
+    }
+
     @Override
     public ArchiveData copyFrom(final ArchiveData other) {
       cachedSize = other.cachedSize;
@@ -182,6 +332,8 @@ public final class ArchiveDataOuterClass {
         bitField0_ = other.bitField0_;
         archiveEquipmentIdList.copyFrom(other.archiveEquipmentIdList);
         archiveAvatarIdList.copyFrom(other.archiveAvatarIdList);
+        archiveMonsterIdList.copyFrom(other.archiveMonsterIdList);
+        archiveRelicList.copyFrom(other.archiveRelicList);
       }
       return this;
     }
@@ -198,6 +350,12 @@ public final class ArchiveDataOuterClass {
       if (other.hasArchiveAvatarIdList()) {
         getMutableArchiveAvatarIdList().addAll(other.archiveAvatarIdList);
       }
+      if (other.hasArchiveMonsterIdList()) {
+        getMutableArchiveMonsterIdList().addAll(other.archiveMonsterIdList);
+      }
+      if (other.hasArchiveRelicList()) {
+        getMutableArchiveRelicList().addAll(other.archiveRelicList);
+      }
       return this;
     }
 
@@ -210,6 +368,8 @@ public final class ArchiveDataOuterClass {
       bitField0_ = 0;
       archiveEquipmentIdList.clear();
       archiveAvatarIdList.clear();
+      archiveMonsterIdList.clear();
+      archiveRelicList.clear();
       return this;
     }
 
@@ -222,6 +382,8 @@ public final class ArchiveDataOuterClass {
       bitField0_ = 0;
       archiveEquipmentIdList.clear();
       archiveAvatarIdList.clear();
+      archiveMonsterIdList.clearQuick();
+      archiveRelicList.clearQuick();
       return this;
     }
 
@@ -236,7 +398,9 @@ public final class ArchiveDataOuterClass {
       ArchiveData other = (ArchiveData) o;
       return bitField0_ == other.bitField0_
         && (!hasArchiveEquipmentIdList() || archiveEquipmentIdList.equals(other.archiveEquipmentIdList))
-        && (!hasArchiveAvatarIdList() || archiveAvatarIdList.equals(other.archiveAvatarIdList));
+        && (!hasArchiveAvatarIdList() || archiveAvatarIdList.equals(other.archiveAvatarIdList))
+        && (!hasArchiveMonsterIdList() || archiveMonsterIdList.equals(other.archiveMonsterIdList))
+        && (!hasArchiveRelicList() || archiveRelicList.equals(other.archiveRelicList));
     }
 
     @Override
@@ -253,6 +417,18 @@ public final class ArchiveDataOuterClass {
           output.writeUInt32NoTag(archiveAvatarIdList.array()[i]);
         }
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        for (int i = 0; i < archiveMonsterIdList.length(); i++) {
+          output.writeRawByte((byte) 58);
+          output.writeMessageNoTag(archiveMonsterIdList.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        for (int i = 0; i < archiveRelicList.length(); i++) {
+          output.writeRawByte((byte) 90);
+          output.writeMessageNoTag(archiveRelicList.get(i));
+        }
+      }
     }
 
     @Override
@@ -263,6 +439,12 @@ public final class ArchiveDataOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * archiveAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(archiveAvatarIdList);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += (1 * archiveMonsterIdList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(archiveMonsterIdList);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += (1 * archiveRelicList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(archiveRelicList);
       }
       return size;
     }
@@ -288,6 +470,22 @@ public final class ArchiveDataOuterClass {
             input.readPackedUInt32(archiveAvatarIdList, tag);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
+            if (tag != 58) {
+              break;
+            }
+          }
+          case 58: {
+            // archiveMonsterIdList
+            tag = input.readRepeatedMessage(archiveMonsterIdList, tag);
+            bitField0_ |= 0x00000004;
+            if (tag != 90) {
+              break;
+            }
+          }
+          case 90: {
+            // archiveRelicList
+            tag = input.readRepeatedMessage(archiveRelicList, tag);
+            bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
             }
@@ -327,6 +525,12 @@ public final class ArchiveDataOuterClass {
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedUInt32(FieldNames.archiveAvatarIdList, archiveAvatarIdList);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRepeatedMessage(FieldNames.archiveMonsterIdList, archiveMonsterIdList);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRepeatedMessage(FieldNames.archiveRelicList, archiveRelicList);
+      }
       output.endObject();
     }
 
@@ -355,6 +559,30 @@ public final class ArchiveDataOuterClass {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(archiveAvatarIdList);
                 bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 912174897:
+          case 1817787488: {
+            if (input.isAtField(FieldNames.archiveMonsterIdList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(archiveMonsterIdList);
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1742876687:
+          case 2101828999: {
+            if (input.isAtField(FieldNames.archiveRelicList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(archiveRelicList);
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -416,6 +644,10 @@ public final class ArchiveDataOuterClass {
       static final FieldName archiveEquipmentIdList = FieldName.forField("archiveEquipmentIdList", "archive_equipment_id_list");
 
       static final FieldName archiveAvatarIdList = FieldName.forField("archiveAvatarIdList", "archive_avatar_id_list");
+
+      static final FieldName archiveMonsterIdList = FieldName.forField("archiveMonsterIdList", "archive_monster_id_list");
+
+      static final FieldName archiveRelicList = FieldName.forField("archiveRelicList", "archive_relic_list");
     }
   }
 }

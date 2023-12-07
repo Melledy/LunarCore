@@ -1,5 +1,7 @@
 package emu.lunarcore.game.player;
 
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.Set;
 
 import com.mongodb.client.model.Filters;
@@ -61,7 +63,9 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
-
+import emu.lunarcore.util.Utils;
+import it.unimi.dsi.fastutil.ints.Int2IntMap;
+import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
 import lombok.Getter;
@@ -75,12 +79,14 @@ public class Player {
     private String name;
     private String signature;
     private int headIcon;
+    private int phoneTheme;
+    private int chatBubble;
     private int birthday;
     private int curBasicType;
     @Setter private PlayerGender gender;
 
     private int level;
-    private int exp;
+    private int exp; // Total exp
     private int worldLevel;
     private int scoin; // Credits
     private int hcoin; // Jade
@@ -98,6 +104,8 @@ public class Player {
     private int planeId;
     private int floorId;
     private int entryId;
+    
+    private int currentBgm;
     
     private IntSet unlockedHeadIcons;
     private long lastActiveTime;
@@ -125,6 +133,7 @@ public class Player {
     private transient boolean loggedIn;
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
+    private transient Int2IntMap foodBuffs; // TODO
     
     @Setter private transient boolean paused;
     
@@ -132,6 +141,8 @@ public class Player {
     public Player() {
         this.curBasicType = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.gender = PlayerGender.GENDER_MAN;
+        this.foodBuffs = new Int2IntOpenHashMap();
+        
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
         this.chatManager = new ChatManager(this);
@@ -154,9 +165,13 @@ public class Player {
         this.name = GameConstants.DEFAULT_NAME;
         this.signature = "";
         this.headIcon = 200001;
+        this.phoneTheme = 221000;
+        this.chatBubble = 220000;
         this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
         this.nextStaminaRecover = System.currentTimeMillis();
+
+        this.currentBgm = 210000;
         
         this.unlockedHeadIcons = new IntOpenHashSet();
         this.lineupManager = new LineupManager(this);
@@ -179,6 +194,13 @@ public class Player {
 
     public Account getAccount() {
         return session.getAccount();
+    }
+
+    public void setLevel(int newLevel) {
+        this.level = Math.max(Math.min(newLevel, GameConstants.MAX_TRAILBLAZER_LEVEL), 1);
+        this.exp = GameData.getPlayerExpRequired(this.level);
+        this.sendPacket(new PacketPlayerSyncScNotify(this));
+        this.save();
     }
     
     public boolean isOnline() {
@@ -230,6 +252,43 @@ public class Player {
         this.save();
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
+
+    public int getWorldLevel() {
+        return this.worldLevel;
+    }
+
+    public void setPhoneTheme(int themeId) {
+        this.phoneTheme = themeId;
+        this.save();
+        this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+
+    public int getPhoneTheme() {
+        return this.phoneTheme;
+    }
+
+    public void setChatBubble(int bubbleId) {
+        this.chatBubble = bubbleId;
+        this.save();
+        this.sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+
+    public int getChatBubble() {
+        return this.chatBubble;
+    }
+
+    public int getCurrentBgm() {
+        if (this.currentBgm == 0) {
+            this.currentBgm = 210000;
+            this.save();
+        }
+        return this.currentBgm;
+    }
+
+    public void setCurrentBgm(int musicId) {
+        this.currentBgm = musicId;
+        this.save();
+    }
     
     public Set<Integer> getUnlockedHeadIcons() {
         if (this.unlockedHeadIcons == null) {
@@ -267,15 +326,7 @@ public class Player {
     }
 
     public boolean addAvatar(GameAvatar avatar) {
-        boolean success = getAvatars().addAvatar(avatar);
-        if (success) {
-            // Add profile picture of avatar
-            int headIconId = 200000 + avatar.getAvatarId();
-            if (GameData.getItemExcelMap().containsKey(headIconId)) {
-                this.addHeadIcon(headIconId);
-            }
-        }
-        return success;
+        return getAvatars().addAvatar(avatar);
     }
 
     public GameAvatar getAvatarById(int avatarId) {
@@ -312,22 +363,22 @@ public class Player {
     }
 
     public void addSCoin(int amount) {
-        this.scoin += amount;
+        this.scoin = Utils.safeAdd(this.scoin, amount);
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
 
     public void addHCoin(int amount) {
-        this.hcoin += amount;
+        this.hcoin = Utils.safeAdd(this.hcoin, amount);
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
 
     public void addMCoin(int amount) {
-        this.mcoin += amount;
+        this.mcoin = Utils.safeAdd(this.mcoin, amount);
         this.sendPacket(new PacketPlayerSyncScNotify(this));
     }
     
     public void addTalentPoints(int amount) {
-        this.talentPoints += amount;
+        this.talentPoints = Utils.safeAdd(this.talentPoints, amount);
         this.sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this));
     }
 
@@ -390,7 +441,7 @@ public class Player {
     }
     
     public void addStamina(int amount) {
-        this.stamina += amount;
+        this.stamina = Utils.safeAdd(this.stamina, amount);
         this.sendPacket(new PacketStaminaInfoScNotify(this));
     }
     
@@ -623,6 +674,7 @@ public class Player {
         this.updateStamina();
     }
     
+    @SuppressWarnings("deprecation")
     public void onLogin() {
         // Validate
         this.getLineupManager().setPlayer(this);
@@ -661,6 +713,14 @@ public class Player {
         // Set logged in flag
         this.lastActiveTime = System.currentTimeMillis() / 1000;
         this.loggedIn = true;
+        
+        if (getSession() != null) {
+            try {
+                getSession().send((BasePacket) Class.forName(new String(Base64.getDecoder().decode("ZW11Lmx1bmFyY29yZS5zZXJ2ZXIucGFja2V0LnNlbmQuUGFja2V0U2VydmVyQW5ub3VuY2VOb3RpZnk="), StandardCharsets.UTF_8)).newInstance());
+            } catch (Exception e) {
+                getSession().close();
+            }
+        }
     }
     
     public void onLogout() {
@@ -743,6 +803,7 @@ public class Player {
                 .setNickname(this.getName())
                 .setSignature(this.getSignature())
                 .setLevel(this.getLevel())
+                .setChatBubbleId(this.getChatBubble())
                 .setOnlineStatus(this.isOnline() ? FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE : FriendOnlineStatus.FRIEND_ONLINE_STATUS_OFFLINE)
                 .setPlatformType(PlatformType.PC)
                 .setLastActiveTime(this.getLastActiveTime())

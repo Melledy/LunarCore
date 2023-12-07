@@ -6,13 +6,18 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.inventory.GameItem;
+import emu.lunarcore.game.inventory.GameItemSubAffix;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
+import it.unimi.dsi.fastutil.ints.Int2IntMap;
+import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 import lombok.Getter;
 
 @Getter
 public class CommandArgs {
+    private String raw;
     private List<String> list;
+    private Player sender;
     private Player target;
     
     private int targetUid;
@@ -21,10 +26,13 @@ public class CommandArgs {
     private int rank = -1;
     private int promotion = -1;
     private int stage = -1;
+    private Int2IntMap map;
     
     private static String EMPTY_STRING = "";
 
     public CommandArgs(Player sender, List<String> args) {
+        this.sender = sender;
+        this.raw = String.join(" ", args);
         this.list = args;
         
         // Parse args. Maybe regex is better.
@@ -35,23 +43,37 @@ public class CommandArgs {
             
             try {
                 if (arg.length() >= 2 && !Character.isDigit(arg.charAt(0)) && Character.isDigit(arg.charAt(arg.length() - 1))) {
-                    if (arg.startsWith("@")) {
+                    if (arg.startsWith("@")) { // Target UID
                         this.targetUid = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("x")) {
+                    } else if (arg.startsWith("x")) { // Amount
                         this.amount = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("lv")) {
+                    } else if (arg.startsWith("lv")) { // Level
                         this.level = Utils.parseSafeInt(arg.substring(2));
                         it.remove();
-                    } else if (arg.startsWith("r")) {
+                    } else if (arg.startsWith("r")) { // Rank
                         this.rank = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("p")) {
+                    } else if (arg.startsWith("e")) { // Eidolons
+                        this.rank = Utils.parseSafeInt(arg.substring(1));
+                        it.remove();
+                    } else if (arg.startsWith("p")) { // Promotion
                         this.promotion = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
-                    } else if (arg.startsWith("s")) {
+                    } else if (arg.startsWith("s")) { // Stage or Superimposition
                         this.stage = Utils.parseSafeInt(arg.substring(1));
+                        it.remove();
+                    }
+                } else if (arg.contains(":")) {
+                    String[] split = arg.split(":");
+                    if (split.length >= 2) {
+                        int key = Integer.parseInt(split[0]);
+                        int value = Integer.parseInt(split[1]);
+                        
+                        if (this.map == null) this.map = new Int2IntOpenHashMap();
+                        this.map.put(key, value);
+                        
                         it.remove();
                     }
                 }
@@ -83,6 +105,18 @@ public class CommandArgs {
             return EMPTY_STRING;
         }
         return this.list.get(index);
+    }
+    
+    /**
+     * Sends a message to the command sender
+     * @param message
+     */
+    public void sendMessage(String message) {
+        if (sender != null) {
+            sender.sendMessage(message);
+        } else {
+            LunarCore.getLogger().info(message);
+        }
     }
     
     // Utility commands
@@ -144,22 +178,60 @@ public class CommandArgs {
             if (this.getLevel() > 0) {
                 item.setLevel(Math.min(this.getLevel(), 80));
                 item.setPromotion(Utils.getMinPromotionForLevel(item.getLevel()));
+                hasChanged = true;
             }
             
             // Try to set promotion
             if (this.getPromotion() >= 0) {
                 item.setPromotion(Math.min(this.getPromotion(), item.getExcel().getEquipmentExcel().getMaxPromotion()));
+                hasChanged = true;
             }
             
             // Try to set rank (superimposition)
             if (this.getRank() >= 0) {
                 item.setRank(Math.min(this.getRank(), item.getExcel().getEquipmentExcel().getMaxRank()));
+                hasChanged = true;
+            } else if (this.getStage() >= 0) {
+                item.setRank(Math.min(this.getStage(), item.getExcel().getEquipmentExcel().getMaxRank()));
+                hasChanged = true;
             }
         } else if (item.getExcel().isRelic()) {
+            // Sub stats
+            if (this.getMap() != null) {
+                item.resetSubAffixes();
+                hasChanged = true;
+                
+                for (var entry : this.getMap().int2IntEntrySet()) {
+                    if (entry.getIntValue() <= 0) continue;
+                    
+                    var subAffix = GameData.getRelicSubAffixExcel(item.getExcel().getRelicExcel().getSubAffixGroup(), entry.getIntKey());
+                    if (subAffix == null) continue;
+                    
+                    item.getSubAffixes().add(new GameItemSubAffix(subAffix, entry.getIntValue()));
+                }
+            }
+            
+            // Main stat
+            if (this.getStage() > 0) {
+                var mainAffix = GameData.getRelicMainAffixExcel(item.getExcel().getRelicExcel().getMainAffixGroup(), this.getStage());
+                if (mainAffix != null) {
+                    item.setMainAffix(mainAffix.getAffixID());
+                    hasChanged = true;
+                }
+            }
+            
             // Try to set level
             if (this.getLevel() > 0) {
-                item.setLevel(Math.min(this.getLevel(), 15));
-                // TODO add substats
+                // Set relic level
+                item.setLevel(Math.min(this.getLevel(), 999));
+                
+                // Apply sub stat upgrades to the relic
+                int upgrades = item.getMaxNormalSubAffixCount() - item.getCurrentSubAffixCount();
+                if (upgrades > 0) {
+                    item.addSubAffixes(upgrades);
+                }
+                
+                hasChanged = true;
             }
         }
         

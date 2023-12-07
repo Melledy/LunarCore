@@ -13,7 +13,7 @@ public class RogueRoomExcel extends GameResource {
     private int MapEntrance;
     private int GroupID;
     private Int2IntOpenHashMap GroupWithContent;
-    
+
     @Override
     public int getId() {
         return RogueRoomID;

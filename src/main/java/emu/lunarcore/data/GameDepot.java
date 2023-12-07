@@ -23,6 +23,8 @@ public class GameDepot {
 
     // Rogue
     @Getter private static Int2ObjectMap<int[]> rogueMapGen = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<RogueBuffExcel> rogueAeonBuffs = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<List<RogueBuffExcel>> rogueAeonEnhanceBuffs = new Int2ObjectOpenHashMap<>();
     @Getter private static List<RogueBuffExcel> rogueRandomBuffList = new ArrayList<>();
     @Getter private static List<RogueMiracleExcel> rogueRandomMiracleList = new ArrayList<>();
     @Getter private static List<RogueNPCExcel> rogueRandomNpcList = new ArrayList<>();

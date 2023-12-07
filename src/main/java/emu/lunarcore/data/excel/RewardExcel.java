@@ -13,9 +13,9 @@ import lombok.Getter;
 @ResourceType(name = {"RewardData.json"})
 public class RewardExcel extends GameResource {
     private int RewardID;
-    
+
     private int Hcoin;
-    
+
     private int ItemID_1;
     private int Count_1;
     private int ItemID_2;
@@ -26,9 +26,9 @@ public class RewardExcel extends GameResource {
     private int Count_4;
     private int ItemID_5;
     private int Count_5;
-    
+
     private transient List<ItemParam> rewards;
-    
+
     @Override
     public int getId() {
         return RewardID;
@@ -37,11 +37,11 @@ public class RewardExcel extends GameResource {
     @Override
     public void onLoad() {
         this.rewards = new ArrayList<>();
-        
+
         if (Hcoin > 0) {
             this.rewards.add(new ItemParam(GameConstants.MATERIAL_HCOIN_ID, Hcoin));
         }
-        
+
         if (ItemID_1 > 0) {
             this.rewards.add(new ItemParam(ItemID_1, Count_1));
         } if (ItemID_2 > 0) {
