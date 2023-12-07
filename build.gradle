@@ -26,7 +26,7 @@ compileTestJava.options.encoding = "UTF-8"
 sourceCompatibility = JavaVersion.VERSION_17
 targetCompatibility = JavaVersion.VERSION_17
 
-version = '1.0.0'
+version = '1.0.1'
 
 var shouldGenerateProto = System.getenv("GENERATE_PROTO") == "true"
 System.out.println(shouldGenerateProto ?
@@ -174,7 +174,15 @@ tasks.register('injectGitHash') {
         try {
             return 'git rev-parse --verify --short HEAD'.execute().text.trim()
         } catch (ignored) {
-            return 'GIT_NOT_FOUND'
+            return ''
+        }
+    }
+    
+    def gitCommitTime = {
+        try {
+            return 'git log -1 --format=%cd --date=iso'.execute().text.trim()
+        } catch (ignored) {
+            return ''
         }
     }
 
@@ -184,6 +192,7 @@ package emu.lunarcore;
 public final class BuildConfig {
 	public static final String VERSION = \"${version}\";
     public static final String GIT_HASH = \"${gitCommitHash()}\";
+    public static final String GIT_HASH_TIME = \"${gitCommitTime()}\";
 }
 """
 }
