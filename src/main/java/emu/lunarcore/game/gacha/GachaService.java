@@ -194,8 +194,8 @@ public class GachaService extends BaseGameService {
                 GameAvatar avatar = player.getAvatars().getAvatarById(avatarId);
                 if (avatar != null) {
                     int dupeLevel = avatar.getRank();
-                    int dupeItemId = avatarId + 10000; // Hacky fix so we dont have to fetch data from an excel
-                    GameItem dupeItem = player.getInventory().getTabByItemType(ItemMainType.Material).getItemById(dupeItemId);
+                    int dupeItemId = avatar.getExcel().getRankUpItemId(); 
+                    GameItem dupeItem = player.getInventory().getMaterialByItemId(avatar.getExcel().getRankUpItemId());
                     if (dupeItem != null) {
                         dupeLevel += dupeItem.getCount();
                     }
