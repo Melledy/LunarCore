@@ -102,26 +102,46 @@ public class GiveAllCommand implements CommandHandler {
                 args.sendMessage("Giving " + target.getName() + " " + items.size() + " relics");
             }
             case "a", "characters", "avatars" -> {
+                // Eidolon items
+                List<GameItem> items = new ArrayList<>();
+                
                 // All avatars and their eidolons
-                for (ItemExcel excel : GameData.getItemExcelMap().values()) {
-                    if (excel.getItemMainType() == ItemMainType.AvatarCard) {
-                        // Skip if target already has this avatar
-                        if (target.getAvatars().hasAvatar(excel.getId())) {
-                            continue;
-                        }
-
+                for (var excel : GameData.getAvatarExcelMap().values()) {
+                    // Get avatar id
+                    GameAvatar avatar = target.getAvatarById(excel.getAvatarID());
+                    
+                    // Add avatar
+                    if (avatar == null) {
                         // Add avatar
-                        var avatarExcel = GameData.getAvatarExcelMap().get(excel.getId());
-                        if (avatarExcel != null) {
-                            GameAvatar avatar = new GameAvatar(avatarExcel);
-                            args.setProperties(avatar); // Set avatar properties
+                        avatar = new GameAvatar(excel);
+                        args.setProperties(avatar); // Set avatar properties
 
-                            target.getAvatars().addAvatar(avatar);
-                        }
-                    } else if (excel.getItemSubType() == ItemSubType.Eidolon) {
-                        // Add eidolons
-                        target.getInventory().addItem(excel, 6);
+                        target.getAvatars().addAvatar(avatar);
                     }
+                    
+                    // Get eidolon excel
+                    ItemExcel itemExcel = GameData.getItemExcelMap().get(excel.getRankUpItemId());
+                    if (itemExcel == null || itemExcel.getItemSubType() != ItemSubType.Eidolon) {
+                        continue;
+                    }
+                    
+                    // Calculate how many eidolons we need
+                    int rankCount = avatar.getRank();
+                    GameItem rankItem = target.getInventory().getMaterialByItemId(itemExcel.getId());
+                    if (rankItem != null) {
+                        rankCount += rankItem.getCount();
+                    }
+                    
+                    // Add eidolons
+                    int amount = 6 - rankCount;
+                    if (amount > 0) {
+                        items.add(new GameItem(itemExcel, amount));
+                    }
+                }
+                
+                // Add to target's inventory
+                if (items.size() > 0) {
+                    target.getInventory().addItems(items, true);
                 }
 
                 // Send message

@@ -13,6 +13,6 @@ public class HandlerGetMainMissionCustomValueCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetMainMissionCustomValueCsReq.parseFrom(data);
-        session.send(new PacketGetMainMissionCustomValueScRsp(req.getMainMissionIdList().toArray()));
+        session.send(new PacketGetMainMissionCustomValueScRsp(req.getMainMissionIdList()));
     }
 }

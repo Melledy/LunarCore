@@ -3,6 +3,8 @@ package emu.lunarcore;
 import java.util.List;
 import java.util.Set;
 
+import com.google.gson.annotations.SerializedName;
+
 import emu.lunarcore.data.common.ItemParam;
 import lombok.Getter;
 
@@ -49,11 +51,32 @@ public class Config {
     @Getter
     private static class ServerConfig {
         public String bindAddress = "0.0.0.0";
+        @SerializedName(value = "bindPort", alternate = {"port"})
+        public int bindPort;
+        
+        // Will return bindAddress if publicAddress is null
         public String publicAddress = "127.0.0.1";
-        public int port;
-
+        // Will return bindPort if publicPort is null
+        public Integer publicPort;
+        
         public ServerConfig(int port) {
-            this.port = port;
+            this.bindPort = port;
+        }
+        
+        public String getPublicAddress() {
+            if (this.publicAddress != null && !this.publicAddress.isEmpty()) {
+                return this.publicAddress;
+            }
+            
+            return this.bindAddress;
+        }
+        
+        public int getPublicPort() {
+            if (this.publicPort != null && this.publicPort != 0) {
+                return this.publicPort;
+            }
+            
+            return this.bindPort;
         }
     }
     
@@ -67,7 +90,7 @@ public class Config {
         }
         
         public String getDisplayAddress() {
-            return (useSSL ? "https" : "http") + "://" + publicAddress + ":" + port;
+            return (useSSL ? "https" : "http") + "://" + getPublicAddress() + ":" + getPublicPort();
         }
     }
 

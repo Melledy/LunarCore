@@ -110,17 +110,17 @@ public class HttpServer {
         if (getServerConfig().isUseSSL()) {
             ServerConnector sslConnector = new ServerConnector(getApp().jettyServer().server(), getSSLContextFactory(), getHttpFactory());
             sslConnector.setHost(getServerConfig().getBindAddress());
-            sslConnector.setPort(getServerConfig().getPort());
+            sslConnector.setPort(getServerConfig().getBindPort());
             getApp().jettyServer().server().addConnector(sslConnector);
 
             getApp().start();
         } else {
-            getApp().start(getServerConfig().getBindAddress(), getServerConfig().getPort());
+            getApp().start(getServerConfig().getBindAddress(), getServerConfig().getBindPort());
         }
 
         // Done
         LunarCore.getLogger().info("Http Server running as: " + this.modes.stream().collect(Collectors.joining(", ")));
-        LunarCore.getLogger().info("Http Server started on " + getServerConfig().getPort());
+        LunarCore.getLogger().info("Http Server started on " + getServerConfig().getBindPort());
     }
 
     private void addRoutes() {

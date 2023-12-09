@@ -53,6 +53,11 @@ public class AvatarExcel extends GameResource {
     public int getId() {
         return AvatarID;
     }
+    
+    public int getRankUpItemId() {
+        // Hacky fix so we dont have to fetch data from an excel
+        return this.AvatarID + 10000;
+    }
 
     public AvatarPromotionExcel getPromotionData(int i) {
         return this.promotionData[i];

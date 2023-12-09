@@ -1,25 +1,34 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.player.Player;
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.proto.EnteredSceneInfoOuterClass.EnteredSceneInfo;
 import emu.lunarcore.proto.GetEnteredSceneScRspOuterClass.GetEnteredSceneScRsp;
 import emu.lunarcore.server.packet.BasePacket;
+import emu.lunarcore.server.packet.CacheablePacket;
 import emu.lunarcore.server.packet.CmdId;
 
+@CacheablePacket
 public class PacketGetEnteredSceneScRsp extends BasePacket {
 
-    public PacketGetEnteredSceneScRsp(Player player) {
+    public PacketGetEnteredSceneScRsp() {
         super(CmdId.GetEnteredSceneScRsp);
         
-        var sceneInfo = EnteredSceneInfo.newInstance();
+        var data = GetEnteredSceneScRsp.newInstance();
         
-        if (player.getScene() != null) {
-            sceneInfo.setFloorId(player.getScene().getFloorId());
-            sceneInfo.setPlaneId(player.getScene().getPlaneId());
+        // TODO find a better way to get these scenes
+        for (var excel : GameData.getMapEntranceExcelMap().values()) {
+            // Skip these
+            if (excel.getFinishMainMissionList().length == 0 && excel.getFinishSubMissionList().length == 0) {
+                continue;
+            }
+            
+            // Add info
+            var info = EnteredSceneInfo.newInstance()
+                    .setPlaneId(excel.getPlaneID())
+                    .setFloorId(excel.getFloorID());
+            
+            data.addEnteredSceneInfo(info);
         }
-        
-        var data = GetEnteredSceneScRsp.newInstance()
-                .addEnteredSceneInfo(sceneInfo);
         
         this.setData(data);
     }

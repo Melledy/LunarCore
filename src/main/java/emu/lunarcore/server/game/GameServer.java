@@ -42,7 +42,7 @@ public class GameServer extends KcpServer {
         // Game Server base
         this.serverConfig = serverConfig;
         this.info = new RegionInfo(this);
-        this.address = new InetSocketAddress(serverConfig.bindAddress, serverConfig.getPort());
+        this.address = new InetSocketAddress(serverConfig.getBindAddress(), serverConfig.getBindPort());
         this.players = new Int2ObjectOpenHashMap<>();
 
         // Setup managers

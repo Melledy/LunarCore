@@ -33,8 +33,7 @@ public class CmdIdUtils {
     public static final IntSet ALLOWED_FILTER_PACKETS = IntOpenHashSet.of(
         CmdId.PlayerHeartBeatCsReq,
         CmdId.GetMissionStatusCsReq,
-        CmdId.GetMissionDataCsReq,
-        CmdId.GetMissionEventDataCsReq
+        CmdId.GetMainMissionCustomValueCsReq
     );
 
     private static Int2ObjectMap<String> cmdIdMap;

@@ -60,7 +60,7 @@ public class LunarCore {
 
     public static void main(String[] args) {
         // Start Server
-        LunarCore.getLogger().info("Starting Lunar Core...");
+        LunarCore.getLogger().info("Starting Lunar Core " + getJarVersion());
         LunarCore.getLogger().info("Git hash: " + getGitHash());
         LunarCore.getLogger().info("Game version: " + GameConstants.VERSION);
         boolean generateHandbook = true;
@@ -197,13 +197,32 @@ public class LunarCore {
         }
     }
 
-    // Git hash
+    // Build Config
+    
+    private static String getJarVersion() {
+        // Safely get the build config class without errors even if it hasnt been generated yet
+        try {
+            Class<?> buildConfig = Class.forName(LunarCore.class.getPackageName() + ".BuildConfig");
+            return buildConfig.getField("VERSION").get(null).toString();
+        } catch (Exception e) {
+            // Ignored
+        }
+        return "";
+    }
 
     private static String getGitHash() {
-        // Safely get the build config without errors even if it hasnt been generated yet
+        // Safely get the build config class without errors even if it hasnt been generated yet
         try {
-            Class<?> buildConfig = Class.forName("emu.lunarcore.BuildConfig");
-            return buildConfig.getField("GIT_HASH").get(null).toString();
+            Class<?> buildConfig = Class.forName(LunarCore.class.getPackageName() + ".BuildConfig");
+            
+            String hash = buildConfig.getField("GIT_HASH").get(null).toString();
+            String date = buildConfig.getField("GIT_HASH_TIME").get(null).toString();
+            
+            if (date == null || date.isEmpty()) {
+                return hash;
+            }
+            
+            return hash + " (" + date + ")";
         } catch (Exception e) {
             // Ignored
         }
