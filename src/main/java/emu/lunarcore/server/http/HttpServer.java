@@ -140,7 +140,7 @@ public class HttpServer {
     private void addDispatchRoutes() {
         // Get region info
         getApp().get("/query_dispatch", new QueryDispatchHandler(this));
-
+		getApp().get("/*/query_dispatch", new QueryDispatchHandler(this));
         // Captcha -> api-account-os.hoyoverse.com
         getApp().post("/account/risky/api/check", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"id\":\"none\",\"action\":\"ACTION_NONE\",\"geetest\":null}}"));
 
