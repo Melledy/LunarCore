@@ -3,7 +3,6 @@ package emu.lunarcore.server.packet.recv;
 import emu.lunarcore.proto.MsgTypeOuterClass.MsgType;
 import emu.lunarcore.proto.SendMsgCsReqOuterClass.SendMsgCsReq;
 import emu.lunarcore.server.game.GameSession;
-import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -23,7 +22,7 @@ public class HandlerSendMsgCsReq extends PacketHandler {
             }
         }
 
-        session.send(new BasePacket(CmdId.SendMsgScRsp));
+        session.send(CmdId.SendMsgScRsp);
     }
 
 }

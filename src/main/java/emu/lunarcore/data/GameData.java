@@ -136,18 +136,7 @@ public class GameData {
         }
         return id * 10; // or return a default value if needed
     }
-
-    public static List<Integer> getAllQuestIds() {
-        List<Integer> allIds = new ArrayList<>();
-
-        for (Int2ObjectMap.Entry<QuestExcel> entry : questExcelMap.int2ObjectEntrySet()) {
-            QuestExcel questExcel = entry.getValue();
-            allIds.add(questExcel.getId());
-        }
-
-        return allIds;
-    }
-
+    
     public static List<Integer> getAllMonsterIds() {
         List<Integer> allIds = new ArrayList<>();
 

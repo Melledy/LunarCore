@@ -9,12 +9,12 @@ import org.jline.reader.UserInterruptException;
 import org.jline.reader.impl.LineReaderImpl;
 import org.jline.terminal.Terminal;
 import org.jline.terminal.TerminalBuilder;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
-import ch.qos.logback.classic.Logger;
 import emu.lunarcore.command.CommandManager;
 import emu.lunarcore.data.ResourceLoader;
 import emu.lunarcore.database.DatabaseManager;
@@ -25,7 +25,7 @@ import emu.lunarcore.util.JsonUtils;
 import lombok.Getter;
 
 public class LunarCore {
-    private static final Logger log = (Logger) LoggerFactory.getLogger(LunarCore.class);
+    private static final Logger log = LoggerFactory.getLogger(LunarCore.class);
     private static File configFile = new File("./config.json");
     @Getter private static Config config;
 
@@ -67,6 +67,8 @@ public class LunarCore {
 
         // Load commands
         LunarCore.commandManager = new CommandManager();
+        
+        // Load plugin manager
         LunarCore.pluginManager = new PluginManager();
 
         try {
@@ -131,11 +133,12 @@ public class LunarCore {
         } catch (Exception exception) {
             LunarCore.getLogger().error("Unable to start the game server.", exception);
         }
-
-        LunarCore.getPluginManager().enablePlugins();
-
+        
         // Hook into shutdown event
         Runtime.getRuntime().addShutdownHook(new Thread(LunarCore::onShutdown));
+
+        // Enable plugins
+        LunarCore.getPluginManager().enablePlugins();
 
         // Start console
         LunarCore.startConsole();

@@ -26,9 +26,8 @@ public class CommandArgs {
     private int rank = -1;
     private int promotion = -1;
     private int stage = -1;
-    private Int2IntMap map;
     
-    private static String EMPTY_STRING = "";
+    private Int2IntMap map;
 
     public CommandArgs(Player sender, List<String> args) {
         this.sender = sender;
@@ -102,7 +101,7 @@ public class CommandArgs {
     
     public String get(int index) {
         if (index < 0 || index >= list.size()) {
-            return EMPTY_STRING;
+            return "";
         }
         return this.list.get(index);
     }
