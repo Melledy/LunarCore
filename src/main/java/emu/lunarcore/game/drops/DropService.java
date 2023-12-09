@@ -6,13 +6,13 @@ import java.util.List;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.common.ItemParam;
+import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.util.Utils;
-import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
 
 public class DropService extends BaseGameService {
 
@@ -20,15 +20,12 @@ public class DropService extends BaseGameService {
         super(server);
     }
 
+    // TODO this isnt the right way drops are calculated on the official server... but its good enough for now
     public void calculateDrops(Battle battle) {
-        // TODO this isnt the right way drops are calculated on the official server... but its good enough for now
-        if (battle.getNpcMonsters().size() == 0) {
-            return;
-        }
+        // Setup drop map
+        var dropMap = new DropMap();
         
-        var dropMap = new Int2IntOpenHashMap();
-        
-        // Get drops from monsters
+        // Calculate drops from monsters
         for (EntityMonster monster : battle.getNpcMonsters()) {
             var dropExcel = GameData.getMonsterDropExcel(monster.getExcel().getId(), monster.getWorldLevel());
             if (dropExcel == null || dropExcel.getDisplayItemList() == null) {
@@ -43,22 +40,50 @@ public class DropService extends BaseGameService {
                     count = dropExcel.getAvatarExpReward();
                 }
                 
-                dropMap.put(id, count + dropMap.get(id));
+                dropMap.addTo(id, count);
             }
         }
         
-        for (var entry : dropMap.int2IntEntrySet()) {
+        // Mapping info
+        if (battle.getMappingInfoId() > 0) {
+            var mapInfoExcel = GameData.getMappingInfoExcel(battle.getMappingInfoId(), battle.getWorldLevel());
+            if (mapInfoExcel != null) {
+                int rolls = Math.max(battle.getCocoonWave(), 1);
+                for (var dropParam : mapInfoExcel.getDropList()) {
+                    for (int i = 0; i < rolls; i++) {
+                        dropParam.roll(dropMap);
+                    }
+                }
+            }
+        }
+        
+        // Sanity check
+        if (dropMap.size() == 0) {
+            return;
+        }
+        
+        // Create drops
+        for (var entry : dropMap.entries()) {
             if (entry.getIntValue() <= 0) {
                 continue;
             }
             
             // Create item and add it to player
-            GameItem item = new GameItem(entry.getIntKey(), entry.getIntValue());
-
-            if (battle.getPlayer().getInventory().addItem(item)) {
-                battle.getDrops().add(item);
+            ItemExcel excel = GameData.getItemExcelMap().get(entry.getIntKey());
+            if (excel == null) continue;
+            
+            // Add item
+            if (excel.isEquippable()) {
+                for (int i = 0; i < entry.getIntValue(); i++) {
+                    battle.getDrops().add(new GameItem(excel, 1));
+                }
+            } else {
+                battle.getDrops().add(new GameItem(excel, entry.getIntValue()));
             }
         }
+        
+        // Add to inventory
+        battle.getPlayer().getInventory().addItems(battle.getDrops());
     }
     
     // TODO filler

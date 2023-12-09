@@ -8,6 +8,8 @@ import java.util.Base64;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 
+import it.unimi.dsi.fastutil.ints.IntList;
+
 public class Utils {
     private static final char[] HEX_ARRAY = "0123456789abcdef".toCharArray();
     
@@ -174,6 +176,10 @@ public class Utils {
 
     public static <T> T randomElement(List<T> list) {
         return list.get(ThreadLocalRandom.current().nextInt(0, list.size()));
+    }
+    
+    public static int randomElement(IntList list) {
+        return list.getInt(ThreadLocalRandom.current().nextInt(0, list.size()));
     }
 
     /**

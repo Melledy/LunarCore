@@ -20,6 +20,7 @@ public class GameConstants {
     public static final int MAX_AVATARS_IN_TEAM = 4;
     public static final int DEFAULT_TEAMS = 6;
     public static final int MAX_MP = 5; // Client doesnt like more than 5
+    public static final int FARM_ELEMENT_STAMINA_COST = 30;
 
     // Chat/Social
     public static final int MAX_FRIENDSHIPS = 100;
