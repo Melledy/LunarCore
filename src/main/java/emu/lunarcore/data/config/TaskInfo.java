@@ -21,6 +21,7 @@ public class TaskInfo {
     private boolean TriggerBattle = true;
     private DynamicFloat LifeTime;
     
+    @SerializedName(value = "OnAttack", alternate = {"OnBattle"})
     private List<TaskInfo> OnAttack;
     private List<TaskInfo> SuccessTaskList;
     private List<TaskInfo> OnProjectileHit;
