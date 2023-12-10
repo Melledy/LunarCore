@@ -2,7 +2,6 @@ package emu.lunarcore.server.packet.recv;
 
 import emu.lunarcore.proto.SwapLineupCsReqOuterClass.SwapLineupCsReq;
 import emu.lunarcore.server.game.GameSession;
-import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -15,7 +14,7 @@ public class HandlerSwapLineupCsReq extends PacketHandler {
         var req = SwapLineupCsReq.parseFrom(data);
 
         session.getPlayer().getLineupManager().swapLineup(req.getIndex(), req.getSrcSlot(), req.getDstSlot());
-        session.send(new BasePacket(CmdId.SwapLineupScRsp));
+        session.send(CmdId.SwapLineupScRsp);
     }
 
 }

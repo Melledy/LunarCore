@@ -2,7 +2,6 @@ package emu.lunarcore.server.packet.recv;
 
 import emu.lunarcore.proto.SceneEntityMoveCsReqOuterClass.SceneEntityMoveCsReq;
 import emu.lunarcore.server.game.GameSession;
-import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -23,7 +22,7 @@ public class HandlerSceneEntityMoveCsReq extends PacketHandler {
             }
         }
 
-        session.send(new BasePacket(CmdId.SceneEntityMoveScRsp));
+        session.send(CmdId.SceneEntityMoveScRsp);
     }
 
 }

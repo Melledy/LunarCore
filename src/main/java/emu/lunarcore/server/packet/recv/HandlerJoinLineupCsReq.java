@@ -2,7 +2,6 @@ package emu.lunarcore.server.packet.recv;
 
 import emu.lunarcore.proto.JoinLineupCsReqOuterClass.JoinLineupCsReq;
 import emu.lunarcore.server.game.GameSession;
-import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -15,7 +14,7 @@ public class HandlerJoinLineupCsReq extends PacketHandler {
         var req = JoinLineupCsReq.parseFrom(data);
 
         session.getPlayer().getLineupManager().joinLineup(req.getIndex(), req.getSlot(), req.getBaseAvatarId());
-        session.send(new BasePacket(CmdId.JoinLineupScRsp));
+        session.send(CmdId.JoinLineupScRsp);
     }
 
 }

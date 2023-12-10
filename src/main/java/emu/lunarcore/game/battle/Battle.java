@@ -40,6 +40,11 @@ public class Battle {
     @Setter private int levelOverride;
     @Setter private int roundsLimit;
     
+    // Used for calculating cocoon/farm element drops
+    @Setter private int mappingInfoId;
+    @Setter private int worldLevel;
+    @Setter private int cocoonWave;
+    
     private Battle(Player player, PlayerLineup lineup) {
         this.id = player.getNextBattleId();
         this.player = player;

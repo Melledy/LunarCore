@@ -1,9 +1,8 @@
 package emu.lunarcore.data.excel;
 
-import org.h2.util.Utils;
-
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.util.Utils;
 import lombok.Getter;
 
 @Getter

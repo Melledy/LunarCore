@@ -10,6 +10,7 @@ import lombok.Getter;
 @ResourceType(name = {"CocoonConfig.json"})
 public class CocoonExcel extends GameResource {
     private int ID;
+    private int MappingInfoID;
     private int WorldLevel;
     private int PropID;
     private int StaminaCost;

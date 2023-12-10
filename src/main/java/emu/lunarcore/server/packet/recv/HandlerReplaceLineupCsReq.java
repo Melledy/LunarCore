@@ -6,7 +6,6 @@ import java.util.List;
 import emu.lunarcore.proto.LineupSlotDataOuterClass.LineupSlotData;
 import emu.lunarcore.proto.ReplaceLineupCsReqOuterClass.ReplaceLineupCsReq;
 import emu.lunarcore.server.game.GameSession;
-import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
@@ -24,7 +23,7 @@ public class HandlerReplaceLineupCsReq extends PacketHandler {
         }
 
         session.getPlayer().getLineupManager().replaceLineup(req.getIndex(), req.getExtraLineupTypeValue(), lineupList);
-        session.send(new BasePacket(CmdId.ReplaceLineupScRsp));
+        session.send(CmdId.ReplaceLineupScRsp);
     }
 
 }

@@ -61,6 +61,7 @@ public class GameData {
     private static Int2ObjectMap<EquipmentPromotionExcel> equipmentPromotionExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<MazeBuffExcel> mazeBuffExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<CocoonExcel> cocoonExcelMap = new Int2ObjectOpenHashMap<>();
+    private static Int2ObjectMap<MappingInfoExcel> mappingInfoExcelMap = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<MonsterDropExcel> monsterDropExcelMap = new Int2ObjectOpenHashMap<>();
     
     private static Int2ObjectMap<PlayerLevelExcel> playerLevelExcelMap = new Int2ObjectOpenHashMap<>();
@@ -135,18 +136,7 @@ public class GameData {
         }
         return id * 10; // or return a default value if needed
     }
-
-    public static List<Integer> getAllQuestIds() {
-        List<Integer> allIds = new ArrayList<>();
-
-        for (Int2ObjectMap.Entry<QuestExcel> entry : questExcelMap.int2ObjectEntrySet()) {
-            QuestExcel questExcel = entry.getValue();
-            allIds.add(questExcel.getId());
-        }
-
-        return allIds;
-    }
-
+    
     public static List<Integer> getAllMonsterIds() {
         List<Integer> allIds = new ArrayList<>();
 
@@ -217,6 +207,10 @@ public class GameData {
     
     public static CocoonExcel getCocoonExcel(int cocoonId, int worldLevel) {
         return cocoonExcelMap.get((cocoonId << 8) + worldLevel);
+    }
+    
+    public static MappingInfoExcel getMappingInfoExcel(int mappingInfoId, int worldLevel) {
+        return mappingInfoExcelMap.get((mappingInfoId << 8) + worldLevel);
     }
     
     public static MonsterDropExcel getMonsterDropExcel(int monsterNpcId, int worldLevel) {

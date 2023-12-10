@@ -119,7 +119,15 @@ public class BattleService extends BaseGameService {
             
             // Add npc monsters
             for (var monster : monsters) {
+                // Add npc monster
                 battle.getNpcMonsters().add(monster);
+                
+                // Check farm element
+                if (monster.getFarmElementId() != 0) {
+                    battle.setMappingInfoId(monster.getFarmElementId());
+                    battle.setWorldLevel(monster.getWorldLevel());
+                    battle.setStaminaCost(GameConstants.FARM_ELEMENT_STAMINA_COST);
+                }
                 
                 // Handle monster buffs
                 // TODO handle multiple waves properly
@@ -213,6 +221,9 @@ public class BattleService extends BaseGameService {
         
         // Build battle from cocoon data
         Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
+        battle.setMappingInfoId(cocoonExcel.getMappingInfoID());
+        battle.setCocoonWave(wave);
+        battle.setWorldLevel(worldLevel);
         battle.setStaminaCost(cost);
         
         player.setBattle(battle);
@@ -338,7 +349,17 @@ public class BattleService extends BaseGameService {
         
         // Create new battle for player
         Battle battle = new Battle(player, player.getCurrentLineup(), stage);
+        battle.setStaminaCost(GameConstants.FARM_ELEMENT_STAMINA_COST);
         player.setBattle(battle);
+        
+        // Get mapping info id
+        int mappingInfoId = ((stageId / 10) % 100) + 1100;
+        int mappingInfoLevel = stageId % 10;
+        var mappingInfoExcel = GameData.getMappingInfoExcel(mappingInfoId, mappingInfoLevel);
+        if (mappingInfoExcel != null && mappingInfoExcel.getFarmType() != null && mappingInfoExcel.getFarmType().equals("ELEMENT")) {
+            battle.setMappingInfoId(mappingInfoId);
+            battle.setWorldLevel(mappingInfoLevel);
+        }
         
         // Send packet
         player.sendPacket(new PacketReEnterLastElementStageScRsp(battle));
