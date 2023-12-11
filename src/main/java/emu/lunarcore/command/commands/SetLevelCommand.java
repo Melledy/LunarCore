@@ -11,9 +11,9 @@ public class SetLevelCommand implements CommandHandler {
     @Override
     public void execute(CommandArgs args) {
         int targetLevel = Utils.parseSafeInt(args.get(0));
+        
         args.getTarget().setLevel(targetLevel);
-
-        args.sendMessage("Set level to " + targetLevel);
+        args.sendMessage("Set level to " + args.getTarget().getLevel());
     }
 
 }

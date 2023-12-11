@@ -110,10 +110,12 @@ public class Config {
     public static class ServerOptions {
         public boolean autoCreateAccount = true;
         public int sceneMaxEntites = 500;
-        public boolean spendStamina = true;
         public boolean unlockAllChallenges = true;
+        public boolean spendStamina = true;
         public int staminaRecoveryRate = 5 * 60;
         public int staminaReserveRecoveryRate = 18 * 60;
+        public int startTrailblazerLevel = 1; // Starting trailblazer level for new players
+        public boolean autoUpgradeWorldLevel = true; // Automatically upgrades world level when the player reaches a certain TB level
         public String language = "EN";
         public Set<String> defaultPermissions = Set.of("*");
         

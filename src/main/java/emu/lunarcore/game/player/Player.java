@@ -160,6 +160,7 @@ public class Player {
         this.isNew = true;
         this.initUid();
         this.resetPosition();
+        this.setLevel(LunarCore.getConfig().getServerOptions().startTrailblazerLevel);
         
         // Setup player data
         this.name = GameConstants.DEFAULT_NAME;
@@ -167,7 +168,6 @@ public class Player {
         this.headIcon = 200001;
         this.phoneTheme = 221000;
         this.chatBubble = 220000;
-        this.level = 1;
         this.stamina = GameConstants.MAX_STAMINA;
         this.nextStaminaRecover = System.currentTimeMillis();
 
@@ -196,11 +196,34 @@ public class Player {
         return session.getAccount();
     }
 
-    public void setLevel(int newLevel) {
-        this.level = Math.max(Math.min(newLevel, GameConstants.MAX_TRAILBLAZER_LEVEL), 1);
+    public void setLevel(int lvl) {
+        int oldLevel = this.level;
+        int newLevel = Math.max(Math.min(lvl, GameConstants.MAX_TRAILBLAZER_LEVEL), 1);
+        this.onLevelChange(oldLevel, newLevel);
+        
+        this.level = newLevel;
         this.exp = GameData.getPlayerExpRequired(this.level);
         this.sendPacket(new PacketPlayerSyncScNotify(this));
         this.save();
+    }
+    
+    private void onLevelChange(int oldLevel, int newLevel) {
+        // Auto upgrades the player's world level when they level up to the right level
+        if (LunarCore.getConfig().getServerOptions().autoUpgradeWorldLevel) {
+            int maxWorldLevel = 0;
+            
+            for (int i = 0; i < GameConstants.WORLD_LEVEL_UPGRADES.length; i++) {
+                if (newLevel >= GameConstants.WORLD_LEVEL_UPGRADES[i]) {
+                    maxWorldLevel = i;
+                } else {
+                    break;
+                }
+            }
+            
+            if (maxWorldLevel > this.getWorldLevel()) {
+                this.setWorldLevel(maxWorldLevel);
+            }
+        }
     }
     
     public boolean isOnline() {
@@ -383,7 +406,8 @@ public class Player {
     }
 
     public void addExp(int amount) {
-        // Required exp
+        // Setup
+        int oldLevel = this.level;
         int reqExp = GameData.getPlayerExpRequired(level + 1);
 
         // Add exp
@@ -394,7 +418,7 @@ public class Player {
             reqExp = GameData.getPlayerExpRequired(this.level + 1);
         }
 
-        // Save
+        this.onLevelChange(oldLevel, this.level);
         this.save();
 
         // Send packet
