@@ -203,8 +203,11 @@ public class Player {
         
         this.level = newLevel;
         this.exp = GameData.getPlayerExpRequired(this.level);
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
-        this.save();
+        
+        if (this.isOnline()) {
+            this.getSession().send(new PacketPlayerSyncScNotify(this));
+            this.save();
+        }
     }
     
     private void onLevelChange(int oldLevel, int newLevel) {
