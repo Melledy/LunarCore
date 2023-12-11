@@ -389,23 +389,35 @@ public class Player {
     }
 
     public void addSCoin(int amount) {
-        this.scoin = Utils.safeAdd(this.scoin, amount);
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
+        int newAmount = Utils.safeAdd(this.scoin, amount);
+        if (this.scoin != newAmount) {
+            this.scoin = newAmount;
+            this.sendPacket(new PacketPlayerSyncScNotify(this));
+        }
     }
 
     public void addHCoin(int amount) {
-        this.hcoin = Utils.safeAdd(this.hcoin, amount);
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
+        int newAmount = Utils.safeAdd(this.hcoin, amount);
+        if (this.hcoin != newAmount) {
+            this.hcoin = newAmount;
+            this.sendPacket(new PacketPlayerSyncScNotify(this));
+        }
     }
 
     public void addMCoin(int amount) {
-        this.mcoin = Utils.safeAdd(this.mcoin, amount);
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
+        int newAmount = Utils.safeAdd(this.mcoin, amount);
+        if (this.mcoin != newAmount) {
+            this.mcoin = newAmount;
+            this.sendPacket(new PacketPlayerSyncScNotify(this));
+        }
     }
     
     public void addTalentPoints(int amount) {
-        this.talentPoints = Utils.safeAdd(this.talentPoints, amount);
-        this.sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this));
+        int newAmount = Utils.safeAdd(this.talentPoints, amount);
+        if (this.talentPoints != newAmount) {
+            this.talentPoints = newAmount;
+            this.sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this));
+        }
     }
 
     public void addExp(int amount) {
@@ -421,6 +433,7 @@ public class Player {
             reqExp = GameData.getPlayerExpRequired(this.level + 1);
         }
 
+        // Update level and change property
         this.onLevelChange(oldLevel, this.level);
         this.save();
 

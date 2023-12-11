@@ -236,8 +236,9 @@ public class Inventory extends BasePlayerManager {
             } else {
                 // Add count to item
                 int amount = Utils.safeAdd(existingItem.getCount(), item.getCount(), item.getExcel().getPileLimit(), 0);
-                existingItem.setCount(amount);
-                existingItem.save();
+                if (existingItem.setCount(amount)) {
+                    existingItem.save();
+                }
                 return existingItem;
             }
         }
