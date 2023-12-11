@@ -1,5 +1,7 @@
 package emu.lunarcore.game.drops;
 
+import emu.lunarcore.GameConstants;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.util.Utils;
@@ -78,7 +80,8 @@ public class DropParam {
         }
         
         // Get count
-        int count = generateCount();
+        double count = generateCount();
+        var rates = LunarCore.getConfig().getServerRates();
 
         // Generate item(s)
         while (count > 0) {
@@ -88,11 +91,29 @@ public class DropParam {
             if (excel == null) break;
          
             if (excel.isEquippable()) {
-                drops.addTo(itemId, 1);
-                count--;
+                // Add relic/equipment drop
+                if (rates.getEquip() > 0) {
+                    drops.addTo(itemId, 1);
+                    count -= (1 / rates.getEquip());
+                } else {
+                    count -= 1; // To prevent a rate of 0 from freezing the server
+                }
             } else {
-                drops.addTo(itemId, count);
-                count -= count;
+                // Apply server rates to drop amount amount
+                int amount = switch (itemId) {
+                case GameConstants.TRAILBLAZER_EXP_ID -> (int) Math.floor(count * rates.getExp());
+                case GameConstants.MATERIAL_COIN_ID -> (int) Math.floor(count * rates.getCredit());
+                case GameConstants.MATERIAL_HCOIN_ID -> (int) Math.floor(count * rates.getJade());
+                default -> (int) Math.floor(count * rates.getMaterial());
+                };
+                
+                // Add material/virtual drop
+                if (amount > 0) {
+                    drops.addTo(itemId, amount);
+                }
+                
+                // To prevent a rate of 0 from freezing the server
+                count -= count; 
             }
         }
     }

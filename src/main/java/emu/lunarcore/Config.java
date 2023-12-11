@@ -22,6 +22,7 @@ public class Config {
     public GameServerConfig gameServer = new GameServerConfig(23301);
     
     public ServerOptions serverOptions = new ServerOptions();
+    public ServerRates serverRates = new ServerRates();
     public LogOptions logOptions = new LogOptions();
     public DownloadData downloadData = new DownloadData();
 
@@ -129,6 +130,15 @@ public class Config {
         public int getStaminaReserveRecoveryRate() {
             return staminaReserveRecoveryRate > 0 ? staminaReserveRecoveryRate : 1;
         }
+    }
+    
+    @Getter
+    public static class ServerRates {
+        public double exp = 1.0;
+        public double credit = 1.0;
+        public double jade = 1.0;
+        public double material = 1.0;
+        public double equip = 1.0;
     }
     
     @Getter
