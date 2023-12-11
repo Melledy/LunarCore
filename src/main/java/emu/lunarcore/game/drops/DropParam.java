@@ -1,5 +1,7 @@
 package emu.lunarcore.game.drops;
 
+import java.math.BigDecimal;
+
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
@@ -80,11 +82,11 @@ public class DropParam {
         }
         
         // Get count
-        double count = generateCount();
+        var count = BigDecimal.valueOf(generateCount());
         var rates = LunarCore.getConfig().getServerRates();
 
         // Generate item(s)
-        while (count > 0) {
+        while (count.doubleValue() > 0) {
             int itemId = generateItemId();
             
             ItemExcel excel = GameData.getItemExcelMap().get(itemId);
@@ -94,17 +96,18 @@ public class DropParam {
                 // Add relic/equipment drop
                 if (rates.getEquip() > 0) {
                     drops.addTo(itemId, 1);
-                    count -= (1 / rates.getEquip());
+                    count = count.subtract(BigDecimal.valueOf(1.0 / rates.getEquip()));
                 } else {
-                    count -= 1; // To prevent a rate of 0 from freezing the server
+                    // To prevent a rate of 0 from freezing the server
+                    count = count.subtract(BigDecimal.ONE); 
                 }
             } else {
                 // Apply server rates to drop amount amount
                 int amount = switch (itemId) {
-                case GameConstants.TRAILBLAZER_EXP_ID -> (int) Math.floor(count * rates.getExp());
-                case GameConstants.MATERIAL_COIN_ID -> (int) Math.floor(count * rates.getCredit());
-                case GameConstants.MATERIAL_HCOIN_ID -> (int) Math.floor(count * rates.getJade());
-                default -> (int) Math.floor(count * rates.getMaterial());
+                case GameConstants.TRAILBLAZER_EXP_ID -> (int) Math.floor(count.doubleValue() * rates.getExp());
+                case GameConstants.MATERIAL_COIN_ID -> (int) Math.floor(count.doubleValue() * rates.getCredit());
+                case GameConstants.MATERIAL_HCOIN_ID -> (int) Math.floor(count.doubleValue() * rates.getJade());
+                default -> (int) Math.floor(count.doubleValue() * rates.getMaterial());
                 };
                 
                 // Add material/virtual drop
@@ -113,7 +116,7 @@ public class DropParam {
                 }
                 
                 // To prevent a rate of 0 from freezing the server
-                count -= count; 
+                count = BigDecimal.ZERO;
             }
         }
     }
