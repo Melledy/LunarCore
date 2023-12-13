@@ -8,13 +8,18 @@ import emu.lunarcore.proto.DoGachaScRspOuterClass.DoGachaScRsp;
 import emu.lunarcore.proto.GachaItemOuterClass.GachaItem;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
+import emu.lunarcore.server.packet.Retcode;
 
 public class PacketDoGachaScRsp extends BasePacket {
 
     public PacketDoGachaScRsp() {
+        this(Retcode.FAIL);
+    }
+    
+    public PacketDoGachaScRsp(Retcode retcode) {
         super(CmdId.DoGachaScRsp);
 
-        this.setData(DoGachaScRsp.newInstance().setRetcode(1));
+        this.setData(DoGachaScRsp.newInstance().setRetcode(retcode.getVal()));
     }
 
     public PacketDoGachaScRsp(Player player, GachaBanner banner, int num, List<GachaItem> items) {

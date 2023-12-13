@@ -20,6 +20,7 @@ import emu.lunarcore.proto.ItemListOuterClass.ItemList;
 import emu.lunarcore.proto.ItemOuterClass.Item;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
+import emu.lunarcore.server.packet.Retcode;
 import emu.lunarcore.server.packet.send.PacketDoGachaScRsp;
 import emu.lunarcore.util.JsonUtils;
 import emu.lunarcore.util.Utils;
@@ -75,14 +76,14 @@ public class GachaService extends BaseGameService {
         
         // Prevent player from using gacha if they are at max light cones
         if (player.getInventory().getTabByItemType(ItemMainType.Equipment).getSize() >= player.getInventory().getTabByItemType(ItemMainType.Equipment).getMaxCapacity()) {
-            player.sendPacket(new PacketDoGachaScRsp());
+            player.sendPacket(new PacketDoGachaScRsp(Retcode.EQUIPMENT_EXCEED_LIMIT));
             return;
         }
 
         // Get banner
         GachaBanner banner = this.getGachaBanners().get(gachaId);
         if (banner == null) {
-            player.sendPacket(new PacketDoGachaScRsp());
+            player.sendPacket(new PacketDoGachaScRsp(Retcode.GACHA_ID_NOT_EXIST));
             return;
         }
 
@@ -90,6 +91,7 @@ public class GachaService extends BaseGameService {
         if (banner.getGachaType().getCostItem() > 0) {
             GameItem costItem = player.getInventory().getMaterialByItemId(banner.getGachaType().getCostItem());
             if (costItem == null || costItem.getCount() < times) {
+                player.sendPacket(new PacketDoGachaScRsp(Retcode.FAIL));
                 return;
             }
 
