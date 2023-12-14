@@ -2,27 +2,19 @@ package emu.lunarcore.game.battle.skills;
 
 import java.util.List;
 
-import emu.lunarcore.data.excel.SummonUnitExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
-import emu.lunarcore.util.Position;
 import lombok.Getter;
 
 @Getter
-public class MazeSkillSummonUnit extends MazeSkillAction {
-    private SummonUnitExcel excel;
-    private int duration;
-    
-    public MazeSkillSummonUnit(SummonUnitExcel excel, int duration) {
-        this.excel = excel;
-        this.duration = duration;
-    }
+public class MazeSkillHitProp extends MazeSkillAction {
 
     @Override
     public void onCast(GameAvatar caster, MotionInfo castPosition) {
-        caster.getScene().summonUnit(caster, excel, new Position(castPosition.getPos()), new Position(castPosition.getRot()), duration);
+        // Skip
     }
 
     @Override
@@ -32,7 +24,11 @@ public class MazeSkillSummonUnit extends MazeSkillAction {
 
     @Override
     public void onAttack(GameAvatar caster, List<? extends GameEntity> entities) {
-        // Skip
+        for (GameEntity entity : entities) {
+            if (entity instanceof EntityProp prop) {
+                caster.getScene().destroyProp(prop);
+            }
+        }
     }
 
 }

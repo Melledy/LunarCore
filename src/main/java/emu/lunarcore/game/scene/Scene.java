@@ -6,22 +6,27 @@ import java.util.List;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.*;
 import emu.lunarcore.data.excel.MazePlaneExcel;
+import emu.lunarcore.data.excel.SummonUnitExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.enums.PlaneType;
 import emu.lunarcore.game.scene.entity.*;
 import emu.lunarcore.game.scene.triggers.PropTrigger;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
+import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneGroupStateOuterClass.SceneGroupState;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
 import emu.lunarcore.server.packet.send.PacketActivateFarmElementScRsp;
+import emu.lunarcore.server.packet.send.PacketRefreshTriggerByClientScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
-
+import emu.lunarcore.util.Position;
 import it.unimi.dsi.fastutil.ints.*;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
+import us.hebi.quickbuf.RepeatedInt;
 
 @Getter
 public class Scene {
@@ -39,6 +44,7 @@ public class Scene {
     // Avatar entites
     private final IntSet avatarEntityIds;
     private final Int2ObjectMap<GameAvatar> avatars;
+    private EntitySummonUnit playerSummon;
 
     // Other entities
     private final Int2ObjectMap<GameEntity> entities;
@@ -208,6 +214,64 @@ public class Scene {
         return true;
     }
     
+    // Summons
+    
+    public synchronized void summonUnit(GameAvatar caster, SummonUnitExcel excel, Position pos, Position rot, int duration) {
+        // Remove previous summon
+        this.removeSummonUnit();
+        
+        // Add a new summoned unit to scene
+        var summon = new EntitySummonUnit(this, caster, excel, pos, rot);
+        summon.setDuration(duration);
+        
+        this.addEntity(summon, true);
+    }
+    
+    public synchronized void removeSummonUnit() {
+        if (this.getPlayerSummon() != null) {
+            this.removeEntity(this.getPlayerSummon());
+        }
+    }
+    
+    public void handleSummonUnitTriggers(int entityId, String name, MotionInfo motion, RepeatedInt targetIds) {
+        // Get summon unit
+        EntitySummonUnit summonUnit = null;
+        
+        var entity = this.getEntityById(entityId);
+        if (entity instanceof EntitySummonUnit) {
+            summonUnit = (EntitySummonUnit) entity;
+        } else {
+            return;
+        }
+        
+        // Get trigger
+        var trigger = summonUnit.getExcel().getInfo().getTriggerByName(name);
+        if (trigger == null) return;
+        
+        // Get targets
+        var targets = new ArrayList<GameEntity>();
+        
+        for (int targetId : targetIds) {
+            var target = this.getEntityById(targetId);
+            if (target != null) {
+                targets.add(target);
+            }
+        }
+        
+        // Handle task actions
+        for (var action : trigger.getActions()) {
+            action.onAttack(summonUnit.getCaster(), targets);
+        }
+        
+        // Send packet
+        this.getPlayer().sendPacket(new PacketRefreshTriggerByClientScNotify(entityId, name, targetIds));
+    }
+    
+    public void destroyProp(EntityProp prop) {
+        // TODO sanity check prop to make sure it can be destroyed
+        this.removeEntity(prop);
+    }
+    
     /**
      * Returns the nearest spring (Space Anchor) to the player in the scene
      * @return
@@ -238,7 +302,7 @@ public class Scene {
         return spring;
     }
     
-    public void invokeTrigger(PropTriggerType type, int param1, int param2) {
+    public void invokePropTrigger(PropTriggerType type, int param1, int param2) {
         for (PropTrigger trigger : this.getTriggers()) {
             if (trigger.shouldRun(param1, param2)) {
                 trigger.run(this);
@@ -285,6 +349,26 @@ public class Scene {
             entity.setEntityId(0);
         }
     }
+    
+    // Player events
+    
+    public void onTick() {
+        // Remove summoned unit if it expired
+        if (this.getPlayerSummon() != null) {
+            if (this.getPlayerSummon().isExpired()) {
+                this.removeSummonUnit();
+            }
+        }
+    }
+    
+    public void onBattleStart(Battle battle) {
+        // Remove summoned unit
+        if (this.getPlayerSummon() != null) {
+            this.removeSummonUnit();
+        }
+    }
+    
+    // Proto serialization
     
     public synchronized SceneInfo toProto() {
         // Set loaded flag

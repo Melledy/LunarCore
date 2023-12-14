@@ -80,9 +80,9 @@ public class BattleService extends BaseGameService {
             
             if (entity instanceof EntityMonster monster) {
                 monsters.add(monster);
-            } else if (entity instanceof EntityProp) {
+            } else if (entity instanceof EntityProp prop) {
                 it.remove();
-                player.getScene().removeEntity(entity);
+                player.getScene().destroyProp(prop);
             }
         }
         

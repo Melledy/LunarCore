@@ -274,9 +274,16 @@ public class Player {
     }
     
     public void setWorldLevel(int level) {
+        if (this.worldLevel == level) {
+            return;
+        }
+        
         this.worldLevel = level;
-        this.save();
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
+        
+        if (this.isOnline()) {
+            this.save();
+            this.getSession().send(new PacketPlayerSyncScNotify(this));
+        }
     }
 
     public int getWorldLevel() {
@@ -470,7 +477,12 @@ public class Player {
     }
     
     public void setBattle(Battle battle) {
+        // Set battle first
         this.battle = battle;
+        // Scene handler
+        if (this.getScene() != null) {
+            this.getScene().onBattleStart(battle);
+        }
     }
     
     public void forceQuitBattle() {
@@ -572,7 +584,7 @@ public class Player {
                 // Finish puzzle
                 prop.setState(PropState.Locked);
                 // Trigger event
-                this.getScene().invokeTrigger(PropTriggerType.PUZZLE_FINISH, prop.getGroupId(), prop.getInstId());
+                this.getScene().invokePropTrigger(PropTriggerType.PUZZLE_FINISH, prop.getGroupId(), prop.getInstId());
                 //
                 return prop;
             }
@@ -711,7 +723,12 @@ public class Player {
     }
     
     public void onTick() {
+        // Update stamina
         this.updateStamina();
+        // Scene update
+        if (this.getScene() != null) {
+            this.getScene().onTick();
+        }
     }
     
     @SuppressWarnings("deprecation")

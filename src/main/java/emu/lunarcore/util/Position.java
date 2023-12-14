@@ -24,6 +24,12 @@ public class Position {
         this.y = position.getY();
         this.z = position.getZ();
     }
+    
+    public Position(Vector vector) {
+        this.x = vector.getX();
+        this.y = vector.getY();
+        this.z = vector.getZ();
+    }
 
     public int getX() {
         return x;

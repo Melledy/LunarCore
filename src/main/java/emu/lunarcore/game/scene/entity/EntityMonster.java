@@ -5,7 +5,7 @@ import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.scene.Scene;
-import emu.lunarcore.game.scene.SceneEntityBuff;
+import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
@@ -29,7 +29,7 @@ public class EntityMonster implements GameEntity {
     private final Position pos;
     private final Position rot;
     
-    private Int2ObjectMap<SceneEntityBuff> buffs;
+    private Int2ObjectMap<SceneBuff> buffs;
     private int farmElementId;
     @Setter private int overrideStageId;
     @Setter private int overrideLevel;
@@ -56,12 +56,17 @@ public class EntityMonster implements GameEntity {
         }
     }
     
-    public void addBuff(int caster, int buffId, int duration) {
+    public SceneBuff addBuff(int caster, int buffId, int duration) {
         if (this.buffs == null) {
             this.buffs = new Int2ObjectOpenHashMap<>();
         }
         
-        this.buffs.put(buffId, new SceneEntityBuff(caster, buffId, duration));
+        // Create buff
+        var buff = new SceneBuff(caster, buffId, duration);
+        
+        // Add to buff map
+        this.buffs.put(buffId, buff);
+        return buff;
     }
     
     public void applyBuffs(Battle battle) {
@@ -79,7 +84,7 @@ public class EntityMonster implements GameEntity {
             }
             
             // Get owner index
-            int ownerIndex = battle.getLineup().indexOf(entry.getValue().getOwner());
+            int ownerIndex = battle.getLineup().indexOf(entry.getValue().getCasterAvatarId());
             
             // Add buff to battle if owner exists
             if (ownerIndex != -1) {
@@ -92,7 +97,7 @@ public class EntityMonster implements GameEntity {
     @Override
     public void onRemove() {
         // Try to fire any triggers
-        getScene().invokeTrigger(PropTriggerType.MONSTER_DIE, this.getGroupId(), this.getInstId());
+        getScene().invokePropTrigger(PropTriggerType.MONSTER_DIE, this.getGroupId(), this.getInstId());
     }
 
     @Override

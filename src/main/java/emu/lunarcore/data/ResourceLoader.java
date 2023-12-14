@@ -21,6 +21,7 @@ import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.FloorInfo.FloorGroupSimpleInfo;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.SkillAbilityInfo;
+import emu.lunarcore.data.config.SummonUnitInfo;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
 public class ResourceLoader {
@@ -227,8 +228,40 @@ public class ResourceLoader {
 
     // Might be better to cache
     private static void loadMazeAbilities() {
+        // Loaded configs count
         int count = 0;
+        
+        // Load summon unit configs
+        for (var summonUnitExcel : GameData.getSummonUnitExcelMap().values()) {
+            if (summonUnitExcel.isIsClient()) {
+                count++;
+                continue;
+            }
+            
+            // Get file
+            File file = new File(LunarCore.getConfig().getResourceDir() + "/" + summonUnitExcel.getJsonPath());
+            if (!file.exists()) continue;
+            
+            try (FileReader reader = new FileReader(file)) {
+                SummonUnitInfo info = gson.fromJson(reader, SummonUnitInfo.class);
+                info.buildMazeSkillActions();
+                
+                summonUnitExcel.setInfo(info);
+                count++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        
+        // Notify the server owner if we are missing any files
+        if (count < GameData.getSummonUnitExcelMap().size()) {
+            LunarCore.getLogger().warn("Summon unit configs are missing, please check your resources folder: {resources}/Config/ConfigSummonUnit. Character summon techniques may not work!");
+        }
+        
+        // Reset loaded count
+        count = 0;
 
+        // Load maze abilities
         for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
             // Get file
             File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + avatarExcel.getNameKey() + "_Ability.json");

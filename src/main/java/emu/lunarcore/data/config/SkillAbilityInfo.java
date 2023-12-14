@@ -2,6 +2,7 @@ package emu.lunarcore.data.config;
 
 import java.util.List;
 
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.battle.skills.*;
 import lombok.Getter;
@@ -27,6 +28,13 @@ public class SkillAbilityInfo {
                 avatarExcel.setMazeSkill(skill);
                 
                 actionList = skill.getCastActions();
+                
+                // Hacky way to check if an avatar can summon with their skill
+                var summonUnitExcel = GameData.getSummonUnitExcelMap().get((skill.getId() * 10) + 1);
+                if (summonUnitExcel != null && !summonUnitExcel.isIsClient()) {
+                    // TODO duration is hardcoded
+                    skill.getCastActions().add(new MazeSkillSummonUnit(summonUnitExcel, 20));
+                }
             } else if (ability.getName().contains("NormalAtk")) {
                 skill = new MazeSkill(avatarExcel, 0);
                 avatarExcel.setMazeAttack(skill);
@@ -46,6 +54,7 @@ public class SkillAbilityInfo {
     }
     
     // "Simple" way to parse maze attacks/skills
+    // TODO parse tasks better
     private void parseTask(MazeSkill skill, List<MazeSkillAction> actionList, TaskInfo task) {
         if (task.getType().contains("AddMazeBuff")) {
             // TODO get duration from params if buff duration is dynamic
@@ -59,7 +68,7 @@ public class SkillAbilityInfo {
             // TODO get sp increase value from params, also handle target alias
             actionList.add(new MazeSkillModifySP(50));
         } else if (task.getType().contains("CreateSummonUnit")) {
-            
+            // Ignored
         } else if (task.getSuccessTaskList() != null) {
             for (TaskInfo t : task.getSuccessTaskList()) {
                 parseTask(skill, actionList, t);
