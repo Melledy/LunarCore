@@ -5,6 +5,7 @@ import java.util.List;
 
 import emu.lunarcore.game.battle.skills.MazeSkillAction;
 import emu.lunarcore.game.battle.skills.MazeSkillAddBuff;
+import emu.lunarcore.game.battle.skills.MazeSkillHitProp;
 import lombok.Getter;
 
 /**
@@ -66,7 +67,7 @@ public class SummonUnitInfo {
                     
                     actions.add(actionAddBuff);
                 } else if (task.getType().contains("TriggerHitProp")) {
-                    // actions.add(new MazeSkillAddBuff(task.getID(), 20));
+                    actions.add(new MazeSkillHitProp());
                 }
             }
         }
