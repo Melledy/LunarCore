@@ -19,6 +19,7 @@ import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
 import emu.lunarcore.proto.SceneGroupStateOuterClass.SceneGroupState;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
+import emu.lunarcore.server.game.Tickable;
 import emu.lunarcore.server.packet.send.PacketActivateFarmElementScRsp;
 import emu.lunarcore.server.packet.send.PacketRefreshTriggerByClientScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
@@ -29,7 +30,7 @@ import lombok.Getter;
 import us.hebi.quickbuf.RepeatedInt;
 
 @Getter
-public class Scene {
+public class Scene implements Tickable {
     private final Player player;
     private final MazePlaneExcel excel;
     private final FloorInfo floorInfo;
@@ -352,11 +353,18 @@ public class Scene {
     
     // Player events
     
-    public void onTick() {
+    @Override
+    public synchronized void onTick(long timestamp, long delta) {
         // Remove summoned unit if it expired
         if (this.getPlayerSummon() != null) {
             if (this.getPlayerSummon().isExpired()) {
                 this.removeSummonUnit();
+            }
+        }
+        // Tick entities
+        for (GameEntity entity : this.getEntities().values()) {
+            if (entity instanceof Tickable tickableEntity) {
+                tickableEntity.onTick(timestamp, delta);
             }
         }
     }

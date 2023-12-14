@@ -27,6 +27,7 @@ public class GameServer extends KcpServer {
     
     private final Int2ObjectMap<Player> players;
     private final Timer gameLoopTimer;
+    private long lastTickTime;
     
     // Managers
     @Getter private final GameServerPacketHandler packetHandler;
@@ -56,6 +57,7 @@ public class GameServer extends KcpServer {
         this.shopService = new ShopService(this);
         
         // Game loop
+        this.lastTickTime = System.currentTimeMillis();
         this.gameLoopTimer = new Timer();
         this.gameLoopTimer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -173,10 +175,14 @@ public class GameServer extends KcpServer {
     }
     
     private void onTick() {
+        long timestamp = System.currentTimeMillis();
+        long delta = timestamp - lastTickTime;
+        this.lastTickTime = timestamp;
+        
         synchronized (this.players) {
             for (Player player : this.players.values()) {
                 try {
-                    player.onTick();
+                    player.onTick(timestamp, delta);
                 } catch (Exception e) {
                     LunarCore.getLogger().error("[UID: " + player.getUid() + "] Player tick error: ", e);
                 }

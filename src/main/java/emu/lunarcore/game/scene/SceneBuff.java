@@ -21,6 +21,10 @@ public class SceneBuff {
         this.expiry = this.createTime + duration;
     }
     
+    public boolean isExpired(long timestamp) {
+        return timestamp > this.expiry;
+    }
+    
     // Serialization
     
     public BuffInfo toProto() {

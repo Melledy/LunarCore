@@ -59,6 +59,7 @@ import emu.lunarcore.proto.SimpleAvatarInfoOuterClass.SimpleAvatarInfo;
 import emu.lunarcore.proto.SimpleInfoOuterClass.SimpleInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
+import emu.lunarcore.server.game.Tickable;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
@@ -73,7 +74,7 @@ import lombok.Setter;
 
 @Entity(value = "players", useDiscriminator = false)
 @Getter
-public class Player {
+public class Player implements Tickable {
     @Id private int uid;
     @Indexed private String accountUid;
     private String name;
@@ -519,27 +520,26 @@ public class Player {
         return amount;
     }
     
-    private void updateStamina() {
-        // Get current timestamp
-        long time = System.currentTimeMillis();
+    private void updateStamina(long timestamp) {
+        // Setup on change flag
         boolean hasChanged = false;
         
         // Check if we can add stamina
-        while (time >= this.nextStaminaRecover) {
+        while (timestamp >= this.nextStaminaRecover) {
             // Add stamina
             if (this.stamina < GameConstants.MAX_STAMINA) {
                 this.stamina += 1;
                 hasChanged = true;
             } else if (this.stamina < GameConstants.MAX_STAMINA_RESERVE) {
                 double rate = LunarCore.getConfig().getServerOptions().getStaminaReserveRecoveryRate();
-                double amount = (time - this.nextStaminaRecover) / (rate * 1000D);
+                double amount = (timestamp - this.nextStaminaRecover) / (rate * 1000D);
                 this.staminaReserve = Math.min(this.staminaReserve + amount, GameConstants.MAX_STAMINA_RESERVE);
                 hasChanged = true;
             }
             
             // Calculate next stamina recover time
             if (this.stamina >= GameConstants.MAX_STAMINA) {
-                this.nextStaminaRecover = time;
+                this.nextStaminaRecover = timestamp;
             }
             
             this.nextStaminaRecover += LunarCore.getConfig().getServerOptions().getStaminaRecoveryRate() * 1000;
@@ -722,12 +722,12 @@ public class Player {
         }
     }
     
-    public void onTick() {
+    public void onTick(long timestamp, long delta) {
         // Update stamina
-        this.updateStamina();
+        this.updateStamina(timestamp);
         // Scene update
         if (this.getScene() != null) {
-            this.getScene().onTick();
+            this.getScene().onTick(timestamp, delta);
         }
     }
     
@@ -746,7 +746,7 @@ public class Player {
         this.getRogueManager().loadFromDatabase();
         
         // Update stamina
-        this.updateStamina();
+        this.updateStamina(System.currentTimeMillis());
         
         // Check instances
         if (this.getChallengeInstance() != null && !this.getChallengeInstance().validate(this)) {
