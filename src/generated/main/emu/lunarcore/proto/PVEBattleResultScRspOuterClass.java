@@ -56,24 +56,24 @@ public final class PVEBattleResultScRspOuterClass {
     private boolean checkIdentical;
 
     /**
-     * <code>optional .ItemList unk1 = 3;</code>
-     */
-    private final ItemListOuterClass.ItemList unk1 = ItemListOuterClass.ItemList.newInstance();
-
-    /**
-     * <code>optional .ItemList unk2 = 11;</code>
-     */
-    private final ItemListOuterClass.ItemList unk2 = ItemListOuterClass.ItemList.newInstance();
-
-    /**
-     * <code>optional .ItemList drop_data = 12;</code>
+     * <code>optional .ItemList drop_data = 3;</code>
      */
     private final ItemListOuterClass.ItemList dropData = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <code>optional .ItemList unk3 = 355;</code>
+     * <code>optional .ItemList unk1 = 11;</code>
      */
-    private final ItemListOuterClass.ItemList unk3 = ItemListOuterClass.ItemList.newInstance();
+    private final ItemListOuterClass.ItemList unk1 = ItemListOuterClass.ItemList.newInstance();
+
+    /**
+     * <code>optional .ItemList extra_drop_data = 12;</code>
+     */
+    private final ItemListOuterClass.ItemList extraDropData = ItemListOuterClass.ItemList.newInstance();
+
+    /**
+     * <code>optional .ItemList unk2 = 355;</code>
+     */
+    private final ItemListOuterClass.ItemList unk2 = ItemListOuterClass.ItemList.newInstance();
 
     /**
      * <code>optional string bin_version = 7;</code>
@@ -386,139 +386,25 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList unk1 = 3;</code>
-     * @return whether the unk1 field is set
+     * <code>optional .ItemList drop_data = 3;</code>
+     * @return whether the dropData field is set
      */
-    public boolean hasUnk1() {
+    public boolean hasDropData() {
       return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>optional .ItemList unk1 = 3;</code>
-     * @return this
-     */
-    public PVEBattleResultScRsp clearUnk1() {
-      bitField0_ &= ~0x00000080;
-      unk1.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .ItemList unk1 = 3;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableUnk1()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public ItemListOuterClass.ItemList getUnk1() {
-      return unk1;
-    }
-
-    /**
-     * <code>optional .ItemList unk1 = 3;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public ItemListOuterClass.ItemList getMutableUnk1() {
-      bitField0_ |= 0x00000080;
-      return unk1;
-    }
-
-    /**
-     * <code>optional .ItemList unk1 = 3;</code>
-     * @param value the unk1 to set
-     * @return this
-     */
-    public PVEBattleResultScRsp setUnk1(final ItemListOuterClass.ItemList value) {
-      bitField0_ |= 0x00000080;
-      unk1.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .ItemList unk2 = 11;</code>
-     * @return whether the unk2 field is set
-     */
-    public boolean hasUnk2() {
-      return (bitField0_ & 0x00000100) != 0;
-    }
-
-    /**
-     * <code>optional .ItemList unk2 = 11;</code>
-     * @return this
-     */
-    public PVEBattleResultScRsp clearUnk2() {
-      bitField0_ &= ~0x00000100;
-      unk2.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .ItemList unk2 = 11;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableUnk2()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public ItemListOuterClass.ItemList getUnk2() {
-      return unk2;
-    }
-
-    /**
-     * <code>optional .ItemList unk2 = 11;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public ItemListOuterClass.ItemList getMutableUnk2() {
-      bitField0_ |= 0x00000100;
-      return unk2;
-    }
-
-    /**
-     * <code>optional .ItemList unk2 = 11;</code>
-     * @param value the unk2 to set
-     * @return this
-     */
-    public PVEBattleResultScRsp setUnk2(final ItemListOuterClass.ItemList value) {
-      bitField0_ |= 0x00000100;
-      unk2.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .ItemList drop_data = 12;</code>
-     * @return whether the dropData field is set
-     */
-    public boolean hasDropData() {
-      return (bitField0_ & 0x00000200) != 0;
-    }
-
-    /**
-     * <code>optional .ItemList drop_data = 12;</code>
+     * <code>optional .ItemList drop_data = 3;</code>
      * @return this
      */
     public PVEBattleResultScRsp clearDropData() {
-      bitField0_ &= ~0x00000200;
+      bitField0_ &= ~0x00000080;
       dropData.clear();
       return this;
     }
 
     /**
-     * <code>optional .ItemList drop_data = 12;</code>
+     * <code>optional .ItemList drop_data = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -532,7 +418,7 @@ public final class PVEBattleResultScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList drop_data = 12;</code>
+     * <code>optional .ItemList drop_data = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -541,55 +427,55 @@ public final class PVEBattleResultScRspOuterClass {
      * @return internal storage object for modifications
      */
     public ItemListOuterClass.ItemList getMutableDropData() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000080;
       return dropData;
     }
 
     /**
-     * <code>optional .ItemList drop_data = 12;</code>
+     * <code>optional .ItemList drop_data = 3;</code>
      * @param value the dropData to set
      * @return this
      */
     public PVEBattleResultScRsp setDropData(final ItemListOuterClass.ItemList value) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000080;
       dropData.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional .ItemList unk3 = 355;</code>
-     * @return whether the unk3 field is set
+     * <code>optional .ItemList unk1 = 11;</code>
+     * @return whether the unk1 field is set
      */
-    public boolean hasUnk3() {
-      return (bitField0_ & 0x00000400) != 0;
+    public boolean hasUnk1() {
+      return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
-     * <code>optional .ItemList unk3 = 355;</code>
+     * <code>optional .ItemList unk1 = 11;</code>
      * @return this
      */
-    public PVEBattleResultScRsp clearUnk3() {
-      bitField0_ &= ~0x00000400;
-      unk3.clear();
+    public PVEBattleResultScRsp clearUnk1() {
+      bitField0_ &= ~0x00000100;
+      unk1.clear();
       return this;
     }
 
     /**
-     * <code>optional .ItemList unk3 = 355;</code>
+     * <code>optional .ItemList unk1 = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableUnk3()} if you want to modify it.
+     * Use {@link #getMutableUnk1()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public ItemListOuterClass.ItemList getUnk3() {
-      return unk3;
+    public ItemListOuterClass.ItemList getUnk1() {
+      return unk1;
     }
 
     /**
-     * <code>optional .ItemList unk3 = 355;</code>
+     * <code>optional .ItemList unk1 = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -597,19 +483,133 @@ public final class PVEBattleResultScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public ItemListOuterClass.ItemList getMutableUnk3() {
-      bitField0_ |= 0x00000400;
-      return unk3;
+    public ItemListOuterClass.ItemList getMutableUnk1() {
+      bitField0_ |= 0x00000100;
+      return unk1;
     }
 
     /**
-     * <code>optional .ItemList unk3 = 355;</code>
-     * @param value the unk3 to set
+     * <code>optional .ItemList unk1 = 11;</code>
+     * @param value the unk1 to set
      * @return this
      */
-    public PVEBattleResultScRsp setUnk3(final ItemListOuterClass.ItemList value) {
+    public PVEBattleResultScRsp setUnk1(final ItemListOuterClass.ItemList value) {
+      bitField0_ |= 0x00000100;
+      unk1.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .ItemList extra_drop_data = 12;</code>
+     * @return whether the extraDropData field is set
+     */
+    public boolean hasExtraDropData() {
+      return (bitField0_ & 0x00000200) != 0;
+    }
+
+    /**
+     * <code>optional .ItemList extra_drop_data = 12;</code>
+     * @return this
+     */
+    public PVEBattleResultScRsp clearExtraDropData() {
+      bitField0_ &= ~0x00000200;
+      extraDropData.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .ItemList extra_drop_data = 12;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableExtraDropData()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public ItemListOuterClass.ItemList getExtraDropData() {
+      return extraDropData;
+    }
+
+    /**
+     * <code>optional .ItemList extra_drop_data = 12;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public ItemListOuterClass.ItemList getMutableExtraDropData() {
+      bitField0_ |= 0x00000200;
+      return extraDropData;
+    }
+
+    /**
+     * <code>optional .ItemList extra_drop_data = 12;</code>
+     * @param value the extraDropData to set
+     * @return this
+     */
+    public PVEBattleResultScRsp setExtraDropData(final ItemListOuterClass.ItemList value) {
+      bitField0_ |= 0x00000200;
+      extraDropData.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .ItemList unk2 = 355;</code>
+     * @return whether the unk2 field is set
+     */
+    public boolean hasUnk2() {
+      return (bitField0_ & 0x00000400) != 0;
+    }
+
+    /**
+     * <code>optional .ItemList unk2 = 355;</code>
+     * @return this
+     */
+    public PVEBattleResultScRsp clearUnk2() {
+      bitField0_ &= ~0x00000400;
+      unk2.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .ItemList unk2 = 355;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableUnk2()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public ItemListOuterClass.ItemList getUnk2() {
+      return unk2;
+    }
+
+    /**
+     * <code>optional .ItemList unk2 = 355;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public ItemListOuterClass.ItemList getMutableUnk2() {
       bitField0_ |= 0x00000400;
-      unk3.copyFrom(value);
+      return unk2;
+    }
+
+    /**
+     * <code>optional .ItemList unk2 = 355;</code>
+     * @param value the unk2 to set
+     * @return this
+     */
+    public PVEBattleResultScRsp setUnk2(final ItemListOuterClass.ItemList value) {
+      bitField0_ |= 0x00000400;
+      unk2.copyFrom(value);
       return this;
     }
 
@@ -825,10 +825,10 @@ public final class PVEBattleResultScRspOuterClass {
         mismatchTurnCount = other.mismatchTurnCount;
         endStatus = other.endStatus;
         checkIdentical = other.checkIdentical;
-        unk1.copyFrom(other.unk1);
-        unk2.copyFrom(other.unk2);
         dropData.copyFrom(other.dropData);
-        unk3.copyFrom(other.unk3);
+        unk1.copyFrom(other.unk1);
+        extraDropData.copyFrom(other.extraDropData);
+        unk2.copyFrom(other.unk2);
         binVersion.copyFrom(other.binVersion);
         resVersion.copyFrom(other.resVersion);
         battleAvatarList.copyFrom(other.battleAvatarList);
@@ -863,17 +863,17 @@ public final class PVEBattleResultScRspOuterClass {
       if (other.hasCheckIdentical()) {
         setCheckIdentical(other.checkIdentical);
       }
-      if (other.hasUnk1()) {
-        getMutableUnk1().mergeFrom(other.unk1);
-      }
-      if (other.hasUnk2()) {
-        getMutableUnk2().mergeFrom(other.unk2);
-      }
       if (other.hasDropData()) {
         getMutableDropData().mergeFrom(other.dropData);
       }
-      if (other.hasUnk3()) {
-        getMutableUnk3().mergeFrom(other.unk3);
+      if (other.hasUnk1()) {
+        getMutableUnk1().mergeFrom(other.unk1);
+      }
+      if (other.hasExtraDropData()) {
+        getMutableExtraDropData().mergeFrom(other.extraDropData);
+      }
+      if (other.hasUnk2()) {
+        getMutableUnk2().mergeFrom(other.unk2);
       }
       if (other.hasBinVersion()) {
         getMutableBinVersionBytes().copyFrom(other.binVersion);
@@ -901,10 +901,10 @@ public final class PVEBattleResultScRspOuterClass {
       mismatchTurnCount = 0;
       endStatus = 0;
       checkIdentical = false;
-      unk1.clear();
-      unk2.clear();
       dropData.clear();
-      unk3.clear();
+      unk1.clear();
+      extraDropData.clear();
+      unk2.clear();
       binVersion.clear();
       resVersion.clear();
       battleAvatarList.clear();
@@ -918,10 +918,10 @@ public final class PVEBattleResultScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      unk1.clearQuick();
-      unk2.clearQuick();
       dropData.clearQuick();
-      unk3.clearQuick();
+      unk1.clearQuick();
+      extraDropData.clearQuick();
+      unk2.clearQuick();
       binVersion.clear();
       resVersion.clear();
       battleAvatarList.clearQuick();
@@ -945,10 +945,10 @@ public final class PVEBattleResultScRspOuterClass {
         && (!hasMismatchTurnCount() || mismatchTurnCount == other.mismatchTurnCount)
         && (!hasEndStatus() || endStatus == other.endStatus)
         && (!hasCheckIdentical() || checkIdentical == other.checkIdentical)
-        && (!hasUnk1() || unk1.equals(other.unk1))
-        && (!hasUnk2() || unk2.equals(other.unk2))
         && (!hasDropData() || dropData.equals(other.dropData))
-        && (!hasUnk3() || unk3.equals(other.unk3))
+        && (!hasUnk1() || unk1.equals(other.unk1))
+        && (!hasExtraDropData() || extraDropData.equals(other.extraDropData))
+        && (!hasUnk2() || unk2.equals(other.unk2))
         && (!hasBinVersion() || binVersion.equals(other.binVersion))
         && (!hasResVersion() || resVersion.equals(other.resVersion))
         && (!hasBattleAvatarList() || battleAvatarList.equals(other.battleAvatarList));
@@ -986,19 +986,19 @@ public final class PVEBattleResultScRspOuterClass {
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 26);
-        output.writeMessageNoTag(unk1);
+        output.writeMessageNoTag(dropData);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawByte((byte) 90);
-        output.writeMessageNoTag(unk2);
+        output.writeMessageNoTag(unk1);
       }
       if ((bitField0_ & 0x00000200) != 0) {
         output.writeRawByte((byte) 98);
-        output.writeMessageNoTag(dropData);
+        output.writeMessageNoTag(extraDropData);
       }
       if ((bitField0_ & 0x00000400) != 0) {
         output.writeRawLittleEndian16((short) 5786);
-        output.writeMessageNoTag(unk3);
+        output.writeMessageNoTag(unk2);
       }
       if ((bitField0_ & 0x00000800) != 0) {
         output.writeRawByte((byte) 58);
@@ -1041,16 +1041,16 @@ public final class PVEBattleResultScRspOuterClass {
         size += 2;
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(unk1);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(unk2);
-      }
-      if ((bitField0_ & 0x00000200) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(dropData);
       }
+      if ((bitField0_ & 0x00000100) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(unk1);
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(extraDropData);
+      }
       if ((bitField0_ & 0x00000400) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(unk3);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(unk2);
       }
       if ((bitField0_ & 0x00000800) != 0) {
         size += 1 + ProtoSink.computeStringSizeNoTag(binVersion);
@@ -1138,8 +1138,8 @@ public final class PVEBattleResultScRspOuterClass {
             }
           }
           case 26: {
-            // unk1
-            input.readMessage(unk1);
+            // dropData
+            input.readMessage(dropData);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 90) {
@@ -1147,8 +1147,8 @@ public final class PVEBattleResultScRspOuterClass {
             }
           }
           case 90: {
-            // unk2
-            input.readMessage(unk2);
+            // unk1
+            input.readMessage(unk1);
             bitField0_ |= 0x00000100;
             tag = input.readTag();
             if (tag != 98) {
@@ -1156,8 +1156,8 @@ public final class PVEBattleResultScRspOuterClass {
             }
           }
           case 98: {
-            // dropData
-            input.readMessage(dropData);
+            // extraDropData
+            input.readMessage(extraDropData);
             bitField0_ |= 0x00000200;
             tag = input.readTag();
             if (tag != 2842) {
@@ -1165,8 +1165,8 @@ public final class PVEBattleResultScRspOuterClass {
             }
           }
           case 2842: {
-            // unk3
-            input.readMessage(unk3);
+            // unk2
+            input.readMessage(unk2);
             bitField0_ |= 0x00000400;
             tag = input.readTag();
             if (tag != 58) {
@@ -1238,16 +1238,16 @@ public final class PVEBattleResultScRspOuterClass {
         output.writeBool(FieldNames.checkIdentical, checkIdentical);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeMessage(FieldNames.unk1, unk1);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
-        output.writeMessage(FieldNames.unk2, unk2);
-      }
-      if ((bitField0_ & 0x00000200) != 0) {
         output.writeMessage(FieldNames.dropData, dropData);
       }
+      if ((bitField0_ & 0x00000100) != 0) {
+        output.writeMessage(FieldNames.unk1, unk1);
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
+        output.writeMessage(FieldNames.extraDropData, extraDropData);
+      }
       if ((bitField0_ & 0x00000400) != 0) {
-        output.writeMessage(FieldNames.unk3, unk3);
+        output.writeMessage(FieldNames.unk2, unk2);
       }
       if ((bitField0_ & 0x00000800) != 0) {
         output.writeString(FieldNames.binVersion, binVersion);
@@ -1356,11 +1356,35 @@ public final class PVEBattleResultScRspOuterClass {
             }
             break;
           }
+          case -433028295:
+          case -513968390: {
+            if (input.isAtField(FieldNames.dropData)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(dropData);
+                bitField0_ |= 0x00000080;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 3594623: {
             if (input.isAtField(FieldNames.unk1)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(unk1);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000100;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 222653289:
+          case -951570037: {
+            if (input.isAtField(FieldNames.extraDropData)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(extraDropData);
+                bitField0_ |= 0x00000200;
               }
             } else {
               input.skipUnknownField();
@@ -1371,29 +1395,6 @@ public final class PVEBattleResultScRspOuterClass {
             if (input.isAtField(FieldNames.unk2)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(unk2);
-                bitField0_ |= 0x00000100;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -433028295:
-          case -513968390: {
-            if (input.isAtField(FieldNames.dropData)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(dropData);
-                bitField0_ |= 0x00000200;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 3594625: {
-            if (input.isAtField(FieldNames.unk3)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(unk3);
                 bitField0_ |= 0x00000400;
               }
             } else {
@@ -1504,13 +1505,13 @@ public final class PVEBattleResultScRspOuterClass {
 
       static final FieldName checkIdentical = FieldName.forField("checkIdentical", "check_identical");
 
-      static final FieldName unk1 = FieldName.forField("unk1");
-
-      static final FieldName unk2 = FieldName.forField("unk2");
-
       static final FieldName dropData = FieldName.forField("dropData", "drop_data");
 
-      static final FieldName unk3 = FieldName.forField("unk3");
+      static final FieldName unk1 = FieldName.forField("unk1");
+
+      static final FieldName extraDropData = FieldName.forField("extraDropData", "extra_drop_data");
+
+      static final FieldName unk2 = FieldName.forField("unk2");
 
       static final FieldName binVersion = FieldName.forField("binVersion", "bin_version");
 
