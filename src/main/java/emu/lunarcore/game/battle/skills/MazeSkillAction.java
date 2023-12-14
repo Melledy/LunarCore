@@ -4,7 +4,7 @@ import java.util.List;
 
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.Battle;
-import emu.lunarcore.game.scene.entity.EntityMonster;
+import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 
 public abstract class MazeSkillAction {
@@ -13,6 +13,6 @@ public abstract class MazeSkillAction {
     
     public abstract void onAttack(GameAvatar caster, Battle battle);
     
-    public abstract void onAttack(GameAvatar caster, List<EntityMonster> monsters);
+    public abstract void onAttack(GameAvatar caster, List<? extends GameEntity> entities);
     
 }

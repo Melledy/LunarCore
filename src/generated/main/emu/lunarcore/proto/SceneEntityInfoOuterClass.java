@@ -49,10 +49,6 @@ public final class SceneEntityInfoOuterClass {
     private final SceneNpcMonsterInfoOuterClass.SceneNpcMonsterInfo npcMonster = SceneNpcMonsterInfoOuterClass.SceneNpcMonsterInfo.newInstance();
 
     /**
-     * <pre>
-     * SceneSummonUnitInfo summon_unit = 15;
-     * </pre>
-     *
      * <code>optional .ScenePropInfo prop = 10;</code>
      */
     private final ScenePropInfoOuterClass.ScenePropInfo prop = ScenePropInfoOuterClass.ScenePropInfo.newInstance();
@@ -61,6 +57,11 @@ public final class SceneEntityInfoOuterClass {
      * <code>optional .SceneActorInfo actor = 13;</code>
      */
     private final SceneActorInfoOuterClass.SceneActorInfo actor = SceneActorInfoOuterClass.SceneActorInfo.newInstance();
+
+    /**
+     * <code>optional .SceneSummonUnitInfo summon_unit = 15;</code>
+     */
+    private final SceneSummonUnitInfoOuterClass.SceneSummonUnitInfo summonUnit = SceneSummonUnitInfoOuterClass.SceneSummonUnitInfo.newInstance();
 
     private SceneEntityInfo() {
     }
@@ -73,7 +74,7 @@ public final class SceneEntityInfoOuterClass {
     }
 
     public boolean hasEntityCase() {
-      return (((bitField0_ & 0x0000000f)) != 0);
+      return (((bitField0_ & 0x0000001f)) != 0);
     }
 
     public SceneEntityInfo clearEntityCase() {
@@ -82,39 +83,53 @@ public final class SceneEntityInfoOuterClass {
         clearNpcMonster();
         clearProp();
         clearActor();
+        clearSummonUnit();
       }
       return this;
     }
 
     private void clearEntityCaseOtherNpc() {
-      if ((((bitField0_ & 0x0000000e)) != 0)) {
+      if ((((bitField0_ & 0x0000001e)) != 0)) {
         clearNpcMonster();
         clearProp();
         clearActor();
+        clearSummonUnit();
       }
     }
 
     private void clearEntityCaseOtherNpcMonster() {
-      if ((((bitField0_ & 0x0000000d)) != 0)) {
+      if ((((bitField0_ & 0x0000001d)) != 0)) {
         clearNpc();
         clearProp();
         clearActor();
+        clearSummonUnit();
       }
     }
 
     private void clearEntityCaseOtherProp() {
-      if ((((bitField0_ & 0x0000000b)) != 0)) {
+      if ((((bitField0_ & 0x0000001b)) != 0)) {
         clearNpc();
         clearNpcMonster();
         clearActor();
+        clearSummonUnit();
       }
     }
 
     private void clearEntityCaseOtherActor() {
-      if ((((bitField0_ & 0x00000007)) != 0)) {
+      if ((((bitField0_ & 0x00000017)) != 0)) {
         clearNpc();
         clearNpcMonster();
         clearProp();
+        clearSummonUnit();
+      }
+    }
+
+    private void clearEntityCaseOtherSummonUnit() {
+      if ((((bitField0_ & 0x0000000f)) != 0)) {
+        clearNpc();
+        clearNpcMonster();
+        clearProp();
+        clearActor();
       }
     }
 
@@ -123,7 +138,7 @@ public final class SceneEntityInfoOuterClass {
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
-      return (bitField0_ & 0x00000010) != 0;
+      return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
@@ -131,7 +146,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo clearGroupId() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000020;
       groupId = 0;
       return this;
     }
@@ -150,7 +165,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo setGroupId(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       groupId = value;
       return this;
     }
@@ -160,7 +175,7 @@ public final class SceneEntityInfoOuterClass {
      * @return whether the instId field is set
      */
     public boolean hasInstId() {
-      return (bitField0_ & 0x00000020) != 0;
+      return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
@@ -168,7 +183,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo clearInstId() {
-      bitField0_ &= ~0x00000020;
+      bitField0_ &= ~0x00000040;
       instId = 0;
       return this;
     }
@@ -187,7 +202,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo setInstId(final int value) {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000040;
       instId = value;
       return this;
     }
@@ -197,7 +212,7 @@ public final class SceneEntityInfoOuterClass {
      * @return whether the entityId field is set
      */
     public boolean hasEntityId() {
-      return (bitField0_ & 0x00000040) != 0;
+      return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
@@ -205,7 +220,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo clearEntityId() {
-      bitField0_ &= ~0x00000040;
+      bitField0_ &= ~0x00000080;
       entityId = 0;
       return this;
     }
@@ -224,7 +239,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo setEntityId(final int value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       entityId = value;
       return this;
     }
@@ -234,7 +249,7 @@ public final class SceneEntityInfoOuterClass {
      * @return whether the motion field is set
      */
     public boolean hasMotion() {
-      return (bitField0_ & 0x00000080) != 0;
+      return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
@@ -242,7 +257,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo clearMotion() {
-      bitField0_ &= ~0x00000080;
+      bitField0_ &= ~0x00000100;
       motion.clear();
       return this;
     }
@@ -271,7 +286,7 @@ public final class SceneEntityInfoOuterClass {
      * @return internal storage object for modifications
      */
     public MotionInfoOuterClass.MotionInfo getMutableMotion() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       return motion;
     }
 
@@ -281,7 +296,7 @@ public final class SceneEntityInfoOuterClass {
      * @return this
      */
     public SceneEntityInfo setMotion(final MotionInfoOuterClass.MotionInfo value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       motion.copyFrom(value);
       return this;
     }
@@ -406,10 +421,6 @@ public final class SceneEntityInfoOuterClass {
     }
 
     /**
-     * <pre>
-     * SceneSummonUnitInfo summon_unit = 15;
-     * </pre>
-     *
      * <code>optional .ScenePropInfo prop = 10;</code>
      * @return whether the prop field is set
      */
@@ -418,10 +429,6 @@ public final class SceneEntityInfoOuterClass {
     }
 
     /**
-     * <pre>
-     * SceneSummonUnitInfo summon_unit = 15;
-     * </pre>
-     *
      * <code>optional .ScenePropInfo prop = 10;</code>
      * @return this
      */
@@ -432,10 +439,6 @@ public final class SceneEntityInfoOuterClass {
     }
 
     /**
-     * <pre>
-     * SceneSummonUnitInfo summon_unit = 15;
-     * </pre>
-     *
      * <code>optional .ScenePropInfo prop = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
@@ -450,10 +453,6 @@ public final class SceneEntityInfoOuterClass {
     }
 
     /**
-     * <pre>
-     * SceneSummonUnitInfo summon_unit = 15;
-     * </pre>
-     *
      * <code>optional .ScenePropInfo prop = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
@@ -469,10 +468,6 @@ public final class SceneEntityInfoOuterClass {
     }
 
     /**
-     * <pre>
-     * SceneSummonUnitInfo summon_unit = 15;
-     * </pre>
-     *
      * <code>optional .ScenePropInfo prop = 10;</code>
      * @param value the prop to set
      * @return this
@@ -543,6 +538,66 @@ public final class SceneEntityInfoOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .SceneSummonUnitInfo summon_unit = 15;</code>
+     * @return whether the summonUnit field is set
+     */
+    public boolean hasSummonUnit() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional .SceneSummonUnitInfo summon_unit = 15;</code>
+     * @return this
+     */
+    public SceneEntityInfo clearSummonUnit() {
+      bitField0_ &= ~0x00000010;
+      summonUnit.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneSummonUnitInfo summon_unit = 15;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableSummonUnit()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public SceneSummonUnitInfoOuterClass.SceneSummonUnitInfo getSummonUnit() {
+      return summonUnit;
+    }
+
+    /**
+     * <code>optional .SceneSummonUnitInfo summon_unit = 15;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public SceneSummonUnitInfoOuterClass.SceneSummonUnitInfo getMutableSummonUnit() {
+      clearEntityCaseOtherSummonUnit();
+      bitField0_ |= 0x00000010;
+      return summonUnit;
+    }
+
+    /**
+     * <code>optional .SceneSummonUnitInfo summon_unit = 15;</code>
+     * @param value the summonUnit to set
+     * @return this
+     */
+    public SceneEntityInfo setSummonUnit(
+        final SceneSummonUnitInfoOuterClass.SceneSummonUnitInfo value) {
+      clearEntityCaseOtherSummonUnit();
+      bitField0_ |= 0x00000010;
+      summonUnit.copyFrom(value);
+      return this;
+    }
+
     @Override
     public SceneEntityInfo copyFrom(final SceneEntityInfo other) {
       cachedSize = other.cachedSize;
@@ -556,6 +611,7 @@ public final class SceneEntityInfoOuterClass {
         npcMonster.copyFrom(other.npcMonster);
         prop.copyFrom(other.prop);
         actor.copyFrom(other.actor);
+        summonUnit.copyFrom(other.summonUnit);
       }
       return this;
     }
@@ -590,6 +646,9 @@ public final class SceneEntityInfoOuterClass {
       if (other.hasActor()) {
         getMutableActor().mergeFrom(other.actor);
       }
+      if (other.hasSummonUnit()) {
+        getMutableSummonUnit().mergeFrom(other.summonUnit);
+      }
       return this;
     }
 
@@ -608,6 +667,7 @@ public final class SceneEntityInfoOuterClass {
       npcMonster.clear();
       prop.clear();
       actor.clear();
+      summonUnit.clear();
       return this;
     }
 
@@ -623,6 +683,7 @@ public final class SceneEntityInfoOuterClass {
       npcMonster.clearQuick();
       prop.clearQuick();
       actor.clearQuick();
+      summonUnit.clearQuick();
       return this;
     }
 
@@ -643,24 +704,25 @@ public final class SceneEntityInfoOuterClass {
         && (!hasNpc() || npc.equals(other.npc))
         && (!hasNpcMonster() || npcMonster.equals(other.npcMonster))
         && (!hasProp() || prop.equals(other.prop))
-        && (!hasActor() || actor.equals(other.actor));
+        && (!hasActor() || actor.equals(other.actor))
+        && (!hasSummonUnit() || summonUnit.equals(other.summonUnit));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000020) != 0) {
         output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(groupId);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(instId);
       }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(entityId);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawByte((byte) 34);
         output.writeMessageNoTag(motion);
       }
@@ -680,21 +742,25 @@ public final class SceneEntityInfoOuterClass {
         output.writeRawByte((byte) 106);
         output.writeMessageNoTag(actor);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 122);
+        output.writeMessageNoTag(summonUnit);
+      }
     }
 
     @Override
     protected int computeSerializedSize() {
       int size = 0;
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000020) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(instId);
       }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(motion);
       }
       if ((bitField0_ & 0x00000001) != 0) {
@@ -709,6 +775,9 @@ public final class SceneEntityInfoOuterClass {
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(actor);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(summonUnit);
+      }
       return size;
     }
 
@@ -722,7 +791,7 @@ public final class SceneEntityInfoOuterClass {
           case 8: {
             // groupId
             groupId = input.readUInt32();
-            bitField0_ |= 0x00000010;
+            bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 40) {
               break;
@@ -731,7 +800,7 @@ public final class SceneEntityInfoOuterClass {
           case 40: {
             // instId
             instId = input.readUInt32();
-            bitField0_ |= 0x00000020;
+            bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 64) {
               break;
@@ -740,7 +809,7 @@ public final class SceneEntityInfoOuterClass {
           case 64: {
             // entityId
             entityId = input.readUInt32();
-            bitField0_ |= 0x00000040;
+            bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 34) {
               break;
@@ -749,7 +818,7 @@ public final class SceneEntityInfoOuterClass {
           case 34: {
             // motion
             input.readMessage(motion);
-            bitField0_ |= 0x00000080;
+            bitField0_ |= 0x00000100;
             tag = input.readTag();
             if (tag != 50) {
               break;
@@ -791,6 +860,16 @@ public final class SceneEntityInfoOuterClass {
             input.readMessage(actor);
             bitField0_ |= 0x00000008;
             tag = input.readTag();
+            if (tag != 122) {
+              break;
+            }
+          }
+          case 122: {
+            // summonUnit
+            clearEntityCaseOtherSummonUnit();
+            input.readMessage(summonUnit);
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -812,16 +891,16 @@ public final class SceneEntityInfoOuterClass {
     @Override
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000020) != 0) {
         output.writeUInt32(FieldNames.groupId, groupId);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
+      if ((bitField0_ & 0x00000040) != 0) {
         output.writeUInt32(FieldNames.instId, instId);
       }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeUInt32(FieldNames.entityId, entityId);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         output.writeMessage(FieldNames.motion, motion);
       }
       if ((bitField0_ & 0x00000001) != 0) {
@@ -835,6 +914,9 @@ public final class SceneEntityInfoOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeMessage(FieldNames.actor, actor);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeMessage(FieldNames.summonUnit, summonUnit);
       }
       output.endObject();
     }
@@ -851,7 +933,7 @@ public final class SceneEntityInfoOuterClass {
             if (input.isAtField(FieldNames.groupId)) {
               if (!input.trySkipNullValue()) {
                 groupId = input.readUInt32();
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000020;
               }
             } else {
               input.skipUnknownField();
@@ -863,7 +945,7 @@ public final class SceneEntityInfoOuterClass {
             if (input.isAtField(FieldNames.instId)) {
               if (!input.trySkipNullValue()) {
                 instId = input.readUInt32();
-                bitField0_ |= 0x00000020;
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -875,7 +957,7 @@ public final class SceneEntityInfoOuterClass {
             if (input.isAtField(FieldNames.entityId)) {
               if (!input.trySkipNullValue()) {
                 entityId = input.readUInt32();
-                bitField0_ |= 0x00000040;
+                bitField0_ |= 0x00000080;
               }
             } else {
               input.skipUnknownField();
@@ -886,7 +968,7 @@ public final class SceneEntityInfoOuterClass {
             if (input.isAtField(FieldNames.motion)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(motion);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000100;
               }
             } else {
               input.skipUnknownField();
@@ -936,6 +1018,19 @@ public final class SceneEntityInfoOuterClass {
                 clearEntityCaseOtherActor();
                 input.readMessage(actor);
                 bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 80492037:
+          case -1790265822: {
+            if (input.isAtField(FieldNames.summonUnit)) {
+              if (!input.trySkipNullValue()) {
+                clearEntityCaseOtherSummonUnit();
+                input.readMessage(summonUnit);
+                bitField0_ |= 0x00000010;
               }
             } else {
               input.skipUnknownField();
@@ -1010,6 +1105,8 @@ public final class SceneEntityInfoOuterClass {
       static final FieldName prop = FieldName.forField("prop");
 
       static final FieldName actor = FieldName.forField("actor");
+
+      static final FieldName summonUnit = FieldName.forField("summonUnit", "summon_unit");
     }
   }
 }
