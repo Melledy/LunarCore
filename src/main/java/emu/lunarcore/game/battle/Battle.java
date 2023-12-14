@@ -4,19 +4,17 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.MazeBuffExcel;
 import emu.lunarcore.data.excel.StageExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.enums.StageType;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.proto.ClientTurnSnapshotOuterClass.ClientTurnSnapshot;
 import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
-import emu.lunarcore.proto.SceneMonsterOuterClass.SceneMonster;
-import emu.lunarcore.proto.SceneMonsterWaveOuterClass.SceneMonsterWave;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
@@ -30,14 +28,14 @@ public class Battle {
     private final PlayerLineup lineup;
     private final List<EntityMonster> npcMonsters;
     private final List<MazeBuff> buffs;
-    private final List<StageExcel> stages;
+    private final List<BattleMonsterWave> waves;
     private final List<GameItem> drops;
     private final long timestamp;
     
+    private StageExcel stage; // Main battle stage
     private IntList turnSnapshotList; // TODO maybe turn it into a map?
     
     @Setter private int staminaCost;
-    @Setter private int levelOverride;
     @Setter private int roundsLimit;
     
     // Used for calculating cocoon/farm element drops
@@ -51,19 +49,78 @@ public class Battle {
         this.lineup = lineup;
         this.npcMonsters = new ArrayList<>();
         this.buffs = new ArrayList<>();
-        this.stages = new ArrayList<>();
+        this.waves = new ArrayList<>();
         this.drops = new ArrayList<>();
         this.timestamp = System.currentTimeMillis();
     }
     
     public Battle(Player player, PlayerLineup lineup, StageExcel stage) {
         this(player, lineup);
-        this.stages.add(stage);
+        this.stage = stage;
+        this.loadStage(stage);
     }
     
-    public Battle(Player player, PlayerLineup lineup, Collection<StageExcel> stages) {
+    public Battle(Player player, PlayerLineup lineup, List<StageExcel> stages) {
         this(player, lineup);
-        this.stages.addAll(stages);
+        this.stage = stages.get(0);
+        
+        for (StageExcel stage : stages) {
+            this.loadStage(stage);
+        }
+    }
+    
+    public Battle(Player player, PlayerLineup lineup, Collection<EntityMonster> npcMonsters) {
+        this(player, lineup);
+        
+        // Parse npc monster
+        for (EntityMonster npcMonster : npcMonsters) {
+            // Add monster
+            this.npcMonsters.add(npcMonster);
+
+            // Check farm element
+            if (npcMonster.getFarmElementId() != 0) {
+                this.setMappingInfoId(npcMonster.getFarmElementId());
+                this.setWorldLevel(npcMonster.getWorldLevel());
+                this.setStaminaCost(GameConstants.FARM_ELEMENT_STAMINA_COST);
+            }
+            
+            // Get stage
+            StageExcel stage = GameData.getStageExcelMap().get(npcMonster.getStageId());
+            if (stage == null) continue;
+            
+            // Set main battle stage if we havent already
+            if (this.stage == null) {
+                this.stage = stage;
+            }
+            
+            // Create monster waves from stage
+            this.loadStage(stage, npcMonster);
+        }
+    }
+    
+    private void loadStage(StageExcel stage) {
+        this.loadStage(stage, null);
+    }
+    
+    private void loadStage(StageExcel stage, EntityMonster npcMonster) {
+        // Build monster waves
+        for (IntList stageMonsterWave : stage.getMonsterWaves()) {
+            // Create battle wave
+            var wave = new BattleMonsterWave(stage);
+            wave.getMonsters().addAll(stageMonsterWave);
+            
+            // Handle npc monster
+            if (npcMonster != null) {
+                // Set wave custom level
+                wave.setCustomLevel(npcMonster.getCustomLevel());
+                
+                // Handle monster buffs
+                npcMonster.applyBuffs(this, this.getWaves().size());
+            }
+            
+            // Finally add wave to battle
+            this.getWaves().add(wave);
+        }
     }
     
     public IntList getTurnSnapshotList() {
@@ -73,38 +130,14 @@ public class Battle {
         return this.turnSnapshotList;
     }
     
-    public StageType getStageType() {
-        StageExcel stage = this.getFirstStage();
-        if (stage != null) {
-            return stage.getStageType();
-        }
-        return StageType.Unknown;
-    }
-
-    public StageExcel getFirstStage() {
-        if (this.getStages().size() > 0) {
-            return this.getStages().get(0);
-        } else {
-            return null;
-        }
-    }
-    
-    public int getStageId() {
-        if (this.getStages().size() > 0) {
-            return this.getStages().get(0).getId();
-        } else {
-            return 0;
-        }
-    }
-    
     public int getMonsterWaveCount() {
-        int count = 0;
-        
-        for (StageExcel stage : stages) {
-            count += stage.getMonsterWaves().size();
+        return this.getWaves().size();
+    }
+    
+    public void setCustomLevel(int level) {
+        for (var wave : this.getWaves()) {
+            wave.setCustomLevel(level);
         }
-        
-        return count;
     }
     
     // Battle buffs
@@ -140,34 +173,14 @@ public class Battle {
         // Build battle info
         var proto = SceneBattleInfo.newInstance()
                 .setBattleId(this.getId())
+                .setStageId(this.getStage().getId())
                 .setRoundsLimit(this.getRoundsLimit())
                 .setLogicRandomSeed(Utils.randomRange(1, Short.MAX_VALUE))
                 .setWorldLevel(player.getWorldLevel());
 
-        // Add monster waves from stages
-        for (StageExcel stage : stages) {
-            // Build monster waves
-            for (IntList sceneMonsterWave : stage.getMonsterWaves()) {
-                var wave = SceneMonsterWave.newInstance()
-                        .setWaveId(1) // Probably not named correctly
-                        .setStageId(stage.getId());
-                
-                if (this.levelOverride > 0) {
-                    wave.getMutableWaveParam().setLevel(this.levelOverride);
-                }
-                
-                for (int monsterId : sceneMonsterWave) {
-                    var monster = SceneMonster.newInstance().setMonsterId(monsterId);
-                    wave.addMonsterList(monster);
-                }
-                
-                proto.addMonsterWaveList(wave);
-            }
-            
-            // Set stage for the battle
-            if (proto.getStageId() == 0) {
-                proto.setStageId(stage.getId());
-            }
+        // Add monster waves
+        for (var wave : this.getWaves()) {
+            proto.addMonsterWaveList(wave.toProto());
         }
         
         // Avatars

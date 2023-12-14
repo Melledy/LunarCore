@@ -20,7 +20,7 @@ public class PacketReEnterLastElementStageScRsp extends BasePacket {
         super(CmdId.ReEnterLastElementStageScRsp);
         
         var data = ReEnterLastElementStageScRsp.newInstance()
-                .setStageId(battle.getStageId())
+                .setStageId(battle.getStage().getId())
                 .setBattleInfo(battle.toProto());
         
         this.setData(data);
