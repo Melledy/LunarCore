@@ -111,6 +111,7 @@ public class Config {
     public static class ServerOptions {
         public boolean autoCreateAccount = true;
         public int sceneMaxEntites = 500;
+        public int maxCustomRelicLevel = 15; // Maximum level of a relic that the player can create with the /give command
         public boolean unlockAllChallenges = true;
         public boolean spendStamina = true;
         public int staminaRecoveryRate = 5 * 60;
