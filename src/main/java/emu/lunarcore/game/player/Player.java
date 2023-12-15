@@ -18,6 +18,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.PropInfo;
+import emu.lunarcore.data.excel.ItemUseExcel;
 import emu.lunarcore.data.excel.MapEntranceExcel;
 import emu.lunarcore.data.excel.MazePlaneExcel;
 import emu.lunarcore.game.account.Account;
@@ -551,13 +552,14 @@ public class Player implements Tickable {
         }
     }
     
-    public synchronized boolean addFoodBuff(int type, int mazeBuffId) {
+    public synchronized boolean addFoodBuff(int type, ItemUseExcel itemUseExcel) {
         // Get maze excel
-        var excel = GameData.getMazeBuffExcel(mazeBuffId, 1);
+        var excel = GameData.getMazeBuffExcel(itemUseExcel.getMazeBuffID(), 1);
         if (excel == null) return false;
         
         // Create new buff
-        var buff = new SceneBuff(mazeBuffId);
+        var buff = new SceneBuff(itemUseExcel.getMazeBuffID());
+        buff.setCount(Math.max(itemUseExcel.getActivityCount(), 1));
         
         int avatarEntityId = getCurrentLeaderAvatar().getEntityId();
         var oldBuff = this.getFoodBuffs().put(type, buff);

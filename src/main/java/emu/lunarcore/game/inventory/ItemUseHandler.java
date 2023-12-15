@@ -77,7 +77,7 @@ public class ItemUseHandler {
         
         // Add food buff to player
         if (excel.getConsumeType() == 1 || excel.getConsumeType() == 2) {
-            player.addFoodBuff(excel.getConsumeType(), excel.getMazeBuffID());
+            player.addFoodBuff(excel.getConsumeType(), excel);
         }
         
         // TODO send buff refresh packet

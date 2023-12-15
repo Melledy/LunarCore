@@ -12,6 +12,7 @@ public class ItemUseExcel extends GameResource {
     private int UseDataID;
     private int ConsumeType;
     private int MazeBuffID;
+    private int ActivityCount;
     
     private double PreviewHPRecoveryPercent;
     private int PreviewHPRecoveryValue;

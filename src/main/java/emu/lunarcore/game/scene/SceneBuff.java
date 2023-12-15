@@ -2,13 +2,15 @@ package emu.lunarcore.game.scene;
 
 import emu.lunarcore.proto.BuffInfoOuterClass.BuffInfo;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class SceneBuff {
     private int casterAvatarId; // Owner avatar id
     private int buffId;
     private int buffLevel;
-    private int count;
+    @Setter private int count;
+    
     private float duration;
     private long createTime;
     private long expiry;
