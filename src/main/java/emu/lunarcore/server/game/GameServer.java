@@ -166,12 +166,13 @@ public class GameServer extends KcpServer {
         this.info.setUp(true);
         this.info.save();
         LunarCore.getHttpServer().forceRegionListRefresh();
+        
+        // Force a system gc after everything is loaded and started
+        System.gc();
 
         // Done
         LunarCore.getLogger().info("Game Server started on " + address.getPort());
-
-        // Anti-seller
-        LunarCore.getLogger().warn("LUNARCORE IS A FREE SOFTWARE. IF YOU PAID FOR IT, YOU HAVE BEEN SCAMMED!");
+        LunarCore.getLogger().warn("LUNARCORE IS A FREE SOFTWARE. IF YOU PAID FOR IT, YOU HAVE BEEN SCAMMED!"); // DO NOT REMOVE. Anti-seller
     }
     
     private void onTick() {

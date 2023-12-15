@@ -57,7 +57,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         // Actually create the monster now
         EntityMonster monster = new EntityMonster(scene, npcMonster, group, monsterInfo);
         monster.setEventId(rogueMonster.getEventID());
-        monster.setOverrideStageId(rogueMonster.getEventID());
+        monster.setCustomStageId(rogueMonster.getEventID());
         
         return monster;
     }

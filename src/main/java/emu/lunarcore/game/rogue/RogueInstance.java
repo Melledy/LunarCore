@@ -332,7 +332,7 @@ public class RogueInstance {
         // Set monster level for battle
         RogueMapExcel mapExcel = GameData.getRogueMapExcel(this.getExcel().getMapId(), this.getCurrentSiteId());
         if (mapExcel != null && mapExcel.getLevelList() != null && mapExcel.getLevelList().length >= 1) {
-            battle.setLevelOverride(mapExcel.getLevelList()[0]);
+            battle.setCustomLevel(mapExcel.getLevelList()[0]);
         }
     }
     

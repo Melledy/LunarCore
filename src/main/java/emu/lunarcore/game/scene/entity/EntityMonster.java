@@ -33,8 +33,8 @@ public class EntityMonster implements GameEntity, Tickable {
     
     private Int2ObjectMap<SceneBuff> buffs;
     private int farmElementId;
-    @Setter private int overrideStageId;
-    @Setter private int overrideLevel;
+    @Setter private int customStageId;
+    @Setter private int customLevel;
     
     public EntityMonster(Scene scene, NpcMonsterExcel excel, GroupInfo group, MonsterInfo monsterInfo) {
         this.scene = scene;
@@ -51,10 +51,10 @@ public class EntityMonster implements GameEntity, Tickable {
     }
     
     public int getStageId() {
-        if (this.overrideStageId == 0) {
+        if (this.customStageId == 0) {
             return (this.getEventId() * 10) + worldLevel;
         } else {
-            return this.overrideStageId;
+            return this.customStageId;
         }
     }
     
@@ -71,7 +71,7 @@ public class EntityMonster implements GameEntity, Tickable {
         return buff;
     }
     
-    public synchronized void applyBuffs(Battle battle) {
+    public synchronized void applyBuffs(Battle battle, int waveIndex) {
         if (this.buffs == null) return;
         
         for (var entry : this.buffs.int2ObjectEntrySet()) {
@@ -80,18 +80,12 @@ public class EntityMonster implements GameEntity, Tickable {
                 continue;
             }
             
-            // Dont add duplicate buffs
-            if (battle.hasBuff(entry.getIntKey())) {
-                continue;
-            }
-            
             // Get owner index
             int ownerIndex = battle.getLineup().indexOf(entry.getValue().getCasterAvatarId());
             
             // Add buff to battle if owner exists
             if (ownerIndex != -1) {
-                // TODO handle multiple waves properly
-                battle.addBuff(entry.getIntKey(), ownerIndex, 1);
+                battle.addBuff(entry.getIntKey(), ownerIndex, 1 << waveIndex);
             }
         }
     }

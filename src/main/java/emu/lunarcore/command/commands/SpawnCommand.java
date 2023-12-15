@@ -73,10 +73,10 @@ public class SpawnCommand implements CommandHandler {
                 EntityMonster monster = new EntityMonster(target.getScene(), monsterExcel, groupInfo, monsterInfo);
                 monster.getPos().set(pos);
                 monster.setEventId(monsterInfo.getEventID());
-                monster.setOverrideStageId(stage);
+                monster.setCustomStageId(stage);
                 
                 if (args.getLevel() > 0) {
-                    monster.setOverrideLevel(Math.min(args.getLevel(), 100));
+                    monster.setCustomLevel(Math.min(args.getLevel(), 100));
                 }
                 
                 target.getScene().addEntity(monster, true);

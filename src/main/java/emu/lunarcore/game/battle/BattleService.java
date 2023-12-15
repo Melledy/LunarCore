@@ -97,46 +97,13 @@ public class BattleService extends BaseGameService {
 
         // Start battle
         if (monsters.size() > 0) {
-            // Get stages from monsters
-            List<StageExcel> stages = new ArrayList<>();
+            // Create battle and add npc monsters to it
+            Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), monsters);
             
-            for (var monster : monsters) {
-                StageExcel stage = GameData.getStageExcelMap().get(monster.getStageId());
-                
-                if (stage != null) {
-                    stages.add(stage);
-                }
-            }
-            
-            if (stages.size() == 0) {
-                // An error has occurred while trying to get stage data
+            // Make sure we have at least one stage for the battle
+            if (battle.getStage() == null) {
                 player.sendPacket(new PacketSceneCastSkillScRsp());
                 return;
-            }
-            
-            // Create battle and add npc monsters to it
-            Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), stages);
-            
-            // Add npc monsters
-            for (var monster : monsters) {
-                // Add npc monster
-                battle.getNpcMonsters().add(monster);
-                
-                // Check farm element
-                if (monster.getFarmElementId() != 0) {
-                    battle.setMappingInfoId(monster.getFarmElementId());
-                    battle.setWorldLevel(monster.getWorldLevel());
-                    battle.setStaminaCost(GameConstants.FARM_ELEMENT_STAMINA_COST);
-                }
-                
-                // Handle monster buffs
-                // TODO handle multiple waves properly
-                monster.applyBuffs(battle);
-                
-                // Override level
-                if (monster.getOverrideLevel() > 0) {
-                    battle.setLevelOverride(monster.getOverrideLevel());
-                }
             }
             
             // Add buffs to battle
@@ -270,7 +237,7 @@ public class BattleService extends BaseGameService {
             case BATTLE_END_QUIT -> {
                 updateStatus = false;
                 // Only teleport back to anchor if stage is a random fight
-                if (battle.getStageType().getVal() <= StageType.Maze.getVal()) {
+                if (battle.getStage().getStageType().getVal() <= StageType.Maze.getVal()) {
                     teleportToAnchor = true;
                 }
             }

@@ -222,7 +222,7 @@ public class CommandArgs {
             // Try to set level
             if (this.getLevel() > 0) {
                 // Set relic level
-                item.setLevel(Math.min(this.getLevel(), 999));
+                item.setLevel(Math.min(this.getLevel(), LunarCore.getConfig().getServerOptions().maxCustomRelicLevel));
                 
                 // Apply sub stat upgrades to the relic
                 int upgrades = item.getMaxNormalSubAffixCount() - item.getCurrentSubAffixCount();
