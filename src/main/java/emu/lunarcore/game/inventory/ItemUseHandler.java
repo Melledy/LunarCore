@@ -44,6 +44,9 @@ public class ItemUseHandler {
             }
             
             avatar.save();
+            
+            // Resync lineup with client
+            lineup.refreshLineup();
         }
         
         // Add avatar energy
@@ -54,22 +57,29 @@ public class ItemUseHandler {
             int amount = (int) (excel.getPreviewHPRecoveryPercent() * 10000);
             avatar.setCurrentSp(lineup, avatar.getCurrentHp(lineup) + amount);
             avatar.save();
+            
+            // Resync lineup with client
+            lineup.refreshLineup();
         }
 
         // Add lineup technique points
         if (excel.getPreviewSkillPoint() > 0) {
             lineup.addMp(excel.getPreviewSkillPoint());
+            lineup.save();
         }
         
-        // Refresh
-        lineup.refreshLineup();
         return true;
     }
     
     public static boolean handleExternalSystemFoodBenefit(Player player, ItemUseExcel excel, int avatarId, int count) {
+        // Handle any hp/mp/sp changes the food might give
+        handleTeamSpecificFoodBenefit(player, excel, avatarId, count);
+        
         // Add food buffs
-        player.getFoodBuffs().put(excel.getConsumeType(), excel.getMazeBuffID());
-        player.save();
+        if (excel.getConsumeType() == 1 || excel.getConsumeType() == 2) {
+            player.getFoodBuffs().put(excel.getConsumeType(), excel.getMazeBuffID());
+            player.save();
+        }
         
         // TODO send buff refresh packet
         
