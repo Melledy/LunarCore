@@ -2,7 +2,6 @@ package emu.lunarcore.game.battle;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
@@ -24,6 +23,7 @@ import emu.lunarcore.server.packet.send.PacketReEnterLastElementStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
 import emu.lunarcore.server.packet.send.PacketStartCocoonStageScRsp;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
+import it.unimi.dsi.fastutil.ints.IntSet;
 
 public class BattleService extends BaseGameService {
 
@@ -31,15 +31,18 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void startBattle(Player player, int casterId, int attackedGroupId, MazeSkill castedSkill, Set<Integer> targets) {
+    public void startBattle(Player player, int casterId, int attackedGroupId, MazeSkill castedSkill, IntSet hitTargets, IntSet assistMonsters) {
         // Setup variables
         List<GameEntity> targetEntities = new ArrayList<>();
-        boolean isPlayerCaster = player.getScene().getAvatarEntityIds().contains(casterId);
+        GameAvatar castingAvatar = null;
         
         // Check if attacker is the player or not
-        if (isPlayerCaster) {
-            // Player is the attacker
-            for (int entityId : targets) {
+        if (player.getScene().getAvatarEntityIds().contains(casterId)) {
+            // Get casting avatar
+            castingAvatar = player.getCurrentLeaderAvatar();
+            
+            // Player is the attacker, add hit targets to the battle
+            for (int entityId : hitTargets) {
                 GameEntity entity = player.getScene().getEntities().get(entityId);
                 
                 if (entity != null) {
@@ -52,15 +55,6 @@ public class BattleService extends BaseGameService {
             
             if (entity != null) {
                 targetEntities.add(entity);
-            }
-            
-            // Add any assisting monsters from target list
-            for (int entityId : targets) {
-                entity = player.getScene().getEntities().get(entityId);
-                
-                if (entity != null) {
-                    targetEntities.add(entity);
-                }
             }
         }
         
@@ -83,6 +77,8 @@ public class BattleService extends BaseGameService {
             } else if (entity instanceof EntityProp prop) {
                 it.remove();
                 player.getScene().destroyProp(prop);
+            } else {
+                it.remove();
             }
         }
         
@@ -93,10 +89,24 @@ public class BattleService extends BaseGameService {
             // Skip battle if our technique does not trigger a battle
             player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
             return;
-        } 
-
+        }
+        
+        // Add any assisting monsters from monster assist list
+        for (int entityId : assistMonsters) {
+            GameEntity entity = player.getScene().getEntities().get(entityId);
+            
+            if (entity != null && entity instanceof EntityMonster monster) {
+                monsters.add(monster);
+            }
+        }
+        
         // Start battle
         if (monsters.size() > 0) {
+            // Maze skill attack event
+            if (castedSkill != null && castingAvatar != null) {
+                castedSkill.onAttack(castingAvatar, targetEntities);
+            }
+            
             // Create battle and add npc monsters to it
             Battle battle = new Battle(player, player.getLineupManager().getCurrentLineup(), monsters);
             
@@ -107,23 +117,15 @@ public class BattleService extends BaseGameService {
             }
             
             // Add buffs to battle
-            if (isPlayerCaster) {
-                GameAvatar avatar = player.getCurrentLeaderAvatar();
-                
-                if (avatar != null) {
-                    // Maze skill attack event
-                    if (castedSkill != null) {
-                        castedSkill.onAttack(avatar, battle);
-                    }
-                    // Add elemental weakness buff to enemies
-                    MazeBuff buff = battle.addBuff(avatar.getExcel().getDamageType().getEnterBattleBuff(), battle.getLineup().getLeader());
-                    if (buff != null) {
-                        buff.addTargetIndex(battle.getLineup().getLeader());
-                        buff.addDynamicValue("SkillIndex", castedSkill.getIndex());
-                    }
+            if (castingAvatar != null) {
+                // Add elemental weakness debuff to enemies
+                MazeBuff buff = battle.addBuff(castingAvatar.getExcel().getDamageType().getEnterBattleBuff(), battle.getLineup().getLeader());
+                if (buff != null) {
+                    buff.addTargetIndex(battle.getLineup().getLeader());
+                    buff.addDynamicValue("SkillIndex", castedSkill.getIndex());
                 }
             } else {
-                // Ambush buff (for monsters)
+                // Ambush debuff (from monsters)
                 battle.addBuff(GameConstants.BATTLE_AMBUSH_BUFF_ID, -1, 1);
             }
             

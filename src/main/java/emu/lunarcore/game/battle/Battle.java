@@ -130,10 +130,6 @@ public class Battle {
         return this.turnSnapshotList;
     }
     
-    public int getMonsterWaveCount() {
-        return this.getWaves().size();
-    }
-    
     public void setCustomLevel(int level) {
         for (var wave : this.getWaves()) {
             wave.setCustomLevel(level);

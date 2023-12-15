@@ -1,8 +1,5 @@
 package emu.lunarcore.server.packet.recv;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
-
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.game.player.Player;
@@ -13,10 +10,12 @@ import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillMpUpdateScNotify;
 import emu.lunarcore.server.packet.send.PacketSceneCastSkillScRsp;
+import it.unimi.dsi.fastutil.ints.IntLinkedOpenHashSet;
+import it.unimi.dsi.fastutil.ints.IntSet;
 
 @Opcodes(CmdId.SceneCastSkillCsReq)
 public class HandlerSceneCastSkillCsReq extends PacketHandler {
-
+    
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SceneCastSkillCsReq.parseFrom(data);
@@ -52,13 +51,19 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
         }
         
         if (req.hasHitTargetIdList()) {
-            // Create target list
-            Set<Integer> targets = new LinkedHashSet<>();
-            req.getHitTargetIdList().forEach(targets::add);
-            req.getAssistMonsterIdList().forEach(targets::add);
+            // Parse targets efficiently (skips integer boxing)
+            IntSet hitTargets = new IntLinkedOpenHashSet();
+            for (int i = 0; i < req.getHitTargetIdList().length(); i++) {
+                hitTargets.add(req.getHitTargetIdList().get(i));
+            }
+            
+            IntSet assistMonsters = new IntLinkedOpenHashSet();
+            for (int i = 0; i < req.getAssistMonsterIdList().length(); i++) {
+                assistMonsters.add(req.getAssistMonsterIdList().get(i));
+            }
             
             // Start battle
-            session.getServer().getBattleService().startBattle(player, req.getCasterId(), req.getAttackedGroupId(), skill, targets);
+            session.getServer().getBattleService().startBattle(player, req.getCasterId(), req.getAttackedGroupId(), skill, hitTargets, assistMonsters);
         } else {
             // We had no targets for some reason
             session.send(new PacketSceneCastSkillScRsp(req.getAttackedGroupId()));
