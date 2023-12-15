@@ -266,6 +266,9 @@ public class BattleService extends BaseGameService {
 
             // Sync with player
             player.sendPacket(new PacketSyncLineupNotify(battle.getLineup()));
+
+            // Clear food buffs for player
+            player.removeFoodBuffs(1);
         }
         
         // Teleport to anchor if player has lost/retreated. On official servers, the player party is teleported to the nearest anchor.
@@ -280,11 +283,6 @@ public class BattleService extends BaseGameService {
                     player.moveTo(anchor.getPos());
                 }
             }
-        }
-        
-        // Clear food buffs for player
-        if (player.getFoodBuffs().size() > 0) {
-            player.getFoodBuffs().clear();
         }
         
         // Challenge

@@ -205,8 +205,8 @@ public class Battle {
         
         // Apply food buffs to battle
         if (player.getFoodBuffs().size() > 0) {
-            for (int buffId : player.getFoodBuffs().values()) {
-                this.addBuff(buffId, -1);
+            for (var buff : player.getFoodBuffs().values()) {
+                this.addBuff(buff.getBuffId(), -1);
             }
         }
         

@@ -8,6 +8,7 @@ public class SceneBuff {
     private int casterAvatarId; // Owner avatar id
     private int buffId;
     private int buffLevel;
+    private int count;
     private float duration;
     private long createTime;
     private long expiry;
@@ -15,6 +16,7 @@ public class SceneBuff {
     public SceneBuff(int buffId) {
         this.buffId = buffId;
         this.buffLevel = 1;
+        this.count = 1;
         this.createTime = System.currentTimeMillis();
         this.duration = -1;
     }
@@ -32,6 +34,11 @@ public class SceneBuff {
         this.expiry = this.createTime + (long) duration;
     }
     
+    public int decrementAndGet() {
+        this.count--;
+        return this.count;
+    }
+    
     public boolean isExpired(long timestamp) {
         return timestamp > this.expiry;
     }
@@ -45,7 +52,7 @@ public class SceneBuff {
                 .setBaseAvatarId(this.getCasterAvatarId())
                 .setAddTimeMs(this.getCreateTime())
                 .setLifeTime(this.getDuration())
-                .setCount(1);
+                .setCount(this.getCount());
         
         return proto;
     }

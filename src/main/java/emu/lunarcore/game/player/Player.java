@@ -2,6 +2,8 @@ package emu.lunarcore.game.player;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Set;
 
 import com.mongodb.client.model.Filters;
@@ -45,6 +47,7 @@ import emu.lunarcore.game.rogue.RogueInstance;
 import emu.lunarcore.game.rogue.RogueManager;
 import emu.lunarcore.game.rogue.RogueTalentData;
 import emu.lunarcore.game.scene.Scene;
+import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
@@ -65,10 +68,7 @@ import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
 import emu.lunarcore.util.Utils;
-import it.unimi.dsi.fastutil.ints.Int2IntMap;
-import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
-import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
-import it.unimi.dsi.fastutil.ints.IntSet;
+import it.unimi.dsi.fastutil.ints.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -134,7 +134,7 @@ public class Player implements Tickable {
     private transient boolean loggedIn;
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
-    private transient Int2IntMap foodBuffs; // TODO
+    private transient Map<Integer, SceneBuff> foodBuffs;
     
     @Setter private transient boolean paused;
     
@@ -142,7 +142,7 @@ public class Player implements Tickable {
     public Player() {
         this.curBasicType = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.gender = PlayerGender.GENDER_MAN;
-        this.foodBuffs = new Int2IntOpenHashMap();
+        this.foodBuffs = new HashMap<>();
         
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
@@ -551,6 +551,49 @@ public class Player implements Tickable {
         }
     }
     
+    public synchronized boolean addFoodBuff(int type, int mazeBuffId) {
+        // Get maze excel
+        var excel = GameData.getMazeBuffExcel(mazeBuffId, 1);
+        if (excel == null) return false;
+        
+        // Create new buff
+        var buff = new SceneBuff(mazeBuffId);
+        
+        int avatarEntityId = getCurrentLeaderAvatar().getEntityId();
+        var oldBuff = this.getFoodBuffs().put(type, buff);
+        
+        // Send packets
+        if (oldBuff != null) {
+            this.sendPacket(new PacketSyncEntityBuffChangeListScNotify(avatarEntityId, oldBuff.getBuffId()));
+        }
+        
+        this.sendPacket(new PacketSyncEntityBuffChangeListScNotify(avatarEntityId, buff));
+        return true;
+    }
+    
+    public synchronized boolean removeFoodBuffs(int amount) {
+        // Sanity check
+        if (getFoodBuffs().size() == 0) return false;
+        
+        // Cache current avatar entity id
+        int avatarEntityId = getCurrentLeaderAvatar().getEntityId();
+        
+        // Remove and send packet for each buff removed
+        for (var it = getFoodBuffs().entrySet().iterator(); it.hasNext();) {
+            var entry = it.next();
+            var buff = entry.getValue();
+            
+            if (buff.decrementAndGet() <= 0) {
+                it.remove();
+                this.sendPacket(new PacketSyncEntityBuffChangeListScNotify(avatarEntityId, buff.getBuffId()));
+            } else {
+                this.sendPacket(new PacketSyncEntityBuffChangeListScNotify(avatarEntityId, buff));
+            }
+        }
+        
+        return true;
+    }
+    
     public EntityProp interactWithProp(int propEntityId) {
         // Sanity
         if (this.getScene() == null) return null;
@@ -747,7 +790,7 @@ public class Player implements Tickable {
         
         // Update stamina
         this.updateStamina(System.currentTimeMillis());
-        
+
         // Check instances
         if (this.getChallengeInstance() != null && !this.getChallengeInstance().validate(this)) {
             // Delete instance if it failed to validate (example: missing an excel)
