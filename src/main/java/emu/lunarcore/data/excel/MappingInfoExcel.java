@@ -11,7 +11,6 @@ import emu.lunarcore.data.ResourceType.LoadPriority;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.game.drops.DropParam;
 import emu.lunarcore.game.enums.ItemMainType;
-import emu.lunarcore.game.enums.ItemRarity;
 import emu.lunarcore.game.enums.ItemSubType;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -94,35 +93,66 @@ public class MappingInfoExcel extends GameResource {
             } else if (itemExcel.getItemMainType() == ItemMainType.Material) {
                 // Calculate amount to drop by purpose level
                 DropParam drop = switch (itemExcel.getPurposeType()) {
-                    // Avatar exp. TODO drop rate is not correct
-                    case 1 -> new DropParam(itemParam.getId(), 1);
+                    // Avatar exp. Drop rate is guessed (with data)
+                    case 1 -> {
+                        // Calc amount
+                        double amount = switch (itemExcel.getRarity()) {
+                            case NotNormal -> getWorldLevel() < 3 ? getWorldLevel() + 3 : 2.5;
+                            case Rare -> getWorldLevel() < 3 ? getWorldLevel() + 3 : (getWorldLevel() * 2) - 3;
+                            default -> 1;
+                        };
+                        
+                        yield new DropParam(itemParam.getId(), amount);
+                    }
                     // Boss materials
                     case 2 -> new DropParam(itemParam.getId(), this.getWorldLevel());
-                    // Trace materials. TODO drop rate is not correct
+                    // Trace materials. Drop rate is guessed (with data)
                     case 3 -> {
                         var dropInfo = new DropParam(itemParam.getId(), 1);
                         
-                        if (itemExcel.getRarity() == ItemRarity.VeryRare) {
-                            dropInfo.setChance((this.getWorldLevel() - 3) * 75);
+                        switch (itemExcel.getRarity()) {
+                            case NotNormal -> {
+                                double amount = getWorldLevel() >= 1 && getWorldLevel() <= 3 ? 2.5 : 1.5;
+                                dropInfo.setCount(amount);
+                            }
+                            case Rare -> {
+                                dropInfo.setChance(Math.min((getWorldLevel() - 1) * 334, 1000));
+                            }
+                            case VeryRare -> {
+                                dropInfo.setChance((getWorldLevel() - 3) * 75);
+                            }
+                            default -> {
+                                
+                            }
                         }
                         
                         yield dropInfo;
                     }
-                    // Boss Trace materials. TODO drop rate is not correct
+                    // Boss Trace materials. Drop rate is guessed (with data)
                     case 4 -> new DropParam(itemParam.getId(), (this.getWorldLevel() * 0.5) + 0.5);
-                    // Lightcone exp. TODO drop rate is not correct
-                    case 5 -> new DropParam(itemParam.getId(), 1);
+                    // Lightcone exp. Drop rate is guessed (with data)
+                    case 5 -> {
+                        // Calc amount
+                        double amount = switch (itemExcel.getRarity()) {
+                            case NotNormal -> Math.max(5 - getWorldLevel(), 2.5);
+                            case Rare -> (getWorldLevel() % 3) + 1;
+                            default -> 1; 
+                        };
+                        
+                        yield new DropParam(itemParam.getId(), amount);
+                    }
                     // Lucent afterglow
                     case 11 -> new DropParam(itemParam.getId(), 4 + this.getWorldLevel());
                     // Unknown
                     default -> null;
                 };
                 
+                // Add to drop list
                 if (drop != null) {
                     dropList.add(drop);
                 }
             } else if (itemExcel.getItemMainType() == ItemMainType.Equipment) {
-                // Lightcones
+                // Add lightcones
                 equipmentDrops.add(itemParam.getId());
             }
         }

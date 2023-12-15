@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import emu.lunarcore.GameConstants;
-import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.excel.ItemExcel;
@@ -72,7 +71,6 @@ public class DropService extends BaseGameService {
             }
             
             // Create item and add it to player
-            int itemId = 0;
             ItemExcel excel = GameData.getItemExcelMap().get(entry.getIntKey());
             if (excel == null) continue;
             
