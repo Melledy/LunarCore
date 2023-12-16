@@ -19,17 +19,6 @@ public class AvatarPromotionExcel extends GameResource {
     private int WorldLevelRequire;
     private List<ItemParam> PromotionCostList;
 
-    private double AttackBase;
-    private double AttackAdd;
-    private double DefenceBase;
-    private double DefenceAdd;
-    private double HPBase;
-    private double HPAdd;
-    private double SpeedBase;
-    private double CriticalChance;
-    private double CriticalDamage;
-    private double BaseAggro;
-
     @Override
     public int getId() {
         return (AvatarID << 8) + Promotion;

@@ -2,23 +2,43 @@ package emu.lunarcore.game.scene;
 
 import emu.lunarcore.proto.BuffInfoOuterClass.BuffInfo;
 import lombok.Getter;
+import lombok.Setter;
 
 @Getter
 public class SceneBuff {
     private int casterAvatarId; // Owner avatar id
     private int buffId;
     private int buffLevel;
-    private int duration;
+    @Setter private int count;
+    
+    private float duration;
     private long createTime;
     private long expiry;
     
-    public SceneBuff(int casterAvatarId, int buffId, int seconds) {
-        this.casterAvatarId = casterAvatarId;
+    public SceneBuff(int buffId) {
         this.buffId = buffId;
         this.buffLevel = 1;
+        this.count = 1;
         this.createTime = System.currentTimeMillis();
+        this.duration = -1;
+    }
+    
+    public SceneBuff(int casterAvatarId, int buffId) {
+        this(buffId);
+        this.casterAvatarId = casterAvatarId;
+        this.expiry = Long.MAX_VALUE;
+    }
+    
+    public SceneBuff(int casterAvatarId, int buffId, int seconds) {
+        this(buffId);
+        this.casterAvatarId = casterAvatarId;
         this.duration = seconds * 1000;
-        this.expiry = this.createTime + duration;
+        this.expiry = this.createTime + (long) duration;
+    }
+    
+    public int decrementAndGet() {
+        this.count--;
+        return this.count;
     }
     
     public boolean isExpired(long timestamp) {
@@ -33,8 +53,8 @@ public class SceneBuff {
                 .setLevel(this.getBuffLevel())
                 .setBaseAvatarId(this.getCasterAvatarId())
                 .setAddTimeMs(this.getCreateTime())
-                .setLifeTime(this.getDuration() / 10)
-                .setCount(1);
+                .setLifeTime(this.getDuration())
+                .setCount(this.getCount());
         
         return proto;
     }

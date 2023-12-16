@@ -32,6 +32,8 @@ public class EntityMonster implements GameEntity, Tickable {
     private final Position rot;
     
     private Int2ObjectMap<SceneBuff> buffs;
+    @Setter private SceneBuff tempBuff;
+    
     private int farmElementId;
     @Setter private int customStageId;
     @Setter private int customLevel;
@@ -72,22 +74,36 @@ public class EntityMonster implements GameEntity, Tickable {
     }
     
     public synchronized void applyBuffs(Battle battle, int waveIndex) {
-        if (this.buffs == null) return;
-        
-        for (var entry : this.buffs.int2ObjectEntrySet()) {
-            // Check expiry for buff
-            if (entry.getValue().isExpired(battle.getTimestamp())) {
-                continue;
-            }
-            
-            // Get owner index
-            int ownerIndex = battle.getLineup().indexOf(entry.getValue().getCasterAvatarId());
-            
-            // Add buff to battle if owner exists
-            if (ownerIndex != -1) {
-                battle.addBuff(entry.getIntKey(), ownerIndex, 1 << waveIndex);
+        if (this.buffs != null) {
+            for (var entry : this.buffs.int2ObjectEntrySet()) {
+                // Check expiry for buff
+                if (entry.getValue().isExpired(battle.getTimestamp())) {
+                    continue;
+                }
+                
+                // Add buff to battle
+                this.applyBuff(battle, entry.getValue(), waveIndex);
             }
         }
+        
+        if (this.getTempBuff() != null) {
+            this.applyBuff(battle, this.getTempBuff(), waveIndex);
+            this.tempBuff = null;
+        }
+    }
+    
+    private boolean applyBuff(Battle battle, SceneBuff buff, int waveIndex) {
+        // Get index of owner in lineup
+        int ownerIndex = battle.getLineup().indexOf(buff.getCasterAvatarId());
+        
+        // Add buff to battle if owner exists
+        if (ownerIndex != -1) {
+            battle.addBuff(buff.getBuffId(), ownerIndex, 1 << waveIndex);
+            return true;
+        }
+        
+        // Failure
+        return false;
     }
     
     @Override

@@ -261,7 +261,7 @@ public class Scene implements Tickable {
         
         // Handle task actions
         for (var action : trigger.getActions()) {
-            action.onAttack(summonUnit.getCaster(), targets);
+            action.onCastHit(summonUnit.getCaster(), targets);
         }
         
         // Send packet

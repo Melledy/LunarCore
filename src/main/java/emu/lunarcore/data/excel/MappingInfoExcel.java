@@ -15,6 +15,7 @@ import emu.lunarcore.game.enums.ItemSubType;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
+import lombok.AccessLevel;
 import lombok.Getter;
 
 @Getter
@@ -23,8 +24,11 @@ public class MappingInfoExcel extends GameResource {
     private int ID;
     private int WorldLevel;
     private String FarmType; // is enum
+    
+    @Getter(AccessLevel.PRIVATE)
     private List<ItemParam> DisplayItemList;
     
+    // Temp solution for handling drop tables
     private transient List<DropParam> dropList;
     
     @Override
@@ -35,7 +39,12 @@ public class MappingInfoExcel extends GameResource {
     @Override
     public void onLoad() {
         // Temp way to pre-calculate drop list
-        this.dropList = new ArrayList<>(this.getDisplayItemList().size());
+        if (this.DisplayItemList == null || DisplayItemList.size() == 0) {
+            this.dropList = new ArrayList<>(0);
+            return;
+        }
+        
+        this.dropList = new ArrayList<>(DisplayItemList.size());
         
         var equipmentDrops = new IntArrayList();
         var relicDrops = new Int2ObjectOpenHashMap<IntList>();
@@ -192,5 +201,8 @@ public class MappingInfoExcel extends GameResource {
                 }
             }
         }
+        
+        // Clear list once were done with it to free some memory
+        this.DisplayItemList = null;
     }
 }

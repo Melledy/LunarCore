@@ -75,13 +75,10 @@ public class ItemUseHandler {
         // Handle any hp/mp/sp changes the food might give
         handleTeamSpecificFoodBenefit(player, excel, avatarId, count);
         
-        // Add food buffs
+        // Add food buff to player
         if (excel.getConsumeType() == 1 || excel.getConsumeType() == 2) {
-            player.getFoodBuffs().put(excel.getConsumeType(), excel.getMazeBuffID());
-            player.save();
+            player.addFoodBuff(excel.getConsumeType(), excel);
         }
-        
-        // TODO send buff refresh packet
         
         return true;
     }

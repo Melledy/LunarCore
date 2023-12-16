@@ -3,7 +3,7 @@ package emu.lunarcore.game.battle.skills;
 import java.util.List;
 
 import emu.lunarcore.game.avatar.GameAvatar;
-import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
@@ -30,17 +30,7 @@ public class MazeSkillAddBuff extends MazeSkillAction {
     }
     
     @Override
-    public void onAttack(GameAvatar caster, Battle battle) {
-        // Get amount of monster waves in battle
-        int waveCount = battle.getMonsterWaveCount();
-        // Add buff for each wave id
-        for (int i = 0; i < waveCount; i++) {
-            battle.addBuff(buffId, battle.getLineup().getLeader(), 1 << i);
-        }
-    }
-
-    @Override
-    public void onAttack(GameAvatar caster, List<? extends GameEntity> entities) {
+    public void onCastHit(GameAvatar caster, List<? extends GameEntity> entities) {
         for (GameEntity entity : entities) {
             if (entity instanceof EntityMonster monster) {
                 // Add buff to monster
@@ -54,4 +44,14 @@ public class MazeSkillAddBuff extends MazeSkillAction {
         }
     }
     
+    @Override
+    public void onAttack(GameAvatar caster, List<? extends GameEntity> targets) {
+        // Add debuff to monsters
+        for (GameEntity target : targets) {
+            if (target instanceof EntityMonster monster) {
+                // Set as temp buff
+                monster.setTempBuff(new SceneBuff(caster.getAvatarId(), buffId));
+            }
+        }
+    }
 }

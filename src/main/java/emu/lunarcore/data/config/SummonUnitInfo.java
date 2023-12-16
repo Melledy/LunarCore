@@ -62,7 +62,7 @@ public class SummonUnitInfo {
             for (var task : this.OnTriggerEnter) {
                 if (task.getType().contains("AddMazeBuff")) {
                     // TODO get duration from params if buff duration is dynamic
-                    var actionAddBuff = new MazeSkillAddBuff(task.getID(), 15);
+                    var actionAddBuff = new MazeSkillAddBuff(task.getID(), 5);
                     actionAddBuff.setSendBuffPacket(true);
                     
                     actions.add(actionAddBuff);
