@@ -618,7 +618,7 @@ public class InventoryService extends BaseGameService {
             }
             
             // Pay items
-            player.getInventory().removeItemsByParams(costItems, count);
+            player.getInventory().removeItemsByParams(costItems);
             
             // Create item
             items.add(new GameItem(excel.getItemID(), count));
@@ -650,9 +650,7 @@ public class InventoryService extends BaseGameService {
         
         // Get relic excel
         ItemExcel itemExcel = GameData.getItemExcelMap().get(relicId);
-        if (itemExcel == null) {
-            return null;
-        }
+        if (itemExcel == null) return null;
         
         // Build cost items
         List<ItemParam> costItems = new ArrayList<>();
