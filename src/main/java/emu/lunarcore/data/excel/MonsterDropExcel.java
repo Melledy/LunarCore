@@ -10,6 +10,7 @@ import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.game.drops.DropParam;
+import lombok.AccessLevel;
 import lombok.Getter;
 
 @Getter
@@ -19,6 +20,7 @@ public class MonsterDropExcel extends GameResource {
     private int WorldLevel;
     private int AvatarExpReward;
 
+    @Getter(AccessLevel.PRIVATE)
     private List<ItemParam> DisplayItemList;
     
     // Temp solution for handling drop tables
@@ -76,5 +78,8 @@ public class MonsterDropExcel extends GameResource {
                 dropList.add(drop);
             }
         }
+        
+        // Clear list once were done with it to free some memory
+        this.DisplayItemList = null;
     }
 }

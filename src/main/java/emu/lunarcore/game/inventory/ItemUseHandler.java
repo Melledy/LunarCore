@@ -80,8 +80,6 @@ public class ItemUseHandler {
             player.addFoodBuff(excel.getConsumeType(), excel);
         }
         
-        // TODO send buff refresh packet
-        
         return true;
     }
 }

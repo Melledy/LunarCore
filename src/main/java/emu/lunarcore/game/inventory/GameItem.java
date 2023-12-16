@@ -247,7 +247,6 @@ public class GameItem {
         } else if (this.getId() != null) {
             LunarCore.getGameDatabase().delete(this);
         }
-
     }
 
     // Proto
