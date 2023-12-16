@@ -1,7 +1,9 @@
 package emu.lunarcore.game.battle;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
@@ -33,7 +35,7 @@ public class BattleService extends BaseGameService {
 
     public void startBattle(Player player, int casterId, int attackedGroupId, MazeSkill castedSkill, IntSet hitTargets, IntSet assistMonsters) {
         // Setup variables
-        List<GameEntity> targetEntities = new ArrayList<>();
+        List<GameEntity> targets = new ArrayList<>();
         GameAvatar castingAvatar = null;
         
         // Check if attacker is the player or not
@@ -46,7 +48,7 @@ public class BattleService extends BaseGameService {
                 GameEntity entity = player.getScene().getEntities().get(entityId);
                 
                 if (entity != null) {
-                    targetEntities.add(entity);
+                    targets.add(entity);
                 }
             }
         } else {
@@ -54,22 +56,21 @@ public class BattleService extends BaseGameService {
             GameEntity entity = player.getScene().getEntities().get(casterId);
             
             if (entity != null) {
-                targetEntities.add(entity);
+                targets.add(entity);
             }
         }
         
         // Skip if no attacked entities detected
-        if (targetEntities.size() == 0) {
+        if (targets.size() == 0) {
             player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
             return;
         }
         
         // Separate entities into monster list
-        List<EntityMonster> monsters = new ArrayList<>();
+        Set<EntityMonster> monsters = new HashSet<>();
         
         // Destroy props
-        var it = targetEntities.iterator();
-        while (it.hasNext()) {
+        for (var it = targets.iterator(); it.hasNext();) {
             GameEntity entity = it.next();
             
             if (entity instanceof EntityMonster monster) {
@@ -85,7 +86,7 @@ public class BattleService extends BaseGameService {
         // Check if we are using a skill that doesnt trigger a battle
         if (castedSkill != null && !castedSkill.isTriggerBattle()) {
             // Apply buffs to monsters
-            castedSkill.onAttack(player.getCurrentLeaderAvatar(), monsters);
+            castedSkill.onCastHit(player.getCurrentLeaderAvatar(), targets);
             // Skip battle if our technique does not trigger a battle
             player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
             return;
@@ -104,7 +105,7 @@ public class BattleService extends BaseGameService {
         if (monsters.size() > 0) {
             // Maze skill attack event
             if (castedSkill != null && castingAvatar != null) {
-                castedSkill.onAttack(castingAvatar, targetEntities);
+                castedSkill.onAttack(castingAvatar, targets);
             }
             
             // Create battle and add npc monsters to it

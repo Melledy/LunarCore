@@ -30,17 +30,6 @@ public class MazeSkillAddBuff extends MazeSkillAction {
     }
     
     @Override
-    public void onAttack(GameAvatar caster, List<? extends GameEntity> targets) {
-        // Add debuff to monsters
-        for (GameEntity target : targets) {
-            if (target instanceof EntityMonster monster) {
-                // Set as temp buff
-                monster.setTempBuff(new SceneBuff(caster.getAvatarId(), buffId));
-            }
-        }
-    }
-
-    @Override
     public void onCastHit(GameAvatar caster, List<? extends GameEntity> entities) {
         for (GameEntity entity : entities) {
             if (entity instanceof EntityMonster monster) {
@@ -55,4 +44,14 @@ public class MazeSkillAddBuff extends MazeSkillAction {
         }
     }
     
+    @Override
+    public void onAttack(GameAvatar caster, List<? extends GameEntity> targets) {
+        // Add debuff to monsters
+        for (GameEntity target : targets) {
+            if (target instanceof EntityMonster monster) {
+                // Set as temp buff
+                monster.setTempBuff(new SceneBuff(caster.getAvatarId(), buffId));
+            }
+        }
+    }
 }
