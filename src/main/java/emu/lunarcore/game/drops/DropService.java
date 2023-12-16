@@ -5,7 +5,6 @@ import java.util.List;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.inventory.GameItem;
@@ -28,19 +27,10 @@ public class DropService extends BaseGameService {
         // Calculate drops from monsters
         for (EntityMonster monster : battle.getNpcMonsters()) {
             var dropExcel = GameData.getMonsterDropExcel(monster.getExcel().getId(), monster.getWorldLevel());
-            if (dropExcel == null || dropExcel.getDisplayItemList() == null) {
-                continue;
-            }
+            if (dropExcel == null) continue;
             
-            for (ItemParam param : dropExcel.getDisplayItemList()) {
-                int id = param.getId();
-                int count = Utils.randomRange(0, 3);
-                
-                if (id == 2) {
-                    count = dropExcel.getAvatarExpReward();
-                }
-                
-                dropMap.addTo(id, count);
+            for (var dropParam : dropExcel.getDropList()) {
+                dropParam.roll(dropMap);
             }
         }
         

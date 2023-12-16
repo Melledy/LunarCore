@@ -25,6 +25,7 @@ public class MappingInfoExcel extends GameResource {
     private String FarmType; // is enum
     private List<ItemParam> DisplayItemList;
     
+    // Temp solution for handling drop tables
     private transient List<DropParam> dropList;
     
     @Override
@@ -35,7 +36,12 @@ public class MappingInfoExcel extends GameResource {
     @Override
     public void onLoad() {
         // Temp way to pre-calculate drop list
-        this.dropList = new ArrayList<>(this.getDisplayItemList().size());
+        if (this.DisplayItemList == null || DisplayItemList.size() == 0) {
+            this.dropList = new ArrayList<>(0);
+            return;
+        }
+        
+        this.dropList = new ArrayList<>(DisplayItemList.size());
         
         var equipmentDrops = new IntArrayList();
         var relicDrops = new Int2ObjectOpenHashMap<IntList>();
