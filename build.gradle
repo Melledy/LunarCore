@@ -192,7 +192,7 @@ package emu.lunarcore;
 public final class BuildConfig {
 	public static final String VERSION = \"${version}\";
     public static final String GIT_HASH = \"${gitCommitHash()}\";
-    public static final long COMMIT_TIMESTAMP = ${gitCommitTime()};
+    public static final String GIT_TIMESTAMP = \"${gitCommitTime()}\";
 }
 """
 }

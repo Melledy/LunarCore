@@ -228,16 +228,15 @@ public class LunarCore {
             String hash = buildConfig.getField("GIT_HASH").get(null).toString();
             builder.append(hash);
             
-            long timestamp = buildConfig.getField("COMMIT_TIMESTAMP").getLong(null);
-            if (timestamp > 0) {
-                builder.append(" (" + sf.format(new Date(timestamp * 1000)) + ")");
-            }
+            String timestamp = buildConfig.getField("GIT_TIMESTAMP").get(null).toString();
+            long time = Long.parseLong(timestamp) * 1000;
+            builder.append(" (" + sf.format(new Date(time)) + ")");
         } catch (Exception e) {
             // Ignored
         }
         
         if (builder.isEmpty()) {
-            return "Unknown";
+            return "";
         } else {
             return builder.toString();
         }
