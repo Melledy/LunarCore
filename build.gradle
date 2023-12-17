@@ -180,9 +180,9 @@ tasks.register('injectGitHash') {
     
     def gitCommitTime = {
         try {
-            return 'git log -1 --format=%at --date=unix'.execute().text.trim()
+            return 'git log -1 --format=%at --date=raw'.execute().text.trim()
         } catch (ignored) {
-            return ''
+            return '0'
         }
     }
 

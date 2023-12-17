@@ -229,7 +229,9 @@ public class LunarCore {
             builder.append(hash);
             
             long timestamp = buildConfig.getField("COMMIT_TIMESTAMP").getLong(null);
-            builder.append(" (" + sf.format(new Date(timestamp * 1000)) + ")");
+            if (timestamp > 0) {
+                builder.append(" (" + sf.format(new Date(timestamp * 1000)) + ")");
+            }
         } catch (Exception e) {
             // Ignored
         }
