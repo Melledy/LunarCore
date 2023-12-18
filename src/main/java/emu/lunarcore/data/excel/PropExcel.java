@@ -15,7 +15,8 @@ public class PropExcel extends GameResource {
 
     private transient boolean recoverHp;
     private transient boolean recoverMp;
-
+    private transient boolean isDoor;
+    
     @Override
     public int getId() {
         return ID;
@@ -29,6 +30,8 @@ public class PropExcel extends GameResource {
                 this.recoverMp = true;
             } else if (getJsonPath().contains("HPRecoverBox")) {
                 this.recoverHp = true;
+            } else if (getJsonPath().contains("_Door_")) {
+                this.isDoor = true;
             }
         }
 

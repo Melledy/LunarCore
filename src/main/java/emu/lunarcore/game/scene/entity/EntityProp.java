@@ -28,6 +28,7 @@ public class EntityProp implements GameEntity {
     private final Position pos;
     private final Position rot;
 
+    // Prop extra info
     @Setter private PropRogueData rogueData;
     
     public EntityProp(Scene scene, PropExcel excel, GroupInfo group, PropInfo propInfo) {
