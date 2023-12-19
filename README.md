@@ -11,12 +11,13 @@
 - Basic game features: Logging in, team setup, inventory, basic scene/entity management
 - Monster battles working
 - Natural world monster/prop/NPC spawns
-- Most character techniques are handled
+- Character techniques
+- Crafting/Consumables working
 - Npc shops handled
 - Gacha system
 - Mail system
 - Friend system (Assists are not working yet)
-- Forgotten hall (with 1.4.0 features)
+- Forgotten hall
 - Simulated universe (Runs can be finished, but many features are missing)
 
 # Running the server and client
