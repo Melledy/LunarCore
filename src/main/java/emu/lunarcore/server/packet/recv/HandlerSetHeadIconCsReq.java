@@ -18,7 +18,7 @@ public class HandlerSetHeadIconCsReq extends PacketHandler {
             // Success
             session.send(new PacketSetHeadIconScRsp(req.getId()));
         } else {
-            // Failure (player probably didnt have the head icon)
+            // Failure (player didnt have the head icon)
             session.send(new PacketSetHeadIconScRsp());
         }
     }

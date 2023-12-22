@@ -20,7 +20,7 @@ import emu.lunarcore.game.player.Player;
         aliases = {"ga"}, 
         permission = "player.give", 
         requireTarget = true, 
-        desc = "/giveall {materials | avatars | lightcones | relics} lv(level). Gives the targeted player items."
+        desc = "/giveall {materials | avatars | lightcones | relics | usables} lv(level). Gives the targeted player items."
 )
 public class GiveAllCommand implements CommandHandler {
 
@@ -147,15 +147,24 @@ public class GiveAllCommand implements CommandHandler {
                 // Send message
                 args.sendMessage("Giving " + target.getName() + " all avatars");
             }
-            case "ic", "icons" -> {
-                // Get UnlockedHeads
-                for (var iconhead : GameData.getPlayerIconExcelMap().values()) {
-                    // This function will handle any duplicate head icons
-                    target.addHeadIcon(iconhead.getId());
+            case "unlocks", "usables", "icons" -> {
+                // Add head icons - Duplicates are handled automatically
+                for (var excel : GameData.getPlayerIconExcelMap().values()) {
+                    target.getUnlocks().addHeadIcon(excel.getId());
                 }
-
+                
+                // Add chat bubbles - Duplicates are handled automatically
+                for (var excel : GameData.getChatBubbleExcelMap().values()) {
+                    target.getUnlocks().addChatBubble(excel.getId());
+                }
+                
+                // Add phone themes - Duplicates are handled automatically
+                for (var excel : GameData.getPhoneThemeExcelMap().values()) {
+                    target.getUnlocks().addPhoneTheme(excel.getId());
+                }
+                
                 // Send message
-                args.sendMessage("Added all icons to " + target.getName());
+                args.sendMessage("Added all icons/chat bubbles/phone themes to " + target.getName());
             }
             case "consumables", "food" -> {
                 // Get consumables

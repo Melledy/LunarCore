@@ -3,14 +3,20 @@ package emu.lunarcore.server.packet.send;
 import emu.lunarcore.proto.SelectPhoneThemeScRspOuterClass.SelectPhoneThemeScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
-import emu.lunarcore.game.player.Player;
 
 public class PacketSelectPhoneThemeScRsp extends BasePacket {
-
-    public PacketSelectPhoneThemeScRsp(Player player, int themeId) {
+    
+    public PacketSelectPhoneThemeScRsp() {
         super(CmdId.SelectPhoneThemeScRsp);
+
+        var data = SelectPhoneThemeScRsp.newInstance()
+            .setRetcode(1);
         
-        player.setPhoneTheme(themeId);
+        this.setData(data);
+    }
+
+    public PacketSelectPhoneThemeScRsp(int themeId) {
+        super(CmdId.SelectPhoneThemeScRsp);
 
         var data = SelectPhoneThemeScRsp.newInstance()
             .setCurPhoneTheme(themeId); 

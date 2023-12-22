@@ -2,9 +2,6 @@ package emu.lunarcore.game.player;
 
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Set;
 
 import com.mongodb.client.model.Filters;
 
@@ -69,7 +66,8 @@ import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Position;
 import emu.lunarcore.util.Utils;
-import it.unimi.dsi.fastutil.ints.*;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -80,13 +78,14 @@ public class Player implements Tickable {
     @Indexed private String accountUid;
     private String name;
     private String signature;
+    private int birthday;
+    private int curBasicType;
     private int headIcon;
     private int phoneTheme;
     private int chatBubble;
-    private int birthday;
-    private int curBasicType;
+    private int currentBgm;
     @Setter private PlayerGender gender;
-
+    
     private int level;
     private int exp; // Total exp
     private int worldLevel;
@@ -107,9 +106,6 @@ public class Player implements Tickable {
     private int floorId;
     private int entryId;
     
-    private int currentBgm;
-    
-    private IntSet unlockedHeadIcons;
     private long lastActiveTime;
     
     // Player managers
@@ -135,7 +131,8 @@ public class Player implements Tickable {
     private transient boolean loggedIn;
     private transient boolean inAnchorRange;
     private transient int nextBattleId;
-    private transient Map<Integer, SceneBuff> foodBuffs;
+    private transient PlayerUnlockData unlocks;
+    private transient Int2ObjectMap<SceneBuff> foodBuffs;
     
     @Setter private transient boolean paused;
     
@@ -143,7 +140,7 @@ public class Player implements Tickable {
     public Player() {
         this.curBasicType = GameConstants.TRAILBLAZER_AVATAR_ID;
         this.gender = PlayerGender.GENDER_MAN;
-        this.foodBuffs = new HashMap<>();
+        this.foodBuffs = new Int2ObjectOpenHashMap<>();
         
         this.avatars = new AvatarStorage(this);
         this.inventory = new Inventory(this);
@@ -175,7 +172,6 @@ public class Player implements Tickable {
 
         this.currentBgm = 210000;
         
-        this.unlockedHeadIcons = new IntOpenHashSet();
         this.lineupManager = new LineupManager(this);
         this.gachaInfo = new PlayerGachaInfo();
         
@@ -288,30 +284,6 @@ public class Player implements Tickable {
         }
     }
 
-    public int getWorldLevel() {
-        return this.worldLevel;
-    }
-
-    public void setPhoneTheme(int themeId) {
-        this.phoneTheme = themeId;
-        this.save();
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
-    }
-
-    public int getPhoneTheme() {
-        return this.phoneTheme;
-    }
-
-    public void setChatBubble(int bubbleId) {
-        this.chatBubble = bubbleId;
-        this.save();
-        this.sendPacket(new PacketPlayerSyncScNotify(this));
-    }
-
-    public int getChatBubble() {
-        return this.chatBubble;
-    }
-
     public int getCurrentBgm() {
         if (this.currentBgm == 0) {
             this.currentBgm = 210000;
@@ -323,29 +295,6 @@ public class Player implements Tickable {
     public void setCurrentBgm(int musicId) {
         this.currentBgm = musicId;
         this.save();
-    }
-    
-    public Set<Integer> getUnlockedHeadIcons() {
-        if (this.unlockedHeadIcons == null) {
-            this.unlockedHeadIcons = new IntOpenHashSet();
-        }
-        return this.unlockedHeadIcons;
-    }
-    
-    public void addHeadIcon(int headIconId) {
-        boolean success = this.getUnlockedHeadIcons().add(headIconId);
-        if (success) {
-            this.sendPacket(new PacketPlayerSyncScNotify(this.toBoardData()));
-        }
-    }
-    
-    public boolean setHeadIcon(int id) {
-        if (this.getUnlockedHeadIcons().contains(id)) {
-            this.headIcon = id;
-            this.save();
-            return true;
-        }
-        return false;
     }
     
     public void resetPosition() {
@@ -371,6 +320,35 @@ public class Player implements Tickable {
         }
         
         return getAvatars().getAvatarById(avatarId);
+    }
+    
+    public boolean setHeadIcon(int id) {
+        if (this.getUnlocks().getHeadIcons().contains(id)) {
+            this.headIcon = id;
+            this.save();
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean setChatBubble(int id) {
+        if (this.getUnlocks().getChatBubbles().contains(id)) {
+            this.chatBubble = id;
+            this.save();
+            this.sendPacket(new PacketPlayerSyncScNotify(this));
+            return true;
+        }
+        return false;
+    }
+    
+    public boolean setPhoneTheme(int id) {
+        if (this.getUnlocks().getPhoneThemes().contains(id)) {
+            this.phoneTheme = id;
+            this.save();
+            this.sendPacket(new PacketPlayerSyncScNotify(this));
+            return true;
+        }
+        return false;
     }
     
     public PlayerLineup getCurrentLineup() {
@@ -581,7 +559,7 @@ public class Player implements Tickable {
         int avatarEntityId = getCurrentLeaderAvatar().getEntityId();
         
         // Remove and send packet for each buff removed
-        for (var it = getFoodBuffs().entrySet().iterator(); it.hasNext();) {
+        for (var it = getFoodBuffs().int2ObjectEntrySet().iterator(); it.hasNext();) {
             var entry = it.next();
             var buff = entry.getValue();
             
@@ -778,7 +756,7 @@ public class Player implements Tickable {
     
     @SuppressWarnings("deprecation")
     public void onLogin() {
-        // Validate
+        // Set up lineup manager
         this.getLineupManager().setPlayer(this);
 
         // Load avatars and inventory first
@@ -789,6 +767,9 @@ public class Player implements Tickable {
         this.getMailbox().loadFromDatabase();
         this.getChallengeManager().loadFromDatabase();
         this.getRogueManager().loadFromDatabase();
+        
+        // Load unlockables
+        this.loadUnlocksFromDatabase();
         
         // Update stamina
         this.updateStamina(System.currentTimeMillis());
@@ -824,7 +805,7 @@ public class Player implements Tickable {
             }
         }
     }
-    
+
     public void onLogout() {
         this.loggedIn = false;
         this.lastActiveTime = System.currentTimeMillis() / 1000;
@@ -861,12 +842,23 @@ public class Player implements Tickable {
         datastore.getCollection(PlayerExtraLineup.class).deleteMany(filter);
         datastore.getCollection(Mail.class).deleteMany(filter);
         datastore.getCollection(RogueTalentData.class).deleteMany(filter);
+        datastore.getCollection(PlayerUnlockData.class).deleteOne(filter);
         
         // Delete friendships
         datastore.getCollection(Friendship.class).deleteMany(Filters.or(Filters.eq("ownerUid", uid), Filters.eq("friendUid", uid)));
         
         // Delete the player last
         LunarCore.getGameDatabase().delete(this);
+    }
+    
+    private void loadUnlocksFromDatabase() {
+        this.unlocks = LunarCore.getGameDatabase().getObjectByField(PlayerUnlockData.class, "ownerUid", this.getUid());
+        
+        if (this.unlocks == null) {
+            this.unlocks = new PlayerUnlockData(this);
+        } else {
+            this.unlocks.setOwner(this);
+        }
     }
     
     // Protobuf serialization
@@ -919,7 +911,7 @@ public class Player implements Tickable {
         var proto = BoardDataSync.newInstance()
                 .setSignature(this.getSignature());
         
-        for (int id : this.getUnlockedHeadIcons()) {
+        for (int id : this.getUnlocks().getHeadIcons()) {
             proto.addUnlockedHeadIconList(HeadIcon.newInstance().setId(id));
         }
         

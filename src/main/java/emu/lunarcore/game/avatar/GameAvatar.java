@@ -1,13 +1,11 @@
 package emu.lunarcore.game.avatar;
 
 import java.util.Map;
-import java.util.Set;
 
 import org.bson.types.ObjectId;
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
-
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
@@ -53,7 +51,7 @@ public class GameAvatar implements GameEntity {
     @Setter private int exp;
     @Setter private int promotion;
     
-    private IntSet takenRewards;
+    private int rewards; // Previously known as "taken rewards"
     private long timestamp;
     
     @Getter(AccessLevel.NONE) private int currentHp;
@@ -106,13 +104,6 @@ public class GameAvatar implements GameEntity {
             this.data = new AvatarData(excel);
         }
     }
-    
-    public Set<Integer> getTakenRewards() {
-        if (this.takenRewards == null) {
-            this.takenRewards = new IntOpenHashSet();
-        }
-        return this.takenRewards;
-    }
 
     public void setOwner(Player player) {
         this.owner = player;
@@ -132,6 +123,10 @@ public class GameAvatar implements GameEntity {
     @Override
     public Position getRot() {
         return this.getOwner().getRot();
+    }
+    
+    public int getHeadIconId() {
+        return 200000 + this.getAvatarId();
     }
     
     public boolean isHero() {
@@ -198,6 +193,14 @@ public class GameAvatar implements GameEntity {
         this.excel = heroPath.getExcel(); // DO NOT USE GameAvatar::setExcel for this
         this.heroPath = heroPath;
         this.heroPath.setAvatar(this);
+    }
+    
+    public boolean hasTakenReward(int promotion) {
+        return (this.rewards & (1 << promotion)) != 0;
+    }
+    
+    public void takeReward(int promotion) {
+        this.rewards |= 1 << promotion;
     }
     
     // Buffs
@@ -290,9 +293,9 @@ public class GameAvatar implements GameEntity {
             proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
         }
         
-        if (this.takenRewards != null) {
-            for (int i : this.takenRewards) {
-                proto.addAllTakenRewards(i);
+        for (int i = 0; i < this.getPromotion(); i++) {
+            if (this.hasTakenReward(i)) {
+                proto.addTakenRewards(i);
             }
         }
         

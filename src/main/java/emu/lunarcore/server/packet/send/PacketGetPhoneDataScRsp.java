@@ -2,7 +2,6 @@ package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.proto.GetPhoneDataScRspOuterClass.GetPhoneDataScRsp;
 import emu.lunarcore.server.packet.BasePacket;
-import emu.lunarcore.data.GameData;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.game.player.Player;
 
@@ -15,12 +14,12 @@ public class PacketGetPhoneDataScRsp extends BasePacket {
             .setCurChatBubble(player.getChatBubble())
             .setCurPhoneTheme(player.getPhoneTheme());
 
-        for (var chatBubble : GameData.getChatBubbleExcelMap().values()) {
-            data.addOwnedChatBubbles(chatBubble.getId());
+        for (int chatBubbleId : player.getUnlocks().getChatBubbles()) {
+            data.addOwnedChatBubbles(chatBubbleId);
         }
 
-        for (var phoneTheme : GameData.getPhoneThemeExcelMap().values()) {
-            data.addOwnedPhoneThemes(phoneTheme.getId());
+        for (int phoneThemeId : player.getUnlocks().getPhoneThemes()) {
+            data.addOwnedPhoneThemes(phoneThemeId);
         }
 
         this.setData(data);

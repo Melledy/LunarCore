@@ -61,10 +61,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
         getPlayer().sendPacket(new PacketPlayerSyncScNotify(avatar));
         
         // Add head icon
-        int headIconId = 200000 + avatar.getAvatarId();
-        if (GameData.getItemExcelMap().containsKey(headIconId)) {
-            getPlayer().addHeadIcon(headIconId);
-        }
+        getPlayer().getUnlocks().addHeadIcon(avatar.getHeadIconId());
 
         // Done
         return true;
