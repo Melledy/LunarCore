@@ -779,11 +779,17 @@ public class Player implements Tickable {
             // Delete instance if it failed to validate (example: missing an excel)
             this.challengeInstance = null;
         }
-
+        
+        // Unstuck check, dont load player into raid scenes
+        MazePlaneExcel planeExcel = GameData.getMazePlaneExcelMap().get(planeId);
+        if (planeExcel == null || planeExcel.getPlaneType().getVal() >= PlaneType.Raid.getVal()) {
+            this.resetPosition();
+        }
+        
         // Load into saved scene (should happen after everything else loads)
         this.loadScene(planeId, floorId, entryId, this.getPos(), this.getRot(), false);
         
-        // Unstuck check in case we couldn't load the scene
+        // Reset position to starting scene in case we couldn't load the scene
         if (this.getScene() == null) {
             this.enterScene(GameConstants.START_ENTRY_ID, 0, false);
         }
