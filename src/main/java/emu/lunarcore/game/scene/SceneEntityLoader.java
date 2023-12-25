@@ -67,6 +67,9 @@ public class SceneEntityLoader {
                 // Skip tutorial simulated universe
                 return null;
             }
+        } else if (prop.getExcel().isDoor()) {
+            // Hacky fix to always open doors
+            prop.setState(PropState.Open, false);
         } else if (prop.getExcel().getPropType() == PropType.PROP_SPRING) {
             // Cache teleport anchors
             scene.getHealingSprings().add(prop);

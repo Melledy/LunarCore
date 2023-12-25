@@ -225,12 +225,12 @@ public class InventoryService extends BaseGameService {
         }
         
         // Make sure promotion level is odd + Make sure promotion reward isnt already taken
-        if (promotion % 2 == 0 || avatar.getTakenRewards().contains(promotion)) {
+        if (promotion % 2 == 0 || avatar.hasTakenReward(promotion)) {
             return null;
         }
         
         // Set reward as taken
-        avatar.getTakenRewards().add(promotion);
+        avatar.takeReward(promotion);
         avatar.save();
         
         // Setup rewards

@@ -1,16 +1,22 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.SelectChatBubbleScRspOuterClass.SelectChatBubbleScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 
 public class PacketSelectChatBubbleScRsp extends BasePacket {
-
-    public PacketSelectChatBubbleScRsp(Player player, int bubbleId) {
+    
+    public PacketSelectChatBubbleScRsp() {
         super(CmdId.SelectChatBubbleScRsp);
+
+        var data = SelectChatBubbleScRsp.newInstance()
+            .setRetcode(1);
         
-        player.setChatBubble(bubbleId);
+        this.setData(data);
+    }
+
+    public PacketSelectChatBubbleScRsp(int bubbleId) {
+        super(CmdId.SelectChatBubbleScRsp);
 
         var data = SelectChatBubbleScRsp.newInstance()
             .setCurChatBubble(bubbleId); 

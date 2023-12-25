@@ -206,10 +206,23 @@ public class Inventory extends BasePlayerManager {
             }
             return null;
         case Usable:
-            // Add head icon
-            if (subType == ItemSubType.HeadIcon) {
-                getPlayer().addHeadIcon(item.getItemId());
-                return item;
+            // Add usable
+            switch (subType) {
+                case HeadIcon -> {
+                    getPlayer().getUnlocks().addHeadIcon(item.getItemId());
+                    return item;
+                }
+                case ChatBubble -> {
+                    getPlayer().getUnlocks().addChatBubble(item.getItemId());
+                    return item;
+                }
+                case PhoneTheme -> {
+                    getPlayer().getUnlocks().addPhoneTheme(item.getItemId());
+                    return item;
+                }
+                default -> {
+                    // Skip
+                }
             }
             
             // Skip if not food item
