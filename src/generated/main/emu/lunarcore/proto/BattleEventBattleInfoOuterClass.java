@@ -11,11 +11,11 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class ClientTurnSnapshotOuterClass {
+public final class BattleEventBattleInfoOuterClass {
   /**
-   * Protobuf type {@code ClientTurnSnapshot}
+   * Protobuf type {@code BattleEventBattleInfo}
    */
-  public static final class ClientTurnSnapshot extends ProtoMessage<ClientTurnSnapshot> implements Cloneable {
+  public static final class BattleEventBattleInfo extends ProtoMessage<BattleEventBattleInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
@@ -24,18 +24,18 @@ public final class ClientTurnSnapshotOuterClass {
     private int battleEventId;
 
     /**
-     * <code>optional .ClientTurnSnapshotStatus status = 2;</code>
+     * <code>optional .BattleEventInitedData status = 2;</code>
      */
-    private final ClientTurnSnapshotStatusOuterClass.ClientTurnSnapshotStatus status = ClientTurnSnapshotStatusOuterClass.ClientTurnSnapshotStatus.newInstance();
+    private final BattleEventInitedDataOuterClass.BattleEventInitedData status = BattleEventInitedDataOuterClass.BattleEventInitedData.newInstance();
 
-    private ClientTurnSnapshot() {
+    private BattleEventBattleInfo() {
     }
 
     /**
-     * @return a new empty instance of {@code ClientTurnSnapshot}
+     * @return a new empty instance of {@code BattleEventBattleInfo}
      */
-    public static ClientTurnSnapshot newInstance() {
-      return new ClientTurnSnapshot();
+    public static BattleEventBattleInfo newInstance() {
+      return new BattleEventBattleInfo();
     }
 
     /**
@@ -50,7 +50,7 @@ public final class ClientTurnSnapshotOuterClass {
      * <code>optional uint32 battle_event_id = 1;</code>
      * @return this
      */
-    public ClientTurnSnapshot clearBattleEventId() {
+    public BattleEventBattleInfo clearBattleEventId() {
       bitField0_ &= ~0x00000001;
       battleEventId = 0;
       return this;
@@ -69,14 +69,14 @@ public final class ClientTurnSnapshotOuterClass {
      * @param value the battleEventId to set
      * @return this
      */
-    public ClientTurnSnapshot setBattleEventId(final int value) {
+    public BattleEventBattleInfo setBattleEventId(final int value) {
       bitField0_ |= 0x00000001;
       battleEventId = value;
       return this;
     }
 
     /**
-     * <code>optional .ClientTurnSnapshotStatus status = 2;</code>
+     * <code>optional .BattleEventInitedData status = 2;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -84,17 +84,17 @@ public final class ClientTurnSnapshotOuterClass {
     }
 
     /**
-     * <code>optional .ClientTurnSnapshotStatus status = 2;</code>
+     * <code>optional .BattleEventInitedData status = 2;</code>
      * @return this
      */
-    public ClientTurnSnapshot clearStatus() {
+    public BattleEventBattleInfo clearStatus() {
       bitField0_ &= ~0x00000002;
       status.clear();
       return this;
     }
 
     /**
-     * <code>optional .ClientTurnSnapshotStatus status = 2;</code>
+     * <code>optional .BattleEventInitedData status = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -103,12 +103,12 @@ public final class ClientTurnSnapshotOuterClass {
      *
      * @return internal storage object for reading
      */
-    public ClientTurnSnapshotStatusOuterClass.ClientTurnSnapshotStatus getStatus() {
+    public BattleEventInitedDataOuterClass.BattleEventInitedData getStatus() {
       return status;
     }
 
     /**
-     * <code>optional .ClientTurnSnapshotStatus status = 2;</code>
+     * <code>optional .BattleEventInitedData status = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -116,25 +116,25 @@ public final class ClientTurnSnapshotOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public ClientTurnSnapshotStatusOuterClass.ClientTurnSnapshotStatus getMutableStatus() {
+    public BattleEventInitedDataOuterClass.BattleEventInitedData getMutableStatus() {
       bitField0_ |= 0x00000002;
       return status;
     }
 
     /**
-     * <code>optional .ClientTurnSnapshotStatus status = 2;</code>
+     * <code>optional .BattleEventInitedData status = 2;</code>
      * @param value the status to set
      * @return this
      */
-    public ClientTurnSnapshot setStatus(
-        final ClientTurnSnapshotStatusOuterClass.ClientTurnSnapshotStatus value) {
+    public BattleEventBattleInfo setStatus(
+        final BattleEventInitedDataOuterClass.BattleEventInitedData value) {
       bitField0_ |= 0x00000002;
       status.copyFrom(value);
       return this;
     }
 
     @Override
-    public ClientTurnSnapshot copyFrom(final ClientTurnSnapshot other) {
+    public BattleEventBattleInfo copyFrom(final BattleEventBattleInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
@@ -145,7 +145,7 @@ public final class ClientTurnSnapshotOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshot mergeFrom(final ClientTurnSnapshot other) {
+    public BattleEventBattleInfo mergeFrom(final BattleEventBattleInfo other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -160,7 +160,7 @@ public final class ClientTurnSnapshotOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshot clear() {
+    public BattleEventBattleInfo clear() {
       if (isEmpty()) {
         return this;
       }
@@ -172,7 +172,7 @@ public final class ClientTurnSnapshotOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshot clearQuick() {
+    public BattleEventBattleInfo clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -187,10 +187,10 @@ public final class ClientTurnSnapshotOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof ClientTurnSnapshot)) {
+      if (!(o instanceof BattleEventBattleInfo)) {
         return false;
       }
-      ClientTurnSnapshot other = (ClientTurnSnapshot) o;
+      BattleEventBattleInfo other = (BattleEventBattleInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasBattleEventId() || battleEventId == other.battleEventId)
         && (!hasStatus() || status.equals(other.status));
@@ -222,7 +222,7 @@ public final class ClientTurnSnapshotOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public ClientTurnSnapshot mergeFrom(final ProtoSource input) throws IOException {
+    public BattleEventBattleInfo mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
@@ -272,7 +272,7 @@ public final class ClientTurnSnapshotOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshot mergeFrom(final JsonSource input) throws IOException {
+    public BattleEventBattleInfo mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -312,8 +312,8 @@ public final class ClientTurnSnapshotOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshot clone() {
-      return new ClientTurnSnapshot().copyFrom(this);
+    public BattleEventBattleInfo clone() {
+      return new BattleEventBattleInfo().copyFrom(this);
     }
 
     @Override
@@ -321,32 +321,32 @@ public final class ClientTurnSnapshotOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static ClientTurnSnapshot parseFrom(final byte[] data) throws
+    public static BattleEventBattleInfo parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new ClientTurnSnapshot(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new BattleEventBattleInfo(), data).checkInitialized();
     }
 
-    public static ClientTurnSnapshot parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new ClientTurnSnapshot(), input).checkInitialized();
+    public static BattleEventBattleInfo parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new BattleEventBattleInfo(), input).checkInitialized();
     }
 
-    public static ClientTurnSnapshot parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new ClientTurnSnapshot(), input).checkInitialized();
+    public static BattleEventBattleInfo parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new BattleEventBattleInfo(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating ClientTurnSnapshot messages
+     * @return factory for creating BattleEventBattleInfo messages
      */
-    public static MessageFactory<ClientTurnSnapshot> getFactory() {
-      return ClientTurnSnapshotFactory.INSTANCE;
+    public static MessageFactory<BattleEventBattleInfo> getFactory() {
+      return BattleEventBattleInfoFactory.INSTANCE;
     }
 
-    private enum ClientTurnSnapshotFactory implements MessageFactory<ClientTurnSnapshot> {
+    private enum BattleEventBattleInfoFactory implements MessageFactory<BattleEventBattleInfo> {
       INSTANCE;
 
       @Override
-      public ClientTurnSnapshot create() {
-        return ClientTurnSnapshot.newInstance();
+      public BattleEventBattleInfo create() {
+        return BattleEventBattleInfo.newInstance();
       }
     }
 

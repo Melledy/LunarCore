@@ -25,7 +25,7 @@ public final class TakeOffRelicCsReqOuterClass {
     private int baseAvatarId;
 
     /**
-     * <code>repeated uint32 slot_list = 6;</code>
+     * <code>repeated uint32 slot_list = 4;</code>
      */
     private final RepeatedInt slotList = RepeatedInt.newEmptyInstance();
 
@@ -77,7 +77,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 slot_list = 6;</code>
+     * <code>repeated uint32 slot_list = 4;</code>
      * @return whether the slotList field is set
      */
     public boolean hasSlotList() {
@@ -85,7 +85,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 slot_list = 6;</code>
+     * <code>repeated uint32 slot_list = 4;</code>
      * @return this
      */
     public TakeOffRelicCsReq clearSlotList() {
@@ -95,7 +95,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 slot_list = 6;</code>
+     * <code>repeated uint32 slot_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 slot_list = 6;</code>
+     * <code>repeated uint32 slot_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 slot_list = 6;</code>
+     * <code>repeated uint32 slot_list = 4;</code>
      * @param value the slotList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class TakeOffRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 slot_list = 6;</code>
+     * <code>repeated uint32 slot_list = 4;</code>
      * @param values the slotList to add
      * @return this
      */
@@ -215,7 +215,7 @@ public final class TakeOffRelicCsReqOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < slotList.length(); i++) {
-          output.writeRawByte((byte) 48);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(slotList.array()[i]);
         }
       }
@@ -245,11 +245,11 @@ public final class TakeOffRelicCsReqOuterClass {
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 34) {
               break;
             }
           }
-          case 50: {
+          case 34: {
             // slotList [packed=true]
             input.readPackedUInt32(slotList, tag);
             bitField0_ |= 0x00000002;
@@ -268,7 +268,7 @@ public final class TakeOffRelicCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 48: {
+          case 32: {
             // slotList [packed=false]
             tag = input.readRepeatedUInt32(slotList, tag);
             bitField0_ |= 0x00000002;

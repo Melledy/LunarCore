@@ -24,7 +24,7 @@ public final class RelicParamOuterClass {
     private int slot;
 
     /**
-     * <code>optional uint32 relic_unique_id = 5;</code>
+     * <code>optional uint32 relic_unique_id = 15;</code>
      */
     private int relicUniqueId;
 
@@ -76,7 +76,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 5;</code>
+     * <code>optional uint32 relic_unique_id = 15;</code>
      * @return whether the relicUniqueId field is set
      */
     public boolean hasRelicUniqueId() {
@@ -84,7 +84,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 5;</code>
+     * <code>optional uint32 relic_unique_id = 15;</code>
      * @return this
      */
     public RelicParam clearRelicUniqueId() {
@@ -94,7 +94,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 5;</code>
+     * <code>optional uint32 relic_unique_id = 15;</code>
      * @return the relicUniqueId
      */
     public int getRelicUniqueId() {
@@ -102,7 +102,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 5;</code>
+     * <code>optional uint32 relic_unique_id = 15;</code>
      * @param value the relicUniqueId to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class RelicParamOuterClass {
         output.writeUInt32NoTag(slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(relicUniqueId);
       }
     }
@@ -210,11 +210,11 @@ public final class RelicParamOuterClass {
             slot = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 120) {
               break;
             }
           }
-          case 40: {
+          case 120: {
             // relicUniqueId
             relicUniqueId = input.readUInt32();
             bitField0_ |= 0x00000002;

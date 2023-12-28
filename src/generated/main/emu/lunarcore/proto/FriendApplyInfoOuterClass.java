@@ -11,90 +11,48 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class FriendApplyListInfoOuterClass {
+public final class FriendApplyInfoOuterClass {
   /**
-   * Protobuf type {@code FriendApplyListInfo}
+   * Protobuf type {@code FriendApplyInfo}
    */
-  public static final class FriendApplyListInfo extends ProtoMessage<FriendApplyListInfo> implements Cloneable {
+  public static final class FriendApplyInfo extends ProtoMessage<FriendApplyInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 JKBMJGNPCNN = 12;</code>
-     */
-    private long jKBMJGNPCNN;
-
-    /**
-     * <code>optional .SimpleInfo simple_info = 10;</code>
+     * <code>optional .SimpleInfo simple_info = 4;</code>
      */
     private final SimpleInfoOuterClass.SimpleInfo simpleInfo = SimpleInfoOuterClass.SimpleInfo.newInstance();
 
-    private FriendApplyListInfo() {
+    private FriendApplyInfo() {
     }
 
     /**
-     * @return a new empty instance of {@code FriendApplyListInfo}
+     * @return a new empty instance of {@code FriendApplyInfo}
      */
-    public static FriendApplyListInfo newInstance() {
-      return new FriendApplyListInfo();
+    public static FriendApplyInfo newInstance() {
+      return new FriendApplyInfo();
     }
 
     /**
-     * <code>optional int64 JKBMJGNPCNN = 12;</code>
-     * @return whether the jKBMJGNPCNN field is set
+     * <code>optional .SimpleInfo simple_info = 4;</code>
+     * @return whether the simpleInfo field is set
      */
-    public boolean hasJKBMJGNPCNN() {
+    public boolean hasSimpleInfo() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional int64 JKBMJGNPCNN = 12;</code>
+     * <code>optional .SimpleInfo simple_info = 4;</code>
      * @return this
      */
-    public FriendApplyListInfo clearJKBMJGNPCNN() {
+    public FriendApplyInfo clearSimpleInfo() {
       bitField0_ &= ~0x00000001;
-      jKBMJGNPCNN = 0L;
-      return this;
-    }
-
-    /**
-     * <code>optional int64 JKBMJGNPCNN = 12;</code>
-     * @return the jKBMJGNPCNN
-     */
-    public long getJKBMJGNPCNN() {
-      return jKBMJGNPCNN;
-    }
-
-    /**
-     * <code>optional int64 JKBMJGNPCNN = 12;</code>
-     * @param value the jKBMJGNPCNN to set
-     * @return this
-     */
-    public FriendApplyListInfo setJKBMJGNPCNN(final long value) {
-      bitField0_ |= 0x00000001;
-      jKBMJGNPCNN = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .SimpleInfo simple_info = 10;</code>
-     * @return whether the simpleInfo field is set
-     */
-    public boolean hasSimpleInfo() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional .SimpleInfo simple_info = 10;</code>
-     * @return this
-     */
-    public FriendApplyListInfo clearSimpleInfo() {
-      bitField0_ &= ~0x00000002;
       simpleInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 10;</code>
+     * <code>optional .SimpleInfo simple_info = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +66,7 @@ public final class FriendApplyListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 10;</code>
+     * <code>optional .SimpleInfo simple_info = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -117,41 +75,37 @@ public final class FriendApplyListInfoOuterClass {
      * @return internal storage object for modifications
      */
     public SimpleInfoOuterClass.SimpleInfo getMutableSimpleInfo() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       return simpleInfo;
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 10;</code>
+     * <code>optional .SimpleInfo simple_info = 4;</code>
      * @param value the simpleInfo to set
      * @return this
      */
-    public FriendApplyListInfo setSimpleInfo(final SimpleInfoOuterClass.SimpleInfo value) {
-      bitField0_ |= 0x00000002;
+    public FriendApplyInfo setSimpleInfo(final SimpleInfoOuterClass.SimpleInfo value) {
+      bitField0_ |= 0x00000001;
       simpleInfo.copyFrom(value);
       return this;
     }
 
     @Override
-    public FriendApplyListInfo copyFrom(final FriendApplyListInfo other) {
+    public FriendApplyInfo copyFrom(final FriendApplyInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        jKBMJGNPCNN = other.jKBMJGNPCNN;
         simpleInfo.copyFrom(other.simpleInfo);
       }
       return this;
     }
 
     @Override
-    public FriendApplyListInfo mergeFrom(final FriendApplyListInfo other) {
+    public FriendApplyInfo mergeFrom(final FriendApplyInfo other) {
       if (other.isEmpty()) {
         return this;
       }
       cachedSize = -1;
-      if (other.hasJKBMJGNPCNN()) {
-        setJKBMJGNPCNN(other.jKBMJGNPCNN);
-      }
       if (other.hasSimpleInfo()) {
         getMutableSimpleInfo().mergeFrom(other.simpleInfo);
       }
@@ -159,19 +113,18 @@ public final class FriendApplyListInfoOuterClass {
     }
 
     @Override
-    public FriendApplyListInfo clear() {
+    public FriendApplyInfo clear() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      jKBMJGNPCNN = 0L;
       simpleInfo.clear();
       return this;
     }
 
     @Override
-    public FriendApplyListInfo clearQuick() {
+    public FriendApplyInfo clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -186,23 +139,18 @@ public final class FriendApplyListInfoOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof FriendApplyListInfo)) {
+      if (!(o instanceof FriendApplyInfo)) {
         return false;
       }
-      FriendApplyListInfo other = (FriendApplyListInfo) o;
+      FriendApplyInfo other = (FriendApplyInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasJKBMJGNPCNN() || jKBMJGNPCNN == other.jKBMJGNPCNN)
         && (!hasSimpleInfo() || simpleInfo.equals(other.simpleInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeInt64NoTag(jKBMJGNPCNN);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 82);
+        output.writeRawByte((byte) 34);
         output.writeMessageNoTag(simpleInfo);
       }
     }
@@ -211,9 +159,6 @@ public final class FriendApplyListInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeInt64SizeNoTag(jKBMJGNPCNN);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(simpleInfo);
       }
       return size;
@@ -221,24 +166,15 @@ public final class FriendApplyListInfoOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public FriendApplyListInfo mergeFrom(final ProtoSource input) throws IOException {
+    public FriendApplyInfo mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
-            // jKBMJGNPCNN
-            jKBMJGNPCNN = input.readInt64();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 82) {
-              break;
-            }
-          }
-          case 82: {
+          case 34: {
             // simpleInfo
             input.readMessage(simpleInfo);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -262,38 +198,24 @@ public final class FriendApplyListInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeInt64(FieldNames.jKBMJGNPCNN, jKBMJGNPCNN);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeMessage(FieldNames.simpleInfo, simpleInfo);
       }
       output.endObject();
     }
 
     @Override
-    public FriendApplyListInfo mergeFrom(final JsonSource input) throws IOException {
+    public FriendApplyInfo mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -601575848: {
-            if (input.isAtField(FieldNames.jKBMJGNPCNN)) {
-              if (!input.trySkipNullValue()) {
-                jKBMJGNPCNN = input.readInt64();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1431903872:
           case -1419171045: {
             if (input.isAtField(FieldNames.simpleInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(simpleInfo);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -311,8 +233,8 @@ public final class FriendApplyListInfoOuterClass {
     }
 
     @Override
-    public FriendApplyListInfo clone() {
-      return new FriendApplyListInfo().copyFrom(this);
+    public FriendApplyInfo clone() {
+      return new FriendApplyInfo().copyFrom(this);
     }
 
     @Override
@@ -320,32 +242,32 @@ public final class FriendApplyListInfoOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static FriendApplyListInfo parseFrom(final byte[] data) throws
+    public static FriendApplyInfo parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new FriendApplyListInfo(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new FriendApplyInfo(), data).checkInitialized();
     }
 
-    public static FriendApplyListInfo parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new FriendApplyListInfo(), input).checkInitialized();
+    public static FriendApplyInfo parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new FriendApplyInfo(), input).checkInitialized();
     }
 
-    public static FriendApplyListInfo parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new FriendApplyListInfo(), input).checkInitialized();
+    public static FriendApplyInfo parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new FriendApplyInfo(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating FriendApplyListInfo messages
+     * @return factory for creating FriendApplyInfo messages
      */
-    public static MessageFactory<FriendApplyListInfo> getFactory() {
-      return FriendApplyListInfoFactory.INSTANCE;
+    public static MessageFactory<FriendApplyInfo> getFactory() {
+      return FriendApplyInfoFactory.INSTANCE;
     }
 
-    private enum FriendApplyListInfoFactory implements MessageFactory<FriendApplyListInfo> {
+    private enum FriendApplyInfoFactory implements MessageFactory<FriendApplyInfo> {
       INSTANCE;
 
       @Override
-      public FriendApplyListInfo create() {
-        return FriendApplyListInfo.newInstance();
+      public FriendApplyInfo create() {
+        return FriendApplyInfo.newInstance();
       }
     }
 
@@ -353,8 +275,6 @@ public final class FriendApplyListInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName jKBMJGNPCNN = FieldName.forField("JKBMJGNPCNN");
-
       static final FieldName simpleInfo = FieldName.forField("simpleInfo", "simple_info");
     }
   }

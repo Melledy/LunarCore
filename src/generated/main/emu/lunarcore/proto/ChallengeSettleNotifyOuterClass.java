@@ -24,17 +24,17 @@ public final class ChallengeSettleNotifyOuterClass {
     private int challengeId;
 
     /**
-     * <code>optional uint32 stars = 13;</code>
+     * <code>optional uint32 stars = 15;</code>
      */
     private int stars;
 
     /**
-     * <code>optional bool is_win = 5;</code>
+     * <code>optional bool is_win = 13;</code>
      */
     private boolean isWin;
 
     /**
-     * <code>optional .ItemList reward = 3;</code>
+     * <code>optional .ItemList reward = 8;</code>
      */
     private final ItemListOuterClass.ItemList reward = ItemListOuterClass.ItemList.newInstance();
 
@@ -86,7 +86,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 13;</code>
+     * <code>optional uint32 stars = 15;</code>
      * @return whether the stars field is set
      */
     public boolean hasStars() {
@@ -94,7 +94,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 13;</code>
+     * <code>optional uint32 stars = 15;</code>
      * @return this
      */
     public ChallengeSettleNotify clearStars() {
@@ -104,7 +104,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 13;</code>
+     * <code>optional uint32 stars = 15;</code>
      * @return the stars
      */
     public int getStars() {
@@ -112,7 +112,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 13;</code>
+     * <code>optional uint32 stars = 15;</code>
      * @param value the stars to set
      * @return this
      */
@@ -123,7 +123,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 5;</code>
+     * <code>optional bool is_win = 13;</code>
      * @return whether the isWin field is set
      */
     public boolean hasIsWin() {
@@ -131,7 +131,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 5;</code>
+     * <code>optional bool is_win = 13;</code>
      * @return this
      */
     public ChallengeSettleNotify clearIsWin() {
@@ -141,7 +141,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 5;</code>
+     * <code>optional bool is_win = 13;</code>
      * @return the isWin
      */
     public boolean getIsWin() {
@@ -149,7 +149,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 5;</code>
+     * <code>optional bool is_win = 13;</code>
      * @param value the isWin to set
      * @return this
      */
@@ -160,7 +160,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 3;</code>
+     * <code>optional .ItemList reward = 8;</code>
      * @return whether the reward field is set
      */
     public boolean hasReward() {
@@ -168,7 +168,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 3;</code>
+     * <code>optional .ItemList reward = 8;</code>
      * @return this
      */
     public ChallengeSettleNotify clearReward() {
@@ -178,7 +178,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 3;</code>
+     * <code>optional .ItemList reward = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -192,7 +192,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 3;</code>
+     * <code>optional .ItemList reward = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -206,7 +206,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 3;</code>
+     * <code>optional .ItemList reward = 8;</code>
      * @param value the reward to set
      * @return this
      */
@@ -298,15 +298,15 @@ public final class ChallengeSettleNotifyOuterClass {
         output.writeUInt32NoTag(challengeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(stars);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 104);
         output.writeBoolNoTag(isWin);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 26);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(reward);
       }
     }
@@ -341,29 +341,29 @@ public final class ChallengeSettleNotifyOuterClass {
             challengeId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // stars
+            stars = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
             if (tag != 104) {
               break;
             }
           }
           case 104: {
-            // stars
-            stars = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 40) {
-              break;
-            }
-          }
-          case 40: {
             // isWin
             isWin = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 66) {
               break;
             }
           }
-          case 26: {
+          case 66: {
             // reward
             input.readMessage(reward);
             bitField0_ |= 0x00000008;

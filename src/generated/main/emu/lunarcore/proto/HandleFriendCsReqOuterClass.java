@@ -19,12 +19,12 @@ public final class HandleFriendCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 uid = 10;</code>
+     * <code>optional uint32 uid = 7;</code>
      */
     private int uid;
 
     /**
-     * <code>optional bool handle_result = 2;</code>
+     * <code>optional bool handle_result = 13;</code>
      */
     private boolean handleResult;
 
@@ -39,7 +39,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 10;</code>
+     * <code>optional uint32 uid = 7;</code>
      * @return whether the uid field is set
      */
     public boolean hasUid() {
@@ -47,7 +47,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 10;</code>
+     * <code>optional uint32 uid = 7;</code>
      * @return this
      */
     public HandleFriendCsReq clearUid() {
@@ -57,7 +57,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 10;</code>
+     * <code>optional uint32 uid = 7;</code>
      * @return the uid
      */
     public int getUid() {
@@ -65,7 +65,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 10;</code>
+     * <code>optional uint32 uid = 7;</code>
      * @param value the uid to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 2;</code>
+     * <code>optional bool handle_result = 13;</code>
      * @return whether the handleResult field is set
      */
     public boolean hasHandleResult() {
@@ -84,7 +84,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 2;</code>
+     * <code>optional bool handle_result = 13;</code>
      * @return this
      */
     public HandleFriendCsReq clearHandleResult() {
@@ -94,7 +94,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 2;</code>
+     * <code>optional bool handle_result = 13;</code>
      * @return the handleResult
      */
     public boolean getHandleResult() {
@@ -102,7 +102,7 @@ public final class HandleFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 2;</code>
+     * <code>optional bool handle_result = 13;</code>
      * @param value the handleResult to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class HandleFriendCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(uid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 104);
         output.writeBoolNoTag(handleResult);
       }
     }
@@ -205,16 +205,16 @@ public final class HandleFriendCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 56: {
             // uid
             uid = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 104) {
               break;
             }
           }
-          case 16: {
+          case 104: {
             // handleResult
             handleResult = input.readBool();
             bitField0_ |= 0x00000002;

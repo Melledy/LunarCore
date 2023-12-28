@@ -67,7 +67,12 @@ public final class ExtraLineupTypeOuterClass {
     /**
      * <code>LINEUP_CHESS_ROGUE = 12;</code>
      */
-    LINEUP_CHESS_ROGUE("LINEUP_CHESS_ROGUE", 12);
+    LINEUP_CHESS_ROGUE("LINEUP_CHESS_ROGUE", 12),
+
+    /**
+     * <code>LINEUP_HELIOBUS = 13;</code>
+     */
+    LINEUP_HELIOBUS("LINEUP_HELIOBUS", 13);
 
     /**
      * <code>LINEUP_NONE = 0;</code>
@@ -129,6 +134,11 @@ public final class ExtraLineupTypeOuterClass {
      */
     public static final int LINEUP_CHESS_ROGUE_VALUE = 12;
 
+    /**
+     * <code>LINEUP_HELIOBUS = 13;</code>
+     */
+    public static final int LINEUP_HELIOBUS_VALUE = 13;
+
     private final String name;
 
     private final int number;
@@ -182,7 +192,7 @@ public final class ExtraLineupTypeOuterClass {
     enum ExtraLineupTypeConverter implements ProtoEnum.EnumConverter<ExtraLineupType> {
       INSTANCE;
 
-      private static final ExtraLineupType[] lookup = new ExtraLineupType[13];
+      private static final ExtraLineupType[] lookup = new ExtraLineupType[14];
 
       static {
         lookup[0] = LINEUP_NONE;
@@ -197,6 +207,7 @@ public final class ExtraLineupTypeOuterClass {
         lookup[9] = LINEUP_BOXING_CLUB;
         lookup[11] = LINEUP_TREASURE_DUNGEON;
         lookup[12] = LINEUP_CHESS_ROGUE;
+        lookup[13] = LINEUP_HELIOBUS;
       }
 
       @Override
@@ -225,6 +236,9 @@ public final class ExtraLineupTypeOuterClass {
           case 15: {
             if (ProtoUtil.isEqual("LINEUP_ACTIVITY", value)) {
               return LINEUP_ACTIVITY;
+            }
+            if (ProtoUtil.isEqual("LINEUP_HELIOBUS", value)) {
+              return LINEUP_HELIOBUS;
             }
             break;
           }

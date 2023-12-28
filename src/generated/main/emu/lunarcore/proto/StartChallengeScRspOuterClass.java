@@ -19,24 +19,24 @@ public final class StartChallengeScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .LineupInfo lineup = 1;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
+     */
+    private final ChallengeInfoOuterClass.ChallengeInfo challengeInfo = ChallengeInfoOuterClass.ChallengeInfo.newInstance();
+
+    /**
+     * <code>optional .LineupInfo lineup = 4;</code>
      */
     private final LineupInfoOuterClass.LineupInfo lineup = LineupInfoOuterClass.LineupInfo.newInstance();
 
     /**
-     * <code>optional .SceneInfo scene = 4;</code>
+     * <code>optional .SceneInfo scene = 11;</code>
      */
     private final SceneInfoOuterClass.SceneInfo scene = SceneInfoOuterClass.SceneInfo.newInstance();
-
-    /**
-     * <code>optional .ChallengeInfo challenge_info = 14;</code>
-     */
-    private final ChallengeInfoOuterClass.ChallengeInfo challengeInfo = ChallengeInfoOuterClass.ChallengeInfo.newInstance();
 
     private StartChallengeScRsp() {
     }
@@ -49,7 +49,7 @@ public final class StartChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -57,7 +57,7 @@ public final class StartChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return this
      */
     public StartChallengeScRsp clearRetcode() {
@@ -67,7 +67,7 @@ public final class StartChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -75,7 +75,7 @@ public final class StartChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -86,139 +86,25 @@ public final class StartChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 1;</code>
-     * @return whether the lineup field is set
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
+     * @return whether the challengeInfo field is set
      */
-    public boolean hasLineup() {
+    public boolean hasChallengeInfo() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 1;</code>
-     * @return this
-     */
-    public StartChallengeScRsp clearLineup() {
-      bitField0_ &= ~0x00000002;
-      lineup.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .LineupInfo lineup = 1;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableLineup()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public LineupInfoOuterClass.LineupInfo getLineup() {
-      return lineup;
-    }
-
-    /**
-     * <code>optional .LineupInfo lineup = 1;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public LineupInfoOuterClass.LineupInfo getMutableLineup() {
-      bitField0_ |= 0x00000002;
-      return lineup;
-    }
-
-    /**
-     * <code>optional .LineupInfo lineup = 1;</code>
-     * @param value the lineup to set
-     * @return this
-     */
-    public StartChallengeScRsp setLineup(final LineupInfoOuterClass.LineupInfo value) {
-      bitField0_ |= 0x00000002;
-      lineup.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 4;</code>
-     * @return whether the scene field is set
-     */
-    public boolean hasScene() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 4;</code>
-     * @return this
-     */
-    public StartChallengeScRsp clearScene() {
-      bitField0_ &= ~0x00000004;
-      scene.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 4;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableScene()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public SceneInfoOuterClass.SceneInfo getScene() {
-      return scene;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 4;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public SceneInfoOuterClass.SceneInfo getMutableScene() {
-      bitField0_ |= 0x00000004;
-      return scene;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 4;</code>
-     * @param value the scene to set
-     * @return this
-     */
-    public StartChallengeScRsp setScene(final SceneInfoOuterClass.SceneInfo value) {
-      bitField0_ |= 0x00000004;
-      scene.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .ChallengeInfo challenge_info = 14;</code>
-     * @return whether the challengeInfo field is set
-     */
-    public boolean hasChallengeInfo() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional .ChallengeInfo challenge_info = 14;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      * @return this
      */
     public StartChallengeScRsp clearChallengeInfo() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000002;
       challengeInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 14;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -232,7 +118,7 @@ public final class StartChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 14;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -241,18 +127,132 @@ public final class StartChallengeScRspOuterClass {
      * @return internal storage object for modifications
      */
     public ChallengeInfoOuterClass.ChallengeInfo getMutableChallengeInfo() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000002;
       return challengeInfo;
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 14;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      * @param value the challengeInfo to set
      * @return this
      */
     public StartChallengeScRsp setChallengeInfo(final ChallengeInfoOuterClass.ChallengeInfo value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000002;
       challengeInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .LineupInfo lineup = 4;</code>
+     * @return whether the lineup field is set
+     */
+    public boolean hasLineup() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional .LineupInfo lineup = 4;</code>
+     * @return this
+     */
+    public StartChallengeScRsp clearLineup() {
+      bitField0_ &= ~0x00000004;
+      lineup.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .LineupInfo lineup = 4;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableLineup()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public LineupInfoOuterClass.LineupInfo getLineup() {
+      return lineup;
+    }
+
+    /**
+     * <code>optional .LineupInfo lineup = 4;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public LineupInfoOuterClass.LineupInfo getMutableLineup() {
+      bitField0_ |= 0x00000004;
+      return lineup;
+    }
+
+    /**
+     * <code>optional .LineupInfo lineup = 4;</code>
+     * @param value the lineup to set
+     * @return this
+     */
+    public StartChallengeScRsp setLineup(final LineupInfoOuterClass.LineupInfo value) {
+      bitField0_ |= 0x00000004;
+      lineup.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 11;</code>
+     * @return whether the scene field is set
+     */
+    public boolean hasScene() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 11;</code>
+     * @return this
+     */
+    public StartChallengeScRsp clearScene() {
+      bitField0_ &= ~0x00000008;
+      scene.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 11;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableScene()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public SceneInfoOuterClass.SceneInfo getScene() {
+      return scene;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 11;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public SceneInfoOuterClass.SceneInfo getMutableScene() {
+      bitField0_ |= 0x00000008;
+      return scene;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 11;</code>
+     * @param value the scene to set
+     * @return this
+     */
+    public StartChallengeScRsp setScene(final SceneInfoOuterClass.SceneInfo value) {
+      bitField0_ |= 0x00000008;
+      scene.copyFrom(value);
       return this;
     }
 
@@ -262,9 +262,9 @@ public final class StartChallengeScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
+        challengeInfo.copyFrom(other.challengeInfo);
         lineup.copyFrom(other.lineup);
         scene.copyFrom(other.scene);
-        challengeInfo.copyFrom(other.challengeInfo);
       }
       return this;
     }
@@ -278,14 +278,14 @@ public final class StartChallengeScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
+      if (other.hasChallengeInfo()) {
+        getMutableChallengeInfo().mergeFrom(other.challengeInfo);
+      }
       if (other.hasLineup()) {
         getMutableLineup().mergeFrom(other.lineup);
       }
       if (other.hasScene()) {
         getMutableScene().mergeFrom(other.scene);
-      }
-      if (other.hasChallengeInfo()) {
-        getMutableChallengeInfo().mergeFrom(other.challengeInfo);
       }
       return this;
     }
@@ -298,9 +298,9 @@ public final class StartChallengeScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
+      challengeInfo.clear();
       lineup.clear();
       scene.clear();
-      challengeInfo.clear();
       return this;
     }
 
@@ -311,9 +311,9 @@ public final class StartChallengeScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      challengeInfo.clearQuick();
       lineup.clearQuick();
       scene.clearQuick();
-      challengeInfo.clearQuick();
       return this;
     }
 
@@ -328,28 +328,28 @@ public final class StartChallengeScRspOuterClass {
       StartChallengeScRsp other = (StartChallengeScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasChallengeInfo() || challengeInfo.equals(other.challengeInfo))
         && (!hasLineup() || lineup.equals(other.lineup))
-        && (!hasScene() || scene.equals(other.scene))
-        && (!hasChallengeInfo() || challengeInfo.equals(other.challengeInfo));
+        && (!hasScene() || scene.equals(other.scene));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 10);
-        output.writeMessageNoTag(lineup);
+        output.writeRawByte((byte) 26);
+        output.writeMessageNoTag(challengeInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 34);
-        output.writeMessageNoTag(scene);
+        output.writeMessageNoTag(lineup);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 114);
-        output.writeMessageNoTag(challengeInfo);
+        output.writeRawByte((byte) 90);
+        output.writeMessageNoTag(scene);
       }
     }
 
@@ -360,13 +360,13 @@ public final class StartChallengeScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(lineup);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(challengeInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(scene);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(lineup);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(challengeInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(scene);
       }
       return size;
     }
@@ -378,18 +378,18 @@ public final class StartChallengeScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 8: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 26) {
               break;
             }
           }
-          case 10: {
-            // lineup
-            input.readMessage(lineup);
+          case 26: {
+            // challengeInfo
+            input.readMessage(challengeInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 34) {
@@ -397,17 +397,17 @@ public final class StartChallengeScRspOuterClass {
             }
           }
           case 34: {
-            // scene
-            input.readMessage(scene);
+            // lineup
+            input.readMessage(lineup);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 90) {
               break;
             }
           }
-          case 114: {
-            // challengeInfo
-            input.readMessage(challengeInfo);
+          case 90: {
+            // scene
+            input.readMessage(scene);
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
@@ -435,13 +435,13 @@ public final class StartChallengeScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.lineup, lineup);
+        output.writeMessage(FieldNames.challengeInfo, challengeInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeMessage(FieldNames.scene, scene);
+        output.writeMessage(FieldNames.lineup, lineup);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeMessage(FieldNames.challengeInfo, challengeInfo);
+        output.writeMessage(FieldNames.scene, scene);
       }
       output.endObject();
     }
@@ -464,11 +464,23 @@ public final class StartChallengeScRspOuterClass {
             }
             break;
           }
+          case -812487759:
+          case 602859274: {
+            if (input.isAtField(FieldNames.challengeInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(challengeInfo);
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1102671473: {
             if (input.isAtField(FieldNames.lineup)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(lineup);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -479,18 +491,6 @@ public final class StartChallengeScRspOuterClass {
             if (input.isAtField(FieldNames.scene)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(scene);
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -812487759:
-          case 602859274: {
-            if (input.isAtField(FieldNames.challengeInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(challengeInfo);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -553,11 +553,11 @@ public final class StartChallengeScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
+      static final FieldName challengeInfo = FieldName.forField("challengeInfo", "challenge_info");
+
       static final FieldName lineup = FieldName.forField("lineup");
 
       static final FieldName scene = FieldName.forField("scene");
-
-      static final FieldName challengeInfo = FieldName.forField("challengeInfo", "challenge_info");
     }
   }
 }

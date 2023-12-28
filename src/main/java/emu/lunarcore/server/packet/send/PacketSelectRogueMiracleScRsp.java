@@ -9,7 +9,7 @@ import emu.lunarcore.server.packet.CmdId;
 public class PacketSelectRogueMiracleScRsp extends BasePacket {
 
     public PacketSelectRogueMiracleScRsp(RogueMiracleData miracle, RogueMiracleSelectMenu miracleSelect) {
-        super(CmdId.SelectRogueMiracleScRsp);
+        super(CmdId.NONE); // TODO update
         
         var data = SelectRogueMiracleScRsp.newInstance();
         

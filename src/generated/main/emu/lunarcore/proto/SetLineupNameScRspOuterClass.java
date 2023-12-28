@@ -20,7 +20,7 @@ public final class SetLineupNameScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 index = 2;</code>
+     * <code>optional uint32 index = 8;</code>
      */
     private int index;
 
@@ -30,7 +30,7 @@ public final class SetLineupNameScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      */
     private final Utf8String name = Utf8String.newEmptyInstance();
 
@@ -45,7 +45,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 2;</code>
+     * <code>optional uint32 index = 8;</code>
      * @return whether the index field is set
      */
     public boolean hasIndex() {
@@ -53,7 +53,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 2;</code>
+     * <code>optional uint32 index = 8;</code>
      * @return this
      */
     public SetLineupNameScRsp clearIndex() {
@@ -63,7 +63,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 2;</code>
+     * <code>optional uint32 index = 8;</code>
      * @return the index
      */
     public int getIndex() {
@@ -71,7 +71,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 2;</code>
+     * <code>optional uint32 index = 8;</code>
      * @param value the index to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      * @return whether the name field is set
      */
     public boolean hasName() {
@@ -127,7 +127,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      * @return this
      */
     public SetLineupNameScRsp clearName() {
@@ -137,7 +137,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      * @return the name
      */
     public String getName() {
@@ -145,7 +145,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      * @return internal {@code Utf8String} representation of name for reading
      */
     public Utf8String getNameBytes() {
@@ -153,7 +153,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      * @return internal {@code Utf8String} representation of name for modifications
      */
     public Utf8String getMutableNameBytes() {
@@ -162,7 +162,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      * @param value the name to set
      * @return this
      */
@@ -173,7 +173,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 8;</code>
+     * <code>optional string name = 7;</code>
      * @param value the name to set
      * @return this
      */
@@ -255,7 +255,7 @@ public final class SetLineupNameScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(index);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -263,7 +263,7 @@ public final class SetLineupNameScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 66);
+        output.writeRawByte((byte) 58);
         output.writeStringNoTag(name);
       }
     }
@@ -290,7 +290,7 @@ public final class SetLineupNameScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 64: {
             // index
             index = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -304,11 +304,11 @@ public final class SetLineupNameScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 58) {
               break;
             }
           }
-          case 66: {
+          case 58: {
             // name
             input.readString(name);
             bitField0_ |= 0x00000004;

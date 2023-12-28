@@ -1,8 +1,8 @@
 package emu.lunarcore.server.packet.send;
 
 import java.util.List;
-import emu.lunarcore.proto.UnlockBackGroundMusicScRspOuterClass.UnlockBackGroundMusicScRsp.UnlockedMusic;
 import emu.lunarcore.proto.UnlockBackGroundMusicScRspOuterClass.UnlockBackGroundMusicScRsp;
+import emu.lunarcore.proto.UnlockedMusicOuterClass.UnlockedMusic;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.data.GameData;

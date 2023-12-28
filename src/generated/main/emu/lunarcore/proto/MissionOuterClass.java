@@ -19,17 +19,17 @@ public final class MissionOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 id = 11;</code>
-     */
-    private int id;
-
-    /**
-     * <code>optional uint32 progress = 13;</code>
+     * <code>optional uint32 progress = 14;</code>
      */
     private int progress;
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional uint32 id = 15;</code>
+     */
+    private int id;
+
+    /**
+     * <code>optional .MissionStatus status = 11;</code>
      */
     private int status;
 
@@ -44,62 +44,25 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 11;</code>
-     * @return whether the id field is set
+     * <code>optional uint32 progress = 14;</code>
+     * @return whether the progress field is set
      */
-    public boolean hasId() {
+    public boolean hasProgress() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 id = 11;</code>
-     * @return this
-     */
-    public Mission clearId() {
-      bitField0_ &= ~0x00000001;
-      id = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 id = 11;</code>
-     * @return the id
-     */
-    public int getId() {
-      return id;
-    }
-
-    /**
-     * <code>optional uint32 id = 11;</code>
-     * @param value the id to set
-     * @return this
-     */
-    public Mission setId(final int value) {
-      bitField0_ |= 0x00000001;
-      id = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 progress = 13;</code>
-     * @return whether the progress field is set
-     */
-    public boolean hasProgress() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 progress = 13;</code>
+     * <code>optional uint32 progress = 14;</code>
      * @return this
      */
     public Mission clearProgress() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       progress = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 progress = 13;</code>
+     * <code>optional uint32 progress = 14;</code>
      * @return the progress
      */
     public int getProgress() {
@@ -107,18 +70,55 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 13;</code>
+     * <code>optional uint32 progress = 14;</code>
      * @param value the progress to set
      * @return this
      */
     public Mission setProgress(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       progress = value;
       return this;
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional uint32 id = 15;</code>
+     * @return whether the id field is set
+     */
+    public boolean hasId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 id = 15;</code>
+     * @return this
+     */
+    public Mission clearId() {
+      bitField0_ &= ~0x00000002;
+      id = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 id = 15;</code>
+     * @return the id
+     */
+    public int getId() {
+      return id;
+    }
+
+    /**
+     * <code>optional uint32 id = 15;</code>
+     * @param value the id to set
+     * @return this
+     */
+    public Mission setId(final int value) {
+      bitField0_ |= 0x00000002;
+      id = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .MissionStatus status = 11;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -126,7 +126,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 11;</code>
      * @return this
      */
     public Mission clearStatus() {
@@ -136,7 +136,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 11;</code>
      * @return the status
      */
     public MissionStatusOuterClass.MissionStatus getStatus() {
@@ -169,7 +169,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 11;</code>
      * @param value the status to set
      * @return this
      */
@@ -184,8 +184,8 @@ public final class MissionOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        id = other.id;
         progress = other.progress;
+        id = other.id;
         status = other.status;
       }
       return this;
@@ -197,11 +197,11 @@ public final class MissionOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasId()) {
-        setId(other.id);
-      }
       if (other.hasProgress()) {
         setProgress(other.progress);
+      }
+      if (other.hasId()) {
+        setId(other.id);
       }
       if (other.hasStatus()) {
         setStatusValue(other.status);
@@ -216,8 +216,8 @@ public final class MissionOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      id = 0;
       progress = 0;
+      id = 0;
       status = 0;
       return this;
     }
@@ -242,23 +242,23 @@ public final class MissionOuterClass {
       }
       Mission other = (Mission) o;
       return bitField0_ == other.bitField0_
-        && (!hasId() || id == other.id)
         && (!hasProgress() || progress == other.progress)
+        && (!hasId() || id == other.id)
         && (!hasStatus() || status == other.status);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(id);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(progress);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(id);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 88);
         output.writeEnumNoTag(status);
       }
     }
@@ -267,10 +267,10 @@ public final class MissionOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(progress);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(progress);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(status);
@@ -285,25 +285,25 @@ public final class MissionOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
-            // id
-            id = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
+          case 112: {
             // progress
             progress = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 120) {
               break;
             }
           }
-          case 64: {
+          case 120: {
+            // id
+            id = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
             // status
             final int value = input.readInt32();
             if (MissionStatusOuterClass.MissionStatus.forNumber(value) != null) {
@@ -333,10 +333,10 @@ public final class MissionOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.id, id);
+        output.writeUInt32(FieldNames.progress, progress);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.progress, progress);
+        output.writeUInt32(FieldNames.id, id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeEnum(FieldNames.status, status, MissionStatusOuterClass.MissionStatus.converter());
@@ -351,10 +351,10 @@ public final class MissionOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 3355: {
-            if (input.isAtField(FieldNames.id)) {
+          case -1001078227: {
+            if (input.isAtField(FieldNames.progress)) {
               if (!input.trySkipNullValue()) {
-                id = input.readUInt32();
+                progress = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -362,10 +362,10 @@ public final class MissionOuterClass {
             }
             break;
           }
-          case -1001078227: {
-            if (input.isAtField(FieldNames.progress)) {
+          case 3355: {
+            if (input.isAtField(FieldNames.id)) {
               if (!input.trySkipNullValue()) {
-                progress = input.readUInt32();
+                id = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -441,9 +441,9 @@ public final class MissionOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName id = FieldName.forField("id");
-
       static final FieldName progress = FieldName.forField("progress");
+
+      static final FieldName id = FieldName.forField("id");
 
       static final FieldName status = FieldName.forField("status");
     }

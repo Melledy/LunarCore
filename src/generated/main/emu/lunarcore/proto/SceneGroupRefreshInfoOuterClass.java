@@ -20,17 +20,17 @@ public final class SceneGroupRefreshInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 4;</code>
      */
     private int groupId;
 
     /**
-     * <code>optional uint32 state = 7;</code>
+     * <code>optional uint32 state = 5;</code>
      */
     private int state;
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 4;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 7;</code>
      */
     private final RepeatedMessage<SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo> refreshEntity = RepeatedMessage.newEmptyInstance(SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo.getFactory());
 
@@ -45,7 +45,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 4;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -53,7 +53,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 4;</code>
      * @return this
      */
     public SceneGroupRefreshInfo clearGroupId() {
@@ -63,7 +63,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 4;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -71,7 +71,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 4;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 7;</code>
+     * <code>optional uint32 state = 5;</code>
      * @return whether the state field is set
      */
     public boolean hasState() {
@@ -90,7 +90,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 7;</code>
+     * <code>optional uint32 state = 5;</code>
      * @return this
      */
     public SceneGroupRefreshInfo clearState() {
@@ -100,7 +100,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 7;</code>
+     * <code>optional uint32 state = 5;</code>
      * @return the state
      */
     public int getState() {
@@ -108,7 +108,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 7;</code>
+     * <code>optional uint32 state = 5;</code>
      * @param value the state to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 4;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 7;</code>
      * @return whether the refreshEntity field is set
      */
     public boolean hasRefreshEntity() {
@@ -127,7 +127,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 4;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 7;</code>
      * @return this
      */
     public SceneGroupRefreshInfo clearRefreshEntity() {
@@ -137,7 +137,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 4;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -152,7 +152,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 4;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -167,7 +167,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 4;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 7;</code>
      * @param value the refreshEntity to add
      * @return this
      */
@@ -179,7 +179,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 4;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 7;</code>
      * @param values the refreshEntity to add
      * @return this
      */
@@ -262,16 +262,16 @@ public final class SceneGroupRefreshInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(state);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < refreshEntity.length(); i++) {
-          output.writeRawByte((byte) 34);
+          output.writeRawByte((byte) 58);
           output.writeMessageNoTag(refreshEntity.get(i));
         }
       }
@@ -299,25 +299,25 @@ public final class SceneGroupRefreshInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 32: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 40) {
               break;
             }
           }
-          case 56: {
+          case 40: {
             // state
             state = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 58) {
               break;
             }
           }
-          case 34: {
+          case 58: {
             // refreshEntity
             tag = input.readRepeatedMessage(refreshEntity, tag);
             bitField0_ |= 0x00000004;

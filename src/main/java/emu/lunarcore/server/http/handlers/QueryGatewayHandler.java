@@ -29,8 +29,7 @@ public class QueryGatewayHandler implements Handler {
                 .setUnk2(true)
                 .setUnk3(true)
                 .setUnk4(true)
-                .setUnk5(true)
-                .setUnk6(true);
+                .setUnk5(true);
         
         if (data.assetBundleUrl != null) {
             gateserver.setAssetBundleUrl(data.assetBundleUrl);

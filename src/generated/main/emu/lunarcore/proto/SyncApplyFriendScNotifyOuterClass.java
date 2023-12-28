@@ -19,9 +19,9 @@ public final class SyncApplyFriendScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .FriendApplyListInfo friend_apply_info = 5;</code>
+     * <code>optional .FriendApplyInfo friend_apply_info = 9;</code>
      */
-    private final FriendApplyListInfoOuterClass.FriendApplyListInfo friendApplyInfo = FriendApplyListInfoOuterClass.FriendApplyListInfo.newInstance();
+    private final FriendApplyInfoOuterClass.FriendApplyInfo friendApplyInfo = FriendApplyInfoOuterClass.FriendApplyInfo.newInstance();
 
     private SyncApplyFriendScNotify() {
     }
@@ -34,7 +34,7 @@ public final class SyncApplyFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendApplyListInfo friend_apply_info = 5;</code>
+     * <code>optional .FriendApplyInfo friend_apply_info = 9;</code>
      * @return whether the friendApplyInfo field is set
      */
     public boolean hasFriendApplyInfo() {
@@ -42,7 +42,7 @@ public final class SyncApplyFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendApplyListInfo friend_apply_info = 5;</code>
+     * <code>optional .FriendApplyInfo friend_apply_info = 9;</code>
      * @return this
      */
     public SyncApplyFriendScNotify clearFriendApplyInfo() {
@@ -52,7 +52,7 @@ public final class SyncApplyFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendApplyListInfo friend_apply_info = 5;</code>
+     * <code>optional .FriendApplyInfo friend_apply_info = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -61,12 +61,12 @@ public final class SyncApplyFriendScNotifyOuterClass {
      *
      * @return internal storage object for reading
      */
-    public FriendApplyListInfoOuterClass.FriendApplyListInfo getFriendApplyInfo() {
+    public FriendApplyInfoOuterClass.FriendApplyInfo getFriendApplyInfo() {
       return friendApplyInfo;
     }
 
     /**
-     * <code>optional .FriendApplyListInfo friend_apply_info = 5;</code>
+     * <code>optional .FriendApplyInfo friend_apply_info = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -74,18 +74,18 @@ public final class SyncApplyFriendScNotifyOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public FriendApplyListInfoOuterClass.FriendApplyListInfo getMutableFriendApplyInfo() {
+    public FriendApplyInfoOuterClass.FriendApplyInfo getMutableFriendApplyInfo() {
       bitField0_ |= 0x00000001;
       return friendApplyInfo;
     }
 
     /**
-     * <code>optional .FriendApplyListInfo friend_apply_info = 5;</code>
+     * <code>optional .FriendApplyInfo friend_apply_info = 9;</code>
      * @param value the friendApplyInfo to set
      * @return this
      */
     public SyncApplyFriendScNotify setFriendApplyInfo(
-        final FriendApplyListInfoOuterClass.FriendApplyListInfo value) {
+        final FriendApplyInfoOuterClass.FriendApplyInfo value) {
       bitField0_ |= 0x00000001;
       friendApplyInfo.copyFrom(value);
       return this;
@@ -151,7 +151,7 @@ public final class SyncApplyFriendScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 74);
         output.writeMessageNoTag(friendApplyInfo);
       }
     }
@@ -172,7 +172,7 @@ public final class SyncApplyFriendScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 42: {
+          case 74: {
             // friendApplyInfo
             input.readMessage(friendApplyInfo);
             bitField0_ |= 0x00000001;

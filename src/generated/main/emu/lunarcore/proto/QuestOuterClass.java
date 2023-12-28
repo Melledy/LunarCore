@@ -7,11 +7,9 @@ import us.hebi.quickbuf.InvalidProtocolBufferException;
 import us.hebi.quickbuf.JsonSink;
 import us.hebi.quickbuf.JsonSource;
 import us.hebi.quickbuf.MessageFactory;
-import us.hebi.quickbuf.ProtoEnum;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.ProtoUtil;
 import us.hebi.quickbuf.RepeatedInt;
 
 public final class QuestOuterClass {
@@ -37,7 +35,7 @@ public final class QuestOuterClass {
     private int progress;
 
     /**
-     * <code>optional .Quest.QuestStatus status = 5;</code>
+     * <code>optional .QuestStatus status = 5;</code>
      */
     private int status;
 
@@ -168,7 +166,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .Quest.QuestStatus status = 5;</code>
+     * <code>optional .QuestStatus status = 5;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -176,7 +174,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .Quest.QuestStatus status = 5;</code>
+     * <code>optional .QuestStatus status = 5;</code>
      * @return this
      */
     public Quest clearStatus() {
@@ -186,11 +184,11 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .Quest.QuestStatus status = 5;</code>
+     * <code>optional .QuestStatus status = 5;</code>
      * @return the status
      */
-    public QuestStatus getStatus() {
-      return QuestStatus.forNumber(status);
+    public QuestStatusOuterClass.QuestStatus getStatus() {
+      return QuestStatusOuterClass.QuestStatus.forNumber(status);
     }
 
     /**
@@ -206,7 +204,7 @@ public final class QuestOuterClass {
     /**
      * Sets the value of the internal enum store. This does not
      * do any validity checks, so be sure to use appropriate value
-     * constants from {@link QuestStatus}. Setting an invalid value
+     * constants from {@link QuestStatusOuterClass.QuestStatus}. Setting an invalid value
      * can cause {@link Quest#getStatus()} to return null
      *
      * @param value the numeric wire value to set
@@ -219,11 +217,11 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .Quest.QuestStatus status = 5;</code>
+     * <code>optional .QuestStatus status = 5;</code>
      * @param value the status to set
      * @return this
      */
-    public Quest setStatus(final QuestStatus value) {
+    public Quest setStatus(final QuestStatusOuterClass.QuestStatus value) {
       bitField0_ |= 0x00000008;
       status = value.getNumber();
       return this;
@@ -462,7 +460,7 @@ public final class QuestOuterClass {
           case 40: {
             // status
             final int value = input.readInt32();
-            if (QuestStatus.forNumber(value) != null) {
+            if (QuestStatusOuterClass.QuestStatus.forNumber(value) != null) {
               status = value;
               bitField0_ |= 0x00000008;
             }
@@ -513,7 +511,7 @@ public final class QuestOuterClass {
         output.writeUInt32(FieldNames.progress, progress);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeEnum(FieldNames.status, status, QuestStatus.converter());
+        output.writeEnum(FieldNames.status, status, QuestStatusOuterClass.QuestStatus.converter());
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRepeatedUInt32(FieldNames.takenAchievementLevelList, takenAchievementLevelList);
@@ -565,7 +563,7 @@ public final class QuestOuterClass {
           case -892481550: {
             if (input.isAtField(FieldNames.status)) {
               if (!input.trySkipNullValue()) {
-                final QuestStatus value = input.readEnum(QuestStatus.converter());
+                final QuestStatusOuterClass.QuestStatus value = input.readEnum(QuestStatusOuterClass.QuestStatus.converter());
                 if (value != null) {
                   status = value.getNumber();
                   bitField0_ |= 0x00000008;
@@ -627,159 +625,6 @@ public final class QuestOuterClass {
      */
     public static MessageFactory<Quest> getFactory() {
       return QuestFactory.INSTANCE;
-    }
-
-    /**
-     * Protobuf enum {@code QuestStatus}
-     */
-    public enum QuestStatus implements ProtoEnum<QuestStatus> {
-      /**
-       * <code>QUEST_NONE = 0;</code>
-       */
-      QUEST_NONE("QUEST_NONE", 0),
-
-      /**
-       * <code>QUEST_DOING = 1;</code>
-       */
-      QUEST_DOING("QUEST_DOING", 1),
-
-      /**
-       * <code>QUEST_FINISH = 2;</code>
-       */
-      QUEST_FINISH("QUEST_FINISH", 2),
-
-      /**
-       * <code>QUEST_CLOSE = 3;</code>
-       */
-      QUEST_CLOSE("QUEST_CLOSE", 3),
-
-      /**
-       * <code>QUEST_DELETE = 4;</code>
-       */
-      QUEST_DELETE("QUEST_DELETE", 4);
-
-      /**
-       * <code>QUEST_NONE = 0;</code>
-       */
-      public static final int QUEST_NONE_VALUE = 0;
-
-      /**
-       * <code>QUEST_DOING = 1;</code>
-       */
-      public static final int QUEST_DOING_VALUE = 1;
-
-      /**
-       * <code>QUEST_FINISH = 2;</code>
-       */
-      public static final int QUEST_FINISH_VALUE = 2;
-
-      /**
-       * <code>QUEST_CLOSE = 3;</code>
-       */
-      public static final int QUEST_CLOSE_VALUE = 3;
-
-      /**
-       * <code>QUEST_DELETE = 4;</code>
-       */
-      public static final int QUEST_DELETE_VALUE = 4;
-
-      private final String name;
-
-      private final int number;
-
-      private QuestStatus(String name, int number) {
-        this.name = name;
-        this.number = number;
-      }
-
-      /**
-       * @return the string representation of enum entry
-       */
-      @Override
-      public String getName() {
-        return name;
-      }
-
-      /**
-       * @return the numeric wire value of this enum entry
-       */
-      @Override
-      public int getNumber() {
-        return number;
-      }
-
-      /**
-       * @return a converter that maps between this enum's numeric and text representations
-       */
-      public static ProtoEnum.EnumConverter<QuestStatus> converter() {
-        return QuestStatusConverter.INSTANCE;
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @return The enum associated with the given numeric wire value, or null if unknown.
-       */
-      public static QuestStatus forNumber(int value) {
-        return QuestStatusConverter.INSTANCE.forNumber(value);
-      }
-
-      /**
-       * @param value The numeric wire value of the corresponding enum entry.
-       * @param other Fallback value in case the value is not known.
-       * @return The enum associated with the given numeric wire value, or the fallback value if unknown.
-       */
-      public static QuestStatus forNumberOr(int number, QuestStatus other) {
-        QuestStatus value = forNumber(number);
-        return value == null ? other : value;
-      }
-
-      enum QuestStatusConverter implements ProtoEnum.EnumConverter<QuestStatus> {
-        INSTANCE;
-
-        private static final QuestStatus[] lookup = new QuestStatus[5];
-
-        static {
-          lookup[0] = QUEST_NONE;
-          lookup[1] = QUEST_DOING;
-          lookup[2] = QUEST_FINISH;
-          lookup[3] = QUEST_CLOSE;
-          lookup[4] = QUEST_DELETE;
-        }
-
-        @Override
-        public final QuestStatus forNumber(final int value) {
-          if (value >= 0 && value < lookup.length) {
-            return lookup[value];
-          }
-          return null;
-        }
-
-        @Override
-        public final QuestStatus forName(final CharSequence value) {
-          if (value.length() == 10) {
-            if (ProtoUtil.isEqual("QUEST_NONE", value)) {
-              return QUEST_NONE;
-            }
-          }
-          if (value.length() == 11) {
-            if (ProtoUtil.isEqual("QUEST_DOING", value)) {
-              return QUEST_DOING;
-            }
-            if (ProtoUtil.isEqual("QUEST_CLOSE", value)) {
-              return QUEST_CLOSE;
-            }
-          }
-          if (value.length() == 12) {
-            if (ProtoUtil.isEqual("QUEST_FINISH", value)) {
-              return QUEST_FINISH;
-            }
-            if (ProtoUtil.isEqual("QUEST_DELETE", value)) {
-              return QUEST_DELETE;
-            }
-          }
-          return null;
-        }
-      }
     }
 
     private enum QuestFactory implements MessageFactory<Quest> {

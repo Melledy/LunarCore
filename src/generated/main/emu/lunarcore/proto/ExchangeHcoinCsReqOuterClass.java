@@ -19,7 +19,7 @@ public final class ExchangeHcoinCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 num = 1;</code>
+     * <code>optional uint32 num = 11;</code>
      */
     private int num;
 
@@ -34,7 +34,7 @@ public final class ExchangeHcoinCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 1;</code>
+     * <code>optional uint32 num = 11;</code>
      * @return whether the num field is set
      */
     public boolean hasNum() {
@@ -42,7 +42,7 @@ public final class ExchangeHcoinCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 1;</code>
+     * <code>optional uint32 num = 11;</code>
      * @return this
      */
     public ExchangeHcoinCsReq clearNum() {
@@ -52,7 +52,7 @@ public final class ExchangeHcoinCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 1;</code>
+     * <code>optional uint32 num = 11;</code>
      * @return the num
      */
     public int getNum() {
@@ -60,7 +60,7 @@ public final class ExchangeHcoinCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 1;</code>
+     * <code>optional uint32 num = 11;</code>
      * @param value the num to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class ExchangeHcoinCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(num);
       }
     }
@@ -150,7 +150,7 @@ public final class ExchangeHcoinCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 88: {
             // num
             num = input.readUInt32();
             bitField0_ |= 0x00000001;

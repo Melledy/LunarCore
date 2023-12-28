@@ -33,17 +33,6 @@ public final class NpcExtraInfoOuterClass {
       return new NpcExtraInfo();
     }
 
-    public boolean hasInfo() {
-      return (((bitField0_ & 0x00000001)) != 0);
-    }
-
-    public NpcExtraInfo clearInfo() {
-      if (hasInfo()) {
-        clearRogueInfo();
-      }
-      return this;
-    }
-
     /**
      * <code>optional .NpcRogueInfo rogue_info = 12;</code>
      * @return whether the rogueInfo field is set

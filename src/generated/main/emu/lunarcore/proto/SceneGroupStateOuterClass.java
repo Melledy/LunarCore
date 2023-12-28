@@ -19,12 +19,12 @@ public final class SceneGroupStateOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 group_id = 4;</code>
+     * <code>optional uint32 group_id = 12;</code>
      */
     private int groupId;
 
     /**
-     * <code>optional uint32 state = 15;</code>
+     * <code>optional uint32 state = 13;</code>
      */
     private int state;
 
@@ -44,7 +44,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 4;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -52,7 +52,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 4;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @return this
      */
     public SceneGroupState clearGroupId() {
@@ -62,7 +62,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 4;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -70,7 +70,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 4;</code>
+     * <code>optional uint32 group_id = 12;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 15;</code>
+     * <code>optional uint32 state = 13;</code>
      * @return whether the state field is set
      */
     public boolean hasState() {
@@ -89,7 +89,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 15;</code>
+     * <code>optional uint32 state = 13;</code>
      * @return this
      */
     public SceneGroupState clearState() {
@@ -99,7 +99,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 15;</code>
+     * <code>optional uint32 state = 13;</code>
      * @return the state
      */
     public int getState() {
@@ -107,7 +107,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 15;</code>
+     * <code>optional uint32 state = 13;</code>
      * @param value the state to set
      * @return this
      */
@@ -225,11 +225,11 @@ public final class SceneGroupStateOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(state);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -260,16 +260,16 @@ public final class SceneGroupStateOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 96: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 104) {
               break;
             }
           }
-          case 120: {
+          case 104: {
             // state
             state = input.readUInt32();
             bitField0_ |= 0x00000002;

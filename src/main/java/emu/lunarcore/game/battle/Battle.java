@@ -13,7 +13,7 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.scene.entity.EntityMonster;
-import emu.lunarcore.proto.ClientTurnSnapshotOuterClass.ClientTurnSnapshot;
+import emu.lunarcore.proto.BattleEventBattleInfoOuterClass.BattleEventBattleInfo;
 import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -218,15 +218,15 @@ public class Battle {
         // Client turn snapshots
         if (this.turnSnapshotList != null) {
             for (int id : this.turnSnapshotList) {
-                var snapshot = ClientTurnSnapshot.newInstance()
+                var event = BattleEventBattleInfo.newInstance()
                         .setBattleEventId(id);
                 
                 // Temp solution
-                snapshot.getMutableStatus().getMutableSpBar()
+                event.getMutableStatus().getMutableSpBar()
                         .setCurSp(10000)
                         .setMaxSp(10000);
                 
-                proto.addTurnSnapshotList(snapshot);
+                proto.addEventBattleInfoList(event);
             }
         }
         

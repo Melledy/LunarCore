@@ -24,22 +24,22 @@ public final class BuyGoodsScRspOuterClass {
     private int goodsId;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 goods_buy_times = 11;</code>
+     * <code>optional uint32 goods_buy_times = 10;</code>
      */
     private int goodsBuyTimes;
 
     /**
-     * <code>optional uint32 shop_id = 15;</code>
+     * <code>optional uint32 shop_id = 14;</code>
      */
     private int shopId;
 
     /**
-     * <code>optional .ItemList return_item_list = 5;</code>
+     * <code>optional .ItemList return_item_list = 9;</code>
      */
     private final ItemListOuterClass.ItemList returnItemList = ItemListOuterClass.ItemList.newInstance();
 
@@ -91,7 +91,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -99,7 +99,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return this
      */
     public BuyGoodsScRsp clearRetcode() {
@@ -109,7 +109,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -117,7 +117,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -128,7 +128,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_buy_times = 11;</code>
+     * <code>optional uint32 goods_buy_times = 10;</code>
      * @return whether the goodsBuyTimes field is set
      */
     public boolean hasGoodsBuyTimes() {
@@ -136,7 +136,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_buy_times = 11;</code>
+     * <code>optional uint32 goods_buy_times = 10;</code>
      * @return this
      */
     public BuyGoodsScRsp clearGoodsBuyTimes() {
@@ -146,7 +146,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_buy_times = 11;</code>
+     * <code>optional uint32 goods_buy_times = 10;</code>
      * @return the goodsBuyTimes
      */
     public int getGoodsBuyTimes() {
@@ -154,7 +154,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_buy_times = 11;</code>
+     * <code>optional uint32 goods_buy_times = 10;</code>
      * @param value the goodsBuyTimes to set
      * @return this
      */
@@ -165,7 +165,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_id = 15;</code>
+     * <code>optional uint32 shop_id = 14;</code>
      * @return whether the shopId field is set
      */
     public boolean hasShopId() {
@@ -173,7 +173,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_id = 15;</code>
+     * <code>optional uint32 shop_id = 14;</code>
      * @return this
      */
     public BuyGoodsScRsp clearShopId() {
@@ -183,7 +183,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_id = 15;</code>
+     * <code>optional uint32 shop_id = 14;</code>
      * @return the shopId
      */
     public int getShopId() {
@@ -191,7 +191,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_id = 15;</code>
+     * <code>optional uint32 shop_id = 14;</code>
      * @param value the shopId to set
      * @return this
      */
@@ -202,7 +202,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 5;</code>
+     * <code>optional .ItemList return_item_list = 9;</code>
      * @return whether the returnItemList field is set
      */
     public boolean hasReturnItemList() {
@@ -210,7 +210,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 5;</code>
+     * <code>optional .ItemList return_item_list = 9;</code>
      * @return this
      */
     public BuyGoodsScRsp clearReturnItemList() {
@@ -220,7 +220,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 5;</code>
+     * <code>optional .ItemList return_item_list = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -234,7 +234,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 5;</code>
+     * <code>optional .ItemList return_item_list = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -248,7 +248,7 @@ public final class BuyGoodsScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 5;</code>
+     * <code>optional .ItemList return_item_list = 9;</code>
      * @param value the returnItemList to set
      * @return this
      */
@@ -346,19 +346,19 @@ public final class BuyGoodsScRspOuterClass {
         output.writeUInt32NoTag(goodsId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(goodsBuyTimes);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(shopId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 74);
         output.writeMessageNoTag(returnItemList);
       }
     }
@@ -396,38 +396,38 @@ public final class BuyGoodsScRspOuterClass {
             goodsId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 24) {
+            if (tag != 40) {
               break;
             }
           }
-          case 24: {
+          case 40: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 80) {
               break;
             }
           }
-          case 88: {
+          case 80: {
             // goodsBuyTimes
             goodsBuyTimes = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 112) {
               break;
             }
           }
-          case 120: {
+          case 112: {
             // shopId
             shopId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 74) {
               break;
             }
           }
-          case 42: {
+          case 74: {
             // returnItemList
             input.readMessage(returnItemList);
             bitField0_ |= 0x00000010;

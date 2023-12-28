@@ -24,7 +24,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 14;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 15;</code>
      */
     private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo scoreRewardInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
 
@@ -76,7 +76,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 14;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 15;</code>
      * @return whether the scoreRewardInfo field is set
      */
     public boolean hasScoreRewardInfo() {
@@ -84,7 +84,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 14;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 15;</code>
      * @return this
      */
     public GetRogueScoreRewardInfoScRsp clearScoreRewardInfo() {
@@ -94,7 +94,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 14;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 14;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 14;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 15;</code>
      * @param value the scoreRewardInfo to set
      * @return this
      */
@@ -203,7 +203,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 122);
         output.writeMessageNoTag(scoreRewardInfo);
       }
     }
@@ -232,11 +232,11 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 122) {
               break;
             }
           }
-          case 114: {
+          case 122: {
             // scoreRewardInfo
             input.readMessage(scoreRewardInfo);
             bitField0_ |= 0x00000002;

@@ -9,7 +9,7 @@ import emu.lunarcore.server.packet.CmdId;
 public class PacketSelectRogueBuffScRsp extends BasePacket {
 
     public PacketSelectRogueBuffScRsp(RogueBuffData buff, RogueBuffSelectMenu buffSelect) {
-        super(CmdId.SelectRogueBuffScRsp);
+        super(CmdId.NONE); // TODO update
         
         var data = SelectRogueBuffScRsp.newInstance()
                 .setMazeBuffId(buff.getId())

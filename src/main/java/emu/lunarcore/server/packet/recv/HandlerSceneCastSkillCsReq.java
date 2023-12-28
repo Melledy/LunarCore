@@ -50,16 +50,16 @@ public class HandlerSceneCastSkillCsReq extends PacketHandler {
             }
         }
         
-        if (req.hasHitTargetIdList()) {
+        if (req.hasHitTargetEntityIdList()) {
             // Parse targets efficiently (skips integer boxing)
             IntSet hitTargets = new IntLinkedOpenHashSet();
-            for (int i = 0; i < req.getHitTargetIdList().length(); i++) {
-                hitTargets.add(req.getHitTargetIdList().get(i));
+            for (int i = 0; i < req.getHitTargetEntityIdList().length(); i++) {
+                hitTargets.add(req.getHitTargetEntityIdList().get(i));
             }
             
             IntSet assistMonsters = new IntLinkedOpenHashSet();
-            for (int i = 0; i < req.getAssistMonsterIdList().length(); i++) {
-                assistMonsters.add(req.getAssistMonsterIdList().get(i));
+            for (int i = 0; i < req.getAssistMonsterEntityIdList().length(); i++) {
+                assistMonsters.add(req.getAssistMonsterEntityIdList().get(i));
             }
             
             // Start battle

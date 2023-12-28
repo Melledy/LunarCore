@@ -183,7 +183,7 @@ public class GameSession {
         }
     }
 
-    private void send(byte[] bytes) {
+    public void send(byte[] bytes) {
         if (this.ukcp != null) {
             ByteBuf buf = Unpooled.wrappedBuffer(bytes);
             this.ukcp.write(buf);

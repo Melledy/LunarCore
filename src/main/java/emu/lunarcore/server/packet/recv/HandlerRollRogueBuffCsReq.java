@@ -7,7 +7,7 @@ import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
 import emu.lunarcore.server.packet.send.PacketRollRogueBuffScRsp;
 
-@Opcodes(CmdId.RollRogueBuffCsReq)
+@Opcodes(CmdId.NONE) // TODO update
 public class HandlerRollRogueBuffCsReq extends PacketHandler {
 
     @Override

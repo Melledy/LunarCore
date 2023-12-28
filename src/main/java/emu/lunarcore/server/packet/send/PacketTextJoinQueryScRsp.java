@@ -2,8 +2,8 @@ package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.proto.TextJoinInfoOuterClass.TextJoinInfo;
 import emu.lunarcore.proto.TextJoinQueryScRspOuterClass.TextJoinQueryScRsp;
-import emu.lunarcore.proto.TextJoinQueryScRspOuterClass.TextJoinQueryScRsp.TextJoinInfo;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 

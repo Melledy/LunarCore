@@ -8,7 +8,7 @@ import emu.lunarcore.server.packet.CmdId;
 public class PacketRollRogueBuffScRsp extends BasePacket {
 
     public PacketRollRogueBuffScRsp(RogueBuffSelectMenu selectMenu) {
-        super(CmdId.RollRogueBuffScRsp);
+        super(CmdId.NONE); // TODO update
         
         var data = RollRogueBuffScRsp.newInstance();
         

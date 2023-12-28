@@ -52,15 +52,30 @@ public class BattleService extends BaseGameService {
                 }
             }
         } else {
-            // Player is ambushed
-            GameEntity entity = player.getScene().getEntities().get(casterId);
+            // A monster attacked the player -> Check if player is ambushed first
+            boolean isAmbushed = false;
             
-            if (entity != null) {
-                targets.add(entity);
+            for (int entityId : hitTargets) {
+                if (player.getScene().getAvatarEntityIds().contains(entityId)) {
+                    isAmbushed = true;
+                }
+            }
+            
+            // Start battle if player has been ambushed
+            if (isAmbushed) {
+                GameEntity entity = player.getScene().getEntities().get(casterId);
+                
+                if (entity != null) {
+                    targets.add(entity);
+                }
+            } else {
+                // Skip battle since the monster didnt attack anyone
+                player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
+                return;
             }
         }
         
-        // Skip if no attacked entities detected
+        // Skip battle if no attacked entities detected
         if (targets.size() == 0) {
             player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
             return;

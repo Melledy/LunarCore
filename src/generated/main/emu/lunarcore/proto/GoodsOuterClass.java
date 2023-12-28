@@ -19,14 +19,19 @@ public final class GoodsOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 begin_time = 1;</code>
+     * <code>optional int64 end_time = 5;</code>
+     */
+    private long endTime;
+
+    /**
+     * <code>optional int64 begin_time = 12;</code>
      */
     private long beginTime;
 
     /**
-     * <code>optional int64 end_time = 11;</code>
+     * <code>optional uint32 buy_times = 1;</code>
      */
-    private long endTime;
+    private int buyTimes;
 
     /**
      * <code>optional uint32 item_id = 2;</code>
@@ -34,12 +39,7 @@ public final class GoodsOuterClass {
     private int itemId;
 
     /**
-     * <code>optional uint32 buy_times = 3;</code>
-     */
-    private int buyTimes;
-
-    /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 9;</code>
      */
     private int goodsId;
 
@@ -54,62 +54,25 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 1;</code>
-     * @return whether the beginTime field is set
+     * <code>optional int64 end_time = 5;</code>
+     * @return whether the endTime field is set
      */
-    public boolean hasBeginTime() {
+    public boolean hasEndTime() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional int64 begin_time = 1;</code>
-     * @return this
-     */
-    public Goods clearBeginTime() {
-      bitField0_ &= ~0x00000001;
-      beginTime = 0L;
-      return this;
-    }
-
-    /**
-     * <code>optional int64 begin_time = 1;</code>
-     * @return the beginTime
-     */
-    public long getBeginTime() {
-      return beginTime;
-    }
-
-    /**
-     * <code>optional int64 begin_time = 1;</code>
-     * @param value the beginTime to set
-     * @return this
-     */
-    public Goods setBeginTime(final long value) {
-      bitField0_ |= 0x00000001;
-      beginTime = value;
-      return this;
-    }
-
-    /**
-     * <code>optional int64 end_time = 11;</code>
-     * @return whether the endTime field is set
-     */
-    public boolean hasEndTime() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional int64 end_time = 11;</code>
+     * <code>optional int64 end_time = 5;</code>
      * @return this
      */
     public Goods clearEndTime() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       endTime = 0L;
       return this;
     }
 
     /**
-     * <code>optional int64 end_time = 11;</code>
+     * <code>optional int64 end_time = 5;</code>
      * @return the endTime
      */
     public long getEndTime() {
@@ -117,13 +80,87 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 11;</code>
+     * <code>optional int64 end_time = 5;</code>
      * @param value the endTime to set
      * @return this
      */
     public Goods setEndTime(final long value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       endTime = value;
+      return this;
+    }
+
+    /**
+     * <code>optional int64 begin_time = 12;</code>
+     * @return whether the beginTime field is set
+     */
+    public boolean hasBeginTime() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional int64 begin_time = 12;</code>
+     * @return this
+     */
+    public Goods clearBeginTime() {
+      bitField0_ &= ~0x00000002;
+      beginTime = 0L;
+      return this;
+    }
+
+    /**
+     * <code>optional int64 begin_time = 12;</code>
+     * @return the beginTime
+     */
+    public long getBeginTime() {
+      return beginTime;
+    }
+
+    /**
+     * <code>optional int64 begin_time = 12;</code>
+     * @param value the beginTime to set
+     * @return this
+     */
+    public Goods setBeginTime(final long value) {
+      bitField0_ |= 0x00000002;
+      beginTime = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 buy_times = 1;</code>
+     * @return whether the buyTimes field is set
+     */
+    public boolean hasBuyTimes() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 buy_times = 1;</code>
+     * @return this
+     */
+    public Goods clearBuyTimes() {
+      bitField0_ &= ~0x00000004;
+      buyTimes = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 buy_times = 1;</code>
+     * @return the buyTimes
+     */
+    public int getBuyTimes() {
+      return buyTimes;
+    }
+
+    /**
+     * <code>optional uint32 buy_times = 1;</code>
+     * @param value the buyTimes to set
+     * @return this
+     */
+    public Goods setBuyTimes(final int value) {
+      bitField0_ |= 0x00000004;
+      buyTimes = value;
       return this;
     }
 
@@ -132,7 +169,7 @@ public final class GoodsOuterClass {
      * @return whether the itemId field is set
      */
     public boolean hasItemId() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
@@ -140,7 +177,7 @@ public final class GoodsOuterClass {
      * @return this
      */
     public Goods clearItemId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000008;
       itemId = 0;
       return this;
     }
@@ -159,50 +196,13 @@ public final class GoodsOuterClass {
      * @return this
      */
     public Goods setItemId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       itemId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 buy_times = 3;</code>
-     * @return whether the buyTimes field is set
-     */
-    public boolean hasBuyTimes() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 buy_times = 3;</code>
-     * @return this
-     */
-    public Goods clearBuyTimes() {
-      bitField0_ &= ~0x00000008;
-      buyTimes = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 buy_times = 3;</code>
-     * @return the buyTimes
-     */
-    public int getBuyTimes() {
-      return buyTimes;
-    }
-
-    /**
-     * <code>optional uint32 buy_times = 3;</code>
-     * @param value the buyTimes to set
-     * @return this
-     */
-    public Goods setBuyTimes(final int value) {
-      bitField0_ |= 0x00000008;
-      buyTimes = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 9;</code>
      * @return whether the goodsId field is set
      */
     public boolean hasGoodsId() {
@@ -210,7 +210,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 9;</code>
      * @return this
      */
     public Goods clearGoodsId() {
@@ -220,7 +220,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 9;</code>
      * @return the goodsId
      */
     public int getGoodsId() {
@@ -228,7 +228,7 @@ public final class GoodsOuterClass {
     }
 
     /**
-     * <code>optional uint32 goods_id = 13;</code>
+     * <code>optional uint32 goods_id = 9;</code>
      * @param value the goodsId to set
      * @return this
      */
@@ -243,10 +243,10 @@ public final class GoodsOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        beginTime = other.beginTime;
         endTime = other.endTime;
-        itemId = other.itemId;
+        beginTime = other.beginTime;
         buyTimes = other.buyTimes;
+        itemId = other.itemId;
         goodsId = other.goodsId;
       }
       return this;
@@ -258,17 +258,17 @@ public final class GoodsOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBeginTime()) {
-        setBeginTime(other.beginTime);
-      }
       if (other.hasEndTime()) {
         setEndTime(other.endTime);
       }
-      if (other.hasItemId()) {
-        setItemId(other.itemId);
+      if (other.hasBeginTime()) {
+        setBeginTime(other.beginTime);
       }
       if (other.hasBuyTimes()) {
         setBuyTimes(other.buyTimes);
+      }
+      if (other.hasItemId()) {
+        setItemId(other.itemId);
       }
       if (other.hasGoodsId()) {
         setGoodsId(other.goodsId);
@@ -283,10 +283,10 @@ public final class GoodsOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      beginTime = 0L;
       endTime = 0L;
-      itemId = 0;
+      beginTime = 0L;
       buyTimes = 0;
+      itemId = 0;
       goodsId = 0;
       return this;
     }
@@ -311,33 +311,33 @@ public final class GoodsOuterClass {
       }
       Goods other = (Goods) o;
       return bitField0_ == other.bitField0_
-        && (!hasBeginTime() || beginTime == other.beginTime)
         && (!hasEndTime() || endTime == other.endTime)
-        && (!hasItemId() || itemId == other.itemId)
+        && (!hasBeginTime() || beginTime == other.beginTime)
         && (!hasBuyTimes() || buyTimes == other.buyTimes)
+        && (!hasItemId() || itemId == other.itemId)
         && (!hasGoodsId() || goodsId == other.goodsId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeInt64NoTag(beginTime);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 40);
         output.writeInt64NoTag(endTime);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 96);
+        output.writeInt64NoTag(beginTime);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(buyTimes);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(itemId);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(buyTimes);
-      }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(goodsId);
       }
     }
@@ -346,16 +346,16 @@ public final class GoodsOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeInt64SizeNoTag(beginTime);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeInt64SizeNoTag(endTime);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeInt64SizeNoTag(beginTime);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(itemId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(buyTimes);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(buyTimes);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(itemId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(goodsId);
@@ -370,19 +370,28 @@ public final class GoodsOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // beginTime
-            beginTime = input.readInt64();
+          case 40: {
+            // endTime
+            endTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 96) {
               break;
             }
           }
-          case 88: {
-            // endTime
-            endTime = input.readInt64();
+          case 96: {
+            // beginTime
+            beginTime = input.readInt64();
             bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 8) {
+              break;
+            }
+          }
+          case 8: {
+            // buyTimes
+            buyTimes = input.readUInt32();
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 16) {
               break;
@@ -391,22 +400,13 @@ public final class GoodsOuterClass {
           case 16: {
             // itemId
             itemId = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
-            // buyTimes
-            buyTimes = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 72) {
               break;
             }
           }
-          case 104: {
+          case 72: {
             // goodsId
             goodsId = input.readUInt32();
             bitField0_ |= 0x00000010;
@@ -433,16 +433,16 @@ public final class GoodsOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeInt64(FieldNames.beginTime, beginTime);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeInt64(FieldNames.endTime, endTime);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeInt64(FieldNames.beginTime, beginTime);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.itemId, itemId);
+        output.writeUInt32(FieldNames.buyTimes, buyTimes);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.buyTimes, buyTimes);
+        output.writeUInt32(FieldNames.itemId, itemId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeUInt32(FieldNames.goodsId, goodsId);
@@ -457,11 +457,11 @@ public final class GoodsOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1072839914:
-          case 1112183971: {
-            if (input.isAtField(FieldNames.beginTime)) {
+          case -1607243192:
+          case 1725551537: {
+            if (input.isAtField(FieldNames.endTime)) {
               if (!input.trySkipNullValue()) {
-                beginTime = input.readInt64();
+                endTime = input.readInt64();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -469,24 +469,12 @@ public final class GoodsOuterClass {
             }
             break;
           }
-          case -1607243192:
-          case 1725551537: {
-            if (input.isAtField(FieldNames.endTime)) {
+          case -1072839914:
+          case 1112183971: {
+            if (input.isAtField(FieldNames.beginTime)) {
               if (!input.trySkipNullValue()) {
-                endTime = input.readInt64();
+                beginTime = input.readInt64();
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1178662002:
-          case 2116204999: {
-            if (input.isAtField(FieldNames.itemId)) {
-              if (!input.trySkipNullValue()) {
-                itemId = input.readUInt32();
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -498,6 +486,18 @@ public final class GoodsOuterClass {
             if (input.isAtField(FieldNames.buyTimes)) {
               if (!input.trySkipNullValue()) {
                 buyTimes = input.readUInt32();
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1178662002:
+          case 2116204999: {
+            if (input.isAtField(FieldNames.itemId)) {
+              if (!input.trySkipNullValue()) {
+                itemId = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -569,13 +569,13 @@ public final class GoodsOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName beginTime = FieldName.forField("beginTime", "begin_time");
-
       static final FieldName endTime = FieldName.forField("endTime", "end_time");
 
-      static final FieldName itemId = FieldName.forField("itemId", "item_id");
+      static final FieldName beginTime = FieldName.forField("beginTime", "begin_time");
 
       static final FieldName buyTimes = FieldName.forField("buyTimes", "buy_times");
+
+      static final FieldName itemId = FieldName.forField("itemId", "item_id");
 
       static final FieldName goodsId = FieldName.forField("goodsId", "goods_id");
     }

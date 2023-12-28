@@ -2,6 +2,7 @@ package emu.lunarcore.game.player;
 
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.avatar.GameAvatar;
@@ -31,6 +32,11 @@ public class PlayerUnlockData {
     public PlayerUnlockData(Player player) {
         this.owner = player;
         this.ownerUid = player.getUid();
+        
+        // Add default head icons
+        for (int iconId : GameConstants.DEFAULT_HEAD_ICONS) {
+            this.addHeadIcon(iconId);
+        }
         
         // Add head icons from avatars we already have
         for (GameAvatar avatar : owner.getAvatars()) {

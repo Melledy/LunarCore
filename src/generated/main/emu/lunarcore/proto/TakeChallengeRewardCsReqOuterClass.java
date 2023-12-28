@@ -19,12 +19,12 @@ public final class TakeChallengeRewardCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 star_count = 8;</code>
+     * <code>optional uint32 star_count = 5;</code>
      */
     private int starCount;
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 14;</code>
      */
     private int groupId;
 
@@ -39,7 +39,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 8;</code>
+     * <code>optional uint32 star_count = 5;</code>
      * @return whether the starCount field is set
      */
     public boolean hasStarCount() {
@@ -47,7 +47,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 8;</code>
+     * <code>optional uint32 star_count = 5;</code>
      * @return this
      */
     public TakeChallengeRewardCsReq clearStarCount() {
@@ -57,7 +57,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 8;</code>
+     * <code>optional uint32 star_count = 5;</code>
      * @return the starCount
      */
     public int getStarCount() {
@@ -65,7 +65,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 8;</code>
+     * <code>optional uint32 star_count = 5;</code>
      * @param value the starCount to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 14;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -84,7 +84,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 14;</code>
      * @return this
      */
     public TakeChallengeRewardCsReq clearGroupId() {
@@ -94,7 +94,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 14;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -102,7 +102,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 14;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class TakeChallengeRewardCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(groupId);
       }
     }
@@ -205,16 +205,16 @@ public final class TakeChallengeRewardCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 40: {
             // starCount
             starCount = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 112) {
               break;
             }
           }
-          case 120: {
+          case 112: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000002;

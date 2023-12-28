@@ -19,14 +19,14 @@ public final class TakePromotionRewardCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 promotion = 5;</code>
-     */
-    private int promotion;
-
-    /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 8;</code>
      */
     private int baseAvatarId;
+
+    /**
+     * <code>optional uint32 promotion = 12;</code>
+     */
+    private int promotion;
 
     private TakePromotionRewardCsReq() {
     }
@@ -39,62 +39,25 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @return whether the promotion field is set
+     * <code>optional uint32 base_avatar_id = 8;</code>
+     * @return whether the baseAvatarId field is set
      */
-    public boolean hasPromotion() {
+    public boolean hasBaseAvatarId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @return this
-     */
-    public TakePromotionRewardCsReq clearPromotion() {
-      bitField0_ &= ~0x00000001;
-      promotion = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @return the promotion
-     */
-    public int getPromotion() {
-      return promotion;
-    }
-
-    /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @param value the promotion to set
-     * @return this
-     */
-    public TakePromotionRewardCsReq setPromotion(final int value) {
-      bitField0_ |= 0x00000001;
-      promotion = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
-     * @return whether the baseAvatarId field is set
-     */
-    public boolean hasBaseAvatarId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 8;</code>
      * @return this
      */
     public TakePromotionRewardCsReq clearBaseAvatarId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       baseAvatarId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 8;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -102,13 +65,50 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 8;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
     public TakePromotionRewardCsReq setBaseAvatarId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       baseAvatarId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 12;</code>
+     * @return whether the promotion field is set
+     */
+    public boolean hasPromotion() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 12;</code>
+     * @return this
+     */
+    public TakePromotionRewardCsReq clearPromotion() {
+      bitField0_ &= ~0x00000002;
+      promotion = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 12;</code>
+     * @return the promotion
+     */
+    public int getPromotion() {
+      return promotion;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 12;</code>
+     * @param value the promotion to set
+     * @return this
+     */
+    public TakePromotionRewardCsReq setPromotion(final int value) {
+      bitField0_ |= 0x00000002;
+      promotion = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class TakePromotionRewardCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        promotion = other.promotion;
         baseAvatarId = other.baseAvatarId;
+        promotion = other.promotion;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class TakePromotionRewardCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPromotion()) {
-        setPromotion(other.promotion);
-      }
       if (other.hasBaseAvatarId()) {
         setBaseAvatarId(other.baseAvatarId);
+      }
+      if (other.hasPromotion()) {
+        setPromotion(other.promotion);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class TakePromotionRewardCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      promotion = 0;
       baseAvatarId = 0;
+      promotion = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class TakePromotionRewardCsReqOuterClass {
       }
       TakePromotionRewardCsReq other = (TakePromotionRewardCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasPromotion() || promotion == other.promotion)
-        && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId);
+        && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId)
+        && (!hasPromotion() || promotion == other.promotion);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(promotion);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(baseAvatarId);
+        output.writeUInt32NoTag(promotion);
       }
     }
 
@@ -190,10 +190,10 @@ public final class TakePromotionRewardCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(promotion);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(promotion);
       }
       return size;
     }
@@ -205,9 +205,9 @@ public final class TakePromotionRewardCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // promotion
-            promotion = input.readUInt32();
+          case 64: {
+            // baseAvatarId
+            baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 96) {
@@ -215,8 +215,8 @@ public final class TakePromotionRewardCsReqOuterClass {
             }
           }
           case 96: {
-            // baseAvatarId
-            baseAvatarId = input.readUInt32();
+            // promotion
+            promotion = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class TakePromotionRewardCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.promotion, promotion);
+        output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
+        output.writeUInt32(FieldNames.promotion, promotion);
       }
       output.endObject();
     }
@@ -256,10 +256,11 @@ public final class TakePromotionRewardCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -799212381: {
-            if (input.isAtField(FieldNames.promotion)) {
+          case 118022725:
+          case -1756826157: {
+            if (input.isAtField(FieldNames.baseAvatarId)) {
               if (!input.trySkipNullValue()) {
-                promotion = input.readUInt32();
+                baseAvatarId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -267,11 +268,10 @@ public final class TakePromotionRewardCsReqOuterClass {
             }
             break;
           }
-          case 118022725:
-          case -1756826157: {
-            if (input.isAtField(FieldNames.baseAvatarId)) {
+          case -799212381: {
+            if (input.isAtField(FieldNames.promotion)) {
               if (!input.trySkipNullValue()) {
-                baseAvatarId = input.readUInt32();
+                promotion = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -332,9 +332,9 @@ public final class TakePromotionRewardCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName promotion = FieldName.forField("promotion");
-
       static final FieldName baseAvatarId = FieldName.forField("baseAvatarId", "base_avatar_id");
+
+      static final FieldName promotion = FieldName.forField("promotion");
     }
   }
 }

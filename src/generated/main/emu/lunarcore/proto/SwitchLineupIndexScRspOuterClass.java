@@ -19,12 +19,12 @@ public final class SwitchLineupIndexScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 8;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 index = 14;</code>
+     * <code>optional uint32 index = 13;</code>
      */
     private int index;
 
@@ -39,7 +39,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return this
      */
     public SwitchLineupIndexScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 14;</code>
+     * <code>optional uint32 index = 13;</code>
      * @return whether the index field is set
      */
     public boolean hasIndex() {
@@ -84,7 +84,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 14;</code>
+     * <code>optional uint32 index = 13;</code>
      * @return this
      */
     public SwitchLineupIndexScRsp clearIndex() {
@@ -94,7 +94,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 14;</code>
+     * <code>optional uint32 index = 13;</code>
      * @return the index
      */
     public int getIndex() {
@@ -102,7 +102,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 14;</code>
+     * <code>optional uint32 index = 13;</code>
      * @param value the index to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class SwitchLineupIndexScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(index);
       }
     }
@@ -205,16 +205,16 @@ public final class SwitchLineupIndexScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 64: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 104) {
               break;
             }
           }
-          case 112: {
+          case 104: {
             // index
             index = input.readUInt32();
             bitField0_ |= 0x00000002;

@@ -9,7 +9,7 @@ import emu.lunarcore.server.packet.CmdId;
 public class PacketAddRogueBuffScNotify extends BasePacket {
 
     public PacketAddRogueBuffScNotify(RogueBuffData buff, RogueBuffSource source) {
-        super(CmdId.AddRogueBuffScNotify);
+        super(CmdId.NONE); // TODO update
         
         var data = AddRogueBuffScNotify.newInstance()
                 .setMazeBuffInfo(buff.toProto())

@@ -8,7 +8,7 @@ import emu.lunarcore.server.packet.CmdId;
 public class PacketSyncRogueBuffSelectInfoScNotify extends BasePacket {
 
     public PacketSyncRogueBuffSelectInfoScNotify(RogueBuffSelectMenu selectMenu) {
-        super(CmdId.SyncRogueBuffSelectInfoScNotify);
+        super(CmdId.NONE); // TODO update
         
         var data = SyncRogueBuffSelectInfoScNotify.newInstance()
                 .setBuffSelectInfo(selectMenu.toProto());

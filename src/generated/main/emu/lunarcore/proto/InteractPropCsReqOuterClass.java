@@ -19,7 +19,7 @@ public final class InteractPropCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 prop_entity_id = 13;</code>
+     * <code>optional uint32 prop_entity_id = 15;</code>
      */
     private int propEntityId;
 
@@ -34,7 +34,7 @@ public final class InteractPropCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_entity_id = 13;</code>
+     * <code>optional uint32 prop_entity_id = 15;</code>
      * @return whether the propEntityId field is set
      */
     public boolean hasPropEntityId() {
@@ -42,7 +42,7 @@ public final class InteractPropCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_entity_id = 13;</code>
+     * <code>optional uint32 prop_entity_id = 15;</code>
      * @return this
      */
     public InteractPropCsReq clearPropEntityId() {
@@ -52,7 +52,7 @@ public final class InteractPropCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_entity_id = 13;</code>
+     * <code>optional uint32 prop_entity_id = 15;</code>
      * @return the propEntityId
      */
     public int getPropEntityId() {
@@ -60,7 +60,7 @@ public final class InteractPropCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 prop_entity_id = 13;</code>
+     * <code>optional uint32 prop_entity_id = 15;</code>
      * @param value the propEntityId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class InteractPropCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(propEntityId);
       }
     }
@@ -150,7 +150,7 @@ public final class InteractPropCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 120: {
             // propEntityId
             propEntityId = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -20,12 +20,17 @@ public final class PlayerLoginCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 login_random = 8;</code>
+     * <code>optional uint64 login_random = 1;</code>
      */
     private long loginRandom;
 
     /**
-     * <code>optional string signature = 5;</code>
+     * <code>optional .PlatformType platform = 12;</code>
+     */
+    private int platform;
+
+    /**
+     * <code>optional string signature = 4;</code>
      */
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
@@ -40,7 +45,7 @@ public final class PlayerLoginCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 8;</code>
+     * <code>optional uint64 login_random = 1;</code>
      * @return whether the loginRandom field is set
      */
     public boolean hasLoginRandom() {
@@ -48,7 +53,7 @@ public final class PlayerLoginCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 8;</code>
+     * <code>optional uint64 login_random = 1;</code>
      * @return this
      */
     public PlayerLoginCsReq clearLoginRandom() {
@@ -58,7 +63,7 @@ public final class PlayerLoginCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 8;</code>
+     * <code>optional uint64 login_random = 1;</code>
      * @return the loginRandom
      */
     public long getLoginRandom() {
@@ -66,7 +71,7 @@ public final class PlayerLoginCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 8;</code>
+     * <code>optional uint64 login_random = 1;</code>
      * @param value the loginRandom to set
      * @return this
      */
@@ -77,25 +82,87 @@ public final class PlayerLoginCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 5;</code>
-     * @return whether the signature field is set
+     * <code>optional .PlatformType platform = 12;</code>
+     * @return whether the platform field is set
      */
-    public boolean hasSignature() {
+    public boolean hasPlatform() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional string signature = 5;</code>
+     * <code>optional .PlatformType platform = 12;</code>
+     * @return this
+     */
+    public PlayerLoginCsReq clearPlatform() {
+      bitField0_ &= ~0x00000002;
+      platform = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional .PlatformType platform = 12;</code>
+     * @return the platform
+     */
+    public PlatformTypeOuterClass.PlatformType getPlatform() {
+      return PlatformTypeOuterClass.PlatformType.forNumber(platform);
+    }
+
+    /**
+     * Gets the value of the internal enum store. The result is
+     * equivalent to {@link PlayerLoginCsReq#getPlatform()}.getNumber().
+     *
+     * @return numeric wire representation
+     */
+    public int getPlatformValue() {
+      return platform;
+    }
+
+    /**
+     * Sets the value of the internal enum store. This does not
+     * do any validity checks, so be sure to use appropriate value
+     * constants from {@link PlatformTypeOuterClass.PlatformType}. Setting an invalid value
+     * can cause {@link PlayerLoginCsReq#getPlatform()} to return null
+     *
+     * @param value the numeric wire value to set
+     * @return this
+     */
+    public PlayerLoginCsReq setPlatformValue(final int value) {
+      bitField0_ |= 0x00000002;
+      platform = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .PlatformType platform = 12;</code>
+     * @param value the platform to set
+     * @return this
+     */
+    public PlayerLoginCsReq setPlatform(final PlatformTypeOuterClass.PlatformType value) {
+      bitField0_ |= 0x00000002;
+      platform = value.getNumber();
+      return this;
+    }
+
+    /**
+     * <code>optional string signature = 4;</code>
+     * @return whether the signature field is set
+     */
+    public boolean hasSignature() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional string signature = 4;</code>
      * @return this
      */
     public PlayerLoginCsReq clearSignature() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000004;
       signature.clear();
       return this;
     }
 
     /**
-     * <code>optional string signature = 5;</code>
+     * <code>optional string signature = 4;</code>
      * @return the signature
      */
     public String getSignature() {
@@ -103,7 +170,7 @@ public final class PlayerLoginCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 5;</code>
+     * <code>optional string signature = 4;</code>
      * @return internal {@code Utf8String} representation of signature for reading
      */
     public Utf8String getSignatureBytes() {
@@ -111,32 +178,32 @@ public final class PlayerLoginCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 5;</code>
+     * <code>optional string signature = 4;</code>
      * @return internal {@code Utf8String} representation of signature for modifications
      */
     public Utf8String getMutableSignatureBytes() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       return this.signature;
     }
 
     /**
-     * <code>optional string signature = 5;</code>
+     * <code>optional string signature = 4;</code>
      * @param value the signature to set
      * @return this
      */
     public PlayerLoginCsReq setSignature(final CharSequence value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       signature.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string signature = 5;</code>
+     * <code>optional string signature = 4;</code>
      * @param value the signature to set
      * @return this
      */
     public PlayerLoginCsReq setSignature(final Utf8String value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       signature.copyFrom(value);
       return this;
     }
@@ -147,6 +214,7 @@ public final class PlayerLoginCsReqOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         loginRandom = other.loginRandom;
+        platform = other.platform;
         signature.copyFrom(other.signature);
       }
       return this;
@@ -160,6 +228,9 @@ public final class PlayerLoginCsReqOuterClass {
       cachedSize = -1;
       if (other.hasLoginRandom()) {
         setLoginRandom(other.loginRandom);
+      }
+      if (other.hasPlatform()) {
+        setPlatformValue(other.platform);
       }
       if (other.hasSignature()) {
         getMutableSignatureBytes().copyFrom(other.signature);
@@ -175,6 +246,7 @@ public final class PlayerLoginCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       loginRandom = 0L;
+      platform = 0;
       signature.clear();
       return this;
     }
@@ -201,17 +273,22 @@ public final class PlayerLoginCsReqOuterClass {
       PlayerLoginCsReq other = (PlayerLoginCsReq) o;
       return bitField0_ == other.bitField0_
         && (!hasLoginRandom() || loginRandom == other.loginRandom)
+        && (!hasPlatform() || platform == other.platform)
         && (!hasSignature() || signature.equals(other.signature));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 8);
         output.writeUInt64NoTag(loginRandom);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 96);
+        output.writeEnumNoTag(platform);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 34);
         output.writeStringNoTag(signature);
       }
     }
@@ -223,6 +300,9 @@ public final class PlayerLoginCsReqOuterClass {
         size += 1 + ProtoSink.computeUInt64SizeNoTag(loginRandom);
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeEnumSizeNoTag(platform);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeStringSizeNoTag(signature);
       }
       return size;
@@ -235,19 +315,31 @@ public final class PlayerLoginCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 8: {
             // loginRandom
             loginRandom = input.readUInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 96) {
               break;
             }
           }
-          case 42: {
+          case 96: {
+            // platform
+            final int value = input.readInt32();
+            if (PlatformTypeOuterClass.PlatformType.forNumber(value) != null) {
+              platform = value;
+              bitField0_ |= 0x00000002;
+            }
+            tag = input.readTag();
+            if (tag != 34) {
+              break;
+            }
+          }
+          case 34: {
             // signature
             input.readString(signature);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -274,6 +366,9 @@ public final class PlayerLoginCsReqOuterClass {
         output.writeUInt64(FieldNames.loginRandom, loginRandom);
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        output.writeEnum(FieldNames.platform, platform, PlatformTypeOuterClass.PlatformType.converter());
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeString(FieldNames.signature, signature);
       }
       output.endObject();
@@ -298,11 +393,27 @@ public final class PlayerLoginCsReqOuterClass {
             }
             break;
           }
+          case 1874684019: {
+            if (input.isAtField(FieldNames.platform)) {
+              if (!input.trySkipNullValue()) {
+                final PlatformTypeOuterClass.PlatformType value = input.readEnum(PlatformTypeOuterClass.PlatformType.converter());
+                if (value != null) {
+                  platform = value.getNumber();
+                  bitField0_ |= 0x00000002;
+                } else {
+                  input.skipUnknownEnumValue();
+                }
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 1073584312: {
             if (input.isAtField(FieldNames.signature)) {
               if (!input.trySkipNullValue()) {
                 input.readString(signature);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -363,6 +474,8 @@ public final class PlayerLoginCsReqOuterClass {
      */
     static class FieldNames {
       static final FieldName loginRandom = FieldName.forField("loginRandom", "login_random");
+
+      static final FieldName platform = FieldName.forField("platform");
 
       static final FieldName signature = FieldName.forField("signature");
     }

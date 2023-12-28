@@ -20,14 +20,14 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
+     * <code>optional uint32 retcode = 3;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * <code>repeated .FriendApplyInfo friend_apply_list = 1;</code>
      */
-    private final RepeatedMessage<FriendApplyListInfoOuterClass.FriendApplyListInfo> friendApplyList = RepeatedMessage.newEmptyInstance(FriendApplyListInfoOuterClass.FriendApplyListInfo.getFactory());
+    private final RepeatedMessage<FriendApplyInfoOuterClass.FriendApplyInfo> friendApplyList = RepeatedMessage.newEmptyInstance(FriendApplyInfoOuterClass.FriendApplyInfo.getFactory());
 
     private GetFriendApplyListInfoScRsp() {
     }
@@ -40,7 +40,7 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return this
      */
     public GetFriendApplyListInfoScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * <code>repeated .FriendApplyInfo friend_apply_list = 1;</code>
      * @return whether the friendApplyList field is set
      */
     public boolean hasFriendApplyList() {
@@ -85,7 +85,7 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * <code>repeated .FriendApplyInfo friend_apply_list = 1;</code>
      * @return this
      */
     public GetFriendApplyListInfoScRsp clearFriendApplyList() {
@@ -95,7 +95,7 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * <code>repeated .FriendApplyInfo friend_apply_list = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -104,12 +104,12 @@ public final class GetFriendApplyListInfoScRspOuterClass {
      *
      * @return internal storage object for reading
      */
-    public RepeatedMessage<FriendApplyListInfoOuterClass.FriendApplyListInfo> getFriendApplyList() {
+    public RepeatedMessage<FriendApplyInfoOuterClass.FriendApplyInfo> getFriendApplyList() {
       return friendApplyList;
     }
 
     /**
-     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * <code>repeated .FriendApplyInfo friend_apply_list = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -117,31 +117,30 @@ public final class GetFriendApplyListInfoScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedMessage<FriendApplyListInfoOuterClass.FriendApplyListInfo> getMutableFriendApplyList(
-        ) {
+    public RepeatedMessage<FriendApplyInfoOuterClass.FriendApplyInfo> getMutableFriendApplyList() {
       bitField0_ |= 0x00000002;
       return friendApplyList;
     }
 
     /**
-     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * <code>repeated .FriendApplyInfo friend_apply_list = 1;</code>
      * @param value the friendApplyList to add
      * @return this
      */
     public GetFriendApplyListInfoScRsp addFriendApplyList(
-        final FriendApplyListInfoOuterClass.FriendApplyListInfo value) {
+        final FriendApplyInfoOuterClass.FriendApplyInfo value) {
       bitField0_ |= 0x00000002;
       friendApplyList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .FriendApplyListInfo friend_apply_list = 8;</code>
+     * <code>repeated .FriendApplyInfo friend_apply_list = 1;</code>
      * @param values the friendApplyList to add
      * @return this
      */
     public GetFriendApplyListInfoScRsp addAllFriendApplyList(
-        final FriendApplyListInfoOuterClass.FriendApplyListInfo... values) {
+        final FriendApplyInfoOuterClass.FriendApplyInfo... values) {
       bitField0_ |= 0x00000002;
       friendApplyList.addAll(values);
       return this;
@@ -213,12 +212,12 @@ public final class GetFriendApplyListInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < friendApplyList.length(); i++) {
-          output.writeRawByte((byte) 66);
+          output.writeRawByte((byte) 10);
           output.writeMessageNoTag(friendApplyList.get(i));
         }
       }
@@ -243,16 +242,16 @@ public final class GetFriendApplyListInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 24: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 10) {
               break;
             }
           }
-          case 66: {
+          case 10: {
             // friendApplyList
             tag = input.readRepeatedMessage(friendApplyList, tag);
             bitField0_ |= 0x00000002;

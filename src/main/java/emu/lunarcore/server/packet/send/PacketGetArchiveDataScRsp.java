@@ -34,7 +34,7 @@ public class PacketGetArchiveDataScRsp extends BasePacket {
                 .setType(relicExcel.getType().getVal())
                 .setRelicId(relicExcel.getId()); // todo: add to db
 
-            archiveData.addArchiveRelicList(relicInfo);
+            archiveData.addRelicList(relicInfo);
         }
         
         for (var equipmentExcel : GameData.getEquipExcelMap().values()) {

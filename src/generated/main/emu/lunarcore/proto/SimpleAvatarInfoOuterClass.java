@@ -19,19 +19,19 @@ public final class SimpleAvatarInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 dressed_skin_id = 2;</code>
      */
-    private int level;
+    private int dressedSkinId;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 13;</code>
-     */
-    private int equipmentUniqueId;
-
-    /**
-     * <code>optional uint32 avatar_id = 15;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      */
     private int avatarId;
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     */
+    private int level;
 
     private SimpleAvatarInfo() {
     }
@@ -44,99 +44,62 @@ public final class SimpleAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
-     * @return whether the level field is set
+     * <code>optional uint32 dressed_skin_id = 2;</code>
+     * @return whether the dressedSkinId field is set
      */
-    public boolean hasLevel() {
+    public boolean hasDressedSkinId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 dressed_skin_id = 2;</code>
      * @return this
      */
-    public SimpleAvatarInfo clearLevel() {
+    public SimpleAvatarInfo clearDressedSkinId() {
       bitField0_ &= ~0x00000001;
-      level = 0;
+      dressedSkinId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
-     * @return the level
+     * <code>optional uint32 dressed_skin_id = 2;</code>
+     * @return the dressedSkinId
      */
-    public int getLevel() {
-      return level;
+    public int getDressedSkinId() {
+      return dressedSkinId;
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
-     * @param value the level to set
+     * <code>optional uint32 dressed_skin_id = 2;</code>
+     * @param value the dressedSkinId to set
      * @return this
      */
-    public SimpleAvatarInfo setLevel(final int value) {
+    public SimpleAvatarInfo setDressedSkinId(final int value) {
       bitField0_ |= 0x00000001;
-      level = value;
+      dressedSkinId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 13;</code>
-     * @return whether the equipmentUniqueId field is set
+     * <code>optional uint32 avatar_id = 5;</code>
+     * @return whether the avatarId field is set
      */
-    public boolean hasEquipmentUniqueId() {
+    public boolean hasAvatarId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 13;</code>
-     * @return this
-     */
-    public SimpleAvatarInfo clearEquipmentUniqueId() {
-      bitField0_ &= ~0x00000002;
-      equipmentUniqueId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 13;</code>
-     * @return the equipmentUniqueId
-     */
-    public int getEquipmentUniqueId() {
-      return equipmentUniqueId;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 13;</code>
-     * @param value the equipmentUniqueId to set
-     * @return this
-     */
-    public SimpleAvatarInfo setEquipmentUniqueId(final int value) {
-      bitField0_ |= 0x00000002;
-      equipmentUniqueId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 15;</code>
-     * @return whether the avatarId field is set
-     */
-    public boolean hasAvatarId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 15;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      * @return this
      */
     public SimpleAvatarInfo clearAvatarId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       avatarId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 avatar_id = 15;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      * @return the avatarId
      */
     public int getAvatarId() {
@@ -144,13 +107,50 @@ public final class SimpleAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 15;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      * @param value the avatarId to set
      * @return this
      */
     public SimpleAvatarInfo setAvatarId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       avatarId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return whether the level field is set
+     */
+    public boolean hasLevel() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return this
+     */
+    public SimpleAvatarInfo clearLevel() {
+      bitField0_ &= ~0x00000004;
+      level = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return the level
+     */
+    public int getLevel() {
+      return level;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @param value the level to set
+     * @return this
+     */
+    public SimpleAvatarInfo setLevel(final int value) {
+      bitField0_ |= 0x00000004;
+      level = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class SimpleAvatarInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        level = other.level;
-        equipmentUniqueId = other.equipmentUniqueId;
+        dressedSkinId = other.dressedSkinId;
         avatarId = other.avatarId;
+        level = other.level;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class SimpleAvatarInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasLevel()) {
-        setLevel(other.level);
-      }
-      if (other.hasEquipmentUniqueId()) {
-        setEquipmentUniqueId(other.equipmentUniqueId);
+      if (other.hasDressedSkinId()) {
+        setDressedSkinId(other.dressedSkinId);
       }
       if (other.hasAvatarId()) {
         setAvatarId(other.avatarId);
+      }
+      if (other.hasLevel()) {
+        setLevel(other.level);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class SimpleAvatarInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      level = 0;
-      equipmentUniqueId = 0;
+      dressedSkinId = 0;
       avatarId = 0;
+      level = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class SimpleAvatarInfoOuterClass {
       }
       SimpleAvatarInfo other = (SimpleAvatarInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasLevel() || level == other.level)
-        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
-        && (!hasAvatarId() || avatarId == other.avatarId);
+        && (!hasDressedSkinId() || dressedSkinId == other.dressedSkinId)
+        && (!hasAvatarId() || avatarId == other.avatarId)
+        && (!hasLevel() || level == other.level);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(level);
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(dressedSkinId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(equipmentUniqueId);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(avatarId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(avatarId);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(level);
       }
     }
 
@@ -242,13 +242,13 @@ public final class SimpleAvatarInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(dressedSkinId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       return size;
     }
@@ -260,27 +260,27 @@ public final class SimpleAvatarInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
-            // level
-            level = input.readUInt32();
+          case 16: {
+            // dressedSkinId
+            dressedSkinId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 40) {
               break;
             }
           }
-          case 104: {
-            // equipmentUniqueId
-            equipmentUniqueId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
+          case 40: {
             // avatarId
             avatarId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 80) {
+              break;
+            }
+          }
+          case 80: {
+            // level
+            level = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class SimpleAvatarInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.level, level);
+        output.writeUInt32(FieldNames.dressedSkinId, dressedSkinId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
+        output.writeUInt32(FieldNames.avatarId, avatarId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.avatarId, avatarId);
+        output.writeUInt32(FieldNames.level, level);
       }
       output.endObject();
     }
@@ -323,23 +323,12 @@ public final class SimpleAvatarInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 102865796: {
-            if (input.isAtField(FieldNames.level)) {
+          case -407000018:
+          case 2012697844: {
+            if (input.isAtField(FieldNames.dressedSkinId)) {
               if (!input.trySkipNullValue()) {
-                level = input.readUInt32();
+                dressedSkinId = input.readUInt32();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1867136902:
-          case 760467160: {
-            if (input.isAtField(FieldNames.equipmentUniqueId)) {
-              if (!input.trySkipNullValue()) {
-                equipmentUniqueId = input.readUInt32();
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -351,6 +340,17 @@ public final class SimpleAvatarInfoOuterClass {
             if (input.isAtField(FieldNames.avatarId)) {
               if (!input.trySkipNullValue()) {
                 avatarId = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 102865796: {
+            if (input.isAtField(FieldNames.level)) {
+              if (!input.trySkipNullValue()) {
+                level = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -411,11 +411,11 @@ public final class SimpleAvatarInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName level = FieldName.forField("level");
-
-      static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
+      static final FieldName dressedSkinId = FieldName.forField("dressedSkinId", "dressed_skin_id");
 
       static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
+
+      static final FieldName level = FieldName.forField("level");
     }
   }
 }

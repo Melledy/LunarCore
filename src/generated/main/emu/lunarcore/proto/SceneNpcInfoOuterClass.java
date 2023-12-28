@@ -19,12 +19,12 @@ public final class SceneNpcInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 npc_id = 11;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      */
     private int npcId;
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 13;</code>
      */
     private final NpcExtraInfoOuterClass.NpcExtraInfo extraInfo = NpcExtraInfoOuterClass.NpcExtraInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 11;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @return whether the npcId field is set
      */
     public boolean hasNpcId() {
@@ -47,7 +47,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 11;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @return this
      */
     public SceneNpcInfo clearNpcId() {
@@ -57,7 +57,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 11;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @return the npcId
      */
     public int getNpcId() {
@@ -65,7 +65,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 11;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @param value the npcId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 13;</code>
      * @return whether the extraInfo field is set
      */
     public boolean hasExtraInfo() {
@@ -84,7 +84,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 13;</code>
      * @return this
      */
     public SceneNpcInfo clearExtraInfo() {
@@ -94,7 +94,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 13;</code>
      * @param value the extraInfo to set
      * @return this
      */
@@ -198,11 +198,11 @@ public final class SceneNpcInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 106);
         output.writeMessageNoTag(extraInfo);
       }
     }
@@ -226,16 +226,16 @@ public final class SceneNpcInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 96: {
             // npcId
             npcId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 106) {
               break;
             }
           }
-          case 50: {
+          case 106: {
             // extraInfo
             input.readMessage(extraInfo);
             bitField0_ |= 0x00000002;

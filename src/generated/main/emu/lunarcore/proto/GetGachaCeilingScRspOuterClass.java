@@ -19,7 +19,7 @@ public final class GetGachaCeilingScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      */
     private int gachaType;
 
@@ -29,7 +29,7 @@ public final class GetGachaCeilingScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      */
     private final GachaCeilingOuterClass.GachaCeiling gachaCeiling = GachaCeilingOuterClass.GachaCeiling.newInstance();
 
@@ -44,7 +44,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      * @return whether the gachaType field is set
      */
     public boolean hasGachaType() {
@@ -52,7 +52,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      * @return this
      */
     public GetGachaCeilingScRsp clearGachaType() {
@@ -62,7 +62,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      * @return the gachaType
      */
     public int getGachaType() {
@@ -70,7 +70,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      * @param value the gachaType to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      * @return whether the gachaCeiling field is set
      */
     public boolean hasGachaCeiling() {
@@ -126,7 +126,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      * @return this
      */
     public GetGachaCeilingScRsp clearGachaCeiling() {
@@ -136,7 +136,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional .GachaCeiling gacha_ceiling = 6;</code>
+     * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
      * @param value the gachaCeiling to set
      * @return this
      */
@@ -246,7 +246,7 @@ public final class GetGachaCeilingScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(gachaType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -254,7 +254,7 @@ public final class GetGachaCeilingScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(gachaCeiling);
       }
     }
@@ -281,7 +281,7 @@ public final class GetGachaCeilingScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 112: {
+          case 24: {
             // gachaType
             gachaType = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -295,11 +295,11 @@ public final class GetGachaCeilingScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 10) {
               break;
             }
           }
-          case 50: {
+          case 10: {
             // gachaCeiling
             input.readMessage(gachaCeiling);
             bitField0_ |= 0x00000004;

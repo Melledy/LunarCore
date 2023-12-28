@@ -19,12 +19,12 @@ public final class ChallengeRewardOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 taken_challenge_reward = 12;</code>
+     * <code>optional uint64 taken_challenge_reward = 10;</code>
      */
     private long takenChallengeReward;
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 15;</code>
      */
     private int groupId;
 
@@ -39,7 +39,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint64 taken_challenge_reward = 12;</code>
+     * <code>optional uint64 taken_challenge_reward = 10;</code>
      * @return whether the takenChallengeReward field is set
      */
     public boolean hasTakenChallengeReward() {
@@ -47,7 +47,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint64 taken_challenge_reward = 12;</code>
+     * <code>optional uint64 taken_challenge_reward = 10;</code>
      * @return this
      */
     public ChallengeReward clearTakenChallengeReward() {
@@ -57,7 +57,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint64 taken_challenge_reward = 12;</code>
+     * <code>optional uint64 taken_challenge_reward = 10;</code>
      * @return the takenChallengeReward
      */
     public long getTakenChallengeReward() {
@@ -65,7 +65,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint64 taken_challenge_reward = 12;</code>
+     * <code>optional uint64 taken_challenge_reward = 10;</code>
      * @param value the takenChallengeReward to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 15;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -84,7 +84,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 15;</code>
      * @return this
      */
     public ChallengeReward clearGroupId() {
@@ -94,7 +94,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 15;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -102,7 +102,7 @@ public final class ChallengeRewardOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 15;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class ChallengeRewardOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 80);
         output.writeUInt64NoTag(takenChallengeReward);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(groupId);
       }
     }
@@ -205,16 +205,16 @@ public final class ChallengeRewardOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 80: {
             // takenChallengeReward
             takenChallengeReward = input.readUInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 120) {
               break;
             }
           }
-          case 48: {
+          case 120: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000002;

@@ -8,7 +8,7 @@ import emu.lunarcore.server.packet.CmdId;
 public class PacketSyncRogueMiracleSelectInfoScNotify extends BasePacket {
 
     public PacketSyncRogueMiracleSelectInfoScNotify(RogueMiracleSelectMenu miracleSelect) {
-        super(CmdId.SyncRogueMiracleSelectInfoScNotify);
+        super(CmdId.NONE); // TODO update
         
         var data = SyncRogueMiracleSelectInfoScNotify.newInstance()
                 .setMiracleSelectInfo(miracleSelect.toProto());

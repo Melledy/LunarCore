@@ -9,7 +9,7 @@ import emu.lunarcore.server.packet.CmdId;
 public class PacketAddRogueMiracleScNotify extends BasePacket {
 
     public PacketAddRogueMiracleScNotify(RogueMiracleData miracle, RogueMiracleSource rogueMiracleSource) {
-        super(CmdId.AddRogueMiracleScNotify);
+        super(CmdId.NONE); // TODO update
         
         var data = AddRogueMiracleScNotify.newInstance()
                 .setRogueMiracle(miracle.toProto())

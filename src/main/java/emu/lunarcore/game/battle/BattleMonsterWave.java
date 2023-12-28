@@ -26,6 +26,9 @@ public class BattleMonsterWave {
                 .setWaveId(1) // Probably not named correctly
                 .setStageId(stage.getId());
         
+        // Set wave params
+        proto.getMutableWaveParam();
+        
         if (this.customLevel > 0) {
             proto.getMutableWaveParam().setLevel(this.customLevel);
         }

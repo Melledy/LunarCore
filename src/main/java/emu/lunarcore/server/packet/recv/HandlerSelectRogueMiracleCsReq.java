@@ -9,7 +9,7 @@ import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
 import emu.lunarcore.server.packet.send.PacketSelectRogueMiracleScRsp;
 
-@Opcodes(CmdId.SelectRogueMiracleCsReq)
+@Opcodes(CmdId.NONE) // TODO update
 public class HandlerSelectRogueMiracleCsReq extends PacketHandler {
 
     @Override
@@ -24,7 +24,7 @@ public class HandlerSelectRogueMiracleCsReq extends PacketHandler {
             }
         }
         
-        session.send(CmdId.SelectRogueBuffScRsp);
+        session.send(CmdId.NONE);
     }
 
 }

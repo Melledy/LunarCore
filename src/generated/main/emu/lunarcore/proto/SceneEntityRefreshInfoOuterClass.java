@@ -19,12 +19,12 @@ public final class SceneEntityRefreshInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 8;</code>
      */
     private int delEntity;
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 14;</code>
+     * <code>optional .SceneEntityInfo add_entity = 1;</code>
      */
     private final SceneEntityInfoOuterClass.SceneEntityInfo addEntity = SceneEntityInfoOuterClass.SceneEntityInfo.newInstance();
 
@@ -38,32 +38,8 @@ public final class SceneEntityRefreshInfoOuterClass {
       return new SceneEntityRefreshInfo();
     }
 
-    public boolean hasUpdateType() {
-      return (((bitField0_ & 0x00000003)) != 0);
-    }
-
-    public SceneEntityRefreshInfo clearUpdateType() {
-      if (hasUpdateType()) {
-        clearDelEntity();
-        clearAddEntity();
-      }
-      return this;
-    }
-
-    private void clearUpdateTypeOtherDelEntity() {
-      if ((((bitField0_ & 0x00000002)) != 0)) {
-        clearAddEntity();
-      }
-    }
-
-    private void clearUpdateTypeOtherAddEntity() {
-      if ((((bitField0_ & 0x00000001)) != 0)) {
-        clearDelEntity();
-      }
-    }
-
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 8;</code>
      * @return whether the delEntity field is set
      */
     public boolean hasDelEntity() {
@@ -71,7 +47,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 8;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearDelEntity() {
@@ -81,7 +57,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 8;</code>
      * @return the delEntity
      */
     public int getDelEntity() {
@@ -89,19 +65,18 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 8;</code>
      * @param value the delEntity to set
      * @return this
      */
     public SceneEntityRefreshInfo setDelEntity(final int value) {
-      clearUpdateTypeOtherDelEntity();
       bitField0_ |= 0x00000001;
       delEntity = value;
       return this;
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 14;</code>
+     * <code>optional .SceneEntityInfo add_entity = 1;</code>
      * @return whether the addEntity field is set
      */
     public boolean hasAddEntity() {
@@ -109,7 +84,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 14;</code>
+     * <code>optional .SceneEntityInfo add_entity = 1;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearAddEntity() {
@@ -119,7 +94,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 14;</code>
+     * <code>optional .SceneEntityInfo add_entity = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -133,7 +108,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 14;</code>
+     * <code>optional .SceneEntityInfo add_entity = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -142,19 +117,17 @@ public final class SceneEntityRefreshInfoOuterClass {
      * @return internal storage object for modifications
      */
     public SceneEntityInfoOuterClass.SceneEntityInfo getMutableAddEntity() {
-      clearUpdateTypeOtherAddEntity();
       bitField0_ |= 0x00000002;
       return addEntity;
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 14;</code>
+     * <code>optional .SceneEntityInfo add_entity = 1;</code>
      * @param value the addEntity to set
      * @return this
      */
     public SceneEntityRefreshInfo setAddEntity(
         final SceneEntityInfoOuterClass.SceneEntityInfo value) {
-      clearUpdateTypeOtherAddEntity();
       bitField0_ |= 0x00000002;
       addEntity.copyFrom(value);
       return this;
@@ -226,11 +199,11 @@ public final class SceneEntityRefreshInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(delEntity);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(addEntity);
       }
     }
@@ -254,19 +227,17 @@ public final class SceneEntityRefreshInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 64: {
             // delEntity
-            clearUpdateTypeOtherDelEntity();
             delEntity = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 10) {
               break;
             }
           }
-          case 114: {
+          case 10: {
             // addEntity
-            clearUpdateTypeOtherAddEntity();
             input.readMessage(addEntity);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
@@ -311,7 +282,6 @@ public final class SceneEntityRefreshInfoOuterClass {
           case 314362519: {
             if (input.isAtField(FieldNames.delEntity)) {
               if (!input.trySkipNullValue()) {
-                clearUpdateTypeOtherDelEntity();
                 delEntity = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
@@ -324,7 +294,6 @@ public final class SceneEntityRefreshInfoOuterClass {
           case 1653776705: {
             if (input.isAtField(FieldNames.addEntity)) {
               if (!input.trySkipNullValue()) {
-                clearUpdateTypeOtherAddEntity();
                 input.readMessage(addEntity);
                 bitField0_ |= 0x00000002;
               }

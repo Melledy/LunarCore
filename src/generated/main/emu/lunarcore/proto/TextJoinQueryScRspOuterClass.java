@@ -20,14 +20,14 @@ public final class TextJoinQueryScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .TextJoinQueryScRsp.TextJoinInfo text_join_list = 4;</code>
+     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
      */
-    private final RepeatedMessage<TextJoinInfo> textJoinList = RepeatedMessage.newEmptyInstance(TextJoinInfo.getFactory());
+    private final RepeatedMessage<TextJoinInfoOuterClass.TextJoinInfo> textJoinList = RepeatedMessage.newEmptyInstance(TextJoinInfoOuterClass.TextJoinInfo.getFactory());
 
     private TextJoinQueryScRsp() {
     }
@@ -40,7 +40,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public TextJoinQueryScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinQueryScRsp.TextJoinInfo text_join_list = 4;</code>
+     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
      * @return whether the textJoinList field is set
      */
     public boolean hasTextJoinList() {
@@ -85,7 +85,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinQueryScRsp.TextJoinInfo text_join_list = 4;</code>
+     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
      * @return this
      */
     public TextJoinQueryScRsp clearTextJoinList() {
@@ -95,7 +95,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinQueryScRsp.TextJoinInfo text_join_list = 4;</code>
+     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -104,12 +104,12 @@ public final class TextJoinQueryScRspOuterClass {
      *
      * @return internal storage object for reading
      */
-    public RepeatedMessage<TextJoinInfo> getTextJoinList() {
+    public RepeatedMessage<TextJoinInfoOuterClass.TextJoinInfo> getTextJoinList() {
       return textJoinList;
     }
 
     /**
-     * <code>repeated .TextJoinQueryScRsp.TextJoinInfo text_join_list = 4;</code>
+     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -117,28 +117,29 @@ public final class TextJoinQueryScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedMessage<TextJoinInfo> getMutableTextJoinList() {
+    public RepeatedMessage<TextJoinInfoOuterClass.TextJoinInfo> getMutableTextJoinList() {
       bitField0_ |= 0x00000002;
       return textJoinList;
     }
 
     /**
-     * <code>repeated .TextJoinQueryScRsp.TextJoinInfo text_join_list = 4;</code>
+     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
      * @param value the textJoinList to add
      * @return this
      */
-    public TextJoinQueryScRsp addTextJoinList(final TextJoinInfo value) {
+    public TextJoinQueryScRsp addTextJoinList(final TextJoinInfoOuterClass.TextJoinInfo value) {
       bitField0_ |= 0x00000002;
       textJoinList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .TextJoinQueryScRsp.TextJoinInfo text_join_list = 4;</code>
+     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
      * @param values the textJoinList to add
      * @return this
      */
-    public TextJoinQueryScRsp addAllTextJoinList(final TextJoinInfo... values) {
+    public TextJoinQueryScRsp addAllTextJoinList(
+        final TextJoinInfoOuterClass.TextJoinInfo... values) {
       bitField0_ |= 0x00000002;
       textJoinList.addAll(values);
       return this;
@@ -210,12 +211,12 @@ public final class TextJoinQueryScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < textJoinList.length(); i++) {
-          output.writeRawByte((byte) 34);
+          output.writeRawByte((byte) 10);
           output.writeMessageNoTag(textJoinList.get(i));
         }
       }
@@ -240,16 +241,16 @@ public final class TextJoinQueryScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 10) {
               break;
             }
           }
-          case 34: {
+          case 10: {
             // textJoinList
             tag = input.readRepeatedMessage(textJoinList, tag);
             bitField0_ |= 0x00000002;
@@ -351,333 +352,6 @@ public final class TextJoinQueryScRspOuterClass {
      */
     public static MessageFactory<TextJoinQueryScRsp> getFactory() {
       return TextJoinQueryScRspFactory.INSTANCE;
-    }
-
-    /**
-     * Protobuf type {@code TextJoinInfo}
-     */
-    public static final class TextJoinInfo extends ProtoMessage<TextJoinInfo> implements Cloneable {
-      private static final long serialVersionUID = 0L;
-
-      /**
-       * <code>optional uint32 text_item_id = 2;</code>
-       */
-      private int textItemId;
-
-      /**
-       * <code>optional uint32 text_item_config_id = 3;</code>
-       */
-      private int textItemConfigId;
-
-      private TextJoinInfo() {
-      }
-
-      /**
-       * @return a new empty instance of {@code TextJoinInfo}
-       */
-      public static TextJoinInfo newInstance() {
-        return new TextJoinInfo();
-      }
-
-      /**
-       * <code>optional uint32 text_item_id = 2;</code>
-       * @return whether the textItemId field is set
-       */
-      public boolean hasTextItemId() {
-        return (bitField0_ & 0x00000001) != 0;
-      }
-
-      /**
-       * <code>optional uint32 text_item_id = 2;</code>
-       * @return this
-       */
-      public TextJoinInfo clearTextItemId() {
-        bitField0_ &= ~0x00000001;
-        textItemId = 0;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 text_item_id = 2;</code>
-       * @return the textItemId
-       */
-      public int getTextItemId() {
-        return textItemId;
-      }
-
-      /**
-       * <code>optional uint32 text_item_id = 2;</code>
-       * @param value the textItemId to set
-       * @return this
-       */
-      public TextJoinInfo setTextItemId(final int value) {
-        bitField0_ |= 0x00000001;
-        textItemId = value;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 text_item_config_id = 3;</code>
-       * @return whether the textItemConfigId field is set
-       */
-      public boolean hasTextItemConfigId() {
-        return (bitField0_ & 0x00000002) != 0;
-      }
-
-      /**
-       * <code>optional uint32 text_item_config_id = 3;</code>
-       * @return this
-       */
-      public TextJoinInfo clearTextItemConfigId() {
-        bitField0_ &= ~0x00000002;
-        textItemConfigId = 0;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 text_item_config_id = 3;</code>
-       * @return the textItemConfigId
-       */
-      public int getTextItemConfigId() {
-        return textItemConfigId;
-      }
-
-      /**
-       * <code>optional uint32 text_item_config_id = 3;</code>
-       * @param value the textItemConfigId to set
-       * @return this
-       */
-      public TextJoinInfo setTextItemConfigId(final int value) {
-        bitField0_ |= 0x00000002;
-        textItemConfigId = value;
-        return this;
-      }
-
-      @Override
-      public TextJoinInfo copyFrom(final TextJoinInfo other) {
-        cachedSize = other.cachedSize;
-        if ((bitField0_ | other.bitField0_) != 0) {
-          bitField0_ = other.bitField0_;
-          textItemId = other.textItemId;
-          textItemConfigId = other.textItemConfigId;
-        }
-        return this;
-      }
-
-      @Override
-      public TextJoinInfo mergeFrom(final TextJoinInfo other) {
-        if (other.isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        if (other.hasTextItemId()) {
-          setTextItemId(other.textItemId);
-        }
-        if (other.hasTextItemConfigId()) {
-          setTextItemConfigId(other.textItemConfigId);
-        }
-        return this;
-      }
-
-      @Override
-      public TextJoinInfo clear() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        textItemId = 0;
-        textItemConfigId = 0;
-        return this;
-      }
-
-      @Override
-      public TextJoinInfo clearQuick() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        return this;
-      }
-
-      @Override
-      public boolean equals(Object o) {
-        if (o == this) {
-          return true;
-        }
-        if (!(o instanceof TextJoinInfo)) {
-          return false;
-        }
-        TextJoinInfo other = (TextJoinInfo) o;
-        return bitField0_ == other.bitField0_
-          && (!hasTextItemId() || textItemId == other.textItemId)
-          && (!hasTextItemConfigId() || textItemConfigId == other.textItemConfigId);
-      }
-
-      @Override
-      public void writeTo(final ProtoSink output) throws IOException {
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeRawByte((byte) 16);
-          output.writeUInt32NoTag(textItemId);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeRawByte((byte) 24);
-          output.writeUInt32NoTag(textItemConfigId);
-        }
-      }
-
-      @Override
-      protected int computeSerializedSize() {
-        int size = 0;
-        if ((bitField0_ & 0x00000001) != 0) {
-          size += 1 + ProtoSink.computeUInt32SizeNoTag(textItemId);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          size += 1 + ProtoSink.computeUInt32SizeNoTag(textItemConfigId);
-        }
-        return size;
-      }
-
-      @Override
-      @SuppressWarnings("fallthrough")
-      public TextJoinInfo mergeFrom(final ProtoSource input) throws IOException {
-        // Enabled Fall-Through Optimization (QuickBuffers)
-        int tag = input.readTag();
-        while (true) {
-          switch (tag) {
-            case 16: {
-              // textItemId
-              textItemId = input.readUInt32();
-              bitField0_ |= 0x00000001;
-              tag = input.readTag();
-              if (tag != 24) {
-                break;
-              }
-            }
-            case 24: {
-              // textItemConfigId
-              textItemConfigId = input.readUInt32();
-              bitField0_ |= 0x00000002;
-              tag = input.readTag();
-              if (tag != 0) {
-                break;
-              }
-            }
-            case 0: {
-              return this;
-            }
-            default: {
-              if (!input.skipField(tag)) {
-                return this;
-              }
-              tag = input.readTag();
-              break;
-            }
-          }
-        }
-      }
-
-      @Override
-      public void writeTo(final JsonSink output) throws IOException {
-        output.beginObject();
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeUInt32(FieldNames.textItemId, textItemId);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeUInt32(FieldNames.textItemConfigId, textItemConfigId);
-        }
-        output.endObject();
-      }
-
-      @Override
-      public TextJoinInfo mergeFrom(final JsonSource input) throws IOException {
-        if (!input.beginObject()) {
-          return this;
-        }
-        while (!input.isAtEnd()) {
-          switch (input.readFieldHash()) {
-            case 1565189915:
-            case -153409355: {
-              if (input.isAtField(FieldNames.textItemId)) {
-                if (!input.trySkipNullValue()) {
-                  textItemId = input.readUInt32();
-                  bitField0_ |= 0x00000001;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            case -1448403459:
-            case -1174236578: {
-              if (input.isAtField(FieldNames.textItemConfigId)) {
-                if (!input.trySkipNullValue()) {
-                  textItemConfigId = input.readUInt32();
-                  bitField0_ |= 0x00000002;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            default: {
-              input.skipUnknownField();
-              break;
-            }
-          }
-        }
-        input.endObject();
-        return this;
-      }
-
-      @Override
-      public TextJoinInfo clone() {
-        return new TextJoinInfo().copyFrom(this);
-      }
-
-      @Override
-      public boolean isEmpty() {
-        return ((bitField0_) == 0);
-      }
-
-      public static TextJoinInfo parseFrom(final byte[] data) throws
-          InvalidProtocolBufferException {
-        return ProtoMessage.mergeFrom(new TextJoinInfo(), data).checkInitialized();
-      }
-
-      public static TextJoinInfo parseFrom(final ProtoSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new TextJoinInfo(), input).checkInitialized();
-      }
-
-      public static TextJoinInfo parseFrom(final JsonSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new TextJoinInfo(), input).checkInitialized();
-      }
-
-      /**
-       * @return factory for creating TextJoinInfo messages
-       */
-      public static MessageFactory<TextJoinInfo> getFactory() {
-        return TextJoinInfoFactory.INSTANCE;
-      }
-
-      private enum TextJoinInfoFactory implements MessageFactory<TextJoinInfo> {
-        INSTANCE;
-
-        @Override
-        public TextJoinInfo create() {
-          return TextJoinInfo.newInstance();
-        }
-      }
-
-      /**
-       * Contains name constants used for serializing JSON
-       */
-      static class FieldNames {
-        static final FieldName textItemId = FieldName.forField("textItemId", "text_item_id");
-
-        static final FieldName textItemConfigId = FieldName.forField("textItemConfigId", "text_item_config_id");
-      }
     }
 
     private enum TextJoinQueryScRspFactory implements MessageFactory<TextJoinQueryScRsp> {

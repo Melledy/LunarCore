@@ -20,7 +20,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 mail_id_list = 6;</code>
+     * <code>repeated uint32 mail_id_list = 12;</code>
      */
     private final RepeatedInt mailIdList = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 6;</code>
+     * <code>repeated uint32 mail_id_list = 12;</code>
      * @return whether the mailIdList field is set
      */
     public boolean hasMailIdList() {
@@ -43,7 +43,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 6;</code>
+     * <code>repeated uint32 mail_id_list = 12;</code>
      * @return this
      */
     public TakeMailAttachmentCsReq clearMailIdList() {
@@ -53,7 +53,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 6;</code>
+     * <code>repeated uint32 mail_id_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 6;</code>
+     * <code>repeated uint32 mail_id_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 6;</code>
+     * <code>repeated uint32 mail_id_list = 12;</code>
      * @param value the mailIdList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 mail_id_list = 6;</code>
+     * <code>repeated uint32 mail_id_list = 12;</code>
      * @param values the mailIdList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < mailIdList.length(); i++) {
-          output.writeRawByte((byte) 48);
+          output.writeRawByte((byte) 96);
           output.writeUInt32NoTag(mailIdList.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
+          case 98: {
             // mailIdList [packed=true]
             input.readPackedUInt32(mailIdList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 48: {
+          case 96: {
             // mailIdList [packed=false]
             tag = input.readRepeatedUInt32(mailIdList, tag);
             bitField0_ |= 0x00000001;

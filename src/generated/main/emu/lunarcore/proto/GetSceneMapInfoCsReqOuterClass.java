@@ -20,12 +20,12 @@ public final class GetSceneMapInfoCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entry_id = 13;</code>
+     * <code>optional uint32 entry_id = 11;</code>
      */
     private int entryId;
 
     /**
-     * <code>repeated uint32 entry_id_list = 12;</code>
+     * <code>repeated uint32 entry_id_list = 3;</code>
      */
     private final RepeatedInt entryIdList = RepeatedInt.newEmptyInstance();
 
@@ -40,7 +40,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 13;</code>
+     * <code>optional uint32 entry_id = 11;</code>
      * @return whether the entryId field is set
      */
     public boolean hasEntryId() {
@@ -48,7 +48,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 13;</code>
+     * <code>optional uint32 entry_id = 11;</code>
      * @return this
      */
     public GetSceneMapInfoCsReq clearEntryId() {
@@ -58,7 +58,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 13;</code>
+     * <code>optional uint32 entry_id = 11;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -66,7 +66,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 13;</code>
+     * <code>optional uint32 entry_id = 11;</code>
      * @param value the entryId to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 12;</code>
+     * <code>repeated uint32 entry_id_list = 3;</code>
      * @return whether the entryIdList field is set
      */
     public boolean hasEntryIdList() {
@@ -85,7 +85,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 12;</code>
+     * <code>repeated uint32 entry_id_list = 3;</code>
      * @return this
      */
     public GetSceneMapInfoCsReq clearEntryIdList() {
@@ -95,7 +95,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 12;</code>
+     * <code>repeated uint32 entry_id_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 12;</code>
+     * <code>repeated uint32 entry_id_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 12;</code>
+     * <code>repeated uint32 entry_id_list = 3;</code>
      * @param value the entryIdList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 12;</code>
+     * <code>repeated uint32 entry_id_list = 3;</code>
      * @param values the entryIdList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class GetSceneMapInfoCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(entryId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < entryIdList.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 24);
           output.writeUInt32NoTag(entryIdList.array()[i]);
         }
       }
@@ -240,16 +240,16 @@ public final class GetSceneMapInfoCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 88: {
             // entryId
             entryId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 26) {
               break;
             }
           }
-          case 98: {
+          case 26: {
             // entryIdList [packed=true]
             input.readPackedUInt32(entryIdList, tag);
             bitField0_ |= 0x00000002;
@@ -268,7 +268,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
+          case 24: {
             // entryIdList [packed=false]
             tag = input.readRepeatedUInt32(entryIdList, tag);
             bitField0_ |= 0x00000002;

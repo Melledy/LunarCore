@@ -19,21 +19,21 @@ public final class PlayerHeartbeatScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <pre>
+     * ClientDownloadData download_data = 13;
+     * </pre>
+     *
+     * <code>optional uint64 server_time_ms = 6;</code>
+     */
+    private long serverTimeMs;
+
+    /**
      * <code>optional uint64 client_time_ms = 8;</code>
      */
     private long clientTimeMs;
 
     /**
-     * <pre>
-     * ClientDownloadData download_data = 1;
-     * </pre>
-     *
-     * <code>optional uint64 server_time_ms = 10;</code>
-     */
-    private long serverTimeMs;
-
-    /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 4;</code>
      */
     private int retcode;
 
@@ -48,11 +48,64 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
+     * <pre>
+     * ClientDownloadData download_data = 13;
+     * </pre>
+     *
+     * <code>optional uint64 server_time_ms = 6;</code>
+     * @return whether the serverTimeMs field is set
+     */
+    public boolean hasServerTimeMs() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <pre>
+     * ClientDownloadData download_data = 13;
+     * </pre>
+     *
+     * <code>optional uint64 server_time_ms = 6;</code>
+     * @return this
+     */
+    public PlayerHeartbeatScRsp clearServerTimeMs() {
+      bitField0_ &= ~0x00000001;
+      serverTimeMs = 0L;
+      return this;
+    }
+
+    /**
+     * <pre>
+     * ClientDownloadData download_data = 13;
+     * </pre>
+     *
+     * <code>optional uint64 server_time_ms = 6;</code>
+     * @return the serverTimeMs
+     */
+    public long getServerTimeMs() {
+      return serverTimeMs;
+    }
+
+    /**
+     * <pre>
+     * ClientDownloadData download_data = 13;
+     * </pre>
+     *
+     * <code>optional uint64 server_time_ms = 6;</code>
+     * @param value the serverTimeMs to set
+     * @return this
+     */
+    public PlayerHeartbeatScRsp setServerTimeMs(final long value) {
+      bitField0_ |= 0x00000001;
+      serverTimeMs = value;
+      return this;
+    }
+
+    /**
      * <code>optional uint64 client_time_ms = 8;</code>
      * @return whether the clientTimeMs field is set
      */
     public boolean hasClientTimeMs() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -60,7 +113,7 @@ public final class PlayerHeartbeatScRspOuterClass {
      * @return this
      */
     public PlayerHeartbeatScRsp clearClientTimeMs() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       clientTimeMs = 0L;
       return this;
     }
@@ -79,66 +132,13 @@ public final class PlayerHeartbeatScRspOuterClass {
      * @return this
      */
     public PlayerHeartbeatScRsp setClientTimeMs(final long value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       clientTimeMs = value;
       return this;
     }
 
     /**
-     * <pre>
-     * ClientDownloadData download_data = 1;
-     * </pre>
-     *
-     * <code>optional uint64 server_time_ms = 10;</code>
-     * @return whether the serverTimeMs field is set
-     */
-    public boolean hasServerTimeMs() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <pre>
-     * ClientDownloadData download_data = 1;
-     * </pre>
-     *
-     * <code>optional uint64 server_time_ms = 10;</code>
-     * @return this
-     */
-    public PlayerHeartbeatScRsp clearServerTimeMs() {
-      bitField0_ &= ~0x00000002;
-      serverTimeMs = 0L;
-      return this;
-    }
-
-    /**
-     * <pre>
-     * ClientDownloadData download_data = 1;
-     * </pre>
-     *
-     * <code>optional uint64 server_time_ms = 10;</code>
-     * @return the serverTimeMs
-     */
-    public long getServerTimeMs() {
-      return serverTimeMs;
-    }
-
-    /**
-     * <pre>
-     * ClientDownloadData download_data = 1;
-     * </pre>
-     *
-     * <code>optional uint64 server_time_ms = 10;</code>
-     * @param value the serverTimeMs to set
-     * @return this
-     */
-    public PlayerHeartbeatScRsp setServerTimeMs(final long value) {
-      bitField0_ |= 0x00000002;
-      serverTimeMs = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -146,7 +146,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return this
      */
     public PlayerHeartbeatScRsp clearRetcode() {
@@ -156,7 +156,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -164,7 +164,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -179,8 +179,8 @@ public final class PlayerHeartbeatScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        clientTimeMs = other.clientTimeMs;
         serverTimeMs = other.serverTimeMs;
+        clientTimeMs = other.clientTimeMs;
         retcode = other.retcode;
       }
       return this;
@@ -192,11 +192,11 @@ public final class PlayerHeartbeatScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasClientTimeMs()) {
-        setClientTimeMs(other.clientTimeMs);
-      }
       if (other.hasServerTimeMs()) {
         setServerTimeMs(other.serverTimeMs);
+      }
+      if (other.hasClientTimeMs()) {
+        setClientTimeMs(other.clientTimeMs);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
@@ -211,8 +211,8 @@ public final class PlayerHeartbeatScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      clientTimeMs = 0L;
       serverTimeMs = 0L;
+      clientTimeMs = 0L;
       retcode = 0;
       return this;
     }
@@ -237,23 +237,23 @@ public final class PlayerHeartbeatScRspOuterClass {
       }
       PlayerHeartbeatScRsp other = (PlayerHeartbeatScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs)
         && (!hasServerTimeMs() || serverTimeMs == other.serverTimeMs)
+        && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs)
         && (!hasRetcode() || retcode == other.retcode);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeUInt64NoTag(serverTimeMs);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 64);
         output.writeUInt64NoTag(clientTimeMs);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt64NoTag(serverTimeMs);
-      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -262,10 +262,10 @@ public final class PlayerHeartbeatScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt64SizeNoTag(clientTimeMs);
+        size += 1 + ProtoSink.computeUInt64SizeNoTag(serverTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt64SizeNoTag(serverTimeMs);
+        size += 1 + ProtoSink.computeUInt64SizeNoTag(clientTimeMs);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
@@ -280,25 +280,25 @@ public final class PlayerHeartbeatScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 48: {
+            // serverTimeMs
+            serverTimeMs = input.readUInt64();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 64) {
+              break;
+            }
+          }
           case 64: {
             // clientTimeMs
             clientTimeMs = input.readUInt64();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
-            // serverTimeMs
-            serverTimeMs = input.readUInt64();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 32) {
               break;
             }
           }
-          case 96: {
+          case 32: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000004;
@@ -325,10 +325,10 @@ public final class PlayerHeartbeatScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt64(FieldNames.clientTimeMs, clientTimeMs);
+        output.writeUInt64(FieldNames.serverTimeMs, serverTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt64(FieldNames.serverTimeMs, serverTimeMs);
+        output.writeUInt64(FieldNames.clientTimeMs, clientTimeMs);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
@@ -343,11 +343,11 @@ public final class PlayerHeartbeatScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1414301442:
-          case 1123200996: {
-            if (input.isAtField(FieldNames.clientTimeMs)) {
+          case 1928739446:
+          case 1149956956: {
+            if (input.isAtField(FieldNames.serverTimeMs)) {
               if (!input.trySkipNullValue()) {
-                clientTimeMs = input.readUInt64();
+                serverTimeMs = input.readUInt64();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -355,11 +355,11 @@ public final class PlayerHeartbeatScRspOuterClass {
             }
             break;
           }
-          case 1928739446:
-          case 1149956956: {
-            if (input.isAtField(FieldNames.serverTimeMs)) {
+          case -1414301442:
+          case 1123200996: {
+            if (input.isAtField(FieldNames.clientTimeMs)) {
               if (!input.trySkipNullValue()) {
-                serverTimeMs = input.readUInt64();
+                clientTimeMs = input.readUInt64();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -431,9 +431,9 @@ public final class PlayerHeartbeatScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName clientTimeMs = FieldName.forField("clientTimeMs", "client_time_ms");
-
       static final FieldName serverTimeMs = FieldName.forField("serverTimeMs", "server_time_ms");
+
+      static final FieldName clientTimeMs = FieldName.forField("clientTimeMs", "client_time_ms");
 
       static final FieldName retcode = FieldName.forField("retcode");
     }

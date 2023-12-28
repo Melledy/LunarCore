@@ -11,11 +11,11 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class ClientTurnSnapshotStatusOuterClass {
+public final class BattleEventInitedDataOuterClass {
   /**
-   * Protobuf type {@code ClientTurnSnapshotStatus}
+   * Protobuf type {@code BattleEventInitedData}
    */
-  public static final class ClientTurnSnapshotStatus extends ProtoMessage<ClientTurnSnapshotStatus> implements Cloneable {
+  public static final class BattleEventInitedData extends ProtoMessage<BattleEventInitedData> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
@@ -23,14 +23,14 @@ public final class ClientTurnSnapshotStatusOuterClass {
      */
     private final SpBarInfoOuterClass.SpBarInfo spBar = SpBarInfoOuterClass.SpBarInfo.newInstance();
 
-    private ClientTurnSnapshotStatus() {
+    private BattleEventInitedData() {
     }
 
     /**
-     * @return a new empty instance of {@code ClientTurnSnapshotStatus}
+     * @return a new empty instance of {@code BattleEventInitedData}
      */
-    public static ClientTurnSnapshotStatus newInstance() {
-      return new ClientTurnSnapshotStatus();
+    public static BattleEventInitedData newInstance() {
+      return new BattleEventInitedData();
     }
 
     /**
@@ -45,7 +45,7 @@ public final class ClientTurnSnapshotStatusOuterClass {
      * <code>optional .SpBarInfo sp_bar = 2;</code>
      * @return this
      */
-    public ClientTurnSnapshotStatus clearSpBar() {
+    public BattleEventInitedData clearSpBar() {
       bitField0_ &= ~0x00000001;
       spBar.clear();
       return this;
@@ -84,14 +84,14 @@ public final class ClientTurnSnapshotStatusOuterClass {
      * @param value the spBar to set
      * @return this
      */
-    public ClientTurnSnapshotStatus setSpBar(final SpBarInfoOuterClass.SpBarInfo value) {
+    public BattleEventInitedData setSpBar(final SpBarInfoOuterClass.SpBarInfo value) {
       bitField0_ |= 0x00000001;
       spBar.copyFrom(value);
       return this;
     }
 
     @Override
-    public ClientTurnSnapshotStatus copyFrom(final ClientTurnSnapshotStatus other) {
+    public BattleEventInitedData copyFrom(final BattleEventInitedData other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
@@ -101,7 +101,7 @@ public final class ClientTurnSnapshotStatusOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshotStatus mergeFrom(final ClientTurnSnapshotStatus other) {
+    public BattleEventInitedData mergeFrom(final BattleEventInitedData other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -113,7 +113,7 @@ public final class ClientTurnSnapshotStatusOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshotStatus clear() {
+    public BattleEventInitedData clear() {
       if (isEmpty()) {
         return this;
       }
@@ -124,7 +124,7 @@ public final class ClientTurnSnapshotStatusOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshotStatus clearQuick() {
+    public BattleEventInitedData clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -139,10 +139,10 @@ public final class ClientTurnSnapshotStatusOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof ClientTurnSnapshotStatus)) {
+      if (!(o instanceof BattleEventInitedData)) {
         return false;
       }
-      ClientTurnSnapshotStatus other = (ClientTurnSnapshotStatus) o;
+      BattleEventInitedData other = (BattleEventInitedData) o;
       return bitField0_ == other.bitField0_
         && (!hasSpBar() || spBar.equals(other.spBar));
     }
@@ -166,7 +166,7 @@ public final class ClientTurnSnapshotStatusOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public ClientTurnSnapshotStatus mergeFrom(final ProtoSource input) throws IOException {
+    public BattleEventInitedData mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
@@ -204,7 +204,7 @@ public final class ClientTurnSnapshotStatusOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshotStatus mergeFrom(final JsonSource input) throws IOException {
+    public BattleEventInitedData mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -233,8 +233,8 @@ public final class ClientTurnSnapshotStatusOuterClass {
     }
 
     @Override
-    public ClientTurnSnapshotStatus clone() {
-      return new ClientTurnSnapshotStatus().copyFrom(this);
+    public BattleEventInitedData clone() {
+      return new BattleEventInitedData().copyFrom(this);
     }
 
     @Override
@@ -242,32 +242,32 @@ public final class ClientTurnSnapshotStatusOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static ClientTurnSnapshotStatus parseFrom(final byte[] data) throws
+    public static BattleEventInitedData parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new ClientTurnSnapshotStatus(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new BattleEventInitedData(), data).checkInitialized();
     }
 
-    public static ClientTurnSnapshotStatus parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new ClientTurnSnapshotStatus(), input).checkInitialized();
+    public static BattleEventInitedData parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new BattleEventInitedData(), input).checkInitialized();
     }
 
-    public static ClientTurnSnapshotStatus parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new ClientTurnSnapshotStatus(), input).checkInitialized();
+    public static BattleEventInitedData parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new BattleEventInitedData(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating ClientTurnSnapshotStatus messages
+     * @return factory for creating BattleEventInitedData messages
      */
-    public static MessageFactory<ClientTurnSnapshotStatus> getFactory() {
-      return ClientTurnSnapshotStatusFactory.INSTANCE;
+    public static MessageFactory<BattleEventInitedData> getFactory() {
+      return BattleEventInitedDataFactory.INSTANCE;
     }
 
-    private enum ClientTurnSnapshotStatusFactory implements MessageFactory<ClientTurnSnapshotStatus> {
+    private enum BattleEventInitedDataFactory implements MessageFactory<BattleEventInitedData> {
       INSTANCE;
 
       @Override
-      public ClientTurnSnapshotStatus create() {
-        return ClientTurnSnapshotStatus.newInstance();
+      public BattleEventInitedData create() {
+        return BattleEventInitedData.newInstance();
       }
     }
 

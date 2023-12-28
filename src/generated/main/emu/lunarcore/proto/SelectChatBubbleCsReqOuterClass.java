@@ -19,7 +19,7 @@ public final class SelectChatBubbleCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 bubble_id = 7;</code>
+     * <code>optional uint32 bubble_id = 10;</code>
      */
     private int bubbleId;
 
@@ -34,7 +34,7 @@ public final class SelectChatBubbleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 bubble_id = 7;</code>
+     * <code>optional uint32 bubble_id = 10;</code>
      * @return whether the bubbleId field is set
      */
     public boolean hasBubbleId() {
@@ -42,7 +42,7 @@ public final class SelectChatBubbleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 bubble_id = 7;</code>
+     * <code>optional uint32 bubble_id = 10;</code>
      * @return this
      */
     public SelectChatBubbleCsReq clearBubbleId() {
@@ -52,7 +52,7 @@ public final class SelectChatBubbleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 bubble_id = 7;</code>
+     * <code>optional uint32 bubble_id = 10;</code>
      * @return the bubbleId
      */
     public int getBubbleId() {
@@ -60,7 +60,7 @@ public final class SelectChatBubbleCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 bubble_id = 7;</code>
+     * <code>optional uint32 bubble_id = 10;</code>
      * @param value the bubbleId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SelectChatBubbleCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(bubbleId);
       }
     }
@@ -150,7 +150,7 @@ public final class SelectChatBubbleCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 80: {
             // bubbleId
             bubbleId = input.readUInt32();
             bitField0_ |= 0x00000001;

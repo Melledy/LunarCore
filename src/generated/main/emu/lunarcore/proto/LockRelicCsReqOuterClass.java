@@ -24,7 +24,7 @@ public final class LockRelicCsReqOuterClass {
     private int relicUniqueId;
 
     /**
-     * <code>optional bool is_protected = 7;</code>
+     * <code>optional bool is_protected = 1;</code>
      */
     private boolean isProtected;
 
@@ -76,7 +76,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 7;</code>
+     * <code>optional bool is_protected = 1;</code>
      * @return whether the isProtected field is set
      */
     public boolean hasIsProtected() {
@@ -84,7 +84,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 7;</code>
+     * <code>optional bool is_protected = 1;</code>
      * @return this
      */
     public LockRelicCsReq clearIsProtected() {
@@ -94,7 +94,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 7;</code>
+     * <code>optional bool is_protected = 1;</code>
      * @return the isProtected
      */
     public boolean getIsProtected() {
@@ -102,7 +102,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 7;</code>
+     * <code>optional bool is_protected = 1;</code>
      * @param value the isProtected to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class LockRelicCsReqOuterClass {
         output.writeUInt32NoTag(relicUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 8);
         output.writeBoolNoTag(isProtected);
       }
     }
@@ -210,11 +210,11 @@ public final class LockRelicCsReqOuterClass {
             relicUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 8) {
               break;
             }
           }
-          case 56: {
+          case 8: {
             // isProtected
             isProtected = input.readBool();
             bitField0_ |= 0x00000002;

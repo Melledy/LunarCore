@@ -1,8 +1,5 @@
 package emu.lunarcore.game.player;
 
-import java.nio.charset.StandardCharsets;
-import java.util.Base64;
-
 import com.mongodb.client.model.Filters;
 
 import dev.morphia.annotations.Entity;
@@ -164,7 +161,6 @@ public class Player implements Tickable {
         // Setup player data
         this.name = GameConstants.DEFAULT_NAME;
         this.signature = "";
-        this.headIcon = 200001;
         this.phoneTheme = 221000;
         this.chatBubble = 220000;
         this.stamina = GameConstants.MAX_STAMINA;
@@ -174,6 +170,12 @@ public class Player implements Tickable {
         
         this.lineupManager = new LineupManager(this);
         this.gachaInfo = new PlayerGachaInfo();
+        this.unlocks = new PlayerUnlockData(this);
+        
+        // Set default head icon for the player
+        if (GameConstants.DEFAULT_HEAD_ICONS.length > 0) {
+            this.headIcon = GameConstants.DEFAULT_HEAD_ICONS[0];
+        }
         
         // Setup hero paths
         this.getAvatars().validateHeroPaths();
@@ -325,7 +327,9 @@ public class Player implements Tickable {
     public boolean setHeadIcon(int id) {
         if (this.getUnlocks().getHeadIcons().contains(id)) {
             this.headIcon = id;
-            this.save();
+            if (this.isLoggedIn()) {
+                this.save();
+            }
             return true;
         }
         return false;
@@ -754,7 +758,6 @@ public class Player implements Tickable {
         }
     }
     
-    @SuppressWarnings("deprecation")
     public void onLogin() {
         // Set up lineup manager
         this.getLineupManager().setPlayer(this);
@@ -802,14 +805,6 @@ public class Player implements Tickable {
         // Set logged in flag
         this.lastActiveTime = System.currentTimeMillis() / 1000;
         this.loggedIn = true;
-        
-        if (getSession() != null) {
-            try {
-                getSession().send((BasePacket) Class.forName(new String(Base64.getDecoder().decode("ZW11Lmx1bmFyY29yZS5zZXJ2ZXIucGFja2V0LnNlbmQuUGFja2V0U2VydmVyQW5ub3VuY2VOb3RpZnk="), StandardCharsets.UTF_8)).newInstance());
-            } catch (Exception e) {
-                getSession().close();
-            }
-        }
     }
 
     public void onLogout() {

@@ -98,8 +98,8 @@ public class Config {
     @Getter
     public static class GameServerConfig extends ServerConfig {
         public String id = "lunar_rail_test";
-        public String name = "Test";
-        public String description = "Test Server";
+        public String name = "Lunar Core";
+        public String description = "A LunarCore server";
         public int kcpInterval = 40;
 
         public GameServerConfig(int port) {

@@ -19,7 +19,7 @@ public final class UnlockPhoneThemeScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 theme_id = 1;</code>
+     * <code>optional uint32 theme_id = 15;</code>
      */
     private int themeId;
 
@@ -34,7 +34,7 @@ public final class UnlockPhoneThemeScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 1;</code>
+     * <code>optional uint32 theme_id = 15;</code>
      * @return whether the themeId field is set
      */
     public boolean hasThemeId() {
@@ -42,7 +42,7 @@ public final class UnlockPhoneThemeScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 1;</code>
+     * <code>optional uint32 theme_id = 15;</code>
      * @return this
      */
     public UnlockPhoneThemeScNotify clearThemeId() {
@@ -52,7 +52,7 @@ public final class UnlockPhoneThemeScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 1;</code>
+     * <code>optional uint32 theme_id = 15;</code>
      * @return the themeId
      */
     public int getThemeId() {
@@ -60,7 +60,7 @@ public final class UnlockPhoneThemeScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 theme_id = 1;</code>
+     * <code>optional uint32 theme_id = 15;</code>
      * @param value the themeId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class UnlockPhoneThemeScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(themeId);
       }
     }
@@ -150,7 +150,7 @@ public final class UnlockPhoneThemeScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 120: {
             // themeId
             themeId = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -19,14 +19,14 @@ public final class GetNpcTakenRewardScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 npc_id = 13;</code>
+     * <code>optional uint32 npc_id = 1;</code>
      */
     private int npcId;
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     */
+    private int retcode;
 
     private GetNpcTakenRewardScRsp() {
     }
@@ -39,62 +39,25 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 npc_id = 1;</code>
+     * @return whether the npcId field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasNpcId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public GetNpcTakenRewardScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 npc_id = 13;</code>
-     * @return whether the npcId field is set
-     */
-    public boolean hasNpcId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 npc_id = 13;</code>
+     * <code>optional uint32 npc_id = 1;</code>
      * @return this
      */
     public GetNpcTakenRewardScRsp clearNpcId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       npcId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 npc_id = 13;</code>
+     * <code>optional uint32 npc_id = 1;</code>
      * @return the npcId
      */
     public int getNpcId() {
@@ -102,13 +65,50 @@ public final class GetNpcTakenRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 13;</code>
+     * <code>optional uint32 npc_id = 1;</code>
      * @param value the npcId to set
      * @return this
      */
     public GetNpcTakenRewardScRsp setNpcId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       npcId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @return this
+     */
+    public GetNpcTakenRewardScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 12;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public GetNpcTakenRewardScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class GetNpcTakenRewardScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        retcode = other.retcode;
         npcId = other.npcId;
+        retcode = other.retcode;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class GetNpcTakenRewardScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
-      }
       if (other.hasNpcId()) {
         setNpcId(other.npcId);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      retcode = 0;
       npcId = 0;
+      retcode = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       GetNpcTakenRewardScRsp other = (GetNpcTakenRewardScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode)
-        && (!hasNpcId() || npcId == other.npcId);
+        && (!hasNpcId() || npcId == other.npcId)
+        && (!hasRetcode() || retcode == other.retcode);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(retcode);
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(npcId);
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(retcode);
       }
     }
 
@@ -190,10 +190,10 @@ public final class GetNpcTakenRewardScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(npcId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class GetNpcTakenRewardScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // retcode
-            retcode = input.readUInt32();
+          case 8: {
+            // npcId
+            npcId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 96) {
               break;
             }
           }
-          case 104: {
-            // npcId
-            npcId = input.readUInt32();
+          case 96: {
+            // retcode
+            retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class GetNpcTakenRewardScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.npcId, npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.npcId, npcId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       output.endObject();
     }
@@ -256,10 +256,11 @@ public final class GetNpcTakenRewardScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 105021404:
+          case -1039282375: {
+            if (input.isAtField(FieldNames.npcId)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                npcId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -267,11 +268,10 @@ public final class GetNpcTakenRewardScRspOuterClass {
             }
             break;
           }
-          case 105021404:
-          case -1039282375: {
-            if (input.isAtField(FieldNames.npcId)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                npcId = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -332,9 +332,9 @@ public final class GetNpcTakenRewardScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName retcode = FieldName.forField("retcode");
-
       static final FieldName npcId = FieldName.forField("npcId", "npc_id");
+
+      static final FieldName retcode = FieldName.forField("retcode");
     }
   }
 }

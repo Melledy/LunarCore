@@ -19,19 +19,9 @@ public final class PlayerHeartbeatCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 client_time_ms = 3;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      */
     private long clientTimeMs;
-
-    /**
-     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
-     */
-    private int dIMAFIDFCOD;
-
-    /**
-     * <code>optional .ClientUploadData upload_data = 13;</code>
-     */
-    private final ClientUploadDataOuterClass.ClientUploadData uploadData = ClientUploadDataOuterClass.ClientUploadData.newInstance();
 
     private PlayerHeartbeatCsReq() {
     }
@@ -44,7 +34,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 3;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @return whether the clientTimeMs field is set
      */
     public boolean hasClientTimeMs() {
@@ -52,7 +42,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 3;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @return this
      */
     public PlayerHeartbeatCsReq clearClientTimeMs() {
@@ -62,7 +52,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 3;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @return the clientTimeMs
      */
     public long getClientTimeMs() {
@@ -70,7 +60,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 3;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @param value the clientTimeMs to set
      * @return this
      */
@@ -80,109 +70,12 @@ public final class PlayerHeartbeatCsReqOuterClass {
       return this;
     }
 
-    /**
-     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
-     * @return whether the dIMAFIDFCOD field is set
-     */
-    public boolean hasDIMAFIDFCOD() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
-     * @return this
-     */
-    public PlayerHeartbeatCsReq clearDIMAFIDFCOD() {
-      bitField0_ &= ~0x00000002;
-      dIMAFIDFCOD = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
-     * @return the dIMAFIDFCOD
-     */
-    public int getDIMAFIDFCOD() {
-      return dIMAFIDFCOD;
-    }
-
-    /**
-     * <code>optional uint32 DIMAFIDFCOD = 7;</code>
-     * @param value the dIMAFIDFCOD to set
-     * @return this
-     */
-    public PlayerHeartbeatCsReq setDIMAFIDFCOD(final int value) {
-      bitField0_ |= 0x00000002;
-      dIMAFIDFCOD = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .ClientUploadData upload_data = 13;</code>
-     * @return whether the uploadData field is set
-     */
-    public boolean hasUploadData() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional .ClientUploadData upload_data = 13;</code>
-     * @return this
-     */
-    public PlayerHeartbeatCsReq clearUploadData() {
-      bitField0_ &= ~0x00000004;
-      uploadData.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .ClientUploadData upload_data = 13;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableUploadData()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public ClientUploadDataOuterClass.ClientUploadData getUploadData() {
-      return uploadData;
-    }
-
-    /**
-     * <code>optional .ClientUploadData upload_data = 13;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public ClientUploadDataOuterClass.ClientUploadData getMutableUploadData() {
-      bitField0_ |= 0x00000004;
-      return uploadData;
-    }
-
-    /**
-     * <code>optional .ClientUploadData upload_data = 13;</code>
-     * @param value the uploadData to set
-     * @return this
-     */
-    public PlayerHeartbeatCsReq setUploadData(
-        final ClientUploadDataOuterClass.ClientUploadData value) {
-      bitField0_ |= 0x00000004;
-      uploadData.copyFrom(value);
-      return this;
-    }
-
     @Override
     public PlayerHeartbeatCsReq copyFrom(final PlayerHeartbeatCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         clientTimeMs = other.clientTimeMs;
-        dIMAFIDFCOD = other.dIMAFIDFCOD;
-        uploadData.copyFrom(other.uploadData);
       }
       return this;
     }
@@ -196,12 +89,6 @@ public final class PlayerHeartbeatCsReqOuterClass {
       if (other.hasClientTimeMs()) {
         setClientTimeMs(other.clientTimeMs);
       }
-      if (other.hasDIMAFIDFCOD()) {
-        setDIMAFIDFCOD(other.dIMAFIDFCOD);
-      }
-      if (other.hasUploadData()) {
-        getMutableUploadData().mergeFrom(other.uploadData);
-      }
       return this;
     }
 
@@ -213,8 +100,6 @@ public final class PlayerHeartbeatCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       clientTimeMs = 0L;
-      dIMAFIDFCOD = 0;
-      uploadData.clear();
       return this;
     }
 
@@ -225,7 +110,6 @@ public final class PlayerHeartbeatCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      uploadData.clearQuick();
       return this;
     }
 
@@ -239,24 +123,14 @@ public final class PlayerHeartbeatCsReqOuterClass {
       }
       PlayerHeartbeatCsReq other = (PlayerHeartbeatCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs)
-        && (!hasDIMAFIDFCOD() || dIMAFIDFCOD == other.dIMAFIDFCOD)
-        && (!hasUploadData() || uploadData.equals(other.uploadData));
+        && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 96);
         output.writeUInt64NoTag(clientTimeMs);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(dIMAFIDFCOD);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 106);
-        output.writeMessageNoTag(uploadData);
       }
     }
 
@@ -265,12 +139,6 @@ public final class PlayerHeartbeatCsReqOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt64SizeNoTag(clientTimeMs);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(dIMAFIDFCOD);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(uploadData);
       }
       return size;
     }
@@ -282,28 +150,10 @@ public final class PlayerHeartbeatCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 96: {
             // clientTimeMs
             clientTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
-          case 56: {
-            // dIMAFIDFCOD
-            dIMAFIDFCOD = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 106) {
-              break;
-            }
-          }
-          case 106: {
-            // uploadData
-            input.readMessage(uploadData);
-            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -329,12 +179,6 @@ public final class PlayerHeartbeatCsReqOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt64(FieldNames.clientTimeMs, clientTimeMs);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.dIMAFIDFCOD, dIMAFIDFCOD);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeMessage(FieldNames.uploadData, uploadData);
-      }
       output.endObject();
     }
 
@@ -351,29 +195,6 @@ public final class PlayerHeartbeatCsReqOuterClass {
               if (!input.trySkipNullValue()) {
                 clientTimeMs = input.readUInt64();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 634885050: {
-            if (input.isAtField(FieldNames.dIMAFIDFCOD)) {
-              if (!input.trySkipNullValue()) {
-                dIMAFIDFCOD = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -243562165:
-          case 1064514344: {
-            if (input.isAtField(FieldNames.uploadData)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(uploadData);
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -434,10 +255,6 @@ public final class PlayerHeartbeatCsReqOuterClass {
      */
     static class FieldNames {
       static final FieldName clientTimeMs = FieldName.forField("clientTimeMs", "client_time_ms");
-
-      static final FieldName dIMAFIDFCOD = FieldName.forField("DIMAFIDFCOD");
-
-      static final FieldName uploadData = FieldName.forField("uploadData", "upload_data");
     }
   }
 }

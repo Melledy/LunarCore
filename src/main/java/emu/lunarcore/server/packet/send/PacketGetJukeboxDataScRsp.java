@@ -3,7 +3,7 @@ package emu.lunarcore.server.packet.send;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.proto.GetJukeboxDataScRspOuterClass.GetJukeboxDataScRsp;
-import emu.lunarcore.proto.GetJukeboxDataScRspOuterClass.GetJukeboxDataScRsp.UnlockedMusic;
+import emu.lunarcore.proto.UnlockedMusicOuterClass.UnlockedMusic;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 

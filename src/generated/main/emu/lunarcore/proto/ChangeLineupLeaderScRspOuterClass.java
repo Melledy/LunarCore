@@ -19,12 +19,12 @@ public final class ChangeLineupLeaderScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 1;</code>
      */
     private int slot;
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 15;</code>
      */
     private int retcode;
 
@@ -39,7 +39,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 1;</code>
      * @return whether the slot field is set
      */
     public boolean hasSlot() {
@@ -47,7 +47,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 1;</code>
      * @return this
      */
     public ChangeLineupLeaderScRsp clearSlot() {
@@ -57,7 +57,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 1;</code>
      * @return the slot
      */
     public int getSlot() {
@@ -65,7 +65,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 1;</code>
      * @param value the slot to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -84,7 +84,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return this
      */
     public ChangeLineupLeaderScRsp clearRetcode() {
@@ -94,7 +94,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -102,7 +102,7 @@ public final class ChangeLineupLeaderScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class ChangeLineupLeaderScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -205,16 +205,16 @@ public final class ChangeLineupLeaderScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 8: {
             // slot
             slot = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 120) {
               break;
             }
           }
-          case 48: {
+          case 120: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;

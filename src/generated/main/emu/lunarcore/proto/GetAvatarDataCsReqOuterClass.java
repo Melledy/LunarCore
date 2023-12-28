@@ -20,12 +20,12 @@ public final class GetAvatarDataCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool is_get_all = 15;</code>
+     * <code>optional bool is_get_all = 5;</code>
      */
     private boolean isGetAll;
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 1;</code>
+     * <code>repeated uint32 base_avatar_id_list = 15;</code>
      */
     private final RepeatedInt baseAvatarIdList = RepeatedInt.newEmptyInstance();
 
@@ -40,7 +40,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 15;</code>
+     * <code>optional bool is_get_all = 5;</code>
      * @return whether the isGetAll field is set
      */
     public boolean hasIsGetAll() {
@@ -48,7 +48,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 15;</code>
+     * <code>optional bool is_get_all = 5;</code>
      * @return this
      */
     public GetAvatarDataCsReq clearIsGetAll() {
@@ -58,7 +58,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 15;</code>
+     * <code>optional bool is_get_all = 5;</code>
      * @return the isGetAll
      */
     public boolean getIsGetAll() {
@@ -66,7 +66,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 15;</code>
+     * <code>optional bool is_get_all = 5;</code>
      * @param value the isGetAll to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 1;</code>
+     * <code>repeated uint32 base_avatar_id_list = 15;</code>
      * @return whether the baseAvatarIdList field is set
      */
     public boolean hasBaseAvatarIdList() {
@@ -85,7 +85,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 1;</code>
+     * <code>repeated uint32 base_avatar_id_list = 15;</code>
      * @return this
      */
     public GetAvatarDataCsReq clearBaseAvatarIdList() {
@@ -95,7 +95,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 1;</code>
+     * <code>repeated uint32 base_avatar_id_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 1;</code>
+     * <code>repeated uint32 base_avatar_id_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 1;</code>
+     * <code>repeated uint32 base_avatar_id_list = 15;</code>
      * @param value the baseAvatarIdList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 1;</code>
+     * <code>repeated uint32 base_avatar_id_list = 15;</code>
      * @param values the baseAvatarIdList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class GetAvatarDataCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 40);
         output.writeBoolNoTag(isGetAll);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < baseAvatarIdList.length(); i++) {
-          output.writeRawByte((byte) 8);
+          output.writeRawByte((byte) 120);
           output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
         }
       }
@@ -240,16 +240,16 @@ public final class GetAvatarDataCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 40: {
             // isGetAll
             isGetAll = input.readBool();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 122) {
               break;
             }
           }
-          case 10: {
+          case 122: {
             // baseAvatarIdList [packed=true]
             input.readPackedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000002;
@@ -268,7 +268,7 @@ public final class GetAvatarDataCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 8: {
+          case 120: {
             // baseAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
             bitField0_ |= 0x00000002;
