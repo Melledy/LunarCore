@@ -32,6 +32,11 @@ public class StageExcel extends GameResource {
 
     @Override
     public void onLoad() {
+        // Safety check for future versions
+        if (this.StageType == null) {
+            this.StageType = emu.lunarcore.game.enums.StageType.Unknown;
+        }
+        
         // Cache monster list
         this.monsterWaves = new ArrayList<>();
         

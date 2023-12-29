@@ -24,7 +24,9 @@ public enum StageType {
     FantasticStory (18),
     BattleCollege (19),
     Heliobus (20),
-    RogueEndlessActivity (21);
+    RogueEndlessActivity (21),
+    StrongChallengeActivity (22),
+    Challenge (23);
     
     @Getter
     private final int val;

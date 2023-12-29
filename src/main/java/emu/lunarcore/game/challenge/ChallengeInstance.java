@@ -68,6 +68,7 @@ public class ChallengeInstance {
         this.currentExtraLineup = type.getNumber();
     }
     
+    @SuppressWarnings("unused")
     private int getRoundsElapsed() {
         return getExcel().getChallengeCountDown() - this.roundsLeft;
     }
