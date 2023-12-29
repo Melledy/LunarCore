@@ -176,7 +176,7 @@ public class ResourceLoader {
         boolean missingGroupInfos = false;
 
         if (!floorDir.exists()) {
-            LunarCore.getLogger().warn("Floor infos are missing, please check your resources folder: {resources}/Config/Level/Floor. Teleports and natural world spawns may not work!");
+            LunarCore.getLogger().warn("Floor infos are missing, please check your resources folder: {resources}/Config/LevelOutput/Floor. Teleports and natural world spawns may not work!");
             return;
         }
 
@@ -219,7 +219,7 @@ public class ResourceLoader {
         
         // Notify the server owner if we are missing any files
         if (missingGroupInfos) {
-            LunarCore.getLogger().warn("Group infos are missing, please check your resources folder: {resources}/Config/Level/Group. Teleports and natural world spawns may not work!");
+            LunarCore.getLogger().warn("Group infos are missing, please check your resources folder: {resources}/Config/LevelOutput/Group. Teleports and natural world spawns may not work!");
         }
         
         // Done
