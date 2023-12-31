@@ -30,8 +30,10 @@ public class SceneEntityLoader {
     }
     
     public EntityMonster loadMonster(Scene scene, GroupInfo group, MonsterInfo monsterInfo) {
-        // Don't spawn entity if they have the IsDelete flag in group info
-        if (monsterInfo.isIsDelete()) return null;
+        // Don't spawn entity if they have certain flags in their info
+        if (monsterInfo.isIsDelete() || monsterInfo.isIsClientOnly()) {
+            return null;
+        }
         
         // Get excels from game data
         NpcMonsterExcel npcMonsterExcel = GameData.getNpcMonsterExcelMap().get(monsterInfo.getNPCMonsterID());
@@ -46,8 +48,10 @@ public class SceneEntityLoader {
     }
     
     public EntityProp loadProp(Scene scene, GroupInfo group, PropInfo propInfo) {
-        // Don't spawn entity if they have the IsDelete flag in group info
-        if (propInfo.isIsDelete()) return null;
+        // Don't spawn entity if they have certain flags in their info
+        if (propInfo.isIsDelete() || propInfo.isIsClientOnly()) {
+            return null;
+        }
         
         // Get prop excel to make sure prop exists
         PropExcel propExcel = GameData.getPropExcelMap().get(propInfo.getPropID());
@@ -84,20 +88,25 @@ public class SceneEntityLoader {
     }
     
     public EntityNpc loadNpc(Scene scene, GroupInfo group, NpcInfo npcInfo) {
-        // Don't spawn entity if they have the IsDelete flag in group info
-        if (npcInfo.isIsDelete() || !GameData.getNpcExcelMap().containsKey(npcInfo.getNPCID())) {
+        // Don't spawn entity if they have certain flags in their info
+        if (npcInfo.isIsDelete() || npcInfo.isIsClientOnly()) {
+            return null;
+        }
+        
+        // Sanity check npc id
+        if (!GameData.getNpcExcelMap().containsKey(npcInfo.getNPCID())) {
             return null;
         }
         
         // Dont spawn duplicate NPCs
-        boolean haseDuplicateNpcId = false;
+        boolean hasDuplicateNpcId = false;
         for (GameEntity entity : scene.getEntities().values()) {
             if (entity instanceof EntityNpc eNpc && eNpc.getNpcId() == npcInfo.getNPCID()) {
-                haseDuplicateNpcId = true;
+                hasDuplicateNpcId = true;
                 break;
             }
         }
-        if (haseDuplicateNpcId) return null;
+        if (hasDuplicateNpcId) return null;
         
         // Create npc from group and npc info
         return new EntityNpc(scene, group, npcInfo);

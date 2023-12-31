@@ -8,4 +8,5 @@ import lombok.Getter;
 @Getter
 public class NpcInfo extends ObjectInfo {
     private int NPCID;
+    private boolean IsClientOnly;
 }
