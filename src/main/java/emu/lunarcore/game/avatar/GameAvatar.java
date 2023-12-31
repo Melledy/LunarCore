@@ -195,6 +195,17 @@ public class GameAvatar implements GameEntity {
         this.heroPath.setAvatar(this);
     }
     
+    // Rewards
+    
+    public boolean setRewards(int flag) {
+        if (this.rewards != flag) {
+            this.rewards = flag;
+            return true;
+        }
+        
+        return false;
+    }
+    
     public boolean hasTakenReward(int promotion) {
         return (this.rewards & (1 << promotion)) != 0;
     }

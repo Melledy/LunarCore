@@ -11,6 +11,8 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import it.unimi.dsi.fastutil.ints.Int2IntOpenHashMap;
+import it.unimi.dsi.fastutil.objects.ObjectOpenHashSet;
+import it.unimi.dsi.fastutil.objects.ObjectSet;
 import lombok.Getter;
 
 @Getter
@@ -28,6 +30,7 @@ public class CommandArgs {
     private int stage = -1;
     
     private Int2IntMap map;
+    private ObjectSet<String> flags;
 
     public CommandArgs(Player sender, List<String> args) {
         this.sender = sender;
@@ -64,6 +67,10 @@ public class CommandArgs {
                         this.stage = Utils.parseSafeInt(arg.substring(1));
                         it.remove();
                     }
+                } else if (arg.startsWith("-")) { // Flag
+                    if (this.flags == null) this.flags = new ObjectOpenHashSet<>();
+                    this.flags.add(arg);
+                    it.remove();
                 } else if (arg.contains(":")) {
                     String[] split = arg.split(":");
                     if (split.length >= 2) {
@@ -118,6 +125,11 @@ public class CommandArgs {
         }
     }
     
+    public boolean hasFlag(String flag) {
+        if (this.flags == null) return false;
+        return this.flags.contains(flag);
+    }
+    
     // Utility commands
     
     /**
@@ -159,6 +171,17 @@ public class CommandArgs {
                 avatar.getSkills().put(pointId, pointLevel);
             }
             hasChanged = true;
+        }
+        
+        // Handle flags
+        if (this.hasFlag("-takerewards")) {
+            if (avatar.setRewards(0b00101010)) {
+                hasChanged = true;
+            }
+        } else if (this.hasFlag("-clearrewards")) {
+            if (avatar.setRewards(0)) { // Note: Requires the player to restart their game to show
+                hasChanged = true;
+            }
         }
         
         return hasChanged;
@@ -236,6 +259,15 @@ public class CommandArgs {
                 }
                 
                 hasChanged = true;
+            }
+            
+            // Handle flags
+            if (this.hasFlag("-maxsteps")) {
+                if (item.getSubAffixes() == null) {
+                    item.resetSubAffixes();
+                }
+                
+                item.getSubAffixes().forEach(subAffix -> subAffix.setStep(subAffix.getCount() * 2));
             }
         }
         
