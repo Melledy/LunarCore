@@ -68,7 +68,6 @@ public class ChallengeInstance {
         this.currentExtraLineup = type.getNumber();
     }
     
-    @SuppressWarnings("unused")
     private int getRoundsElapsed() {
         return getExcel().getChallengeCountDown() - this.roundsLeft;
     }
@@ -188,7 +187,7 @@ public class ChallengeInstance {
         var proto = ChallengeInfo.newInstance()
                 .setChallengeId(this.getExcel().getId())
                 .setStatusValue(this.getStatus())
-                //.setRoundCount(this.getRoundsElapsed())
+                .setRoundCount(this.getRoundsElapsed())
                 .setExtraLineupTypeValue(this.getCurrentExtraLineup());
         
         return proto;
