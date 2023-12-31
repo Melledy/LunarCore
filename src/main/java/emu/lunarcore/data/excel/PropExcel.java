@@ -26,9 +26,9 @@ public class PropExcel extends GameResource {
     public void onLoad() {
         // Hacky way to determine if a prop will recover hp or mp
         if (getJsonPath() != null && getJsonPath().length() > 0) {
-            if (getJsonPath().contains("MPRecoverBox")) {
+            if (getJsonPath().contains("MPRecover") || getJsonPath().contains("MPBox")) {
                 this.recoverMp = true;
-            } else if (getJsonPath().contains("HPRecoverBox")) {
+            } else if (getJsonPath().contains("HPRecover") || getJsonPath().contains("HPBox")) {
                 this.recoverHp = true;
             } else if (getJsonPath().contains("_Door_")) {
                 this.isDoor = true;
