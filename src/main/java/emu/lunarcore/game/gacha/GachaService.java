@@ -1,6 +1,7 @@
 package emu.lunarcore.game.gacha;
 
 import java.io.FileReader;
+import java.nio.file.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
@@ -33,7 +34,8 @@ import lombok.Getter;
 @Getter
 public class GachaService extends BaseGameService {
     private final Int2ObjectMap<GachaBanner> gachaBanners;
-    private GetGachaInfoScRsp cachedProto;
+    private WatchService watchService;
+    private Thread watchThread;
 
     private int[] yellowAvatars = new int[] {1003, 1004, 1101, 1107, 1104, 1209, 1211};
     private int[] yellowWeapons = new int[] {23000, 23002, 23003, 23004, 23005, 23012, 23013};
@@ -48,7 +50,12 @@ public class GachaService extends BaseGameService {
     public GachaService(GameServer server) {
         super(server);
         this.gachaBanners = new Int2ObjectOpenHashMap<>();
-        this.load();
+        
+        try {
+            this.watch();
+        } catch (Exception e) {
+            LunarCore.getLogger().error("Watch service error: ", e);
+        }
     }
 
     public int randomRange(int min, int max) {
@@ -58,9 +65,48 @@ public class GachaService extends BaseGameService {
     public int getRandom(int[] array) {
         return array[randomRange(0, array.length - 1)];
     }
+    
+    private String getBannerFileName() {
+        return LunarCore.getConfig().getDataDir() + "/Banners.json";
+    }
+    
+    public void watch() throws Exception {
+        // Load banners first
+        this.loadBanners();
+        
+        // Create watch service
+        this.watchService = FileSystems.getDefault().newWatchService();
+        Path watchPath = Paths.get(LunarCore.getConfig().getDataDir());
+        watchPath.register(watchService, StandardWatchEventKinds.ENTRY_CREATE, StandardWatchEventKinds.ENTRY_MODIFY, StandardWatchEventKinds.ENTRY_DELETE);
 
-    public synchronized void load() {
-        try (FileReader fileReader = new FileReader(LunarCore.getConfig().getDataDir() + "/Banners.json")) {
+        // Start watch thread
+        this.watchThread = new Thread(() -> {
+            WatchKey key = null;
+            try {
+                while ((key = watchService.take()) != null) {
+                    for (var event : key.pollEvents()) {
+                        if (event.context() == null) {
+                            continue;
+                        }
+                        
+                        if (event.context() instanceof Path path && path.toString().equals("Banners.json")) {
+                            loadBanners();
+                        }
+                    }
+                    
+                    key.reset();
+                }
+            } catch (Exception e) {
+                LunarCore.getLogger().error("Watch service thread error: ", e);
+            }
+        });
+        this.watchThread.start();
+    }
+
+    public synchronized void loadBanners() {
+        this.getGachaBanners().clear();
+        
+        try (FileReader fileReader = new FileReader(getBannerFileName())) {
             List<GachaBanner> banners = JsonUtils.loadToList(fileReader, GachaBanner.class);
             for (GachaBanner banner : banners) {
                 getGachaBanners().put(banner.getId(), banner);
