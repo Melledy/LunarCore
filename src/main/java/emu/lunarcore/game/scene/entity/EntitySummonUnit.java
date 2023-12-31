@@ -59,7 +59,7 @@ public class EntitySummonUnit implements GameEntity {
                 .setSummonUnitId(this.getExcel().getId());
         
         for (var trigger : this.getExcel().getInfo().getCustomTriggers()) {
-            summon.addCustomTriggers(trigger.getTriggerName());
+            summon.addTriggerNameList(trigger.getTriggerName());
         }
 
         var proto = SceneEntityInfo.newInstance()

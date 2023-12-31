@@ -21,22 +21,22 @@ public final class GetDailyActiveInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 9;</code>
      */
     private int dailyActivePoint;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 3;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      */
     private final RepeatedInt dailyActiveQuestIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 10;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 14;</code>
      */
     private final RepeatedMessage<DailyActivityInfoOuterClass.DailyActivityInfo> dailyActiveLevelList = RepeatedMessage.newEmptyInstance(DailyActivityInfoOuterClass.DailyActivityInfo.getFactory());
 
@@ -51,7 +51,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 9;</code>
      * @return whether the dailyActivePoint field is set
      */
     public boolean hasDailyActivePoint() {
@@ -59,7 +59,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 9;</code>
      * @return this
      */
     public GetDailyActiveInfoScRsp clearDailyActivePoint() {
@@ -69,7 +69,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 9;</code>
      * @return the dailyActivePoint
      */
     public int getDailyActivePoint() {
@@ -77,7 +77,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 9;</code>
      * @param value the dailyActivePoint to set
      * @return this
      */
@@ -88,7 +88,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -96,7 +96,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public GetDailyActiveInfoScRsp clearRetcode() {
@@ -106,7 +106,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -114,7 +114,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -125,7 +125,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 3;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @return whether the dailyActiveQuestIdList field is set
      */
     public boolean hasDailyActiveQuestIdList() {
@@ -133,7 +133,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 3;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @return this
      */
     public GetDailyActiveInfoScRsp clearDailyActiveQuestIdList() {
@@ -143,7 +143,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 3;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -157,7 +157,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 3;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -171,7 +171,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 3;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @param value the dailyActiveQuestIdList to add
      * @return this
      */
@@ -182,7 +182,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 3;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @param values the dailyActiveQuestIdList to add
      * @return this
      */
@@ -193,7 +193,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 10;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 14;</code>
      * @return whether the dailyActiveLevelList field is set
      */
     public boolean hasDailyActiveLevelList() {
@@ -201,7 +201,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 10;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 14;</code>
      * @return this
      */
     public GetDailyActiveInfoScRsp clearDailyActiveLevelList() {
@@ -211,7 +211,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 10;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -226,7 +226,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 10;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -241,7 +241,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 10;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 14;</code>
      * @param value the dailyActiveLevelList to add
      * @return this
      */
@@ -253,7 +253,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 10;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 14;</code>
      * @param values the dailyActiveLevelList to add
      * @return this
      */
@@ -343,22 +343,22 @@ public final class GetDailyActiveInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(dailyActivePoint);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < dailyActiveQuestIdList.length(); i++) {
-          output.writeRawByte((byte) 24);
+          output.writeRawByte((byte) 120);
           output.writeUInt32NoTag(dailyActiveQuestIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < dailyActiveLevelList.length(); i++) {
-          output.writeRawByte((byte) 82);
+          output.writeRawByte((byte) 114);
           output.writeMessageNoTag(dailyActiveLevelList.get(i));
         }
       }
@@ -389,34 +389,34 @@ public final class GetDailyActiveInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 72: {
             // dailyActivePoint
             dailyActivePoint = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 96) {
               break;
             }
           }
-          case 120: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 122) {
               break;
             }
           }
-          case 26: {
+          case 122: {
             // dailyActiveQuestIdList [packed=true]
             input.readPackedUInt32(dailyActiveQuestIdList, tag);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 114) {
               break;
             }
           }
-          case 82: {
+          case 114: {
             // dailyActiveLevelList
             tag = input.readRepeatedMessage(dailyActiveLevelList, tag);
             bitField0_ |= 0x00000008;
@@ -434,7 +434,7 @@ public final class GetDailyActiveInfoScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 24: {
+          case 120: {
             // dailyActiveQuestIdList [packed=false]
             tag = input.readRepeatedUInt32(dailyActiveQuestIdList, tag);
             bitField0_ |= 0x00000004;

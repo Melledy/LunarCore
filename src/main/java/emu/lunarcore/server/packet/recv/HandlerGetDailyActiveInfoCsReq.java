@@ -11,6 +11,6 @@ public class HandlerGetDailyActiveInfoCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
-        //session.send(new PacketGetDailyActiveInfoScRsp(session.getPlayer()));
+        session.send(new PacketGetDailyActiveInfoScRsp(session.getPlayer()));
     }
 }

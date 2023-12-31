@@ -45,9 +45,9 @@ public final class SceneSummonUnitInfoOuterClass {
     private int lifeTimeMs;
 
     /**
-     * <code>repeated string custom_triggers = 4;</code>
+     * <code>repeated string trigger_name_list = 4;</code>
      */
-    private final RepeatedString customTriggers = RepeatedString.newEmptyInstance();
+    private final RepeatedString triggerNameList = RepeatedString.newEmptyInstance();
 
     private SceneSummonUnitInfo() {
     }
@@ -245,39 +245,39 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>repeated string custom_triggers = 4;</code>
-     * @return whether the customTriggers field is set
+     * <code>repeated string trigger_name_list = 4;</code>
+     * @return whether the triggerNameList field is set
      */
-    public boolean hasCustomTriggers() {
+    public boolean hasTriggerNameList() {
       return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
-     * <code>repeated string custom_triggers = 4;</code>
+     * <code>repeated string trigger_name_list = 4;</code>
      * @return this
      */
-    public SceneSummonUnitInfo clearCustomTriggers() {
+    public SceneSummonUnitInfo clearTriggerNameList() {
       bitField0_ &= ~0x00000020;
-      customTriggers.clear();
+      triggerNameList.clear();
       return this;
     }
 
     /**
-     * <code>repeated string custom_triggers = 4;</code>
+     * <code>repeated string trigger_name_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableCustomTriggers()} if you want to modify it.
+     * Use {@link #getMutableTriggerNameList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedString getCustomTriggers() {
-      return customTriggers;
+    public RepeatedString getTriggerNameList() {
+      return triggerNameList;
     }
 
     /**
-     * <code>repeated string custom_triggers = 4;</code>
+     * <code>repeated string trigger_name_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -285,30 +285,30 @@ public final class SceneSummonUnitInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedString getMutableCustomTriggers() {
+    public RepeatedString getMutableTriggerNameList() {
       bitField0_ |= 0x00000020;
-      return customTriggers;
+      return triggerNameList;
     }
 
     /**
-     * <code>repeated string custom_triggers = 4;</code>
-     * @param value the customTriggers to add
+     * <code>repeated string trigger_name_list = 4;</code>
+     * @param value the triggerNameList to add
      * @return this
      */
-    public SceneSummonUnitInfo addCustomTriggers(final CharSequence value) {
+    public SceneSummonUnitInfo addTriggerNameList(final CharSequence value) {
       bitField0_ |= 0x00000020;
-      customTriggers.add(value);
+      triggerNameList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated string custom_triggers = 4;</code>
-     * @param values the customTriggers to add
+     * <code>repeated string trigger_name_list = 4;</code>
+     * @param values the triggerNameList to add
      * @return this
      */
-    public SceneSummonUnitInfo addAllCustomTriggers(final CharSequence... values) {
+    public SceneSummonUnitInfo addAllTriggerNameList(final CharSequence... values) {
       bitField0_ |= 0x00000020;
-      customTriggers.addAll(values);
+      triggerNameList.addAll(values);
       return this;
     }
 
@@ -322,7 +322,7 @@ public final class SceneSummonUnitInfoOuterClass {
         casterEntityId = other.casterEntityId;
         attachEntityId = other.attachEntityId;
         lifeTimeMs = other.lifeTimeMs;
-        customTriggers.copyFrom(other.customTriggers);
+        triggerNameList.copyFrom(other.triggerNameList);
       }
       return this;
     }
@@ -348,8 +348,8 @@ public final class SceneSummonUnitInfoOuterClass {
       if (other.hasLifeTimeMs()) {
         setLifeTimeMs(other.lifeTimeMs);
       }
-      if (other.hasCustomTriggers()) {
-        getMutableCustomTriggers().addAll(other.customTriggers);
+      if (other.hasTriggerNameList()) {
+        getMutableTriggerNameList().addAll(other.triggerNameList);
       }
       return this;
     }
@@ -366,7 +366,7 @@ public final class SceneSummonUnitInfoOuterClass {
       casterEntityId = 0;
       attachEntityId = 0;
       lifeTimeMs = 0;
-      customTriggers.clear();
+      triggerNameList.clear();
       return this;
     }
 
@@ -377,7 +377,7 @@ public final class SceneSummonUnitInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      customTriggers.clear();
+      triggerNameList.clear();
       return this;
     }
 
@@ -396,7 +396,7 @@ public final class SceneSummonUnitInfoOuterClass {
         && (!hasCasterEntityId() || casterEntityId == other.casterEntityId)
         && (!hasAttachEntityId() || attachEntityId == other.attachEntityId)
         && (!hasLifeTimeMs() || lifeTimeMs == other.lifeTimeMs)
-        && (!hasCustomTriggers() || customTriggers.equals(other.customTriggers));
+        && (!hasTriggerNameList() || triggerNameList.equals(other.triggerNameList));
     }
 
     @Override
@@ -422,9 +422,9 @@ public final class SceneSummonUnitInfoOuterClass {
         output.writeSInt32NoTag(lifeTimeMs);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        for (int i = 0; i < customTriggers.length(); i++) {
+        for (int i = 0; i < triggerNameList.length(); i++) {
           output.writeRawByte((byte) 34);
-          output.writeStringNoTag(customTriggers.get(i));
+          output.writeStringNoTag(triggerNameList.get(i));
         }
       }
     }
@@ -448,7 +448,7 @@ public final class SceneSummonUnitInfoOuterClass {
         size += 1 + ProtoSink.computeSInt32SizeNoTag(lifeTimeMs);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += (1 * customTriggers.length()) + ProtoSink.computeRepeatedStringSizeNoTag(customTriggers);
+        size += (1 * triggerNameList.length()) + ProtoSink.computeRepeatedStringSizeNoTag(triggerNameList);
       }
       return size;
     }
@@ -506,8 +506,8 @@ public final class SceneSummonUnitInfoOuterClass {
             }
           }
           case 34: {
-            // customTriggers
-            tag = input.readRepeatedString(customTriggers, tag);
+            // triggerNameList
+            tag = input.readRepeatedString(triggerNameList, tag);
             bitField0_ |= 0x00000020;
             if (tag != 0) {
               break;
@@ -546,7 +546,7 @@ public final class SceneSummonUnitInfoOuterClass {
         output.writeSInt32(FieldNames.lifeTimeMs, lifeTimeMs);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRepeatedString(FieldNames.customTriggers, customTriggers);
+        output.writeRepeatedString(FieldNames.triggerNameList, triggerNameList);
       }
       output.endObject();
     }
@@ -618,11 +618,11 @@ public final class SceneSummonUnitInfoOuterClass {
             }
             break;
           }
-          case -1316859828:
-          case -1929554231: {
-            if (input.isAtField(FieldNames.customTriggers)) {
+          case -110500959:
+          case -107587573: {
+            if (input.isAtField(FieldNames.triggerNameList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedString(customTriggers);
+                input.readRepeatedString(triggerNameList);
                 bitField0_ |= 0x00000020;
               }
             } else {
@@ -693,7 +693,7 @@ public final class SceneSummonUnitInfoOuterClass {
 
       static final FieldName lifeTimeMs = FieldName.forField("lifeTimeMs", "life_time_ms");
 
-      static final FieldName customTriggers = FieldName.forField("customTriggers", "custom_triggers");
+      static final FieldName triggerNameList = FieldName.forField("triggerNameList", "trigger_name_list");
     }
   }
 }
