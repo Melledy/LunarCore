@@ -10,12 +10,14 @@ public class PacketGetRogueHandbookDataScRsp extends BasePacket {
     public PacketGetRogueHandbookDataScRsp() {
         super(CmdId.GetRogueHandbookDataScRsp);
         
+        /*
         var handbook = RogueHandbookData.newInstance()
                 .setRogueCurrentVersion(1)
                 .setIsMiracleUnlock(true);
+        */
         
-        var data = GetRogueHandbookDataScRsp.newInstance()
-                .setHandbookInfo(handbook);
+        var data = GetRogueHandbookDataScRsp.newInstance();
+        data.getMutableHandbookInfo();
         
         this.setData(data);
     }
