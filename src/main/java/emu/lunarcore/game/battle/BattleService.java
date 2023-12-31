@@ -255,7 +255,7 @@ public class BattleService extends BaseGameService {
             case BATTLE_END_QUIT -> {
                 updateStatus = false;
                 // Only teleport back to anchor if stage is a random fight
-                if (battle.getStage().getStageType() == StageType.Maze) {
+                if (battle.getStage().getStageType() == StageType.Mainline) {
                     teleportToAnchor = true;
                 }
             }
