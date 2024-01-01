@@ -43,6 +43,8 @@ public class LunarCore {
 
     private static LineReaderImpl reader;
     @Getter private static boolean usingDumbTerminal;
+    
+    private static long timeOffset = 0;
 
     static {
         // Setup console reader
@@ -58,6 +60,7 @@ public class LunarCore {
 
         // Load config
         LunarCore.loadConfig();
+        LunarCore.updateServerTimeOffset();
     }
 
     public static void main(String[] args) {
@@ -195,7 +198,12 @@ public class LunarCore {
 
     public static void saveConfig() {
         try (FileWriter file = new FileWriter(configFile)) {
-            Gson gson = new GsonBuilder().setPrettyPrinting().serializeNulls().create();
+            Gson gson = new GsonBuilder()
+                    .setDateFormat("dd-MM-yyyy hh:mm:ss")
+                    .setPrettyPrinting()
+                    .serializeNulls()
+                    .create();
+            
             file.write(gson.toJson(config));
         } catch (Exception e) {
             getLogger().error("Config save error");
@@ -239,6 +247,22 @@ public class LunarCore {
             return "";
         } else {
             return builder.toString();
+        }
+    }
+    
+    /**
+     * Returns the current server's time in milliseconds to send to the client. Can be used to spoof server time.
+     */
+    public static long currentServerTime() {
+        return System.currentTimeMillis() + timeOffset;
+    }
+    
+    private static void updateServerTimeOffset() {
+        var timeOptions = LunarCore.getConfig().getServerTime();
+        if (timeOptions.isSpoofTime() && timeOptions.getSpoofDate() != null) {
+            timeOffset = timeOptions.getSpoofDate().getTime() - System.currentTimeMillis();
+        } else {
+            timeOffset = 0;
         }
     }
 

@@ -1,6 +1,7 @@
 package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.GameConstants;
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.proto.PlayerLoginScRspOuterClass.PlayerLoginScRsp;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.BasePacket;
@@ -14,7 +15,7 @@ public class PacketPlayerLoginScRsp extends BasePacket {
         var data = PlayerLoginScRsp.newInstance()
                 .setBasicInfo(session.getPlayer().toProto())
                 .setCurTimezone(GameConstants.CURRENT_TIMEZONE)
-                .setServerTimestampMs(System.currentTimeMillis())
+                .setServerTimestampMs(LunarCore.currentServerTime())
                 .setStamina(session.getPlayer().getStamina());
 
         this.setData(data);

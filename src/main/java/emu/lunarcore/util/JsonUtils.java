@@ -13,7 +13,7 @@ import com.google.gson.reflect.TypeToken;
 import emu.lunarcore.LunarCore;
 
 public class JsonUtils {
-    private static final Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    private static final Gson gson = new GsonBuilder().setDateFormat("dd-MM-yyyy hh:mm:ss").setPrettyPrinting().create();
     private static final Gson gsonCompact = new GsonBuilder().create();
 
     public static Gson getGsonFactory() {

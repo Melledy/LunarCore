@@ -1,5 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.proto.PlayerHeartbeatScRspOuterClass.PlayerHeartbeatScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
@@ -11,7 +12,7 @@ public class PacketPlayerHeartBeatScRsp extends BasePacket {
 
         var data = PlayerHeartbeatScRsp.newInstance()
                 .setClientTimeMs(clientTime)
-                .setServerTimeMs(System.currentTimeMillis());
+                .setServerTimeMs(LunarCore.currentServerTime());
 
         this.setData(data);
     }
