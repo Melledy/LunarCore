@@ -16,7 +16,8 @@ import emu.lunarcore.server.packet.send.PacketChallengeLineupNotify;
 import emu.lunarcore.server.packet.send.PacketChallengeSettleNotify;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import emu.lunarcore.util.Position;
-
+import it.unimi.dsi.fastutil.ints.IntArrayList;
+import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -37,6 +38,8 @@ public class ChallengeInstance {
     @Setter private int roundsLeft;
     @Setter private int stars;
     
+    private IntList storyBuffs;
+    
     @Deprecated // Morphia only
     public ChallengeInstance() {}
 
@@ -47,7 +50,7 @@ public class ChallengeInstance {
         this.startPos = new Position();
         this.startRot = new Position();
         this.currentStage = 1;
-        this.roundsLeft = excel.getChallengeCountDown();
+        this.roundsLeft = getExcel().isStory() ? 5 : excel.getChallengeCountDown();
         this.setStatus(ChallengeStatus.CHALLENGE_DOING);
         this.setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE);
     }
@@ -76,8 +79,28 @@ public class ChallengeInstance {
         return status == ChallengeStatus.CHALLENGE_FINISH_VALUE;
     }
     
+    public void addStoryBuff(int storyBuff) {
+        // Add story buffs
+        if (storyBuffs == null) {
+            storyBuffs = new IntArrayList();
+        }
+        
+        storyBuffs.add(storyBuff);
+    }
+    
     public void onBattleStart(Battle battle) {
+        // Set cycle limit
         battle.setRoundsLimit(player.getChallengeInstance().getRoundsLeft());
+        
+        // Add story buffs
+        if (this.getStoryBuffs() != null) {
+            battle.addBuff(this.getExcel().getMazeBuffID());
+            
+            int buffId = this.getStoryBuffs().getInt(this.getCurrentStage() - 1);
+            if (buffId != 0) {
+                battle.addBuff(buffId);
+            }
+        }
     }
     
     public void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
@@ -189,6 +212,11 @@ public class ChallengeInstance {
                 .setStatusValue(this.getStatus())
                 .setRoundCount(this.getRoundsElapsed())
                 .setExtraLineupTypeValue(this.getCurrentExtraLineup());
+        
+        if (this.getStoryBuffs() != null) {
+            int buffId = this.getStoryBuffs().getInt(this.getCurrentStage() - 1);
+            proto.getMutableStoryInfo().getMutableCurStoryBuffs().addBuffList(buffId);
+        }
         
         return proto;
     }

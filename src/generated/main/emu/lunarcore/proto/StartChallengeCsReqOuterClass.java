@@ -23,6 +23,11 @@ public final class StartChallengeCsReqOuterClass {
      */
     private int challengeId;
 
+    /**
+     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     */
+    private final StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo storyInfo = StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo.newInstance();
+
     private StartChallengeCsReq() {
     }
 
@@ -70,12 +75,71 @@ public final class StartChallengeCsReqOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * @return whether the storyInfo field is set
+     */
+    public boolean hasStoryInfo() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * @return this
+     */
+    public StartChallengeCsReq clearStoryInfo() {
+      bitField0_ &= ~0x00000002;
+      storyInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableStoryInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo getStoryInfo() {
+      return storyInfo;
+    }
+
+    /**
+     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo getMutableStoryInfo() {
+      bitField0_ |= 0x00000002;
+      return storyInfo;
+    }
+
+    /**
+     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * @param value the storyInfo to set
+     * @return this
+     */
+    public StartChallengeCsReq setStoryInfo(
+        final StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo value) {
+      bitField0_ |= 0x00000002;
+      storyInfo.copyFrom(value);
+      return this;
+    }
+
     @Override
     public StartChallengeCsReq copyFrom(final StartChallengeCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         challengeId = other.challengeId;
+        storyInfo.copyFrom(other.storyInfo);
       }
       return this;
     }
@@ -89,6 +153,9 @@ public final class StartChallengeCsReqOuterClass {
       if (other.hasChallengeId()) {
         setChallengeId(other.challengeId);
       }
+      if (other.hasStoryInfo()) {
+        getMutableStoryInfo().mergeFrom(other.storyInfo);
+      }
       return this;
     }
 
@@ -100,6 +167,7 @@ public final class StartChallengeCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       challengeId = 0;
+      storyInfo.clear();
       return this;
     }
 
@@ -110,6 +178,7 @@ public final class StartChallengeCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      storyInfo.clearQuick();
       return this;
     }
 
@@ -123,7 +192,8 @@ public final class StartChallengeCsReqOuterClass {
       }
       StartChallengeCsReq other = (StartChallengeCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasChallengeId() || challengeId == other.challengeId);
+        && (!hasChallengeId() || challengeId == other.challengeId)
+        && (!hasStoryInfo() || storyInfo.equals(other.storyInfo));
     }
 
     @Override
@@ -132,6 +202,10 @@ public final class StartChallengeCsReqOuterClass {
         output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(challengeId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 74);
+        output.writeMessageNoTag(storyInfo);
+      }
     }
 
     @Override
@@ -139,6 +213,9 @@ public final class StartChallengeCsReqOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(storyInfo);
       }
       return size;
     }
@@ -154,6 +231,15 @@ public final class StartChallengeCsReqOuterClass {
             // challengeId
             challengeId = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 74) {
+              break;
+            }
+          }
+          case 74: {
+            // storyInfo
+            input.readMessage(storyInfo);
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -179,6 +265,9 @@ public final class StartChallengeCsReqOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.challengeId, challengeId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeMessage(FieldNames.storyInfo, storyInfo);
+      }
       output.endObject();
     }
 
@@ -195,6 +284,18 @@ public final class StartChallengeCsReqOuterClass {
               if (!input.trySkipNullValue()) {
                 challengeId = input.readUInt32();
                 bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1710116675:
+          case 1494185400: {
+            if (input.isAtField(FieldNames.storyInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(storyInfo);
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -255,6 +356,8 @@ public final class StartChallengeCsReqOuterClass {
      */
     static class FieldNames {
       static final FieldName challengeId = FieldName.forField("challengeId", "challenge_id");
+
+      static final FieldName storyInfo = FieldName.forField("storyInfo", "story_info");
     }
   }
 }

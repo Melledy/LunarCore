@@ -38,6 +38,11 @@ public final class ChallengeInfoOuterClass {
      */
     private int extraLineupType;
 
+    /**
+     * <code>optional .ChallengeStoryInfo story_info = 13;</code>
+     */
+    private final ChallengeStoryInfoOuterClass.ChallengeStoryInfo storyInfo = ChallengeStoryInfoOuterClass.ChallengeStoryInfo.newInstance();
+
     private ChallengeInfo() {
     }
 
@@ -246,6 +251,63 @@ public final class ChallengeInfoOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .ChallengeStoryInfo story_info = 13;</code>
+     * @return whether the storyInfo field is set
+     */
+    public boolean hasStoryInfo() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional .ChallengeStoryInfo story_info = 13;</code>
+     * @return this
+     */
+    public ChallengeInfo clearStoryInfo() {
+      bitField0_ &= ~0x00000010;
+      storyInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .ChallengeStoryInfo story_info = 13;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableStoryInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public ChallengeStoryInfoOuterClass.ChallengeStoryInfo getStoryInfo() {
+      return storyInfo;
+    }
+
+    /**
+     * <code>optional .ChallengeStoryInfo story_info = 13;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public ChallengeStoryInfoOuterClass.ChallengeStoryInfo getMutableStoryInfo() {
+      bitField0_ |= 0x00000010;
+      return storyInfo;
+    }
+
+    /**
+     * <code>optional .ChallengeStoryInfo story_info = 13;</code>
+     * @param value the storyInfo to set
+     * @return this
+     */
+    public ChallengeInfo setStoryInfo(final ChallengeStoryInfoOuterClass.ChallengeStoryInfo value) {
+      bitField0_ |= 0x00000010;
+      storyInfo.copyFrom(value);
+      return this;
+    }
+
     @Override
     public ChallengeInfo copyFrom(final ChallengeInfo other) {
       cachedSize = other.cachedSize;
@@ -255,6 +317,7 @@ public final class ChallengeInfoOuterClass {
         roundCount = other.roundCount;
         status = other.status;
         extraLineupType = other.extraLineupType;
+        storyInfo.copyFrom(other.storyInfo);
       }
       return this;
     }
@@ -277,6 +340,9 @@ public final class ChallengeInfoOuterClass {
       if (other.hasExtraLineupType()) {
         setExtraLineupTypeValue(other.extraLineupType);
       }
+      if (other.hasStoryInfo()) {
+        getMutableStoryInfo().mergeFrom(other.storyInfo);
+      }
       return this;
     }
 
@@ -291,6 +357,7 @@ public final class ChallengeInfoOuterClass {
       roundCount = 0;
       status = 0;
       extraLineupType = 0;
+      storyInfo.clear();
       return this;
     }
 
@@ -301,6 +368,7 @@ public final class ChallengeInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      storyInfo.clearQuick();
       return this;
     }
 
@@ -317,7 +385,8 @@ public final class ChallengeInfoOuterClass {
         && (!hasChallengeId() || challengeId == other.challengeId)
         && (!hasRoundCount() || roundCount == other.roundCount)
         && (!hasStatus() || status == other.status)
-        && (!hasExtraLineupType() || extraLineupType == other.extraLineupType);
+        && (!hasExtraLineupType() || extraLineupType == other.extraLineupType)
+        && (!hasStoryInfo() || storyInfo.equals(other.storyInfo));
     }
 
     @Override
@@ -338,6 +407,10 @@ public final class ChallengeInfoOuterClass {
         output.writeRawByte((byte) 120);
         output.writeEnumNoTag(extraLineupType);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 106);
+        output.writeMessageNoTag(storyInfo);
+      }
     }
 
     @Override
@@ -354,6 +427,9 @@ public final class ChallengeInfoOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(extraLineupType);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(storyInfo);
       }
       return size;
     }
@@ -403,6 +479,15 @@ public final class ChallengeInfoOuterClass {
               bitField0_ |= 0x00000008;
             }
             tag = input.readTag();
+            if (tag != 106) {
+              break;
+            }
+          }
+          case 106: {
+            // storyInfo
+            input.readMessage(storyInfo);
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -435,6 +520,9 @@ public final class ChallengeInfoOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeEnum(FieldNames.extraLineupType, extraLineupType, ExtraLineupTypeOuterClass.ExtraLineupType.converter());
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeMessage(FieldNames.storyInfo, storyInfo);
       }
       output.endObject();
     }
@@ -503,6 +591,18 @@ public final class ChallengeInfoOuterClass {
             }
             break;
           }
+          case 1710116675:
+          case 1494185400: {
+            if (input.isAtField(FieldNames.storyInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(storyInfo);
+                bitField0_ |= 0x00000010;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           default: {
             input.skipUnknownField();
             break;
@@ -562,6 +662,8 @@ public final class ChallengeInfoOuterClass {
       static final FieldName status = FieldName.forField("status");
 
       static final FieldName extraLineupType = FieldName.forField("extraLineupType", "extra_lineup_type");
+
+      static final FieldName storyInfo = FieldName.forField("storyInfo", "story_info");
     }
   }
 }

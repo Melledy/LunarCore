@@ -137,6 +137,10 @@ public class Battle {
     
     // Battle buffs
     
+    public MazeBuff addBuff(int buffId) {
+        return addBuff(buffId, -1, 0xffffffff);
+    }
+    
     public MazeBuff addBuff(int buffId, int ownerIndex) {
         return addBuff(buffId, ownerIndex, 0xffffffff);
     }

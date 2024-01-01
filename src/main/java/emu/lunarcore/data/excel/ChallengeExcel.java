@@ -7,7 +7,7 @@ import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
 
 @Getter
-@ResourceType(name = {"ChallengeMazeConfig.json"})
+@ResourceType(name = {"ChallengeMazeConfig.json", "ChallengeStoryMazeConfig.json"})
 public class ChallengeExcel extends GameResource {
     private int ID;
     private int GroupID;
@@ -30,10 +30,21 @@ public class ChallengeExcel extends GameResource {
 
     private transient Int2ObjectMap<ChallengeMonsterInfo> challengeMonsters1;
     private transient Int2ObjectMap<ChallengeMonsterInfo> challengeMonsters2;
+    
+    private transient ChallengeStoryExtraExcel storyExcel;
 
     @Override
     public int getId() {
         return ID;
+    }
+    
+    public boolean isStory() {
+        return this.storyExcel != null;
+    }
+
+    public void setStoryExcel(ChallengeStoryExtraExcel storyExcel) {
+        this.storyExcel = storyExcel;
+        this.ChallengeCountDown = storyExcel.getTurnLimit();
     }
 
     @Override
@@ -54,7 +65,7 @@ public class ChallengeExcel extends GameResource {
             var monster = new ChallengeMonsterInfo(ConfigList2[i], NpcMonsterIDList2[i], EventIDList2[i]);
             this.challengeMonsters2.put(monster.getConfigId(), monster);
         }
-
+        
         // Clear arrays to save memory
         this.ConfigList1 = null;
         this.NpcMonsterIDList1 = null;
