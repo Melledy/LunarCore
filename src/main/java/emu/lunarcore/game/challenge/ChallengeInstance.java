@@ -157,6 +157,8 @@ public class ChallengeInstance {
         default:
             // Fail challenge
             this.setStatus(ChallengeStatus.CHALLENGE_FAILED);
+            // Send challenge result data
+            player.sendPacket(new PacketChallengeSettleNotify(this));
             break;
         }
     }
