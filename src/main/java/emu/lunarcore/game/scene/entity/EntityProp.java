@@ -54,17 +54,30 @@ public class EntityProp implements GameEntity {
         return excel.getId();
     }
     
-    public void setState(PropState state) {
-        this.setState(state, this.getScene().isLoaded());
+    public boolean setState(PropState state) {
+        return this.setState(state, this.getScene().isLoaded());
     }
     
-    public void setState(PropState state, boolean sendPacket) {
+    public boolean setState(PropState state, boolean sendPacket) {
+        // Only set state if its been changed
+        PropState oldState = this.getState();
+        if (oldState == state) return false;
+        
+        // Sanity check
+        if (!this.getExcel().getPropStateList().contains(state)) {
+            return false;
+        }
+        
         // Set state
         this.state = state;
+        
         // Sync state update to client
         if (sendPacket) {
             this.getScene().getPlayer().sendPacket(new PacketSceneGroupRefreshScNotify(this, null));
         }
+        
+        // Success
+        return true;
     }
     
     @Override
@@ -98,6 +111,10 @@ public class EntityProp implements GameEntity {
 
     @Override
     public String toString() {
-        return "Prop: " + this.getEntityId() + ", Group: " + this.groupId + ", Inst: " + this.getInstId();
+        return "[Prop] EntityId: " + this.getEntityId() + 
+                ", PropId: " + this.getExcel().getId() + 
+                " (" + this.getExcel().getPropType() + ")" + 
+                ", Group: " + this.groupId + 
+                ", ConfigId: " + this.getInstId();
     }
 }

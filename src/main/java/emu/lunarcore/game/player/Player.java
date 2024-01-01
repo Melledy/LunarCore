@@ -12,6 +12,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.PropInfo;
+import emu.lunarcore.data.excel.InteractExcel;
 import emu.lunarcore.data.excel.ItemUseExcel;
 import emu.lunarcore.data.excel.MapEntranceExcel;
 import emu.lunarcore.data.excel.MazePlaneExcel;
@@ -578,7 +579,7 @@ public class Player implements Tickable {
         return true;
     }
     
-    public EntityProp interactWithProp(int propEntityId) {
+    public EntityProp interactWithProp(int interactId, int propEntityId) {
         // Sanity
         if (this.getScene() == null) return null;
         
@@ -592,33 +593,44 @@ public class Player implements Tickable {
             return null;
         }
         
-        // Handle prop interaction action
+        // Get interact handler
+        InteractExcel interactExcel = GameData.getInteractExcelMap().get(interactId);
+        if (interactExcel == null) {
+            return prop;
+        }
+        
+        // Validate
+        if (interactExcel.getSrcState() != null && prop.getState() != interactExcel.getSrcState()) {
+            return prop;
+        }
+        
+        // Save old state
+        PropState oldState = prop.getState();
+        
+        // Set group and prop state
+        this.sendPacket(new PacketGroupStateChangeScNotify(getEntryId(), prop.getGroupId(), interactExcel.getTargetState()));
+        prop.setState(interactExcel.getTargetState());
+        
+        // Handle any extra interaction actions
         switch (prop.getExcel().getPropType()) {
             case PROP_TREASURE_CHEST -> {
-                if (prop.getState() == PropState.ChestClosed) {
-                    // Open chest
-                    prop.setState(PropState.ChestUsed);
+                if (oldState == PropState.ChestClosed && prop.getState() == PropState.ChestUsed) {
                     // Handle drops
                     var drops = this.getServer().getDropService().calculateDropsFromProp(prop.getPropId());
                     this.getInventory().addItems(drops, true);
-                    // Done
-                    return prop;
-                } else {
-                    return null;
                 }
             }
             case PROP_MAZE_PUZZLE -> {
-                // Finish puzzle
-                prop.setState(PropState.Locked);
                 // Trigger event
                 this.getScene().invokePropTrigger(PropTriggerType.PUZZLE_FINISH, prop.getGroupId(), prop.getInstId());
-                //
-                return prop;
             }
             default -> {
-                return null;
+                
             }
         }
+        
+        // Return prop when we are done
+        return prop;
     }
     
     public void onMove() {

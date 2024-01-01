@@ -35,12 +35,16 @@ public class PacketSceneGroupRefreshScNotify extends BasePacket {
 
         var group = SceneGroupRefreshInfo.newInstance();
 
-        for (var entity : toAdd) {
-            group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setAddEntity(entity.toSceneEntityProto()));
+        if (toAdd != null) {
+            for (var entity : toAdd) {
+                group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setAddEntity(entity.toSceneEntityProto()));
+            }
         }
-
-        for (var entity : toRemove) {
-            group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setDelEntity(entity.getEntityId()));
+        
+        if (toRemove != null) {
+            for (var entity : toRemove) {
+                group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setDelEntity(entity.getEntityId()));
+            }
         }
 
         var data = SceneGroupRefreshScNotify.newInstance()

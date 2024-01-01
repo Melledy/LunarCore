@@ -72,10 +72,12 @@ public class FloorInfo {
                     // Hacky way to setup prop triggers
                     if (json.contains("Maze_GroupProp_OpenTreasure_WhenMonsterDie")) {
                         prop.setTrigger(new TriggerOpenTreasureWhenMonsterDie(group.getId()));
-                    } else if (json.contains("Maze_Chap02_X201_Event_PuzzleCompass_WayPoint_Controller_01")) {
-                        prop.setTrigger(new TriggerPuzzleCompassWayPointController(prop.getSharedValueByKey("PuzzleCompass_Prop"), prop.getSharedValueByKey("PuzzleChest_Prop")));
+                    } else if (json.contains("Maze_Chap02_X201_Event_PuzzleCompass_WayPoint_Controller")) {
+                        prop.setTrigger(new TriggerPuzzleCompassWayPointController(group.getId()));
                     }
                     
+                    // Clear for garbage collection
+                    prop.setValueSource(null);
                     prop.setInitLevelGraph(null);
                 }
             }

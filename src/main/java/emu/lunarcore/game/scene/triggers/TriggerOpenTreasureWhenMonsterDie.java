@@ -4,7 +4,6 @@ import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityProp;
-import emu.lunarcore.game.scene.entity.GameEntity;
 import lombok.Getter;
 
 @Getter
@@ -27,17 +26,10 @@ public class TriggerOpenTreasureWhenMonsterDie extends PropTrigger {
     
     @Override
     public void run(Scene scene) {
-        synchronized (scene) {
-            for (GameEntity entity : scene.getEntities().values()) {
-                if (entity.getGroupId() != this.groupId) {
-                    continue;
-                }
-                
-                if (entity instanceof EntityProp prop) {
-                    if (prop.getExcel().getPropType() == PropType.PROP_TREASURE_CHEST) {
-                        prop.setState(PropState.ChestClosed);
-                    }
-                }
+        // Open trigger
+        for (var prop : scene.getEntitiesByGroup(EntityProp.class, this.getGroupId())) {
+            if (prop.getExcel().getPropType() == PropType.PROP_TREASURE_CHEST) {
+                prop.setState(PropState.ChestClosed);
             }
         }
     }

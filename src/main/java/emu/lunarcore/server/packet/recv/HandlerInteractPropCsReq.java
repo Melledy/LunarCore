@@ -15,7 +15,7 @@ public class HandlerInteractPropCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = InteractPropCsReq.parseFrom(data);
         
-        EntityProp prop = session.getPlayer().interactWithProp(req.getPropEntityId());
+        EntityProp prop = session.getPlayer().interactWithProp(req.getInteractId(), req.getPropEntityId());
         
         session.send(new PacketInteractPropScRsp(prop));
     }

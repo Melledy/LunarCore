@@ -155,6 +155,14 @@ public class Scene implements Tickable {
     public synchronized GameEntity getEntityById(int id) {
         return this.getEntities().get(id);
     }
+    
+    public synchronized <T extends GameEntity> List<T> getEntitiesByGroup(Class<T> entityType, int groupId) {
+        return this.getEntities().values()
+                .stream()
+                .filter(e -> entityType.isInstance(e) && e.getGroupId() == groupId)
+                .map(entityType::cast)
+                .toList();
+    }
 
     public void syncLineup() {
         // Get current lineup

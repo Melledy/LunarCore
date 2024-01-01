@@ -33,6 +33,7 @@ public class GameData {
     @Getter private static Int2ObjectMap<HeroExcel> heroExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ShopExcel> shopExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RewardExcel> rewardExcelMap = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<InteractExcel> interactExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<PlayerIconExcel> playerIconExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ItemComposeExcel> itemComposeExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ActivityPanelExcel> activityPanelExcelMap = new Int2ObjectOpenHashMap<>();
