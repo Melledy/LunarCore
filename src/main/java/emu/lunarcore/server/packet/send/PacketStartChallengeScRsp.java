@@ -4,14 +4,15 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.StartChallengeScRspOuterClass.StartChallengeScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
+import emu.lunarcore.server.packet.Retcode;
 
 public class PacketStartChallengeScRsp extends BasePacket {
     
-    public PacketStartChallengeScRsp() {
+    public PacketStartChallengeScRsp(Retcode retcode) {
         super(CmdId.StartChallengeScRsp);
         
         var data = StartChallengeScRsp.newInstance()
-                .setRetcode(1);
+                .setRetcode(retcode.getVal());
         
         this.setData(data);
     }
