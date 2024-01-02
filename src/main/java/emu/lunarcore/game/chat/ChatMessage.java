@@ -1,5 +1,6 @@
 package emu.lunarcore.game.chat;
 
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.proto.ChatOuterClass.Chat;
 import emu.lunarcore.proto.MsgTypeOuterClass.MsgType;
 import lombok.Getter;
@@ -15,7 +16,7 @@ public class ChatMessage {
     public ChatMessage(int fromUid, int toUid) {
         this.fromUid = fromUid;
         this.toUid = toUid;
-        this.time = System.currentTimeMillis() / 1000;
+        this.time = System.currentTimeMillis();
     }
     
     public ChatMessage(int fromUid, int toUid, String text) {
@@ -35,7 +36,7 @@ public class ChatMessage {
     public Chat toProto() {
         var proto = Chat.newInstance()
                 .setSenderUid(this.getFromUid())
-                .setSentTime(this.getTime())
+                .setSentTime(LunarCore.convertToServerTime(this.getTime()) / 1000)
                 .setMsgType(this.getType())
                 .setEmote(this.getEmote());
         

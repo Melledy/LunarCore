@@ -254,7 +254,14 @@ public class LunarCore {
      * Returns the current server's time in milliseconds to send to the client. Can be used to spoof server time.
      */
     public static long currentServerTime() {
-        return System.currentTimeMillis() + timeOffset;
+        return convertToServerTime(System.currentTimeMillis());
+    }
+    
+    /**
+     * Converts a timestamp (in milliseconds) to the server time
+     */
+    public static long convertToServerTime(long time) {
+        return time + timeOffset;
     }
     
     private static void updateServerTimeOffset() {

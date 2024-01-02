@@ -1,5 +1,6 @@
 package emu.lunarcore.game.scene;
 
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.proto.BuffInfoOuterClass.BuffInfo;
 import lombok.Getter;
 import lombok.Setter;
@@ -52,7 +53,7 @@ public class SceneBuff {
                 .setBuffId(this.getBuffId())
                 .setLevel(this.getBuffLevel())
                 .setBaseAvatarId(this.getCasterAvatarId())
-                .setAddTimeMs(this.getCreateTime())
+                .setAddTimeMs(LunarCore.convertToServerTime(this.getCreateTime()))
                 .setLifeTime(this.getDuration())
                 .setCount(this.getCount());
         

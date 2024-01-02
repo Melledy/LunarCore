@@ -1,5 +1,6 @@
 package emu.lunarcore.game.scene.entity;
 
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.excel.SummonUnitExcel;
 import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.scene.Scene;
@@ -53,7 +54,7 @@ public class EntitySummonUnit implements GameEntity {
     public SceneEntityInfo toSceneEntityProto() {
         var summon = SceneSummonUnitInfo.newInstance()
                 .setLifeTimeMs(this.getDuration())
-                .setCreateTimeMs(this.getCreateTime())
+                .setCreateTimeMs(LunarCore.convertToServerTime(this.getCreateTime()))
                 .setCasterEntityId(this.getCaster().getEntityId())
                 .setAttachEntityId(this.getAttachedEntityId())
                 .setSummonUnitId(this.getExcel().getId());
