@@ -13,7 +13,7 @@
 - Natural world monster/prop/NPC spawns
 - Character techniques
 - Crafting/Consumables working
-- Npc shops handled
+- NPC shops handled
 - Gacha system
 - Mail system
 - Friend system (Assists are not working yet)
@@ -37,7 +37,7 @@
 6. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
 
 ### Connecting with the client (Fiddler)
-1. **Login with the client to an official server and Hoyoverse account at least once to download game data.**
+1. **Log in with the client to an official server and Hoyoverse account at least once to download game data.**
 2. Install and have [Fiddler Classic](https://www.telerik.com/fiddler) running.
 3. Set fiddler to decrypt https traffic. (Tools -> Options -> HTTPS -> Decrypt HTTPS traffic) Make sure `ignore server certificate errors` is checked as well.
 4. Copy and paste the following code into the Fiddlerscript tab of Fiddler Classic:
@@ -67,7 +67,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /account {create | delete} [username] (reserved player uid). Creates or deletes an account.
 /avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties.
 /clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.
-/gender {male | female}. Sets the player gender.
+/gender {male | female}. Sets the player's gender.
 /give [item id] x[amount] lv[number]. Gives the targetted player an item.
 /giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.
 /heal. Heals your avatars.
@@ -79,6 +79,6 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /reload. Reloads the server config.
 /scene [scene id] [floor id]. Teleports the player to the specified scene.
 /spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.
-/unstuck @[player id]. Unstucks an offline player if theyre in a scene that doesnt load.
+/unstuck @[player id]. Unstucks an offline player if they're in a scene that doesn't load.
 /worldlevel [world level]. Sets the targeted player's equilibrium level.
 ```
