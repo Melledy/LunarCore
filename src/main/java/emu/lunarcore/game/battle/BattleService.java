@@ -225,6 +225,7 @@ public class BattleService extends BaseGameService {
         
         // Get battle object and setup variables
         Battle battle = player.getBattle();
+        battle.setResult(result);
         int minimumHp = 0;
         
         boolean updateStatus = true;
@@ -309,6 +310,11 @@ public class BattleService extends BaseGameService {
         // Rogue
         if (player.getRogueInstance() != null) {
             player.getRogueInstance().onBattleFinish(battle, result, stats);
+        }
+        
+        // Battle callback
+        if (battle.getOnFinish() != null) {
+            battle.getOnFinish().accept(stats);
         }
         
         // Done - Clear battle object from player

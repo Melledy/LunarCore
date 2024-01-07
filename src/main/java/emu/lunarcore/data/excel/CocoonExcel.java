@@ -22,6 +22,10 @@ public class CocoonExcel extends GameResource {
     public int getId() {
         return (ID << 8) + WorldLevel;
     }
+    
+    public int getCocoonId() {
+        return ID;
+    }
 
     public int getRandomStage() {
         return Utils.randomElement(StageIDList);

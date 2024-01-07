@@ -19,9 +19,9 @@ public final class GroupStateChangeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .GroupStateInfo group_info = 6;</code>
+     * <code>optional .GroupStateInfo group_state_info = 6;</code>
      */
-    private final GroupStateInfoOuterClass.GroupStateInfo groupInfo = GroupStateInfoOuterClass.GroupStateInfo.newInstance();
+    private final GroupStateInfoOuterClass.GroupStateInfo groupStateInfo = GroupStateInfoOuterClass.GroupStateInfo.newInstance();
 
     private GroupStateChangeCsReq() {
     }
@@ -34,39 +34,39 @@ public final class GroupStateChangeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 6;</code>
-     * @return whether the groupInfo field is set
+     * <code>optional .GroupStateInfo group_state_info = 6;</code>
+     * @return whether the groupStateInfo field is set
      */
-    public boolean hasGroupInfo() {
+    public boolean hasGroupStateInfo() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 6;</code>
+     * <code>optional .GroupStateInfo group_state_info = 6;</code>
      * @return this
      */
-    public GroupStateChangeCsReq clearGroupInfo() {
+    public GroupStateChangeCsReq clearGroupStateInfo() {
       bitField0_ &= ~0x00000001;
-      groupInfo.clear();
+      groupStateInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 6;</code>
+     * <code>optional .GroupStateInfo group_state_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableGroupInfo()} if you want to modify it.
+     * Use {@link #getMutableGroupStateInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public GroupStateInfoOuterClass.GroupStateInfo getGroupInfo() {
-      return groupInfo;
+    public GroupStateInfoOuterClass.GroupStateInfo getGroupStateInfo() {
+      return groupStateInfo;
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 6;</code>
+     * <code>optional .GroupStateInfo group_state_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -74,19 +74,20 @@ public final class GroupStateChangeCsReqOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public GroupStateInfoOuterClass.GroupStateInfo getMutableGroupInfo() {
+    public GroupStateInfoOuterClass.GroupStateInfo getMutableGroupStateInfo() {
       bitField0_ |= 0x00000001;
-      return groupInfo;
+      return groupStateInfo;
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 6;</code>
-     * @param value the groupInfo to set
+     * <code>optional .GroupStateInfo group_state_info = 6;</code>
+     * @param value the groupStateInfo to set
      * @return this
      */
-    public GroupStateChangeCsReq setGroupInfo(final GroupStateInfoOuterClass.GroupStateInfo value) {
+    public GroupStateChangeCsReq setGroupStateInfo(
+        final GroupStateInfoOuterClass.GroupStateInfo value) {
       bitField0_ |= 0x00000001;
-      groupInfo.copyFrom(value);
+      groupStateInfo.copyFrom(value);
       return this;
     }
 
@@ -95,7 +96,7 @@ public final class GroupStateChangeCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        groupInfo.copyFrom(other.groupInfo);
+        groupStateInfo.copyFrom(other.groupStateInfo);
       }
       return this;
     }
@@ -106,8 +107,8 @@ public final class GroupStateChangeCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasGroupInfo()) {
-        getMutableGroupInfo().mergeFrom(other.groupInfo);
+      if (other.hasGroupStateInfo()) {
+        getMutableGroupStateInfo().mergeFrom(other.groupStateInfo);
       }
       return this;
     }
@@ -119,7 +120,7 @@ public final class GroupStateChangeCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      groupInfo.clear();
+      groupStateInfo.clear();
       return this;
     }
 
@@ -130,7 +131,7 @@ public final class GroupStateChangeCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      groupInfo.clearQuick();
+      groupStateInfo.clearQuick();
       return this;
     }
 
@@ -144,14 +145,14 @@ public final class GroupStateChangeCsReqOuterClass {
       }
       GroupStateChangeCsReq other = (GroupStateChangeCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasGroupInfo() || groupInfo.equals(other.groupInfo));
+        && (!hasGroupStateInfo() || groupStateInfo.equals(other.groupStateInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(groupInfo);
+        output.writeMessageNoTag(groupStateInfo);
       }
     }
 
@@ -159,7 +160,7 @@ public final class GroupStateChangeCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(groupInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(groupStateInfo);
       }
       return size;
     }
@@ -172,8 +173,8 @@ public final class GroupStateChangeCsReqOuterClass {
       while (true) {
         switch (tag) {
           case 50: {
-            // groupInfo
-            input.readMessage(groupInfo);
+            // groupStateInfo
+            input.readMessage(groupStateInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
@@ -198,7 +199,7 @@ public final class GroupStateChangeCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.groupInfo, groupInfo);
+        output.writeMessage(FieldNames.groupStateInfo, groupStateInfo);
       }
       output.endObject();
     }
@@ -210,11 +211,11 @@ public final class GroupStateChangeCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1483311155:
-          case 1282170478: {
-            if (input.isAtField(FieldNames.groupInfo)) {
+          case 1415312672:
+          case 1198732636: {
+            if (input.isAtField(FieldNames.groupStateInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(groupInfo);
+                input.readMessage(groupStateInfo);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -275,7 +276,7 @@ public final class GroupStateChangeCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName groupInfo = FieldName.forField("groupInfo", "group_info");
+      static final FieldName groupStateInfo = FieldName.forField("groupStateInfo", "group_state_info");
     }
   }
 }

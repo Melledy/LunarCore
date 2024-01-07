@@ -11,7 +11,7 @@ public class PacketGroupStateChangeScRsp extends BasePacket {
         super(CmdId.GroupStateChangeScRsp);
         
         var data = GroupStateChangeScNotify.newInstance();
-        data.setGroupInfo(groupInfo);
+        data.setGroupStateInfo(groupInfo);
         
         this.setData(data);
     }

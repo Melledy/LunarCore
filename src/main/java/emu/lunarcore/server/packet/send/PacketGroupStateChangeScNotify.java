@@ -12,7 +12,7 @@ public class PacketGroupStateChangeScNotify extends BasePacket {
         super(CmdId.GroupStateChangeScNotify);
         
         var data = GroupStateChangeScNotify.newInstance();
-        data.setGroupInfo(groupInfo);
+        data.setGroupStateInfo(groupInfo);
         
         this.setData(data);
     }
@@ -22,7 +22,7 @@ public class PacketGroupStateChangeScNotify extends BasePacket {
         
         var data = GroupStateChangeScNotify.newInstance();
         
-        data.getMutableGroupInfo()
+        data.getMutableGroupStateInfo()
             .setEntryId(entryId)
             .setGroupId(groupId)
             .setGroupState(state.getVal());

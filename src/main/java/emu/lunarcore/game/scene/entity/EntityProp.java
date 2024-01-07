@@ -4,6 +4,7 @@ import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.PropInfo;
 import emu.lunarcore.data.excel.PropExcel;
 import emu.lunarcore.game.enums.PropState;
+import emu.lunarcore.game.enums.PropType;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.extra.PropRogueData;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
@@ -52,6 +53,10 @@ public class EntityProp implements GameEntity {
     
     public int getPropId() {
         return excel.getId();
+    }
+    
+    public PropType getPropType() {
+        return getExcel().getPropType();
     }
     
     public boolean setState(PropState state) {

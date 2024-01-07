@@ -325,7 +325,7 @@ public class RogueInstance {
             if (buff.getExcel().getBattleEventBuffType() == RogueBuffAeonType.BattleEventBuff) {
                 RogueBuffType type = RogueBuffType.getById(getAeonBuffType());
                 if (type != null && type.getBattleEventSkill() != 0) {
-                    battle.getTurnSnapshotList().add(type.getBattleEventSkill());
+                    battle.getBattleEvents().add(type.getBattleEventSkill());
                 }
             }
         }

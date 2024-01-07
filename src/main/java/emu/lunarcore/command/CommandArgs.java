@@ -71,8 +71,8 @@ public class CommandArgs {
                     if (this.flags == null) this.flags = new ObjectOpenHashSet<>();
                     this.flags.add(arg);
                     it.remove();
-                } else if (arg.contains(":")) {
-                    String[] split = arg.split(":");
+                } else if (arg.contains(":") || arg.contains(",")) {
+                    String[] split = arg.split("[:,]");
                     if (split.length >= 2) {
                         int key = Integer.parseInt(split[0]);
                         int value = Integer.parseInt(split[1]);

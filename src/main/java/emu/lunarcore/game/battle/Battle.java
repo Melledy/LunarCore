@@ -3,6 +3,7 @@ package emu.lunarcore.game.battle;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.function.Consumer;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
@@ -12,7 +13,9 @@ import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.scene.entity.EntityMonster;
+import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
 import emu.lunarcore.proto.BattleEventBattleInfoOuterClass.BattleEventBattleInfo;
+import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
 import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -32,8 +35,10 @@ public class Battle {
     private final long timestamp;
     
     private StageExcel stage; // Main battle stage
-    private IntList turnSnapshotList; // TODO maybe turn it into a map?
+    private IntList battleEvents; // TODO maybe turn it into a map?
     
+    // Internal battle data
+    @Setter private BattleEndStatus result;
     @Setter private int staminaCost;
     @Setter private int roundsLimit;
     
@@ -41,6 +46,9 @@ public class Battle {
     @Setter private int mappingInfoId;
     @Setter private int worldLevel;
     @Setter private int cocoonWave;
+    
+    // OnFinish Callback
+    @Setter private Consumer<BattleStatistics> onFinish;
     
     private Battle(Player player, PlayerLineup lineup) {
         this.id = player.getNextBattleId();
@@ -54,9 +62,16 @@ public class Battle {
     }
     
     public Battle(Player player, PlayerLineup lineup, StageExcel stage) {
+        this(player, lineup, stage, true);
+    }
+    
+    public Battle(Player player, PlayerLineup lineup, StageExcel stage, boolean loadStage) {
         this(player, lineup);
         this.stage = stage;
-        this.loadStage(stage);
+        
+        if (loadStage) {
+            this.loadStage(stage); 
+        }
     }
     
     public Battle(Player player, PlayerLineup lineup, List<StageExcel> stages) {
@@ -122,11 +137,11 @@ public class Battle {
         }
     }
     
-    public IntList getTurnSnapshotList() {
-        if (this.turnSnapshotList == null) {
-            this.turnSnapshotList = new IntArrayList();
+    public IntList getBattleEvents() {
+        if (this.battleEvents == null) {
+            this.battleEvents = new IntArrayList();
         }
-        return this.turnSnapshotList;
+        return this.battleEvents;
     }
     
     public void setCustomLevel(int level) {
@@ -216,8 +231,8 @@ public class Battle {
         }
         
         // Client turn snapshots
-        if (this.turnSnapshotList != null) {
-            for (int id : this.turnSnapshotList) {
+        if (this.battleEvents != null) {
+            for (int id : this.battleEvents) {
                 var event = BattleEventBattleInfo.newInstance()
                         .setBattleEventId(id);
                 
