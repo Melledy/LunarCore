@@ -4,6 +4,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.ResourceType.LoadPriority;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
 import lombok.Getter;
 
 @Getter
@@ -12,6 +13,7 @@ public class ChallengeStoryExtraExcel extends GameResource {
     private int ID;
     private int TurnLimit;
     private int ClearScore;
+    private IntArrayList BattleTargetID;
 
     @Override
     public int getId() {

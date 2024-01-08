@@ -24,6 +24,7 @@ public class ChallengeHistory {
     private int groupId;
     private int takenReward;
     private int stars;
+    private int score;
     
     @Deprecated // Morphia
     public ChallengeHistory() {}
@@ -45,10 +46,15 @@ public class ChallengeHistory {
         return total;
     }
     
+    public void setScore(int score) {
+        this.score = score;
+    }
+    
     public Challenge toProto() {
         var proto = Challenge.newInstance()
                 .setChallengeId(this.getChallengeId())
                 .setTakenReward(this.getTakenReward())
+                .setScore(this.getScore())
                 .setStars(this.getStars());
         
         return proto;

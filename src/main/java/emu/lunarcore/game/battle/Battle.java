@@ -16,8 +16,13 @@ import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.proto.BattleEndStatusOuterClass.BattleEndStatus;
 import emu.lunarcore.proto.BattleEventBattleInfoOuterClass.BattleEventBattleInfo;
 import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
+import emu.lunarcore.proto.BattleTargetListOuterClass.BattleTargetList;
+import emu.lunarcore.proto.BattleTargetOuterClass.BattleTarget;
 import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo;
+import emu.lunarcore.proto.SceneBattleInfoOuterClass.SceneBattleInfo.BattleTargetInfoEntry;
 import emu.lunarcore.util.Utils;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import it.unimi.dsi.fastutil.ints.IntList;
 import lombok.Getter;
@@ -36,6 +41,7 @@ public class Battle {
     
     private StageExcel stage; // Main battle stage
     private IntList battleEvents; // TODO maybe turn it into a map?
+    private Int2ObjectMap<BattleTargetList> battleTargets; // TODO use custom battle target object as value type in case we need to save battles to the db
     
     // Internal battle data
     @Setter private BattleEndStatus result;
@@ -144,6 +150,22 @@ public class Battle {
         return this.battleEvents;
     }
     
+    public Int2ObjectMap<BattleTargetList> getBattleTargets() {
+        if (this.battleTargets == null) {
+            this.battleTargets = new Int2ObjectOpenHashMap<>();
+        }
+        return this.battleTargets;
+    }
+    
+    public void addBattleTarget(int key, int targetId, int progress) {
+        var list = getBattleTargets().computeIfAbsent(key, i -> BattleTargetList.newInstance());
+        var battleTarget = BattleTarget.newInstance()
+                .setId(targetId)
+                .setProgress(progress);
+        
+        list.addBattleTargetList(battleTarget);
+    }
+    
     public void setCustomLevel(int level) {
         for (var wave : this.getWaves()) {
             wave.setCustomLevel(level);
@@ -242,6 +264,23 @@ public class Battle {
                         .setMaxSp(10000);
                 
                 proto.addEventBattleInfoList(event);
+            }
+        }
+        
+        // Battle target map
+        if (this.battleTargets != null) {
+            // Build battle target map
+            for (int i = 1; i <= 5; i++) {
+                var battleTargetList = this.battleTargets.get(i);
+                var battleTargetEntry = BattleTargetInfoEntry.newInstance().setKey(i);
+                
+                if (battleTargetList == null) {
+                    battleTargetEntry.getMutableValue();
+                } else {
+                    battleTargetEntry.setValue(battleTargetList);
+                }
+                
+                proto.addBattleTargetInfo(battleTargetEntry);
             }
         }
         

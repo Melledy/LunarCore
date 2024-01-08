@@ -77,6 +77,11 @@ public final class BattleStatisticsOuterClass {
     private int challengeScore;
 
     /**
+     * <code>optional .BattleEndReason end_reason = 19;</code>
+     */
+    private int endReason;
+
+    /**
      * <code>repeated uint32 avatar_id_list = 3;</code>
      */
     private final RepeatedInt avatarIdList = RepeatedInt.newEmptyInstance();
@@ -488,11 +493,73 @@ public final class BattleStatisticsOuterClass {
     }
 
     /**
+     * <code>optional .BattleEndReason end_reason = 19;</code>
+     * @return whether the endReason field is set
+     */
+    public boolean hasEndReason() {
+      return (bitField0_ & 0x00000400) != 0;
+    }
+
+    /**
+     * <code>optional .BattleEndReason end_reason = 19;</code>
+     * @return this
+     */
+    public BattleStatistics clearEndReason() {
+      bitField0_ &= ~0x00000400;
+      endReason = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional .BattleEndReason end_reason = 19;</code>
+     * @return the endReason
+     */
+    public BattleEndReasonOuterClass.BattleEndReason getEndReason() {
+      return BattleEndReasonOuterClass.BattleEndReason.forNumber(endReason);
+    }
+
+    /**
+     * Gets the value of the internal enum store. The result is
+     * equivalent to {@link BattleStatistics#getEndReason()}.getNumber().
+     *
+     * @return numeric wire representation
+     */
+    public int getEndReasonValue() {
+      return endReason;
+    }
+
+    /**
+     * Sets the value of the internal enum store. This does not
+     * do any validity checks, so be sure to use appropriate value
+     * constants from {@link BattleEndReasonOuterClass.BattleEndReason}. Setting an invalid value
+     * can cause {@link BattleStatistics#getEndReason()} to return null
+     *
+     * @param value the numeric wire value to set
+     * @return this
+     */
+    public BattleStatistics setEndReasonValue(final int value) {
+      bitField0_ |= 0x00000400;
+      endReason = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .BattleEndReason end_reason = 19;</code>
+     * @param value the endReason to set
+     * @return this
+     */
+    public BattleStatistics setEndReason(final BattleEndReasonOuterClass.BattleEndReason value) {
+      bitField0_ |= 0x00000400;
+      endReason = value.getNumber();
+      return this;
+    }
+
+    /**
      * <code>repeated uint32 avatar_id_list = 3;</code>
      * @return whether the avatarIdList field is set
      */
     public boolean hasAvatarIdList() {
-      return (bitField0_ & 0x00000400) != 0;
+      return (bitField0_ & 0x00000800) != 0;
     }
 
     /**
@@ -500,7 +567,7 @@ public final class BattleStatisticsOuterClass {
      * @return this
      */
     public BattleStatistics clearAvatarIdList() {
-      bitField0_ &= ~0x00000400;
+      bitField0_ &= ~0x00000800;
       avatarIdList.clear();
       return this;
     }
@@ -529,7 +596,7 @@ public final class BattleStatisticsOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableAvatarIdList() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       return avatarIdList;
     }
 
@@ -539,7 +606,7 @@ public final class BattleStatisticsOuterClass {
      * @return this
      */
     public BattleStatistics addAvatarIdList(final int value) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       avatarIdList.add(value);
       return this;
     }
@@ -550,7 +617,7 @@ public final class BattleStatisticsOuterClass {
      * @return this
      */
     public BattleStatistics addAllAvatarIdList(final int... values) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       avatarIdList.addAll(values);
       return this;
     }
@@ -560,7 +627,7 @@ public final class BattleStatisticsOuterClass {
      * @return whether the battleAvatarList field is set
      */
     public boolean hasBattleAvatarList() {
-      return (bitField0_ & 0x00000800) != 0;
+      return (bitField0_ & 0x00001000) != 0;
     }
 
     /**
@@ -568,7 +635,7 @@ public final class BattleStatisticsOuterClass {
      * @return this
      */
     public BattleStatistics clearBattleAvatarList() {
-      bitField0_ &= ~0x00000800;
+      bitField0_ &= ~0x00001000;
       battleAvatarList.clear();
       return this;
     }
@@ -598,7 +665,7 @@ public final class BattleStatisticsOuterClass {
      */
     public RepeatedMessage<AvatarBattleInfoOuterClass.AvatarBattleInfo> getMutableBattleAvatarList(
         ) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       return battleAvatarList;
     }
 
@@ -609,7 +676,7 @@ public final class BattleStatisticsOuterClass {
      */
     public BattleStatistics addBattleAvatarList(
         final AvatarBattleInfoOuterClass.AvatarBattleInfo value) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       battleAvatarList.add(value);
       return this;
     }
@@ -621,7 +688,7 @@ public final class BattleStatisticsOuterClass {
      */
     public BattleStatistics addAllBattleAvatarList(
         final AvatarBattleInfoOuterClass.AvatarBattleInfo... values) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       battleAvatarList.addAll(values);
       return this;
     }
@@ -631,7 +698,7 @@ public final class BattleStatisticsOuterClass {
      * @return whether the customValues field is set
      */
     public boolean hasCustomValues() {
-      return (bitField0_ & 0x00001000) != 0;
+      return (bitField0_ & 0x00002000) != 0;
     }
 
     /**
@@ -639,7 +706,7 @@ public final class BattleStatisticsOuterClass {
      * @return this
      */
     public BattleStatistics clearCustomValues() {
-      bitField0_ &= ~0x00001000;
+      bitField0_ &= ~0x00002000;
       customValues.clear();
       return this;
     }
@@ -668,7 +735,7 @@ public final class BattleStatisticsOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<CustomValuesEntry> getMutableCustomValues() {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       return customValues;
     }
 
@@ -678,7 +745,7 @@ public final class BattleStatisticsOuterClass {
      * @return this
      */
     public BattleStatistics addCustomValues(final CustomValuesEntry value) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       customValues.add(value);
       return this;
     }
@@ -689,7 +756,7 @@ public final class BattleStatisticsOuterClass {
      * @return this
      */
     public BattleStatistics addAllCustomValues(final CustomValuesEntry... values) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       customValues.addAll(values);
       return this;
     }
@@ -709,6 +776,7 @@ public final class BattleStatisticsOuterClass {
         avatarBattleTurns = other.avatarBattleTurns;
         monsterBattleTurns = other.monsterBattleTurns;
         challengeScore = other.challengeScore;
+        endReason = other.endReason;
         avatarIdList.copyFrom(other.avatarIdList);
         battleAvatarList.copyFrom(other.battleAvatarList);
         customValues.copyFrom(other.customValues);
@@ -752,6 +820,9 @@ public final class BattleStatisticsOuterClass {
       if (other.hasChallengeScore()) {
         setChallengeScore(other.challengeScore);
       }
+      if (other.hasEndReason()) {
+        setEndReasonValue(other.endReason);
+      }
       if (other.hasAvatarIdList()) {
         getMutableAvatarIdList().addAll(other.avatarIdList);
       }
@@ -781,6 +852,7 @@ public final class BattleStatisticsOuterClass {
       avatarBattleTurns = 0;
       monsterBattleTurns = 0;
       challengeScore = 0;
+      endReason = 0;
       avatarIdList.clear();
       battleAvatarList.clear();
       customValues.clear();
@@ -820,6 +892,7 @@ public final class BattleStatisticsOuterClass {
         && (!hasAvatarBattleTurns() || avatarBattleTurns == other.avatarBattleTurns)
         && (!hasMonsterBattleTurns() || monsterBattleTurns == other.monsterBattleTurns)
         && (!hasChallengeScore() || challengeScore == other.challengeScore)
+        && (!hasEndReason() || endReason == other.endReason)
         && (!hasAvatarIdList() || avatarIdList.equals(other.avatarIdList))
         && (!hasBattleAvatarList() || battleAvatarList.equals(other.battleAvatarList))
         && (!hasCustomValues() || customValues.equals(other.customValues));
@@ -868,18 +941,22 @@ public final class BattleStatisticsOuterClass {
         output.writeUInt32NoTag(challengeScore);
       }
       if ((bitField0_ & 0x00000400) != 0) {
+        output.writeRawLittleEndian16((short) 408);
+        output.writeEnumNoTag(endReason);
+      }
+      if ((bitField0_ & 0x00000800) != 0) {
         for (int i = 0; i < avatarIdList.length(); i++) {
           output.writeRawByte((byte) 24);
           output.writeUInt32NoTag(avatarIdList.array()[i]);
         }
       }
-      if ((bitField0_ & 0x00000800) != 0) {
+      if ((bitField0_ & 0x00001000) != 0) {
         for (int i = 0; i < battleAvatarList.length(); i++) {
           output.writeRawByte((byte) 58);
           output.writeMessageNoTag(battleAvatarList.get(i));
         }
       }
-      if ((bitField0_ & 0x00001000) != 0) {
+      if ((bitField0_ & 0x00002000) != 0) {
         for (int i = 0; i < customValues.length(); i++) {
           output.writeRawByte((byte) 106);
           output.writeMessageNoTag(customValues.get(i));
@@ -921,12 +998,15 @@ public final class BattleStatisticsOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeScore);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        size += (1 * avatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(avatarIdList);
+        size += 2 + ProtoSink.computeEnumSizeNoTag(endReason);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        size += (1 * battleAvatarList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(battleAvatarList);
+        size += (1 * avatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(avatarIdList);
       }
       if ((bitField0_ & 0x00001000) != 0) {
+        size += (1 * battleAvatarList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(battleAvatarList);
+      }
+      if ((bitField0_ & 0x00002000) != 0) {
         size += (1 * customValues.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(customValues);
       }
       return size;
@@ -1025,6 +1105,18 @@ public final class BattleStatisticsOuterClass {
             challengeScore = input.readUInt32();
             bitField0_ |= 0x00000200;
             tag = input.readTag();
+            if (tag != 152) {
+              break;
+            }
+          }
+          case 152: {
+            // endReason
+            final int value = input.readInt32();
+            if (BattleEndReasonOuterClass.BattleEndReason.forNumber(value) != null) {
+              endReason = value;
+              bitField0_ |= 0x00000400;
+            }
+            tag = input.readTag();
             if (tag != 26) {
               break;
             }
@@ -1032,7 +1124,7 @@ public final class BattleStatisticsOuterClass {
           case 26: {
             // avatarIdList [packed=true]
             input.readPackedUInt32(avatarIdList, tag);
-            bitField0_ |= 0x00000400;
+            bitField0_ |= 0x00000800;
             tag = input.readTag();
             if (tag != 58) {
               break;
@@ -1041,7 +1133,7 @@ public final class BattleStatisticsOuterClass {
           case 58: {
             // battleAvatarList
             tag = input.readRepeatedMessage(battleAvatarList, tag);
-            bitField0_ |= 0x00000800;
+            bitField0_ |= 0x00001000;
             if (tag != 106) {
               break;
             }
@@ -1049,7 +1141,7 @@ public final class BattleStatisticsOuterClass {
           case 106: {
             // customValues
             tag = input.readRepeatedMessage(customValues, tag);
-            bitField0_ |= 0x00001000;
+            bitField0_ |= 0x00002000;
             if (tag != 0) {
               break;
             }
@@ -1067,7 +1159,7 @@ public final class BattleStatisticsOuterClass {
           case 24: {
             // avatarIdList [packed=false]
             tag = input.readRepeatedUInt32(avatarIdList, tag);
-            bitField0_ |= 0x00000400;
+            bitField0_ |= 0x00000800;
             break;
           }
         }
@@ -1108,12 +1200,15 @@ public final class BattleStatisticsOuterClass {
         output.writeUInt32(FieldNames.challengeScore, challengeScore);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        output.writeRepeatedUInt32(FieldNames.avatarIdList, avatarIdList);
+        output.writeEnum(FieldNames.endReason, endReason, BattleEndReasonOuterClass.BattleEndReason.converter());
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        output.writeRepeatedMessage(FieldNames.battleAvatarList, battleAvatarList);
+        output.writeRepeatedUInt32(FieldNames.avatarIdList, avatarIdList);
       }
       if ((bitField0_ & 0x00001000) != 0) {
+        output.writeRepeatedMessage(FieldNames.battleAvatarList, battleAvatarList);
+      }
+      if ((bitField0_ & 0x00002000) != 0) {
         output.writeRepeatedMessage(FieldNames.customValues, customValues);
       }
       output.endObject();
@@ -1246,12 +1341,29 @@ public final class BattleStatisticsOuterClass {
             }
             break;
           }
+          case 1566226175:
+          case 336357928: {
+            if (input.isAtField(FieldNames.endReason)) {
+              if (!input.trySkipNullValue()) {
+                final BattleEndReasonOuterClass.BattleEndReason value = input.readEnum(BattleEndReasonOuterClass.BattleEndReason.converter());
+                if (value != null) {
+                  endReason = value.getNumber();
+                  bitField0_ |= 0x00000400;
+                } else {
+                  input.skipUnknownEnumValue();
+                }
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1214270702:
           case 1824281692: {
             if (input.isAtField(FieldNames.avatarIdList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(avatarIdList);
-                bitField0_ |= 0x00000400;
+                bitField0_ |= 0x00000800;
               }
             } else {
               input.skipUnknownField();
@@ -1263,7 +1375,7 @@ public final class BattleStatisticsOuterClass {
             if (input.isAtField(FieldNames.battleAvatarList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(battleAvatarList);
-                bitField0_ |= 0x00000800;
+                bitField0_ |= 0x00001000;
               }
             } else {
               input.skipUnknownField();
@@ -1275,7 +1387,7 @@ public final class BattleStatisticsOuterClass {
             if (input.isAtField(FieldNames.customValues)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(customValues);
-                bitField0_ |= 0x00001000;
+                bitField0_ |= 0x00002000;
               }
             } else {
               input.skipUnknownField();
@@ -1708,6 +1820,8 @@ public final class BattleStatisticsOuterClass {
       static final FieldName monsterBattleTurns = FieldName.forField("monsterBattleTurns", "monster_battle_turns");
 
       static final FieldName challengeScore = FieldName.forField("challengeScore", "challenge_score");
+
+      static final FieldName endReason = FieldName.forField("endReason", "end_reason");
 
       static final FieldName avatarIdList = FieldName.forField("avatarIdList", "avatar_id_list");
 

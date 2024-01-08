@@ -106,7 +106,7 @@ public class ChallengeManager extends BasePlayerManager {
         getPlayer().sendPacket(new PacketStartChallengeScRsp(getPlayer(), challengeId));
     }
     
-    public synchronized void addHistory(int challengeId, int stars) {
+    public synchronized void addHistory(int challengeId, int stars, int score) {
         // Dont write challenge history if the player didnt get any stars
         if (stars <= 0) return;
         
@@ -115,6 +115,7 @@ public class ChallengeManager extends BasePlayerManager {
 
         // Set
         info.setStars(stars);
+        info.setScore(score);
         info.save();
     }
     

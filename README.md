@@ -18,6 +18,7 @@
 - Mail system
 - Friend system (Assists are not working yet)
 - Forgotten hall
+- Pure Fiction
 -  ~~Simulated universe (Runs can be finished, but many features are missing)~~
 
 # Running the server and client

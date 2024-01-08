@@ -64,6 +64,11 @@ public final class SceneBattleInfoOuterClass {
      */
     private final RepeatedMessage<BattleEventBattleInfoOuterClass.BattleEventBattleInfo> eventBattleInfoList = RepeatedMessage.newEmptyInstance(BattleEventBattleInfoOuterClass.BattleEventBattleInfo.getFactory());
 
+    /**
+     * <code>repeated .SceneBattleInfo.BattleTargetInfoEntry battle_target_info = 1857;</code>
+     */
+    private final RepeatedMessage<BattleTargetInfoEntry> battleTargetInfo = RepeatedMessage.newEmptyInstance(BattleTargetInfoEntry.getFactory());
+
     private SceneBattleInfo() {
     }
 
@@ -539,6 +544,74 @@ public final class SceneBattleInfoOuterClass {
       return this;
     }
 
+    /**
+     * <code>repeated .SceneBattleInfo.BattleTargetInfoEntry battle_target_info = 1857;</code>
+     * @return whether the battleTargetInfo field is set
+     */
+    public boolean hasBattleTargetInfo() {
+      return (bitField0_ & 0x00000200) != 0;
+    }
+
+    /**
+     * <code>repeated .SceneBattleInfo.BattleTargetInfoEntry battle_target_info = 1857;</code>
+     * @return this
+     */
+    public SceneBattleInfo clearBattleTargetInfo() {
+      bitField0_ &= ~0x00000200;
+      battleTargetInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .SceneBattleInfo.BattleTargetInfoEntry battle_target_info = 1857;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableBattleTargetInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<BattleTargetInfoEntry> getBattleTargetInfo() {
+      return battleTargetInfo;
+    }
+
+    /**
+     * <code>repeated .SceneBattleInfo.BattleTargetInfoEntry battle_target_info = 1857;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<BattleTargetInfoEntry> getMutableBattleTargetInfo() {
+      bitField0_ |= 0x00000200;
+      return battleTargetInfo;
+    }
+
+    /**
+     * <code>repeated .SceneBattleInfo.BattleTargetInfoEntry battle_target_info = 1857;</code>
+     * @param value the battleTargetInfo to add
+     * @return this
+     */
+    public SceneBattleInfo addBattleTargetInfo(final BattleTargetInfoEntry value) {
+      bitField0_ |= 0x00000200;
+      battleTargetInfo.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .SceneBattleInfo.BattleTargetInfoEntry battle_target_info = 1857;</code>
+     * @param values the battleTargetInfo to add
+     * @return this
+     */
+    public SceneBattleInfo addAllBattleTargetInfo(final BattleTargetInfoEntry... values) {
+      bitField0_ |= 0x00000200;
+      battleTargetInfo.addAll(values);
+      return this;
+    }
+
     @Override
     public SceneBattleInfo copyFrom(final SceneBattleInfo other) {
       cachedSize = other.cachedSize;
@@ -553,6 +626,7 @@ public final class SceneBattleInfoOuterClass {
         buffList.copyFrom(other.buffList);
         battleAvatarList.copyFrom(other.battleAvatarList);
         eventBattleInfoList.copyFrom(other.eventBattleInfoList);
+        battleTargetInfo.copyFrom(other.battleTargetInfo);
       }
       return this;
     }
@@ -590,6 +664,9 @@ public final class SceneBattleInfoOuterClass {
       if (other.hasEventBattleInfoList()) {
         getMutableEventBattleInfoList().addAll(other.eventBattleInfoList);
       }
+      if (other.hasBattleTargetInfo()) {
+        getMutableBattleTargetInfo().addAll(other.battleTargetInfo);
+      }
       return this;
     }
 
@@ -609,6 +686,7 @@ public final class SceneBattleInfoOuterClass {
       buffList.clear();
       battleAvatarList.clear();
       eventBattleInfoList.clear();
+      battleTargetInfo.clear();
       return this;
     }
 
@@ -623,6 +701,7 @@ public final class SceneBattleInfoOuterClass {
       buffList.clearQuick();
       battleAvatarList.clearQuick();
       eventBattleInfoList.clearQuick();
+      battleTargetInfo.clearQuick();
       return this;
     }
 
@@ -644,7 +723,8 @@ public final class SceneBattleInfoOuterClass {
         && (!hasMonsterWaveList() || monsterWaveList.equals(other.monsterWaveList))
         && (!hasBuffList() || buffList.equals(other.buffList))
         && (!hasBattleAvatarList() || battleAvatarList.equals(other.battleAvatarList))
-        && (!hasEventBattleInfoList() || eventBattleInfoList.equals(other.eventBattleInfoList));
+        && (!hasEventBattleInfoList() || eventBattleInfoList.equals(other.eventBattleInfoList))
+        && (!hasBattleTargetInfo() || battleTargetInfo.equals(other.battleTargetInfo));
     }
 
     @Override
@@ -693,6 +773,12 @@ public final class SceneBattleInfoOuterClass {
           output.writeMessageNoTag(eventBattleInfoList.get(i));
         }
       }
+      if ((bitField0_ & 0x00000200) != 0) {
+        for (int i = 0; i < battleTargetInfo.length(); i++) {
+          output.writeRawLittleEndian16((short) 29834);
+          output.writeMessageNoTag(battleTargetInfo.get(i));
+        }
+      }
     }
 
     @Override
@@ -724,6 +810,9 @@ public final class SceneBattleInfoOuterClass {
       }
       if ((bitField0_ & 0x00000100) != 0) {
         size += (2 * eventBattleInfoList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(eventBattleInfoList);
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
+        size += (2 * battleTargetInfo.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(battleTargetInfo);
       }
       return size;
     }
@@ -808,6 +897,14 @@ public final class SceneBattleInfoOuterClass {
             // eventBattleInfoList
             tag = input.readRepeatedMessage(eventBattleInfoList, tag);
             bitField0_ |= 0x00000100;
+            if (tag != 14858) {
+              break;
+            }
+          }
+          case 14858: {
+            // battleTargetInfo
+            tag = input.readRepeatedMessage(battleTargetInfo, tag);
+            bitField0_ |= 0x00000200;
             if (tag != 0) {
               break;
             }
@@ -855,6 +952,9 @@ public final class SceneBattleInfoOuterClass {
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeRepeatedMessage(FieldNames.eventBattleInfoList, eventBattleInfoList);
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
+        output.writeRepeatedMessage(FieldNames.battleTargetInfo, battleTargetInfo);
       }
       output.endObject();
     }
@@ -974,6 +1074,18 @@ public final class SceneBattleInfoOuterClass {
             }
             break;
           }
+          case 1657979063:
+          case 2141477269: {
+            if (input.isAtField(FieldNames.battleTargetInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(battleTargetInfo);
+                bitField0_ |= 0x00000200;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           default: {
             input.skipUnknownField();
             break;
@@ -1014,6 +1126,353 @@ public final class SceneBattleInfoOuterClass {
       return SceneBattleInfoFactory.INSTANCE;
     }
 
+    /**
+     * Protobuf type {@code BattleTargetInfoEntry}
+     */
+    public static final class BattleTargetInfoEntry extends ProtoMessage<BattleTargetInfoEntry> implements Cloneable {
+      private static final long serialVersionUID = 0L;
+
+      /**
+       * <code>optional uint32 key = 1;</code>
+       */
+      private int key;
+
+      /**
+       * <code>optional .BattleTargetList value = 2;</code>
+       */
+      private final BattleTargetListOuterClass.BattleTargetList value_ = BattleTargetListOuterClass.BattleTargetList.newInstance();
+
+      private BattleTargetInfoEntry() {
+      }
+
+      /**
+       * @return a new empty instance of {@code BattleTargetInfoEntry}
+       */
+      public static BattleTargetInfoEntry newInstance() {
+        return new BattleTargetInfoEntry();
+      }
+
+      /**
+       * <code>optional uint32 key = 1;</code>
+       * @return whether the key field is set
+       */
+      public boolean hasKey() {
+        return (bitField0_ & 0x00000001) != 0;
+      }
+
+      /**
+       * <code>optional uint32 key = 1;</code>
+       * @return this
+       */
+      public BattleTargetInfoEntry clearKey() {
+        bitField0_ &= ~0x00000001;
+        key = 0;
+        return this;
+      }
+
+      /**
+       * <code>optional uint32 key = 1;</code>
+       * @return the key
+       */
+      public int getKey() {
+        return key;
+      }
+
+      /**
+       * <code>optional uint32 key = 1;</code>
+       * @param value the key to set
+       * @return this
+       */
+      public BattleTargetInfoEntry setKey(final int value) {
+        bitField0_ |= 0x00000001;
+        key = value;
+        return this;
+      }
+
+      /**
+       * <code>optional .BattleTargetList value = 2;</code>
+       * @return whether the value_ field is set
+       */
+      public boolean hasValue() {
+        return (bitField0_ & 0x00000002) != 0;
+      }
+
+      /**
+       * <code>optional .BattleTargetList value = 2;</code>
+       * @return this
+       */
+      public BattleTargetInfoEntry clearValue() {
+        bitField0_ &= ~0x00000002;
+        value_.clear();
+        return this;
+      }
+
+      /**
+       * <code>optional .BattleTargetList value = 2;</code>
+       *
+       * This method returns the internal storage object without modifying any has state.
+       * The returned object should not be modified and be treated as read-only.
+       *
+       * Use {@link #getMutableValue()} if you want to modify it.
+       *
+       * @return internal storage object for reading
+       */
+      public BattleTargetListOuterClass.BattleTargetList getValue() {
+        return value_;
+      }
+
+      /**
+       * <code>optional .BattleTargetList value = 2;</code>
+       *
+       * This method returns the internal storage object and sets the corresponding
+       * has state. The returned object will become part of this message and its
+       * contents may be modified as long as the has state is not cleared.
+       *
+       * @return internal storage object for modifications
+       */
+      public BattleTargetListOuterClass.BattleTargetList getMutableValue() {
+        bitField0_ |= 0x00000002;
+        return value_;
+      }
+
+      /**
+       * <code>optional .BattleTargetList value = 2;</code>
+       * @param value the value_ to set
+       * @return this
+       */
+      public BattleTargetInfoEntry setValue(
+          final BattleTargetListOuterClass.BattleTargetList value) {
+        bitField0_ |= 0x00000002;
+        value_.copyFrom(value);
+        return this;
+      }
+
+      @Override
+      public BattleTargetInfoEntry copyFrom(final BattleTargetInfoEntry other) {
+        cachedSize = other.cachedSize;
+        if ((bitField0_ | other.bitField0_) != 0) {
+          bitField0_ = other.bitField0_;
+          key = other.key;
+          value_.copyFrom(other.value_);
+        }
+        return this;
+      }
+
+      @Override
+      public BattleTargetInfoEntry mergeFrom(final BattleTargetInfoEntry other) {
+        if (other.isEmpty()) {
+          return this;
+        }
+        cachedSize = -1;
+        if (other.hasKey()) {
+          setKey(other.key);
+        }
+        if (other.hasValue()) {
+          getMutableValue().mergeFrom(other.value_);
+        }
+        return this;
+      }
+
+      @Override
+      public BattleTargetInfoEntry clear() {
+        if (isEmpty()) {
+          return this;
+        }
+        cachedSize = -1;
+        bitField0_ = 0;
+        key = 0;
+        value_.clear();
+        return this;
+      }
+
+      @Override
+      public BattleTargetInfoEntry clearQuick() {
+        if (isEmpty()) {
+          return this;
+        }
+        cachedSize = -1;
+        bitField0_ = 0;
+        value_.clearQuick();
+        return this;
+      }
+
+      @Override
+      public boolean equals(Object o) {
+        if (o == this) {
+          return true;
+        }
+        if (!(o instanceof BattleTargetInfoEntry)) {
+          return false;
+        }
+        BattleTargetInfoEntry other = (BattleTargetInfoEntry) o;
+        return bitField0_ == other.bitField0_
+          && (!hasKey() || key == other.key)
+          && (!hasValue() || value_.equals(other.value_));
+      }
+
+      @Override
+      public void writeTo(final ProtoSink output) throws IOException {
+        if ((bitField0_ & 0x00000001) != 0) {
+          output.writeRawByte((byte) 8);
+          output.writeUInt32NoTag(key);
+        }
+        if ((bitField0_ & 0x00000002) != 0) {
+          output.writeRawByte((byte) 18);
+          output.writeMessageNoTag(value_);
+        }
+      }
+
+      @Override
+      protected int computeSerializedSize() {
+        int size = 0;
+        if ((bitField0_ & 0x00000001) != 0) {
+          size += 1 + ProtoSink.computeUInt32SizeNoTag(key);
+        }
+        if ((bitField0_ & 0x00000002) != 0) {
+          size += 1 + ProtoSink.computeMessageSizeNoTag(value_);
+        }
+        return size;
+      }
+
+      @Override
+      @SuppressWarnings("fallthrough")
+      public BattleTargetInfoEntry mergeFrom(final ProtoSource input) throws IOException {
+        // Enabled Fall-Through Optimization (QuickBuffers)
+        int tag = input.readTag();
+        while (true) {
+          switch (tag) {
+            case 8: {
+              // key
+              key = input.readUInt32();
+              bitField0_ |= 0x00000001;
+              tag = input.readTag();
+              if (tag != 18) {
+                break;
+              }
+            }
+            case 18: {
+              // value_
+              input.readMessage(value_);
+              bitField0_ |= 0x00000002;
+              tag = input.readTag();
+              if (tag != 0) {
+                break;
+              }
+            }
+            case 0: {
+              return this;
+            }
+            default: {
+              if (!input.skipField(tag)) {
+                return this;
+              }
+              tag = input.readTag();
+              break;
+            }
+          }
+        }
+      }
+
+      @Override
+      public void writeTo(final JsonSink output) throws IOException {
+        output.beginObject();
+        if ((bitField0_ & 0x00000001) != 0) {
+          output.writeUInt32(FieldNames.key, key);
+        }
+        if ((bitField0_ & 0x00000002) != 0) {
+          output.writeMessage(FieldNames.value_, value_);
+        }
+        output.endObject();
+      }
+
+      @Override
+      public BattleTargetInfoEntry mergeFrom(final JsonSource input) throws IOException {
+        if (!input.beginObject()) {
+          return this;
+        }
+        while (!input.isAtEnd()) {
+          switch (input.readFieldHash()) {
+            case 106079: {
+              if (input.isAtField(FieldNames.key)) {
+                if (!input.trySkipNullValue()) {
+                  key = input.readUInt32();
+                  bitField0_ |= 0x00000001;
+                }
+              } else {
+                input.skipUnknownField();
+              }
+              break;
+            }
+            case 111972721: {
+              if (input.isAtField(FieldNames.value_)) {
+                if (!input.trySkipNullValue()) {
+                  input.readMessage(value_);
+                  bitField0_ |= 0x00000002;
+                }
+              } else {
+                input.skipUnknownField();
+              }
+              break;
+            }
+            default: {
+              input.skipUnknownField();
+              break;
+            }
+          }
+        }
+        input.endObject();
+        return this;
+      }
+
+      @Override
+      public BattleTargetInfoEntry clone() {
+        return new BattleTargetInfoEntry().copyFrom(this);
+      }
+
+      @Override
+      public boolean isEmpty() {
+        return ((bitField0_) == 0);
+      }
+
+      public static BattleTargetInfoEntry parseFrom(final byte[] data) throws
+          InvalidProtocolBufferException {
+        return ProtoMessage.mergeFrom(new BattleTargetInfoEntry(), data).checkInitialized();
+      }
+
+      public static BattleTargetInfoEntry parseFrom(final ProtoSource input) throws IOException {
+        return ProtoMessage.mergeFrom(new BattleTargetInfoEntry(), input).checkInitialized();
+      }
+
+      public static BattleTargetInfoEntry parseFrom(final JsonSource input) throws IOException {
+        return ProtoMessage.mergeFrom(new BattleTargetInfoEntry(), input).checkInitialized();
+      }
+
+      /**
+       * @return factory for creating BattleTargetInfoEntry messages
+       */
+      public static MessageFactory<BattleTargetInfoEntry> getFactory() {
+        return BattleTargetInfoEntryFactory.INSTANCE;
+      }
+
+      private enum BattleTargetInfoEntryFactory implements MessageFactory<BattleTargetInfoEntry> {
+        INSTANCE;
+
+        @Override
+        public BattleTargetInfoEntry create() {
+          return BattleTargetInfoEntry.newInstance();
+        }
+      }
+
+      /**
+       * Contains name constants used for serializing JSON
+       */
+      static class FieldNames {
+        static final FieldName key = FieldName.forField("key");
+
+        static final FieldName value_ = FieldName.forField("value");
+      }
+    }
+
     private enum SceneBattleInfoFactory implements MessageFactory<SceneBattleInfo> {
       INSTANCE;
 
@@ -1044,6 +1503,8 @@ public final class SceneBattleInfoOuterClass {
       static final FieldName battleAvatarList = FieldName.forField("battleAvatarList", "battle_avatar_list");
 
       static final FieldName eventBattleInfoList = FieldName.forField("eventBattleInfoList", "event_battle_info_list");
+
+      static final FieldName battleTargetInfo = FieldName.forField("battleTargetInfo", "battle_target_info");
     }
   }
 }
