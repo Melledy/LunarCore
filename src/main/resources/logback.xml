@@ -18,6 +18,8 @@
   <logger name="de.bwaldvogel" level="ERROR" />
   <logger name="io.javalin" level="ERROR" />
   <logger name="org.mongodb.driver" level="ERROR" />
+  <logger name="dev.morphia" level="ERROR" />
+  
   <root level="INFO">
     <appender-ref ref="CONSOLE" />
     <appender-ref ref="FILE" />
