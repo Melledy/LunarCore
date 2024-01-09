@@ -7,6 +7,7 @@
 
 **Attention:** For any extra support, questions, or discussions, check out our [Discord](https://discord.gg/cfPKJ6N5hw).
 
+
 ### Notable features
 - Basic game features: Logging in, team setup, inventory, basic scene/entity management
 - Monster battles working
