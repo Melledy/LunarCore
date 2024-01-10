@@ -19,10 +19,8 @@ public class HandlerLeaveChallengeCsReq extends PacketHandler {
             
             // Get entry id
             int leaveEntryId = GameConstants.CHALLENGE_ENTRANCE;
-            if (session.getPlayer().getChallengeInstance() != null) {
-                if (session.getPlayer().getChallengeInstance().getExcel().isStory()) {
-                    leaveEntryId = GameConstants.CHALLENGE_STORY_ENTRANCE;
-                }
+            if (session.getPlayer().getScene().getLeaveEntryId() != 0) {
+                leaveEntryId = session.getPlayer().getScene().getLeaveEntryId();
             }
             
             // Leave scene

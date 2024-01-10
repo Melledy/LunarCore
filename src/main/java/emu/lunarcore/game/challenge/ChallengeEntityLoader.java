@@ -1,5 +1,6 @@
 package emu.lunarcore.game.challenge;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
@@ -23,6 +24,9 @@ public class ChallengeEntityLoader extends SceneEntityLoader {
         
         // Setup first stage
         scene.loadGroup(instance.getExcel().getMazeGroupID1());
+        
+        // Set leave entry
+        scene.setLeaveEntryId(instance.isStory() ? GameConstants.CHALLENGE_STORY_ENTRANCE : GameConstants.CHALLENGE_ENTRANCE);
         
         // Load all groups with props
         for (var group : scene.getFloorInfo().getGroups().values()) {

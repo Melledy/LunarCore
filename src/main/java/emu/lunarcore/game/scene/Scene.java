@@ -27,6 +27,7 @@ import emu.lunarcore.util.Position;
 import it.unimi.dsi.fastutil.ints.*;
 import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.Getter;
+import lombok.Setter;
 import us.hebi.quickbuf.RepeatedInt;
 
 @Getter
@@ -38,6 +39,7 @@ public class Scene implements Tickable {
     private final int planeId;
     private final int floorId;
     private int entryId;
+    @Setter private int leaveEntryId;
     
     private int lastEntityId = 0;
     private boolean loaded = false;
