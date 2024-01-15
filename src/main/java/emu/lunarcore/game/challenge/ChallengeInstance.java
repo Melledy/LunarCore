@@ -155,7 +155,9 @@ public class ChallengeInstance {
             }
             
             // Calculate rounds left
-            this.roundsLeft = Math.min(Math.max(this.roundsLeft - stats.getRoundCnt(), 1), this.roundsLeft);
+            if (!this.isStory()) {
+                this.roundsLeft = Math.min(Math.max(this.roundsLeft - stats.getRoundCnt(), 1), this.roundsLeft);
+            }
             
             // Set saved technique points (This will be restored if the player resets the challenge)
             this.savedMp = player.getCurrentLineup().getMp();
