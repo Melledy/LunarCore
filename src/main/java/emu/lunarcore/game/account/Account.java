@@ -27,7 +27,7 @@ public class Account {
 
     private String comboToken; // Combo token
     private String dispatchToken; // Session token for dispatch server
-    
+
     private Set<String> permissions;
 
     @Deprecated
@@ -48,9 +48,9 @@ public class Account {
     public void setReservedPlayerUid(int uid) {
         this.reservedPlayerUid = uid;
     }
-    
+
     // Permissions
-    
+
     public Set<String> getPermissions() {
         if (this.permissions == null) {
             this.permissions = new HashSet<>();
@@ -58,12 +58,12 @@ public class Account {
         }
         return this.permissions;
     }
-    
+
     public boolean addPermission(String permission) {
         if (this.getPermissions().contains(permission)) {
             return false;
         }
-        this.getPermissions().add(permission); 
+        this.getPermissions().add(permission);
         this.save();
         return true;
     }
@@ -73,7 +73,7 @@ public class Account {
         if (permissionParts.length < wildcardParts.length) {  // A longer wildcard can never match a shorter permission
             return false;
         }
-        
+
         for (int i = 0; i < wildcardParts.length; i++) {
             switch (wildcardParts[i]) {
                 case "**":  // Recursing match
@@ -98,10 +98,10 @@ public class Account {
         if (permission.isEmpty()) {
             return true;
         }
-        
+
         // Default permissions
         var defaultPermissions = LunarCore.getConfig().getServerOptions().getDefaultPermissions();
-        
+
         if (defaultPermissions.contains("*")) {
             return true;
         }
@@ -134,7 +134,7 @@ public class Account {
         this.getPermissions().clear();
         this.save();
     }
-    
+
     // Tokens
 
     public String generateComboToken() {
@@ -148,10 +148,48 @@ public class Account {
         this.save();
         return this.dispatchToken;
     }
-    
+
     // Database
 
     public void save() {
         LunarCore.getAccountDatabase().save(this);
+    }
+
+    /**
+     * Helper class for handling account related stuff
+     */
+    public static class AccountHelper {
+
+        public static Account createAccount(String username, String password, int reservedUid) {
+            Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "username", username);
+
+            if (account != null) {
+                return null;
+            }
+
+            account = new Account(username);
+            account.setReservedPlayerUid(reservedUid);
+            account.save();
+
+            return account;
+        }
+
+        public static boolean deleteAccount(String username) {
+            Account account = LunarCore.getAccountDatabase().getObjectByField(Account.class, "username", username);
+
+            if (account == null) {
+                return false;
+            }
+
+            // Delete the player too
+            // IMPORTANT: This will only delete the player from the current game server
+            if (LunarCore.getGameServer() != null) {
+                LunarCore.getGameServer().deletePlayer(account.getUid());
+            }
+
+            // Delete the account first
+            return LunarCore.getAccountDatabase().delete(account);
+        }
+
     }
 }

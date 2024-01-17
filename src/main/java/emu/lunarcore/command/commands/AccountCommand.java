@@ -3,6 +3,7 @@ package emu.lunarcore.command.commands;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
+import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.account.AccountHelper;
 import emu.lunarcore.util.Utils;
 
@@ -15,7 +16,7 @@ public class AccountCommand implements CommandHandler {
             args.sendMessage("Invalid amount of args");
             return;
         }
-        
+
         String command = args.get(0).toLowerCase();
         String username = args.get(1);
 
@@ -23,19 +24,19 @@ public class AccountCommand implements CommandHandler {
             case "create" -> {
                 // Reserved player uid
                 int reservedUid = 0;
-                
+
                 if (args.size() >= 3) {
                     reservedUid = Utils.parseSafeInt(args.get(2));
                 }
-    
-                if (AccountHelper.createAccount(username, null, reservedUid) != null) {
+
+                if (Account.AccountHelper.createAccount(username, null, reservedUid) != null) {
                     args.sendMessage("Account created");
                 } else {
                     args.sendMessage("Account already exists");
                 }
             }
             case "delete" -> {
-                if (AccountHelper.deleteAccount(username)) {
+                if (Account.AccountHelper.deleteAccount(username)) {
                     args.sendMessage("Account deleted");
                 } else {
                     args.sendMessage("Account doesnt exist");
