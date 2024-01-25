@@ -260,7 +260,7 @@ public class GachaService extends BaseGameService {
                     }
 
                     if (itemData.getRarity() == ItemRarity.SuperRare) {
-                        addStarglitter *= 2.5;
+                        addStarglitter *= 5;
                     }
                 } else {
                     // New
@@ -269,17 +269,17 @@ public class GachaService extends BaseGameService {
             } else {
                 // Is weapon
                 switch (itemData.getRarity()) {
-                case SuperRare:
-                    addStarglitter = 40;
-                    break;
-                case VeryRare:
-                    addStarglitter = 8;
-                    break;
-                case Rare:
-                    addStardust = 20;
-                    break;
-                default:
-                    break;
+                    case SuperRare:
+                        addStarglitter = 40;
+                        break;
+                    case VeryRare:
+                        addStarglitter = 8;
+                        break;
+                    case Rare:
+                        addStardust = 20;
+                        break;
+                    default:
+                        break;
                 }
             }
 
