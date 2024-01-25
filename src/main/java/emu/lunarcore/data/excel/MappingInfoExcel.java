@@ -91,7 +91,7 @@ public class MappingInfoExcel extends GameResource {
                 // Add relics from the set
                 int relicStart = 20001 + (baseRarity * 10000) + (baseRelicId * 10);
                 int relicEnd = relicStart + 3;
-                for (;relicStart < relicEnd; relicStart++) {
+                for (;relicStart <= relicEnd; relicStart++) {
                     ItemExcel relicExcel = GameData.getItemExcelMap().get(relicStart);
                     if (relicExcel == null) break;
                     
