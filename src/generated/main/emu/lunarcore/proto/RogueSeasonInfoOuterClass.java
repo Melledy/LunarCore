@@ -19,17 +19,17 @@ public final class RogueSeasonInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 begin_time = 9;</code>
+     * <code>optional int64 begin_time = 6;</code>
      */
     private long beginTime;
 
     /**
-     * <code>optional int64 end_time = 14;</code>
+     * <code>optional int64 end_time = 10;</code>
      */
     private long endTime;
 
     /**
-     * <code>optional uint32 season_id = 13;</code>
+     * <code>optional uint32 season_id = 11;</code>
      */
     private int seasonId;
 
@@ -44,7 +44,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 9;</code>
+     * <code>optional int64 begin_time = 6;</code>
      * @return whether the beginTime field is set
      */
     public boolean hasBeginTime() {
@@ -52,7 +52,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 9;</code>
+     * <code>optional int64 begin_time = 6;</code>
      * @return this
      */
     public RogueSeasonInfo clearBeginTime() {
@@ -62,7 +62,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 9;</code>
+     * <code>optional int64 begin_time = 6;</code>
      * @return the beginTime
      */
     public long getBeginTime() {
@@ -70,7 +70,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 9;</code>
+     * <code>optional int64 begin_time = 6;</code>
      * @param value the beginTime to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 14;</code>
+     * <code>optional int64 end_time = 10;</code>
      * @return whether the endTime field is set
      */
     public boolean hasEndTime() {
@@ -89,7 +89,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 14;</code>
+     * <code>optional int64 end_time = 10;</code>
      * @return this
      */
     public RogueSeasonInfo clearEndTime() {
@@ -99,7 +99,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 14;</code>
+     * <code>optional int64 end_time = 10;</code>
      * @return the endTime
      */
     public long getEndTime() {
@@ -107,7 +107,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 14;</code>
+     * <code>optional int64 end_time = 10;</code>
      * @param value the endTime to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 season_id = 13;</code>
+     * <code>optional uint32 season_id = 11;</code>
      * @return whether the seasonId field is set
      */
     public boolean hasSeasonId() {
@@ -126,7 +126,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 season_id = 13;</code>
+     * <code>optional uint32 season_id = 11;</code>
      * @return this
      */
     public RogueSeasonInfo clearSeasonId() {
@@ -136,7 +136,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 season_id = 13;</code>
+     * <code>optional uint32 season_id = 11;</code>
      * @return the seasonId
      */
     public int getSeasonId() {
@@ -144,7 +144,7 @@ public final class RogueSeasonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 season_id = 13;</code>
+     * <code>optional uint32 season_id = 11;</code>
      * @param value the seasonId to set
      * @return this
      */
@@ -225,15 +225,15 @@ public final class RogueSeasonInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 48);
         output.writeInt64NoTag(beginTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 80);
         output.writeInt64NoTag(endTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(seasonId);
       }
     }
@@ -260,25 +260,25 @@ public final class RogueSeasonInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 48: {
             // beginTime
             beginTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 80) {
               break;
             }
           }
-          case 112: {
+          case 80: {
             // endTime
             endTime = input.readInt64();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 88) {
               break;
             }
           }
-          case 104: {
+          case 88: {
             // seasonId
             seasonId = input.readUInt32();
             bitField0_ |= 0x00000004;

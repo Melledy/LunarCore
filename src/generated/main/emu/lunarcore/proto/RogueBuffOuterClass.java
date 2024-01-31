@@ -19,7 +19,7 @@ public final class RogueBuffOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 10;</code>
      */
     private int level;
 
@@ -39,7 +39,7 @@ public final class RogueBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 10;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -47,7 +47,7 @@ public final class RogueBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 10;</code>
      * @return this
      */
     public RogueBuff clearLevel() {
@@ -57,7 +57,7 @@ public final class RogueBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 10;</code>
      * @return the level
      */
     public int getLevel() {
@@ -65,7 +65,7 @@ public final class RogueBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 10;</code>
      * @param value the level to set
      * @return this
      */
@@ -177,7 +177,7 @@ public final class RogueBuffOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -205,7 +205,7 @@ public final class RogueBuffOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 80: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000001;

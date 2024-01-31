@@ -54,7 +54,7 @@ public class GameConstants {
     public static final int CHALLENGE_STORY_ENTRANCE = 102020107;
     
     // Rogue
-    public static final boolean ENABLE_ROGUE = false;
+    public static final boolean ENABLE_ROGUE = true;
     public static final int ROGUE_ENTRANCE = 801120102;
     public static final int ROGUE_TALENT_POINT_ITEM_ID = 32;
     

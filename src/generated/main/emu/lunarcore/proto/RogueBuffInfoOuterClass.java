@@ -20,12 +20,7 @@ public final class RogueBuffInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 10;</code>
-     */
-    private final RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo buffSelectInfo = RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo.newInstance();
-
-    /**
-     * <code>repeated .RogueBuff maze_buff_list = 7;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
      */
     private final RepeatedMessage<RogueBuffOuterClass.RogueBuff> mazeBuffList = RepeatedMessage.newEmptyInstance(RogueBuffOuterClass.RogueBuff.getFactory());
 
@@ -40,83 +35,25 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 10;</code>
-     * @return whether the buffSelectInfo field is set
+     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * @return whether the mazeBuffList field is set
      */
-    public boolean hasBuffSelectInfo() {
+    public boolean hasMazeBuffList() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 10;</code>
-     * @return this
-     */
-    public RogueBuffInfo clearBuffSelectInfo() {
-      bitField0_ &= ~0x00000001;
-      buffSelectInfo.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 10;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableBuffSelectInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo getBuffSelectInfo() {
-      return buffSelectInfo;
-    }
-
-    /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 10;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo getMutableBuffSelectInfo() {
-      bitField0_ |= 0x00000001;
-      return buffSelectInfo;
-    }
-
-    /**
-     * <code>optional .RogueBuffSelectInfo buff_select_info = 10;</code>
-     * @param value the buffSelectInfo to set
-     * @return this
-     */
-    public RogueBuffInfo setBuffSelectInfo(
-        final RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo value) {
-      bitField0_ |= 0x00000001;
-      buffSelectInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueBuff maze_buff_list = 7;</code>
-     * @return whether the mazeBuffList field is set
-     */
-    public boolean hasMazeBuffList() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>repeated .RogueBuff maze_buff_list = 7;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
      * @return this
      */
     public RogueBuffInfo clearMazeBuffList() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       mazeBuffList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 7;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -130,7 +67,7 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 7;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -139,28 +76,28 @@ public final class RogueBuffInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RogueBuffOuterClass.RogueBuff> getMutableMazeBuffList() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       return mazeBuffList;
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 7;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
      * @param value the mazeBuffList to add
      * @return this
      */
     public RogueBuffInfo addMazeBuffList(final RogueBuffOuterClass.RogueBuff value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       mazeBuffList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 7;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
      * @param values the mazeBuffList to add
      * @return this
      */
     public RogueBuffInfo addAllMazeBuffList(final RogueBuffOuterClass.RogueBuff... values) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       mazeBuffList.addAll(values);
       return this;
     }
@@ -170,7 +107,6 @@ public final class RogueBuffInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        buffSelectInfo.copyFrom(other.buffSelectInfo);
         mazeBuffList.copyFrom(other.mazeBuffList);
       }
       return this;
@@ -182,9 +118,6 @@ public final class RogueBuffInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBuffSelectInfo()) {
-        getMutableBuffSelectInfo().mergeFrom(other.buffSelectInfo);
-      }
       if (other.hasMazeBuffList()) {
         getMutableMazeBuffList().addAll(other.mazeBuffList);
       }
@@ -198,7 +131,6 @@ public final class RogueBuffInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      buffSelectInfo.clear();
       mazeBuffList.clear();
       return this;
     }
@@ -210,7 +142,6 @@ public final class RogueBuffInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      buffSelectInfo.clearQuick();
       mazeBuffList.clearQuick();
       return this;
     }
@@ -225,19 +156,14 @@ public final class RogueBuffInfoOuterClass {
       }
       RogueBuffInfo other = (RogueBuffInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasBuffSelectInfo() || buffSelectInfo.equals(other.buffSelectInfo))
         && (!hasMazeBuffList() || mazeBuffList.equals(other.mazeBuffList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 82);
-        output.writeMessageNoTag(buffSelectInfo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < mazeBuffList.length(); i++) {
-          output.writeRawByte((byte) 58);
+          output.writeRawByte((byte) 10);
           output.writeMessageNoTag(mazeBuffList.get(i));
         }
       }
@@ -247,9 +173,6 @@ public final class RogueBuffInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(buffSelectInfo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * mazeBuffList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(mazeBuffList);
       }
       return size;
@@ -262,19 +185,10 @@ public final class RogueBuffInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 82: {
-            // buffSelectInfo
-            input.readMessage(buffSelectInfo);
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 58) {
-              break;
-            }
-          }
-          case 58: {
+          case 10: {
             // mazeBuffList
             tag = input.readRepeatedMessage(mazeBuffList, tag);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             if (tag != 0) {
               break;
             }
@@ -297,9 +211,6 @@ public final class RogueBuffInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.buffSelectInfo, buffSelectInfo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedMessage(FieldNames.mazeBuffList, mazeBuffList);
       }
       output.endObject();
@@ -312,24 +223,12 @@ public final class RogueBuffInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -255242115:
-          case 1500540965: {
-            if (input.isAtField(FieldNames.buffSelectInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(buffSelectInfo);
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 1147228272:
           case -1634995062: {
             if (input.isAtField(FieldNames.mazeBuffList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(mazeBuffList);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -388,8 +287,6 @@ public final class RogueBuffInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName buffSelectInfo = FieldName.forField("buffSelectInfo", "buff_select_info");
-
       static final FieldName mazeBuffList = FieldName.forField("mazeBuffList", "maze_buff_list");
     }
   }

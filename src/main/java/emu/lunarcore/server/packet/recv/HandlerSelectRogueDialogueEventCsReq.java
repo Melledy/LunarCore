@@ -18,7 +18,8 @@ public class HandlerSelectRogueDialogueEventCsReq extends PacketHandler {
             session.getPlayer().getRogueInstance().onSelectDialogue(req.getDialogueEventId());
         }
         
-        session.send(new PacketSelectRogueDialogueEventScRsp(req.getDialogueEventId()));
+        session.send(new PacketSelectRogueDialogueEventScRsp(req.getDialogueEventId(), req.getEntityId(), session.getPlayer()));
+        session.send(CmdId.FinishRogueDialogueGroupScRsp);
     }
 
 }

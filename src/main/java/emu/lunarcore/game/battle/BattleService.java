@@ -58,6 +58,7 @@ public class BattleService extends BaseGameService {
             for (int entityId : hitTargets) {
                 if (player.getScene().getAvatarEntityIds().contains(entityId)) {
                     isAmbushed = true;
+                    break;
                 }
             }
             
@@ -163,6 +164,27 @@ public class BattleService extends BaseGameService {
         
         // Send packet
         player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
+    }
+    
+    public void startBattle(Player player, int stageId) {
+        // Sanity check to make sure player isnt in a battle
+        if (player.isInBattle()) {
+            return;
+        }
+        
+        // Get stage
+        StageExcel stage = GameData.getStageExcelMap().get(stageId);
+        if (stage == null) {
+            player.sendPacket(new PacketSceneCastSkillScRsp());
+            return;
+        }
+        
+        // Create new battle for player
+        Battle battle = new Battle(player, player.getCurrentLineup(), stage);
+        player.setBattle(battle);
+        
+        // Send packet
+        player.sendPacket(new PacketSceneCastSkillScRsp(battle, 0));  // remain to be tested
     }
     
     public void startCocoon(Player player, int cocoonId, int worldLevel, int wave) {
