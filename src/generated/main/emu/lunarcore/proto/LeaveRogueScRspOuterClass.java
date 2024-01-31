@@ -19,24 +19,24 @@ public final class LeaveRogueScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 2;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .SceneInfo scene = 3;</code>
-     */
-    private final SceneInfoOuterClass.SceneInfo scene = SceneInfoOuterClass.SceneInfo.newInstance();
-
-    /**
-     * <code>optional .RogueInfo rogue_info = 5;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      */
     private final RogueInfoOuterClass.RogueInfo rogueInfo = RogueInfoOuterClass.RogueInfo.newInstance();
 
     /**
-     * <code>optional .LineupInfo lineup = 13;</code>
+     * <code>optional .LineupInfo lineup = 12;</code>
      */
     private final LineupInfoOuterClass.LineupInfo lineup = LineupInfoOuterClass.LineupInfo.newInstance();
+
+    /**
+     * <code>optional .SceneInfo scene = 15;</code>
+     */
+    private final SceneInfoOuterClass.SceneInfo scene = SceneInfoOuterClass.SceneInfo.newInstance();
 
     private LeaveRogueScRsp() {
     }
@@ -49,7 +49,7 @@ public final class LeaveRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -57,7 +57,7 @@ public final class LeaveRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return this
      */
     public LeaveRogueScRsp clearRetcode() {
@@ -67,7 +67,7 @@ public final class LeaveRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -75,7 +75,7 @@ public final class LeaveRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 2;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -86,82 +86,25 @@ public final class LeaveRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneInfo scene = 3;</code>
-     * @return whether the scene field is set
+     * <code>optional .RogueInfo rogue_info = 6;</code>
+     * @return whether the rogueInfo field is set
      */
-    public boolean hasScene() {
+    public boolean hasRogueInfo() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .SceneInfo scene = 3;</code>
-     * @return this
-     */
-    public LeaveRogueScRsp clearScene() {
-      bitField0_ &= ~0x00000002;
-      scene.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 3;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableScene()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public SceneInfoOuterClass.SceneInfo getScene() {
-      return scene;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 3;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public SceneInfoOuterClass.SceneInfo getMutableScene() {
-      bitField0_ |= 0x00000002;
-      return scene;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 3;</code>
-     * @param value the scene to set
-     * @return this
-     */
-    public LeaveRogueScRsp setScene(final SceneInfoOuterClass.SceneInfo value) {
-      bitField0_ |= 0x00000002;
-      scene.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueInfo rogue_info = 5;</code>
-     * @return whether the rogueInfo field is set
-     */
-    public boolean hasRogueInfo() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional .RogueInfo rogue_info = 5;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      * @return this
      */
     public LeaveRogueScRsp clearRogueInfo() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       rogueInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 5;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -175,7 +118,7 @@ public final class LeaveRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 5;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -184,41 +127,41 @@ public final class LeaveRogueScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RogueInfoOuterClass.RogueInfo getMutableRogueInfo() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       return rogueInfo;
     }
 
     /**
-     * <code>optional .RogueInfo rogue_info = 5;</code>
+     * <code>optional .RogueInfo rogue_info = 6;</code>
      * @param value the rogueInfo to set
      * @return this
      */
     public LeaveRogueScRsp setRogueInfo(final RogueInfoOuterClass.RogueInfo value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       rogueInfo.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 13;</code>
+     * <code>optional .LineupInfo lineup = 12;</code>
      * @return whether the lineup field is set
      */
     public boolean hasLineup() {
-      return (bitField0_ & 0x00000008) != 0;
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 13;</code>
+     * <code>optional .LineupInfo lineup = 12;</code>
      * @return this
      */
     public LeaveRogueScRsp clearLineup() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000004;
       lineup.clear();
       return this;
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 13;</code>
+     * <code>optional .LineupInfo lineup = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -232,7 +175,7 @@ public final class LeaveRogueScRspOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 13;</code>
+     * <code>optional .LineupInfo lineup = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -241,18 +184,75 @@ public final class LeaveRogueScRspOuterClass {
      * @return internal storage object for modifications
      */
     public LineupInfoOuterClass.LineupInfo getMutableLineup() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       return lineup;
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 13;</code>
+     * <code>optional .LineupInfo lineup = 12;</code>
      * @param value the lineup to set
      * @return this
      */
     public LeaveRogueScRsp setLineup(final LineupInfoOuterClass.LineupInfo value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       lineup.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 15;</code>
+     * @return whether the scene field is set
+     */
+    public boolean hasScene() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 15;</code>
+     * @return this
+     */
+    public LeaveRogueScRsp clearScene() {
+      bitField0_ &= ~0x00000008;
+      scene.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 15;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableScene()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public SceneInfoOuterClass.SceneInfo getScene() {
+      return scene;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 15;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public SceneInfoOuterClass.SceneInfo getMutableScene() {
+      bitField0_ |= 0x00000008;
+      return scene;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 15;</code>
+     * @param value the scene to set
+     * @return this
+     */
+    public LeaveRogueScRsp setScene(final SceneInfoOuterClass.SceneInfo value) {
+      bitField0_ |= 0x00000008;
+      scene.copyFrom(value);
       return this;
     }
 
@@ -262,9 +262,9 @@ public final class LeaveRogueScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        scene.copyFrom(other.scene);
         rogueInfo.copyFrom(other.rogueInfo);
         lineup.copyFrom(other.lineup);
+        scene.copyFrom(other.scene);
       }
       return this;
     }
@@ -278,14 +278,14 @@ public final class LeaveRogueScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasScene()) {
-        getMutableScene().mergeFrom(other.scene);
-      }
       if (other.hasRogueInfo()) {
         getMutableRogueInfo().mergeFrom(other.rogueInfo);
       }
       if (other.hasLineup()) {
         getMutableLineup().mergeFrom(other.lineup);
+      }
+      if (other.hasScene()) {
+        getMutableScene().mergeFrom(other.scene);
       }
       return this;
     }
@@ -298,9 +298,9 @@ public final class LeaveRogueScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      scene.clear();
       rogueInfo.clear();
       lineup.clear();
+      scene.clear();
       return this;
     }
 
@@ -311,9 +311,9 @@ public final class LeaveRogueScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      scene.clearQuick();
       rogueInfo.clearQuick();
       lineup.clearQuick();
+      scene.clearQuick();
       return this;
     }
 
@@ -328,28 +328,28 @@ public final class LeaveRogueScRspOuterClass {
       LeaveRogueScRsp other = (LeaveRogueScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasScene() || scene.equals(other.scene))
         && (!hasRogueInfo() || rogueInfo.equals(other.rogueInfo))
-        && (!hasLineup() || lineup.equals(other.lineup));
+        && (!hasLineup() || lineup.equals(other.lineup))
+        && (!hasScene() || scene.equals(other.scene));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 26);
-        output.writeMessageNoTag(scene);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(rogueInfo);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 106);
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 98);
         output.writeMessageNoTag(lineup);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 122);
+        output.writeMessageNoTag(scene);
       }
     }
 
@@ -360,13 +360,13 @@ public final class LeaveRogueScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(scene);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(rogueInfo);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(lineup);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(scene);
       }
       return size;
     }
@@ -378,36 +378,36 @@ public final class LeaveRogueScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 16: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 50) {
               break;
             }
           }
-          case 26: {
-            // scene
-            input.readMessage(scene);
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 42) {
-              break;
-            }
-          }
-          case 42: {
+          case 50: {
             // rogueInfo
             input.readMessage(rogueInfo);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 98) {
               break;
             }
           }
-          case 106: {
+          case 98: {
             // lineup
             input.readMessage(lineup);
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 122) {
+              break;
+            }
+          }
+          case 122: {
+            // scene
+            input.readMessage(scene);
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
@@ -435,13 +435,13 @@ public final class LeaveRogueScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.scene, scene);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.rogueInfo, rogueInfo);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.lineup, lineup);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeMessage(FieldNames.scene, scene);
       }
       output.endObject();
     }
@@ -464,23 +464,12 @@ public final class LeaveRogueScRspOuterClass {
             }
             break;
           }
-          case 109254796: {
-            if (input.isAtField(FieldNames.scene)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(scene);
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 655808936:
           case -1124583437: {
             if (input.isAtField(FieldNames.rogueInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(rogueInfo);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -491,6 +480,17 @@ public final class LeaveRogueScRspOuterClass {
             if (input.isAtField(FieldNames.lineup)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(lineup);
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 109254796: {
+            if (input.isAtField(FieldNames.scene)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(scene);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -553,11 +553,11 @@ public final class LeaveRogueScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
-      static final FieldName scene = FieldName.forField("scene");
-
       static final FieldName rogueInfo = FieldName.forField("rogueInfo", "rogue_info");
 
       static final FieldName lineup = FieldName.forField("lineup");
+
+      static final FieldName scene = FieldName.forField("scene");
     }
   }
 }

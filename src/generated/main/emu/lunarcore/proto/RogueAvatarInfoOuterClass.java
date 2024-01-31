@@ -20,9 +20,24 @@ public final class RogueAvatarInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
+     * <code>optional .CLPDAOOAHOE AJJJNLPCEED = 2;</code>
+     */
+    private final CLPDAOOAHOE aJJJNLPCEED = CLPDAOOAHOE.newInstance();
+
+    /**
+     * <code>repeated uint32 DDDICOEFHPM = 7;</code>
+     */
+    private final RepeatedInt dDDICOEFHPM = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated uint32 base_avatar_id_list = 11;</code>
      */
     private final RepeatedInt baseAvatarIdList = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated uint32 POGOCOKADMA = 14;</code>
+     */
+    private final RepeatedInt pOGOCOKADMA = RepeatedInt.newEmptyInstance();
 
     private RogueAvatarInfo() {
     }
@@ -35,25 +50,150 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     * @return whether the baseAvatarIdList field is set
+     * <code>optional .CLPDAOOAHOE AJJJNLPCEED = 2;</code>
+     * @return whether the aJJJNLPCEED field is set
      */
-    public boolean hasBaseAvatarIdList() {
+    public boolean hasAJJJNLPCEED() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
+     * <code>optional .CLPDAOOAHOE AJJJNLPCEED = 2;</code>
+     * @return this
+     */
+    public RogueAvatarInfo clearAJJJNLPCEED() {
+      bitField0_ &= ~0x00000001;
+      aJJJNLPCEED.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .CLPDAOOAHOE AJJJNLPCEED = 2;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableAJJJNLPCEED()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public CLPDAOOAHOE getAJJJNLPCEED() {
+      return aJJJNLPCEED;
+    }
+
+    /**
+     * <code>optional .CLPDAOOAHOE AJJJNLPCEED = 2;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public CLPDAOOAHOE getMutableAJJJNLPCEED() {
+      bitField0_ |= 0x00000001;
+      return aJJJNLPCEED;
+    }
+
+    /**
+     * <code>optional .CLPDAOOAHOE AJJJNLPCEED = 2;</code>
+     * @param value the aJJJNLPCEED to set
+     * @return this
+     */
+    public RogueAvatarInfo setAJJJNLPCEED(final CLPDAOOAHOE value) {
+      bitField0_ |= 0x00000001;
+      aJJJNLPCEED.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 DDDICOEFHPM = 7;</code>
+     * @return whether the dDDICOEFHPM field is set
+     */
+    public boolean hasDDDICOEFHPM() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 DDDICOEFHPM = 7;</code>
+     * @return this
+     */
+    public RogueAvatarInfo clearDDDICOEFHPM() {
+      bitField0_ &= ~0x00000002;
+      dDDICOEFHPM.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 DDDICOEFHPM = 7;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableDDDICOEFHPM()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getDDDICOEFHPM() {
+      return dDDICOEFHPM;
+    }
+
+    /**
+     * <code>repeated uint32 DDDICOEFHPM = 7;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableDDDICOEFHPM() {
+      bitField0_ |= 0x00000002;
+      return dDDICOEFHPM;
+    }
+
+    /**
+     * <code>repeated uint32 DDDICOEFHPM = 7;</code>
+     * @param value the dDDICOEFHPM to add
+     * @return this
+     */
+    public RogueAvatarInfo addDDDICOEFHPM(final int value) {
+      bitField0_ |= 0x00000002;
+      dDDICOEFHPM.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 DDDICOEFHPM = 7;</code>
+     * @param values the dDDICOEFHPM to add
+     * @return this
+     */
+    public RogueAvatarInfo addAllDDDICOEFHPM(final int... values) {
+      bitField0_ |= 0x00000002;
+      dDDICOEFHPM.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 base_avatar_id_list = 11;</code>
+     * @return whether the baseAvatarIdList field is set
+     */
+    public boolean hasBaseAvatarIdList() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 base_avatar_id_list = 11;</code>
      * @return this
      */
     public RogueAvatarInfo clearBaseAvatarIdList() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000004;
       baseAvatarIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
+     * <code>repeated uint32 base_avatar_id_list = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +207,7 @@ public final class RogueAvatarInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
+     * <code>repeated uint32 base_avatar_id_list = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -76,29 +216,97 @@ public final class RogueAvatarInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableBaseAvatarIdList() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
       return baseAvatarIdList;
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
+     * <code>repeated uint32 base_avatar_id_list = 11;</code>
      * @param value the baseAvatarIdList to add
      * @return this
      */
     public RogueAvatarInfo addBaseAvatarIdList(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
       baseAvatarIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
+     * <code>repeated uint32 base_avatar_id_list = 11;</code>
      * @param values the baseAvatarIdList to add
      * @return this
      */
     public RogueAvatarInfo addAllBaseAvatarIdList(final int... values) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
       baseAvatarIdList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 POGOCOKADMA = 14;</code>
+     * @return whether the pOGOCOKADMA field is set
+     */
+    public boolean hasPOGOCOKADMA() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 POGOCOKADMA = 14;</code>
+     * @return this
+     */
+    public RogueAvatarInfo clearPOGOCOKADMA() {
+      bitField0_ &= ~0x00000008;
+      pOGOCOKADMA.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 POGOCOKADMA = 14;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutablePOGOCOKADMA()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getPOGOCOKADMA() {
+      return pOGOCOKADMA;
+    }
+
+    /**
+     * <code>repeated uint32 POGOCOKADMA = 14;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutablePOGOCOKADMA() {
+      bitField0_ |= 0x00000008;
+      return pOGOCOKADMA;
+    }
+
+    /**
+     * <code>repeated uint32 POGOCOKADMA = 14;</code>
+     * @param value the pOGOCOKADMA to add
+     * @return this
+     */
+    public RogueAvatarInfo addPOGOCOKADMA(final int value) {
+      bitField0_ |= 0x00000008;
+      pOGOCOKADMA.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 POGOCOKADMA = 14;</code>
+     * @param values the pOGOCOKADMA to add
+     * @return this
+     */
+    public RogueAvatarInfo addAllPOGOCOKADMA(final int... values) {
+      bitField0_ |= 0x00000008;
+      pOGOCOKADMA.addAll(values);
       return this;
     }
 
@@ -107,7 +315,10 @@ public final class RogueAvatarInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        aJJJNLPCEED.copyFrom(other.aJJJNLPCEED);
+        dDDICOEFHPM.copyFrom(other.dDDICOEFHPM);
         baseAvatarIdList.copyFrom(other.baseAvatarIdList);
+        pOGOCOKADMA.copyFrom(other.pOGOCOKADMA);
       }
       return this;
     }
@@ -118,8 +329,17 @@ public final class RogueAvatarInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasAJJJNLPCEED()) {
+        getMutableAJJJNLPCEED().mergeFrom(other.aJJJNLPCEED);
+      }
+      if (other.hasDDDICOEFHPM()) {
+        getMutableDDDICOEFHPM().addAll(other.dDDICOEFHPM);
+      }
       if (other.hasBaseAvatarIdList()) {
         getMutableBaseAvatarIdList().addAll(other.baseAvatarIdList);
+      }
+      if (other.hasPOGOCOKADMA()) {
+        getMutablePOGOCOKADMA().addAll(other.pOGOCOKADMA);
       }
       return this;
     }
@@ -131,7 +351,10 @@ public final class RogueAvatarInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      aJJJNLPCEED.clear();
+      dDDICOEFHPM.clear();
       baseAvatarIdList.clear();
+      pOGOCOKADMA.clear();
       return this;
     }
 
@@ -142,7 +365,10 @@ public final class RogueAvatarInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      aJJJNLPCEED.clearQuick();
+      dDDICOEFHPM.clear();
       baseAvatarIdList.clear();
+      pOGOCOKADMA.clear();
       return this;
     }
 
@@ -156,15 +382,34 @@ public final class RogueAvatarInfoOuterClass {
       }
       RogueAvatarInfo other = (RogueAvatarInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasBaseAvatarIdList() || baseAvatarIdList.equals(other.baseAvatarIdList));
+        && (!hasAJJJNLPCEED() || aJJJNLPCEED.equals(other.aJJJNLPCEED))
+        && (!hasDDDICOEFHPM() || dDDICOEFHPM.equals(other.dDDICOEFHPM))
+        && (!hasBaseAvatarIdList() || baseAvatarIdList.equals(other.baseAvatarIdList))
+        && (!hasPOGOCOKADMA() || pOGOCOKADMA.equals(other.pOGOCOKADMA));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 18);
+        output.writeMessageNoTag(aJJJNLPCEED);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        for (int i = 0; i < dDDICOEFHPM.length(); i++) {
+          output.writeRawByte((byte) 56);
+          output.writeUInt32NoTag(dDDICOEFHPM.array()[i]);
+        }
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < baseAvatarIdList.length(); i++) {
-          output.writeRawByte((byte) 112);
+          output.writeRawByte((byte) 88);
           output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
+        }
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        for (int i = 0; i < pOGOCOKADMA.length(); i++) {
+          output.writeRawByte((byte) 112);
+          output.writeUInt32NoTag(pOGOCOKADMA.array()[i]);
         }
       }
     }
@@ -173,7 +418,16 @@ public final class RogueAvatarInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(aJJJNLPCEED);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += (1 * dDDICOEFHPM.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(dDDICOEFHPM);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         size += (1 * baseAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(baseAvatarIdList);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += (1 * pOGOCOKADMA.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(pOGOCOKADMA);
       }
       return size;
     }
@@ -185,10 +439,37 @@ public final class RogueAvatarInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 114: {
+          case 18: {
+            // aJJJNLPCEED
+            input.readMessage(aJJJNLPCEED);
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 58) {
+              break;
+            }
+          }
+          case 58: {
+            // dDDICOEFHPM [packed=true]
+            input.readPackedUInt32(dDDICOEFHPM, tag);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 90) {
+              break;
+            }
+          }
+          case 90: {
             // baseAvatarIdList [packed=true]
             input.readPackedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 114) {
+              break;
+            }
+          }
+          case 114: {
+            // pOGOCOKADMA [packed=true]
+            input.readPackedUInt32(pOGOCOKADMA, tag);
+            bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -204,10 +485,22 @@ public final class RogueAvatarInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 112: {
+          case 56: {
+            // dDDICOEFHPM [packed=false]
+            tag = input.readRepeatedUInt32(dDDICOEFHPM, tag);
+            bitField0_ |= 0x00000002;
+            break;
+          }
+          case 88: {
             // baseAvatarIdList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000004;
+            break;
+          }
+          case 112: {
+            // pOGOCOKADMA [packed=false]
+            tag = input.readRepeatedUInt32(pOGOCOKADMA, tag);
+            bitField0_ |= 0x00000008;
             break;
           }
         }
@@ -218,7 +511,16 @@ public final class RogueAvatarInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeMessage(FieldNames.aJJJNLPCEED, aJJJNLPCEED);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRepeatedUInt32(FieldNames.dDDICOEFHPM, dDDICOEFHPM);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRepeatedUInt32(FieldNames.baseAvatarIdList, baseAvatarIdList);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRepeatedUInt32(FieldNames.pOGOCOKADMA, pOGOCOKADMA);
       }
       output.endObject();
     }
@@ -230,12 +532,45 @@ public final class RogueAvatarInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case -225944950: {
+            if (input.isAtField(FieldNames.aJJJNLPCEED)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(aJJJNLPCEED);
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -727553421: {
+            if (input.isAtField(FieldNames.dDDICOEFHPM)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(dDDICOEFHPM);
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1212654461:
           case 914628490: {
             if (input.isAtField(FieldNames.baseAvatarIdList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(baseAvatarIdList);
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 2062105039: {
+            if (input.isAtField(FieldNames.pOGOCOKADMA)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(pOGOCOKADMA);
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -295,7 +630,558 @@ public final class RogueAvatarInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName aJJJNLPCEED = FieldName.forField("AJJJNLPCEED");
+
+      static final FieldName dDDICOEFHPM = FieldName.forField("DDDICOEFHPM");
+
       static final FieldName baseAvatarIdList = FieldName.forField("baseAvatarIdList", "base_avatar_id_list");
+
+      static final FieldName pOGOCOKADMA = FieldName.forField("POGOCOKADMA");
+    }
+  }
+
+  /**
+   * Protobuf type {@code CLPDAOOAHOE}
+   */
+  public static final class CLPDAOOAHOE extends ProtoMessage<CLPDAOOAHOE> implements Cloneable {
+    private static final long serialVersionUID = 0L;
+
+    /**
+     * <code>optional uint32 DJGJDMBOFEH = 11;</code>
+     */
+    private int dJGJDMBOFEH;
+
+    /**
+     * <code>optional uint32 KKNMDMPJLBG = 15;</code>
+     */
+    private int kKNMDMPJLBG;
+
+    /**
+     * <code>optional .ItemCostList MGEFFLOEPBK = 7;</code>
+     */
+    private final ItemCostListOuterClass.ItemCostList mGEFFLOEPBK = ItemCostListOuterClass.ItemCostList.newInstance();
+
+    /**
+     * <code>repeated uint32 PFIDJJKFGJH = 12;</code>
+     */
+    private final RepeatedInt pFIDJJKFGJH = RepeatedInt.newEmptyInstance();
+
+    private CLPDAOOAHOE() {
+    }
+
+    /**
+     * @return a new empty instance of {@code CLPDAOOAHOE}
+     */
+    public static CLPDAOOAHOE newInstance() {
+      return new CLPDAOOAHOE();
+    }
+
+    /**
+     * <code>optional uint32 DJGJDMBOFEH = 11;</code>
+     * @return whether the dJGJDMBOFEH field is set
+     */
+    public boolean hasDJGJDMBOFEH() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional uint32 DJGJDMBOFEH = 11;</code>
+     * @return this
+     */
+    public CLPDAOOAHOE clearDJGJDMBOFEH() {
+      bitField0_ &= ~0x00000001;
+      dJGJDMBOFEH = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 DJGJDMBOFEH = 11;</code>
+     * @return the dJGJDMBOFEH
+     */
+    public int getDJGJDMBOFEH() {
+      return dJGJDMBOFEH;
+    }
+
+    /**
+     * <code>optional uint32 DJGJDMBOFEH = 11;</code>
+     * @param value the dJGJDMBOFEH to set
+     * @return this
+     */
+    public CLPDAOOAHOE setDJGJDMBOFEH(final int value) {
+      bitField0_ |= 0x00000001;
+      dJGJDMBOFEH = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 KKNMDMPJLBG = 15;</code>
+     * @return whether the kKNMDMPJLBG field is set
+     */
+    public boolean hasKKNMDMPJLBG() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 KKNMDMPJLBG = 15;</code>
+     * @return this
+     */
+    public CLPDAOOAHOE clearKKNMDMPJLBG() {
+      bitField0_ &= ~0x00000002;
+      kKNMDMPJLBG = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 KKNMDMPJLBG = 15;</code>
+     * @return the kKNMDMPJLBG
+     */
+    public int getKKNMDMPJLBG() {
+      return kKNMDMPJLBG;
+    }
+
+    /**
+     * <code>optional uint32 KKNMDMPJLBG = 15;</code>
+     * @param value the kKNMDMPJLBG to set
+     * @return this
+     */
+    public CLPDAOOAHOE setKKNMDMPJLBG(final int value) {
+      bitField0_ |= 0x00000002;
+      kKNMDMPJLBG = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .ItemCostList MGEFFLOEPBK = 7;</code>
+     * @return whether the mGEFFLOEPBK field is set
+     */
+    public boolean hasMGEFFLOEPBK() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional .ItemCostList MGEFFLOEPBK = 7;</code>
+     * @return this
+     */
+    public CLPDAOOAHOE clearMGEFFLOEPBK() {
+      bitField0_ &= ~0x00000004;
+      mGEFFLOEPBK.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .ItemCostList MGEFFLOEPBK = 7;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableMGEFFLOEPBK()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public ItemCostListOuterClass.ItemCostList getMGEFFLOEPBK() {
+      return mGEFFLOEPBK;
+    }
+
+    /**
+     * <code>optional .ItemCostList MGEFFLOEPBK = 7;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public ItemCostListOuterClass.ItemCostList getMutableMGEFFLOEPBK() {
+      bitField0_ |= 0x00000004;
+      return mGEFFLOEPBK;
+    }
+
+    /**
+     * <code>optional .ItemCostList MGEFFLOEPBK = 7;</code>
+     * @param value the mGEFFLOEPBK to set
+     * @return this
+     */
+    public CLPDAOOAHOE setMGEFFLOEPBK(final ItemCostListOuterClass.ItemCostList value) {
+      bitField0_ |= 0x00000004;
+      mGEFFLOEPBK.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 PFIDJJKFGJH = 12;</code>
+     * @return whether the pFIDJJKFGJH field is set
+     */
+    public boolean hasPFIDJJKFGJH() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 PFIDJJKFGJH = 12;</code>
+     * @return this
+     */
+    public CLPDAOOAHOE clearPFIDJJKFGJH() {
+      bitField0_ &= ~0x00000008;
+      pFIDJJKFGJH.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 PFIDJJKFGJH = 12;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutablePFIDJJKFGJH()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getPFIDJJKFGJH() {
+      return pFIDJJKFGJH;
+    }
+
+    /**
+     * <code>repeated uint32 PFIDJJKFGJH = 12;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutablePFIDJJKFGJH() {
+      bitField0_ |= 0x00000008;
+      return pFIDJJKFGJH;
+    }
+
+    /**
+     * <code>repeated uint32 PFIDJJKFGJH = 12;</code>
+     * @param value the pFIDJJKFGJH to add
+     * @return this
+     */
+    public CLPDAOOAHOE addPFIDJJKFGJH(final int value) {
+      bitField0_ |= 0x00000008;
+      pFIDJJKFGJH.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 PFIDJJKFGJH = 12;</code>
+     * @param values the pFIDJJKFGJH to add
+     * @return this
+     */
+    public CLPDAOOAHOE addAllPFIDJJKFGJH(final int... values) {
+      bitField0_ |= 0x00000008;
+      pFIDJJKFGJH.addAll(values);
+      return this;
+    }
+
+    @Override
+    public CLPDAOOAHOE copyFrom(final CLPDAOOAHOE other) {
+      cachedSize = other.cachedSize;
+      if ((bitField0_ | other.bitField0_) != 0) {
+        bitField0_ = other.bitField0_;
+        dJGJDMBOFEH = other.dJGJDMBOFEH;
+        kKNMDMPJLBG = other.kKNMDMPJLBG;
+        mGEFFLOEPBK.copyFrom(other.mGEFFLOEPBK);
+        pFIDJJKFGJH.copyFrom(other.pFIDJJKFGJH);
+      }
+      return this;
+    }
+
+    @Override
+    public CLPDAOOAHOE mergeFrom(final CLPDAOOAHOE other) {
+      if (other.isEmpty()) {
+        return this;
+      }
+      cachedSize = -1;
+      if (other.hasDJGJDMBOFEH()) {
+        setDJGJDMBOFEH(other.dJGJDMBOFEH);
+      }
+      if (other.hasKKNMDMPJLBG()) {
+        setKKNMDMPJLBG(other.kKNMDMPJLBG);
+      }
+      if (other.hasMGEFFLOEPBK()) {
+        getMutableMGEFFLOEPBK().mergeFrom(other.mGEFFLOEPBK);
+      }
+      if (other.hasPFIDJJKFGJH()) {
+        getMutablePFIDJJKFGJH().addAll(other.pFIDJJKFGJH);
+      }
+      return this;
+    }
+
+    @Override
+    public CLPDAOOAHOE clear() {
+      if (isEmpty()) {
+        return this;
+      }
+      cachedSize = -1;
+      bitField0_ = 0;
+      dJGJDMBOFEH = 0;
+      kKNMDMPJLBG = 0;
+      mGEFFLOEPBK.clear();
+      pFIDJJKFGJH.clear();
+      return this;
+    }
+
+    @Override
+    public CLPDAOOAHOE clearQuick() {
+      if (isEmpty()) {
+        return this;
+      }
+      cachedSize = -1;
+      bitField0_ = 0;
+      mGEFFLOEPBK.clearQuick();
+      pFIDJJKFGJH.clear();
+      return this;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+      if (o == this) {
+        return true;
+      }
+      if (!(o instanceof CLPDAOOAHOE)) {
+        return false;
+      }
+      CLPDAOOAHOE other = (CLPDAOOAHOE) o;
+      return bitField0_ == other.bitField0_
+        && (!hasDJGJDMBOFEH() || dJGJDMBOFEH == other.dJGJDMBOFEH)
+        && (!hasKKNMDMPJLBG() || kKNMDMPJLBG == other.kKNMDMPJLBG)
+        && (!hasMGEFFLOEPBK() || mGEFFLOEPBK.equals(other.mGEFFLOEPBK))
+        && (!hasPFIDJJKFGJH() || pFIDJJKFGJH.equals(other.pFIDJJKFGJH));
+    }
+
+    @Override
+    public void writeTo(final ProtoSink output) throws IOException {
+      if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(dJGJDMBOFEH);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(kKNMDMPJLBG);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 58);
+        output.writeMessageNoTag(mGEFFLOEPBK);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        for (int i = 0; i < pFIDJJKFGJH.length(); i++) {
+          output.writeRawByte((byte) 96);
+          output.writeUInt32NoTag(pFIDJJKFGJH.array()[i]);
+        }
+      }
+    }
+
+    @Override
+    protected int computeSerializedSize() {
+      int size = 0;
+      if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(dJGJDMBOFEH);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(kKNMDMPJLBG);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(mGEFFLOEPBK);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += (1 * pFIDJJKFGJH.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(pFIDJJKFGJH);
+      }
+      return size;
+    }
+
+    @Override
+    @SuppressWarnings("fallthrough")
+    public CLPDAOOAHOE mergeFrom(final ProtoSource input) throws IOException {
+      // Enabled Fall-Through Optimization (QuickBuffers)
+      int tag = input.readTag();
+      while (true) {
+        switch (tag) {
+          case 88: {
+            // dJGJDMBOFEH
+            dJGJDMBOFEH = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // kKNMDMPJLBG
+            kKNMDMPJLBG = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 58) {
+              break;
+            }
+          }
+          case 58: {
+            // mGEFFLOEPBK
+            input.readMessage(mGEFFLOEPBK);
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 98) {
+              break;
+            }
+          }
+          case 98: {
+            // pFIDJJKFGJH [packed=true]
+            input.readPackedUInt32(pFIDJJKFGJH, tag);
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 0) {
+              break;
+            }
+          }
+          case 0: {
+            return this;
+          }
+          default: {
+            if (!input.skipField(tag)) {
+              return this;
+            }
+            tag = input.readTag();
+            break;
+          }
+          case 96: {
+            // pFIDJJKFGJH [packed=false]
+            tag = input.readRepeatedUInt32(pFIDJJKFGJH, tag);
+            bitField0_ |= 0x00000008;
+            break;
+          }
+        }
+      }
+    }
+
+    @Override
+    public void writeTo(final JsonSink output) throws IOException {
+      output.beginObject();
+      if ((bitField0_ & 0x00000001) != 0) {
+        output.writeUInt32(FieldNames.dJGJDMBOFEH, dJGJDMBOFEH);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.kKNMDMPJLBG, kKNMDMPJLBG);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeMessage(FieldNames.mGEFFLOEPBK, mGEFFLOEPBK);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRepeatedUInt32(FieldNames.pFIDJJKFGJH, pFIDJJKFGJH);
+      }
+      output.endObject();
+    }
+
+    @Override
+    public CLPDAOOAHOE mergeFrom(final JsonSource input) throws IOException {
+      if (!input.beginObject()) {
+        return this;
+      }
+      while (!input.isAtEnd()) {
+        switch (input.readFieldHash()) {
+          case -463479542: {
+            if (input.isAtField(FieldNames.dJGJDMBOFEH)) {
+              if (!input.trySkipNullValue()) {
+                dJGJDMBOFEH = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 825219695: {
+            if (input.isAtField(FieldNames.kKNMDMPJLBG)) {
+              if (!input.trySkipNullValue()) {
+                kKNMDMPJLBG = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -464868894: {
+            if (input.isAtField(FieldNames.mGEFFLOEPBK)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(mGEFFLOEPBK);
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -662375: {
+            if (input.isAtField(FieldNames.pFIDJJKFGJH)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(pFIDJJKFGJH);
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          default: {
+            input.skipUnknownField();
+            break;
+          }
+        }
+      }
+      input.endObject();
+      return this;
+    }
+
+    @Override
+    public CLPDAOOAHOE clone() {
+      return new CLPDAOOAHOE().copyFrom(this);
+    }
+
+    @Override
+    public boolean isEmpty() {
+      return ((bitField0_) == 0);
+    }
+
+    public static CLPDAOOAHOE parseFrom(final byte[] data) throws InvalidProtocolBufferException {
+      return ProtoMessage.mergeFrom(new CLPDAOOAHOE(), data).checkInitialized();
+    }
+
+    public static CLPDAOOAHOE parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new CLPDAOOAHOE(), input).checkInitialized();
+    }
+
+    public static CLPDAOOAHOE parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new CLPDAOOAHOE(), input).checkInitialized();
+    }
+
+    /**
+     * @return factory for creating CLPDAOOAHOE messages
+     */
+    public static MessageFactory<CLPDAOOAHOE> getFactory() {
+      return CLPDAOOAHOEFactory.INSTANCE;
+    }
+
+    private enum CLPDAOOAHOEFactory implements MessageFactory<CLPDAOOAHOE> {
+      INSTANCE;
+
+      @Override
+      public CLPDAOOAHOE create() {
+        return CLPDAOOAHOE.newInstance();
+      }
+    }
+
+    /**
+     * Contains name constants used for serializing JSON
+     */
+    static class FieldNames {
+      static final FieldName dJGJDMBOFEH = FieldName.forField("DJGJDMBOFEH");
+
+      static final FieldName kKNMDMPJLBG = FieldName.forField("KKNMDMPJLBG");
+
+      static final FieldName mGEFFLOEPBK = FieldName.forField("MGEFFLOEPBK");
+
+      static final FieldName pFIDJJKFGJH = FieldName.forField("PFIDJJKFGJH");
     }
   }
 }

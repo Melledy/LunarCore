@@ -10,8 +10,6 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.RepeatedInt;
-import us.hebi.quickbuf.RepeatedMessage;
 
 public final class RogueInfoOuterClass {
   /**
@@ -21,69 +19,14 @@ public final class RogueInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
      */
-    private long beginTime;
+    private final RogueInfoDataOuterClass.RogueInfoData rogueInfoData = RogueInfoDataOuterClass.RogueInfoData.newInstance();
 
     /**
-     * <code>optional int64 end_time = 8;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
      */
-    private long endTime;
-
-    /**
-     * <code>optional uint32 season_id = 1;</code>
-     */
-    private int seasonId;
-
-    /**
-     * <code>optional uint32 rogue_coin = 7;</code>
-     */
-    private int rogueCoin;
-
-    /**
-     * <code>optional .RogueStatus status = 4;</code>
-     */
-    private int status;
-
-    /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 2;</code>
-     */
-    private final RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo rogueVirtualItemInfo = RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo.newInstance();
-
-    /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 1307;</code>
-     */
-    private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo rogueScoreInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
-
-    /**
-     * <code>optional .RogueCurrentInfo rogue_progress = 1483;</code>
-     */
-    private final RogueCurrentInfoOuterClass.RogueCurrentInfo rogueProgress = RogueCurrentInfoOuterClass.RogueCurrentInfo.newInstance();
-
-    /**
-     * <code>optional .RogueMapInfo room_map = 1536;</code>
-     */
-    private final RogueMapInfoOuterClass.RogueMapInfo roomMap = RogueMapInfoOuterClass.RogueMapInfo.newInstance();
-
-    /**
-     * <code>optional .RogueInfoData rogue_data = 2013;</code>
-     */
-    private final RogueInfoDataOuterClass.RogueInfoData rogueData = RogueInfoDataOuterClass.RogueInfoData.newInstance();
-
-    /**
-     * <code>optional .RogueAeonInfo rogue_aeon_info = 2019;</code>
-     */
-    private final RogueAeonInfoOuterClass.RogueAeonInfo rogueAeonInfo = RogueAeonInfoOuterClass.RogueAeonInfo.newInstance();
-
-    /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     */
-    private final RepeatedInt baseAvatarIdList = RepeatedInt.newEmptyInstance();
-
-    /**
-     * <code>repeated .RogueArea rogue_area_list = 2009;</code>
-     */
-    private final RepeatedMessage<RogueAreaOuterClass.RogueArea> rogueAreaList = RepeatedMessage.newEmptyInstance(RogueAreaOuterClass.RogueArea.getFactory());
+    private final RogueCurrentInfoOuterClass.RogueCurrentInfo rogueCurrentInfo = RogueCurrentInfoOuterClass.RogueCurrentInfo.newInstance();
 
     private RogueInfo() {
     }
@@ -96,692 +39,116 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
-     * @return whether the beginTime field is set
+     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * @return whether the rogueInfoData field is set
      */
-    public boolean hasBeginTime() {
+    public boolean hasRogueInfoData() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
      * @return this
      */
-    public RogueInfo clearBeginTime() {
+    public RogueInfo clearRogueInfoData() {
       bitField0_ &= ~0x00000001;
-      beginTime = 0L;
+      rogueInfoData.clear();
       return this;
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
-     * @return the beginTime
+     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueInfoData()} if you want to modify it.
+     *
+     * @return internal storage object for reading
      */
-    public long getBeginTime() {
-      return beginTime;
+    public RogueInfoDataOuterClass.RogueInfoData getRogueInfoData() {
+      return rogueInfoData;
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
-     * @param value the beginTime to set
+     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueInfoDataOuterClass.RogueInfoData getMutableRogueInfoData() {
+      bitField0_ |= 0x00000001;
+      return rogueInfoData;
+    }
+
+    /**
+     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * @param value the rogueInfoData to set
      * @return this
      */
-    public RogueInfo setBeginTime(final long value) {
+    public RogueInfo setRogueInfoData(final RogueInfoDataOuterClass.RogueInfoData value) {
       bitField0_ |= 0x00000001;
-      beginTime = value;
+      rogueInfoData.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional int64 end_time = 8;</code>
-     * @return whether the endTime field is set
+     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * @return whether the rogueCurrentInfo field is set
      */
-    public boolean hasEndTime() {
+    public boolean hasRogueCurrentInfo() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional int64 end_time = 8;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
      * @return this
      */
-    public RogueInfo clearEndTime() {
+    public RogueInfo clearRogueCurrentInfo() {
       bitField0_ &= ~0x00000002;
-      endTime = 0L;
+      rogueCurrentInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional int64 end_time = 8;</code>
-     * @return the endTime
+     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRogueCurrentInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
      */
-    public long getEndTime() {
-      return endTime;
+    public RogueCurrentInfoOuterClass.RogueCurrentInfo getRogueCurrentInfo() {
+      return rogueCurrentInfo;
     }
 
     /**
-     * <code>optional int64 end_time = 8;</code>
-     * @param value the endTime to set
-     * @return this
+     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
      */
-    public RogueInfo setEndTime(final long value) {
+    public RogueCurrentInfoOuterClass.RogueCurrentInfo getMutableRogueCurrentInfo() {
       bitField0_ |= 0x00000002;
-      endTime = value;
-      return this;
+      return rogueCurrentInfo;
     }
 
     /**
-     * <code>optional uint32 season_id = 1;</code>
-     * @return whether the seasonId field is set
-     */
-    public boolean hasSeasonId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 season_id = 1;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * @param value the rogueCurrentInfo to set
      * @return this
      */
-    public RogueInfo clearSeasonId() {
-      bitField0_ &= ~0x00000004;
-      seasonId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 season_id = 1;</code>
-     * @return the seasonId
-     */
-    public int getSeasonId() {
-      return seasonId;
-    }
-
-    /**
-     * <code>optional uint32 season_id = 1;</code>
-     * @param value the seasonId to set
-     * @return this
-     */
-    public RogueInfo setSeasonId(final int value) {
-      bitField0_ |= 0x00000004;
-      seasonId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 rogue_coin = 7;</code>
-     * @return whether the rogueCoin field is set
-     */
-    public boolean hasRogueCoin() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 rogue_coin = 7;</code>
-     * @return this
-     */
-    public RogueInfo clearRogueCoin() {
-      bitField0_ &= ~0x00000008;
-      rogueCoin = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 rogue_coin = 7;</code>
-     * @return the rogueCoin
-     */
-    public int getRogueCoin() {
-      return rogueCoin;
-    }
-
-    /**
-     * <code>optional uint32 rogue_coin = 7;</code>
-     * @param value the rogueCoin to set
-     * @return this
-     */
-    public RogueInfo setRogueCoin(final int value) {
-      bitField0_ |= 0x00000008;
-      rogueCoin = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueStatus status = 4;</code>
-     * @return whether the status field is set
-     */
-    public boolean hasStatus() {
-      return (bitField0_ & 0x00000010) != 0;
-    }
-
-    /**
-     * <code>optional .RogueStatus status = 4;</code>
-     * @return this
-     */
-    public RogueInfo clearStatus() {
-      bitField0_ &= ~0x00000010;
-      status = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueStatus status = 4;</code>
-     * @return the status
-     */
-    public RogueStatusOuterClass.RogueStatus getStatus() {
-      return RogueStatusOuterClass.RogueStatus.forNumber(status);
-    }
-
-    /**
-     * Gets the value of the internal enum store. The result is
-     * equivalent to {@link RogueInfo#getStatus()}.getNumber().
-     *
-     * @return numeric wire representation
-     */
-    public int getStatusValue() {
-      return status;
-    }
-
-    /**
-     * Sets the value of the internal enum store. This does not
-     * do any validity checks, so be sure to use appropriate value
-     * constants from {@link RogueStatusOuterClass.RogueStatus}. Setting an invalid value
-     * can cause {@link RogueInfo#getStatus()} to return null
-     *
-     * @param value the numeric wire value to set
-     * @return this
-     */
-    public RogueInfo setStatusValue(final int value) {
-      bitField0_ |= 0x00000010;
-      status = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueStatus status = 4;</code>
-     * @param value the status to set
-     * @return this
-     */
-    public RogueInfo setStatus(final RogueStatusOuterClass.RogueStatus value) {
-      bitField0_ |= 0x00000010;
-      status = value.getNumber();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 2;</code>
-     * @return whether the rogueVirtualItemInfo field is set
-     */
-    public boolean hasRogueVirtualItemInfo() {
-      return (bitField0_ & 0x00000020) != 0;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 2;</code>
-     * @return this
-     */
-    public RogueInfo clearRogueVirtualItemInfo() {
-      bitField0_ &= ~0x00000020;
-      rogueVirtualItemInfo.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 2;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueVirtualItemInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo getRogueVirtualItemInfo() {
-      return rogueVirtualItemInfo;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 2;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo getMutableRogueVirtualItemInfo() {
-      bitField0_ |= 0x00000020;
-      return rogueVirtualItemInfo;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 2;</code>
-     * @param value the rogueVirtualItemInfo to set
-     * @return this
-     */
-    public RogueInfo setRogueVirtualItemInfo(
-        final RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo value) {
-      bitField0_ |= 0x00000020;
-      rogueVirtualItemInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 1307;</code>
-     * @return whether the rogueScoreInfo field is set
-     */
-    public boolean hasRogueScoreInfo() {
-      return (bitField0_ & 0x00000040) != 0;
-    }
-
-    /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 1307;</code>
-     * @return this
-     */
-    public RogueInfo clearRogueScoreInfo() {
-      bitField0_ &= ~0x00000040;
-      rogueScoreInfo.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 1307;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueScoreInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getRogueScoreInfo() {
-      return rogueScoreInfo;
-    }
-
-    /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 1307;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getMutableRogueScoreInfo() {
-      bitField0_ |= 0x00000040;
-      return rogueScoreInfo;
-    }
-
-    /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 1307;</code>
-     * @param value the rogueScoreInfo to set
-     * @return this
-     */
-    public RogueInfo setRogueScoreInfo(
-        final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo value) {
-      bitField0_ |= 0x00000040;
-      rogueScoreInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueCurrentInfo rogue_progress = 1483;</code>
-     * @return whether the rogueProgress field is set
-     */
-    public boolean hasRogueProgress() {
-      return (bitField0_ & 0x00000080) != 0;
-    }
-
-    /**
-     * <code>optional .RogueCurrentInfo rogue_progress = 1483;</code>
-     * @return this
-     */
-    public RogueInfo clearRogueProgress() {
-      bitField0_ &= ~0x00000080;
-      rogueProgress.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueCurrentInfo rogue_progress = 1483;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueProgress()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueCurrentInfoOuterClass.RogueCurrentInfo getRogueProgress() {
-      return rogueProgress;
-    }
-
-    /**
-     * <code>optional .RogueCurrentInfo rogue_progress = 1483;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueCurrentInfoOuterClass.RogueCurrentInfo getMutableRogueProgress() {
-      bitField0_ |= 0x00000080;
-      return rogueProgress;
-    }
-
-    /**
-     * <code>optional .RogueCurrentInfo rogue_progress = 1483;</code>
-     * @param value the rogueProgress to set
-     * @return this
-     */
-    public RogueInfo setRogueProgress(final RogueCurrentInfoOuterClass.RogueCurrentInfo value) {
-      bitField0_ |= 0x00000080;
-      rogueProgress.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueMapInfo room_map = 1536;</code>
-     * @return whether the roomMap field is set
-     */
-    public boolean hasRoomMap() {
-      return (bitField0_ & 0x00000100) != 0;
-    }
-
-    /**
-     * <code>optional .RogueMapInfo room_map = 1536;</code>
-     * @return this
-     */
-    public RogueInfo clearRoomMap() {
-      bitField0_ &= ~0x00000100;
-      roomMap.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueMapInfo room_map = 1536;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRoomMap()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueMapInfoOuterClass.RogueMapInfo getRoomMap() {
-      return roomMap;
-    }
-
-    /**
-     * <code>optional .RogueMapInfo room_map = 1536;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueMapInfoOuterClass.RogueMapInfo getMutableRoomMap() {
-      bitField0_ |= 0x00000100;
-      return roomMap;
-    }
-
-    /**
-     * <code>optional .RogueMapInfo room_map = 1536;</code>
-     * @param value the roomMap to set
-     * @return this
-     */
-    public RogueInfo setRoomMap(final RogueMapInfoOuterClass.RogueMapInfo value) {
-      bitField0_ |= 0x00000100;
-      roomMap.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueInfoData rogue_data = 2013;</code>
-     * @return whether the rogueData field is set
-     */
-    public boolean hasRogueData() {
-      return (bitField0_ & 0x00000200) != 0;
-    }
-
-    /**
-     * <code>optional .RogueInfoData rogue_data = 2013;</code>
-     * @return this
-     */
-    public RogueInfo clearRogueData() {
-      bitField0_ &= ~0x00000200;
-      rogueData.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueInfoData rogue_data = 2013;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueData()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueInfoDataOuterClass.RogueInfoData getRogueData() {
-      return rogueData;
-    }
-
-    /**
-     * <code>optional .RogueInfoData rogue_data = 2013;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueInfoDataOuterClass.RogueInfoData getMutableRogueData() {
-      bitField0_ |= 0x00000200;
-      return rogueData;
-    }
-
-    /**
-     * <code>optional .RogueInfoData rogue_data = 2013;</code>
-     * @param value the rogueData to set
-     * @return this
-     */
-    public RogueInfo setRogueData(final RogueInfoDataOuterClass.RogueInfoData value) {
-      bitField0_ |= 0x00000200;
-      rogueData.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueAeonInfo rogue_aeon_info = 2019;</code>
-     * @return whether the rogueAeonInfo field is set
-     */
-    public boolean hasRogueAeonInfo() {
-      return (bitField0_ & 0x00000400) != 0;
-    }
-
-    /**
-     * <code>optional .RogueAeonInfo rogue_aeon_info = 2019;</code>
-     * @return this
-     */
-    public RogueInfo clearRogueAeonInfo() {
-      bitField0_ &= ~0x00000400;
-      rogueAeonInfo.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueAeonInfo rogue_aeon_info = 2019;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueAeonInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueAeonInfoOuterClass.RogueAeonInfo getRogueAeonInfo() {
-      return rogueAeonInfo;
-    }
-
-    /**
-     * <code>optional .RogueAeonInfo rogue_aeon_info = 2019;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueAeonInfoOuterClass.RogueAeonInfo getMutableRogueAeonInfo() {
-      bitField0_ |= 0x00000400;
-      return rogueAeonInfo;
-    }
-
-    /**
-     * <code>optional .RogueAeonInfo rogue_aeon_info = 2019;</code>
-     * @param value the rogueAeonInfo to set
-     * @return this
-     */
-    public RogueInfo setRogueAeonInfo(final RogueAeonInfoOuterClass.RogueAeonInfo value) {
-      bitField0_ |= 0x00000400;
-      rogueAeonInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     * @return whether the baseAvatarIdList field is set
-     */
-    public boolean hasBaseAvatarIdList() {
-      return (bitField0_ & 0x00000800) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     * @return this
-     */
-    public RogueInfo clearBaseAvatarIdList() {
-      bitField0_ &= ~0x00000800;
-      baseAvatarIdList.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableBaseAvatarIdList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getBaseAvatarIdList() {
-      return baseAvatarIdList;
-    }
-
-    /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableBaseAvatarIdList() {
-      bitField0_ |= 0x00000800;
-      return baseAvatarIdList;
-    }
-
-    /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     * @param value the baseAvatarIdList to add
-     * @return this
-     */
-    public RogueInfo addBaseAvatarIdList(final int value) {
-      bitField0_ |= 0x00000800;
-      baseAvatarIdList.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 base_avatar_id_list = 14;</code>
-     * @param values the baseAvatarIdList to add
-     * @return this
-     */
-    public RogueInfo addAllBaseAvatarIdList(final int... values) {
-      bitField0_ |= 0x00000800;
-      baseAvatarIdList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueArea rogue_area_list = 2009;</code>
-     * @return whether the rogueAreaList field is set
-     */
-    public boolean hasRogueAreaList() {
-      return (bitField0_ & 0x00001000) != 0;
-    }
-
-    /**
-     * <code>repeated .RogueArea rogue_area_list = 2009;</code>
-     * @return this
-     */
-    public RogueInfo clearRogueAreaList() {
-      bitField0_ &= ~0x00001000;
-      rogueAreaList.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueArea rogue_area_list = 2009;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueAreaList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedMessage<RogueAreaOuterClass.RogueArea> getRogueAreaList() {
-      return rogueAreaList;
-    }
-
-    /**
-     * <code>repeated .RogueArea rogue_area_list = 2009;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedMessage<RogueAreaOuterClass.RogueArea> getMutableRogueAreaList() {
-      bitField0_ |= 0x00001000;
-      return rogueAreaList;
-    }
-
-    /**
-     * <code>repeated .RogueArea rogue_area_list = 2009;</code>
-     * @param value the rogueAreaList to add
-     * @return this
-     */
-    public RogueInfo addRogueAreaList(final RogueAreaOuterClass.RogueArea value) {
-      bitField0_ |= 0x00001000;
-      rogueAreaList.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueArea rogue_area_list = 2009;</code>
-     * @param values the rogueAreaList to add
-     * @return this
-     */
-    public RogueInfo addAllRogueAreaList(final RogueAreaOuterClass.RogueArea... values) {
-      bitField0_ |= 0x00001000;
-      rogueAreaList.addAll(values);
+    public RogueInfo setRogueCurrentInfo(final RogueCurrentInfoOuterClass.RogueCurrentInfo value) {
+      bitField0_ |= 0x00000002;
+      rogueCurrentInfo.copyFrom(value);
       return this;
     }
 
@@ -790,19 +157,8 @@ public final class RogueInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        beginTime = other.beginTime;
-        endTime = other.endTime;
-        seasonId = other.seasonId;
-        rogueCoin = other.rogueCoin;
-        status = other.status;
-        rogueVirtualItemInfo.copyFrom(other.rogueVirtualItemInfo);
-        rogueScoreInfo.copyFrom(other.rogueScoreInfo);
-        rogueProgress.copyFrom(other.rogueProgress);
-        roomMap.copyFrom(other.roomMap);
-        rogueData.copyFrom(other.rogueData);
-        rogueAeonInfo.copyFrom(other.rogueAeonInfo);
-        baseAvatarIdList.copyFrom(other.baseAvatarIdList);
-        rogueAreaList.copyFrom(other.rogueAreaList);
+        rogueInfoData.copyFrom(other.rogueInfoData);
+        rogueCurrentInfo.copyFrom(other.rogueCurrentInfo);
       }
       return this;
     }
@@ -813,44 +169,11 @@ public final class RogueInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBeginTime()) {
-        setBeginTime(other.beginTime);
+      if (other.hasRogueInfoData()) {
+        getMutableRogueInfoData().mergeFrom(other.rogueInfoData);
       }
-      if (other.hasEndTime()) {
-        setEndTime(other.endTime);
-      }
-      if (other.hasSeasonId()) {
-        setSeasonId(other.seasonId);
-      }
-      if (other.hasRogueCoin()) {
-        setRogueCoin(other.rogueCoin);
-      }
-      if (other.hasStatus()) {
-        setStatusValue(other.status);
-      }
-      if (other.hasRogueVirtualItemInfo()) {
-        getMutableRogueVirtualItemInfo().mergeFrom(other.rogueVirtualItemInfo);
-      }
-      if (other.hasRogueScoreInfo()) {
-        getMutableRogueScoreInfo().mergeFrom(other.rogueScoreInfo);
-      }
-      if (other.hasRogueProgress()) {
-        getMutableRogueProgress().mergeFrom(other.rogueProgress);
-      }
-      if (other.hasRoomMap()) {
-        getMutableRoomMap().mergeFrom(other.roomMap);
-      }
-      if (other.hasRogueData()) {
-        getMutableRogueData().mergeFrom(other.rogueData);
-      }
-      if (other.hasRogueAeonInfo()) {
-        getMutableRogueAeonInfo().mergeFrom(other.rogueAeonInfo);
-      }
-      if (other.hasBaseAvatarIdList()) {
-        getMutableBaseAvatarIdList().addAll(other.baseAvatarIdList);
-      }
-      if (other.hasRogueAreaList()) {
-        getMutableRogueAreaList().addAll(other.rogueAreaList);
+      if (other.hasRogueCurrentInfo()) {
+        getMutableRogueCurrentInfo().mergeFrom(other.rogueCurrentInfo);
       }
       return this;
     }
@@ -862,19 +185,8 @@ public final class RogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      beginTime = 0L;
-      endTime = 0L;
-      seasonId = 0;
-      rogueCoin = 0;
-      status = 0;
-      rogueVirtualItemInfo.clear();
-      rogueScoreInfo.clear();
-      rogueProgress.clear();
-      roomMap.clear();
-      rogueData.clear();
-      rogueAeonInfo.clear();
-      baseAvatarIdList.clear();
-      rogueAreaList.clear();
+      rogueInfoData.clear();
+      rogueCurrentInfo.clear();
       return this;
     }
 
@@ -885,14 +197,8 @@ public final class RogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueVirtualItemInfo.clearQuick();
-      rogueScoreInfo.clearQuick();
-      rogueProgress.clearQuick();
-      roomMap.clearQuick();
-      rogueData.clearQuick();
-      rogueAeonInfo.clearQuick();
-      baseAvatarIdList.clear();
-      rogueAreaList.clearQuick();
+      rogueInfoData.clearQuick();
+      rogueCurrentInfo.clearQuick();
       return this;
     }
 
@@ -906,78 +212,19 @@ public final class RogueInfoOuterClass {
       }
       RogueInfo other = (RogueInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasBeginTime() || beginTime == other.beginTime)
-        && (!hasEndTime() || endTime == other.endTime)
-        && (!hasSeasonId() || seasonId == other.seasonId)
-        && (!hasRogueCoin() || rogueCoin == other.rogueCoin)
-        && (!hasStatus() || status == other.status)
-        && (!hasRogueVirtualItemInfo() || rogueVirtualItemInfo.equals(other.rogueVirtualItemInfo))
-        && (!hasRogueScoreInfo() || rogueScoreInfo.equals(other.rogueScoreInfo))
-        && (!hasRogueProgress() || rogueProgress.equals(other.rogueProgress))
-        && (!hasRoomMap() || roomMap.equals(other.roomMap))
-        && (!hasRogueData() || rogueData.equals(other.rogueData))
-        && (!hasRogueAeonInfo() || rogueAeonInfo.equals(other.rogueAeonInfo))
-        && (!hasBaseAvatarIdList() || baseAvatarIdList.equals(other.baseAvatarIdList))
-        && (!hasRogueAreaList() || rogueAreaList.equals(other.rogueAreaList));
+        && (!hasRogueInfoData() || rogueInfoData.equals(other.rogueInfoData))
+        && (!hasRogueCurrentInfo() || rogueCurrentInfo.equals(other.rogueCurrentInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeInt64NoTag(beginTime);
+        output.writeRawLittleEndian16((short) 5554);
+        output.writeMessageNoTag(rogueInfoData);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeInt64NoTag(endTime);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(seasonId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(rogueCoin);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeEnumNoTag(status);
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 18);
-        output.writeMessageNoTag(rogueVirtualItemInfo);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawLittleEndian16((short) 20954);
-        output.writeMessageNoTag(rogueScoreInfo);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawLittleEndian16((short) 23770);
-        output.writeMessageNoTag(rogueProgress);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawLittleEndian16((short) 24706);
-        output.writeMessageNoTag(roomMap);
-      }
-      if ((bitField0_ & 0x00000200) != 0) {
-        output.writeRawLittleEndian16((short) 32234);
-        output.writeMessageNoTag(rogueData);
-      }
-      if ((bitField0_ & 0x00000400) != 0) {
-        output.writeRawLittleEndian16((short) 32410);
-        output.writeMessageNoTag(rogueAeonInfo);
-      }
-      if ((bitField0_ & 0x00000800) != 0) {
-        for (int i = 0; i < baseAvatarIdList.length(); i++) {
-          output.writeRawByte((byte) 112);
-          output.writeUInt32NoTag(baseAvatarIdList.array()[i]);
-        }
-      }
-      if ((bitField0_ & 0x00001000) != 0) {
-        for (int i = 0; i < rogueAreaList.length(); i++) {
-          output.writeRawLittleEndian16((short) 32202);
-          output.writeMessageNoTag(rogueAreaList.get(i));
-        }
+        output.writeRawLittleEndian16((short) 23506);
+        output.writeMessageNoTag(rogueCurrentInfo);
       }
     }
 
@@ -985,43 +232,10 @@ public final class RogueInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeInt64SizeNoTag(beginTime);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueInfoData);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeInt64SizeNoTag(endTime);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(seasonId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueCoin);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeEnumSizeNoTag(status);
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueVirtualItemInfo);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueScoreInfo);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueProgress);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(roomMap);
-      }
-      if ((bitField0_ & 0x00000200) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueData);
-      }
-      if ((bitField0_ & 0x00000400) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueAeonInfo);
-      }
-      if ((bitField0_ & 0x00000800) != 0) {
-        size += (1 * baseAvatarIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(baseAvatarIdList);
-      }
-      if ((bitField0_ & 0x00001000) != 0) {
-        size += (2 * rogueAreaList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueAreaList);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(rogueCurrentInfo);
       }
       return size;
     }
@@ -1033,121 +247,20 @@ public final class RogueInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // beginTime
-            beginTime = input.readInt64();
+          case 2738: {
+            // rogueInfoData
+            input.readMessage(rogueInfoData);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 11730) {
               break;
             }
           }
-          case 64: {
-            // endTime
-            endTime = input.readInt64();
+          case 11730: {
+            // rogueCurrentInfo
+            input.readMessage(rogueCurrentInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 8) {
-              break;
-            }
-          }
-          case 8: {
-            // seasonId
-            seasonId = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
-          case 56: {
-            // rogueCoin
-            rogueCoin = input.readUInt32();
-            bitField0_ |= 0x00000008;
-            tag = input.readTag();
-            if (tag != 32) {
-              break;
-            }
-          }
-          case 32: {
-            // status
-            final int value = input.readInt32();
-            if (RogueStatusOuterClass.RogueStatus.forNumber(value) != null) {
-              status = value;
-              bitField0_ |= 0x00000010;
-            }
-            tag = input.readTag();
-            if (tag != 18) {
-              break;
-            }
-          }
-          case 18: {
-            // rogueVirtualItemInfo
-            input.readMessage(rogueVirtualItemInfo);
-            bitField0_ |= 0x00000020;
-            tag = input.readTag();
-            if (tag != 10458) {
-              break;
-            }
-          }
-          case 10458: {
-            // rogueScoreInfo
-            input.readMessage(rogueScoreInfo);
-            bitField0_ |= 0x00000040;
-            tag = input.readTag();
-            if (tag != 11866) {
-              break;
-            }
-          }
-          case 11866: {
-            // rogueProgress
-            input.readMessage(rogueProgress);
-            bitField0_ |= 0x00000080;
-            tag = input.readTag();
-            if (tag != 12290) {
-              break;
-            }
-          }
-          case 12290: {
-            // roomMap
-            input.readMessage(roomMap);
-            bitField0_ |= 0x00000100;
-            tag = input.readTag();
-            if (tag != 16106) {
-              break;
-            }
-          }
-          case 16106: {
-            // rogueData
-            input.readMessage(rogueData);
-            bitField0_ |= 0x00000200;
-            tag = input.readTag();
-            if (tag != 16154) {
-              break;
-            }
-          }
-          case 16154: {
-            // rogueAeonInfo
-            input.readMessage(rogueAeonInfo);
-            bitField0_ |= 0x00000400;
-            tag = input.readTag();
-            if (tag != 114) {
-              break;
-            }
-          }
-          case 114: {
-            // baseAvatarIdList [packed=true]
-            input.readPackedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00000800;
-            tag = input.readTag();
-            if (tag != 16074) {
-              break;
-            }
-          }
-          case 16074: {
-            // rogueAreaList
-            tag = input.readRepeatedMessage(rogueAreaList, tag);
-            bitField0_ |= 0x00001000;
             if (tag != 0) {
               break;
             }
@@ -1162,12 +275,6 @@ public final class RogueInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 112: {
-            // baseAvatarIdList [packed=false]
-            tag = input.readRepeatedUInt32(baseAvatarIdList, tag);
-            bitField0_ |= 0x00000800;
-            break;
-          }
         }
       }
     }
@@ -1176,43 +283,10 @@ public final class RogueInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeInt64(FieldNames.beginTime, beginTime);
+        output.writeMessage(FieldNames.rogueInfoData, rogueInfoData);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeInt64(FieldNames.endTime, endTime);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.seasonId, seasonId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.rogueCoin, rogueCoin);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeEnum(FieldNames.status, status, RogueStatusOuterClass.RogueStatus.converter());
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
-        output.writeMessage(FieldNames.rogueVirtualItemInfo, rogueVirtualItemInfo);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
-        output.writeMessage(FieldNames.rogueScoreInfo, rogueScoreInfo);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeMessage(FieldNames.rogueProgress, rogueProgress);
-      }
-      if ((bitField0_ & 0x00000100) != 0) {
-        output.writeMessage(FieldNames.roomMap, roomMap);
-      }
-      if ((bitField0_ & 0x00000200) != 0) {
-        output.writeMessage(FieldNames.rogueData, rogueData);
-      }
-      if ((bitField0_ & 0x00000400) != 0) {
-        output.writeMessage(FieldNames.rogueAeonInfo, rogueAeonInfo);
-      }
-      if ((bitField0_ & 0x00000800) != 0) {
-        output.writeRepeatedUInt32(FieldNames.baseAvatarIdList, baseAvatarIdList);
-      }
-      if ((bitField0_ & 0x00001000) != 0) {
-        output.writeRepeatedMessage(FieldNames.rogueAreaList, rogueAreaList);
+        output.writeMessage(FieldNames.rogueCurrentInfo, rogueCurrentInfo);
       }
       output.endObject();
     }
@@ -1224,11 +298,11 @@ public final class RogueInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1072839914:
-          case 1112183971: {
-            if (input.isAtField(FieldNames.beginTime)) {
+          case -1486739086:
+          case 480604278: {
+            if (input.isAtField(FieldNames.rogueInfoData)) {
               if (!input.trySkipNullValue()) {
-                beginTime = input.readInt64();
+                input.readMessage(rogueInfoData);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -1236,148 +310,12 @@ public final class RogueInfoOuterClass {
             }
             break;
           }
-          case -1607243192:
-          case 1725551537: {
-            if (input.isAtField(FieldNames.endTime)) {
+          case -611905651:
+          case 1279173113: {
+            if (input.isAtField(FieldNames.rogueCurrentInfo)) {
               if (!input.trySkipNullValue()) {
-                endTime = input.readInt64();
+                input.readMessage(rogueCurrentInfo);
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 889931614:
-          case 1818097655: {
-            if (input.isAtField(FieldNames.seasonId)) {
-              if (!input.trySkipNullValue()) {
-                seasonId = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 655631243:
-          case -1124761130: {
-            if (input.isAtField(FieldNames.rogueCoin)) {
-              if (!input.trySkipNullValue()) {
-                rogueCoin = input.readUInt32();
-                bitField0_ |= 0x00000008;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -892481550: {
-            if (input.isAtField(FieldNames.status)) {
-              if (!input.trySkipNullValue()) {
-                final RogueStatusOuterClass.RogueStatus value = input.readEnum(RogueStatusOuterClass.RogueStatus.converter());
-                if (value != null) {
-                  status = value.getNumber();
-                  bitField0_ |= 0x00000010;
-                } else {
-                  input.skipUnknownEnumValue();
-                }
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1066755410:
-          case 1452147457: {
-            if (input.isAtField(FieldNames.rogueVirtualItemInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(rogueVirtualItemInfo);
-                bitField0_ |= 0x00000020;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 2078217638:
-          case -208816704: {
-            if (input.isAtField(FieldNames.rogueScoreInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(rogueScoreInfo);
-                bitField0_ |= 0x00000040;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1629694503:
-          case 1330014962: {
-            if (input.isAtField(FieldNames.rogueProgress)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(rogueProgress);
-                bitField0_ |= 0x00000080;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1379875457:
-          case -172986376: {
-            if (input.isAtField(FieldNames.roomMap)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(roomMap);
-                bitField0_ |= 0x00000100;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 655647908:
-          case -1124744465: {
-            if (input.isAtField(FieldNames.rogueData)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(rogueData);
-                bitField0_ |= 0x00000200;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1685018549:
-          case -1375922619: {
-            if (input.isAtField(FieldNames.rogueAeonInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(rogueAeonInfo);
-                bitField0_ |= 0x00000400;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1212654461:
-          case 914628490: {
-            if (input.isAtField(FieldNames.baseAvatarIdList)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(baseAvatarIdList);
-                bitField0_ |= 0x00000800;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 964382405:
-          case -851420949: {
-            if (input.isAtField(FieldNames.rogueAreaList)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(rogueAreaList);
-                bitField0_ |= 0x00001000;
               }
             } else {
               input.skipUnknownField();
@@ -1436,31 +374,9 @@ public final class RogueInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName beginTime = FieldName.forField("beginTime", "begin_time");
+      static final FieldName rogueInfoData = FieldName.forField("rogueInfoData", "rogue_info_data");
 
-      static final FieldName endTime = FieldName.forField("endTime", "end_time");
-
-      static final FieldName seasonId = FieldName.forField("seasonId", "season_id");
-
-      static final FieldName rogueCoin = FieldName.forField("rogueCoin", "rogue_coin");
-
-      static final FieldName status = FieldName.forField("status");
-
-      static final FieldName rogueVirtualItemInfo = FieldName.forField("rogueVirtualItemInfo", "rogue_virtual_item_info");
-
-      static final FieldName rogueScoreInfo = FieldName.forField("rogueScoreInfo", "rogue_score_info");
-
-      static final FieldName rogueProgress = FieldName.forField("rogueProgress", "rogue_progress");
-
-      static final FieldName roomMap = FieldName.forField("roomMap", "room_map");
-
-      static final FieldName rogueData = FieldName.forField("rogueData", "rogue_data");
-
-      static final FieldName rogueAeonInfo = FieldName.forField("rogueAeonInfo", "rogue_aeon_info");
-
-      static final FieldName baseAvatarIdList = FieldName.forField("baseAvatarIdList", "base_avatar_id_list");
-
-      static final FieldName rogueAreaList = FieldName.forField("rogueAreaList", "rogue_area_list");
+      static final FieldName rogueCurrentInfo = FieldName.forField("rogueCurrentInfo", "rogue_current_info");
     }
   }
 }

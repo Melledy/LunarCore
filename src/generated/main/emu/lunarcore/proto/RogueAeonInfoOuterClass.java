@@ -20,19 +20,31 @@ public final class RogueAeonInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 unlock_aeon_num = 4;</code>
+     * <pre>
+     *  3
+     * </pre>
+     *
+     * <code>optional uint32 JPEBPGIEGPO = 14;</code>
+     */
+    private int jPEBPGIEGPO;
+
+    /**
+     * <pre>
+     *  9
+     * </pre>
+     *
+     * <code>optional uint32 unlock_aeon_num = 15;</code>
      */
     private int unlockAeonNum;
 
     /**
-     * <code>optional uint32 unlock_aeon_enhance_num = 5;</code>
+     * <pre>
+     *  guess
+     * </pre>
+     *
+     * <code>optional bool is_unlocked = 1;</code>
      */
-    private int unlockAeonEnhanceNum;
-
-    /**
-     * <code>optional uint32 selected_aeon_id = 12;</code>
-     */
-    private int selectedAeonId;
+    private boolean isUnlocked;
 
     /**
      * <code>repeated uint32 aeon_id_list = 8;</code>
@@ -50,25 +62,90 @@ public final class RogueAeonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 unlock_aeon_num = 4;</code>
-     * @return whether the unlockAeonNum field is set
+     * <pre>
+     *  3
+     * </pre>
+     *
+     * <code>optional uint32 JPEBPGIEGPO = 14;</code>
+     * @return whether the jPEBPGIEGPO field is set
      */
-    public boolean hasUnlockAeonNum() {
+    public boolean hasJPEBPGIEGPO() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 unlock_aeon_num = 4;</code>
+     * <pre>
+     *  3
+     * </pre>
+     *
+     * <code>optional uint32 JPEBPGIEGPO = 14;</code>
+     * @return this
+     */
+    public RogueAeonInfo clearJPEBPGIEGPO() {
+      bitField0_ &= ~0x00000001;
+      jPEBPGIEGPO = 0;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  3
+     * </pre>
+     *
+     * <code>optional uint32 JPEBPGIEGPO = 14;</code>
+     * @return the jPEBPGIEGPO
+     */
+    public int getJPEBPGIEGPO() {
+      return jPEBPGIEGPO;
+    }
+
+    /**
+     * <pre>
+     *  3
+     * </pre>
+     *
+     * <code>optional uint32 JPEBPGIEGPO = 14;</code>
+     * @param value the jPEBPGIEGPO to set
+     * @return this
+     */
+    public RogueAeonInfo setJPEBPGIEGPO(final int value) {
+      bitField0_ |= 0x00000001;
+      jPEBPGIEGPO = value;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  9
+     * </pre>
+     *
+     * <code>optional uint32 unlock_aeon_num = 15;</code>
+     * @return whether the unlockAeonNum field is set
+     */
+    public boolean hasUnlockAeonNum() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <pre>
+     *  9
+     * </pre>
+     *
+     * <code>optional uint32 unlock_aeon_num = 15;</code>
      * @return this
      */
     public RogueAeonInfo clearUnlockAeonNum() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       unlockAeonNum = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 unlock_aeon_num = 4;</code>
+     * <pre>
+     *  9
+     * </pre>
+     *
+     * <code>optional uint32 unlock_aeon_num = 15;</code>
      * @return the unlockAeonNum
      */
     public int getUnlockAeonNum() {
@@ -76,87 +153,70 @@ public final class RogueAeonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 unlock_aeon_num = 4;</code>
+     * <pre>
+     *  9
+     * </pre>
+     *
+     * <code>optional uint32 unlock_aeon_num = 15;</code>
      * @param value the unlockAeonNum to set
      * @return this
      */
     public RogueAeonInfo setUnlockAeonNum(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       unlockAeonNum = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 unlock_aeon_enhance_num = 5;</code>
-     * @return whether the unlockAeonEnhanceNum field is set
+     * <pre>
+     *  guess
+     * </pre>
+     *
+     * <code>optional bool is_unlocked = 1;</code>
+     * @return whether the isUnlocked field is set
      */
-    public boolean hasUnlockAeonEnhanceNum() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 unlock_aeon_enhance_num = 5;</code>
-     * @return this
-     */
-    public RogueAeonInfo clearUnlockAeonEnhanceNum() {
-      bitField0_ &= ~0x00000002;
-      unlockAeonEnhanceNum = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 unlock_aeon_enhance_num = 5;</code>
-     * @return the unlockAeonEnhanceNum
-     */
-    public int getUnlockAeonEnhanceNum() {
-      return unlockAeonEnhanceNum;
-    }
-
-    /**
-     * <code>optional uint32 unlock_aeon_enhance_num = 5;</code>
-     * @param value the unlockAeonEnhanceNum to set
-     * @return this
-     */
-    public RogueAeonInfo setUnlockAeonEnhanceNum(final int value) {
-      bitField0_ |= 0x00000002;
-      unlockAeonEnhanceNum = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 selected_aeon_id = 12;</code>
-     * @return whether the selectedAeonId field is set
-     */
-    public boolean hasSelectedAeonId() {
+    public boolean hasIsUnlocked() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 selected_aeon_id = 12;</code>
+     * <pre>
+     *  guess
+     * </pre>
+     *
+     * <code>optional bool is_unlocked = 1;</code>
      * @return this
      */
-    public RogueAeonInfo clearSelectedAeonId() {
+    public RogueAeonInfo clearIsUnlocked() {
       bitField0_ &= ~0x00000004;
-      selectedAeonId = 0;
+      isUnlocked = false;
       return this;
     }
 
     /**
-     * <code>optional uint32 selected_aeon_id = 12;</code>
-     * @return the selectedAeonId
+     * <pre>
+     *  guess
+     * </pre>
+     *
+     * <code>optional bool is_unlocked = 1;</code>
+     * @return the isUnlocked
      */
-    public int getSelectedAeonId() {
-      return selectedAeonId;
+    public boolean getIsUnlocked() {
+      return isUnlocked;
     }
 
     /**
-     * <code>optional uint32 selected_aeon_id = 12;</code>
-     * @param value the selectedAeonId to set
+     * <pre>
+     *  guess
+     * </pre>
+     *
+     * <code>optional bool is_unlocked = 1;</code>
+     * @param value the isUnlocked to set
      * @return this
      */
-    public RogueAeonInfo setSelectedAeonId(final int value) {
+    public RogueAeonInfo setIsUnlocked(final boolean value) {
       bitField0_ |= 0x00000004;
-      selectedAeonId = value;
+      isUnlocked = value;
       return this;
     }
 
@@ -233,9 +293,9 @@ public final class RogueAeonInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        jPEBPGIEGPO = other.jPEBPGIEGPO;
         unlockAeonNum = other.unlockAeonNum;
-        unlockAeonEnhanceNum = other.unlockAeonEnhanceNum;
-        selectedAeonId = other.selectedAeonId;
+        isUnlocked = other.isUnlocked;
         aeonIdList.copyFrom(other.aeonIdList);
       }
       return this;
@@ -247,14 +307,14 @@ public final class RogueAeonInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasJPEBPGIEGPO()) {
+        setJPEBPGIEGPO(other.jPEBPGIEGPO);
+      }
       if (other.hasUnlockAeonNum()) {
         setUnlockAeonNum(other.unlockAeonNum);
       }
-      if (other.hasUnlockAeonEnhanceNum()) {
-        setUnlockAeonEnhanceNum(other.unlockAeonEnhanceNum);
-      }
-      if (other.hasSelectedAeonId()) {
-        setSelectedAeonId(other.selectedAeonId);
+      if (other.hasIsUnlocked()) {
+        setIsUnlocked(other.isUnlocked);
       }
       if (other.hasAeonIdList()) {
         getMutableAeonIdList().addAll(other.aeonIdList);
@@ -269,9 +329,9 @@ public final class RogueAeonInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      jPEBPGIEGPO = 0;
       unlockAeonNum = 0;
-      unlockAeonEnhanceNum = 0;
-      selectedAeonId = 0;
+      isUnlocked = false;
       aeonIdList.clear();
       return this;
     }
@@ -297,25 +357,25 @@ public final class RogueAeonInfoOuterClass {
       }
       RogueAeonInfo other = (RogueAeonInfo) o;
       return bitField0_ == other.bitField0_
+        && (!hasJPEBPGIEGPO() || jPEBPGIEGPO == other.jPEBPGIEGPO)
         && (!hasUnlockAeonNum() || unlockAeonNum == other.unlockAeonNum)
-        && (!hasUnlockAeonEnhanceNum() || unlockAeonEnhanceNum == other.unlockAeonEnhanceNum)
-        && (!hasSelectedAeonId() || selectedAeonId == other.selectedAeonId)
+        && (!hasIsUnlocked() || isUnlocked == other.isUnlocked)
         && (!hasAeonIdList() || aeonIdList.equals(other.aeonIdList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(unlockAeonNum);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(jPEBPGIEGPO);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(unlockAeonEnhanceNum);
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(unlockAeonNum);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(selectedAeonId);
+        output.writeRawByte((byte) 8);
+        output.writeBoolNoTag(isUnlocked);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < aeonIdList.length(); i++) {
@@ -329,13 +389,13 @@ public final class RogueAeonInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(unlockAeonNum);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(jPEBPGIEGPO);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(unlockAeonEnhanceNum);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(unlockAeonNum);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(selectedAeonId);
+        size += 2;
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += (1 * aeonIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(aeonIdList);
@@ -350,27 +410,27 @@ public final class RogueAeonInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // unlockAeonNum
-            unlockAeonNum = input.readUInt32();
+          case 112: {
+            // jPEBPGIEGPO
+            jPEBPGIEGPO = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 120) {
               break;
             }
           }
-          case 40: {
-            // unlockAeonEnhanceNum
-            unlockAeonEnhanceNum = input.readUInt32();
+          case 120: {
+            // unlockAeonNum
+            unlockAeonNum = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 8) {
               break;
             }
           }
-          case 96: {
-            // selectedAeonId
-            selectedAeonId = input.readUInt32();
+          case 8: {
+            // isUnlocked
+            isUnlocked = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 66) {
@@ -410,13 +470,13 @@ public final class RogueAeonInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.unlockAeonNum, unlockAeonNum);
+        output.writeUInt32(FieldNames.jPEBPGIEGPO, jPEBPGIEGPO);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.unlockAeonEnhanceNum, unlockAeonEnhanceNum);
+        output.writeUInt32(FieldNames.unlockAeonNum, unlockAeonNum);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.selectedAeonId, selectedAeonId);
+        output.writeBool(FieldNames.isUnlocked, isUnlocked);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRepeatedUInt32(FieldNames.aeonIdList, aeonIdList);
@@ -431,11 +491,10 @@ public final class RogueAeonInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -281209953:
-          case -952729371: {
-            if (input.isAtField(FieldNames.unlockAeonNum)) {
+          case 617496720: {
+            if (input.isAtField(FieldNames.jPEBPGIEGPO)) {
               if (!input.trySkipNullValue()) {
-                unlockAeonNum = input.readUInt32();
+                jPEBPGIEGPO = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -443,11 +502,11 @@ public final class RogueAeonInfoOuterClass {
             }
             break;
           }
-          case 1040991167:
-          case 7773396: {
-            if (input.isAtField(FieldNames.unlockAeonEnhanceNum)) {
+          case -281209953:
+          case -952729371: {
+            if (input.isAtField(FieldNames.unlockAeonNum)) {
               if (!input.trySkipNullValue()) {
-                unlockAeonEnhanceNum = input.readUInt32();
+                unlockAeonNum = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -455,11 +514,11 @@ public final class RogueAeonInfoOuterClass {
             }
             break;
           }
-          case 1331475449:
-          case 853040179: {
-            if (input.isAtField(FieldNames.selectedAeonId)) {
+          case -1004219859:
+          case -945979816: {
+            if (input.isAtField(FieldNames.isUnlocked)) {
               if (!input.trySkipNullValue()) {
-                selectedAeonId = input.readUInt32();
+                isUnlocked = input.readBool();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -531,11 +590,11 @@ public final class RogueAeonInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName jPEBPGIEGPO = FieldName.forField("JPEBPGIEGPO");
+
       static final FieldName unlockAeonNum = FieldName.forField("unlockAeonNum", "unlock_aeon_num");
 
-      static final FieldName unlockAeonEnhanceNum = FieldName.forField("unlockAeonEnhanceNum", "unlock_aeon_enhance_num");
-
-      static final FieldName selectedAeonId = FieldName.forField("selectedAeonId", "selected_aeon_id");
+      static final FieldName isUnlocked = FieldName.forField("isUnlocked", "is_unlocked");
 
       static final FieldName aeonIdList = FieldName.forField("aeonIdList", "aeon_id_list");
     }

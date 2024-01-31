@@ -19,6 +19,15 @@ public final class PropExtraInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <pre>
+     * CIJCHJHMFPM chess_rogue_info = 7;
+     * </pre>
+     *
+     * <code>optional .PropAeonInfo aeon_info = 3;</code>
+     */
+    private final PropAeonInfoOuterClass.PropAeonInfo aeonInfo = PropAeonInfoOuterClass.PropAeonInfo.newInstance();
+
+    /**
      * <code>optional .PropRogueInfo rogue_info = 11;</code>
      */
     private final PropRogueInfoOuterClass.PropRogueInfo rogueInfo = PropRogueInfoOuterClass.PropRogueInfo.newInstance();
@@ -34,11 +43,88 @@ public final class PropExtraInfoOuterClass {
     }
 
     /**
+     * <pre>
+     * CIJCHJHMFPM chess_rogue_info = 7;
+     * </pre>
+     *
+     * <code>optional .PropAeonInfo aeon_info = 3;</code>
+     * @return whether the aeonInfo field is set
+     */
+    public boolean hasAeonInfo() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <pre>
+     * CIJCHJHMFPM chess_rogue_info = 7;
+     * </pre>
+     *
+     * <code>optional .PropAeonInfo aeon_info = 3;</code>
+     * @return this
+     */
+    public PropExtraInfo clearAeonInfo() {
+      bitField0_ &= ~0x00000001;
+      aeonInfo.clear();
+      return this;
+    }
+
+    /**
+     * <pre>
+     * CIJCHJHMFPM chess_rogue_info = 7;
+     * </pre>
+     *
+     * <code>optional .PropAeonInfo aeon_info = 3;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableAeonInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public PropAeonInfoOuterClass.PropAeonInfo getAeonInfo() {
+      return aeonInfo;
+    }
+
+    /**
+     * <pre>
+     * CIJCHJHMFPM chess_rogue_info = 7;
+     * </pre>
+     *
+     * <code>optional .PropAeonInfo aeon_info = 3;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public PropAeonInfoOuterClass.PropAeonInfo getMutableAeonInfo() {
+      bitField0_ |= 0x00000001;
+      return aeonInfo;
+    }
+
+    /**
+     * <pre>
+     * CIJCHJHMFPM chess_rogue_info = 7;
+     * </pre>
+     *
+     * <code>optional .PropAeonInfo aeon_info = 3;</code>
+     * @param value the aeonInfo to set
+     * @return this
+     */
+    public PropExtraInfo setAeonInfo(final PropAeonInfoOuterClass.PropAeonInfo value) {
+      bitField0_ |= 0x00000001;
+      aeonInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
      * <code>optional .PropRogueInfo rogue_info = 11;</code>
      * @return whether the rogueInfo field is set
      */
     public boolean hasRogueInfo() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -46,7 +132,7 @@ public final class PropExtraInfoOuterClass {
      * @return this
      */
     public PropExtraInfo clearRogueInfo() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       rogueInfo.clear();
       return this;
     }
@@ -75,7 +161,7 @@ public final class PropExtraInfoOuterClass {
      * @return internal storage object for modifications
      */
     public PropRogueInfoOuterClass.PropRogueInfo getMutableRogueInfo() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return rogueInfo;
     }
 
@@ -85,7 +171,7 @@ public final class PropExtraInfoOuterClass {
      * @return this
      */
     public PropExtraInfo setRogueInfo(final PropRogueInfoOuterClass.PropRogueInfo value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       rogueInfo.copyFrom(value);
       return this;
     }
@@ -95,6 +181,7 @@ public final class PropExtraInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        aeonInfo.copyFrom(other.aeonInfo);
         rogueInfo.copyFrom(other.rogueInfo);
       }
       return this;
@@ -106,6 +193,9 @@ public final class PropExtraInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasAeonInfo()) {
+        getMutableAeonInfo().mergeFrom(other.aeonInfo);
+      }
       if (other.hasRogueInfo()) {
         getMutableRogueInfo().mergeFrom(other.rogueInfo);
       }
@@ -119,6 +209,7 @@ public final class PropExtraInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      aeonInfo.clear();
       rogueInfo.clear();
       return this;
     }
@@ -130,6 +221,7 @@ public final class PropExtraInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      aeonInfo.clearQuick();
       rogueInfo.clearQuick();
       return this;
     }
@@ -144,12 +236,17 @@ public final class PropExtraInfoOuterClass {
       }
       PropExtraInfo other = (PropExtraInfo) o;
       return bitField0_ == other.bitField0_
+        && (!hasAeonInfo() || aeonInfo.equals(other.aeonInfo))
         && (!hasRogueInfo() || rogueInfo.equals(other.rogueInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 26);
+        output.writeMessageNoTag(aeonInfo);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 90);
         output.writeMessageNoTag(rogueInfo);
       }
@@ -159,6 +256,9 @@ public final class PropExtraInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(aeonInfo);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(rogueInfo);
       }
       return size;
@@ -171,10 +271,19 @@ public final class PropExtraInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 26: {
+            // aeonInfo
+            input.readMessage(aeonInfo);
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 90) {
+              break;
+            }
+          }
           case 90: {
             // rogueInfo
             input.readMessage(rogueInfo);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -198,6 +307,9 @@ public final class PropExtraInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeMessage(FieldNames.aeonInfo, aeonInfo);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeMessage(FieldNames.rogueInfo, rogueInfo);
       }
       output.endObject();
@@ -210,12 +322,24 @@ public final class PropExtraInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case -20823983:
+          case -625367446: {
+            if (input.isAtField(FieldNames.aeonInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(aeonInfo);
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 655808936:
           case -1124583437: {
             if (input.isAtField(FieldNames.rogueInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(rogueInfo);
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -274,6 +398,8 @@ public final class PropExtraInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName aeonInfo = FieldName.forField("aeonInfo", "aeon_info");
+
       static final FieldName rogueInfo = FieldName.forField("rogueInfo", "rogue_info");
     }
   }

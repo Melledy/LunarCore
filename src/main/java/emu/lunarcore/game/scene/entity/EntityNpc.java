@@ -43,7 +43,7 @@ public class EntityNpc implements GameEntity {
         if (this.rogueNpcId > 0) {
             var rogue = NpcRogueInfo.newInstance()
                     .setRogueNpcId(this.rogueNpcId)
-                    .setDialogueGroupId(1);
+                    .setBHPGGEOBJHM(false);
             
             npc.getMutableExtraInfo().setRogueInfo(rogue);
         }

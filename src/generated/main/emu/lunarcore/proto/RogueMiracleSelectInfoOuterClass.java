@@ -20,19 +20,32 @@ public final class RogueMiracleSelectInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool show_handbook_hint = 7;</code>
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 MMHMDBDONIA = 2;</code>
      */
-    private boolean showHandbookHint;
+    private int mMHMDBDONIA;
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 13;</code>
+     * <pre>
+     *  idk guess source
+     * </pre>
+     *
+     * <code>optional uint32 OJOMBNGGHFI = 8;</code>
      */
-    private final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo rogueMiracleInfo = RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo.newInstance();
+    private int oJOMBNGGHFI;
 
     /**
-     * <code>repeated uint32 miracle_id_list = 12;</code>
+     * <code>repeated uint32 miracle_info = 5;</code>
      */
-    private final RepeatedInt miracleIdList = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt miracleInfo = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated uint32 miracle_info_remote = 13;</code>
+     */
+    private final RepeatedInt miracleInfoRemote = RepeatedInt.newEmptyInstance();
 
     private RogueMiracleSelectInfo() {
     }
@@ -45,134 +58,145 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional bool show_handbook_hint = 7;</code>
-     * @return whether the showHandbookHint field is set
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 MMHMDBDONIA = 2;</code>
+     * @return whether the mMHMDBDONIA field is set
      */
-    public boolean hasShowHandbookHint() {
+    public boolean hasMMHMDBDONIA() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional bool show_handbook_hint = 7;</code>
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 MMHMDBDONIA = 2;</code>
      * @return this
      */
-    public RogueMiracleSelectInfo clearShowHandbookHint() {
+    public RogueMiracleSelectInfo clearMMHMDBDONIA() {
       bitField0_ &= ~0x00000001;
-      showHandbookHint = false;
+      mMHMDBDONIA = 0;
       return this;
     }
 
     /**
-     * <code>optional bool show_handbook_hint = 7;</code>
-     * @return the showHandbookHint
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 MMHMDBDONIA = 2;</code>
+     * @return the mMHMDBDONIA
      */
-    public boolean getShowHandbookHint() {
-      return showHandbookHint;
+    public int getMMHMDBDONIA() {
+      return mMHMDBDONIA;
     }
 
     /**
-     * <code>optional bool show_handbook_hint = 7;</code>
-     * @param value the showHandbookHint to set
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 MMHMDBDONIA = 2;</code>
+     * @param value the mMHMDBDONIA to set
      * @return this
      */
-    public RogueMiracleSelectInfo setShowHandbookHint(final boolean value) {
+    public RogueMiracleSelectInfo setMMHMDBDONIA(final int value) {
       bitField0_ |= 0x00000001;
-      showHandbookHint = value;
+      mMHMDBDONIA = value;
       return this;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 13;</code>
-     * @return whether the rogueMiracleInfo field is set
+     * <pre>
+     *  idk guess source
+     * </pre>
+     *
+     * <code>optional uint32 OJOMBNGGHFI = 8;</code>
+     * @return whether the oJOMBNGGHFI field is set
      */
-    public boolean hasRogueMiracleInfo() {
+    public boolean hasOJOMBNGGHFI() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 13;</code>
+     * <pre>
+     *  idk guess source
+     * </pre>
+     *
+     * <code>optional uint32 OJOMBNGGHFI = 8;</code>
      * @return this
      */
-    public RogueMiracleSelectInfo clearRogueMiracleInfo() {
+    public RogueMiracleSelectInfo clearOJOMBNGGHFI() {
       bitField0_ &= ~0x00000002;
-      rogueMiracleInfo.clear();
+      oJOMBNGGHFI = 0;
       return this;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 13;</code>
+     * <pre>
+     *  idk guess source
+     * </pre>
      *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRogueMiracleInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
+     * <code>optional uint32 OJOMBNGGHFI = 8;</code>
+     * @return the oJOMBNGGHFI
      */
-    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getRogueMiracleInfo() {
-      return rogueMiracleInfo;
+    public int getOJOMBNGGHFI() {
+      return oJOMBNGGHFI;
     }
 
     /**
-     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 13;</code>
+     * <pre>
+     *  idk guess source
+     * </pre>
      *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo getMutableRogueMiracleInfo() {
-      bitField0_ |= 0x00000002;
-      return rogueMiracleInfo;
-    }
-
-    /**
-     * <code>optional .RogueAchivedMiracleInfo rogue_miracle_info = 13;</code>
-     * @param value the rogueMiracleInfo to set
+     * <code>optional uint32 OJOMBNGGHFI = 8;</code>
+     * @param value the oJOMBNGGHFI to set
      * @return this
      */
-    public RogueMiracleSelectInfo setRogueMiracleInfo(
-        final RogueAchivedMiracleInfoOuterClass.RogueAchivedMiracleInfo value) {
+    public RogueMiracleSelectInfo setOJOMBNGGHFI(final int value) {
       bitField0_ |= 0x00000002;
-      rogueMiracleInfo.copyFrom(value);
+      oJOMBNGGHFI = value;
       return this;
     }
 
     /**
-     * <code>repeated uint32 miracle_id_list = 12;</code>
-     * @return whether the miracleIdList field is set
+     * <code>repeated uint32 miracle_info = 5;</code>
+     * @return whether the miracleInfo field is set
      */
-    public boolean hasMiracleIdList() {
+    public boolean hasMiracleInfo() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>repeated uint32 miracle_id_list = 12;</code>
+     * <code>repeated uint32 miracle_info = 5;</code>
      * @return this
      */
-    public RogueMiracleSelectInfo clearMiracleIdList() {
+    public RogueMiracleSelectInfo clearMiracleInfo() {
       bitField0_ &= ~0x00000004;
-      miracleIdList.clear();
+      miracleInfo.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 miracle_id_list = 12;</code>
+     * <code>repeated uint32 miracle_info = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableMiracleIdList()} if you want to modify it.
+     * Use {@link #getMutableMiracleInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getMiracleIdList() {
-      return miracleIdList;
+    public RepeatedInt getMiracleInfo() {
+      return miracleInfo;
     }
 
     /**
-     * <code>repeated uint32 miracle_id_list = 12;</code>
+     * <code>repeated uint32 miracle_info = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -180,30 +204,98 @@ public final class RogueMiracleSelectInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableMiracleIdList() {
+    public RepeatedInt getMutableMiracleInfo() {
       bitField0_ |= 0x00000004;
-      return miracleIdList;
+      return miracleInfo;
     }
 
     /**
-     * <code>repeated uint32 miracle_id_list = 12;</code>
-     * @param value the miracleIdList to add
+     * <code>repeated uint32 miracle_info = 5;</code>
+     * @param value the miracleInfo to add
      * @return this
      */
-    public RogueMiracleSelectInfo addMiracleIdList(final int value) {
+    public RogueMiracleSelectInfo addMiracleInfo(final int value) {
       bitField0_ |= 0x00000004;
-      miracleIdList.add(value);
+      miracleInfo.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 miracle_id_list = 12;</code>
-     * @param values the miracleIdList to add
+     * <code>repeated uint32 miracle_info = 5;</code>
+     * @param values the miracleInfo to add
      * @return this
      */
-    public RogueMiracleSelectInfo addAllMiracleIdList(final int... values) {
+    public RogueMiracleSelectInfo addAllMiracleInfo(final int... values) {
       bitField0_ |= 0x00000004;
-      miracleIdList.addAll(values);
+      miracleInfo.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 miracle_info_remote = 13;</code>
+     * @return whether the miracleInfoRemote field is set
+     */
+    public boolean hasMiracleInfoRemote() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 miracle_info_remote = 13;</code>
+     * @return this
+     */
+    public RogueMiracleSelectInfo clearMiracleInfoRemote() {
+      bitField0_ &= ~0x00000008;
+      miracleInfoRemote.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 miracle_info_remote = 13;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableMiracleInfoRemote()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getMiracleInfoRemote() {
+      return miracleInfoRemote;
+    }
+
+    /**
+     * <code>repeated uint32 miracle_info_remote = 13;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableMiracleInfoRemote() {
+      bitField0_ |= 0x00000008;
+      return miracleInfoRemote;
+    }
+
+    /**
+     * <code>repeated uint32 miracle_info_remote = 13;</code>
+     * @param value the miracleInfoRemote to add
+     * @return this
+     */
+    public RogueMiracleSelectInfo addMiracleInfoRemote(final int value) {
+      bitField0_ |= 0x00000008;
+      miracleInfoRemote.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 miracle_info_remote = 13;</code>
+     * @param values the miracleInfoRemote to add
+     * @return this
+     */
+    public RogueMiracleSelectInfo addAllMiracleInfoRemote(final int... values) {
+      bitField0_ |= 0x00000008;
+      miracleInfoRemote.addAll(values);
       return this;
     }
 
@@ -212,9 +304,10 @@ public final class RogueMiracleSelectInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        showHandbookHint = other.showHandbookHint;
-        rogueMiracleInfo.copyFrom(other.rogueMiracleInfo);
-        miracleIdList.copyFrom(other.miracleIdList);
+        mMHMDBDONIA = other.mMHMDBDONIA;
+        oJOMBNGGHFI = other.oJOMBNGGHFI;
+        miracleInfo.copyFrom(other.miracleInfo);
+        miracleInfoRemote.copyFrom(other.miracleInfoRemote);
       }
       return this;
     }
@@ -225,14 +318,17 @@ public final class RogueMiracleSelectInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasShowHandbookHint()) {
-        setShowHandbookHint(other.showHandbookHint);
+      if (other.hasMMHMDBDONIA()) {
+        setMMHMDBDONIA(other.mMHMDBDONIA);
       }
-      if (other.hasRogueMiracleInfo()) {
-        getMutableRogueMiracleInfo().mergeFrom(other.rogueMiracleInfo);
+      if (other.hasOJOMBNGGHFI()) {
+        setOJOMBNGGHFI(other.oJOMBNGGHFI);
       }
-      if (other.hasMiracleIdList()) {
-        getMutableMiracleIdList().addAll(other.miracleIdList);
+      if (other.hasMiracleInfo()) {
+        getMutableMiracleInfo().addAll(other.miracleInfo);
+      }
+      if (other.hasMiracleInfoRemote()) {
+        getMutableMiracleInfoRemote().addAll(other.miracleInfoRemote);
       }
       return this;
     }
@@ -244,9 +340,10 @@ public final class RogueMiracleSelectInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      showHandbookHint = false;
-      rogueMiracleInfo.clear();
-      miracleIdList.clear();
+      mMHMDBDONIA = 0;
+      oJOMBNGGHFI = 0;
+      miracleInfo.clear();
+      miracleInfoRemote.clear();
       return this;
     }
 
@@ -257,8 +354,8 @@ public final class RogueMiracleSelectInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueMiracleInfo.clearQuick();
-      miracleIdList.clear();
+      miracleInfo.clear();
+      miracleInfoRemote.clear();
       return this;
     }
 
@@ -272,25 +369,32 @@ public final class RogueMiracleSelectInfoOuterClass {
       }
       RogueMiracleSelectInfo other = (RogueMiracleSelectInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasShowHandbookHint() || showHandbookHint == other.showHandbookHint)
-        && (!hasRogueMiracleInfo() || rogueMiracleInfo.equals(other.rogueMiracleInfo))
-        && (!hasMiracleIdList() || miracleIdList.equals(other.miracleIdList));
+        && (!hasMMHMDBDONIA() || mMHMDBDONIA == other.mMHMDBDONIA)
+        && (!hasOJOMBNGGHFI() || oJOMBNGGHFI == other.oJOMBNGGHFI)
+        && (!hasMiracleInfo() || miracleInfo.equals(other.miracleInfo))
+        && (!hasMiracleInfoRemote() || miracleInfoRemote.equals(other.miracleInfoRemote));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeBoolNoTag(showHandbookHint);
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(mMHMDBDONIA);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 106);
-        output.writeMessageNoTag(rogueMiracleInfo);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(oJOMBNGGHFI);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < miracleIdList.length(); i++) {
-          output.writeRawByte((byte) 96);
-          output.writeUInt32NoTag(miracleIdList.array()[i]);
+        for (int i = 0; i < miracleInfo.length(); i++) {
+          output.writeRawByte((byte) 40);
+          output.writeUInt32NoTag(miracleInfo.array()[i]);
+        }
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        for (int i = 0; i < miracleInfoRemote.length(); i++) {
+          output.writeRawByte((byte) 104);
+          output.writeUInt32NoTag(miracleInfoRemote.array()[i]);
         }
       }
     }
@@ -299,13 +403,16 @@ public final class RogueMiracleSelectInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 2;
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(mMHMDBDONIA);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueMiracleInfo);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(oJOMBNGGHFI);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * miracleIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(miracleIdList);
+        size += (1 * miracleInfo.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(miracleInfo);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += (1 * miracleInfoRemote.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(miracleInfoRemote);
       }
       return size;
     }
@@ -317,28 +424,37 @@ public final class RogueMiracleSelectInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
-            // showHandbookHint
-            showHandbookHint = input.readBool();
+          case 16: {
+            // mMHMDBDONIA
+            mMHMDBDONIA = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 64) {
+              break;
+            }
+          }
+          case 64: {
+            // oJOMBNGGHFI
+            oJOMBNGGHFI = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 42) {
+              break;
+            }
+          }
+          case 42: {
+            // miracleInfo [packed=true]
+            input.readPackedUInt32(miracleInfo, tag);
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 106) {
               break;
             }
           }
           case 106: {
-            // rogueMiracleInfo
-            input.readMessage(rogueMiracleInfo);
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 98) {
-              break;
-            }
-          }
-          case 98: {
-            // miracleIdList [packed=true]
-            input.readPackedUInt32(miracleIdList, tag);
-            bitField0_ |= 0x00000004;
+            // miracleInfoRemote [packed=true]
+            input.readPackedUInt32(miracleInfoRemote, tag);
+            bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -354,10 +470,16 @@ public final class RogueMiracleSelectInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
-            // miracleIdList [packed=false]
-            tag = input.readRepeatedUInt32(miracleIdList, tag);
+          case 40: {
+            // miracleInfo [packed=false]
+            tag = input.readRepeatedUInt32(miracleInfo, tag);
             bitField0_ |= 0x00000004;
+            break;
+          }
+          case 104: {
+            // miracleInfoRemote [packed=false]
+            tag = input.readRepeatedUInt32(miracleInfoRemote, tag);
+            bitField0_ |= 0x00000008;
             break;
           }
         }
@@ -368,13 +490,16 @@ public final class RogueMiracleSelectInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeBool(FieldNames.showHandbookHint, showHandbookHint);
+        output.writeUInt32(FieldNames.mMHMDBDONIA, mMHMDBDONIA);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.rogueMiracleInfo, rogueMiracleInfo);
+        output.writeUInt32(FieldNames.oJOMBNGGHFI, oJOMBNGGHFI);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.miracleIdList, miracleIdList);
+        output.writeRepeatedUInt32(FieldNames.miracleInfo, miracleInfo);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRepeatedUInt32(FieldNames.miracleInfoRemote, miracleInfoRemote);
       }
       output.endObject();
     }
@@ -386,11 +511,10 @@ public final class RogueMiracleSelectInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1843696100:
-          case 641745100: {
-            if (input.isAtField(FieldNames.showHandbookHint)) {
+          case -1232769672: {
+            if (input.isAtField(FieldNames.mMHMDBDONIA)) {
               if (!input.trySkipNullValue()) {
-                showHandbookHint = input.readBool();
+                mMHMDBDONIA = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -398,11 +522,10 @@ public final class RogueMiracleSelectInfoOuterClass {
             }
             break;
           }
-          case -452511099:
-          case 1925436929: {
-            if (input.isAtField(FieldNames.rogueMiracleInfo)) {
+          case -1138375098: {
+            if (input.isAtField(FieldNames.oJOMBNGGHFI)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rogueMiracleInfo);
+                oJOMBNGGHFI = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -410,12 +533,24 @@ public final class RogueMiracleSelectInfoOuterClass {
             }
             break;
           }
-          case 500458538:
-          case 411639668: {
-            if (input.isAtField(FieldNames.miracleIdList)) {
+          case 760306879:
+          case 2114852796: {
+            if (input.isAtField(FieldNames.miracleInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(miracleIdList);
+                input.readRepeatedUInt32(miracleInfo);
                 bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -212699675:
+          case 609350185: {
+            if (input.isAtField(FieldNames.miracleInfoRemote)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(miracleInfoRemote);
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -475,11 +610,13 @@ public final class RogueMiracleSelectInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName showHandbookHint = FieldName.forField("showHandbookHint", "show_handbook_hint");
+      static final FieldName mMHMDBDONIA = FieldName.forField("MMHMDBDONIA");
 
-      static final FieldName rogueMiracleInfo = FieldName.forField("rogueMiracleInfo", "rogue_miracle_info");
+      static final FieldName oJOMBNGGHFI = FieldName.forField("OJOMBNGGHFI");
 
-      static final FieldName miracleIdList = FieldName.forField("miracleIdList", "miracle_id_list");
+      static final FieldName miracleInfo = FieldName.forField("miracleInfo", "miracle_info");
+
+      static final FieldName miracleInfoRemote = FieldName.forField("miracleInfoRemote", "miracle_info_remote");
     }
   }
 }

@@ -5,7 +5,10 @@ import java.util.List;
 
 import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.excel.RogueBuffExcel;
-import emu.lunarcore.proto.RogueBuffSelectInfoOuterClass.RogueBuffSelectInfo;
+import emu.lunarcore.proto.ItemCostListOuterClass.ItemCostList;
+import emu.lunarcore.proto.ItemCostOuterClass.ItemCost;
+import emu.lunarcore.proto.ItemCostOuterClass.PileItem;
+import emu.lunarcore.proto.RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo;
 import emu.lunarcore.util.WeightedList;
 import lombok.Getter;
 
@@ -81,6 +84,8 @@ public class RogueBuffSelectMenu {
             var excel = this.randomBuffs.next();
             this.getBuffs().add(new RogueBuffData(excel.getMazeBuffID(), 1));
         }
+        
+        this.hint += 1;
     }
     
     private void generateAeonBuffs() {
@@ -114,9 +119,11 @@ public class RogueBuffSelectMenu {
         this.rogue = rogue;
     }
     
-    public RogueBuffSelectInfo toProto() {
-        var proto = RogueBuffSelectInfo.newInstance()
-                .setSelectBuffSourceHint(this.getHint());
+    public RogueCommonBuffSelectInfo toProto() {
+        var proto = RogueCommonBuffSelectInfo.newInstance()
+                .setSelectBuffSourceHint(this.getHint())
+                .setSourceCurCount(1)
+                .setSourceTotalCount(1);
         
         if (this.getMaxRerolls() > 0) {
             proto.setCanRoll(true);
@@ -125,11 +132,16 @@ public class RogueBuffSelectMenu {
         }
         
         for (var buff : this.getBuffs()) {
-            proto.addMazeBuffList(buff.toProto());
+            proto.addMazeBuffList(buff.toCommonProto());
+            proto.addHandbookUnlockBuffIdList(buff.getId());
         }
         
         // Create item list for reroll cost
-        proto.getMutableRollBuffsCost();
+        proto.setRollBuffsCost(ItemCostList.newInstance()
+            .addItemList(ItemCost.newInstance()
+                .setPileItem(PileItem.newInstance()
+                    .setItemId(31)
+                    .setItemNum(30))));
         
         return proto;
     }

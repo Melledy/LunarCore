@@ -18,7 +18,7 @@ public class RogueNPCExcel extends GameResource {
 
     @Override
     public void onLoad() {
-        if (NPCID == 3013) {
+        if (NPCID == 3013 && RogueNPCID >= 10000 && RogueNPCID <= 19999) {
             GameDepot.getRogueRandomNpcList().add(this);
         }
     }

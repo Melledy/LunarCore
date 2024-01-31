@@ -19,17 +19,25 @@ public final class RogueRoomOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 room_id = 7;</code>
-     */
-    private int roomId;
-
-    /**
-     * <code>optional uint32 site_id = 14;</code>
+     * <code>optional uint32 site_id = 12;</code>
      */
     private int siteId;
 
     /**
-     * <code>optional .RogueRoomStatus room_status = 2;</code>
+     * <pre>
+     * uint32 BNKNFOGGPMG = 6;
+     * </pre>
+     *
+     * <code>optional uint32 room_id = 15;</code>
+     */
+    private int roomId;
+
+    /**
+     * <pre>
+     * IOLBGHALAHK MHIHFPAFLDO = 8;
+     * </pre>
+     *
+     * <code>optional .RogueRoomStatus room_status = 13;</code>
      */
     private int roomStatus;
 
@@ -44,62 +52,25 @@ public final class RogueRoomOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 7;</code>
-     * @return whether the roomId field is set
+     * <code>optional uint32 site_id = 12;</code>
+     * @return whether the siteId field is set
      */
-    public boolean hasRoomId() {
+    public boolean hasSiteId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 room_id = 7;</code>
-     * @return this
-     */
-    public RogueRoom clearRoomId() {
-      bitField0_ &= ~0x00000001;
-      roomId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 room_id = 7;</code>
-     * @return the roomId
-     */
-    public int getRoomId() {
-      return roomId;
-    }
-
-    /**
-     * <code>optional uint32 room_id = 7;</code>
-     * @param value the roomId to set
-     * @return this
-     */
-    public RogueRoom setRoomId(final int value) {
-      bitField0_ |= 0x00000001;
-      roomId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 site_id = 14;</code>
-     * @return whether the siteId field is set
-     */
-    public boolean hasSiteId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 site_id = 14;</code>
+     * <code>optional uint32 site_id = 12;</code>
      * @return this
      */
     public RogueRoom clearSiteId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       siteId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 site_id = 14;</code>
+     * <code>optional uint32 site_id = 12;</code>
      * @return the siteId
      */
     public int getSiteId() {
@@ -107,18 +78,75 @@ public final class RogueRoomOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 14;</code>
+     * <code>optional uint32 site_id = 12;</code>
      * @param value the siteId to set
      * @return this
      */
     public RogueRoom setSiteId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       siteId = value;
       return this;
     }
 
     /**
-     * <code>optional .RogueRoomStatus room_status = 2;</code>
+     * <pre>
+     * uint32 BNKNFOGGPMG = 6;
+     * </pre>
+     *
+     * <code>optional uint32 room_id = 15;</code>
+     * @return whether the roomId field is set
+     */
+    public boolean hasRoomId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <pre>
+     * uint32 BNKNFOGGPMG = 6;
+     * </pre>
+     *
+     * <code>optional uint32 room_id = 15;</code>
+     * @return this
+     */
+    public RogueRoom clearRoomId() {
+      bitField0_ &= ~0x00000002;
+      roomId = 0;
+      return this;
+    }
+
+    /**
+     * <pre>
+     * uint32 BNKNFOGGPMG = 6;
+     * </pre>
+     *
+     * <code>optional uint32 room_id = 15;</code>
+     * @return the roomId
+     */
+    public int getRoomId() {
+      return roomId;
+    }
+
+    /**
+     * <pre>
+     * uint32 BNKNFOGGPMG = 6;
+     * </pre>
+     *
+     * <code>optional uint32 room_id = 15;</code>
+     * @param value the roomId to set
+     * @return this
+     */
+    public RogueRoom setRoomId(final int value) {
+      bitField0_ |= 0x00000002;
+      roomId = value;
+      return this;
+    }
+
+    /**
+     * <pre>
+     * IOLBGHALAHK MHIHFPAFLDO = 8;
+     * </pre>
+     *
+     * <code>optional .RogueRoomStatus room_status = 13;</code>
      * @return whether the roomStatus field is set
      */
     public boolean hasRoomStatus() {
@@ -126,7 +154,11 @@ public final class RogueRoomOuterClass {
     }
 
     /**
-     * <code>optional .RogueRoomStatus room_status = 2;</code>
+     * <pre>
+     * IOLBGHALAHK MHIHFPAFLDO = 8;
+     * </pre>
+     *
+     * <code>optional .RogueRoomStatus room_status = 13;</code>
      * @return this
      */
     public RogueRoom clearRoomStatus() {
@@ -136,7 +168,11 @@ public final class RogueRoomOuterClass {
     }
 
     /**
-     * <code>optional .RogueRoomStatus room_status = 2;</code>
+     * <pre>
+     * IOLBGHALAHK MHIHFPAFLDO = 8;
+     * </pre>
+     *
+     * <code>optional .RogueRoomStatus room_status = 13;</code>
      * @return the roomStatus
      */
     public RogueRoomStatusOuterClass.RogueRoomStatus getRoomStatus() {
@@ -169,7 +205,11 @@ public final class RogueRoomOuterClass {
     }
 
     /**
-     * <code>optional .RogueRoomStatus room_status = 2;</code>
+     * <pre>
+     * IOLBGHALAHK MHIHFPAFLDO = 8;
+     * </pre>
+     *
+     * <code>optional .RogueRoomStatus room_status = 13;</code>
      * @param value the roomStatus to set
      * @return this
      */
@@ -184,8 +224,8 @@ public final class RogueRoomOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        roomId = other.roomId;
         siteId = other.siteId;
+        roomId = other.roomId;
         roomStatus = other.roomStatus;
       }
       return this;
@@ -197,11 +237,11 @@ public final class RogueRoomOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRoomId()) {
-        setRoomId(other.roomId);
-      }
       if (other.hasSiteId()) {
         setSiteId(other.siteId);
+      }
+      if (other.hasRoomId()) {
+        setRoomId(other.roomId);
       }
       if (other.hasRoomStatus()) {
         setRoomStatusValue(other.roomStatus);
@@ -216,8 +256,8 @@ public final class RogueRoomOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      roomId = 0;
       siteId = 0;
+      roomId = 0;
       roomStatus = 0;
       return this;
     }
@@ -242,23 +282,23 @@ public final class RogueRoomOuterClass {
       }
       RogueRoom other = (RogueRoom) o;
       return bitField0_ == other.bitField0_
-        && (!hasRoomId() || roomId == other.roomId)
         && (!hasSiteId() || siteId == other.siteId)
+        && (!hasRoomId() || roomId == other.roomId)
         && (!hasRoomStatus() || roomStatus == other.roomStatus);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(roomId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(siteId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(roomId);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 104);
         output.writeEnumNoTag(roomStatus);
       }
     }
@@ -267,10 +307,10 @@ public final class RogueRoomOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(roomId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(siteId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(siteId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(roomId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(roomStatus);
@@ -285,25 +325,25 @@ public final class RogueRoomOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
-            // roomId
-            roomId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
+          case 96: {
             // siteId
             siteId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 120) {
               break;
             }
           }
-          case 16: {
+          case 120: {
+            // roomId
+            roomId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 104) {
+              break;
+            }
+          }
+          case 104: {
             // roomStatus
             final int value = input.readInt32();
             if (RogueRoomStatusOuterClass.RogueRoomStatus.forNumber(value) != null) {
@@ -333,10 +373,10 @@ public final class RogueRoomOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.roomId, roomId);
+        output.writeUInt32(FieldNames.siteId, siteId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.siteId, siteId);
+        output.writeUInt32(FieldNames.roomId, roomId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeEnum(FieldNames.roomStatus, roomStatus, RogueRoomStatusOuterClass.RogueRoomStatus.converter());
@@ -351,11 +391,11 @@ public final class RogueRoomOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -925319338:
-          case 1379892991: {
-            if (input.isAtField(FieldNames.roomId)) {
+          case -902090046:
+          case 2100001043: {
+            if (input.isAtField(FieldNames.siteId)) {
               if (!input.trySkipNullValue()) {
-                roomId = input.readUInt32();
+                siteId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -363,11 +403,11 @@ public final class RogueRoomOuterClass {
             }
             break;
           }
-          case -902090046:
-          case 2100001043: {
-            if (input.isAtField(FieldNames.siteId)) {
+          case -925319338:
+          case 1379892991: {
+            if (input.isAtField(FieldNames.roomId)) {
               if (!input.trySkipNullValue()) {
-                siteId = input.readUInt32();
+                roomId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -444,9 +484,9 @@ public final class RogueRoomOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName roomId = FieldName.forField("roomId", "room_id");
-
       static final FieldName siteId = FieldName.forField("siteId", "site_id");
+
+      static final FieldName roomId = FieldName.forField("roomId", "room_id");
 
       static final FieldName roomStatus = FieldName.forField("roomStatus", "room_status");
     }

@@ -19,9 +19,14 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 dialogue_event_id = 5;</code>
+     * <code>optional uint32 dialogue_event_id = 3;</code>
      */
     private int dialogueEventId;
+
+    /**
+     * <code>optional uint32 entity_id = 6;</code>
+     */
+    private int entityId;
 
     private SelectRogueDialogueEventCsReq() {
     }
@@ -34,7 +39,7 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_event_id = 5;</code>
+     * <code>optional uint32 dialogue_event_id = 3;</code>
      * @return whether the dialogueEventId field is set
      */
     public boolean hasDialogueEventId() {
@@ -42,7 +47,7 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_event_id = 5;</code>
+     * <code>optional uint32 dialogue_event_id = 3;</code>
      * @return this
      */
     public SelectRogueDialogueEventCsReq clearDialogueEventId() {
@@ -52,7 +57,7 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_event_id = 5;</code>
+     * <code>optional uint32 dialogue_event_id = 3;</code>
      * @return the dialogueEventId
      */
     public int getDialogueEventId() {
@@ -60,7 +65,7 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_event_id = 5;</code>
+     * <code>optional uint32 dialogue_event_id = 3;</code>
      * @param value the dialogueEventId to set
      * @return this
      */
@@ -70,12 +75,50 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional uint32 entity_id = 6;</code>
+     * @return whether the entityId field is set
+     */
+    public boolean hasEntityId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 6;</code>
+     * @return this
+     */
+    public SelectRogueDialogueEventCsReq clearEntityId() {
+      bitField0_ &= ~0x00000002;
+      entityId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 6;</code>
+     * @return the entityId
+     */
+    public int getEntityId() {
+      return entityId;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 6;</code>
+     * @param value the entityId to set
+     * @return this
+     */
+    public SelectRogueDialogueEventCsReq setEntityId(final int value) {
+      bitField0_ |= 0x00000002;
+      entityId = value;
+      return this;
+    }
+
     @Override
     public SelectRogueDialogueEventCsReq copyFrom(final SelectRogueDialogueEventCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         dialogueEventId = other.dialogueEventId;
+        entityId = other.entityId;
       }
       return this;
     }
@@ -89,6 +132,9 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       if (other.hasDialogueEventId()) {
         setDialogueEventId(other.dialogueEventId);
       }
+      if (other.hasEntityId()) {
+        setEntityId(other.entityId);
+      }
       return this;
     }
 
@@ -100,6 +146,7 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       dialogueEventId = 0;
+      entityId = 0;
       return this;
     }
 
@@ -123,14 +170,19 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       }
       SelectRogueDialogueEventCsReq other = (SelectRogueDialogueEventCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasDialogueEventId() || dialogueEventId == other.dialogueEventId);
+        && (!hasDialogueEventId() || dialogueEventId == other.dialogueEventId)
+        && (!hasEntityId() || entityId == other.entityId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(dialogueEventId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(entityId);
       }
     }
 
@@ -139,6 +191,9 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(dialogueEventId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
       }
       return size;
     }
@@ -150,10 +205,19 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 24: {
             // dialogueEventId
             dialogueEventId = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
+            // entityId
+            entityId = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -179,6 +243,9 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.dialogueEventId, dialogueEventId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.entityId, entityId);
+      }
       output.endObject();
     }
 
@@ -195,6 +262,18 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
               if (!input.trySkipNullValue()) {
                 dialogueEventId = input.readUInt32();
                 bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -2102099874:
+          case -740565257: {
+            if (input.isAtField(FieldNames.entityId)) {
+              if (!input.trySkipNullValue()) {
+                entityId = input.readUInt32();
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -257,6 +336,8 @@ public final class SelectRogueDialogueEventCsReqOuterClass {
      */
     static class FieldNames {
       static final FieldName dialogueEventId = FieldName.forField("dialogueEventId", "dialogue_event_id");
+
+      static final FieldName entityId = FieldName.forField("entityId", "entity_id");
     }
   }
 }

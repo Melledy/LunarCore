@@ -19,14 +19,14 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 site_id = 7;</code>
-     */
-    private int siteId;
-
-    /**
-     * <code>optional uint32 room_id = 11;</code>
+     * <code>optional uint32 room_id = 2;</code>
      */
     private int roomId;
+
+    /**
+     * <code>optional uint32 site_id = 5;</code>
+     */
+    private int siteId;
 
     private EnterRogueMapRoomCsReq() {
     }
@@ -39,62 +39,25 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 7;</code>
-     * @return whether the siteId field is set
+     * <code>optional uint32 room_id = 2;</code>
+     * @return whether the roomId field is set
      */
-    public boolean hasSiteId() {
+    public boolean hasRoomId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 site_id = 7;</code>
-     * @return this
-     */
-    public EnterRogueMapRoomCsReq clearSiteId() {
-      bitField0_ &= ~0x00000001;
-      siteId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 site_id = 7;</code>
-     * @return the siteId
-     */
-    public int getSiteId() {
-      return siteId;
-    }
-
-    /**
-     * <code>optional uint32 site_id = 7;</code>
-     * @param value the siteId to set
-     * @return this
-     */
-    public EnterRogueMapRoomCsReq setSiteId(final int value) {
-      bitField0_ |= 0x00000001;
-      siteId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 room_id = 11;</code>
-     * @return whether the roomId field is set
-     */
-    public boolean hasRoomId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 room_id = 11;</code>
+     * <code>optional uint32 room_id = 2;</code>
      * @return this
      */
     public EnterRogueMapRoomCsReq clearRoomId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       roomId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 room_id = 11;</code>
+     * <code>optional uint32 room_id = 2;</code>
      * @return the roomId
      */
     public int getRoomId() {
@@ -102,13 +65,50 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 11;</code>
+     * <code>optional uint32 room_id = 2;</code>
      * @param value the roomId to set
      * @return this
      */
     public EnterRogueMapRoomCsReq setRoomId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       roomId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 site_id = 5;</code>
+     * @return whether the siteId field is set
+     */
+    public boolean hasSiteId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 site_id = 5;</code>
+     * @return this
+     */
+    public EnterRogueMapRoomCsReq clearSiteId() {
+      bitField0_ &= ~0x00000002;
+      siteId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 site_id = 5;</code>
+     * @return the siteId
+     */
+    public int getSiteId() {
+      return siteId;
+    }
+
+    /**
+     * <code>optional uint32 site_id = 5;</code>
+     * @param value the siteId to set
+     * @return this
+     */
+    public EnterRogueMapRoomCsReq setSiteId(final int value) {
+      bitField0_ |= 0x00000002;
+      siteId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class EnterRogueMapRoomCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        siteId = other.siteId;
         roomId = other.roomId;
+        siteId = other.siteId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class EnterRogueMapRoomCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasSiteId()) {
-        setSiteId(other.siteId);
-      }
       if (other.hasRoomId()) {
         setRoomId(other.roomId);
+      }
+      if (other.hasSiteId()) {
+        setSiteId(other.siteId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class EnterRogueMapRoomCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      siteId = 0;
       roomId = 0;
+      siteId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class EnterRogueMapRoomCsReqOuterClass {
       }
       EnterRogueMapRoomCsReq other = (EnterRogueMapRoomCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasSiteId() || siteId == other.siteId)
-        && (!hasRoomId() || roomId == other.roomId);
+        && (!hasRoomId() || roomId == other.roomId)
+        && (!hasSiteId() || siteId == other.siteId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(siteId);
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(roomId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(roomId);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(siteId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(siteId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(roomId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(roomId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(siteId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class EnterRogueMapRoomCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
-            // siteId
-            siteId = input.readUInt32();
+          case 16: {
+            // roomId
+            roomId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 40) {
               break;
             }
           }
-          case 88: {
-            // roomId
-            roomId = input.readUInt32();
+          case 40: {
+            // siteId
+            siteId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.siteId, siteId);
+        output.writeUInt32(FieldNames.roomId, roomId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.roomId, roomId);
+        output.writeUInt32(FieldNames.siteId, siteId);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class EnterRogueMapRoomCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -902090046:
-          case 2100001043: {
-            if (input.isAtField(FieldNames.siteId)) {
+          case -925319338:
+          case 1379892991: {
+            if (input.isAtField(FieldNames.roomId)) {
               if (!input.trySkipNullValue()) {
-                siteId = input.readUInt32();
+                roomId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class EnterRogueMapRoomCsReqOuterClass {
             }
             break;
           }
-          case -925319338:
-          case 1379892991: {
-            if (input.isAtField(FieldNames.roomId)) {
+          case -902090046:
+          case 2100001043: {
+            if (input.isAtField(FieldNames.siteId)) {
               if (!input.trySkipNullValue()) {
-                roomId = input.readUInt32();
+                siteId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class EnterRogueMapRoomCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName siteId = FieldName.forField("siteId", "site_id");
-
       static final FieldName roomId = FieldName.forField("roomId", "room_id");
+
+      static final FieldName siteId = FieldName.forField("siteId", "site_id");
     }
   }
 }

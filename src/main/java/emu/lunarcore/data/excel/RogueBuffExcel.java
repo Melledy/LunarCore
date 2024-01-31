@@ -31,7 +31,7 @@ public class RogueBuffExcel extends GameResource {
     @Override
     public void onLoad() {
         // Add to random buff list
-        if (RogueBuffType >= 120 && RogueBuffType <= 126 && RogueBuffRarity >= 1 && RogueBuffRarity <= 3 && MazeBuffLevel == 1 && AeonID == 0) {
+        if (RogueBuffType >= 120 && RogueBuffType <= 128 && RogueBuffRarity >= 1 && RogueBuffRarity <= 3 && MazeBuffLevel == 1 && AeonID == 0) {
             GameDepot.getRogueRandomBuffList().add(this);
         }
 

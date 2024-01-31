@@ -13,6 +13,7 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.proto.RogueAeonInfoOuterClass.RogueAeonInfo;
+import emu.lunarcore.proto.RogueAreaInfoOuterClass.RogueAreaInfo;
 import emu.lunarcore.proto.RogueAreaOuterClass.RogueArea;
 import emu.lunarcore.proto.RogueAreaStatusOuterClass.RogueAreaStatus;
 import emu.lunarcore.proto.RogueInfoDataOuterClass.RogueInfoData;
@@ -98,6 +99,7 @@ public class RogueManager extends BasePlayerManager {
         // Get entrance id
         RogueInstance instance = new RogueInstance(getPlayer(), rogueAreaExcel, aeonExcel);
         getPlayer().setRogueInstance(instance);
+        instance.createBonusSelect(1);
         
         // Set starting SP
         boolean extraSP = this.hasTalent(32);
@@ -175,55 +177,53 @@ public class RogueManager extends BasePlayerManager {
         
         var score = RogueScoreRewardInfo.newInstance()
                 .setPoolId(20 + getPlayer().getWorldLevel()) // TODO pool ids should not change when world level changes
-                .setPoolRefreshed(true)
-                .setHasTakenInitialScore(true);
+                //.setPoolRefreshed(true)
+                .setHasTakenInitialScore(true)
+                .setBeginTime(beginTime)
+                .setEndTime(endTime);
         
         var season = RogueSeasonInfo.newInstance()
                 .setBeginTime(beginTime)
                 .setSeasonId(seasonId)
                 .setEndTime(endTime);
         
-        var data = RogueInfoData.newInstance()
-                .setRogueScoreInfo(score)
-                .setRogueSeasonInfo(season);
-
-        var proto = RogueInfo.newInstance()
-                .setRogueScoreInfo(score)
-                .setRogueData(data)
-                .setRogueVirtualItemInfo(getPlayer().toRogueVirtualItemsProto())
-                .setSeasonId(seasonId)
-                .setBeginTime(beginTime)
-                .setEndTime(endTime);
-        
         // Path resonance
         var aeonInfo = RogueAeonInfo.newInstance();
         
-        if (this.hasTalent(1)) {
+        aeonInfo.setIsUnlocked(false);
+        
+        if (this.hasTalent(1) || true) {  // Consider using a constant for this because talent is not working now
             aeonInfo = RogueAeonInfo.newInstance()
                     .setUnlockAeonNum(GameData.getRogueAeonExcelMap().size());
             
             for (var aeonExcel : GameData.getRogueAeonExcelMap().values()) {
                 aeonInfo.addAeonIdList(aeonExcel.getAeonID());
             }
-            
-            proto.setRogueAeonInfo(aeonInfo);
+            aeonInfo.setIsUnlocked(true);
+            aeonInfo.setJPEBPGIEGPO(3);  // guess
         }
+
+        var data = RogueInfoData.newInstance()
+            .setRogueScoreInfo(score)
+            .setRogueAeonInfo(aeonInfo)
+            .setRogueSeasonInfo(season);
         
         // Rogue data
         RogueInstance instance = this.getPlayer().getRogueInstance();
-        if (instance != null) {
-            proto.setStatus(instance.getStatus());
-            proto.setRogueProgress(this.getPlayer().getRogueInstance().toProto());
-            proto.setRoomMap(proto.getRogueProgress().getRoomMap());
-            
-            for (int id : instance.getBaseAvatarIds()) {
-                proto.addBaseAvatarIdList(id);
-            }
-            
-            aeonInfo.setSelectedAeonId(instance.getAeonId());
-        }
+//        if (instance != null) {
+//            proto.setStatus(instance.getStatus());
+//            proto.setRogueProgress(this.getPlayer().getRogueInstance().toProto());
+//            proto.setRoomMap(proto.getRogueProgress().getRoomMap());
+//            
+//            for (int id : instance.getBaseAvatarIds()) {
+//                proto.addBaseAvatarIdList(id);
+//            }
+//            
+//            aeonInfo.setSelectedAeonId(instance.getAeonId());
+//        }
         
         // Add areas
+        var areaInfo = RogueAreaInfo.newInstance();
         if (schedule != null) {
             for (int i = 0; i < schedule.getRogueAreaIDList().length; i++) {
                 var excel = GameData.getRogueAreaExcelMap().get(schedule.getRogueAreaIDList()[i]);
@@ -231,16 +231,25 @@ public class RogueManager extends BasePlayerManager {
                 
                 var area = RogueArea.newInstance()
                         .setAreaId(excel.getRogueAreaID())
-                        .setRogueAreaStatus(RogueAreaStatus.ROGUE_AREA_STATUS_FIRST_PASS);
+                        .setRogueAreaStatus(RogueAreaStatus.ROGUE_AREA_STATUS_FIRST_PASS.getNumber());
                 
                 if (instance != null && excel == instance.getExcel()) {
                     area.setMapId(instance.getExcel().getMapId());
                     area.setCurReachRoomNum(instance.getCurrentRoomProgress());
-                    area.setRogueStatus(instance.getStatus());
+                    //area.setRogueStatus(instance.getStatus());
                 }
                 
-                proto.addRogueAreaList(area);
+                //proto.addRogueAreaList(area);
+                areaInfo.addRogueArea(area);
             }
+        }
+        data.setRogueAreaInfo(areaInfo);
+        
+        var proto = RogueInfo.newInstance()
+            .setRogueInfoData(data);
+        
+        if (instance != null) {
+            proto.setRogueCurrentInfo(instance.toProto());
         }
         
         return proto;
