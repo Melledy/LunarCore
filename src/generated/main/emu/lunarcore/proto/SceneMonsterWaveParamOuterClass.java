@@ -19,9 +19,24 @@ public final class SceneMonsterWaveParamOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <code>optional uint32 DNDLGLKFBHB = 5;</code>
+     */
+    private int dNDLGLKFBHB;
+
+    /**
      * <code>optional uint32 level = 8;</code>
      */
     private int level;
+
+    /**
+     * <code>optional uint32 AGFKKDONMOI = 14;</code>
+     */
+    private int aGFKKDONMOI;
+
+    /**
+     * <code>optional uint32 APKKFCLEGCI = 15;</code>
+     */
+    private int aPKKFCLEGCI;
 
     private SceneMonsterWaveParam() {
     }
@@ -34,11 +49,48 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
+     * <code>optional uint32 DNDLGLKFBHB = 5;</code>
+     * @return whether the dNDLGLKFBHB field is set
+     */
+    public boolean hasDNDLGLKFBHB() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional uint32 DNDLGLKFBHB = 5;</code>
+     * @return this
+     */
+    public SceneMonsterWaveParam clearDNDLGLKFBHB() {
+      bitField0_ &= ~0x00000001;
+      dNDLGLKFBHB = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 DNDLGLKFBHB = 5;</code>
+     * @return the dNDLGLKFBHB
+     */
+    public int getDNDLGLKFBHB() {
+      return dNDLGLKFBHB;
+    }
+
+    /**
+     * <code>optional uint32 DNDLGLKFBHB = 5;</code>
+     * @param value the dNDLGLKFBHB to set
+     * @return this
+     */
+    public SceneMonsterWaveParam setDNDLGLKFBHB(final int value) {
+      bitField0_ |= 0x00000001;
+      dNDLGLKFBHB = value;
+      return this;
+    }
+
+    /**
      * <code>optional uint32 level = 8;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -46,7 +98,7 @@ public final class SceneMonsterWaveParamOuterClass {
      * @return this
      */
     public SceneMonsterWaveParam clearLevel() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       level = 0;
       return this;
     }
@@ -65,8 +117,82 @@ public final class SceneMonsterWaveParamOuterClass {
      * @return this
      */
     public SceneMonsterWaveParam setLevel(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       level = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 AGFKKDONMOI = 14;</code>
+     * @return whether the aGFKKDONMOI field is set
+     */
+    public boolean hasAGFKKDONMOI() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 AGFKKDONMOI = 14;</code>
+     * @return this
+     */
+    public SceneMonsterWaveParam clearAGFKKDONMOI() {
+      bitField0_ &= ~0x00000004;
+      aGFKKDONMOI = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 AGFKKDONMOI = 14;</code>
+     * @return the aGFKKDONMOI
+     */
+    public int getAGFKKDONMOI() {
+      return aGFKKDONMOI;
+    }
+
+    /**
+     * <code>optional uint32 AGFKKDONMOI = 14;</code>
+     * @param value the aGFKKDONMOI to set
+     * @return this
+     */
+    public SceneMonsterWaveParam setAGFKKDONMOI(final int value) {
+      bitField0_ |= 0x00000004;
+      aGFKKDONMOI = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 APKKFCLEGCI = 15;</code>
+     * @return whether the aPKKFCLEGCI field is set
+     */
+    public boolean hasAPKKFCLEGCI() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 APKKFCLEGCI = 15;</code>
+     * @return this
+     */
+    public SceneMonsterWaveParam clearAPKKFCLEGCI() {
+      bitField0_ &= ~0x00000008;
+      aPKKFCLEGCI = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 APKKFCLEGCI = 15;</code>
+     * @return the aPKKFCLEGCI
+     */
+    public int getAPKKFCLEGCI() {
+      return aPKKFCLEGCI;
+    }
+
+    /**
+     * <code>optional uint32 APKKFCLEGCI = 15;</code>
+     * @param value the aPKKFCLEGCI to set
+     * @return this
+     */
+    public SceneMonsterWaveParam setAPKKFCLEGCI(final int value) {
+      bitField0_ |= 0x00000008;
+      aPKKFCLEGCI = value;
       return this;
     }
 
@@ -75,7 +201,10 @@ public final class SceneMonsterWaveParamOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        dNDLGLKFBHB = other.dNDLGLKFBHB;
         level = other.level;
+        aGFKKDONMOI = other.aGFKKDONMOI;
+        aPKKFCLEGCI = other.aPKKFCLEGCI;
       }
       return this;
     }
@@ -86,8 +215,17 @@ public final class SceneMonsterWaveParamOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasDNDLGLKFBHB()) {
+        setDNDLGLKFBHB(other.dNDLGLKFBHB);
+      }
       if (other.hasLevel()) {
         setLevel(other.level);
+      }
+      if (other.hasAGFKKDONMOI()) {
+        setAGFKKDONMOI(other.aGFKKDONMOI);
+      }
+      if (other.hasAPKKFCLEGCI()) {
+        setAPKKFCLEGCI(other.aPKKFCLEGCI);
       }
       return this;
     }
@@ -99,7 +237,10 @@ public final class SceneMonsterWaveParamOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      dNDLGLKFBHB = 0;
       level = 0;
+      aGFKKDONMOI = 0;
+      aPKKFCLEGCI = 0;
       return this;
     }
 
@@ -123,14 +264,29 @@ public final class SceneMonsterWaveParamOuterClass {
       }
       SceneMonsterWaveParam other = (SceneMonsterWaveParam) o;
       return bitField0_ == other.bitField0_
-        && (!hasLevel() || level == other.level);
+        && (!hasDNDLGLKFBHB() || dNDLGLKFBHB == other.dNDLGLKFBHB)
+        && (!hasLevel() || level == other.level)
+        && (!hasAGFKKDONMOI() || aGFKKDONMOI == other.aGFKKDONMOI)
+        && (!hasAPKKFCLEGCI() || aPKKFCLEGCI == other.aPKKFCLEGCI);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(dNDLGLKFBHB);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(level);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(aGFKKDONMOI);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(aPKKFCLEGCI);
       }
     }
 
@@ -138,7 +294,16 @@ public final class SceneMonsterWaveParamOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(dNDLGLKFBHB);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(aGFKKDONMOI);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(aPKKFCLEGCI);
       }
       return size;
     }
@@ -150,10 +315,37 @@ public final class SceneMonsterWaveParamOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 40: {
+            // dNDLGLKFBHB
+            dNDLGLKFBHB = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 64) {
+              break;
+            }
+          }
           case 64: {
             // level
             level = input.readUInt32();
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 112) {
+              break;
+            }
+          }
+          case 112: {
+            // aGFKKDONMOI
+            aGFKKDONMOI = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // aPKKFCLEGCI
+            aPKKFCLEGCI = input.readUInt32();
+            bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -177,7 +369,16 @@ public final class SceneMonsterWaveParamOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeUInt32(FieldNames.dNDLGLKFBHB, dNDLGLKFBHB);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.level, level);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.aGFKKDONMOI, aGFKKDONMOI);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.aPKKFCLEGCI, aPKKFCLEGCI);
       }
       output.endObject();
     }
@@ -189,11 +390,44 @@ public final class SceneMonsterWaveParamOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 1710437610: {
+            if (input.isAtField(FieldNames.dNDLGLKFBHB)) {
+              if (!input.trySkipNullValue()) {
+                dNDLGLKFBHB = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 102865796: {
             if (input.isAtField(FieldNames.level)) {
               if (!input.trySkipNullValue()) {
                 level = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -2145842908: {
+            if (input.isAtField(FieldNames.aGFKKDONMOI)) {
+              if (!input.trySkipNullValue()) {
+                aGFKKDONMOI = input.readUInt32();
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -241059960: {
+            if (input.isAtField(FieldNames.aPKKFCLEGCI)) {
+              if (!input.trySkipNullValue()) {
+                aPKKFCLEGCI = input.readUInt32();
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -253,7 +487,13 @@ public final class SceneMonsterWaveParamOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName dNDLGLKFBHB = FieldName.forField("DNDLGLKFBHB");
+
       static final FieldName level = FieldName.forField("level");
+
+      static final FieldName aGFKKDONMOI = FieldName.forField("AGFKKDONMOI");
+
+      static final FieldName aPKKFCLEGCI = FieldName.forField("APKKFCLEGCI");
     }
   }
 }

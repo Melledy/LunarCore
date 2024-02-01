@@ -78,7 +78,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
         PropRogueData propExtra = null;
         
         // Rogue Door id is 1000
-        if (propId == 1000 || propId == 1021) {
+        if (propId == 1000 || propId == 1021 || propId == 1022 || propId == 1023) {
             // Site index
             int index = 0;
             
@@ -91,15 +91,20 @@ public class RogueEntityLoader extends SceneEntityLoader {
             RogueRoomData room = rogue.getCurrentRoom();
             if (room.getNextSiteIds().length > 0) {
                 int siteId = room.getNextSiteIds()[index];
-                int roomId = rogue.getRooms().get(siteId).getRoomId();
+                var nextRoom = rogue.getRooms().get(siteId);
                 
-                propExtra = new PropRogueData(roomId, siteId);
+                propId = switch (nextRoom.getRoomExcel().getRogueRoomType()) {
+                    case 3 -> 1022;
+                    case 5 -> 1023;
+                    default -> 1021;
+                };
+                propExtra = new PropRogueData(nextRoom.getRoomId(), siteId);
             } else {
                 // Exit portal?
+                propId = 1000;
             }
-            
+
             // Force rogue door to be open
-            propId = 1021;
             state = PropState.Open;
         }
         

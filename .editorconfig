@@ -7,7 +7,7 @@ indent_style = space
 insert_final_newline = true
 max_line_length = 120
 tab_width = 4
-trim_trailing_whitespace = true
+trim_trailing_whitespace = false
 
 [{*.json,*.xml,*.yml,*.html}]
 indent_size = 2

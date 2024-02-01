@@ -65,6 +65,10 @@ public final class BattleAvatarOuterClass {
     private int avatarType;
 
     /**
+     * <pre>
+     * DGPADLEIDFM BLGGGJFHGCP = 15;
+     * </pre>
+     *
      * <code>optional .SpBarInfo sp_bar = 16;</code>
      */
     private final SpBarInfoOuterClass.SpBarInfo spBar = SpBarInfoOuterClass.SpBarInfo.newInstance();
@@ -453,6 +457,10 @@ public final class BattleAvatarOuterClass {
     }
 
     /**
+     * <pre>
+     * DGPADLEIDFM BLGGGJFHGCP = 15;
+     * </pre>
+     *
      * <code>optional .SpBarInfo sp_bar = 16;</code>
      * @return whether the spBar field is set
      */
@@ -461,6 +469,10 @@ public final class BattleAvatarOuterClass {
     }
 
     /**
+     * <pre>
+     * DGPADLEIDFM BLGGGJFHGCP = 15;
+     * </pre>
+     *
      * <code>optional .SpBarInfo sp_bar = 16;</code>
      * @return this
      */
@@ -471,6 +483,10 @@ public final class BattleAvatarOuterClass {
     }
 
     /**
+     * <pre>
+     * DGPADLEIDFM BLGGGJFHGCP = 15;
+     * </pre>
+     *
      * <code>optional .SpBarInfo sp_bar = 16;</code>
      *
      * This method returns the internal storage object without modifying any has state.
@@ -485,6 +501,10 @@ public final class BattleAvatarOuterClass {
     }
 
     /**
+     * <pre>
+     * DGPADLEIDFM BLGGGJFHGCP = 15;
+     * </pre>
+     *
      * <code>optional .SpBarInfo sp_bar = 16;</code>
      *
      * This method returns the internal storage object and sets the corresponding
@@ -499,6 +519,10 @@ public final class BattleAvatarOuterClass {
     }
 
     /**
+     * <pre>
+     * DGPADLEIDFM BLGGGJFHGCP = 15;
+     * </pre>
+     *
      * <code>optional .SpBarInfo sp_bar = 16;</code>
      * @param value the spBar to set
      * @return this

@@ -20,7 +20,7 @@ public class RogueEventManager {
         var param = event.getRogueEffectParamList();
         switch (event.getRogueEffectType()) {
             case GetItem -> rogueInstance.setMoney(rogueInstance.getMoney() + param.get(1));
-            case TriggerBattle -> rogueInstance.createBuffSelect(3);  //this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0));  // NOT WORKING
+            case TriggerBattle -> this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0));  // Client Send Packet SceneEnterStageCsReq so we dont have to handle it here
             case TriggerRogueMiracleSelect -> this.getRogueInstance().createMiracleSelect(1);
             case TriggerRogueBuffSelect -> this.getRogueInstance().createBuffSelect(1);
         }
