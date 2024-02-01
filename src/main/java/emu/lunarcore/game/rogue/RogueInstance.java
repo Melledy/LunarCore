@@ -469,6 +469,8 @@ public class RogueInstance {
                 int amount = battle.getNpcMonsters().size();
                 this.createBuffSelect(amount);
             }
+        } else {
+            this.getPlayer().getRogueManager().quitRogue();
         }
     }
     
