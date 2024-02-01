@@ -19,19 +19,18 @@ public final class RogueAeonOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 aeon_id = 7;</code>
+     * <code>optional uint32 aeon_id = 10;</code>
      */
     private int aeonId;
 
     /**
-     * <code>optional uint32 OFBCBEIEAEC = 10;</code>
+     * <pre>
+     * uint32 aeon_id = 7;  
+     * </pre>
+     *
+     * <code>optional bool is_unlock_enhance_buff = 12;</code>
      */
-    private int oFBCBEIEAEC;
-
-    /**
-     * <code>optional bool CGAFFPHCNEA = 12;</code>
-     */
-    private boolean cGAFFPHCNEA;
+    private boolean isUnlockEnhanceBuff;
 
     private RogueAeon() {
     }
@@ -44,7 +43,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 7;</code>
+     * <code>optional uint32 aeon_id = 10;</code>
      * @return whether the aeonId field is set
      */
     public boolean hasAeonId() {
@@ -52,7 +51,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 7;</code>
+     * <code>optional uint32 aeon_id = 10;</code>
      * @return this
      */
     public RogueAeon clearAeonId() {
@@ -62,7 +61,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 7;</code>
+     * <code>optional uint32 aeon_id = 10;</code>
      * @return the aeonId
      */
     public int getAeonId() {
@@ -70,7 +69,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 7;</code>
+     * <code>optional uint32 aeon_id = 10;</code>
      * @param value the aeonId to set
      * @return this
      */
@@ -81,76 +80,55 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 OFBCBEIEAEC = 10;</code>
-     * @return whether the oFBCBEIEAEC field is set
+     * <pre>
+     * uint32 aeon_id = 7;  
+     * </pre>
+     *
+     * <code>optional bool is_unlock_enhance_buff = 12;</code>
+     * @return whether the isUnlockEnhanceBuff field is set
      */
-    public boolean hasOFBCBEIEAEC() {
+    public boolean hasIsUnlockEnhanceBuff() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 OFBCBEIEAEC = 10;</code>
+     * <pre>
+     * uint32 aeon_id = 7;  
+     * </pre>
+     *
+     * <code>optional bool is_unlock_enhance_buff = 12;</code>
      * @return this
      */
-    public RogueAeon clearOFBCBEIEAEC() {
+    public RogueAeon clearIsUnlockEnhanceBuff() {
       bitField0_ &= ~0x00000002;
-      oFBCBEIEAEC = 0;
+      isUnlockEnhanceBuff = false;
       return this;
     }
 
     /**
-     * <code>optional uint32 OFBCBEIEAEC = 10;</code>
-     * @return the oFBCBEIEAEC
+     * <pre>
+     * uint32 aeon_id = 7;  
+     * </pre>
+     *
+     * <code>optional bool is_unlock_enhance_buff = 12;</code>
+     * @return the isUnlockEnhanceBuff
      */
-    public int getOFBCBEIEAEC() {
-      return oFBCBEIEAEC;
+    public boolean getIsUnlockEnhanceBuff() {
+      return isUnlockEnhanceBuff;
     }
 
     /**
-     * <code>optional uint32 OFBCBEIEAEC = 10;</code>
-     * @param value the oFBCBEIEAEC to set
+     * <pre>
+     * uint32 aeon_id = 7;  
+     * </pre>
+     *
+     * <code>optional bool is_unlock_enhance_buff = 12;</code>
+     * @param value the isUnlockEnhanceBuff to set
      * @return this
      */
-    public RogueAeon setOFBCBEIEAEC(final int value) {
+    public RogueAeon setIsUnlockEnhanceBuff(final boolean value) {
       bitField0_ |= 0x00000002;
-      oFBCBEIEAEC = value;
-      return this;
-    }
-
-    /**
-     * <code>optional bool CGAFFPHCNEA = 12;</code>
-     * @return whether the cGAFFPHCNEA field is set
-     */
-    public boolean hasCGAFFPHCNEA() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional bool CGAFFPHCNEA = 12;</code>
-     * @return this
-     */
-    public RogueAeon clearCGAFFPHCNEA() {
-      bitField0_ &= ~0x00000004;
-      cGAFFPHCNEA = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool CGAFFPHCNEA = 12;</code>
-     * @return the cGAFFPHCNEA
-     */
-    public boolean getCGAFFPHCNEA() {
-      return cGAFFPHCNEA;
-    }
-
-    /**
-     * <code>optional bool CGAFFPHCNEA = 12;</code>
-     * @param value the cGAFFPHCNEA to set
-     * @return this
-     */
-    public RogueAeon setCGAFFPHCNEA(final boolean value) {
-      bitField0_ |= 0x00000004;
-      cGAFFPHCNEA = value;
+      isUnlockEnhanceBuff = value;
       return this;
     }
 
@@ -160,8 +138,7 @@ public final class RogueAeonOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         aeonId = other.aeonId;
-        oFBCBEIEAEC = other.oFBCBEIEAEC;
-        cGAFFPHCNEA = other.cGAFFPHCNEA;
+        isUnlockEnhanceBuff = other.isUnlockEnhanceBuff;
       }
       return this;
     }
@@ -175,11 +152,8 @@ public final class RogueAeonOuterClass {
       if (other.hasAeonId()) {
         setAeonId(other.aeonId);
       }
-      if (other.hasOFBCBEIEAEC()) {
-        setOFBCBEIEAEC(other.oFBCBEIEAEC);
-      }
-      if (other.hasCGAFFPHCNEA()) {
-        setCGAFFPHCNEA(other.cGAFFPHCNEA);
+      if (other.hasIsUnlockEnhanceBuff()) {
+        setIsUnlockEnhanceBuff(other.isUnlockEnhanceBuff);
       }
       return this;
     }
@@ -192,8 +166,7 @@ public final class RogueAeonOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       aeonId = 0;
-      oFBCBEIEAEC = 0;
-      cGAFFPHCNEA = false;
+      isUnlockEnhanceBuff = false;
       return this;
     }
 
@@ -218,23 +191,18 @@ public final class RogueAeonOuterClass {
       RogueAeon other = (RogueAeon) o;
       return bitField0_ == other.bitField0_
         && (!hasAeonId() || aeonId == other.aeonId)
-        && (!hasOFBCBEIEAEC() || oFBCBEIEAEC == other.oFBCBEIEAEC)
-        && (!hasCGAFFPHCNEA() || cGAFFPHCNEA == other.cGAFFPHCNEA);
+        && (!hasIsUnlockEnhanceBuff() || isUnlockEnhanceBuff == other.isUnlockEnhanceBuff);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(oFBCBEIEAEC);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 96);
-        output.writeBoolNoTag(cGAFFPHCNEA);
+        output.writeBoolNoTag(isUnlockEnhanceBuff);
       }
     }
 
@@ -245,9 +213,6 @@ public final class RogueAeonOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(oFBCBEIEAEC);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 2;
       }
       return size;
@@ -260,28 +225,19 @@ public final class RogueAeonOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 80: {
             // aeonId
             aeonId = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
-            // oFBCBEIEAEC
-            oFBCBEIEAEC = input.readUInt32();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 96) {
               break;
             }
           }
           case 96: {
-            // cGAFFPHCNEA
-            cGAFFPHCNEA = input.readBool();
-            bitField0_ |= 0x00000004;
+            // isUnlockEnhanceBuff
+            isUnlockEnhanceBuff = input.readBool();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -308,10 +264,7 @@ public final class RogueAeonOuterClass {
         output.writeUInt32(FieldNames.aeonId, aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.oFBCBEIEAEC, oFBCBEIEAEC);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeBool(FieldNames.cGAFFPHCNEA, cGAFFPHCNEA);
+        output.writeBool(FieldNames.isUnlockEnhanceBuff, isUnlockEnhanceBuff);
       }
       output.endObject();
     }
@@ -335,22 +288,12 @@ public final class RogueAeonOuterClass {
             }
             break;
           }
-          case 1165634632: {
-            if (input.isAtField(FieldNames.oFBCBEIEAEC)) {
+          case -1006386637:
+          case -118645302: {
+            if (input.isAtField(FieldNames.isUnlockEnhanceBuff)) {
               if (!input.trySkipNullValue()) {
-                oFBCBEIEAEC = input.readUInt32();
+                isUnlockEnhanceBuff = input.readBool();
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -927350692: {
-            if (input.isAtField(FieldNames.cGAFFPHCNEA)) {
-              if (!input.trySkipNullValue()) {
-                cGAFFPHCNEA = input.readBool();
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -411,9 +354,7 @@ public final class RogueAeonOuterClass {
     static class FieldNames {
       static final FieldName aeonId = FieldName.forField("aeonId", "aeon_id");
 
-      static final FieldName oFBCBEIEAEC = FieldName.forField("OFBCBEIEAEC");
-
-      static final FieldName cGAFFPHCNEA = FieldName.forField("CGAFFPHCNEA");
+      static final FieldName isUnlockEnhanceBuff = FieldName.forField("isUnlockEnhanceBuff", "is_unlock_enhance_buff");
     }
   }
 }

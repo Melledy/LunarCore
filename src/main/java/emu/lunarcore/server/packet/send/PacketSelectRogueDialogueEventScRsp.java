@@ -16,7 +16,7 @@ import java.util.ArrayList;
 
 public class PacketSelectRogueDialogueEventScRsp extends BasePacket {
 
-    public PacketSelectRogueDialogueEventScRsp(int dialogueEventId, int entityId, Player player) {
+    public PacketSelectRogueDialogueEventScRsp(int dialogueEventId, EntityNpc npc) {
         super(CmdId.SelectRogueDialogueEventScRsp);
         
         var data = SelectRogueDialogueEventScRsp.newInstance()
@@ -25,6 +25,7 @@ public class PacketSelectRogueDialogueEventScRsp extends BasePacket {
         RogueNPCExcel rogueNpcExcel = Utils.randomElement(GameDepot.getRogueRandomNpcList());
         var params = new ArrayList<RogueDialogueEventParam>();
         var start = rogueNpcExcel.getId();
+        
         while (true) {
             var event = GameData.getRogueDialogueEventList().get(start);
             if (event == null) break;
@@ -33,8 +34,9 @@ public class PacketSelectRogueDialogueEventScRsp extends BasePacket {
                 .setIsValid(true));
             start++;
         }
+        
         var event = RogueDialogueEvent.newInstance()
-            .setNpcId(((EntityNpc)player.getScene().getEntityById(entityId)).getRogueNpcId())
+            .setNpcId(npc.getRogueNpcId())
             .setGameModeType(5)
             .addAllNNOHLEAOJPP(dialogueEventId)
             .addAllRogueDialogueEventParam(params.toArray(RogueDialogueEventParam[]::new));

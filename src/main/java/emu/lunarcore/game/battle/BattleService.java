@@ -166,7 +166,7 @@ public class BattleService extends BaseGameService {
         player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
     }
     
-    public void startBattle(Player player, int stageId) {
+    public void startBattle(Player player, int stageId) {  // TODO: should send SceneEnterStageScRsp instead of SceneCastSkillScRsp
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
             return;

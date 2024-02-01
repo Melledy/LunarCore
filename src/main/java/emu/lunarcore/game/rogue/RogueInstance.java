@@ -555,7 +555,7 @@ public class RogueInstance {
     
     public RogueAeon toAeonProto() {
         var proto = RogueAeon.newInstance()
-                .setOFBCBEIEAEC(this.getAeonId());
+                .setAeonId(this.getAeonId());
         
         return proto;
     }

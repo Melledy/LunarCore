@@ -1,6 +1,5 @@
 package emu.lunarcore.game.rogue;
 
-import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.config.GroupInfo;
@@ -23,7 +22,6 @@ import emu.lunarcore.server.packet.send.PacketSyncRogueDialogueEventDataScNotify
 import emu.lunarcore.util.Utils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class RogueEntityLoader extends SceneEntityLoader {
     
