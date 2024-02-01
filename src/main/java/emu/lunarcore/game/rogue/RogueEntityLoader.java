@@ -94,7 +94,7 @@ public class RogueEntityLoader extends SceneEntityLoader {
                 var nextRoom = rogue.getRooms().get(siteId);
                 
                 propId = switch (nextRoom.getRoomExcel().getRogueRoomType()) {
-                    case 3 -> 1022;
+                    case 3,8 -> 1022;
                     case 5 -> 1023;
                     default -> 1021;
                 };
