@@ -44,9 +44,9 @@ public final class NpcRogueInfoOuterClass {
     private int gBMDBBBMBEJ;
 
     /**
-     * <code>optional bool BHPGGEOBJHM = 5;</code>
+     * <code>optional bool finish_dialogue = 5;</code>
      */
-    private boolean bHPGGEOBJHM;
+    private boolean finishDialogue;
 
     /**
      * <code>optional bool MNINDBMAJKL = 7;</code>
@@ -238,39 +238,39 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional bool BHPGGEOBJHM = 5;</code>
-     * @return whether the bHPGGEOBJHM field is set
+     * <code>optional bool finish_dialogue = 5;</code>
+     * @return whether the finishDialogue field is set
      */
-    public boolean hasBHPGGEOBJHM() {
+    public boolean hasFinishDialogue() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional bool BHPGGEOBJHM = 5;</code>
+     * <code>optional bool finish_dialogue = 5;</code>
      * @return this
      */
-    public NpcRogueInfo clearBHPGGEOBJHM() {
+    public NpcRogueInfo clearFinishDialogue() {
       bitField0_ &= ~0x00000010;
-      bHPGGEOBJHM = false;
+      finishDialogue = false;
       return this;
     }
 
     /**
-     * <code>optional bool BHPGGEOBJHM = 5;</code>
-     * @return the bHPGGEOBJHM
+     * <code>optional bool finish_dialogue = 5;</code>
+     * @return the finishDialogue
      */
-    public boolean getBHPGGEOBJHM() {
-      return bHPGGEOBJHM;
+    public boolean getFinishDialogue() {
+      return finishDialogue;
     }
 
     /**
-     * <code>optional bool BHPGGEOBJHM = 5;</code>
-     * @param value the bHPGGEOBJHM to set
+     * <code>optional bool finish_dialogue = 5;</code>
+     * @param value the finishDialogue to set
      * @return this
      */
-    public NpcRogueInfo setBHPGGEOBJHM(final boolean value) {
+    public NpcRogueInfo setFinishDialogue(final boolean value) {
       bitField0_ |= 0x00000010;
-      bHPGGEOBJHM = value;
+      finishDialogue = value;
       return this;
     }
 
@@ -425,7 +425,7 @@ public final class NpcRogueInfoOuterClass {
         rogueNpcId = other.rogueNpcId;
         iNJPFALMDHJ = other.iNJPFALMDHJ;
         gBMDBBBMBEJ = other.gBMDBBBMBEJ;
-        bHPGGEOBJHM = other.bHPGGEOBJHM;
+        finishDialogue = other.finishDialogue;
         mNINDBMAJKL = other.mNINDBMAJKL;
         aGBFDIIKPKF = other.aGBFDIIKPKF;
         hCGOEHLPCMD.copyFrom(other.hCGOEHLPCMD);
@@ -451,8 +451,8 @@ public final class NpcRogueInfoOuterClass {
       if (other.hasGBMDBBBMBEJ()) {
         setGBMDBBBMBEJ(other.gBMDBBBMBEJ);
       }
-      if (other.hasBHPGGEOBJHM()) {
-        setBHPGGEOBJHM(other.bHPGGEOBJHM);
+      if (other.hasFinishDialogue()) {
+        setFinishDialogue(other.finishDialogue);
       }
       if (other.hasMNINDBMAJKL()) {
         setMNINDBMAJKL(other.mNINDBMAJKL);
@@ -477,7 +477,7 @@ public final class NpcRogueInfoOuterClass {
       rogueNpcId = 0;
       iNJPFALMDHJ = 0;
       gBMDBBBMBEJ = 0;
-      bHPGGEOBJHM = false;
+      finishDialogue = false;
       mNINDBMAJKL = false;
       aGBFDIIKPKF = false;
       hCGOEHLPCMD.clear();
@@ -509,7 +509,7 @@ public final class NpcRogueInfoOuterClass {
         && (!hasRogueNpcId() || rogueNpcId == other.rogueNpcId)
         && (!hasINJPFALMDHJ() || iNJPFALMDHJ == other.iNJPFALMDHJ)
         && (!hasGBMDBBBMBEJ() || gBMDBBBMBEJ == other.gBMDBBBMBEJ)
-        && (!hasBHPGGEOBJHM() || bHPGGEOBJHM == other.bHPGGEOBJHM)
+        && (!hasFinishDialogue() || finishDialogue == other.finishDialogue)
         && (!hasMNINDBMAJKL() || mNINDBMAJKL == other.mNINDBMAJKL)
         && (!hasAGBFDIIKPKF() || aGBFDIIKPKF == other.aGBFDIIKPKF)
         && (!hasHCGOEHLPCMD() || hCGOEHLPCMD.equals(other.hCGOEHLPCMD));
@@ -535,7 +535,7 @@ public final class NpcRogueInfoOuterClass {
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawByte((byte) 40);
-        output.writeBoolNoTag(bHPGGEOBJHM);
+        output.writeBoolNoTag(finishDialogue);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeRawByte((byte) 56);
@@ -627,8 +627,8 @@ public final class NpcRogueInfoOuterClass {
             }
           }
           case 40: {
-            // bHPGGEOBJHM
-            bHPGGEOBJHM = input.readBool();
+            // finishDialogue
+            finishDialogue = input.readBool();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 56) {
@@ -691,7 +691,7 @@ public final class NpcRogueInfoOuterClass {
         output.writeUInt32(FieldNames.gBMDBBBMBEJ, gBMDBBBMBEJ);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeBool(FieldNames.bHPGGEOBJHM, bHPGGEOBJHM);
+        output.writeBool(FieldNames.finishDialogue, finishDialogue);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeBool(FieldNames.mNINDBMAJKL, mNINDBMAJKL);
@@ -757,10 +757,11 @@ public final class NpcRogueInfoOuterClass {
             }
             break;
           }
-          case 1652898465: {
-            if (input.isAtField(FieldNames.bHPGGEOBJHM)) {
+          case 552830859:
+          case 764736516: {
+            if (input.isAtField(FieldNames.finishDialogue)) {
               if (!input.trySkipNullValue()) {
-                bHPGGEOBJHM = input.readBool();
+                finishDialogue = input.readBool();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -1186,7 +1187,7 @@ public final class NpcRogueInfoOuterClass {
 
       static final FieldName gBMDBBBMBEJ = FieldName.forField("GBMDBBBMBEJ");
 
-      static final FieldName bHPGGEOBJHM = FieldName.forField("BHPGGEOBJHM");
+      static final FieldName finishDialogue = FieldName.forField("finishDialogue", "finish_dialogue");
 
       static final FieldName mNINDBMAJKL = FieldName.forField("MNINDBMAJKL");
 

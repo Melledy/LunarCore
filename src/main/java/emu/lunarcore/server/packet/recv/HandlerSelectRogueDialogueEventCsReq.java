@@ -1,5 +1,7 @@
 package emu.lunarcore.server.packet.recv;
 
+import emu.lunarcore.game.scene.entity.EntityNpc;
+import emu.lunarcore.proto.FinishRogueDialogueGroupCsReqOuterClass.FinishRogueDialogueGroupCsReq;
 import emu.lunarcore.proto.SelectRogueDialogueEventCsReqOuterClass.SelectRogueDialogueEventCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
@@ -17,9 +19,13 @@ public class HandlerSelectRogueDialogueEventCsReq extends PacketHandler {
         if (session.getPlayer().getRogueInstance() != null) {
             session.getPlayer().getRogueInstance().onSelectDialogue(req.getDialogueEventId());
         }
+
+        EntityNpc npc = (EntityNpc)session.getPlayer().getScene().getEntityById(req.getEntityId());
         
-        session.send(new PacketSelectRogueDialogueEventScRsp(req.getDialogueEventId(), req.getEntityId(), session.getPlayer()));
-        session.send(CmdId.FinishRogueDialogueGroupScRsp);
+        session.send(new PacketSelectRogueDialogueEventScRsp(req.getDialogueEventId(), npc));
+        new HandlerFinishRogueDialogueGroupCsReq().handle(session, FinishRogueDialogueGroupCsReq.newInstance()  // using it before the event is implemented
+                .setEntityId(req.getEntityId())
+                .toByteArray());
     }
 
 }
