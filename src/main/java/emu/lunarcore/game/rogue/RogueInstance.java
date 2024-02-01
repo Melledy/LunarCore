@@ -9,6 +9,7 @@ import emu.lunarcore.data.excel.RogueAreaExcel;
 import emu.lunarcore.data.excel.RogueMapExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.enums.RogueBuffAeonType;
+import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.AvatarTypeOuterClass.AvatarType;
@@ -256,6 +257,18 @@ public class RogueInstance {
         return buff;
     }
     
+    public synchronized void addBuff(List<RogueBuffData> buffs) {
+        for (var buff : buffs) {
+            this.addBuff(buff);
+        }
+    }
+    
+    public synchronized void addBuff(RogueBuffData buff) {
+        this.getBuffs().put(buff.getId(), buff);
+        getPlayer().sendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_DIALOGUE, buff.toDataProto()));
+        this.updateBuffSelect();
+    }
+    
     public synchronized void createMiracleSelect(int amount) {
         this.pendingMiracleSelects += amount;
         
@@ -360,6 +373,9 @@ public class RogueInstance {
     }
     
     public synchronized void setMoney(int money) {
+        if (this.money <= money) {
+            getPlayer().sendPacket(new PacketScenePlaneEventScNotify(new GameItem(31, money - this.money)));
+        }
         this.money = money;
         getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this.getPlayer()));
     }

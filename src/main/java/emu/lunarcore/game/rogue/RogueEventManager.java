@@ -2,7 +2,10 @@ package emu.lunarcore.game.rogue;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.util.WeightedList;
 import lombok.Getter;
+
+import java.util.List;
 
 @Getter
 public class RogueEventManager {
@@ -17,12 +20,34 @@ public class RogueEventManager {
     public void handleEvent(int eventId) {
         var event = GameData.getRogueDialogueEventList().get(eventId);
         if (event == null || event.getRogueEffectType() == null) return;
-        var param = event.getRogueEffectParamList();
+        List<Integer> param = event.getRogueEffectParamList();
         switch (event.getRogueEffectType()) {
             case GetItem -> rogueInstance.setMoney(rogueInstance.getMoney() + param.get(1));
-            case TriggerBattle -> this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0));  // Client Send Packet SceneEnterStageCsReq so we dont have to handle it here
+            case TriggerBattle -> this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0));
             case TriggerRogueMiracleSelect -> this.getRogueInstance().createMiracleSelect(1);
             case TriggerRogueBuffSelect -> this.getRogueInstance().createBuffSelect(1);
+            case GetRogueBuff -> {
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                if (rogueBuff != null) {
+                    var weightList = new WeightedList<RogueBuffData>();
+                    for (var buff : rogueBuff.getRogueBuffList()) {
+                        weightList.add(1.0f, buff);
+                    }
+                    // random param.get(1) times
+                    while (true) {
+                        var buff = weightList.next();
+                        if (buff == null || buff.getExcel() == null) break;
+                        if (this.getRogueInstance().getBuffs().containsValue(buff)) continue;
+                        this.getRogueInstance().addBuff(buff);
+                        param.set(1, param.get(1) - 1);
+                        if (param.get(1) <= 0) break;
+                    }
+                }
+            }
+            case GetAllRogueBuffInGroup -> {
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                this.getRogueInstance().addBuff(rogueBuff.getRogueBuffList());
+            }
         }
         handleCost(eventId);
     }
