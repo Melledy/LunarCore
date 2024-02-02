@@ -5,6 +5,7 @@ import emu.lunarcore.proto.RogueMiracleDataOuterClass.RogueMiracleData;
 import emu.lunarcore.proto.RogueActionResultDataOuterClass.RogueActionResultData;
 import emu.lunarcore.proto.RogueActionResultOuterClass.RogueActionResult;
 import emu.lunarcore.proto.RogueBuffSourceOuterClass.RogueBuffSource;
+import emu.lunarcore.proto.RogueVirtualItemDataOuterClass.RogueVirtualItemData;
 import emu.lunarcore.proto.SyncRogueCommonActionResultScNotifyOuterClass.SyncRogueCommonActionResultScNotify;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
@@ -13,7 +14,8 @@ public class PacketSyncRogueCommonActionResultScNotify extends BasePacket {
     public PacketSyncRogueCommonActionResultScNotify(RogueActionResult action) {
         super(CmdId.SyncRogueCommonActionResultScNotify);
         
-        var proto = SyncRogueCommonActionResultScNotify.newInstance();
+        var proto = SyncRogueCommonActionResultScNotify.newInstance()
+            .setOCPBNBPAMEN(101);
         
         proto.setAction(action);
         
@@ -34,5 +36,11 @@ public class PacketSyncRogueCommonActionResultScNotify extends BasePacket {
     public PacketSyncRogueCommonActionResultScNotify(RogueBuffSource source, RogueBuffData buff) {
         this(source, RogueActionResultData.newInstance()
             .setAddBuffList(buff));
+    }
+    
+    public PacketSyncRogueCommonActionResultScNotify(RogueBuffSource source, int addMoneyNum) {
+        this(source, RogueActionResultData.newInstance()
+            .setAddItemList(RogueVirtualItemData.newInstance()
+                .setNum(addMoneyNum)));
     }
 }

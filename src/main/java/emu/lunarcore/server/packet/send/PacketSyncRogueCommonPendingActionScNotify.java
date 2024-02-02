@@ -27,6 +27,10 @@ public class PacketSyncRogueCommonPendingActionScNotify extends BasePacket {
             .setRogueAction(action));
     }
     
+    public PacketSyncRogueCommonPendingActionScNotify(int id) {
+        this(RogueAction.newInstance(), id);
+    }
+    
     public PacketSyncRogueCommonPendingActionScNotify(RogueCommonBuffSelectInfo info, int id) {
         this(RogueAction.newInstance()
                 .setBuffSelectInfo(info), id);

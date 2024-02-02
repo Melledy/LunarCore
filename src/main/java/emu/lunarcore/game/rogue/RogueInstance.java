@@ -4,9 +4,7 @@ import java.util.*;
 
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
-import emu.lunarcore.data.excel.RogueAeonExcel;
-import emu.lunarcore.data.excel.RogueAreaExcel;
-import emu.lunarcore.data.excel.RogueMapExcel;
+import emu.lunarcore.data.excel.*;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.enums.RogueBuffAeonType;
 import emu.lunarcore.game.inventory.GameItem;
@@ -20,9 +18,11 @@ import emu.lunarcore.proto.HandleRogueCommonPendingActionScRspOuterClass.HandleR
 import emu.lunarcore.proto.RogueAeonOuterClass.RogueAeon;
 import emu.lunarcore.proto.RogueAvatarInfoOuterClass.RogueAvatarInfo;
 import emu.lunarcore.proto.RogueBuffInfoOuterClass.RogueBuffInfo;
+import emu.lunarcore.proto.RogueBuffOuterClass.RogueBuff;
 import emu.lunarcore.proto.RogueBuffSourceOuterClass.RogueBuffSource;
 import emu.lunarcore.proto.RogueCommonPendingActionOuterClass.RogueCommonPendingAction;
 import emu.lunarcore.proto.RogueCurrentInfoOuterClass.RogueCurrentInfo;
+import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.proto.RogueFinishInfoOuterClass.RogueFinishInfo;
 import emu.lunarcore.proto.RogueMapInfoOuterClass.RogueMapInfo;
 import emu.lunarcore.proto.RogueMiracleInfoOuterClass.RogueMiracleInfo;
@@ -33,6 +33,8 @@ import emu.lunarcore.proto.RogueStatusOuterClass.RogueStatus;
 import emu.lunarcore.proto.RogueVirtualItemOuterClass.RogueVirtualItem;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Utils;
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
 import us.hebi.quickbuf.RepeatedInt;
 
@@ -52,20 +54,25 @@ public class RogueInstance {
     private Map<Integer, RogueBuffData> buffs;
     private Map<Integer, RogueMiracleData> miracles;
     
-    private int pendingBuffSelects;
+    //private int pendingBuffSelects;
+    private List<Set<RogueBuffData>> pendingBuffSelects = new ArrayList<>();
     private RogueBuffSelectMenu buffSelect;
     private int pendingMiracleSelects;
     private RogueMiracleSelectMenu miracleSelect;
     private int pendingBonusSelects;
     private RogueBonusSelectMenu bonusSelect;
-    private RogueCommonPendingAction pendingAction;
+    public RogueCommonPendingAction pendingAction;
     
     private int baseRerolls;
     private int aeonId;
     private int aeonBuffType;
     private int maxAeonBuffs;
     private int money;  // universal debris
-    private int id = 2;  // idk what this is for, but it's needed for the packet
+    public int id = 2;  // idk what this is for, but it's needed for the packet
+    public int eventId = 690;
+    public Int2ObjectMap<List<RogueDialogueEventParam>> curDialogueParams = new Int2ObjectOpenHashMap<>();
+    private final Set<RogueBuffData> normalBuff = GameData.getRogueBuffGroupExcelMap().get(100005).getRogueBuffList();
+    private final Set<RogueBuffData> uncommonBuff = GameData.getRogueBuffGroupExcelMap().get(100003).getRogueBuffList();
     
     private int roomScore;
     private int earnedTalentCoin;
@@ -121,7 +128,7 @@ public class RogueInstance {
         }
         // Extra blessings
         if (player.getRogueManager().hasTalent(21)) {
-            this.pendingBuffSelects += 1;
+            this.pendingBuffSelects.add(normalBuff);
         }
     }
     
@@ -169,22 +176,46 @@ public class RogueInstance {
         }
     }
     
-    public synchronized void createBuffSelect(int amount) {
-        this.pendingBuffSelects += amount;
+    public synchronized void createBuffSelect(int amount, int groupId) {
+        var buffs = GameData.getRogueBuffGroupExcelMap().get(groupId).getRogueBuffList();
+        if (!buffs.isEmpty()) {
+            for (int i = 0; i < amount; i++) {
+                this.pendingBuffSelects.add(buffs);
+            }
+            RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
+        }
         
-        RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
 //        if (buffSelect != null) {
 //            getPlayer().sendPacket(new PacketSyncRogueBuffSelectInfoScNotify(buffSelect));
 //        }
     }
     
+    public synchronized void createBuffSelect(int amount, Set<RogueBuffData> buffs) {
+        if (!buffs.isEmpty()) {
+            for (int i = 0; i < amount; i++) {
+                this.pendingBuffSelects.add(buffs);
+            }
+            RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
+        }
+//        if (buffSelect != null) {
+//            getPlayer().sendPacket(new PacketSyncRogueBuffSelectInfoScNotify(buffSelect));
+//        }
+    }
+    
+    public synchronized void createBuffSelect(int amount) {
+        for (int i = 0; i < amount; i++) {
+            this.pendingBuffSelects.add(normalBuff);
+        }
+        RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
+    }
+    
     public synchronized RogueBuffSelectMenu updateBuffSelect() {
         if (this.getBuffSelect() == null) {
             // Creates a new blessing selection menu if we have any pending buff selects
-            if (this.pendingBuffSelects > 0) {
+            if (!this.pendingBuffSelects.isEmpty()) {
                 // Regular blessing selection with 3 random blessings
-                this.buffSelect = new RogueBuffSelectMenu(this, false);
-                this.pendingBuffSelects--;
+                this.buffSelect = new RogueBuffSelectMenu(this, false, this.pendingBuffSelects.get(0));
+                this.pendingBuffSelects.remove(0);
             } else if (this.getAeonId() != 0) {
                 // Check if we should add aeon blessings
                 if (shouldAddAeonBuff()) {
@@ -257,16 +288,32 @@ public class RogueInstance {
         return buff;
     }
     
-    public synchronized void addBuff(List<RogueBuffData> buffs) {
+    public synchronized void addBuff(Set<RogueBuffData> buffs) {
         for (var buff : buffs) {
             this.addBuff(buff);
         }
     }
     
     public synchronized void addBuff(RogueBuffData buff) {
+        this.addBuff(buff, RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_DIALOGUE);
+    }
+    public synchronized void addBuff(RogueBuffData buff, RogueBuffSource source) {
         this.getBuffs().put(buff.getId(), buff);
-        getPlayer().sendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_DIALOGUE, buff.toDataProto()));
+        getPlayer().sendPacket(new PacketSyncRogueCommonActionResultScNotify(source, buff.toDataProto()));
         this.updateBuffSelect();
+    }
+    
+    public synchronized RogueBuff enhanceBuff(int buffId) {
+        var buff = this.getBuffs().get(buffId);
+        if (buff == null) return null;
+        var cost = 100 + (buff.getExcel().getRogueBuffRarity() - 1) * 30;
+        if (this.getMoney() < cost) return null;
+        this.setMoney(this.getMoney() - cost);
+        this.getBuffs().remove(buffId);
+        this.addBuff(new RogueBuffData(buff.getId(), buff.getLevel() + 1), RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_ENHANCE);
+        return RogueBuff.newInstance()
+                .setBuffId(buffId)
+                .setLevel(buff.getLevel() + 1);
     }
     
     public synchronized void createMiracleSelect(int amount) {
@@ -368,16 +415,25 @@ public class RogueInstance {
         data.getMutableBonusSelect();
         data.setTimes(this.id - 2);
         this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(data));
-        this.onSelectDialogue(bonus.getEventId());
+        try {
+            this.onSelectDialogue(bonus.getEventId());
+        } catch (Exception ignored) {
+        }
         return bonus;
     }
     
     public synchronized void setMoney(int money) {
         if (this.money <= money) {
-            getPlayer().sendPacket(new PacketScenePlaneEventScNotify(new GameItem(31, money - this.money)));
+            this.getPlayer().sendPacket(new PacketScenePlaneEventScNotify(new GameItem(31, money - this.money)));
         }
         this.money = money;
-        getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this.getPlayer()));
+        this.getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this.getPlayer()));
+    }
+    
+    public synchronized void addDialogueMoney(int money) {
+        this.money += money;
+        this.getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this.getPlayer()));
+        this.getPlayer().sendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_DIALOGUE, money));
     }
     
     public synchronized void pickAvatar(RepeatedInt avatarId) {
@@ -388,6 +444,62 @@ public class RogueInstance {
         }
         this.getPlayer().getLineupManager().getExtraLineupByType(ExtraLineupType.LINEUP_ROGUE_VALUE).getAvatars().addAll(newAvatarIds);  // TODO: check if this is correct
         this.getPlayer().sendPacket(new PacketPickRogueAvatarScRsp(newAvatarIds));
+    }
+    
+    public synchronized List<RogueDialogueEventParam> setDialogueParams(int npcId) {
+        try {
+            this.curDialogueParams.clear();
+
+            DialogueEventExcel event = GameData.getRogueDialogueEventList().get(npcId);
+            var sequence = event.getInfo().getOnStartSequece();
+
+            ArrayList<RogueDialogueEventParam> params = new ArrayList<>();
+            Int2ObjectMap<String> map = new Int2ObjectOpenHashMap<>();
+            Map<String, String> argMap = new HashMap<>();
+            for (var e : sequence) {
+                var talkList = e.getTaskList();
+                var tempName = "";
+
+                for (var talk : talkList) {
+                    if (talk.getOptionList() != null && !talk.getOptionList().isEmpty()){
+                        for (var option : talk.getOptionList()) {
+                            if (option.getDialogueEventID() != 0) {
+                                map.put(option.getDialogueEventID(), option.getTriggerCustomString());
+                            }
+                        }
+                        continue;
+                    }
+
+                    if (talk.Type.equals("RPG.GameCore.WaitCustomString")) {
+                        tempName = talk.getCustomString().getValue();
+                        continue;
+                    }
+
+                    if (!Objects.equals(tempName, "") && talk.Type.equals("RPG.GameCore.TriggerCustomString")) {
+                        argMap.put(tempName, talk.getCustomString().getValue());
+                        tempName = "";
+                    }
+                }
+            }
+
+            map.forEach((k, v) -> {
+                var param = RogueDialogueEventParam.newInstance()
+                    .setDialogueEventId(k)
+                    .setIsValid(true);
+
+                if (argMap.containsKey(v) && argMap.get(v).equals("RelateToBuff")) {
+                    param.setArgId(this.getAeonId());
+                }
+
+                params.add(param);
+            });
+
+            this.getCurDialogueParams().put(npcId, params);
+
+            return params;
+        } catch (Exception e) {
+            return null;
+        }
     }
     
     public synchronized RogueRoomData enterRoom(int siteId) {
@@ -448,8 +560,8 @@ public class RogueInstance {
     
     // Dialogue stuff
     
-    public void onSelectDialogue(int dialogueEventId) {
-        this.eventManager.handleEvent(dialogueEventId);
+    public int onSelectDialogue(int dialogueEventId) {
+        return this.eventManager.handleEvent(dialogueEventId);
     }
     
     // Battle
@@ -483,7 +595,12 @@ public class RogueInstance {
             } else {
                 // Give blessings to player
                 int amount = battle.getNpcMonsters().size();
-                this.createBuffSelect(amount);
+                if (this.getCurrentRoom().getExcel().getRogueRoomType() == 6) {  // area boss
+                    this.createBuffSelect(amount, this.getUncommonBuff());
+                } else {
+                    this.createBuffSelect(amount);
+                }
+                this.setMoney(this.getMoney() + Utils.randomRange(20, 80) * amount);
             }
         } else {
             this.getPlayer().getRogueManager().quitRogue();
