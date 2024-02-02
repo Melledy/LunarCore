@@ -7,6 +7,10 @@ public abstract class GameResource implements Comparable<GameResource> {
     public void onLoad() {
 
     }
+    
+    public void onFinalize() {
+
+    }
 
     @Override
     public int compareTo(GameResource o) {

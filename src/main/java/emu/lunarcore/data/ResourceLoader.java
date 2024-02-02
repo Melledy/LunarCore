@@ -6,6 +6,7 @@ import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
+import emu.lunarcore.data.config.*;
 import org.reflections.Reflections;
 
 import com.google.gson.Gson;
@@ -17,11 +18,7 @@ import com.google.gson.reflect.TypeToken;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.ResourceDeserializers.LunarCoreDoubleDeserializer;
 import emu.lunarcore.data.ResourceDeserializers.LunarCoreHashDeserializer;
-import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.FloorInfo.FloorGroupSimpleInfo;
-import emu.lunarcore.data.config.GroupInfo;
-import emu.lunarcore.data.config.SkillAbilityInfo;
-import emu.lunarcore.data.config.SummonUnitInfo;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
 public class ResourceLoader {
@@ -46,7 +43,9 @@ public class ResourceLoader {
         loadMazeAbilities();
         // Load rogue maps
         loadRogueMapGen();
-
+        // Load rogue dialogue events
+        loadRogueDialogueEvent();
+        
         // Done
         loaded = true;
         LunarCore.getLogger().info("Resource loading complete");
@@ -163,6 +162,14 @@ public class ResourceLoader {
                     map.put(res.getId(), res);
                 }
             });
+
+            if (map != null) {
+                map.forEach((k, v) -> {
+                    if (v instanceof GameResource) {
+                        ((GameResource) v).onFinalize();
+                    }
+                });
+            }
 
             return count.get();
         }
@@ -285,6 +292,37 @@ public class ResourceLoader {
 
         // Done
         LunarCore.getLogger().info("Loaded " + count + " maze abilities for avatars.");
+    }
+    
+    // Might be better to cache
+    private static void loadRogueDialogueEvent() {
+        // Loaded configs count
+        int count = 0;
+        // Load dialogue event configs
+        for (var dialogueEventExcel : GameData.getRogueDialogueEventList().values()) {
+
+            // Get file
+            File file = new File(LunarCore.getConfig().getResourceDir() + "/" + dialogueEventExcel.getJsonPath());
+            if (!file.exists()) {
+                file = new File(LunarCore.getConfig().getResourceDir() + "/" + dialogueEventExcel.getSecondPath());
+                if (!file.exists()) continue;
+            }
+
+            try (FileReader reader = new FileReader(file)) {
+                RogueDialogueEventInfo info = gson.fromJson(reader, RogueDialogueEventInfo.class);
+                dialogueEventExcel.setInfo(info);
+                count++;
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
+        // Notify the server owner if we are missing any files
+        if (count < GameData.getRogueDialogueEventList().size()) {
+            //LunarCore.getLogger().warn("Rogue dialogue event configs are missing, please check your resources folder: {resources}/Config/Level/RogueDialogue/RogueDialogueEvent/Act. Rogue event may not work!");
+        }
+        // Done
+        LunarCore.getLogger().info("Loaded " + count + " rogue events.");
     }
 
     private static void loadRogueMapGen() {

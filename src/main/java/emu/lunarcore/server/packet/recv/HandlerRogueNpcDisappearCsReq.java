@@ -9,7 +9,7 @@ import emu.lunarcore.server.packet.PacketHandler;
 import emu.lunarcore.server.packet.send.PacketSceneGroupRefreshScNotify;
 
 @Opcodes(CmdId.RogueNpcDisappearCsReq)
-public class HandleRogueNpcDisappearCsReq extends PacketHandler {
+public class HandlerRogueNpcDisappearCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = RogueNpcDisappearCsReq.parseFrom(data);

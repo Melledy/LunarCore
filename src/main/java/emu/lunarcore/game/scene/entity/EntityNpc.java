@@ -24,6 +24,7 @@ public class EntityNpc implements GameEntity {
     
     @Setter private int rogueNpcId;
     @Setter private boolean isDialogueFinished = false;
+    @Setter private int eventId = 0;
     
     public EntityNpc(Scene scene, GroupInfo group, NpcInfo npcInfo) {
         this.scene = scene;
@@ -44,7 +45,8 @@ public class EntityNpc implements GameEntity {
         if (this.rogueNpcId > 0) {
             var rogue = NpcRogueInfo.newInstance()
                     .setRogueNpcId(this.rogueNpcId)
-                    .setFinishDialogue(isDialogueFinished);
+                    .setFinishDialogue(isDialogueFinished)
+                    .setGBMDBBBMBEJ(eventId);
             
             npc.getMutableExtraInfo().setRogueInfo(rogue);
         }

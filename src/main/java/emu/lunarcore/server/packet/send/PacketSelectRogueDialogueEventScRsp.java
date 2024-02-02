@@ -1,47 +1,45 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.GameDepot;
-import emu.lunarcore.data.excel.RogueNPCExcel;
-import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.scene.entity.EntityNpc;
+import emu.lunarcore.proto.MEMPJPLINCNOuterClass.MEMPJPLINCN;
 import emu.lunarcore.proto.RogueDialogueEventOuterClass.RogueDialogueEvent;
 import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.proto.SelectRogueDialogueEventScRspOuterClass.SelectRogueDialogueEventScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
-import emu.lunarcore.util.Utils;
-
-import java.util.ArrayList;
 
 public class PacketSelectRogueDialogueEventScRsp extends BasePacket {
 
-    public PacketSelectRogueDialogueEventScRsp(int dialogueEventId, EntityNpc npc) {
+    public PacketSelectRogueDialogueEventScRsp(int dialogueEventId, EntityNpc npc, int nextEventId) {
         super(CmdId.SelectRogueDialogueEventScRsp);
         
         var data = SelectRogueDialogueEventScRsp.newInstance()
                 .setDialogueEventId(dialogueEventId);
-
-        RogueNPCExcel rogueNpcExcel = Utils.randomElement(GameDepot.getRogueRandomNpcList());
-        var params = new ArrayList<RogueDialogueEventParam>();
-        var start = rogueNpcExcel.getId();
         
-        while (true) {
-            var event = GameData.getRogueDialogueEventList().get(start);
-            if (event == null) break;
-            params.add(RogueDialogueEventParam.newInstance()
-                .setDialogueEventId(start)
-                .setIsValid(true));
-            start++;
+        var instance = npc.getScene().getPlayer().getRogueInstance();
+        
+        var params = instance.curDialogueParams.get(npc.getRogueNpcId());
+        if (params == null) {
+            params = instance.setDialogueParams(npc.getRogueNpcId());
         }
         
         var event = RogueDialogueEvent.newInstance()
             .setNpcId(npc.getRogueNpcId())
             .setGameModeType(5)
-            .addAllNNOHLEAOJPP(dialogueEventId)
+            .addSelectEventId(dialogueEventId)
+            .setGBMDBBBMBEJ(instance.getEventId())
             .addAllRogueDialogueEventParam(params.toArray(RogueDialogueEventParam[]::new));
         
+        var l = MEMPJPLINCN.newInstance();
+        for (var param : params) {
+            l.addBLGIMDCNDHJ(param.getDialogueEventId());
+        }
+        if (nextEventId != 0) {
+            l.addBLGIMDCNDHJ(nextEventId);
+        }
+        data.addLELKNNDCGJM(l);
         data.setEventData(event);
+        
         this.setData(data);
     }
 }

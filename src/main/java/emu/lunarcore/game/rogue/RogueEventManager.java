@@ -1,7 +1,14 @@
 package emu.lunarcore.game.rogue;
 
+import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.scene.entity.EntityNpc;
+import emu.lunarcore.proto.FinishRogueDialogueGroupCsReqOuterClass;
+import emu.lunarcore.server.packet.BasePacket;
+import emu.lunarcore.server.packet.CmdId;
+import emu.lunarcore.server.packet.recv.HandlerFinishRogueDialogueGroupCsReq;
+import emu.lunarcore.server.packet.send.PacketSyncRogueCommonPendingActionScNotify;
 import emu.lunarcore.util.WeightedList;
 import lombok.Getter;
 
@@ -17,15 +24,19 @@ public class RogueEventManager {
         this.player = rogueInstance.getPlayer();
     }
     
-    public void handleEvent(int eventId) {
+    public int handleEvent(int eventId) {
         var event = GameData.getRogueDialogueEventList().get(eventId);
-        if (event == null || event.getRogueEffectType() == null) return;
+        if (event == null || event.getRogueEffectType() == null) return 0;
         List<Integer> param = event.getRogueEffectParamList();
         switch (event.getRogueEffectType()) {
-            case GetItem -> rogueInstance.setMoney(rogueInstance.getMoney() + param.get(1));
-            case TriggerBattle -> this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0));
+            case GetItem -> rogueInstance.addDialogueMoney(param.get(1));
+            case TriggerBattle -> {
+                //this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0));
+            }
             case TriggerRogueMiracleSelect -> this.getRogueInstance().createMiracleSelect(1);
-            case TriggerRogueBuffSelect -> this.getRogueInstance().createBuffSelect(1);
+            case TriggerRogueBuffSelect -> {
+                this.getRogueInstance().createBuffSelect(param.get(2), param.get(0));
+            }
             case GetRogueBuff -> {
                 var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
                 if (rogueBuff != null) {
@@ -48,8 +59,27 @@ public class RogueEventManager {
                 var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
                 this.getRogueInstance().addBuff(rogueBuff.getRogueBuffList());
             }
+            case TriggerDialogueEventList -> {
+                for (var id : param) {
+                    this.handleEvent(id);
+                }
+            }
+            case TriggerRandomEventList -> {
+                this.handleEvent(11604);  // temp
+                handleCost(eventId);
+                return 0;
+            }
+            case GetAllRogueBuffInGroupAndGetItem -> {
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                this.getRogueInstance().addBuff(rogueBuff.getRogueBuffList());
+                this.getRogueInstance().addDialogueMoney(param.get(2));
+            }
+            default -> {
+                LunarCore.getLogger().info("RogueEventManager: unhandled event type: " + event.getRogueEffectType());  // DEBUG
+            }
         }
         handleCost(eventId);
+        return 0;
     }
     
     public void handleCost(int eventId) {

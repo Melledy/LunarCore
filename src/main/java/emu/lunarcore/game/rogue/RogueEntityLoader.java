@@ -17,11 +17,8 @@ import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.game.scene.entity.EntityNpc;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.extra.PropRogueData;
-import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.server.packet.send.PacketSyncRogueDialogueEventDataScNotify;
 import emu.lunarcore.util.Utils;
-
-import java.util.ArrayList;
 
 public class RogueEntityLoader extends SceneEntityLoader {
     
@@ -136,19 +133,18 @@ public class RogueEntityLoader extends SceneEntityLoader {
         
         // Add rogue dialogue
         if (npc.getNpcId() == 3013) {
-            RogueNPCExcel rogueNpcExcel = Utils.randomElement(GameDepot.getRogueRandomNpcList());
-            npc.setRogueNpcId(rogueNpcExcel.getId());
-            var params = new ArrayList<RogueDialogueEventParam>();
-            var start = rogueNpcExcel.getId();
-            while (true) {
-                var event = GameData.getRogueDialogueEventList().get(start);
-                if (event == null) break;
-                params.add(RogueDialogueEventParam.newInstance()
-                    .setDialogueEventId(start)
-                    .setIsValid(true));
-                start++;
-            }
-            scene.getPlayer().sendPacket(new PacketSyncRogueDialogueEventDataScNotify(rogueNpcExcel.getId(), params));
+            int npcId;
+            RogueInstance instance;
+            do {
+                RogueNPCExcel rogueNpcExcel = Utils.randomElement(GameDepot.getRogueRandomNpcList());
+                npcId = rogueNpcExcel.getId();
+                instance = scene.getPlayer().getRogueInstance();
+            } while (instance.setDialogueParams(npcId) == null);
+            
+            npc.setRogueNpcId(npcId);
+            npc.setEventId(++instance.eventId);
+            scene.getPlayer().sendPacket(new PacketSyncRogueDialogueEventDataScNotify(npcId, instance.curDialogueParams.get(npcId),
+                instance.eventId));
         }
         
         return npc;

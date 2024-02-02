@@ -10,6 +10,7 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
+import us.hebi.quickbuf.RepeatedMessage;
 
 public final class SelectRogueDialogueEventScRspOuterClass {
   /**
@@ -29,13 +30,14 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     private int retcode;
 
     /**
-     * <pre>
-     * MEMPJPLINCN LELKNNDCGJM = 6;
-     * </pre>
-     *
      * <code>optional .RogueDialogueEvent event_data = 14;</code>
      */
     private final RogueDialogueEventOuterClass.RogueDialogueEvent eventData = RogueDialogueEventOuterClass.RogueDialogueEvent.newInstance();
+
+    /**
+     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     */
+    private final RepeatedMessage<MEMPJPLINCNOuterClass.MEMPJPLINCN> lELKNNDCGJM = RepeatedMessage.newEmptyInstance(MEMPJPLINCNOuterClass.MEMPJPLINCN.getFactory());
 
     private SelectRogueDialogueEventScRsp() {
     }
@@ -122,10 +124,6 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * MEMPJPLINCN LELKNNDCGJM = 6;
-     * </pre>
-     *
      * <code>optional .RogueDialogueEvent event_data = 14;</code>
      * @return whether the eventData field is set
      */
@@ -134,10 +132,6 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * MEMPJPLINCN LELKNNDCGJM = 6;
-     * </pre>
-     *
      * <code>optional .RogueDialogueEvent event_data = 14;</code>
      * @return this
      */
@@ -148,10 +142,6 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * MEMPJPLINCN LELKNNDCGJM = 6;
-     * </pre>
-     *
      * <code>optional .RogueDialogueEvent event_data = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
@@ -166,10 +156,6 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * MEMPJPLINCN LELKNNDCGJM = 6;
-     * </pre>
-     *
      * <code>optional .RogueDialogueEvent event_data = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
@@ -184,10 +170,6 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <pre>
-     * MEMPJPLINCN LELKNNDCGJM = 6;
-     * </pre>
-     *
      * <code>optional .RogueDialogueEvent event_data = 14;</code>
      * @param value the eventData to set
      * @return this
@@ -199,6 +181,76 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       return this;
     }
 
+    /**
+     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * @return whether the lELKNNDCGJM field is set
+     */
+    public boolean hasLELKNNDCGJM() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * @return this
+     */
+    public SelectRogueDialogueEventScRsp clearLELKNNDCGJM() {
+      bitField0_ &= ~0x00000008;
+      lELKNNDCGJM.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableLELKNNDCGJM()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<MEMPJPLINCNOuterClass.MEMPJPLINCN> getLELKNNDCGJM() {
+      return lELKNNDCGJM;
+    }
+
+    /**
+     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<MEMPJPLINCNOuterClass.MEMPJPLINCN> getMutableLELKNNDCGJM() {
+      bitField0_ |= 0x00000008;
+      return lELKNNDCGJM;
+    }
+
+    /**
+     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * @param value the lELKNNDCGJM to add
+     * @return this
+     */
+    public SelectRogueDialogueEventScRsp addLELKNNDCGJM(
+        final MEMPJPLINCNOuterClass.MEMPJPLINCN value) {
+      bitField0_ |= 0x00000008;
+      lELKNNDCGJM.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * @param values the lELKNNDCGJM to add
+     * @return this
+     */
+    public SelectRogueDialogueEventScRsp addAllLELKNNDCGJM(
+        final MEMPJPLINCNOuterClass.MEMPJPLINCN... values) {
+      bitField0_ |= 0x00000008;
+      lELKNNDCGJM.addAll(values);
+      return this;
+    }
+
     @Override
     public SelectRogueDialogueEventScRsp copyFrom(final SelectRogueDialogueEventScRsp other) {
       cachedSize = other.cachedSize;
@@ -207,6 +259,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
         dialogueEventId = other.dialogueEventId;
         retcode = other.retcode;
         eventData.copyFrom(other.eventData);
+        lELKNNDCGJM.copyFrom(other.lELKNNDCGJM);
       }
       return this;
     }
@@ -226,6 +279,9 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       if (other.hasEventData()) {
         getMutableEventData().mergeFrom(other.eventData);
       }
+      if (other.hasLELKNNDCGJM()) {
+        getMutableLELKNNDCGJM().addAll(other.lELKNNDCGJM);
+      }
       return this;
     }
 
@@ -239,6 +295,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       dialogueEventId = 0;
       retcode = 0;
       eventData.clear();
+      lELKNNDCGJM.clear();
       return this;
     }
 
@@ -250,6 +307,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       eventData.clearQuick();
+      lELKNNDCGJM.clearQuick();
       return this;
     }
 
@@ -265,7 +323,8 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasDialogueEventId() || dialogueEventId == other.dialogueEventId)
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasEventData() || eventData.equals(other.eventData));
+        && (!hasEventData() || eventData.equals(other.eventData))
+        && (!hasLELKNNDCGJM() || lELKNNDCGJM.equals(other.lELKNNDCGJM));
     }
 
     @Override
@@ -282,6 +341,12 @@ public final class SelectRogueDialogueEventScRspOuterClass {
         output.writeRawByte((byte) 114);
         output.writeMessageNoTag(eventData);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        for (int i = 0; i < lELKNNDCGJM.length(); i++) {
+          output.writeRawByte((byte) 50);
+          output.writeMessageNoTag(lELKNNDCGJM.get(i));
+        }
+      }
     }
 
     @Override
@@ -295,6 +360,9 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(eventData);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += (1 * lELKNNDCGJM.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(lELKNNDCGJM);
       }
       return size;
     }
@@ -329,6 +397,14 @@ public final class SelectRogueDialogueEventScRspOuterClass {
             input.readMessage(eventData);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
+            if (tag != 50) {
+              break;
+            }
+          }
+          case 50: {
+            // lELKNNDCGJM
+            tag = input.readRepeatedMessage(lELKNNDCGJM, tag);
+            bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
             }
@@ -358,6 +434,9 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.eventData, eventData);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRepeatedMessage(FieldNames.lELKNNDCGJM, lELKNNDCGJM);
       }
       output.endObject();
     }
@@ -398,6 +477,17 @@ public final class SelectRogueDialogueEventScRspOuterClass {
               if (!input.trySkipNullValue()) {
                 input.readMessage(eventData);
                 bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 639073651: {
+            if (input.isAtField(FieldNames.lELKNNDCGJM)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(lELKNNDCGJM);
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -464,6 +554,8 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName eventData = FieldName.forField("eventData", "event_data");
+
+      static final FieldName lELKNNDCGJM = FieldName.forField("LELKNNDCGJM");
     }
   }
 }
