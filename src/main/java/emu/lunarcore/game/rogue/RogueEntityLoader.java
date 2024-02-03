@@ -141,6 +141,8 @@ public class RogueEntityLoader extends SceneEntityLoader {
                 instance = scene.getPlayer().getRogueInstance();
             } while (instance.setDialogueParams(npcId) == null);
             
+            instance.getEventManager().setNowPercentage(0);
+            instance.getEventManager().setBuffType(0);
             npc.setRogueNpcId(npcId);
             npc.setEventId(++instance.eventId);
             scene.getPlayer().sendPacket(new PacketSyncRogueDialogueEventDataScNotify(npcId, instance.curDialogueParams.get(npcId),

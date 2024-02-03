@@ -416,7 +416,7 @@ public class RogueInstance {
         data.setTimes(this.id - 2);
         this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(data));
         try {
-            this.onSelectDialogue(bonus.getEventId());
+            this.onSelectDialogue(bonus.getEventId(), 0);
         } catch (Exception ignored) {
         }
         return bonus;
@@ -489,6 +489,7 @@ public class RogueInstance {
 
                 if (argMap.containsKey(v) && argMap.get(v).equals("RelateToBuff")) {
                     param.setArgId(this.getAeonId());
+                    this.getEventManager().setBuffType(this.getAeonBuffType());
                 }
 
                 params.add(param);
@@ -560,8 +561,8 @@ public class RogueInstance {
     
     // Dialogue stuff
     
-    public int onSelectDialogue(int dialogueEventId) {
-        return this.eventManager.handleEvent(dialogueEventId);
+    public int onSelectDialogue(int dialogueEventId, int npcId) {
+        return this.eventManager.handleEvent(dialogueEventId, npcId);
     }
     
     // Battle

@@ -3,14 +3,11 @@ package emu.lunarcore.game.rogue;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.game.scene.entity.EntityNpc;
-import emu.lunarcore.proto.FinishRogueDialogueGroupCsReqOuterClass;
-import emu.lunarcore.server.packet.BasePacket;
-import emu.lunarcore.server.packet.CmdId;
-import emu.lunarcore.server.packet.recv.HandlerFinishRogueDialogueGroupCsReq;
-import emu.lunarcore.server.packet.send.PacketSyncRogueCommonPendingActionScNotify;
+import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
+import emu.lunarcore.util.Utils;
 import emu.lunarcore.util.WeightedList;
 import lombok.Getter;
+import lombok.Setter;
 
 import java.util.List;
 
@@ -18,20 +15,22 @@ import java.util.List;
 public class RogueEventManager {
     private RogueInstance rogueInstance;
     private Player player;
+    @Setter private int nowPercentage = 0;
+    @Setter private int buffType = 0;
     
     public RogueEventManager(RogueInstance rogueInstance) {
         this.rogueInstance = rogueInstance;
         this.player = rogueInstance.getPlayer();
     }
     
-    public int handleEvent(int eventId) {
+    public int handleEvent(int eventId, int npcId) {
         var event = GameData.getRogueDialogueEventList().get(eventId);
         if (event == null || event.getRogueEffectType() == null) return 0;
         List<Integer> param = event.getRogueEffectParamList();
         switch (event.getRogueEffectType()) {
             case GetItem -> rogueInstance.addDialogueMoney(param.get(1));
             case TriggerBattle -> {
-                //this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0));
+                this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0)); // handle in SceneEnterStageCsReq
             }
             case TriggerRogueMiracleSelect -> this.getRogueInstance().createMiracleSelect(1);
             case TriggerRogueBuffSelect -> {
@@ -61,19 +60,85 @@ public class RogueEventManager {
             }
             case TriggerDialogueEventList -> {
                 for (var id : param) {
-                    this.handleEvent(id);
+                    this.handleEvent(id, npcId);
+                    this.getRogueInstance().getCurDialogueParams().get(npcId).add(RogueDialogueEventParam.newInstance()
+                        .setDialogueEventId(id)
+                        .setIsValid(true));
                 }
             }
             case TriggerRandomEventList -> {
-                this.handleEvent(11604);  // temp
+                var weightList = new WeightedList<Integer>();
+                var nextEventId = 0;
+                for (var id : param) {
+                    if (nextEventId == 0) {
+                        nextEventId = id;
+                        continue;
+                    }
+                    weightList.add(id, nextEventId);
+                    nextEventId = 0;
+                }
+                int randomEventId = weightList.next();
                 handleCost(eventId);
-                return 0;
+                this.handleEvent(randomEventId, npcId);
+                return randomEventId;
             }
             case GetAllRogueBuffInGroupAndGetItem -> {
                 var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
                 this.getRogueInstance().addBuff(rogueBuff.getRogueBuffList());
                 this.getRogueInstance().addDialogueMoney(param.get(2));
             }
+            case RepeatableGamble -> {
+                var failEventId = param.get(0);
+                var initialPercent = param.get(1);
+                var increasePercent = param.get(2);
+                if (this.nowPercentage != 0)
+                    this.nowPercentage = initialPercent;
+                else
+                    this.nowPercentage += increasePercent;
+                var weightList = new WeightedList<Integer>();
+                for (int i = 4; i < param.size(); i += 2) {
+                    weightList.add(param.get(i + 1), param.get(i));
+                }
+                int randomNum = Utils.randomRange(0, 100);
+                if (randomNum <= this.nowPercentage) {
+                    handleCost(eventId);
+                    this.handleEvent(failEventId, npcId);
+                    this.getRogueInstance().getCurDialogueParams().get(npcId).add(RogueDialogueEventParam.newInstance()
+                        .setDialogueEventId(failEventId)
+                        .setIsValid(true));
+                    return 0;
+                } else {
+                    handleCost(eventId);
+                    int nextEventId = weightList.next();
+                    this.handleEvent(nextEventId, npcId);
+                    this.getRogueInstance().getCurDialogueParams().get(npcId).add(RogueDialogueEventParam.newInstance()
+                        .setDialogueEventId(nextEventId)
+                        .setIsValid(true)
+                        .setRatio(this.nowPercentage / 100f));
+                    return 0;
+                }
+            }
+            case EnhanceRogueBuff -> {
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                if (rogueBuff != null) {
+                    var weightList = new WeightedList<RogueBuffData>();
+                    for (var buff : rogueBuff.getRogueBuffList()) {
+                        weightList.add(1.0f, buff);
+                    }
+                    // random param.get(1) times
+                    while (true) {
+                        var buff = weightList.next();
+                        if (buff == null || buff.getExcel() == null) break;
+                        if (!this.getRogueInstance().getBuffs().containsValue(buff)) continue;
+                        if (this.getRogueInstance().getBuffs().get(buff.getId()).getLevel() >= 2) continue;
+                        this.getRogueInstance().addBuff(new RogueBuffData(buff.getId(), buff.getLevel() + 1));
+                        param.set(1, param.get(1) - 1);
+                        if (param.get(1) <= 0) break;
+                    }
+                }
+            }
+            
+            case NONE -> {}  // do nothing
             default -> {
                 LunarCore.getLogger().info("RogueEventManager: unhandled event type: " + event.getRogueEffectType());  // DEBUG
             }
