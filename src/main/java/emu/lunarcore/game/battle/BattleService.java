@@ -166,6 +166,7 @@ public class BattleService extends BaseGameService {
     public void startBattle(Player player, int stageId) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
+            player.sendPacket(new PacketSceneEnterStageScRsp(player.getBattle()));
             return;
         }
         

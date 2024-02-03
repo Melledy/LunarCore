@@ -21,7 +21,7 @@ public class HandlerSelectRogueDialogueEventCsReq extends PacketHandler {
         
         int callback = 0;
         if (session.getPlayer().getRogueInstance() != null) {
-            callback = session.getPlayer().getRogueInstance().onSelectDialogue(req.getDialogueEventId());
+            callback = session.getPlayer().getRogueInstance().onSelectDialogue(req.getDialogueEventId(), npc.getRogueNpcId());
         }
         
         session.send(new PacketSelectRogueDialogueEventScRsp(req.getDialogueEventId(), npc, callback));
