@@ -43,7 +43,6 @@ import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.game.rogue.RogueInstance;
 import emu.lunarcore.game.rogue.RogueManager;
 import emu.lunarcore.game.rogue.RogueTalentData;
-import emu.lunarcore.game.rogue.chess.ChessRogueManager;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.entity.EntityProp;
@@ -116,7 +115,6 @@ public class Player implements Tickable {
     private transient final Mailbox mailbox;
     private transient final ChallengeManager challengeManager;
     private transient final RogueManager rogueManager;
-    private transient final ChessRogueManager chessRogueManager;
     
     // Database persistent data
     private LineupManager lineupManager;
@@ -149,7 +147,6 @@ public class Player implements Tickable {
         this.mailbox = new Mailbox(this);
         this.challengeManager = new ChallengeManager(this);
         this.rogueManager = new RogueManager(this);
-        this.chessRogueManager = new ChessRogueManager(this);
     }
 
     // Called when player is created
