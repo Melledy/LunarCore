@@ -1,7 +1,7 @@
 package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.game.scene.entity.EntityNpc;
-import emu.lunarcore.proto.MEMPJPLINCNOuterClass.MEMPJPLINCN;
+import emu.lunarcore.proto.DialogueResultOuterClass.DialogueResult;
 import emu.lunarcore.proto.RogueDialogueEventOuterClass.RogueDialogueEvent;
 import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.proto.SelectRogueDialogueEventScRspOuterClass.SelectRogueDialogueEventScRsp;
@@ -30,14 +30,14 @@ public class PacketSelectRogueDialogueEventScRsp extends BasePacket {
             .setGBMDBBBMBEJ(instance.getEventId())
             .addAllRogueDialogueEventParam(params.toArray(RogueDialogueEventParam[]::new));
         
-        var l = MEMPJPLINCN.newInstance();
+        var l = DialogueResult.newInstance();
         for (var param : params) {
             l.addBLGIMDCNDHJ(param.getDialogueEventId());
         }
         if (nextEventId != 0) {
             l.addBLGIMDCNDHJ(nextEventId);
         }
-        data.addLELKNNDCGJM(l);
+        data.addDialogueResult(l);
         data.setEventData(event);
         
         this.setData(data);

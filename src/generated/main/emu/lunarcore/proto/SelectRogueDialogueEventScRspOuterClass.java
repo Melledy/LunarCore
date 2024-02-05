@@ -35,9 +35,9 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     private final RogueDialogueEventOuterClass.RogueDialogueEvent eventData = RogueDialogueEventOuterClass.RogueDialogueEvent.newInstance();
 
     /**
-     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * <code>repeated .DialogueResult dialogue_result = 6;</code>
      */
-    private final RepeatedMessage<MEMPJPLINCNOuterClass.MEMPJPLINCN> lELKNNDCGJM = RepeatedMessage.newEmptyInstance(MEMPJPLINCNOuterClass.MEMPJPLINCN.getFactory());
+    private final RepeatedMessage<DialogueResultOuterClass.DialogueResult> dialogueResult = RepeatedMessage.newEmptyInstance(DialogueResultOuterClass.DialogueResult.getFactory());
 
     private SelectRogueDialogueEventScRsp() {
     }
@@ -182,39 +182,39 @@ public final class SelectRogueDialogueEventScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
-     * @return whether the lELKNNDCGJM field is set
+     * <code>repeated .DialogueResult dialogue_result = 6;</code>
+     * @return whether the dialogueResult field is set
      */
-    public boolean hasLELKNNDCGJM() {
+    public boolean hasDialogueResult() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * <code>repeated .DialogueResult dialogue_result = 6;</code>
      * @return this
      */
-    public SelectRogueDialogueEventScRsp clearLELKNNDCGJM() {
+    public SelectRogueDialogueEventScRsp clearDialogueResult() {
       bitField0_ &= ~0x00000008;
-      lELKNNDCGJM.clear();
+      dialogueResult.clear();
       return this;
     }
 
     /**
-     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * <code>repeated .DialogueResult dialogue_result = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableLELKNNDCGJM()} if you want to modify it.
+     * Use {@link #getMutableDialogueResult()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedMessage<MEMPJPLINCNOuterClass.MEMPJPLINCN> getLELKNNDCGJM() {
-      return lELKNNDCGJM;
+    public RepeatedMessage<DialogueResultOuterClass.DialogueResult> getDialogueResult() {
+      return dialogueResult;
     }
 
     /**
-     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
+     * <code>repeated .DialogueResult dialogue_result = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -222,32 +222,32 @@ public final class SelectRogueDialogueEventScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedMessage<MEMPJPLINCNOuterClass.MEMPJPLINCN> getMutableLELKNNDCGJM() {
+    public RepeatedMessage<DialogueResultOuterClass.DialogueResult> getMutableDialogueResult() {
       bitField0_ |= 0x00000008;
-      return lELKNNDCGJM;
+      return dialogueResult;
     }
 
     /**
-     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
-     * @param value the lELKNNDCGJM to add
+     * <code>repeated .DialogueResult dialogue_result = 6;</code>
+     * @param value the dialogueResult to add
      * @return this
      */
-    public SelectRogueDialogueEventScRsp addLELKNNDCGJM(
-        final MEMPJPLINCNOuterClass.MEMPJPLINCN value) {
+    public SelectRogueDialogueEventScRsp addDialogueResult(
+        final DialogueResultOuterClass.DialogueResult value) {
       bitField0_ |= 0x00000008;
-      lELKNNDCGJM.add(value);
+      dialogueResult.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .MEMPJPLINCN LELKNNDCGJM = 6;</code>
-     * @param values the lELKNNDCGJM to add
+     * <code>repeated .DialogueResult dialogue_result = 6;</code>
+     * @param values the dialogueResult to add
      * @return this
      */
-    public SelectRogueDialogueEventScRsp addAllLELKNNDCGJM(
-        final MEMPJPLINCNOuterClass.MEMPJPLINCN... values) {
+    public SelectRogueDialogueEventScRsp addAllDialogueResult(
+        final DialogueResultOuterClass.DialogueResult... values) {
       bitField0_ |= 0x00000008;
-      lELKNNDCGJM.addAll(values);
+      dialogueResult.addAll(values);
       return this;
     }
 
@@ -259,7 +259,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
         dialogueEventId = other.dialogueEventId;
         retcode = other.retcode;
         eventData.copyFrom(other.eventData);
-        lELKNNDCGJM.copyFrom(other.lELKNNDCGJM);
+        dialogueResult.copyFrom(other.dialogueResult);
       }
       return this;
     }
@@ -279,8 +279,8 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       if (other.hasEventData()) {
         getMutableEventData().mergeFrom(other.eventData);
       }
-      if (other.hasLELKNNDCGJM()) {
-        getMutableLELKNNDCGJM().addAll(other.lELKNNDCGJM);
+      if (other.hasDialogueResult()) {
+        getMutableDialogueResult().addAll(other.dialogueResult);
       }
       return this;
     }
@@ -295,7 +295,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       dialogueEventId = 0;
       retcode = 0;
       eventData.clear();
-      lELKNNDCGJM.clear();
+      dialogueResult.clear();
       return this;
     }
 
@@ -307,7 +307,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       eventData.clearQuick();
-      lELKNNDCGJM.clearQuick();
+      dialogueResult.clearQuick();
       return this;
     }
 
@@ -324,7 +324,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
         && (!hasDialogueEventId() || dialogueEventId == other.dialogueEventId)
         && (!hasRetcode() || retcode == other.retcode)
         && (!hasEventData() || eventData.equals(other.eventData))
-        && (!hasLELKNNDCGJM() || lELKNNDCGJM.equals(other.lELKNNDCGJM));
+        && (!hasDialogueResult() || dialogueResult.equals(other.dialogueResult));
     }
 
     @Override
@@ -342,9 +342,9 @@ public final class SelectRogueDialogueEventScRspOuterClass {
         output.writeMessageNoTag(eventData);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        for (int i = 0; i < lELKNNDCGJM.length(); i++) {
+        for (int i = 0; i < dialogueResult.length(); i++) {
           output.writeRawByte((byte) 50);
-          output.writeMessageNoTag(lELKNNDCGJM.get(i));
+          output.writeMessageNoTag(dialogueResult.get(i));
         }
       }
     }
@@ -362,7 +362,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
         size += 1 + ProtoSink.computeMessageSizeNoTag(eventData);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += (1 * lELKNNDCGJM.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(lELKNNDCGJM);
+        size += (1 * dialogueResult.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(dialogueResult);
       }
       return size;
     }
@@ -402,8 +402,8 @@ public final class SelectRogueDialogueEventScRspOuterClass {
             }
           }
           case 50: {
-            // lELKNNDCGJM
-            tag = input.readRepeatedMessage(lELKNNDCGJM, tag);
+            // dialogueResult
+            tag = input.readRepeatedMessage(dialogueResult, tag);
             bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
@@ -436,7 +436,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
         output.writeMessage(FieldNames.eventData, eventData);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRepeatedMessage(FieldNames.lELKNNDCGJM, lELKNNDCGJM);
+        output.writeRepeatedMessage(FieldNames.dialogueResult, dialogueResult);
       }
       output.endObject();
     }
@@ -483,10 +483,11 @@ public final class SelectRogueDialogueEventScRspOuterClass {
             }
             break;
           }
-          case 639073651: {
-            if (input.isAtField(FieldNames.lELKNNDCGJM)) {
+          case 1191037973:
+          case 1574283364: {
+            if (input.isAtField(FieldNames.dialogueResult)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(lELKNNDCGJM);
+                input.readRepeatedMessage(dialogueResult);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -555,7 +556,7 @@ public final class SelectRogueDialogueEventScRspOuterClass {
 
       static final FieldName eventData = FieldName.forField("eventData", "event_data");
 
-      static final FieldName lELKNNDCGJM = FieldName.forField("LELKNNDCGJM");
+      static final FieldName dialogueResult = FieldName.forField("dialogueResult", "dialogue_result");
     }
   }
 }

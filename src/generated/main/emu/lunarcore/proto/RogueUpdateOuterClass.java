@@ -19,19 +19,19 @@ public final class RogueUpdateOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 area_id = 7;</code>
+     * <code>optional uint32 last_common_area_id = 7;</code>
      */
-    private int areaId;
+    private int lastCommonAreaId;
 
     /**
-     * <code>optional uint32 LOKIGPFHHIN = 8;</code>
+     * <code>optional uint32 last_rogue_type_id = 8;</code>
      */
-    private int lOKIGPFHHIN;
+    private int lastRogueTypeId;
 
     /**
-     * <code>optional uint32 KPJNNFIINNB = 12;</code>
+     * <code>optional uint32 rogue_type_id = 12;</code>
      */
-    private int kPJNNFIINNB;
+    private int rogueTypeId;
 
     private RogueUpdate() {
     }
@@ -44,113 +44,113 @@ public final class RogueUpdateOuterClass {
     }
 
     /**
-     * <code>optional uint32 area_id = 7;</code>
-     * @return whether the areaId field is set
+     * <code>optional uint32 last_common_area_id = 7;</code>
+     * @return whether the lastCommonAreaId field is set
      */
-    public boolean hasAreaId() {
+    public boolean hasLastCommonAreaId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 area_id = 7;</code>
+     * <code>optional uint32 last_common_area_id = 7;</code>
      * @return this
      */
-    public RogueUpdate clearAreaId() {
+    public RogueUpdate clearLastCommonAreaId() {
       bitField0_ &= ~0x00000001;
-      areaId = 0;
+      lastCommonAreaId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 area_id = 7;</code>
-     * @return the areaId
+     * <code>optional uint32 last_common_area_id = 7;</code>
+     * @return the lastCommonAreaId
      */
-    public int getAreaId() {
-      return areaId;
+    public int getLastCommonAreaId() {
+      return lastCommonAreaId;
     }
 
     /**
-     * <code>optional uint32 area_id = 7;</code>
-     * @param value the areaId to set
+     * <code>optional uint32 last_common_area_id = 7;</code>
+     * @param value the lastCommonAreaId to set
      * @return this
      */
-    public RogueUpdate setAreaId(final int value) {
+    public RogueUpdate setLastCommonAreaId(final int value) {
       bitField0_ |= 0x00000001;
-      areaId = value;
+      lastCommonAreaId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 LOKIGPFHHIN = 8;</code>
-     * @return whether the lOKIGPFHHIN field is set
+     * <code>optional uint32 last_rogue_type_id = 8;</code>
+     * @return whether the lastRogueTypeId field is set
      */
-    public boolean hasLOKIGPFHHIN() {
+    public boolean hasLastRogueTypeId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 LOKIGPFHHIN = 8;</code>
+     * <code>optional uint32 last_rogue_type_id = 8;</code>
      * @return this
      */
-    public RogueUpdate clearLOKIGPFHHIN() {
+    public RogueUpdate clearLastRogueTypeId() {
       bitField0_ &= ~0x00000002;
-      lOKIGPFHHIN = 0;
+      lastRogueTypeId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 LOKIGPFHHIN = 8;</code>
-     * @return the lOKIGPFHHIN
+     * <code>optional uint32 last_rogue_type_id = 8;</code>
+     * @return the lastRogueTypeId
      */
-    public int getLOKIGPFHHIN() {
-      return lOKIGPFHHIN;
+    public int getLastRogueTypeId() {
+      return lastRogueTypeId;
     }
 
     /**
-     * <code>optional uint32 LOKIGPFHHIN = 8;</code>
-     * @param value the lOKIGPFHHIN to set
+     * <code>optional uint32 last_rogue_type_id = 8;</code>
+     * @param value the lastRogueTypeId to set
      * @return this
      */
-    public RogueUpdate setLOKIGPFHHIN(final int value) {
+    public RogueUpdate setLastRogueTypeId(final int value) {
       bitField0_ |= 0x00000002;
-      lOKIGPFHHIN = value;
+      lastRogueTypeId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 KPJNNFIINNB = 12;</code>
-     * @return whether the kPJNNFIINNB field is set
+     * <code>optional uint32 rogue_type_id = 12;</code>
+     * @return whether the rogueTypeId field is set
      */
-    public boolean hasKPJNNFIINNB() {
+    public boolean hasRogueTypeId() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 KPJNNFIINNB = 12;</code>
+     * <code>optional uint32 rogue_type_id = 12;</code>
      * @return this
      */
-    public RogueUpdate clearKPJNNFIINNB() {
+    public RogueUpdate clearRogueTypeId() {
       bitField0_ &= ~0x00000004;
-      kPJNNFIINNB = 0;
+      rogueTypeId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 KPJNNFIINNB = 12;</code>
-     * @return the kPJNNFIINNB
+     * <code>optional uint32 rogue_type_id = 12;</code>
+     * @return the rogueTypeId
      */
-    public int getKPJNNFIINNB() {
-      return kPJNNFIINNB;
+    public int getRogueTypeId() {
+      return rogueTypeId;
     }
 
     /**
-     * <code>optional uint32 KPJNNFIINNB = 12;</code>
-     * @param value the kPJNNFIINNB to set
+     * <code>optional uint32 rogue_type_id = 12;</code>
+     * @param value the rogueTypeId to set
      * @return this
      */
-    public RogueUpdate setKPJNNFIINNB(final int value) {
+    public RogueUpdate setRogueTypeId(final int value) {
       bitField0_ |= 0x00000004;
-      kPJNNFIINNB = value;
+      rogueTypeId = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class RogueUpdateOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        areaId = other.areaId;
-        lOKIGPFHHIN = other.lOKIGPFHHIN;
-        kPJNNFIINNB = other.kPJNNFIINNB;
+        lastCommonAreaId = other.lastCommonAreaId;
+        lastRogueTypeId = other.lastRogueTypeId;
+        rogueTypeId = other.rogueTypeId;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class RogueUpdateOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasAreaId()) {
-        setAreaId(other.areaId);
+      if (other.hasLastCommonAreaId()) {
+        setLastCommonAreaId(other.lastCommonAreaId);
       }
-      if (other.hasLOKIGPFHHIN()) {
-        setLOKIGPFHHIN(other.lOKIGPFHHIN);
+      if (other.hasLastRogueTypeId()) {
+        setLastRogueTypeId(other.lastRogueTypeId);
       }
-      if (other.hasKPJNNFIINNB()) {
-        setKPJNNFIINNB(other.kPJNNFIINNB);
+      if (other.hasRogueTypeId()) {
+        setRogueTypeId(other.rogueTypeId);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class RogueUpdateOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      areaId = 0;
-      lOKIGPFHHIN = 0;
-      kPJNNFIINNB = 0;
+      lastCommonAreaId = 0;
+      lastRogueTypeId = 0;
+      rogueTypeId = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class RogueUpdateOuterClass {
       }
       RogueUpdate other = (RogueUpdate) o;
       return bitField0_ == other.bitField0_
-        && (!hasAreaId() || areaId == other.areaId)
-        && (!hasLOKIGPFHHIN() || lOKIGPFHHIN == other.lOKIGPFHHIN)
-        && (!hasKPJNNFIINNB() || kPJNNFIINNB == other.kPJNNFIINNB);
+        && (!hasLastCommonAreaId() || lastCommonAreaId == other.lastCommonAreaId)
+        && (!hasLastRogueTypeId() || lastRogueTypeId == other.lastRogueTypeId)
+        && (!hasRogueTypeId() || rogueTypeId == other.rogueTypeId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(areaId);
+        output.writeUInt32NoTag(lastCommonAreaId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(lOKIGPFHHIN);
+        output.writeUInt32NoTag(lastRogueTypeId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(kPJNNFIINNB);
+        output.writeUInt32NoTag(rogueTypeId);
       }
     }
 
@@ -242,13 +242,13 @@ public final class RogueUpdateOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(areaId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(lastCommonAreaId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(lOKIGPFHHIN);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(lastRogueTypeId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kPJNNFIINNB);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueTypeId);
       }
       return size;
     }
@@ -261,8 +261,8 @@ public final class RogueUpdateOuterClass {
       while (true) {
         switch (tag) {
           case 56: {
-            // areaId
-            areaId = input.readUInt32();
+            // lastCommonAreaId
+            lastCommonAreaId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 64) {
@@ -270,8 +270,8 @@ public final class RogueUpdateOuterClass {
             }
           }
           case 64: {
-            // lOKIGPFHHIN
-            lOKIGPFHHIN = input.readUInt32();
+            // lastRogueTypeId
+            lastRogueTypeId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 96) {
@@ -279,8 +279,8 @@ public final class RogueUpdateOuterClass {
             }
           }
           case 96: {
-            // kPJNNFIINNB
-            kPJNNFIINNB = input.readUInt32();
+            // rogueTypeId
+            rogueTypeId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class RogueUpdateOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.areaId, areaId);
+        output.writeUInt32(FieldNames.lastCommonAreaId, lastCommonAreaId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.lOKIGPFHHIN, lOKIGPFHHIN);
+        output.writeUInt32(FieldNames.lastRogueTypeId, lastRogueTypeId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.kPJNNFIINNB, kPJNNFIINNB);
+        output.writeUInt32(FieldNames.rogueTypeId, rogueTypeId);
       }
       output.endObject();
     }
@@ -323,11 +323,11 @@ public final class RogueUpdateOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1409553784:
-          case -746472947: {
-            if (input.isAtField(FieldNames.areaId)) {
+          case -1313973751:
+          case 2061831298: {
+            if (input.isAtField(FieldNames.lastCommonAreaId)) {
               if (!input.trySkipNullValue()) {
-                areaId = input.readUInt32();
+                lastCommonAreaId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -335,10 +335,11 @@ public final class RogueUpdateOuterClass {
             }
             break;
           }
-          case -567563551: {
-            if (input.isAtField(FieldNames.lOKIGPFHHIN)) {
+          case 1384811513:
+          case 1305719026: {
+            if (input.isAtField(FieldNames.lastRogueTypeId)) {
               if (!input.trySkipNullValue()) {
-                lOKIGPFHHIN = input.readUInt32();
+                lastRogueTypeId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -346,10 +347,11 @@ public final class RogueUpdateOuterClass {
             }
             break;
           }
-          case 303551777: {
-            if (input.isAtField(FieldNames.kPJNNFIINNB)) {
+          case -802434961:
+          case -223704357: {
+            if (input.isAtField(FieldNames.rogueTypeId)) {
               if (!input.trySkipNullValue()) {
-                kPJNNFIINNB = input.readUInt32();
+                rogueTypeId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -409,11 +411,11 @@ public final class RogueUpdateOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName areaId = FieldName.forField("areaId", "area_id");
+      static final FieldName lastCommonAreaId = FieldName.forField("lastCommonAreaId", "last_common_area_id");
 
-      static final FieldName lOKIGPFHHIN = FieldName.forField("LOKIGPFHHIN");
+      static final FieldName lastRogueTypeId = FieldName.forField("lastRogueTypeId", "last_rogue_type_id");
 
-      static final FieldName kPJNNFIINNB = FieldName.forField("KPJNNFIINNB");
+      static final FieldName rogueTypeId = FieldName.forField("rogueTypeId", "rogue_type_id");
     }
   }
 }

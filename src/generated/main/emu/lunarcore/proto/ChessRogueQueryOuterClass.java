@@ -21,9 +21,9 @@ public final class ChessRogueQueryOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 KDHBPKCKEAL = 10;</code>
+     * <code>optional .ChessRoguePhase phase = 10;</code>
      */
-    private int kDHBPKCKEAL;
+    private int phase;
 
     /**
      * <code>repeated uint32 main_story_id = 8;</code>
@@ -51,39 +51,64 @@ public final class ChessRogueQueryOuterClass {
     }
 
     /**
-     * <code>optional uint32 KDHBPKCKEAL = 10;</code>
-     * @return whether the kDHBPKCKEAL field is set
+     * <code>optional .ChessRoguePhase phase = 10;</code>
+     * @return whether the phase field is set
      */
-    public boolean hasKDHBPKCKEAL() {
+    public boolean hasPhase() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 KDHBPKCKEAL = 10;</code>
+     * <code>optional .ChessRoguePhase phase = 10;</code>
      * @return this
      */
-    public ChessRogueQuery clearKDHBPKCKEAL() {
+    public ChessRogueQuery clearPhase() {
       bitField0_ &= ~0x00000001;
-      kDHBPKCKEAL = 0;
+      phase = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 KDHBPKCKEAL = 10;</code>
-     * @return the kDHBPKCKEAL
+     * <code>optional .ChessRoguePhase phase = 10;</code>
+     * @return the phase
      */
-    public int getKDHBPKCKEAL() {
-      return kDHBPKCKEAL;
+    public ChessRoguePhaseOuterClass.ChessRoguePhase getPhase() {
+      return ChessRoguePhaseOuterClass.ChessRoguePhase.forNumber(phase);
     }
 
     /**
-     * <code>optional uint32 KDHBPKCKEAL = 10;</code>
-     * @param value the kDHBPKCKEAL to set
+     * Gets the value of the internal enum store. The result is
+     * equivalent to {@link ChessRogueQuery#getPhase()}.getNumber().
+     *
+     * @return numeric wire representation
+     */
+    public int getPhaseValue() {
+      return phase;
+    }
+
+    /**
+     * Sets the value of the internal enum store. This does not
+     * do any validity checks, so be sure to use appropriate value
+     * constants from {@link ChessRoguePhaseOuterClass.ChessRoguePhase}. Setting an invalid value
+     * can cause {@link ChessRogueQuery#getPhase()} to return null
+     *
+     * @param value the numeric wire value to set
      * @return this
      */
-    public ChessRogueQuery setKDHBPKCKEAL(final int value) {
+    public ChessRogueQuery setPhaseValue(final int value) {
       bitField0_ |= 0x00000001;
-      kDHBPKCKEAL = value;
+      phase = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .ChessRoguePhase phase = 10;</code>
+     * @param value the phase to set
+     * @return this
+     */
+    public ChessRogueQuery setPhase(final ChessRoguePhaseOuterClass.ChessRoguePhase value) {
+      bitField0_ |= 0x00000001;
+      phase = value.getNumber();
       return this;
     }
 
@@ -299,7 +324,7 @@ public final class ChessRogueQueryOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        kDHBPKCKEAL = other.kDHBPKCKEAL;
+        phase = other.phase;
         mainStoryId.copyFrom(other.mainStoryId);
         eKLAFMBHNIP.copyFrom(other.eKLAFMBHNIP);
         diceInfo.copyFrom(other.diceInfo);
@@ -313,8 +338,8 @@ public final class ChessRogueQueryOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasKDHBPKCKEAL()) {
-        setKDHBPKCKEAL(other.kDHBPKCKEAL);
+      if (other.hasPhase()) {
+        setPhaseValue(other.phase);
       }
       if (other.hasMainStoryId()) {
         getMutableMainStoryId().addAll(other.mainStoryId);
@@ -335,7 +360,7 @@ public final class ChessRogueQueryOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      kDHBPKCKEAL = 0;
+      phase = 0;
       mainStoryId.clear();
       eKLAFMBHNIP.clear();
       diceInfo.clear();
@@ -365,7 +390,7 @@ public final class ChessRogueQueryOuterClass {
       }
       ChessRogueQuery other = (ChessRogueQuery) o;
       return bitField0_ == other.bitField0_
-        && (!hasKDHBPKCKEAL() || kDHBPKCKEAL == other.kDHBPKCKEAL)
+        && (!hasPhase() || phase == other.phase)
         && (!hasMainStoryId() || mainStoryId.equals(other.mainStoryId))
         && (!hasEKLAFMBHNIP() || eKLAFMBHNIP.equals(other.eKLAFMBHNIP))
         && (!hasDiceInfo() || diceInfo.equals(other.diceInfo));
@@ -375,7 +400,7 @@ public final class ChessRogueQueryOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(kDHBPKCKEAL);
+        output.writeEnumNoTag(phase);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < mainStoryId.length(); i++) {
@@ -401,7 +426,7 @@ public final class ChessRogueQueryOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kDHBPKCKEAL);
+        size += 1 + ProtoSink.computeEnumSizeNoTag(phase);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * mainStoryId.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(mainStoryId);
@@ -423,9 +448,12 @@ public final class ChessRogueQueryOuterClass {
       while (true) {
         switch (tag) {
           case 80: {
-            // kDHBPKCKEAL
-            kDHBPKCKEAL = input.readUInt32();
-            bitField0_ |= 0x00000001;
+            // phase
+            final int value = input.readInt32();
+            if (ChessRoguePhaseOuterClass.ChessRoguePhase.forNumber(value) != null) {
+              phase = value;
+              bitField0_ |= 0x00000001;
+            }
             tag = input.readTag();
             if (tag != 66) {
               break;
@@ -480,7 +508,7 @@ public final class ChessRogueQueryOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.kDHBPKCKEAL, kDHBPKCKEAL);
+        output.writeEnum(FieldNames.phase, phase, ChessRoguePhaseOuterClass.ChessRoguePhase.converter());
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedUInt32(FieldNames.mainStoryId, mainStoryId);
@@ -501,11 +529,16 @@ public final class ChessRogueQueryOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 160463162: {
-            if (input.isAtField(FieldNames.kDHBPKCKEAL)) {
+          case 106629499: {
+            if (input.isAtField(FieldNames.phase)) {
               if (!input.trySkipNullValue()) {
-                kDHBPKCKEAL = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                final ChessRoguePhaseOuterClass.ChessRoguePhase value = input.readEnum(ChessRoguePhaseOuterClass.ChessRoguePhase.converter());
+                if (value != null) {
+                  phase = value.getNumber();
+                  bitField0_ |= 0x00000001;
+                } else {
+                  input.skipUnknownEnumValue();
+                }
               }
             } else {
               input.skipUnknownField();
@@ -925,7 +958,7 @@ public final class ChessRogueQueryOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName kDHBPKCKEAL = FieldName.forField("KDHBPKCKEAL");
+      static final FieldName phase = FieldName.forField("phase");
 
       static final FieldName mainStoryId = FieldName.forField("mainStoryId", "main_story_id");
 

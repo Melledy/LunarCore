@@ -12,6 +12,9 @@ import lombok.Getter;
 
 // Game data that is parsed by the server goes here
 public class GameDepot {
+    // Activity
+    @Getter private static List<ActivitySchedulingExcel> activityScheduleExcels = new ArrayList<>();
+    
     // Exp
     @Getter private static List<AvatarExpItemExcel> avatarExpExcels = new ArrayList<>();
     @Getter private static List<EquipmentExpItemExcel> equipmentExpExcels = new ArrayList<>();

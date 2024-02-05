@@ -19,7 +19,7 @@ public class PacketGetRogueScoreRewardInfoScRsp extends BasePacket {
 
         data.getMutableScoreRewardInfo()
             .setPoolId(20 + player.getWorldLevel()) // TODO pool ids should not change when world level changes
-            //.setPoolRefreshed(true)
+            .setPoolRefreshed(true)
             .setHasTakenInitialScore(true)
             .setBeginTime(beginTime)
             .setEndTime(endTime);
