@@ -7,6 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 import emu.lunarcore.data.config.*;
+import emu.lunarcore.data.excel.ActivitySchedulingExcel;
 import org.reflections.Reflections;
 
 import com.google.gson.Gson;
@@ -43,6 +44,8 @@ public class ResourceLoader {
         loadMazeAbilities();
         // Load rogue maps
         loadRogueMapGen();
+        // Load activity schedule config
+        loadActivityScheduleConfig();
         // Load rogue dialogue events
         loadRogueDialogueEvent();
         
@@ -335,6 +338,18 @@ public class ResourceLoader {
             for (var entry : rogue.entrySet()) {
                 GameDepot.getRogueMapGen().put(entry.getKey().intValue(), entry.getValue());
             }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    
+    private static void loadActivityScheduleConfig() {
+        File file = new File(LunarCore.getConfig().getDataDir() + "/ActivityScheduling.json");
+        if (!file.exists()) return;
+
+        try (FileReader reader = new FileReader(file)) {
+            List<ActivitySchedulingExcel> activityScheduleConfig = gson.fromJson(reader, TypeToken.getParameterized(List.class, ActivitySchedulingExcel.class).getType());
+            GameDepot.getActivityScheduleExcels().addAll(activityScheduleConfig);
         } catch (Exception e) {
             e.printStackTrace();
         }

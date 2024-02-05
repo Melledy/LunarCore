@@ -58,6 +58,9 @@ public class GameConstants {
     public static final int ROGUE_ENTRANCE = 801120102;
     public static final int ROGUE_TALENT_POINT_ITEM_ID = 32;
     
+    // Activity
+    public static final int[] ENABLE_ACTIVITY_TYPES = { 18, 34 };
+    
     // Custom
     public static final int SERVER_CONSOLE_UID = 99;
     public static final int EQUIPMENT_SLOT_ID = 100;

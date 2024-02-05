@@ -29,9 +29,9 @@ public final class ChessRogueNousDiceOuterClass {
      * FEDEMDEEJML JLCEDGIHAFF = 12;
      * </pre>
      *
-     * <code>optional uint32 NDJBBOEJOEH = 2;</code>
+     * <code>optional uint32 reroll_times = 2;</code>
      */
-    private int nDJBBOEJOEH;
+    private int rerollTimes;
 
     /**
      * <pre>
@@ -47,9 +47,9 @@ public final class ChessRogueNousDiceOuterClass {
      *  1
      * </pre>
      *
-     * <code>optional uint32 KCFGDMFGIAN = 4;</code>
+     * <code>optional uint32 cheat_times = 4;</code>
      */
-    private int kCFGDMFGIAN;
+    private int cheatTimes;
 
     /**
      * <pre>
@@ -163,10 +163,10 @@ public final class ChessRogueNousDiceOuterClass {
      * FEDEMDEEJML JLCEDGIHAFF = 12;
      * </pre>
      *
-     * <code>optional uint32 NDJBBOEJOEH = 2;</code>
-     * @return whether the nDJBBOEJOEH field is set
+     * <code>optional uint32 reroll_times = 2;</code>
+     * @return whether the rerollTimes field is set
      */
-    public boolean hasNDJBBOEJOEH() {
+    public boolean hasRerollTimes() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
@@ -175,12 +175,12 @@ public final class ChessRogueNousDiceOuterClass {
      * FEDEMDEEJML JLCEDGIHAFF = 12;
      * </pre>
      *
-     * <code>optional uint32 NDJBBOEJOEH = 2;</code>
+     * <code>optional uint32 reroll_times = 2;</code>
      * @return this
      */
-    public ChessRogueNousDice clearNDJBBOEJOEH() {
+    public ChessRogueNousDice clearRerollTimes() {
       bitField0_ &= ~0x00000002;
-      nDJBBOEJOEH = 0;
+      rerollTimes = 0;
       return this;
     }
 
@@ -189,11 +189,11 @@ public final class ChessRogueNousDiceOuterClass {
      * FEDEMDEEJML JLCEDGIHAFF = 12;
      * </pre>
      *
-     * <code>optional uint32 NDJBBOEJOEH = 2;</code>
-     * @return the nDJBBOEJOEH
+     * <code>optional uint32 reroll_times = 2;</code>
+     * @return the rerollTimes
      */
-    public int getNDJBBOEJOEH() {
-      return nDJBBOEJOEH;
+    public int getRerollTimes() {
+      return rerollTimes;
     }
 
     /**
@@ -201,13 +201,13 @@ public final class ChessRogueNousDiceOuterClass {
      * FEDEMDEEJML JLCEDGIHAFF = 12;
      * </pre>
      *
-     * <code>optional uint32 NDJBBOEJOEH = 2;</code>
-     * @param value the nDJBBOEJOEH to set
+     * <code>optional uint32 reroll_times = 2;</code>
+     * @param value the rerollTimes to set
      * @return this
      */
-    public ChessRogueNousDice setNDJBBOEJOEH(final int value) {
+    public ChessRogueNousDice setRerollTimes(final int value) {
       bitField0_ |= 0x00000002;
-      nDJBBOEJOEH = value;
+      rerollTimes = value;
       return this;
     }
 
@@ -269,10 +269,10 @@ public final class ChessRogueNousDiceOuterClass {
      *  1
      * </pre>
      *
-     * <code>optional uint32 KCFGDMFGIAN = 4;</code>
-     * @return whether the kCFGDMFGIAN field is set
+     * <code>optional uint32 cheat_times = 4;</code>
+     * @return whether the cheatTimes field is set
      */
-    public boolean hasKCFGDMFGIAN() {
+    public boolean hasCheatTimes() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
@@ -281,12 +281,12 @@ public final class ChessRogueNousDiceOuterClass {
      *  1
      * </pre>
      *
-     * <code>optional uint32 KCFGDMFGIAN = 4;</code>
+     * <code>optional uint32 cheat_times = 4;</code>
      * @return this
      */
-    public ChessRogueNousDice clearKCFGDMFGIAN() {
+    public ChessRogueNousDice clearCheatTimes() {
       bitField0_ &= ~0x00000008;
-      kCFGDMFGIAN = 0;
+      cheatTimes = 0;
       return this;
     }
 
@@ -295,11 +295,11 @@ public final class ChessRogueNousDiceOuterClass {
      *  1
      * </pre>
      *
-     * <code>optional uint32 KCFGDMFGIAN = 4;</code>
-     * @return the kCFGDMFGIAN
+     * <code>optional uint32 cheat_times = 4;</code>
+     * @return the cheatTimes
      */
-    public int getKCFGDMFGIAN() {
-      return kCFGDMFGIAN;
+    public int getCheatTimes() {
+      return cheatTimes;
     }
 
     /**
@@ -307,13 +307,13 @@ public final class ChessRogueNousDiceOuterClass {
      *  1
      * </pre>
      *
-     * <code>optional uint32 KCFGDMFGIAN = 4;</code>
-     * @param value the kCFGDMFGIAN to set
+     * <code>optional uint32 cheat_times = 4;</code>
+     * @param value the cheatTimes to set
      * @return this
      */
-    public ChessRogueNousDice setKCFGDMFGIAN(final int value) {
+    public ChessRogueNousDice setCheatTimes(final int value) {
       bitField0_ |= 0x00000008;
-      kCFGDMFGIAN = value;
+      cheatTimes = value;
       return this;
     }
 
@@ -751,9 +751,9 @@ public final class ChessRogueNousDiceOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         diceBranchId = other.diceBranchId;
-        nDJBBOEJOEH = other.nDJBBOEJOEH;
+        rerollTimes = other.rerollTimes;
         curSurfaceId = other.curSurfaceId;
-        kCFGDMFGIAN = other.kCFGDMFGIAN;
+        cheatTimes = other.cheatTimes;
         hIJBOPMGBAP = other.hIJBOPMGBAP;
         gFGCPJOHMEL = other.gFGCPJOHMEL;
         curSurfaceIndex = other.curSurfaceIndex;
@@ -775,14 +775,14 @@ public final class ChessRogueNousDiceOuterClass {
       if (other.hasDiceBranchId()) {
         setDiceBranchId(other.diceBranchId);
       }
-      if (other.hasNDJBBOEJOEH()) {
-        setNDJBBOEJOEH(other.nDJBBOEJOEH);
+      if (other.hasRerollTimes()) {
+        setRerollTimes(other.rerollTimes);
       }
       if (other.hasCurSurfaceId()) {
         setCurSurfaceId(other.curSurfaceId);
       }
-      if (other.hasKCFGDMFGIAN()) {
-        setKCFGDMFGIAN(other.kCFGDMFGIAN);
+      if (other.hasCheatTimes()) {
+        setCheatTimes(other.cheatTimes);
       }
       if (other.hasHIJBOPMGBAP()) {
         setHIJBOPMGBAP(other.hIJBOPMGBAP);
@@ -819,9 +819,9 @@ public final class ChessRogueNousDiceOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       diceBranchId = 0;
-      nDJBBOEJOEH = 0;
+      rerollTimes = 0;
       curSurfaceId = 0;
-      kCFGDMFGIAN = 0;
+      cheatTimes = 0;
       hIJBOPMGBAP = 0;
       gFGCPJOHMEL = 0;
       curSurfaceIndex = 0;
@@ -856,9 +856,9 @@ public final class ChessRogueNousDiceOuterClass {
       ChessRogueNousDice other = (ChessRogueNousDice) o;
       return bitField0_ == other.bitField0_
         && (!hasDiceBranchId() || diceBranchId == other.diceBranchId)
-        && (!hasNDJBBOEJOEH() || nDJBBOEJOEH == other.nDJBBOEJOEH)
+        && (!hasRerollTimes() || rerollTimes == other.rerollTimes)
         && (!hasCurSurfaceId() || curSurfaceId == other.curSurfaceId)
-        && (!hasKCFGDMFGIAN() || kCFGDMFGIAN == other.kCFGDMFGIAN)
+        && (!hasCheatTimes() || cheatTimes == other.cheatTimes)
         && (!hasHIJBOPMGBAP() || hIJBOPMGBAP == other.hIJBOPMGBAP)
         && (!hasGFGCPJOHMEL() || gFGCPJOHMEL == other.gFGCPJOHMEL)
         && (!hasCurSurfaceIndex() || curSurfaceIndex == other.curSurfaceIndex)
@@ -877,7 +877,7 @@ public final class ChessRogueNousDiceOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(nDJBBOEJOEH);
+        output.writeUInt32NoTag(rerollTimes);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 24);
@@ -885,7 +885,7 @@ public final class ChessRogueNousDiceOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(kCFGDMFGIAN);
+        output.writeUInt32NoTag(cheatTimes);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawByte((byte) 40);
@@ -930,13 +930,13 @@ public final class ChessRogueNousDiceOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(diceBranchId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(nDJBBOEJOEH);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rerollTimes);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(curSurfaceId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kCFGDMFGIAN);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(cheatTimes);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(hIJBOPMGBAP);
@@ -982,8 +982,8 @@ public final class ChessRogueNousDiceOuterClass {
             }
           }
           case 16: {
-            // nDJBBOEJOEH
-            nDJBBOEJOEH = input.readUInt32();
+            // rerollTimes
+            rerollTimes = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 24) {
@@ -1000,8 +1000,8 @@ public final class ChessRogueNousDiceOuterClass {
             }
           }
           case 32: {
-            // kCFGDMFGIAN
-            kCFGDMFGIAN = input.readUInt32();
+            // cheatTimes
+            cheatTimes = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 40) {
@@ -1107,13 +1107,13 @@ public final class ChessRogueNousDiceOuterClass {
         output.writeUInt32(FieldNames.diceBranchId, diceBranchId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.nDJBBOEJOEH, nDJBBOEJOEH);
+        output.writeUInt32(FieldNames.rerollTimes, rerollTimes);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.curSurfaceId, curSurfaceId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.kCFGDMFGIAN, kCFGDMFGIAN);
+        output.writeUInt32(FieldNames.cheatTimes, cheatTimes);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeUInt32(FieldNames.hIJBOPMGBAP, hIJBOPMGBAP);
@@ -1161,10 +1161,11 @@ public final class ChessRogueNousDiceOuterClass {
             }
             break;
           }
-          case 320828690: {
-            if (input.isAtField(FieldNames.nDJBBOEJOEH)) {
+          case -836069386:
+          case 176620407: {
+            if (input.isAtField(FieldNames.rerollTimes)) {
               if (!input.trySkipNullValue()) {
-                nDJBBOEJOEH = input.readUInt32();
+                rerollTimes = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -1184,10 +1185,11 @@ public final class ChessRogueNousDiceOuterClass {
             }
             break;
           }
-          case 2095806643: {
-            if (input.isAtField(FieldNames.kCFGDMFGIAN)) {
+          case -2046149069:
+          case 1318855898: {
+            if (input.isAtField(FieldNames.cheatTimes)) {
               if (!input.trySkipNullValue()) {
-                kCFGDMFGIAN = input.readUInt32();
+                cheatTimes = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -1341,11 +1343,11 @@ public final class ChessRogueNousDiceOuterClass {
     static class FieldNames {
       static final FieldName diceBranchId = FieldName.forField("diceBranchId", "dice_branch_id");
 
-      static final FieldName nDJBBOEJOEH = FieldName.forField("NDJBBOEJOEH");
+      static final FieldName rerollTimes = FieldName.forField("rerollTimes", "reroll_times");
 
       static final FieldName curSurfaceId = FieldName.forField("curSurfaceId", "cur_surface_id");
 
-      static final FieldName kCFGDMFGIAN = FieldName.forField("KCFGDMFGIAN");
+      static final FieldName cheatTimes = FieldName.forField("cheatTimes", "cheat_times");
 
       static final FieldName hIJBOPMGBAP = FieldName.forField("HIJBOPMGBAP");
 

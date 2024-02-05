@@ -49,9 +49,9 @@ public final class ChessRogueCellOuterClass {
     private int pNKFAINKKCE;
 
     /**
-     * <code>optional uint32 rogue_version_id = 9;</code>
+     * <code>optional uint32 cell_id = 9;</code>
      */
-    private int rogueVersionId;
+    private int cellId;
 
     /**
      * <pre>
@@ -63,9 +63,9 @@ public final class ChessRogueCellOuterClass {
     private int jLOBGDKNJLN;
 
     /**
-     * <code>optional uint32 AAODCDKAINI = 11;</code>
+     * <code>optional uint32 new_room_id = 11;</code>
      */
-    private int aAODCDKAINI;
+    private int newRoomId;
 
     /**
      * <pre>
@@ -302,39 +302,39 @@ public final class ChessRogueCellOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 9;</code>
-     * @return whether the rogueVersionId field is set
+     * <code>optional uint32 cell_id = 9;</code>
+     * @return whether the cellId field is set
      */
-    public boolean hasRogueVersionId() {
+    public boolean hasCellId() {
       return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 9;</code>
+     * <code>optional uint32 cell_id = 9;</code>
      * @return this
      */
-    public ChessRogueCell clearRogueVersionId() {
+    public ChessRogueCell clearCellId() {
       bitField0_ &= ~0x00000020;
-      rogueVersionId = 0;
+      cellId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 9;</code>
-     * @return the rogueVersionId
+     * <code>optional uint32 cell_id = 9;</code>
+     * @return the cellId
      */
-    public int getRogueVersionId() {
-      return rogueVersionId;
+    public int getCellId() {
+      return cellId;
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 9;</code>
-     * @param value the rogueVersionId to set
+     * <code>optional uint32 cell_id = 9;</code>
+     * @param value the cellId to set
      * @return this
      */
-    public ChessRogueCell setRogueVersionId(final int value) {
+    public ChessRogueCell setCellId(final int value) {
       bitField0_ |= 0x00000020;
-      rogueVersionId = value;
+      cellId = value;
       return this;
     }
 
@@ -392,39 +392,39 @@ public final class ChessRogueCellOuterClass {
     }
 
     /**
-     * <code>optional uint32 AAODCDKAINI = 11;</code>
-     * @return whether the aAODCDKAINI field is set
+     * <code>optional uint32 new_room_id = 11;</code>
+     * @return whether the newRoomId field is set
      */
-    public boolean hasAAODCDKAINI() {
+    public boolean hasNewRoomId() {
       return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>optional uint32 AAODCDKAINI = 11;</code>
+     * <code>optional uint32 new_room_id = 11;</code>
      * @return this
      */
-    public ChessRogueCell clearAAODCDKAINI() {
+    public ChessRogueCell clearNewRoomId() {
       bitField0_ &= ~0x00000080;
-      aAODCDKAINI = 0;
+      newRoomId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 AAODCDKAINI = 11;</code>
-     * @return the aAODCDKAINI
+     * <code>optional uint32 new_room_id = 11;</code>
+     * @return the newRoomId
      */
-    public int getAAODCDKAINI() {
-      return aAODCDKAINI;
+    public int getNewRoomId() {
+      return newRoomId;
     }
 
     /**
-     * <code>optional uint32 AAODCDKAINI = 11;</code>
-     * @param value the aAODCDKAINI to set
+     * <code>optional uint32 new_room_id = 11;</code>
+     * @param value the newRoomId to set
      * @return this
      */
-    public ChessRogueCell setAAODCDKAINI(final int value) {
+    public ChessRogueCell setNewRoomId(final int value) {
       bitField0_ |= 0x00000080;
-      aAODCDKAINI = value;
+      newRoomId = value;
       return this;
     }
 
@@ -612,9 +612,9 @@ public final class ChessRogueCellOuterClass {
         nLBGDNLIONI = other.nLBGDNLIONI;
         fOKKJJADPEA = other.fOKKJJADPEA;
         pNKFAINKKCE = other.pNKFAINKKCE;
-        rogueVersionId = other.rogueVersionId;
+        cellId = other.cellId;
         jLOBGDKNJLN = other.jLOBGDKNJLN;
-        aAODCDKAINI = other.aAODCDKAINI;
+        newRoomId = other.newRoomId;
         pMBLMGDFGAN = other.pMBLMGDFGAN;
         isUnlocked = other.isUnlocked;
         iIJOCONHKND.copyFrom(other.iIJOCONHKND);
@@ -643,14 +643,14 @@ public final class ChessRogueCellOuterClass {
       if (other.hasPNKFAINKKCE()) {
         setPNKFAINKKCE(other.pNKFAINKKCE);
       }
-      if (other.hasRogueVersionId()) {
-        setRogueVersionId(other.rogueVersionId);
+      if (other.hasCellId()) {
+        setCellId(other.cellId);
       }
       if (other.hasJLOBGDKNJLN()) {
         setJLOBGDKNJLN(other.jLOBGDKNJLN);
       }
-      if (other.hasAAODCDKAINI()) {
-        setAAODCDKAINI(other.aAODCDKAINI);
+      if (other.hasNewRoomId()) {
+        setNewRoomId(other.newRoomId);
       }
       if (other.hasPMBLMGDFGAN()) {
         setPMBLMGDFGAN(other.pMBLMGDFGAN);
@@ -676,9 +676,9 @@ public final class ChessRogueCellOuterClass {
       nLBGDNLIONI = 0;
       fOKKJJADPEA = 0;
       pNKFAINKKCE = 0;
-      rogueVersionId = 0;
+      cellId = 0;
       jLOBGDKNJLN = 0;
-      aAODCDKAINI = 0;
+      newRoomId = 0;
       pMBLMGDFGAN = false;
       isUnlocked = false;
       iIJOCONHKND.clear();
@@ -711,9 +711,9 @@ public final class ChessRogueCellOuterClass {
         && (!hasNLBGDNLIONI() || nLBGDNLIONI == other.nLBGDNLIONI)
         && (!hasFOKKJJADPEA() || fOKKJJADPEA == other.fOKKJJADPEA)
         && (!hasPNKFAINKKCE() || pNKFAINKKCE == other.pNKFAINKKCE)
-        && (!hasRogueVersionId() || rogueVersionId == other.rogueVersionId)
+        && (!hasCellId() || cellId == other.cellId)
         && (!hasJLOBGDKNJLN() || jLOBGDKNJLN == other.jLOBGDKNJLN)
-        && (!hasAAODCDKAINI() || aAODCDKAINI == other.aAODCDKAINI)
+        && (!hasNewRoomId() || newRoomId == other.newRoomId)
         && (!hasPMBLMGDFGAN() || pMBLMGDFGAN == other.pMBLMGDFGAN)
         && (!hasIsUnlocked() || isUnlocked == other.isUnlocked)
         && (!hasIIJOCONHKND() || iIJOCONHKND.equals(other.iIJOCONHKND));
@@ -743,7 +743,7 @@ public final class ChessRogueCellOuterClass {
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(rogueVersionId);
+        output.writeUInt32NoTag(cellId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawByte((byte) 80);
@@ -751,7 +751,7 @@ public final class ChessRogueCellOuterClass {
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(aAODCDKAINI);
+        output.writeUInt32NoTag(newRoomId);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeRawByte((byte) 48);
@@ -788,13 +788,13 @@ public final class ChessRogueCellOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(pNKFAINKKCE);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueVersionId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(cellId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(jLOBGDKNJLN);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(aAODCDKAINI);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(newRoomId);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         size += 2;
@@ -861,8 +861,8 @@ public final class ChessRogueCellOuterClass {
             }
           }
           case 72: {
-            // rogueVersionId
-            rogueVersionId = input.readUInt32();
+            // cellId
+            cellId = input.readUInt32();
             bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 80) {
@@ -879,8 +879,8 @@ public final class ChessRogueCellOuterClass {
             }
           }
           case 88: {
-            // aAODCDKAINI
-            aAODCDKAINI = input.readUInt32();
+            // newRoomId
+            newRoomId = input.readUInt32();
             bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 48) {
@@ -953,13 +953,13 @@ public final class ChessRogueCellOuterClass {
         output.writeUInt32(FieldNames.pNKFAINKKCE, pNKFAINKKCE);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeUInt32(FieldNames.rogueVersionId, rogueVersionId);
+        output.writeUInt32(FieldNames.cellId, cellId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeUInt32(FieldNames.jLOBGDKNJLN, jLOBGDKNJLN);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeUInt32(FieldNames.aAODCDKAINI, aAODCDKAINI);
+        output.writeUInt32(FieldNames.newRoomId, newRoomId);
       }
       if ((bitField0_ & 0x00000100) != 0) {
         output.writeBool(FieldNames.pMBLMGDFGAN, pMBLMGDFGAN);
@@ -1036,11 +1036,11 @@ public final class ChessRogueCellOuterClass {
             }
             break;
           }
-          case -1457526951:
-          case 1832096103: {
-            if (input.isAtField(FieldNames.rogueVersionId)) {
+          case -1364082147:
+          case 663147800: {
+            if (input.isAtField(FieldNames.cellId)) {
               if (!input.trySkipNullValue()) {
-                rogueVersionId = input.readUInt32();
+                cellId = input.readUInt32();
                 bitField0_ |= 0x00000020;
               }
             } else {
@@ -1059,10 +1059,11 @@ public final class ChessRogueCellOuterClass {
             }
             break;
           }
-          case 2117066584: {
-            if (input.isAtField(FieldNames.aAODCDKAINI)) {
+          case -629039850:
+          case 635252576: {
+            if (input.isAtField(FieldNames.newRoomId)) {
               if (!input.trySkipNullValue()) {
-                aAODCDKAINI = input.readUInt32();
+                newRoomId = input.readUInt32();
                 bitField0_ |= 0x00000080;
               }
             } else {
@@ -1167,11 +1168,11 @@ public final class ChessRogueCellOuterClass {
 
       static final FieldName pNKFAINKKCE = FieldName.forField("PNKFAINKKCE");
 
-      static final FieldName rogueVersionId = FieldName.forField("rogueVersionId", "rogue_version_id");
+      static final FieldName cellId = FieldName.forField("cellId", "cell_id");
 
       static final FieldName jLOBGDKNJLN = FieldName.forField("JLOBGDKNJLN");
 
-      static final FieldName aAODCDKAINI = FieldName.forField("AAODCDKAINI");
+      static final FieldName newRoomId = FieldName.forField("newRoomId", "new_room_id");
 
       static final FieldName pMBLMGDFGAN = FieldName.forField("PMBLMGDFGAN");
 

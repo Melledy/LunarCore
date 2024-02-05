@@ -1,0 +1,506 @@
+[
+  {
+    "activityId": 1001501,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10015
+  },
+  {
+    "activityId": 1001601,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10016
+  },
+  {
+    "activityId": 1001701,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10017
+  },
+  {
+    "activityId": 1001901,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10019
+  },
+  {
+    "activityId": 1002101,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10043
+  },
+  {
+    "activityId": 1002501,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10025
+  },
+  {
+    "activityId": 1002601,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10044
+  },
+  {
+    "activityId": 1002602,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10044
+  },
+  {
+    "activityId": 1004001,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10040
+  },
+  {
+    "activityId": 1004101,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10041
+  },
+  {
+    "activityId": 1004201,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 10042
+  },
+  {
+    "activityId": 2000801,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20022
+  },
+  {
+    "activityId": 2000803,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20023
+  },
+  {
+    "activityId": 2000804,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20023
+  },
+  {
+    "activityId": 2000901,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20023
+  },
+  {
+    "activityId": 2001101,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001102,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001103,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001104,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001105,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001106,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001107,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001108,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20011
+  },
+  {
+    "activityId": 2001202,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20022
+  },
+  {
+    "activityId": 2001303,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20023
+  },
+  {
+    "activityId": 2001602,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20022
+  },
+  {
+    "activityId": 2002201,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20022
+  },
+  {
+    "activityId": 2002202,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20022
+  },
+  {
+    "activityId": 2002301,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20023
+  },
+  {
+    "activityId": 2002302,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20023
+  },
+  {
+    "activityId": 2002303,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 20022
+  },
+  {
+    "activityId": 3000800,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 30008
+  },
+  {
+    "activityId": 3000801,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 30008
+  },
+  {
+    "activityId": 4000208,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40002
+  },
+  {
+    "activityId": 4000301,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40003
+  },
+  {
+    "activityId": 4000302,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40003
+  },
+  {
+    "activityId": 4000303,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40003
+  },
+  {
+    "activityId": 4000304,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40003
+  },
+  {
+    "activityId": 4000305,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40003
+  },
+  {
+    "activityId": 4000306,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40003
+  },
+  {
+    "activityId": 4000307,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40003
+  },
+  {
+    "activityId": 4000401,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40004
+  },
+  {
+    "activityId": 4000402,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40004
+  },
+  {
+    "activityId": 4000403,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40004
+  },
+  {
+    "activityId": 4000404,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40004
+  },
+  {
+    "activityId": 4000405,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 40004
+  },
+  {
+    "activityId": 5000002,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000003,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000004,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000005,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000006,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000007,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000008,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000009,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000010,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000011,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000013,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50000
+  },
+  {
+    "activityId": 5000105,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50001
+  },
+  {
+    "activityId": 5000106,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50001
+  },
+  {
+    "activityId": 5000107,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50001
+  },
+  {
+    "activityId": 5000201,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50002
+  },
+  {
+    "activityId": 5000202,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50002
+  },
+  {
+    "activityId": 5000203,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50002
+  },
+  {
+    "activityId": 5000204,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50002
+  },
+  {
+    "activityId": 5000301,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50003
+  },
+  {
+    "activityId": 5000302,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50003
+  },
+  {
+    "activityId": 5000303,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50003
+  },
+  {
+    "activityId": 5000304,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50003
+  },
+  {
+    "activityId": 5000408,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50004
+  },
+  {
+    "activityId": 5000501,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50005
+  },
+  {
+    "activityId": 5000502,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50005
+  },
+  {
+    "activityId": 5000503,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50005
+  },
+  {
+    "activityId": 5000504,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50005
+  },
+  {
+    "activityId": 5000505,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50005
+  },
+  {
+    "activityId": 5000601,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50006
+  },
+  {
+    "activityId": 5000602,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50006
+  },
+  {
+    "activityId": 5000603,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50006
+  },
+  {
+    "activityId": 5000604,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50006
+  },
+  {
+    "activityId": 5000605,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 50006
+  },
+  {
+    "activityId": 6000101,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 60001
+  },
+  {
+    "activityId": 6000302,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 60003
+  },
+  {
+    "activityId": 6000801,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 60008
+  },
+  {
+    "activityId": 6000901,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 60009
+  },
+  {
+    "activityId": 8000501,
+    "beginTime": 1664308800,
+    "endTime": 4294967295,
+    "moduleId": 80005
+  }
+]

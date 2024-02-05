@@ -1,6 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.proto.ActivityScheduleInfoOuterClass.ActivityScheduleInfo;
 import emu.lunarcore.proto.GetActivityScheduleConfigScRspOuterClass.GetActivityScheduleConfigScRsp;
 import emu.lunarcore.server.packet.BasePacket;
@@ -15,14 +15,12 @@ public class PacketGetActivityScheduleConfigScRsp extends BasePacket {
         
         var data = GetActivityScheduleConfigScRsp.newInstance();
         
-        for (var activity : GameData.getActivityPanelExcelMap().values()) {
-            if (activity.getType() != 18) continue;
-            
+        for (var activity : GameDepot.getActivityScheduleExcels()) {
             var info = ActivityScheduleInfo.newInstance()
-                    .setActivityId(activity.getPanelID())
-                    .setModuleId(activity.getActivityModuleID())
-                    .setBeginTime(0)
-                    .setEndTime(Integer.MAX_VALUE);
+                    .setActivityId(activity.getActivityId())
+                    .setModuleId(activity.getModuleId())
+                    .setBeginTime(activity.getBeginTime())
+                    .setEndTime(activity.getEndTime());
             
             data.addActivityScheduleList(info);
         }

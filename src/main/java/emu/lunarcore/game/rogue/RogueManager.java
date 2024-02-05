@@ -177,7 +177,7 @@ public class RogueManager extends BasePlayerManager {
         
         var score = RogueScoreRewardInfo.newInstance()
                 .setPoolId(20 + getPlayer().getWorldLevel()) // TODO pool ids should not change when world level changes
-                //.setPoolRefreshed(true)
+                .setPoolRefreshed(true)
                 .setHasTakenInitialScore(true)
                 .setBeginTime(beginTime)
                 .setEndTime(endTime);
@@ -210,17 +210,6 @@ public class RogueManager extends BasePlayerManager {
         
         // Rogue data
         RogueInstance instance = this.getPlayer().getRogueInstance();
-//        if (instance != null) {
-//            proto.setStatus(instance.getStatus());
-//            proto.setRogueProgress(this.getPlayer().getRogueInstance().toProto());
-//            proto.setRoomMap(proto.getRogueProgress().getRoomMap());
-//            
-//            for (int id : instance.getBaseAvatarIds()) {
-//                proto.addBaseAvatarIdList(id);
-//            }
-//            
-//            aeonInfo.setSelectedAeonId(instance.getAeonId());
-//        }
         
         // Add areas
         var areaInfo = RogueAreaInfo.newInstance();
