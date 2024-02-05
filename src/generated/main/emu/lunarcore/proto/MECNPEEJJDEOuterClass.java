@@ -20,7 +20,7 @@ public final class MECNPEEJJDEOuterClass {
 
     /**
      * <pre>
-     *  idk
+     * LJABGHIILFI DHJPHJOBLLB = 7;
      * </pre>
      *
      * <code>optional uint32 GLFDHAJPJDF = 3;</code>
@@ -39,7 +39,7 @@ public final class MECNPEEJJDEOuterClass {
 
     /**
      * <pre>
-     *  idk
+     * LJABGHIILFI DHJPHJOBLLB = 7;
      * </pre>
      *
      * <code>optional uint32 GLFDHAJPJDF = 3;</code>
@@ -51,7 +51,7 @@ public final class MECNPEEJJDEOuterClass {
 
     /**
      * <pre>
-     *  idk
+     * LJABGHIILFI DHJPHJOBLLB = 7;
      * </pre>
      *
      * <code>optional uint32 GLFDHAJPJDF = 3;</code>
@@ -65,7 +65,7 @@ public final class MECNPEEJJDEOuterClass {
 
     /**
      * <pre>
-     *  idk
+     * LJABGHIILFI DHJPHJOBLLB = 7;
      * </pre>
      *
      * <code>optional uint32 GLFDHAJPJDF = 3;</code>
@@ -77,7 +77,7 @@ public final class MECNPEEJJDEOuterClass {
 
     /**
      * <pre>
-     *  idk
+     * LJABGHIILFI DHJPHJOBLLB = 7;
      * </pre>
      *
      * <code>optional uint32 GLFDHAJPJDF = 3;</code>

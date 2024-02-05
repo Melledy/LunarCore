@@ -16,7 +16,6 @@ public class RogueEventManager {
     private RogueInstance rogueInstance;
     private Player player;
     @Setter private int nowPercentage = 0;
-    @Setter private int buffType = 0;
     
     public RogueEventManager(RogueInstance rogueInstance) {
         this.rogueInstance = rogueInstance;
@@ -93,28 +92,27 @@ public class RogueEventManager {
                 var increasePercent = param.get(2);
                 if (this.nowPercentage != 0)
                     this.nowPercentage = initialPercent;
-                else
-                    this.nowPercentage += increasePercent;
                 var weightList = new WeightedList<Integer>();
-                for (int i = 4; i < param.size(); i += 2) {
+                for (int i = 3; i < param.size(); i += 2) {
                     weightList.add(param.get(i + 1), param.get(i));
                 }
                 int randomNum = Utils.randomRange(0, 100);
                 if (randomNum <= this.nowPercentage) {
                     handleCost(eventId);
-                    this.handleEvent(failEventId, npcId);
+                    //this.handleEvent(failEventId, npcId);
                     this.getRogueInstance().getCurDialogueParams().get(npcId).add(RogueDialogueEventParam.newInstance()
                         .setDialogueEventId(failEventId)
                         .setIsValid(true));
                     return 0;
                 } else {
+                    this.nowPercentage += increasePercent;
                     handleCost(eventId);
                     int nextEventId = weightList.next();
                     this.handleEvent(nextEventId, npcId);
                     this.getRogueInstance().getCurDialogueParams().get(npcId).add(RogueDialogueEventParam.newInstance()
                         .setDialogueEventId(nextEventId)
                         .setIsValid(true)
-                        .setRatio(this.nowPercentage / 100f));
+                        .setRatio(this.nowPercentage));  // not working
                     return 0;
                 }
             }

@@ -23,7 +23,7 @@ public class PacketSyncRogueDialogueEventDataScNotify extends BasePacket {
         this(RogueDialogueEvent.newInstance()
             .setGameModeType(5)  // rogue explore
             .setNpcId(rogueNpcId)
-            .setGBMDBBBMBEJ(eventId)
+            .setEventUniqueId(eventId)
             .addAllRogueDialogueEventParam(params.toArray(RogueDialogueEventParam[]::new)));
     }
 }

@@ -16,14 +16,14 @@ public class PacketSyncRogueCommonPendingActionScNotify extends BasePacket {
         var proto = SyncRogueCommonPendingActionScNotify.newInstance();
         
         proto.setRogueCommonPendingAction(action)
-            .setOCPBNBPAMEN(101);  // common rogue
+            .setRogueVersionId(101);  // common rogue
         
         this.setData(proto);
     }
     
     public PacketSyncRogueCommonPendingActionScNotify(RogueAction action, int id) {
         this(RogueCommonPendingAction.newInstance()
-            .setGLFDHAJPJDF(id)
+            .setActionUniqueId(id)
             .setRogueAction(action));
     }
     

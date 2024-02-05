@@ -20,12 +20,12 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
 
     /**
      * <pre>
-     * PBCHNCIJKNA MDBPDPDDHBC = 12;
+     *  101 for common rogue
      * </pre>
      *
-     * <code>optional uint32 OCPBNBPAMEN = 5;</code>
+     * <code>optional uint32 rogue_version_id = 5;</code>
      */
-    private int oCPBNBPAMEN;
+    private int rogueVersionId;
 
     /**
      * <code>optional .RogueActionResult action = 11;</code>
@@ -44,54 +44,54 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
 
     /**
      * <pre>
-     * PBCHNCIJKNA MDBPDPDDHBC = 12;
+     *  101 for common rogue
      * </pre>
      *
-     * <code>optional uint32 OCPBNBPAMEN = 5;</code>
-     * @return whether the oCPBNBPAMEN field is set
+     * <code>optional uint32 rogue_version_id = 5;</code>
+     * @return whether the rogueVersionId field is set
      */
-    public boolean hasOCPBNBPAMEN() {
+    public boolean hasRogueVersionId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
      * <pre>
-     * PBCHNCIJKNA MDBPDPDDHBC = 12;
+     *  101 for common rogue
      * </pre>
      *
-     * <code>optional uint32 OCPBNBPAMEN = 5;</code>
+     * <code>optional uint32 rogue_version_id = 5;</code>
      * @return this
      */
-    public SyncRogueCommonActionResultScNotify clearOCPBNBPAMEN() {
+    public SyncRogueCommonActionResultScNotify clearRogueVersionId() {
       bitField0_ &= ~0x00000001;
-      oCPBNBPAMEN = 0;
+      rogueVersionId = 0;
       return this;
     }
 
     /**
      * <pre>
-     * PBCHNCIJKNA MDBPDPDDHBC = 12;
+     *  101 for common rogue
      * </pre>
      *
-     * <code>optional uint32 OCPBNBPAMEN = 5;</code>
-     * @return the oCPBNBPAMEN
+     * <code>optional uint32 rogue_version_id = 5;</code>
+     * @return the rogueVersionId
      */
-    public int getOCPBNBPAMEN() {
-      return oCPBNBPAMEN;
+    public int getRogueVersionId() {
+      return rogueVersionId;
     }
 
     /**
      * <pre>
-     * PBCHNCIJKNA MDBPDPDDHBC = 12;
+     *  101 for common rogue
      * </pre>
      *
-     * <code>optional uint32 OCPBNBPAMEN = 5;</code>
-     * @param value the oCPBNBPAMEN to set
+     * <code>optional uint32 rogue_version_id = 5;</code>
+     * @param value the rogueVersionId to set
      * @return this
      */
-    public SyncRogueCommonActionResultScNotify setOCPBNBPAMEN(final int value) {
+    public SyncRogueCommonActionResultScNotify setRogueVersionId(final int value) {
       bitField0_ |= 0x00000001;
-      oCPBNBPAMEN = value;
+      rogueVersionId = value;
       return this;
     }
 
@@ -159,7 +159,7 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        oCPBNBPAMEN = other.oCPBNBPAMEN;
+        rogueVersionId = other.rogueVersionId;
         action.copyFrom(other.action);
       }
       return this;
@@ -172,8 +172,8 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasOCPBNBPAMEN()) {
-        setOCPBNBPAMEN(other.oCPBNBPAMEN);
+      if (other.hasRogueVersionId()) {
+        setRogueVersionId(other.rogueVersionId);
       }
       if (other.hasAction()) {
         getMutableAction().mergeFrom(other.action);
@@ -188,7 +188,7 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      oCPBNBPAMEN = 0;
+      rogueVersionId = 0;
       action.clear();
       return this;
     }
@@ -214,7 +214,7 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
       }
       SyncRogueCommonActionResultScNotify other = (SyncRogueCommonActionResultScNotify) o;
       return bitField0_ == other.bitField0_
-        && (!hasOCPBNBPAMEN() || oCPBNBPAMEN == other.oCPBNBPAMEN)
+        && (!hasRogueVersionId() || rogueVersionId == other.rogueVersionId)
         && (!hasAction() || action.equals(other.action));
     }
 
@@ -222,7 +222,7 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(oCPBNBPAMEN);
+        output.writeUInt32NoTag(rogueVersionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 90);
@@ -234,7 +234,7 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(oCPBNBPAMEN);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueVersionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(action);
@@ -251,8 +251,8 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
       while (true) {
         switch (tag) {
           case 40: {
-            // oCPBNBPAMEN
-            oCPBNBPAMEN = input.readUInt32();
+            // rogueVersionId
+            rogueVersionId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 90) {
@@ -286,7 +286,7 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.oCPBNBPAMEN, oCPBNBPAMEN);
+        output.writeUInt32(FieldNames.rogueVersionId, rogueVersionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeMessage(FieldNames.action, action);
@@ -302,10 +302,11 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1836582037: {
-            if (input.isAtField(FieldNames.oCPBNBPAMEN)) {
+          case -1457526951:
+          case 1832096103: {
+            if (input.isAtField(FieldNames.rogueVersionId)) {
               if (!input.trySkipNullValue()) {
-                oCPBNBPAMEN = input.readUInt32();
+                rogueVersionId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -379,7 +380,7 @@ public final class SyncRogueCommonActionResultScNotifyOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName oCPBNBPAMEN = FieldName.forField("OCPBNBPAMEN");
+      static final FieldName rogueVersionId = FieldName.forField("rogueVersionId", "rogue_version_id");
 
       static final FieldName action = FieldName.forField("action");
     }
