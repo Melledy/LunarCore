@@ -6,10 +6,9 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.util.Utils;
 import emu.lunarcore.util.WeightedList;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 public class RogueEventManager {
@@ -25,18 +24,19 @@ public class RogueEventManager {
     public int handleEvent(int eventId, int npcId) {
         var event = GameData.getRogueDialogueEventList().get(eventId);
         if (event == null || event.getRogueEffectType() == null) return 0;
-        List<Integer> param = event.getRogueEffectParamList();
+        IntArrayList param = event.getRogueEffectParamList();
+        
         switch (event.getRogueEffectType()) {
-            case GetItem -> rogueInstance.addDialogueMoney(param.get(1));
+            case GetItem -> rogueInstance.addDialogueMoney(param.getInt(1));
             case TriggerBattle -> {
-                this.getPlayer().getServer().getBattleService().startBattle(player, param.get(0)); // handle in SceneEnterStageCsReq
+                this.getPlayer().getServer().getBattleService().startBattle(player, param.getInt(0)); // handle in SceneEnterStageCsReq
             }
             case TriggerRogueMiracleSelect -> this.getRogueInstance().createMiracleSelect(1);
             case TriggerRogueBuffSelect -> {
-                this.getRogueInstance().createBuffSelect(param.get(2), param.get(0));
+                this.getRogueInstance().createBuffSelect(param.getInt(2), param.getInt(0));
             }
             case GetRogueBuff -> {
-                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.getInt(0));
                 if (rogueBuff != null) {
                     var weightList = new WeightedList<RogueBuffData>();
                     for (var buff : rogueBuff.getRogueBuffList()) {
@@ -48,13 +48,13 @@ public class RogueEventManager {
                         if (buff == null || buff.getExcel() == null) break;
                         if (this.getRogueInstance().getBuffs().containsValue(buff)) continue;
                         this.getRogueInstance().addBuff(buff);
-                        param.set(1, param.get(1) - 1);
-                        if (param.get(1) <= 0) break;
+                        param.set(1, param.getInt(1) - 1);
+                        if (param.getInt(1) <= 0) break;
                     }
                 }
             }
             case GetAllRogueBuffInGroup -> {
-                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.getInt(0));
                 this.getRogueInstance().addBuff(rogueBuff.getRogueBuffList());
             }
             case TriggerDialogueEventList -> {
@@ -82,19 +82,19 @@ public class RogueEventManager {
                 return randomEventId;
             }
             case GetAllRogueBuffInGroupAndGetItem -> {
-                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.getInt(0));
                 this.getRogueInstance().addBuff(rogueBuff.getRogueBuffList());
-                this.getRogueInstance().addDialogueMoney(param.get(2));
+                this.getRogueInstance().addDialogueMoney(param.getInt(2));
             }
             case RepeatableGamble -> {
-                var failEventId = param.get(0);
-                var initialPercent = param.get(1);
-                var increasePercent = param.get(2);
+                var failEventId = param.getInt(0);
+                var initialPercent = param.getInt(1);
+                var increasePercent = param.getInt(2);
                 if (this.nowPercentage != 0)
                     this.nowPercentage = initialPercent;
                 var weightList = new WeightedList<Integer>();
                 for (int i = 3; i < param.size(); i += 2) {
-                    weightList.add(param.get(i + 1), param.get(i));
+                    weightList.add(param.getInt(i + 1), param.getInt(i));
                 }
                 int randomNum = Utils.randomRange(0, 100);
                 if (randomNum <= this.nowPercentage) {
@@ -117,7 +117,7 @@ public class RogueEventManager {
                 }
             }
             case EnhanceRogueBuff -> {
-                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.get(0));
+                var rogueBuff = GameData.getRogueBuffGroupExcelMap().get(param.getInt(0));
                 if (rogueBuff != null) {
                     var weightList = new WeightedList<RogueBuffData>();
                     for (var buff : rogueBuff.getRogueBuffList()) {
@@ -130,12 +130,11 @@ public class RogueEventManager {
                         if (!this.getRogueInstance().getBuffs().containsValue(buff)) continue;
                         if (this.getRogueInstance().getBuffs().get(buff.getId()).getLevel() >= 2) continue;
                         this.getRogueInstance().addBuff(new RogueBuffData(buff.getId(), buff.getLevel() + 1));
-                        param.set(1, param.get(1) - 1);
-                        if (param.get(1) <= 0) break;
+                        param.set(1, param.getInt(1) - 1);
+                        if (param.getInt(1) <= 0) break;
                     }
                 }
             }
-            
             case NONE -> {}  // do nothing
             default -> {
                 LunarCore.getLogger().info("RogueEventManager: unhandled event type: " + event.getRogueEffectType());  // DEBUG
@@ -150,21 +149,22 @@ public class RogueEventManager {
         if (event == null || event.getCostType() == null) return;
         var param = event.getCostParamList();
         switch (event.getCostType()) {
-            case CostItemValue -> rogueInstance.setMoney(rogueInstance.getMoney() - param.get(1));
-            case CostItemPercent -> rogueInstance.setMoney(rogueInstance.getMoney() - (rogueInstance.getMoney() * param.get(1) / 100));
+            case CostItemValue -> rogueInstance.setMoney(rogueInstance.getMoney() - param.getInt(1));
+            case CostItemPercent -> rogueInstance.setMoney(rogueInstance.getMoney() - (rogueInstance.getMoney() * param.getInt(1) / 100));
             case CostHpCurrentPercent -> {
                 var lineup = this.getPlayer().getCurrentLineup();
                 lineup.forEachAvatar(avatar -> {
-                    avatar.setCurrentHp(lineup, avatar.getCurrentHp(lineup) - (avatar.getCurrentHp(lineup) * param.get(0) / 100));
+                    avatar.setCurrentHp(lineup, avatar.getCurrentHp(lineup) - (avatar.getCurrentHp(lineup) * param.getInt(0) / 100));
                 });
             }
             case CostHpSpToPercent -> {
                 var lineup = this.getPlayer().getCurrentLineup();
                 lineup.forEachAvatar(avatar -> {
-                    avatar.setCurrentHp(lineup, avatar.getCurrentHp(lineup) - (avatar.getCurrentHp(lineup) * param.get(0) / 100));
-                    avatar.setCurrentSp(lineup, avatar.getMaxSp() - (avatar.getMaxSp() * param.get(1) / 100));
+                    avatar.setCurrentHp(lineup, avatar.getCurrentHp(lineup) - (avatar.getCurrentHp(lineup) * param.getInt(0) / 100));
+                    avatar.setCurrentSp(lineup, avatar.getMaxSp() - (avatar.getMaxSp() * param.getInt(1) / 100));
                 });
             }
+            default -> {}
         }    
     }
 }
