@@ -15,7 +15,7 @@ public class PacketSyncRogueCommonActionResultScNotify extends BasePacket {
         super(CmdId.SyncRogueCommonActionResultScNotify);
         
         var proto = SyncRogueCommonActionResultScNotify.newInstance()
-            .setOCPBNBPAMEN(101);
+            .setRogueVersionId(101);
         
         proto.setAction(action);
         

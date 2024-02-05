@@ -142,11 +142,10 @@ public class RogueEntityLoader extends SceneEntityLoader {
             } while (instance.setDialogueParams(npcId) == null);
             
             instance.getEventManager().setNowPercentage(0);
-            instance.getEventManager().setBuffType(0);
             npc.setRogueNpcId(npcId);
-            npc.setEventId(++instance.eventId);
+            npc.setEventId(++instance.eventUniqueId);
             scene.getPlayer().sendPacket(new PacketSyncRogueDialogueEventDataScNotify(npcId, instance.curDialogueParams.get(npcId),
-                instance.eventId));
+                instance.eventUniqueId));
         }
         
         return npc;

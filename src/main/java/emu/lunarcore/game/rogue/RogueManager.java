@@ -200,7 +200,7 @@ public class RogueManager extends BasePlayerManager {
                 aeonInfo.addAeonIdList(aeonExcel.getAeonID());
             }
             aeonInfo.setIsUnlocked(true);
-            aeonInfo.setJPEBPGIEGPO(3);  // guess
+            aeonInfo.setUnlockAeonEnhanceNum(3);  // guess
         }
 
         var data = RogueInfoData.newInstance()

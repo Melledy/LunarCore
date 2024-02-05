@@ -68,8 +68,8 @@ public class RogueInstance {
     private int aeonBuffType;
     private int maxAeonBuffs;
     private int money;  // universal debris
-    public int id = 2;  // idk what this is for, but it's needed for the packet
-    public int eventId = 690;
+    public int actionUniqueId = 0;
+    public int eventUniqueId = 690;
     public Int2ObjectMap<List<RogueDialogueEventParam>> curDialogueParams = new Int2ObjectOpenHashMap<>();
     private final Set<RogueBuffData> normalBuff = GameData.getRogueBuffGroupExcelMap().get(100005).getRogueBuffList();
     private final Set<RogueBuffData> uncommonBuff = GameData.getRogueBuffGroupExcelMap().get(100003).getRogueBuffList();
@@ -224,8 +224,8 @@ public class RogueInstance {
             }
             
             if (this.getBuffSelect() != null) {
-                var proto = new PacketSyncRogueCommonPendingActionScNotify(this.buffSelect.toProto(), this.id);
-                this.id += 2;
+                var proto = new PacketSyncRogueCommonPendingActionScNotify(this.buffSelect.toProto(), this.actionUniqueId);
+                this.actionUniqueId += 2;
                 this.pendingAction = proto.toProto();
                 this.getPlayer().sendPacket(proto);
             }
@@ -240,14 +240,14 @@ public class RogueInstance {
         if (getBuffSelect() != null && getBuffSelect().hasRerolls() && money >= 30) {
             this.getBuffSelect().reroll();
             this.setMoney(money - 30);
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.getBuffSelect().toProto(), this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.getBuffSelect().toProto(), this.actionUniqueId - 2));
             
-            var proto = new PacketSyncRogueCommonPendingActionScNotify(this.buffSelect.toProto(), this.id);
-            this.id += 2;
+            var proto = new PacketSyncRogueCommonPendingActionScNotify(this.buffSelect.toProto(), this.actionUniqueId);
+            this.actionUniqueId += 2;
             pendingAction = proto.toProto();
             return this.getBuffSelect();
         } else {
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.actionUniqueId - 2));
         }
         
         return null;
@@ -256,7 +256,7 @@ public class RogueInstance {
     public synchronized RogueBuffData selectBuff(int buffId) {
         // Sanity
         if (this.getBuffSelect() == null) {
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.actionUniqueId - 2));
             return null;
         }
         
@@ -268,7 +268,7 @@ public class RogueInstance {
                 .orElse(null);
         
         if (buff == null) {
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.actionUniqueId - 2));
             return null;
         }
         
@@ -283,7 +283,7 @@ public class RogueInstance {
         
         var data = HandleRogueCommonPendingActionScRsp.newInstance();
         data.getMutableRogueBuffSelect();
-        data.setTimes(this.id - 2);
+        data.setTimes(this.actionUniqueId - 2);
         this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(data));
         return buff;
     }
@@ -329,8 +329,8 @@ public class RogueInstance {
         if (this.pendingMiracleSelects > 0 && this.getMiracleSelect() == null) {
             this.miracleSelect = new RogueMiracleSelectMenu(this);
             this.pendingMiracleSelects--;
-            var proto = new PacketSyncRogueCommonPendingActionScNotify(this.miracleSelect.toProto(), this.id);
-            this.id += 2;
+            var proto = new PacketSyncRogueCommonPendingActionScNotify(this.miracleSelect.toProto(), this.actionUniqueId);
+            this.actionUniqueId += 2;
             this.pendingAction = proto.toProto();
             this.getPlayer().sendPacket(proto);
             return this.miracleSelect;
@@ -341,7 +341,7 @@ public class RogueInstance {
     
     public synchronized RogueMiracleData selectMiracle(int miracleId) {
         if (this.getMiracleSelect() == null) {
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.actionUniqueId - 2));
             return null;
         }
         
@@ -352,7 +352,7 @@ public class RogueInstance {
                 .orElse(null);
         
         if (miracle == null) {
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.actionUniqueId - 2));
             return null;
         }
         
@@ -365,7 +365,7 @@ public class RogueInstance {
         
         var data = HandleRogueCommonPendingActionScRsp.newInstance();
         data.getMutableMiracleSelect();
-        data.setTimes(this.id - 2);
+        data.setTimes(this.actionUniqueId - 2);
         this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(data));
         return miracle;
     }
@@ -380,8 +380,8 @@ public class RogueInstance {
         if (this.pendingBonusSelects > 0 && this.getBonusSelect() == null) {
             this.bonusSelect = new RogueBonusSelectMenu(this);
             this.pendingBonusSelects--;
-            var proto = new PacketSyncRogueCommonPendingActionScNotify(this.bonusSelect.toProto(), this.id);
-            this.id += 2;
+            var proto = new PacketSyncRogueCommonPendingActionScNotify(this.bonusSelect.toProto(), this.actionUniqueId);
+            this.actionUniqueId += 2;
             this.pendingAction = proto.toProto();
             this.getPlayer().sendPacket(proto);
             return this.bonusSelect;
@@ -392,7 +392,7 @@ public class RogueInstance {
     
     public synchronized RogueBonusData selectBonus(int bonusId) {
         if (this.getBonusSelect() == null)  {
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.actionUniqueId - 2));
             return null;
         }
         
@@ -403,7 +403,7 @@ public class RogueInstance {
                 .orElse(null);
         
         if (bonus == null)  {
-            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.id - 2));
+            this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(this.actionUniqueId - 2));
             return null;
         }
         
@@ -413,7 +413,7 @@ public class RogueInstance {
         // TODO: add event
         var data = HandleRogueCommonPendingActionScRsp.newInstance();
         data.getMutableBonusSelect();
-        data.setTimes(this.id - 2);
+        data.setTimes(this.actionUniqueId - 2);
         this.getPlayer().sendPacket(new PacketHandleRogueCommonPendingActionScRsp(data));
         try {
             this.onSelectDialogue(bonus.getEventId(), 0);
@@ -489,7 +489,6 @@ public class RogueInstance {
 
                 if (argMap.containsKey(v) && argMap.get(v).equals("RelateToBuff")) {
                     param.setArgId(this.getAeonId());
-                    this.getEventManager().setBuffType(this.getAeonBuffType());
                 }
 
                 params.add(param);
@@ -691,7 +690,9 @@ public class RogueInstance {
     
     public RogueAeon toAeonProto() {
         var proto = RogueAeon.newInstance()
-                .setAeonId(this.getAeonId());
+                .setAeonId(this.getAeonId())
+                .setAeonEnhanceBuffNum(3)
+                .setIsUnlockAeon(true);
         
         return proto;
     }
