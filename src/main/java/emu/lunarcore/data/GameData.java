@@ -104,14 +104,7 @@ public class GameData {
     }
 
     public static List<Integer> getAllRelicIds() {
-        List<Integer> allIds = new ArrayList<>();
-
-        for (Int2ObjectMap.Entry<RelicExcel> entry : relicExcelMap.int2ObjectEntrySet()) {
-            RelicExcel relicExcel = entry.getValue();
-            allIds.add(relicExcel.getId());
-        }
-
-        return allIds;
+        return relicExcelMap.values().stream().map(RelicExcel::getId).toList();
     }
 
     public static int getRelicSetFromId(int relicId) {
@@ -120,6 +113,7 @@ public class GameData {
         if (relicExcel == null) {
             return 0;
         }
+        
         return relicExcel.getSetId();
     }
 
