@@ -20,7 +20,7 @@ public final class AvatarSyncOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 9;</code>
      */
     private final RepeatedMessage<AvatarOuterClass.Avatar> avatarList = RepeatedMessage.newEmptyInstance(AvatarOuterClass.Avatar.getFactory());
 
@@ -35,7 +35,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 9;</code>
      * @return whether the avatarList field is set
      */
     public boolean hasAvatarList() {
@@ -43,7 +43,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 9;</code>
      * @return this
      */
     public AvatarSync clearAvatarList() {
@@ -53,7 +53,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 9;</code>
      * @param value the avatarList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 1;</code>
+     * <code>repeated .Avatar avatar_list = 9;</code>
      * @param values the avatarList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class AvatarSyncOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < avatarList.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 74);
           output.writeMessageNoTag(avatarList.get(i));
         }
       }
@@ -185,7 +185,7 @@ public final class AvatarSyncOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 10: {
+          case 74: {
             // avatarList
             tag = input.readRepeatedMessage(avatarList, tag);
             bitField0_ |= 0x00000001;

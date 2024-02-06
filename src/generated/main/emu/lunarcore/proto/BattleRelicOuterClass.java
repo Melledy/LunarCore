@@ -40,21 +40,6 @@ public final class BattleRelicOuterClass {
     private int uniqueId;
 
     /**
-     * <code>optional uint32 relic_id = 6;</code>
-     */
-    private int relicId;
-
-    /**
-     * <code>optional uint32 slot = 7;</code>
-     */
-    private int slot;
-
-    /**
-     * <code>optional uint32 DCKIHBLMEGF = 8;</code>
-     */
-    private int dCKIHBLMEGF;
-
-    /**
      * <code>repeated .RelicAffix sub_affix_list = 4;</code>
      */
     private final RepeatedMessage<RelicAffixOuterClass.RelicAffix> subAffixList = RepeatedMessage.newEmptyInstance(RelicAffixOuterClass.RelicAffix.getFactory());
@@ -218,122 +203,11 @@ public final class BattleRelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 6;</code>
-     * @return whether the relicId field is set
-     */
-    public boolean hasRelicId() {
-      return (bitField0_ & 0x00000010) != 0;
-    }
-
-    /**
-     * <code>optional uint32 relic_id = 6;</code>
-     * @return this
-     */
-    public BattleRelic clearRelicId() {
-      bitField0_ &= ~0x00000010;
-      relicId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 relic_id = 6;</code>
-     * @return the relicId
-     */
-    public int getRelicId() {
-      return relicId;
-    }
-
-    /**
-     * <code>optional uint32 relic_id = 6;</code>
-     * @param value the relicId to set
-     * @return this
-     */
-    public BattleRelic setRelicId(final int value) {
-      bitField0_ |= 0x00000010;
-      relicId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 slot = 7;</code>
-     * @return whether the slot field is set
-     */
-    public boolean hasSlot() {
-      return (bitField0_ & 0x00000020) != 0;
-    }
-
-    /**
-     * <code>optional uint32 slot = 7;</code>
-     * @return this
-     */
-    public BattleRelic clearSlot() {
-      bitField0_ &= ~0x00000020;
-      slot = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 slot = 7;</code>
-     * @return the slot
-     */
-    public int getSlot() {
-      return slot;
-    }
-
-    /**
-     * <code>optional uint32 slot = 7;</code>
-     * @param value the slot to set
-     * @return this
-     */
-    public BattleRelic setSlot(final int value) {
-      bitField0_ |= 0x00000020;
-      slot = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 DCKIHBLMEGF = 8;</code>
-     * @return whether the dCKIHBLMEGF field is set
-     */
-    public boolean hasDCKIHBLMEGF() {
-      return (bitField0_ & 0x00000040) != 0;
-    }
-
-    /**
-     * <code>optional uint32 DCKIHBLMEGF = 8;</code>
-     * @return this
-     */
-    public BattleRelic clearDCKIHBLMEGF() {
-      bitField0_ &= ~0x00000040;
-      dCKIHBLMEGF = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 DCKIHBLMEGF = 8;</code>
-     * @return the dCKIHBLMEGF
-     */
-    public int getDCKIHBLMEGF() {
-      return dCKIHBLMEGF;
-    }
-
-    /**
-     * <code>optional uint32 DCKIHBLMEGF = 8;</code>
-     * @param value the dCKIHBLMEGF to set
-     * @return this
-     */
-    public BattleRelic setDCKIHBLMEGF(final int value) {
-      bitField0_ |= 0x00000040;
-      dCKIHBLMEGF = value;
-      return this;
-    }
-
-    /**
      * <code>repeated .RelicAffix sub_affix_list = 4;</code>
      * @return whether the subAffixList field is set
      */
     public boolean hasSubAffixList() {
-      return (bitField0_ & 0x00000080) != 0;
+      return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
@@ -341,7 +215,7 @@ public final class BattleRelicOuterClass {
      * @return this
      */
     public BattleRelic clearSubAffixList() {
-      bitField0_ &= ~0x00000080;
+      bitField0_ &= ~0x00000010;
       subAffixList.clear();
       return this;
     }
@@ -370,7 +244,7 @@ public final class BattleRelicOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RelicAffixOuterClass.RelicAffix> getMutableSubAffixList() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000010;
       return subAffixList;
     }
 
@@ -380,7 +254,7 @@ public final class BattleRelicOuterClass {
      * @return this
      */
     public BattleRelic addSubAffixList(final RelicAffixOuterClass.RelicAffix value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000010;
       subAffixList.add(value);
       return this;
     }
@@ -391,7 +265,7 @@ public final class BattleRelicOuterClass {
      * @return this
      */
     public BattleRelic addAllSubAffixList(final RelicAffixOuterClass.RelicAffix... values) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000010;
       subAffixList.addAll(values);
       return this;
     }
@@ -405,9 +279,6 @@ public final class BattleRelicOuterClass {
         level = other.level;
         mainAffixId = other.mainAffixId;
         uniqueId = other.uniqueId;
-        relicId = other.relicId;
-        slot = other.slot;
-        dCKIHBLMEGF = other.dCKIHBLMEGF;
         subAffixList.copyFrom(other.subAffixList);
       }
       return this;
@@ -431,15 +302,6 @@ public final class BattleRelicOuterClass {
       if (other.hasUniqueId()) {
         setUniqueId(other.uniqueId);
       }
-      if (other.hasRelicId()) {
-        setRelicId(other.relicId);
-      }
-      if (other.hasSlot()) {
-        setSlot(other.slot);
-      }
-      if (other.hasDCKIHBLMEGF()) {
-        setDCKIHBLMEGF(other.dCKIHBLMEGF);
-      }
       if (other.hasSubAffixList()) {
         getMutableSubAffixList().addAll(other.subAffixList);
       }
@@ -457,9 +319,6 @@ public final class BattleRelicOuterClass {
       level = 0;
       mainAffixId = 0;
       uniqueId = 0;
-      relicId = 0;
-      slot = 0;
-      dCKIHBLMEGF = 0;
       subAffixList.clear();
       return this;
     }
@@ -489,9 +348,6 @@ public final class BattleRelicOuterClass {
         && (!hasLevel() || level == other.level)
         && (!hasMainAffixId() || mainAffixId == other.mainAffixId)
         && (!hasUniqueId() || uniqueId == other.uniqueId)
-        && (!hasRelicId() || relicId == other.relicId)
-        && (!hasSlot() || slot == other.slot)
-        && (!hasDCKIHBLMEGF() || dCKIHBLMEGF == other.dCKIHBLMEGF)
         && (!hasSubAffixList() || subAffixList.equals(other.subAffixList));
     }
 
@@ -514,18 +370,6 @@ public final class BattleRelicOuterClass {
         output.writeUInt32NoTag(uniqueId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(relicId);
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(slot);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(dCKIHBLMEGF);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
         for (int i = 0; i < subAffixList.length(); i++) {
           output.writeRawByte((byte) 34);
           output.writeMessageNoTag(subAffixList.get(i));
@@ -549,15 +393,6 @@ public final class BattleRelicOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(uniqueId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(relicId);
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(dCKIHBLMEGF);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
         size += (1 * subAffixList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(subAffixList);
       }
       return size;
@@ -602,33 +437,6 @@ public final class BattleRelicOuterClass {
             uniqueId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 48) {
-              break;
-            }
-          }
-          case 48: {
-            // relicId
-            relicId = input.readUInt32();
-            bitField0_ |= 0x00000010;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
-          case 56: {
-            // slot
-            slot = input.readUInt32();
-            bitField0_ |= 0x00000020;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
-            // dCKIHBLMEGF
-            dCKIHBLMEGF = input.readUInt32();
-            bitField0_ |= 0x00000040;
-            tag = input.readTag();
             if (tag != 34) {
               break;
             }
@@ -636,7 +444,7 @@ public final class BattleRelicOuterClass {
           case 34: {
             // subAffixList
             tag = input.readRepeatedMessage(subAffixList, tag);
-            bitField0_ |= 0x00000080;
+            bitField0_ |= 0x00000010;
             if (tag != 0) {
               break;
             }
@@ -671,15 +479,6 @@ public final class BattleRelicOuterClass {
         output.writeUInt32(FieldNames.uniqueId, uniqueId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.relicId, relicId);
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
-        output.writeUInt32(FieldNames.slot, slot);
-      }
-      if ((bitField0_ & 0x00000040) != 0) {
-        output.writeUInt32(FieldNames.dCKIHBLMEGF, dCKIHBLMEGF);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
         output.writeRepeatedMessage(FieldNames.subAffixList, subAffixList);
       }
       output.endObject();
@@ -738,46 +537,12 @@ public final class BattleRelicOuterClass {
             }
             break;
           }
-          case 1090714606:
-          case -547564185: {
-            if (input.isAtField(FieldNames.relicId)) {
-              if (!input.trySkipNullValue()) {
-                relicId = input.readUInt32();
-                bitField0_ |= 0x00000010;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 3533310: {
-            if (input.isAtField(FieldNames.slot)) {
-              if (!input.trySkipNullValue()) {
-                slot = input.readUInt32();
-                bitField0_ |= 0x00000020;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -521277108: {
-            if (input.isAtField(FieldNames.dCKIHBLMEGF)) {
-              if (!input.trySkipNullValue()) {
-                dCKIHBLMEGF = input.readUInt32();
-                bitField0_ |= 0x00000040;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -600836050:
           case 919890188: {
             if (input.isAtField(FieldNames.subAffixList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(subAffixList);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000010;
               }
             } else {
               input.skipUnknownField();
@@ -843,12 +608,6 @@ public final class BattleRelicOuterClass {
       static final FieldName mainAffixId = FieldName.forField("mainAffixId", "main_affix_id");
 
       static final FieldName uniqueId = FieldName.forField("uniqueId", "unique_id");
-
-      static final FieldName relicId = FieldName.forField("relicId", "relic_id");
-
-      static final FieldName slot = FieldName.forField("slot");
-
-      static final FieldName dCKIHBLMEGF = FieldName.forField("DCKIHBLMEGF");
 
       static final FieldName subAffixList = FieldName.forField("subAffixList", "sub_affix_list");
     }

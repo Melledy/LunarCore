@@ -19,7 +19,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 del_entity = 8;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      */
     private int delEntity;
 
@@ -39,7 +39,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 8;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      * @return whether the delEntity field is set
      */
     public boolean hasDelEntity() {
@@ -47,7 +47,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 8;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearDelEntity() {
@@ -57,7 +57,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 8;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      * @return the delEntity
      */
     public int getDelEntity() {
@@ -65,7 +65,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 8;</code>
+     * <code>optional uint32 del_entity = 7;</code>
      * @param value the delEntity to set
      * @return this
      */
@@ -199,7 +199,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(delEntity);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -227,7 +227,7 @@ public final class SceneEntityRefreshInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 56: {
             // delEntity
             delEntity = input.readUInt32();
             bitField0_ |= 0x00000001;

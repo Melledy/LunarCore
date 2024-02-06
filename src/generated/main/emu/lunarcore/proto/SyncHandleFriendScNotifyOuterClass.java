@@ -19,17 +19,17 @@ public final class SyncHandleFriendScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 15;</code>
      */
     private int uid;
 
     /**
-     * <code>optional bool handle_result = 12;</code>
+     * <code>optional bool handle_result = 7;</code>
      */
     private boolean handleResult;
 
     /**
-     * <code>optional .FriendListInfo handle_friend_info = 1;</code>
+     * <code>optional .FriendListInfo handle_friend_info = 2;</code>
      */
     private final FriendListInfoOuterClass.FriendListInfo handleFriendInfo = FriendListInfoOuterClass.FriendListInfo.newInstance();
 
@@ -44,7 +44,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @return whether the uid field is set
      */
     public boolean hasUid() {
@@ -52,7 +52,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @return this
      */
     public SyncHandleFriendScNotify clearUid() {
@@ -62,7 +62,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @return the uid
      */
     public int getUid() {
@@ -70,7 +70,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @param value the uid to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 12;</code>
+     * <code>optional bool handle_result = 7;</code>
      * @return whether the handleResult field is set
      */
     public boolean hasHandleResult() {
@@ -89,7 +89,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 12;</code>
+     * <code>optional bool handle_result = 7;</code>
      * @return this
      */
     public SyncHandleFriendScNotify clearHandleResult() {
@@ -99,7 +99,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 12;</code>
+     * <code>optional bool handle_result = 7;</code>
      * @return the handleResult
      */
     public boolean getHandleResult() {
@@ -107,7 +107,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool handle_result = 12;</code>
+     * <code>optional bool handle_result = 7;</code>
      * @param value the handleResult to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendListInfo handle_friend_info = 1;</code>
+     * <code>optional .FriendListInfo handle_friend_info = 2;</code>
      * @return whether the handleFriendInfo field is set
      */
     public boolean hasHandleFriendInfo() {
@@ -126,7 +126,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendListInfo handle_friend_info = 1;</code>
+     * <code>optional .FriendListInfo handle_friend_info = 2;</code>
      * @return this
      */
     public SyncHandleFriendScNotify clearHandleFriendInfo() {
@@ -136,7 +136,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendListInfo handle_friend_info = 1;</code>
+     * <code>optional .FriendListInfo handle_friend_info = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendListInfo handle_friend_info = 1;</code>
+     * <code>optional .FriendListInfo handle_friend_info = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class SyncHandleFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .FriendListInfo handle_friend_info = 1;</code>
+     * <code>optional .FriendListInfo handle_friend_info = 2;</code>
      * @param value the handleFriendInfo to set
      * @return this
      */
@@ -247,15 +247,15 @@ public final class SyncHandleFriendScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(uid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 56);
         output.writeBoolNoTag(handleResult);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 10);
+        output.writeRawByte((byte) 18);
         output.writeMessageNoTag(handleFriendInfo);
       }
     }
@@ -282,25 +282,25 @@ public final class SyncHandleFriendScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 120: {
             // uid
             uid = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 56) {
               break;
             }
           }
-          case 96: {
+          case 56: {
             // handleResult
             handleResult = input.readBool();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 18) {
               break;
             }
           }
-          case 10: {
+          case 18: {
             // handleFriendInfo
             input.readMessage(handleFriendInfo);
             bitField0_ |= 0x00000004;

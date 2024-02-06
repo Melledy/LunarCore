@@ -19,7 +19,7 @@ public final class ChallengeStoryInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 6;</code>
+     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 1;</code>
      */
     private final ChallengeStoryBuffInfoOuterClass.ChallengeStoryBuffInfo curStoryBuffs = ChallengeStoryBuffInfoOuterClass.ChallengeStoryBuffInfo.newInstance();
 
@@ -34,7 +34,7 @@ public final class ChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 6;</code>
+     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 1;</code>
      * @return whether the curStoryBuffs field is set
      */
     public boolean hasCurStoryBuffs() {
@@ -42,7 +42,7 @@ public final class ChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 6;</code>
+     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 1;</code>
      * @return this
      */
     public ChallengeStoryInfo clearCurStoryBuffs() {
@@ -52,7 +52,7 @@ public final class ChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 6;</code>
+     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class ChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 6;</code>
+     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class ChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 6;</code>
+     * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 1;</code>
      * @param value the curStoryBuffs to set
      * @return this
      */
@@ -151,7 +151,7 @@ public final class ChallengeStoryInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(curStoryBuffs);
       }
     }
@@ -172,7 +172,7 @@ public final class ChallengeStoryInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
+          case 10: {
             // curStoryBuffs
             input.readMessage(curStoryBuffs);
             bitField0_ |= 0x00000001;

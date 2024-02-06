@@ -2,7 +2,6 @@
 package emu.lunarcore.proto;
 
 import java.io.IOException;
-import us.hebi.quickbuf.FieldName;
 import us.hebi.quickbuf.InvalidProtocolBufferException;
 import us.hebi.quickbuf.JsonSink;
 import us.hebi.quickbuf.JsonSource;
@@ -10,354 +9,45 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.RepeatedInt;
 
 public final class ChessRogueNousQueryInfoOuterClass {
   /**
+   * <pre>
+   * MAKPHMAOCHI talent_info = 1;
+   * OFHBFINPHAG JNAGMIALOII = 6;
+   * CLIDPGPDFGK IKGPADCBBPN = 4;
+   * ChessRogueQuery query_info = 13;
+   * repeated uint32 PHJAFGJHOCO = 7;
+   * repeated uint32 CMNHLKGFKOP = 8;
+   * </pre>
+   *
    * Protobuf type {@code ChessRogueNousQueryInfo}
    */
   public static final class ChessRogueNousQueryInfo extends ProtoMessage<ChessRogueNousQueryInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
-    /**
-     * <pre>
-     * MAKPHMAOCHI talent_info = 1;
-     * </pre>
-     *
-     * <code>optional .OFHBFINPHAG JNAGMIALOII = 6;</code>
-     */
-    private final OFHBFINPHAGOuterClass.OFHBFINPHAG jNAGMIALOII = OFHBFINPHAGOuterClass.OFHBFINPHAG.newInstance();
-
-    /**
-     * <pre>
-     * CLIDPGPDFGK IKGPADCBBPN = 4;
-     * </pre>
-     *
-     * <code>optional .ChessRogueQuery query_info = 13;</code>
-     */
-    private final ChessRogueQueryOuterClass.ChessRogueQuery queryInfo = ChessRogueQueryOuterClass.ChessRogueQuery.newInstance();
-
-    /**
-     * <code>repeated uint32 PHJAFGJHOCO = 7;</code>
-     */
-    private final RepeatedInt pHJAFGJHOCO = RepeatedInt.newEmptyInstance();
-
-    /**
-     * <code>repeated uint32 CMNHLKGFKOP = 8;</code>
-     */
-    private final RepeatedInt cMNHLKGFKOP = RepeatedInt.newEmptyInstance();
-
     private ChessRogueNousQueryInfo() {
     }
 
     /**
+     * <pre>
+     * MAKPHMAOCHI talent_info = 1;
+     * OFHBFINPHAG JNAGMIALOII = 6;
+     * CLIDPGPDFGK IKGPADCBBPN = 4;
+     * ChessRogueQuery query_info = 13;
+     * repeated uint32 PHJAFGJHOCO = 7;
+     * repeated uint32 CMNHLKGFKOP = 8;
+     * </pre>
+     *
      * @return a new empty instance of {@code ChessRogueNousQueryInfo}
      */
     public static ChessRogueNousQueryInfo newInstance() {
       return new ChessRogueNousQueryInfo();
     }
 
-    /**
-     * <pre>
-     * MAKPHMAOCHI talent_info = 1;
-     * </pre>
-     *
-     * <code>optional .OFHBFINPHAG JNAGMIALOII = 6;</code>
-     * @return whether the jNAGMIALOII field is set
-     */
-    public boolean hasJNAGMIALOII() {
-      return (bitField0_ & 0x00000001) != 0;
-    }
-
-    /**
-     * <pre>
-     * MAKPHMAOCHI talent_info = 1;
-     * </pre>
-     *
-     * <code>optional .OFHBFINPHAG JNAGMIALOII = 6;</code>
-     * @return this
-     */
-    public ChessRogueNousQueryInfo clearJNAGMIALOII() {
-      bitField0_ &= ~0x00000001;
-      jNAGMIALOII.clear();
-      return this;
-    }
-
-    /**
-     * <pre>
-     * MAKPHMAOCHI talent_info = 1;
-     * </pre>
-     *
-     * <code>optional .OFHBFINPHAG JNAGMIALOII = 6;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableJNAGMIALOII()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public OFHBFINPHAGOuterClass.OFHBFINPHAG getJNAGMIALOII() {
-      return jNAGMIALOII;
-    }
-
-    /**
-     * <pre>
-     * MAKPHMAOCHI talent_info = 1;
-     * </pre>
-     *
-     * <code>optional .OFHBFINPHAG JNAGMIALOII = 6;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public OFHBFINPHAGOuterClass.OFHBFINPHAG getMutableJNAGMIALOII() {
-      bitField0_ |= 0x00000001;
-      return jNAGMIALOII;
-    }
-
-    /**
-     * <pre>
-     * MAKPHMAOCHI talent_info = 1;
-     * </pre>
-     *
-     * <code>optional .OFHBFINPHAG JNAGMIALOII = 6;</code>
-     * @param value the jNAGMIALOII to set
-     * @return this
-     */
-    public ChessRogueNousQueryInfo setJNAGMIALOII(final OFHBFINPHAGOuterClass.OFHBFINPHAG value) {
-      bitField0_ |= 0x00000001;
-      jNAGMIALOII.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <pre>
-     * CLIDPGPDFGK IKGPADCBBPN = 4;
-     * </pre>
-     *
-     * <code>optional .ChessRogueQuery query_info = 13;</code>
-     * @return whether the queryInfo field is set
-     */
-    public boolean hasQueryInfo() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <pre>
-     * CLIDPGPDFGK IKGPADCBBPN = 4;
-     * </pre>
-     *
-     * <code>optional .ChessRogueQuery query_info = 13;</code>
-     * @return this
-     */
-    public ChessRogueNousQueryInfo clearQueryInfo() {
-      bitField0_ &= ~0x00000002;
-      queryInfo.clear();
-      return this;
-    }
-
-    /**
-     * <pre>
-     * CLIDPGPDFGK IKGPADCBBPN = 4;
-     * </pre>
-     *
-     * <code>optional .ChessRogueQuery query_info = 13;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableQueryInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public ChessRogueQueryOuterClass.ChessRogueQuery getQueryInfo() {
-      return queryInfo;
-    }
-
-    /**
-     * <pre>
-     * CLIDPGPDFGK IKGPADCBBPN = 4;
-     * </pre>
-     *
-     * <code>optional .ChessRogueQuery query_info = 13;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public ChessRogueQueryOuterClass.ChessRogueQuery getMutableQueryInfo() {
-      bitField0_ |= 0x00000002;
-      return queryInfo;
-    }
-
-    /**
-     * <pre>
-     * CLIDPGPDFGK IKGPADCBBPN = 4;
-     * </pre>
-     *
-     * <code>optional .ChessRogueQuery query_info = 13;</code>
-     * @param value the queryInfo to set
-     * @return this
-     */
-    public ChessRogueNousQueryInfo setQueryInfo(
-        final ChessRogueQueryOuterClass.ChessRogueQuery value) {
-      bitField0_ |= 0x00000002;
-      queryInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 PHJAFGJHOCO = 7;</code>
-     * @return whether the pHJAFGJHOCO field is set
-     */
-    public boolean hasPHJAFGJHOCO() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 PHJAFGJHOCO = 7;</code>
-     * @return this
-     */
-    public ChessRogueNousQueryInfo clearPHJAFGJHOCO() {
-      bitField0_ &= ~0x00000004;
-      pHJAFGJHOCO.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 PHJAFGJHOCO = 7;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutablePHJAFGJHOCO()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getPHJAFGJHOCO() {
-      return pHJAFGJHOCO;
-    }
-
-    /**
-     * <code>repeated uint32 PHJAFGJHOCO = 7;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutablePHJAFGJHOCO() {
-      bitField0_ |= 0x00000004;
-      return pHJAFGJHOCO;
-    }
-
-    /**
-     * <code>repeated uint32 PHJAFGJHOCO = 7;</code>
-     * @param value the pHJAFGJHOCO to add
-     * @return this
-     */
-    public ChessRogueNousQueryInfo addPHJAFGJHOCO(final int value) {
-      bitField0_ |= 0x00000004;
-      pHJAFGJHOCO.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 PHJAFGJHOCO = 7;</code>
-     * @param values the pHJAFGJHOCO to add
-     * @return this
-     */
-    public ChessRogueNousQueryInfo addAllPHJAFGJHOCO(final int... values) {
-      bitField0_ |= 0x00000004;
-      pHJAFGJHOCO.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 CMNHLKGFKOP = 8;</code>
-     * @return whether the cMNHLKGFKOP field is set
-     */
-    public boolean hasCMNHLKGFKOP() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 CMNHLKGFKOP = 8;</code>
-     * @return this
-     */
-    public ChessRogueNousQueryInfo clearCMNHLKGFKOP() {
-      bitField0_ &= ~0x00000008;
-      cMNHLKGFKOP.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 CMNHLKGFKOP = 8;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableCMNHLKGFKOP()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getCMNHLKGFKOP() {
-      return cMNHLKGFKOP;
-    }
-
-    /**
-     * <code>repeated uint32 CMNHLKGFKOP = 8;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableCMNHLKGFKOP() {
-      bitField0_ |= 0x00000008;
-      return cMNHLKGFKOP;
-    }
-
-    /**
-     * <code>repeated uint32 CMNHLKGFKOP = 8;</code>
-     * @param value the cMNHLKGFKOP to add
-     * @return this
-     */
-    public ChessRogueNousQueryInfo addCMNHLKGFKOP(final int value) {
-      bitField0_ |= 0x00000008;
-      cMNHLKGFKOP.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 CMNHLKGFKOP = 8;</code>
-     * @param values the cMNHLKGFKOP to add
-     * @return this
-     */
-    public ChessRogueNousQueryInfo addAllCMNHLKGFKOP(final int... values) {
-      bitField0_ |= 0x00000008;
-      cMNHLKGFKOP.addAll(values);
-      return this;
-    }
-
     @Override
     public ChessRogueNousQueryInfo copyFrom(final ChessRogueNousQueryInfo other) {
       cachedSize = other.cachedSize;
-      if ((bitField0_ | other.bitField0_) != 0) {
-        bitField0_ = other.bitField0_;
-        jNAGMIALOII.copyFrom(other.jNAGMIALOII);
-        queryInfo.copyFrom(other.queryInfo);
-        pHJAFGJHOCO.copyFrom(other.pHJAFGJHOCO);
-        cMNHLKGFKOP.copyFrom(other.cMNHLKGFKOP);
-      }
       return this;
     }
 
@@ -367,18 +57,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasJNAGMIALOII()) {
-        getMutableJNAGMIALOII().mergeFrom(other.jNAGMIALOII);
-      }
-      if (other.hasQueryInfo()) {
-        getMutableQueryInfo().mergeFrom(other.queryInfo);
-      }
-      if (other.hasPHJAFGJHOCO()) {
-        getMutablePHJAFGJHOCO().addAll(other.pHJAFGJHOCO);
-      }
-      if (other.hasCMNHLKGFKOP()) {
-        getMutableCMNHLKGFKOP().addAll(other.cMNHLKGFKOP);
-      }
       return this;
     }
 
@@ -388,11 +66,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      bitField0_ = 0;
-      jNAGMIALOII.clear();
-      queryInfo.clear();
-      pHJAFGJHOCO.clear();
-      cMNHLKGFKOP.clear();
       return this;
     }
 
@@ -402,11 +75,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      bitField0_ = 0;
-      jNAGMIALOII.clearQuick();
-      queryInfo.clearQuick();
-      pHJAFGJHOCO.clear();
-      cMNHLKGFKOP.clear();
       return this;
     }
 
@@ -419,52 +87,16 @@ public final class ChessRogueNousQueryInfoOuterClass {
         return false;
       }
       ChessRogueNousQueryInfo other = (ChessRogueNousQueryInfo) o;
-      return bitField0_ == other.bitField0_
-        && (!hasJNAGMIALOII() || jNAGMIALOII.equals(other.jNAGMIALOII))
-        && (!hasQueryInfo() || queryInfo.equals(other.queryInfo))
-        && (!hasPHJAFGJHOCO() || pHJAFGJHOCO.equals(other.pHJAFGJHOCO))
-        && (!hasCMNHLKGFKOP() || cMNHLKGFKOP.equals(other.cMNHLKGFKOP));
+      return true;
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
-      if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(jNAGMIALOII);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 106);
-        output.writeMessageNoTag(queryInfo);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < pHJAFGJHOCO.length(); i++) {
-          output.writeRawByte((byte) 56);
-          output.writeUInt32NoTag(pHJAFGJHOCO.array()[i]);
-        }
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        for (int i = 0; i < cMNHLKGFKOP.length(); i++) {
-          output.writeRawByte((byte) 64);
-          output.writeUInt32NoTag(cMNHLKGFKOP.array()[i]);
-        }
-      }
     }
 
     @Override
     protected int computeSerializedSize() {
       int size = 0;
-      if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(jNAGMIALOII);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(queryInfo);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * pHJAFGJHOCO.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(pHJAFGJHOCO);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        size += (1 * cMNHLKGFKOP.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(cMNHLKGFKOP);
-      }
       return size;
     }
 
@@ -475,42 +107,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
-            // jNAGMIALOII
-            input.readMessage(jNAGMIALOII);
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 106) {
-              break;
-            }
-          }
-          case 106: {
-            // queryInfo
-            input.readMessage(queryInfo);
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 58) {
-              break;
-            }
-          }
-          case 58: {
-            // pHJAFGJHOCO [packed=true]
-            input.readPackedUInt32(pHJAFGJHOCO, tag);
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 66) {
-              break;
-            }
-          }
-          case 66: {
-            // cMNHLKGFKOP [packed=true]
-            input.readPackedUInt32(cMNHLKGFKOP, tag);
-            bitField0_ |= 0x00000008;
-            tag = input.readTag();
-            if (tag != 0) {
-              break;
-            }
-          }
           case 0: {
             return this;
           }
@@ -521,18 +117,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
-            // pHJAFGJHOCO [packed=false]
-            tag = input.readRepeatedUInt32(pHJAFGJHOCO, tag);
-            bitField0_ |= 0x00000004;
-            break;
-          }
-          case 64: {
-            // cMNHLKGFKOP [packed=false]
-            tag = input.readRepeatedUInt32(cMNHLKGFKOP, tag);
-            bitField0_ |= 0x00000008;
-            break;
-          }
         }
       }
     }
@@ -540,18 +124,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
     @Override
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
-      if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.jNAGMIALOII, jNAGMIALOII);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.queryInfo, queryInfo);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.pHJAFGJHOCO, pHJAFGJHOCO);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRepeatedUInt32(FieldNames.cMNHLKGFKOP, cMNHLKGFKOP);
-      }
       output.endObject();
     }
 
@@ -562,51 +134,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1457066462: {
-            if (input.isAtField(FieldNames.jNAGMIALOII)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(jNAGMIALOII);
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1807200874:
-          case -168476219: {
-            if (input.isAtField(FieldNames.queryInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(queryInfo);
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1818568397: {
-            if (input.isAtField(FieldNames.pHJAFGJHOCO)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(pHJAFGJHOCO);
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 243189738: {
-            if (input.isAtField(FieldNames.cMNHLKGFKOP)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(cMNHLKGFKOP);
-                bitField0_ |= 0x00000008;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           default: {
             input.skipUnknownField();
             break;
@@ -660,13 +187,6 @@ public final class ChessRogueNousQueryInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName jNAGMIALOII = FieldName.forField("JNAGMIALOII");
-
-      static final FieldName queryInfo = FieldName.forField("queryInfo", "query_info");
-
-      static final FieldName pHJAFGJHOCO = FieldName.forField("PHJAFGJHOCO");
-
-      static final FieldName cMNHLKGFKOP = FieldName.forField("CMNHLKGFKOP");
     }
   }
 }

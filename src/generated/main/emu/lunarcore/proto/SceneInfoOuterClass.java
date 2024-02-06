@@ -21,62 +21,62 @@ public final class SceneInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <code>optional uint32 leader_entity_id = 2;</code>
+     */
+    private int leaderEntityId;
+
+    /**
      * <code>optional uint32 floor_id = 3;</code>
      */
     private int floorId;
 
     /**
-     * <code>optional uint32 entry_id = 5;</code>
-     */
-    private int entryId;
-
-    /**
-     * <code>optional uint32 plane_id = 8;</code>
-     */
-    private int planeId;
-
-    /**
-     * <code>optional uint32 game_mode_type = 9;</code>
-     */
-    private int gameModeType;
-
-    /**
-     * <code>optional uint32 world_id = 11;</code>
+     * <code>optional uint32 world_id = 5;</code>
      */
     private int worldId;
 
     /**
-     * <code>optional uint32 leader_entity_id = 14;</code>
-     */
-    private int leaderEntityId;
-
-    /**
-     * <code>optional uint32 client_pos_version = 15;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      */
     private int clientPosVersion;
 
     /**
-     * <code>repeated uint32 group_id_list = 7;</code>
+     * <code>optional uint32 entry_id = 11;</code>
+     */
+    private int entryId;
+
+    /**
+     * <code>optional uint32 plane_id = 13;</code>
+     */
+    private int planeId;
+
+    /**
+     * <code>optional uint32 game_mode_type = 15;</code>
+     */
+    private int gameModeType;
+
+    /**
+     * <code>repeated uint32 group_id_list = 4;</code>
      */
     private final RepeatedInt groupIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 lighten_section_list = 10;</code>
+     * <code>repeated uint32 lighten_section_list = 9;</code>
      */
     private final RepeatedInt lightenSectionList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 2;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 1;</code>
      */
     private final RepeatedMessage<SceneEntityInfoOuterClass.SceneEntityInfo> entityList = RepeatedMessage.newEmptyInstance(SceneEntityInfoOuterClass.SceneEntityInfo.getFactory());
 
     /**
-     * <code>repeated .SceneGroupState group_state_list = 1654;</code>
+     * <code>repeated .SceneGroupState group_state_list = 347;</code>
      */
     private final RepeatedMessage<SceneGroupStateOuterClass.SceneGroupState> groupStateList = RepeatedMessage.newEmptyInstance(SceneGroupStateOuterClass.SceneGroupState.getFactory());
 
     /**
-     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1740;</code>
+     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1538;</code>
      */
     private final RepeatedMessage<SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo> entityGroupList = RepeatedMessage.newEmptyInstance(SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo.getFactory());
 
@@ -91,11 +91,48 @@ public final class SceneInfoOuterClass {
     }
 
     /**
+     * <code>optional uint32 leader_entity_id = 2;</code>
+     * @return whether the leaderEntityId field is set
+     */
+    public boolean hasLeaderEntityId() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional uint32 leader_entity_id = 2;</code>
+     * @return this
+     */
+    public SceneInfo clearLeaderEntityId() {
+      bitField0_ &= ~0x00000001;
+      leaderEntityId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 leader_entity_id = 2;</code>
+     * @return the leaderEntityId
+     */
+    public int getLeaderEntityId() {
+      return leaderEntityId;
+    }
+
+    /**
+     * <code>optional uint32 leader_entity_id = 2;</code>
+     * @param value the leaderEntityId to set
+     * @return this
+     */
+    public SceneInfo setLeaderEntityId(final int value) {
+      bitField0_ |= 0x00000001;
+      leaderEntityId = value;
+      return this;
+    }
+
+    /**
      * <code>optional uint32 floor_id = 3;</code>
      * @return whether the floorId field is set
      */
     public boolean hasFloorId() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -103,7 +140,7 @@ public final class SceneInfoOuterClass {
      * @return this
      */
     public SceneInfo clearFloorId() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       floorId = 0;
       return this;
     }
@@ -122,142 +159,31 @@ public final class SceneInfoOuterClass {
      * @return this
      */
     public SceneInfo setFloorId(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       floorId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 entry_id = 5;</code>
-     * @return whether the entryId field is set
+     * <code>optional uint32 world_id = 5;</code>
+     * @return whether the worldId field is set
      */
-    public boolean hasEntryId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 5;</code>
-     * @return this
-     */
-    public SceneInfo clearEntryId() {
-      bitField0_ &= ~0x00000002;
-      entryId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 5;</code>
-     * @return the entryId
-     */
-    public int getEntryId() {
-      return entryId;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 5;</code>
-     * @param value the entryId to set
-     * @return this
-     */
-    public SceneInfo setEntryId(final int value) {
-      bitField0_ |= 0x00000002;
-      entryId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 8;</code>
-     * @return whether the planeId field is set
-     */
-    public boolean hasPlaneId() {
+    public boolean hasWorldId() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 plane_id = 8;</code>
-     * @return this
-     */
-    public SceneInfo clearPlaneId() {
-      bitField0_ &= ~0x00000004;
-      planeId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 8;</code>
-     * @return the planeId
-     */
-    public int getPlaneId() {
-      return planeId;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 8;</code>
-     * @param value the planeId to set
-     * @return this
-     */
-    public SceneInfo setPlaneId(final int value) {
-      bitField0_ |= 0x00000004;
-      planeId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 game_mode_type = 9;</code>
-     * @return whether the gameModeType field is set
-     */
-    public boolean hasGameModeType() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 game_mode_type = 9;</code>
-     * @return this
-     */
-    public SceneInfo clearGameModeType() {
-      bitField0_ &= ~0x00000008;
-      gameModeType = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 game_mode_type = 9;</code>
-     * @return the gameModeType
-     */
-    public int getGameModeType() {
-      return gameModeType;
-    }
-
-    /**
-     * <code>optional uint32 game_mode_type = 9;</code>
-     * @param value the gameModeType to set
-     * @return this
-     */
-    public SceneInfo setGameModeType(final int value) {
-      bitField0_ |= 0x00000008;
-      gameModeType = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 world_id = 11;</code>
-     * @return whether the worldId field is set
-     */
-    public boolean hasWorldId() {
-      return (bitField0_ & 0x00000010) != 0;
-    }
-
-    /**
-     * <code>optional uint32 world_id = 11;</code>
+     * <code>optional uint32 world_id = 5;</code>
      * @return this
      */
     public SceneInfo clearWorldId() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000004;
       worldId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 world_id = 11;</code>
+     * <code>optional uint32 world_id = 5;</code>
      * @return the worldId
      */
     public int getWorldId() {
@@ -265,73 +191,36 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_id = 11;</code>
+     * <code>optional uint32 world_id = 5;</code>
      * @param value the worldId to set
      * @return this
      */
     public SceneInfo setWorldId(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       worldId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 leader_entity_id = 14;</code>
-     * @return whether the leaderEntityId field is set
-     */
-    public boolean hasLeaderEntityId() {
-      return (bitField0_ & 0x00000020) != 0;
-    }
-
-    /**
-     * <code>optional uint32 leader_entity_id = 14;</code>
-     * @return this
-     */
-    public SceneInfo clearLeaderEntityId() {
-      bitField0_ &= ~0x00000020;
-      leaderEntityId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 leader_entity_id = 14;</code>
-     * @return the leaderEntityId
-     */
-    public int getLeaderEntityId() {
-      return leaderEntityId;
-    }
-
-    /**
-     * <code>optional uint32 leader_entity_id = 14;</code>
-     * @param value the leaderEntityId to set
-     * @return this
-     */
-    public SceneInfo setLeaderEntityId(final int value) {
-      bitField0_ |= 0x00000020;
-      leaderEntityId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 client_pos_version = 15;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      * @return whether the clientPosVersion field is set
      */
     public boolean hasClientPosVersion() {
-      return (bitField0_ & 0x00000040) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 15;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      * @return this
      */
     public SceneInfo clearClientPosVersion() {
-      bitField0_ &= ~0x00000040;
+      bitField0_ &= ~0x00000008;
       clientPosVersion = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 15;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      * @return the clientPosVersion
      */
     public int getClientPosVersion() {
@@ -339,18 +228,129 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 15;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      * @param value the clientPosVersion to set
      * @return this
      */
     public SceneInfo setClientPosVersion(final int value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000008;
       clientPosVersion = value;
       return this;
     }
 
     /**
-     * <code>repeated uint32 group_id_list = 7;</code>
+     * <code>optional uint32 entry_id = 11;</code>
+     * @return whether the entryId field is set
+     */
+    public boolean hasEntryId() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional uint32 entry_id = 11;</code>
+     * @return this
+     */
+    public SceneInfo clearEntryId() {
+      bitField0_ &= ~0x00000010;
+      entryId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entry_id = 11;</code>
+     * @return the entryId
+     */
+    public int getEntryId() {
+      return entryId;
+    }
+
+    /**
+     * <code>optional uint32 entry_id = 11;</code>
+     * @param value the entryId to set
+     * @return this
+     */
+    public SceneInfo setEntryId(final int value) {
+      bitField0_ |= 0x00000010;
+      entryId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 13;</code>
+     * @return whether the planeId field is set
+     */
+    public boolean hasPlaneId() {
+      return (bitField0_ & 0x00000020) != 0;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 13;</code>
+     * @return this
+     */
+    public SceneInfo clearPlaneId() {
+      bitField0_ &= ~0x00000020;
+      planeId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 13;</code>
+     * @return the planeId
+     */
+    public int getPlaneId() {
+      return planeId;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 13;</code>
+     * @param value the planeId to set
+     * @return this
+     */
+    public SceneInfo setPlaneId(final int value) {
+      bitField0_ |= 0x00000020;
+      planeId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 game_mode_type = 15;</code>
+     * @return whether the gameModeType field is set
+     */
+    public boolean hasGameModeType() {
+      return (bitField0_ & 0x00000040) != 0;
+    }
+
+    /**
+     * <code>optional uint32 game_mode_type = 15;</code>
+     * @return this
+     */
+    public SceneInfo clearGameModeType() {
+      bitField0_ &= ~0x00000040;
+      gameModeType = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 game_mode_type = 15;</code>
+     * @return the gameModeType
+     */
+    public int getGameModeType() {
+      return gameModeType;
+    }
+
+    /**
+     * <code>optional uint32 game_mode_type = 15;</code>
+     * @param value the gameModeType to set
+     * @return this
+     */
+    public SceneInfo setGameModeType(final int value) {
+      bitField0_ |= 0x00000040;
+      gameModeType = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 group_id_list = 4;</code>
      * @return whether the groupIdList field is set
      */
     public boolean hasGroupIdList() {
@@ -358,7 +358,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 group_id_list = 7;</code>
+     * <code>repeated uint32 group_id_list = 4;</code>
      * @return this
      */
     public SceneInfo clearGroupIdList() {
@@ -368,7 +368,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 group_id_list = 7;</code>
+     * <code>repeated uint32 group_id_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -382,7 +382,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 group_id_list = 7;</code>
+     * <code>repeated uint32 group_id_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -396,7 +396,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 group_id_list = 7;</code>
+     * <code>repeated uint32 group_id_list = 4;</code>
      * @param value the groupIdList to add
      * @return this
      */
@@ -407,7 +407,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 group_id_list = 7;</code>
+     * <code>repeated uint32 group_id_list = 4;</code>
      * @param values the groupIdList to add
      * @return this
      */
@@ -418,7 +418,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 lighten_section_list = 10;</code>
+     * <code>repeated uint32 lighten_section_list = 9;</code>
      * @return whether the lightenSectionList field is set
      */
     public boolean hasLightenSectionList() {
@@ -426,7 +426,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 lighten_section_list = 10;</code>
+     * <code>repeated uint32 lighten_section_list = 9;</code>
      * @return this
      */
     public SceneInfo clearLightenSectionList() {
@@ -436,7 +436,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 lighten_section_list = 10;</code>
+     * <code>repeated uint32 lighten_section_list = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -450,7 +450,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 lighten_section_list = 10;</code>
+     * <code>repeated uint32 lighten_section_list = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -464,7 +464,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 lighten_section_list = 10;</code>
+     * <code>repeated uint32 lighten_section_list = 9;</code>
      * @param value the lightenSectionList to add
      * @return this
      */
@@ -475,7 +475,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 lighten_section_list = 10;</code>
+     * <code>repeated uint32 lighten_section_list = 9;</code>
      * @param values the lightenSectionList to add
      * @return this
      */
@@ -486,7 +486,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 2;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 1;</code>
      * @return whether the entityList field is set
      */
     public boolean hasEntityList() {
@@ -494,7 +494,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 2;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 1;</code>
      * @return this
      */
     public SceneInfo clearEntityList() {
@@ -504,7 +504,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 2;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -518,7 +518,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 2;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -532,7 +532,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 2;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 1;</code>
      * @param value the entityList to add
      * @return this
      */
@@ -543,7 +543,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 2;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 1;</code>
      * @param values the entityList to add
      * @return this
      */
@@ -554,7 +554,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupState group_state_list = 1654;</code>
+     * <code>repeated .SceneGroupState group_state_list = 347;</code>
      * @return whether the groupStateList field is set
      */
     public boolean hasGroupStateList() {
@@ -562,7 +562,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupState group_state_list = 1654;</code>
+     * <code>repeated .SceneGroupState group_state_list = 347;</code>
      * @return this
      */
     public SceneInfo clearGroupStateList() {
@@ -572,7 +572,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupState group_state_list = 1654;</code>
+     * <code>repeated .SceneGroupState group_state_list = 347;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -586,7 +586,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupState group_state_list = 1654;</code>
+     * <code>repeated .SceneGroupState group_state_list = 347;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -600,7 +600,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupState group_state_list = 1654;</code>
+     * <code>repeated .SceneGroupState group_state_list = 347;</code>
      * @param value the groupStateList to add
      * @return this
      */
@@ -611,7 +611,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupState group_state_list = 1654;</code>
+     * <code>repeated .SceneGroupState group_state_list = 347;</code>
      * @param values the groupStateList to add
      * @return this
      */
@@ -623,7 +623,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1740;</code>
+     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1538;</code>
      * @return whether the entityGroupList field is set
      */
     public boolean hasEntityGroupList() {
@@ -631,7 +631,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1740;</code>
+     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1538;</code>
      * @return this
      */
     public SceneInfo clearEntityGroupList() {
@@ -641,7 +641,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1740;</code>
+     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1538;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -656,7 +656,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1740;</code>
+     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1538;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -671,7 +671,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1740;</code>
+     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1538;</code>
      * @param value the entityGroupList to add
      * @return this
      */
@@ -683,7 +683,7 @@ public final class SceneInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1740;</code>
+     * <code>repeated .SceneEntityGroupInfo entity_group_list = 1538;</code>
      * @param values the entityGroupList to add
      * @return this
      */
@@ -699,13 +699,13 @@ public final class SceneInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        leaderEntityId = other.leaderEntityId;
         floorId = other.floorId;
+        worldId = other.worldId;
+        clientPosVersion = other.clientPosVersion;
         entryId = other.entryId;
         planeId = other.planeId;
         gameModeType = other.gameModeType;
-        worldId = other.worldId;
-        leaderEntityId = other.leaderEntityId;
-        clientPosVersion = other.clientPosVersion;
         groupIdList.copyFrom(other.groupIdList);
         lightenSectionList.copyFrom(other.lightenSectionList);
         entityList.copyFrom(other.entityList);
@@ -721,8 +721,17 @@ public final class SceneInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasLeaderEntityId()) {
+        setLeaderEntityId(other.leaderEntityId);
+      }
       if (other.hasFloorId()) {
         setFloorId(other.floorId);
+      }
+      if (other.hasWorldId()) {
+        setWorldId(other.worldId);
+      }
+      if (other.hasClientPosVersion()) {
+        setClientPosVersion(other.clientPosVersion);
       }
       if (other.hasEntryId()) {
         setEntryId(other.entryId);
@@ -732,15 +741,6 @@ public final class SceneInfoOuterClass {
       }
       if (other.hasGameModeType()) {
         setGameModeType(other.gameModeType);
-      }
-      if (other.hasWorldId()) {
-        setWorldId(other.worldId);
-      }
-      if (other.hasLeaderEntityId()) {
-        setLeaderEntityId(other.leaderEntityId);
-      }
-      if (other.hasClientPosVersion()) {
-        setClientPosVersion(other.clientPosVersion);
       }
       if (other.hasGroupIdList()) {
         getMutableGroupIdList().addAll(other.groupIdList);
@@ -767,13 +767,13 @@ public final class SceneInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      leaderEntityId = 0;
       floorId = 0;
+      worldId = 0;
+      clientPosVersion = 0;
       entryId = 0;
       planeId = 0;
       gameModeType = 0;
-      worldId = 0;
-      leaderEntityId = 0;
-      clientPosVersion = 0;
       groupIdList.clear();
       lightenSectionList.clear();
       entityList.clear();
@@ -807,13 +807,13 @@ public final class SceneInfoOuterClass {
       }
       SceneInfo other = (SceneInfo) o;
       return bitField0_ == other.bitField0_
+        && (!hasLeaderEntityId() || leaderEntityId == other.leaderEntityId)
         && (!hasFloorId() || floorId == other.floorId)
+        && (!hasWorldId() || worldId == other.worldId)
+        && (!hasClientPosVersion() || clientPosVersion == other.clientPosVersion)
         && (!hasEntryId() || entryId == other.entryId)
         && (!hasPlaneId() || planeId == other.planeId)
         && (!hasGameModeType() || gameModeType == other.gameModeType)
-        && (!hasWorldId() || worldId == other.worldId)
-        && (!hasLeaderEntityId() || leaderEntityId == other.leaderEntityId)
-        && (!hasClientPosVersion() || clientPosVersion == other.clientPosVersion)
         && (!hasGroupIdList() || groupIdList.equals(other.groupIdList))
         && (!hasLightenSectionList() || lightenSectionList.equals(other.lightenSectionList))
         && (!hasEntityList() || entityList.equals(other.entityList))
@@ -824,60 +824,60 @@ public final class SceneInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(leaderEntityId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(floorId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(entryId);
-      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(planeId);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(worldId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(gameModeType);
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(clientPosVersion);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(worldId);
+        output.writeUInt32NoTag(entryId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(leaderEntityId);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(planeId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(clientPosVersion);
+        output.writeUInt32NoTag(gameModeType);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         for (int i = 0; i < groupIdList.length(); i++) {
-          output.writeRawByte((byte) 56);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(groupIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000100) != 0) {
         for (int i = 0; i < lightenSectionList.length(); i++) {
-          output.writeRawByte((byte) 80);
+          output.writeRawByte((byte) 72);
           output.writeUInt32NoTag(lightenSectionList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000200) != 0) {
         for (int i = 0; i < entityList.length(); i++) {
-          output.writeRawByte((byte) 18);
+          output.writeRawByte((byte) 10);
           output.writeMessageNoTag(entityList.get(i));
         }
       }
       if ((bitField0_ & 0x00000400) != 0) {
         for (int i = 0; i < groupStateList.length(); i++) {
-          output.writeRawLittleEndian16((short) 26546);
+          output.writeRawLittleEndian16((short) 5594);
           output.writeMessageNoTag(groupStateList.get(i));
         }
       }
       if ((bitField0_ & 0x00000800) != 0) {
         for (int i = 0; i < entityGroupList.length(); i++) {
-          output.writeRawLittleEndian16((short) 27874);
+          output.writeRawLittleEndian16((short) 24722);
           output.writeMessageNoTag(entityGroupList.get(i));
         }
       }
@@ -887,25 +887,25 @@ public final class SceneInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(floorId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(gameModeType);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(worldId);
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(leaderEntityId);
       }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(floorId);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(worldId);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(clientPosVersion);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gameModeType);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         size += (1 * groupIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(groupIdList);
@@ -932,36 +932,36 @@ public final class SceneInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 16: {
+            // leaderEntityId
+            leaderEntityId = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 24) {
+              break;
+            }
+          }
           case 24: {
             // floorId
             floorId = input.readUInt32();
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 40) {
               break;
             }
           }
           case 40: {
-            // entryId
-            entryId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
-            // planeId
-            planeId = input.readUInt32();
+            // worldId
+            worldId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 56) {
               break;
             }
           }
-          case 72: {
-            // gameModeType
-            gameModeType = input.readUInt32();
+          case 56: {
+            // clientPosVersion
+            clientPosVersion = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 88) {
@@ -969,17 +969,17 @@ public final class SceneInfoOuterClass {
             }
           }
           case 88: {
-            // worldId
-            worldId = input.readUInt32();
+            // entryId
+            entryId = input.readUInt32();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 104) {
               break;
             }
           }
-          case 112: {
-            // leaderEntityId
-            leaderEntityId = input.readUInt32();
+          case 104: {
+            // planeId
+            planeId = input.readUInt32();
             bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 120) {
@@ -987,49 +987,49 @@ public final class SceneInfoOuterClass {
             }
           }
           case 120: {
-            // clientPosVersion
-            clientPosVersion = input.readUInt32();
+            // gameModeType
+            gameModeType = input.readUInt32();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 34) {
               break;
             }
           }
-          case 58: {
+          case 34: {
             // groupIdList [packed=true]
             input.readPackedUInt32(groupIdList, tag);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 74) {
               break;
             }
           }
-          case 82: {
+          case 74: {
             // lightenSectionList [packed=true]
             input.readPackedUInt32(lightenSectionList, tag);
             bitField0_ |= 0x00000100;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 10) {
               break;
             }
           }
-          case 18: {
+          case 10: {
             // entityList
             tag = input.readRepeatedMessage(entityList, tag);
             bitField0_ |= 0x00000200;
-            if (tag != 13234) {
+            if (tag != 2778) {
               break;
             }
           }
-          case 13234: {
+          case 2778: {
             // groupStateList
             tag = input.readRepeatedMessage(groupStateList, tag);
             bitField0_ |= 0x00000400;
-            if (tag != 13922) {
+            if (tag != 12306) {
               break;
             }
           }
-          case 13922: {
+          case 12306: {
             // entityGroupList
             tag = input.readRepeatedMessage(entityGroupList, tag);
             bitField0_ |= 0x00000800;
@@ -1047,13 +1047,13 @@ public final class SceneInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
+          case 32: {
             // groupIdList [packed=false]
             tag = input.readRepeatedUInt32(groupIdList, tag);
             bitField0_ |= 0x00000080;
             break;
           }
-          case 80: {
+          case 72: {
             // lightenSectionList [packed=false]
             tag = input.readRepeatedUInt32(lightenSectionList, tag);
             bitField0_ |= 0x00000100;
@@ -1067,25 +1067,25 @@ public final class SceneInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.floorId, floorId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.entryId, entryId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.planeId, planeId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.gameModeType, gameModeType);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.worldId, worldId);
-      }
-      if ((bitField0_ & 0x00000020) != 0) {
         output.writeUInt32(FieldNames.leaderEntityId, leaderEntityId);
       }
-      if ((bitField0_ & 0x00000040) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.floorId, floorId);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.worldId, worldId);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.clientPosVersion, clientPosVersion);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeUInt32(FieldNames.entryId, entryId);
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        output.writeUInt32(FieldNames.planeId, planeId);
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        output.writeUInt32(FieldNames.gameModeType, gameModeType);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeRepeatedUInt32(FieldNames.groupIdList, groupIdList);
@@ -1112,11 +1112,11 @@ public final class SceneInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -766027193:
-          case 2022982190: {
-            if (input.isAtField(FieldNames.floorId)) {
+          case 1693061255:
+          case 794634049: {
+            if (input.isAtField(FieldNames.leaderEntityId)) {
               if (!input.trySkipNullValue()) {
-                floorId = input.readUInt32();
+                leaderEntityId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -1124,36 +1124,12 @@ public final class SceneInfoOuterClass {
             }
             break;
           }
-          case -1591558867:
-          case -2093663224: {
-            if (input.isAtField(FieldNames.entryId)) {
+          case -766027193:
+          case 2022982190: {
+            if (input.isAtField(FieldNames.floorId)) {
               if (!input.trySkipNullValue()) {
-                entryId = input.readUInt32();
+                floorId = input.readUInt32();
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -493896553:
-          case 1869097438: {
-            if (input.isAtField(FieldNames.planeId)) {
-              if (!input.trySkipNullValue()) {
-                planeId = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -464498289:
-          case 1937775689: {
-            if (input.isAtField(FieldNames.gameModeType)) {
-              if (!input.trySkipNullValue()) {
-                gameModeType = input.readUInt32();
-                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -1165,19 +1141,7 @@ public final class SceneInfoOuterClass {
             if (input.isAtField(FieldNames.worldId)) {
               if (!input.trySkipNullValue()) {
                 worldId = input.readUInt32();
-                bitField0_ |= 0x00000010;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1693061255:
-          case 794634049: {
-            if (input.isAtField(FieldNames.leaderEntityId)) {
-              if (!input.trySkipNullValue()) {
-                leaderEntityId = input.readUInt32();
-                bitField0_ |= 0x00000020;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -1189,6 +1153,42 @@ public final class SceneInfoOuterClass {
             if (input.isAtField(FieldNames.clientPosVersion)) {
               if (!input.trySkipNullValue()) {
                 clientPosVersion = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1591558867:
+          case -2093663224: {
+            if (input.isAtField(FieldNames.entryId)) {
+              if (!input.trySkipNullValue()) {
+                entryId = input.readUInt32();
+                bitField0_ |= 0x00000010;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -493896553:
+          case 1869097438: {
+            if (input.isAtField(FieldNames.planeId)) {
+              if (!input.trySkipNullValue()) {
+                planeId = input.readUInt32();
+                bitField0_ |= 0x00000020;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -464498289:
+          case 1937775689: {
+            if (input.isAtField(FieldNames.gameModeType)) {
+              if (!input.trySkipNullValue()) {
+                gameModeType = input.readUInt32();
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -1308,19 +1308,19 @@ public final class SceneInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName leaderEntityId = FieldName.forField("leaderEntityId", "leader_entity_id");
+
       static final FieldName floorId = FieldName.forField("floorId", "floor_id");
+
+      static final FieldName worldId = FieldName.forField("worldId", "world_id");
+
+      static final FieldName clientPosVersion = FieldName.forField("clientPosVersion", "client_pos_version");
 
       static final FieldName entryId = FieldName.forField("entryId", "entry_id");
 
       static final FieldName planeId = FieldName.forField("planeId", "plane_id");
 
       static final FieldName gameModeType = FieldName.forField("gameModeType", "game_mode_type");
-
-      static final FieldName worldId = FieldName.forField("worldId", "world_id");
-
-      static final FieldName leaderEntityId = FieldName.forField("leaderEntityId", "leader_entity_id");
-
-      static final FieldName clientPosVersion = FieldName.forField("clientPosVersion", "client_pos_version");
 
       static final FieldName groupIdList = FieldName.forField("groupIdList", "group_id_list");
 

@@ -19,14 +19,14 @@ public final class ActivateFarmElementCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 world_level = 4;</code>
-     */
-    private int worldLevel;
-
-    /**
-     * <code>optional uint32 entity_id = 6;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      */
     private int entityId;
+
+    /**
+     * <code>optional uint32 world_level = 5;</code>
+     */
+    private int worldLevel;
 
     private ActivateFarmElementCsReq() {
     }
@@ -39,62 +39,25 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 4;</code>
-     * @return whether the worldLevel field is set
+     * <code>optional uint32 entity_id = 3;</code>
+     * @return whether the entityId field is set
      */
-    public boolean hasWorldLevel() {
+    public boolean hasEntityId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 world_level = 4;</code>
-     * @return this
-     */
-    public ActivateFarmElementCsReq clearWorldLevel() {
-      bitField0_ &= ~0x00000001;
-      worldLevel = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 world_level = 4;</code>
-     * @return the worldLevel
-     */
-    public int getWorldLevel() {
-      return worldLevel;
-    }
-
-    /**
-     * <code>optional uint32 world_level = 4;</code>
-     * @param value the worldLevel to set
-     * @return this
-     */
-    public ActivateFarmElementCsReq setWorldLevel(final int value) {
-      bitField0_ |= 0x00000001;
-      worldLevel = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entity_id = 6;</code>
-     * @return whether the entityId field is set
-     */
-    public boolean hasEntityId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 entity_id = 6;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      * @return this
      */
     public ActivateFarmElementCsReq clearEntityId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       entityId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 entity_id = 6;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      * @return the entityId
      */
     public int getEntityId() {
@@ -102,13 +65,50 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 6;</code>
+     * <code>optional uint32 entity_id = 3;</code>
      * @param value the entityId to set
      * @return this
      */
     public ActivateFarmElementCsReq setEntityId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       entityId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 world_level = 5;</code>
+     * @return whether the worldLevel field is set
+     */
+    public boolean hasWorldLevel() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 world_level = 5;</code>
+     * @return this
+     */
+    public ActivateFarmElementCsReq clearWorldLevel() {
+      bitField0_ &= ~0x00000002;
+      worldLevel = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 world_level = 5;</code>
+     * @return the worldLevel
+     */
+    public int getWorldLevel() {
+      return worldLevel;
+    }
+
+    /**
+     * <code>optional uint32 world_level = 5;</code>
+     * @param value the worldLevel to set
+     * @return this
+     */
+    public ActivateFarmElementCsReq setWorldLevel(final int value) {
+      bitField0_ |= 0x00000002;
+      worldLevel = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class ActivateFarmElementCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        worldLevel = other.worldLevel;
         entityId = other.entityId;
+        worldLevel = other.worldLevel;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class ActivateFarmElementCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasWorldLevel()) {
-        setWorldLevel(other.worldLevel);
-      }
       if (other.hasEntityId()) {
         setEntityId(other.entityId);
+      }
+      if (other.hasWorldLevel()) {
+        setWorldLevel(other.worldLevel);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class ActivateFarmElementCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      worldLevel = 0;
       entityId = 0;
+      worldLevel = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class ActivateFarmElementCsReqOuterClass {
       }
       ActivateFarmElementCsReq other = (ActivateFarmElementCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasWorldLevel() || worldLevel == other.worldLevel)
-        && (!hasEntityId() || entityId == other.entityId);
+        && (!hasEntityId() || entityId == other.entityId)
+        && (!hasWorldLevel() || worldLevel == other.worldLevel);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(worldLevel);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(entityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(entityId);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(worldLevel);
       }
     }
 
@@ -190,10 +190,10 @@ public final class ActivateFarmElementCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(worldLevel);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(worldLevel);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class ActivateFarmElementCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // worldLevel
-            worldLevel = input.readUInt32();
+          case 24: {
+            // entityId
+            entityId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 40) {
               break;
             }
           }
-          case 48: {
-            // entityId
-            entityId = input.readUInt32();
+          case 40: {
+            // worldLevel
+            worldLevel = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class ActivateFarmElementCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.worldLevel, worldLevel);
+        output.writeUInt32(FieldNames.entityId, entityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.entityId, entityId);
+        output.writeUInt32(FieldNames.worldLevel, worldLevel);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class ActivateFarmElementCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 440007442:
-          case 1305257111: {
-            if (input.isAtField(FieldNames.worldLevel)) {
+          case -2102099874:
+          case -740565257: {
+            if (input.isAtField(FieldNames.entityId)) {
               if (!input.trySkipNullValue()) {
-                worldLevel = input.readUInt32();
+                entityId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class ActivateFarmElementCsReqOuterClass {
             }
             break;
           }
-          case -2102099874:
-          case -740565257: {
-            if (input.isAtField(FieldNames.entityId)) {
+          case 440007442:
+          case 1305257111: {
+            if (input.isAtField(FieldNames.worldLevel)) {
               if (!input.trySkipNullValue()) {
-                entityId = input.readUInt32();
+                worldLevel = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class ActivateFarmElementCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName worldLevel = FieldName.forField("worldLevel", "world_level");
-
       static final FieldName entityId = FieldName.forField("entityId", "entity_id");
+
+      static final FieldName worldLevel = FieldName.forField("worldLevel", "world_level");
     }
   }
 }

@@ -24,7 +24,7 @@ public final class RelicArchiveOuterClass {
     private int slot;
 
     /**
-     * <code>optional uint32 relic_id = 12;</code>
+     * <code>optional uint32 relic_id = 7;</code>
      */
     private int relicId;
 
@@ -76,7 +76,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 12;</code>
+     * <code>optional uint32 relic_id = 7;</code>
      * @return whether the relicId field is set
      */
     public boolean hasRelicId() {
@@ -84,7 +84,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 12;</code>
+     * <code>optional uint32 relic_id = 7;</code>
      * @return this
      */
     public RelicArchive clearRelicId() {
@@ -94,7 +94,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 12;</code>
+     * <code>optional uint32 relic_id = 7;</code>
      * @return the relicId
      */
     public int getRelicId() {
@@ -102,7 +102,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 12;</code>
+     * <code>optional uint32 relic_id = 7;</code>
      * @param value the relicId to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class RelicArchiveOuterClass {
         output.writeUInt32NoTag(slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(relicId);
       }
     }
@@ -210,11 +210,11 @@ public final class RelicArchiveOuterClass {
             slot = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 56) {
               break;
             }
           }
-          case 96: {
+          case 56: {
             // relicId
             relicId = input.readUInt32();
             bitField0_ |= 0x00000002;

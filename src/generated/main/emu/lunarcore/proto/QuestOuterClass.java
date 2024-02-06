@@ -20,19 +20,19 @@ public final class QuestOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 finish_time = 12;</code>
+     * <code>optional int64 finish_time = 4;</code>
      */
     private long finishTime;
 
     /**
-     * <code>optional uint32 progress = 8;</code>
-     */
-    private int progress;
-
-    /**
-     * <code>optional uint32 id = 11;</code>
+     * <code>optional uint32 id = 5;</code>
      */
     private int id;
+
+    /**
+     * <code>optional uint32 progress = 6;</code>
+     */
+    private int progress;
 
     /**
      * <code>optional .QuestStatus status = 13;</code>
@@ -40,9 +40,9 @@ public final class QuestOuterClass {
     private int status;
 
     /**
-     * <code>repeated uint32 taken_achievement_level_list = 3;</code>
+     * <code>repeated uint32 IOIPJKJIHJB = 15;</code>
      */
-    private final RepeatedInt takenAchievementLevelList = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt iOIPJKJIHJB = RepeatedInt.newEmptyInstance();
 
     private Quest() {
     }
@@ -55,7 +55,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 12;</code>
+     * <code>optional int64 finish_time = 4;</code>
      * @return whether the finishTime field is set
      */
     public boolean hasFinishTime() {
@@ -63,7 +63,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 12;</code>
+     * <code>optional int64 finish_time = 4;</code>
      * @return this
      */
     public Quest clearFinishTime() {
@@ -73,7 +73,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 12;</code>
+     * <code>optional int64 finish_time = 4;</code>
      * @return the finishTime
      */
     public long getFinishTime() {
@@ -81,7 +81,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 12;</code>
+     * <code>optional int64 finish_time = 4;</code>
      * @param value the finishTime to set
      * @return this
      */
@@ -92,62 +92,25 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 8;</code>
-     * @return whether the progress field is set
+     * <code>optional uint32 id = 5;</code>
+     * @return whether the id field is set
      */
-    public boolean hasProgress() {
+    public boolean hasId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 progress = 8;</code>
-     * @return this
-     */
-    public Quest clearProgress() {
-      bitField0_ &= ~0x00000002;
-      progress = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 progress = 8;</code>
-     * @return the progress
-     */
-    public int getProgress() {
-      return progress;
-    }
-
-    /**
-     * <code>optional uint32 progress = 8;</code>
-     * @param value the progress to set
-     * @return this
-     */
-    public Quest setProgress(final int value) {
-      bitField0_ |= 0x00000002;
-      progress = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 id = 11;</code>
-     * @return whether the id field is set
-     */
-    public boolean hasId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 id = 11;</code>
+     * <code>optional uint32 id = 5;</code>
      * @return this
      */
     public Quest clearId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       id = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 id = 11;</code>
+     * <code>optional uint32 id = 5;</code>
      * @return the id
      */
     public int getId() {
@@ -155,13 +118,50 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 11;</code>
+     * <code>optional uint32 id = 5;</code>
      * @param value the id to set
      * @return this
      */
     public Quest setId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       id = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 progress = 6;</code>
+     * @return whether the progress field is set
+     */
+    public boolean hasProgress() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 progress = 6;</code>
+     * @return this
+     */
+    public Quest clearProgress() {
+      bitField0_ &= ~0x00000004;
+      progress = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 progress = 6;</code>
+     * @return the progress
+     */
+    public int getProgress() {
+      return progress;
+    }
+
+    /**
+     * <code>optional uint32 progress = 6;</code>
+     * @param value the progress to set
+     * @return this
+     */
+    public Quest setProgress(final int value) {
+      bitField0_ |= 0x00000004;
+      progress = value;
       return this;
     }
 
@@ -228,39 +228,39 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>repeated uint32 taken_achievement_level_list = 3;</code>
-     * @return whether the takenAchievementLevelList field is set
+     * <code>repeated uint32 IOIPJKJIHJB = 15;</code>
+     * @return whether the iOIPJKJIHJB field is set
      */
-    public boolean hasTakenAchievementLevelList() {
+    public boolean hasIOIPJKJIHJB() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>repeated uint32 taken_achievement_level_list = 3;</code>
+     * <code>repeated uint32 IOIPJKJIHJB = 15;</code>
      * @return this
      */
-    public Quest clearTakenAchievementLevelList() {
+    public Quest clearIOIPJKJIHJB() {
       bitField0_ &= ~0x00000010;
-      takenAchievementLevelList.clear();
+      iOIPJKJIHJB.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 taken_achievement_level_list = 3;</code>
+     * <code>repeated uint32 IOIPJKJIHJB = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableTakenAchievementLevelList()} if you want to modify it.
+     * Use {@link #getMutableIOIPJKJIHJB()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getTakenAchievementLevelList() {
-      return takenAchievementLevelList;
+    public RepeatedInt getIOIPJKJIHJB() {
+      return iOIPJKJIHJB;
     }
 
     /**
-     * <code>repeated uint32 taken_achievement_level_list = 3;</code>
+     * <code>repeated uint32 IOIPJKJIHJB = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -268,30 +268,30 @@ public final class QuestOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableTakenAchievementLevelList() {
+    public RepeatedInt getMutableIOIPJKJIHJB() {
       bitField0_ |= 0x00000010;
-      return takenAchievementLevelList;
+      return iOIPJKJIHJB;
     }
 
     /**
-     * <code>repeated uint32 taken_achievement_level_list = 3;</code>
-     * @param value the takenAchievementLevelList to add
+     * <code>repeated uint32 IOIPJKJIHJB = 15;</code>
+     * @param value the iOIPJKJIHJB to add
      * @return this
      */
-    public Quest addTakenAchievementLevelList(final int value) {
+    public Quest addIOIPJKJIHJB(final int value) {
       bitField0_ |= 0x00000010;
-      takenAchievementLevelList.add(value);
+      iOIPJKJIHJB.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 taken_achievement_level_list = 3;</code>
-     * @param values the takenAchievementLevelList to add
+     * <code>repeated uint32 IOIPJKJIHJB = 15;</code>
+     * @param values the iOIPJKJIHJB to add
      * @return this
      */
-    public Quest addAllTakenAchievementLevelList(final int... values) {
+    public Quest addAllIOIPJKJIHJB(final int... values) {
       bitField0_ |= 0x00000010;
-      takenAchievementLevelList.addAll(values);
+      iOIPJKJIHJB.addAll(values);
       return this;
     }
 
@@ -301,10 +301,10 @@ public final class QuestOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         finishTime = other.finishTime;
-        progress = other.progress;
         id = other.id;
+        progress = other.progress;
         status = other.status;
-        takenAchievementLevelList.copyFrom(other.takenAchievementLevelList);
+        iOIPJKJIHJB.copyFrom(other.iOIPJKJIHJB);
       }
       return this;
     }
@@ -318,17 +318,17 @@ public final class QuestOuterClass {
       if (other.hasFinishTime()) {
         setFinishTime(other.finishTime);
       }
-      if (other.hasProgress()) {
-        setProgress(other.progress);
-      }
       if (other.hasId()) {
         setId(other.id);
+      }
+      if (other.hasProgress()) {
+        setProgress(other.progress);
       }
       if (other.hasStatus()) {
         setStatusValue(other.status);
       }
-      if (other.hasTakenAchievementLevelList()) {
-        getMutableTakenAchievementLevelList().addAll(other.takenAchievementLevelList);
+      if (other.hasIOIPJKJIHJB()) {
+        getMutableIOIPJKJIHJB().addAll(other.iOIPJKJIHJB);
       }
       return this;
     }
@@ -341,10 +341,10 @@ public final class QuestOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       finishTime = 0L;
-      progress = 0;
       id = 0;
+      progress = 0;
       status = 0;
-      takenAchievementLevelList.clear();
+      iOIPJKJIHJB.clear();
       return this;
     }
 
@@ -355,7 +355,7 @@ public final class QuestOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      takenAchievementLevelList.clear();
+      iOIPJKJIHJB.clear();
       return this;
     }
 
@@ -370,34 +370,34 @@ public final class QuestOuterClass {
       Quest other = (Quest) o;
       return bitField0_ == other.bitField0_
         && (!hasFinishTime() || finishTime == other.finishTime)
-        && (!hasProgress() || progress == other.progress)
         && (!hasId() || id == other.id)
+        && (!hasProgress() || progress == other.progress)
         && (!hasStatus() || status == other.status)
-        && (!hasTakenAchievementLevelList() || takenAchievementLevelList.equals(other.takenAchievementLevelList));
+        && (!hasIOIPJKJIHJB() || iOIPJKJIHJB.equals(other.iOIPJKJIHJB));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 32);
         output.writeInt64NoTag(finishTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(progress);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(id);
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(progress);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 104);
         output.writeEnumNoTag(status);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        for (int i = 0; i < takenAchievementLevelList.length(); i++) {
-          output.writeRawByte((byte) 24);
-          output.writeUInt32NoTag(takenAchievementLevelList.array()[i]);
+        for (int i = 0; i < iOIPJKJIHJB.length(); i++) {
+          output.writeRawByte((byte) 120);
+          output.writeUInt32NoTag(iOIPJKJIHJB.array()[i]);
         }
       }
     }
@@ -409,16 +409,16 @@ public final class QuestOuterClass {
         size += 1 + ProtoSink.computeInt64SizeNoTag(finishTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(progress);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(progress);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(status);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += (1 * takenAchievementLevelList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(takenAchievementLevelList);
+        size += (1 * iOIPJKJIHJB.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(iOIPJKJIHJB);
       }
       return size;
     }
@@ -430,27 +430,27 @@ public final class QuestOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 32: {
             // finishTime
             finishTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 40) {
               break;
             }
           }
-          case 64: {
-            // progress
-            progress = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 88) {
-              break;
-            }
-          }
-          case 88: {
+          case 40: {
             // id
             id = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
+            // progress
+            progress = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 104) {
@@ -465,13 +465,13 @@ public final class QuestOuterClass {
               bitField0_ |= 0x00000008;
             }
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 122) {
               break;
             }
           }
-          case 26: {
-            // takenAchievementLevelList [packed=true]
-            input.readPackedUInt32(takenAchievementLevelList, tag);
+          case 122: {
+            // iOIPJKJIHJB [packed=true]
+            input.readPackedUInt32(iOIPJKJIHJB, tag);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 0) {
@@ -488,9 +488,9 @@ public final class QuestOuterClass {
             tag = input.readTag();
             break;
           }
-          case 24: {
-            // takenAchievementLevelList [packed=false]
-            tag = input.readRepeatedUInt32(takenAchievementLevelList, tag);
+          case 120: {
+            // iOIPJKJIHJB [packed=false]
+            tag = input.readRepeatedUInt32(iOIPJKJIHJB, tag);
             bitField0_ |= 0x00000010;
             break;
           }
@@ -505,16 +505,16 @@ public final class QuestOuterClass {
         output.writeInt64(FieldNames.finishTime, finishTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.progress, progress);
+        output.writeUInt32(FieldNames.id, id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.id, id);
+        output.writeUInt32(FieldNames.progress, progress);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeEnum(FieldNames.status, status, QuestStatusOuterClass.QuestStatus.converter());
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRepeatedUInt32(FieldNames.takenAchievementLevelList, takenAchievementLevelList);
+        output.writeRepeatedUInt32(FieldNames.iOIPJKJIHJB, iOIPJKJIHJB);
       }
       output.endObject();
     }
@@ -538,10 +538,10 @@ public final class QuestOuterClass {
             }
             break;
           }
-          case -1001078227: {
-            if (input.isAtField(FieldNames.progress)) {
+          case 3355: {
+            if (input.isAtField(FieldNames.id)) {
               if (!input.trySkipNullValue()) {
-                progress = input.readUInt32();
+                id = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -549,10 +549,10 @@ public final class QuestOuterClass {
             }
             break;
           }
-          case 3355: {
-            if (input.isAtField(FieldNames.id)) {
+          case -1001078227: {
+            if (input.isAtField(FieldNames.progress)) {
               if (!input.trySkipNullValue()) {
-                id = input.readUInt32();
+                progress = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -576,11 +576,10 @@ public final class QuestOuterClass {
             }
             break;
           }
-          case 149879610:
-          case 1076639233: {
-            if (input.isAtField(FieldNames.takenAchievementLevelList)) {
+          case 1686124499: {
+            if (input.isAtField(FieldNames.iOIPJKJIHJB)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(takenAchievementLevelList);
+                input.readRepeatedUInt32(iOIPJKJIHJB);
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -642,13 +641,13 @@ public final class QuestOuterClass {
     static class FieldNames {
       static final FieldName finishTime = FieldName.forField("finishTime", "finish_time");
 
-      static final FieldName progress = FieldName.forField("progress");
-
       static final FieldName id = FieldName.forField("id");
+
+      static final FieldName progress = FieldName.forField("progress");
 
       static final FieldName status = FieldName.forField("status");
 
-      static final FieldName takenAchievementLevelList = FieldName.forField("takenAchievementLevelList", "taken_achievement_level_list");
+      static final FieldName iOIPJKJIHJB = FieldName.forField("IOIPJKJIHJB");
     }
   }
 }

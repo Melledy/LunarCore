@@ -24,7 +24,7 @@ public final class MotionInfoOuterClass {
     private final VectorOuterClass.Vector rot = VectorOuterClass.Vector.newInstance();
 
     /**
-     * <code>optional .Vector pos = 12;</code>
+     * <code>optional .Vector pos = 13;</code>
      */
     private final VectorOuterClass.Vector pos = VectorOuterClass.Vector.newInstance();
 
@@ -96,7 +96,7 @@ public final class MotionInfoOuterClass {
     }
 
     /**
-     * <code>optional .Vector pos = 12;</code>
+     * <code>optional .Vector pos = 13;</code>
      * @return whether the pos field is set
      */
     public boolean hasPos() {
@@ -104,7 +104,7 @@ public final class MotionInfoOuterClass {
     }
 
     /**
-     * <code>optional .Vector pos = 12;</code>
+     * <code>optional .Vector pos = 13;</code>
      * @return this
      */
     public MotionInfo clearPos() {
@@ -114,7 +114,7 @@ public final class MotionInfoOuterClass {
     }
 
     /**
-     * <code>optional .Vector pos = 12;</code>
+     * <code>optional .Vector pos = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -128,7 +128,7 @@ public final class MotionInfoOuterClass {
     }
 
     /**
-     * <code>optional .Vector pos = 12;</code>
+     * <code>optional .Vector pos = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -142,7 +142,7 @@ public final class MotionInfoOuterClass {
     }
 
     /**
-     * <code>optional .Vector pos = 12;</code>
+     * <code>optional .Vector pos = 13;</code>
      * @param value the pos to set
      * @return this
      */
@@ -223,7 +223,7 @@ public final class MotionInfoOuterClass {
         output.writeMessageNoTag(rot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 98);
+        output.writeRawByte((byte) 106);
         output.writeMessageNoTag(pos);
       }
     }
@@ -252,11 +252,11 @@ public final class MotionInfoOuterClass {
             input.readMessage(rot);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 106) {
               break;
             }
           }
-          case 98: {
+          case 106: {
             // pos
             input.readMessage(pos);
             bitField0_ |= 0x00000002;

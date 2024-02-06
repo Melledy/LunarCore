@@ -20,17 +20,17 @@ public final class HeroBasicTypeInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 rank = 9;</code>
+     * <code>optional uint32 rank = 11;</code>
      */
     private int rank;
 
     /**
-     * <code>optional .HeroBasicType basic_type = 3;</code>
+     * <code>optional .HeroBasicType basic_type = 2;</code>
      */
     private int basicType;
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 1;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
      */
     private final RepeatedMessage<AvatarSkillTreeOuterClass.AvatarSkillTree> skillTreeList = RepeatedMessage.newEmptyInstance(AvatarSkillTreeOuterClass.AvatarSkillTree.getFactory());
 
@@ -45,7 +45,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 9;</code>
+     * <code>optional uint32 rank = 11;</code>
      * @return whether the rank field is set
      */
     public boolean hasRank() {
@@ -53,7 +53,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 9;</code>
+     * <code>optional uint32 rank = 11;</code>
      * @return this
      */
     public HeroBasicTypeInfo clearRank() {
@@ -63,7 +63,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 9;</code>
+     * <code>optional uint32 rank = 11;</code>
      * @return the rank
      */
     public int getRank() {
@@ -71,7 +71,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 9;</code>
+     * <code>optional uint32 rank = 11;</code>
      * @param value the rank to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 3;</code>
+     * <code>optional .HeroBasicType basic_type = 2;</code>
      * @return whether the basicType field is set
      */
     public boolean hasBasicType() {
@@ -90,7 +90,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 3;</code>
+     * <code>optional .HeroBasicType basic_type = 2;</code>
      * @return this
      */
     public HeroBasicTypeInfo clearBasicType() {
@@ -100,7 +100,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 3;</code>
+     * <code>optional .HeroBasicType basic_type = 2;</code>
      * @return the basicType
      */
     public HeroBasicTypeOuterClass.HeroBasicType getBasicType() {
@@ -133,7 +133,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 3;</code>
+     * <code>optional .HeroBasicType basic_type = 2;</code>
      * @param value the basicType to set
      * @return this
      */
@@ -144,7 +144,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 1;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
      * @return whether the skillTreeList field is set
      */
     public boolean hasSkillTreeList() {
@@ -152,7 +152,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 1;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
      * @return this
      */
     public HeroBasicTypeInfo clearSkillTreeList() {
@@ -162,7 +162,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 1;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -176,7 +176,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 1;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -190,7 +190,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 1;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
      * @param value the skillTreeList to add
      * @return this
      */
@@ -202,7 +202,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 1;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
      * @param values the skillTreeList to add
      * @return this
      */
@@ -285,16 +285,16 @@ public final class HeroBasicTypeInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(rank);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 16);
         output.writeEnumNoTag(basicType);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < skillTreeList.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 98);
           output.writeMessageNoTag(skillTreeList.get(i));
         }
       }
@@ -322,16 +322,16 @@ public final class HeroBasicTypeInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 88: {
             // rank
             rank = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 24) {
+            if (tag != 16) {
               break;
             }
           }
-          case 24: {
+          case 16: {
             // basicType
             final int value = input.readInt32();
             if (HeroBasicTypeOuterClass.HeroBasicType.forNumber(value) != null) {
@@ -339,11 +339,11 @@ public final class HeroBasicTypeInfoOuterClass {
               bitField0_ |= 0x00000002;
             }
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 98) {
               break;
             }
           }
-          case 10: {
+          case 98: {
             // skillTreeList
             tag = input.readRepeatedMessage(skillTreeList, tag);
             bitField0_ |= 0x00000004;

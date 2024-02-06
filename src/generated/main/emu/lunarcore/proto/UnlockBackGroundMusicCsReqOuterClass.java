@@ -20,7 +20,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 unlock_ids = 11;</code>
+     * <code>repeated uint32 unlock_ids = 5;</code>
      */
     private final RepeatedInt unlockIds = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 unlock_ids = 11;</code>
+     * <code>repeated uint32 unlock_ids = 5;</code>
      * @return whether the unlockIds field is set
      */
     public boolean hasUnlockIds() {
@@ -43,7 +43,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 unlock_ids = 11;</code>
+     * <code>repeated uint32 unlock_ids = 5;</code>
      * @return this
      */
     public UnlockBackGroundMusicCsReq clearUnlockIds() {
@@ -53,7 +53,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 unlock_ids = 11;</code>
+     * <code>repeated uint32 unlock_ids = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 unlock_ids = 11;</code>
+     * <code>repeated uint32 unlock_ids = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 unlock_ids = 11;</code>
+     * <code>repeated uint32 unlock_ids = 5;</code>
      * @param value the unlockIds to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 unlock_ids = 11;</code>
+     * <code>repeated uint32 unlock_ids = 5;</code>
      * @param values the unlockIds to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < unlockIds.length(); i++) {
-          output.writeRawByte((byte) 88);
+          output.writeRawByte((byte) 40);
           output.writeUInt32NoTag(unlockIds.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 90: {
+          case 42: {
             // unlockIds [packed=true]
             input.readPackedUInt32(unlockIds, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class UnlockBackGroundMusicCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 88: {
+          case 40: {
             // unlockIds [packed=false]
             tag = input.readRepeatedUInt32(unlockIds, tag);
             bitField0_ |= 0x00000001;

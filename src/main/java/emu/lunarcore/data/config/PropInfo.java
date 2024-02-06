@@ -31,6 +31,7 @@ public class PropInfo extends ObjectInfo {
     @Setter private PropState State = PropState.Closed;
     
     @Setter private transient PropTrigger trigger;
+    @Setter private transient boolean isCommonConsole;
     
     @Override
     public Position getRot() {

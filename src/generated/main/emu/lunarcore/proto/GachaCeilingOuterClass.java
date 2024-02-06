@@ -20,12 +20,12 @@ public final class GachaCeilingOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 ceiling_num = 12;</code>
+     * <code>optional uint32 ceiling_num = 4;</code>
      */
     private int ceilingNum;
 
     /**
-     * <code>optional bool is_claimed = 5;</code>
+     * <code>optional bool is_claimed = 3;</code>
      */
     private boolean isClaimed;
 
@@ -45,7 +45,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional uint32 ceiling_num = 12;</code>
+     * <code>optional uint32 ceiling_num = 4;</code>
      * @return whether the ceilingNum field is set
      */
     public boolean hasCeilingNum() {
@@ -53,7 +53,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional uint32 ceiling_num = 12;</code>
+     * <code>optional uint32 ceiling_num = 4;</code>
      * @return this
      */
     public GachaCeiling clearCeilingNum() {
@@ -63,7 +63,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional uint32 ceiling_num = 12;</code>
+     * <code>optional uint32 ceiling_num = 4;</code>
      * @return the ceilingNum
      */
     public int getCeilingNum() {
@@ -71,7 +71,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional uint32 ceiling_num = 12;</code>
+     * <code>optional uint32 ceiling_num = 4;</code>
      * @param value the ceilingNum to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional bool is_claimed = 5;</code>
+     * <code>optional bool is_claimed = 3;</code>
      * @return whether the isClaimed field is set
      */
     public boolean hasIsClaimed() {
@@ -90,7 +90,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional bool is_claimed = 5;</code>
+     * <code>optional bool is_claimed = 3;</code>
      * @return this
      */
     public GachaCeiling clearIsClaimed() {
@@ -100,7 +100,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional bool is_claimed = 5;</code>
+     * <code>optional bool is_claimed = 3;</code>
      * @return the isClaimed
      */
     public boolean getIsClaimed() {
@@ -108,7 +108,7 @@ public final class GachaCeilingOuterClass {
     }
 
     /**
-     * <code>optional bool is_claimed = 5;</code>
+     * <code>optional bool is_claimed = 3;</code>
      * @param value the isClaimed to set
      * @return this
      */
@@ -259,11 +259,11 @@ public final class GachaCeilingOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(ceilingNum);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 24);
         output.writeBoolNoTag(isClaimed);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -296,16 +296,16 @@ public final class GachaCeilingOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 32: {
             // ceilingNum
             ceilingNum = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 24) {
               break;
             }
           }
-          case 40: {
+          case 24: {
             // isClaimed
             isClaimed = input.readBool();
             bitField0_ |= 0x00000002;

@@ -26,9 +26,9 @@ public final class RogueDialogueEventOuterClass {
     private int npcId;
 
     /**
-     * <code>optional uint32 event_unique_id = 6;</code>
+     * <code>optional uint32 GBMDBBBMBEJ = 6;</code>
      */
-    private int eventUniqueId;
+    private int gBMDBBBMBEJ;
 
     /**
      * <code>optional uint32 INJPFALMDHJ = 7;</code>
@@ -98,39 +98,39 @@ public final class RogueDialogueEventOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 6;</code>
-     * @return whether the eventUniqueId field is set
+     * <code>optional uint32 GBMDBBBMBEJ = 6;</code>
+     * @return whether the gBMDBBBMBEJ field is set
      */
-    public boolean hasEventUniqueId() {
+    public boolean hasGBMDBBBMBEJ() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 6;</code>
+     * <code>optional uint32 GBMDBBBMBEJ = 6;</code>
      * @return this
      */
-    public RogueDialogueEvent clearEventUniqueId() {
+    public RogueDialogueEvent clearGBMDBBBMBEJ() {
       bitField0_ &= ~0x00000002;
-      eventUniqueId = 0;
+      gBMDBBBMBEJ = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 6;</code>
-     * @return the eventUniqueId
+     * <code>optional uint32 GBMDBBBMBEJ = 6;</code>
+     * @return the gBMDBBBMBEJ
      */
-    public int getEventUniqueId() {
-      return eventUniqueId;
+    public int getGBMDBBBMBEJ() {
+      return gBMDBBBMBEJ;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 6;</code>
-     * @param value the eventUniqueId to set
+     * <code>optional uint32 GBMDBBBMBEJ = 6;</code>
+     * @param value the gBMDBBBMBEJ to set
      * @return this
      */
-    public RogueDialogueEvent setEventUniqueId(final int value) {
+    public RogueDialogueEvent setGBMDBBBMBEJ(final int value) {
       bitField0_ |= 0x00000002;
-      eventUniqueId = value;
+      gBMDBBBMBEJ = value;
       return this;
     }
 
@@ -354,7 +354,7 @@ public final class RogueDialogueEventOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         npcId = other.npcId;
-        eventUniqueId = other.eventUniqueId;
+        gBMDBBBMBEJ = other.gBMDBBBMBEJ;
         iNJPFALMDHJ = other.iNJPFALMDHJ;
         gameModeType = other.gameModeType;
         selectEventId.copyFrom(other.selectEventId);
@@ -372,8 +372,8 @@ public final class RogueDialogueEventOuterClass {
       if (other.hasNpcId()) {
         setNpcId(other.npcId);
       }
-      if (other.hasEventUniqueId()) {
-        setEventUniqueId(other.eventUniqueId);
+      if (other.hasGBMDBBBMBEJ()) {
+        setGBMDBBBMBEJ(other.gBMDBBBMBEJ);
       }
       if (other.hasINJPFALMDHJ()) {
         setINJPFALMDHJ(other.iNJPFALMDHJ);
@@ -398,7 +398,7 @@ public final class RogueDialogueEventOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       npcId = 0;
-      eventUniqueId = 0;
+      gBMDBBBMBEJ = 0;
       iNJPFALMDHJ = 0;
       gameModeType = 0;
       selectEventId.clear();
@@ -429,7 +429,7 @@ public final class RogueDialogueEventOuterClass {
       RogueDialogueEvent other = (RogueDialogueEvent) o;
       return bitField0_ == other.bitField0_
         && (!hasNpcId() || npcId == other.npcId)
-        && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId)
+        && (!hasGBMDBBBMBEJ() || gBMDBBBMBEJ == other.gBMDBBBMBEJ)
         && (!hasINJPFALMDHJ() || iNJPFALMDHJ == other.iNJPFALMDHJ)
         && (!hasGameModeType() || gameModeType == other.gameModeType)
         && (!hasSelectEventId() || selectEventId.equals(other.selectEventId))
@@ -444,7 +444,7 @@ public final class RogueDialogueEventOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(eventUniqueId);
+        output.writeUInt32NoTag(gBMDBBBMBEJ);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 56);
@@ -475,7 +475,7 @@ public final class RogueDialogueEventOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gBMDBBBMBEJ);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(iNJPFALMDHJ);
@@ -509,8 +509,8 @@ public final class RogueDialogueEventOuterClass {
             }
           }
           case 48: {
-            // eventUniqueId
-            eventUniqueId = input.readUInt32();
+            // gBMDBBBMBEJ
+            gBMDBBBMBEJ = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 56) {
@@ -579,7 +579,7 @@ public final class RogueDialogueEventOuterClass {
         output.writeUInt32(FieldNames.npcId, npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
+        output.writeUInt32(FieldNames.gBMDBBBMBEJ, gBMDBBBMBEJ);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.iNJPFALMDHJ, iNJPFALMDHJ);
@@ -615,11 +615,10 @@ public final class RogueDialogueEventOuterClass {
             }
             break;
           }
-          case 2091680134:
-          case -157385500: {
-            if (input.isAtField(FieldNames.eventUniqueId)) {
+          case -1904002038: {
+            if (input.isAtField(FieldNames.gBMDBBBMBEJ)) {
               if (!input.trySkipNullValue()) {
-                eventUniqueId = input.readUInt32();
+                gBMDBBBMBEJ = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -729,7 +728,7 @@ public final class RogueDialogueEventOuterClass {
     static class FieldNames {
       static final FieldName npcId = FieldName.forField("npcId", "npc_id");
 
-      static final FieldName eventUniqueId = FieldName.forField("eventUniqueId", "event_unique_id");
+      static final FieldName gBMDBBBMBEJ = FieldName.forField("GBMDBBBMBEJ");
 
       static final FieldName iNJPFALMDHJ = FieldName.forField("INJPFALMDHJ");
 

@@ -20,7 +20,7 @@ public final class ItemCostListOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .ItemCost item_list = 9;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      */
     private final RepeatedMessage<ItemCostOuterClass.ItemCost> itemList = RepeatedMessage.newEmptyInstance(ItemCostOuterClass.ItemCost.getFactory());
 
@@ -35,7 +35,7 @@ public final class ItemCostListOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 9;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @return whether the itemList field is set
      */
     public boolean hasItemList() {
@@ -43,7 +43,7 @@ public final class ItemCostListOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 9;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @return this
      */
     public ItemCostList clearItemList() {
@@ -53,7 +53,7 @@ public final class ItemCostListOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 9;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class ItemCostListOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 9;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class ItemCostListOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 9;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @param value the itemList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class ItemCostListOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 9;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @param values the itemList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class ItemCostListOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < itemList.length(); i++) {
-          output.writeRawByte((byte) 74);
+          output.writeRawByte((byte) 122);
           output.writeMessageNoTag(itemList.get(i));
         }
       }
@@ -185,7 +185,7 @@ public final class ItemCostListOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 74: {
+          case 122: {
             // itemList
             tag = input.readRepeatedMessage(itemList, tag);
             bitField0_ |= 0x00000001;

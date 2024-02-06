@@ -19,7 +19,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 play_music_id = 9;</code>
+     * <code>optional uint32 play_music_id = 10;</code>
      */
     private int playMusicId;
 
@@ -34,7 +34,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 9;</code>
+     * <code>optional uint32 play_music_id = 10;</code>
      * @return whether the playMusicId field is set
      */
     public boolean hasPlayMusicId() {
@@ -42,7 +42,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 9;</code>
+     * <code>optional uint32 play_music_id = 10;</code>
      * @return this
      */
     public PlayBackGroundMusicCsReq clearPlayMusicId() {
@@ -52,7 +52,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 9;</code>
+     * <code>optional uint32 play_music_id = 10;</code>
      * @return the playMusicId
      */
     public int getPlayMusicId() {
@@ -60,7 +60,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 9;</code>
+     * <code>optional uint32 play_music_id = 10;</code>
      * @param value the playMusicId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(playMusicId);
       }
     }
@@ -150,7 +150,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 80: {
             // playMusicId
             playMusicId = input.readUInt32();
             bitField0_ |= 0x00000001;

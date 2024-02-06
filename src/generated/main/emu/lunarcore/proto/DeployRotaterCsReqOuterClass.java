@@ -10,64 +10,63 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.RepeatedInt;
 
-public final class RogueQueryOuterClass {
+public final class DeployRotaterCsReqOuterClass {
   /**
-   * Protobuf type {@code RogueQuery}
+   * Protobuf type {@code DeployRotaterCsReq}
    */
-  public static final class RogueQuery extends ProtoMessage<RogueQuery> implements Cloneable {
+  public static final class DeployRotaterCsReq extends ProtoMessage<DeployRotaterCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 FFJHNGIINMN = 13;</code>
+     * <code>optional .RotaterData rotater_data = 4;</code>
      */
-    private final RepeatedInt fFJHNGIINMN = RepeatedInt.newEmptyInstance();
+    private final RotaterDataOuterClass.RotaterData rotaterData = RotaterDataOuterClass.RotaterData.newInstance();
 
-    private RogueQuery() {
+    private DeployRotaterCsReq() {
     }
 
     /**
-     * @return a new empty instance of {@code RogueQuery}
+     * @return a new empty instance of {@code DeployRotaterCsReq}
      */
-    public static RogueQuery newInstance() {
-      return new RogueQuery();
+    public static DeployRotaterCsReq newInstance() {
+      return new DeployRotaterCsReq();
     }
 
     /**
-     * <code>repeated uint32 FFJHNGIINMN = 13;</code>
-     * @return whether the fFJHNGIINMN field is set
+     * <code>optional .RotaterData rotater_data = 4;</code>
+     * @return whether the rotaterData field is set
      */
-    public boolean hasFFJHNGIINMN() {
+    public boolean hasRotaterData() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>repeated uint32 FFJHNGIINMN = 13;</code>
+     * <code>optional .RotaterData rotater_data = 4;</code>
      * @return this
      */
-    public RogueQuery clearFFJHNGIINMN() {
+    public DeployRotaterCsReq clearRotaterData() {
       bitField0_ &= ~0x00000001;
-      fFJHNGIINMN.clear();
+      rotaterData.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 FFJHNGIINMN = 13;</code>
+     * <code>optional .RotaterData rotater_data = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableFFJHNGIINMN()} if you want to modify it.
+     * Use {@link #getMutableRotaterData()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getFFJHNGIINMN() {
-      return fFJHNGIINMN;
+    public RotaterDataOuterClass.RotaterData getRotaterData() {
+      return rotaterData;
     }
 
     /**
-     * <code>repeated uint32 FFJHNGIINMN = 13;</code>
+     * <code>optional .RotaterData rotater_data = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -75,74 +74,63 @@ public final class RogueQueryOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableFFJHNGIINMN() {
+    public RotaterDataOuterClass.RotaterData getMutableRotaterData() {
       bitField0_ |= 0x00000001;
-      return fFJHNGIINMN;
+      return rotaterData;
     }
 
     /**
-     * <code>repeated uint32 FFJHNGIINMN = 13;</code>
-     * @param value the fFJHNGIINMN to add
+     * <code>optional .RotaterData rotater_data = 4;</code>
+     * @param value the rotaterData to set
      * @return this
      */
-    public RogueQuery addFFJHNGIINMN(final int value) {
+    public DeployRotaterCsReq setRotaterData(final RotaterDataOuterClass.RotaterData value) {
       bitField0_ |= 0x00000001;
-      fFJHNGIINMN.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 FFJHNGIINMN = 13;</code>
-     * @param values the fFJHNGIINMN to add
-     * @return this
-     */
-    public RogueQuery addAllFFJHNGIINMN(final int... values) {
-      bitField0_ |= 0x00000001;
-      fFJHNGIINMN.addAll(values);
+      rotaterData.copyFrom(value);
       return this;
     }
 
     @Override
-    public RogueQuery copyFrom(final RogueQuery other) {
+    public DeployRotaterCsReq copyFrom(final DeployRotaterCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        fFJHNGIINMN.copyFrom(other.fFJHNGIINMN);
+        rotaterData.copyFrom(other.rotaterData);
       }
       return this;
     }
 
     @Override
-    public RogueQuery mergeFrom(final RogueQuery other) {
+    public DeployRotaterCsReq mergeFrom(final DeployRotaterCsReq other) {
       if (other.isEmpty()) {
         return this;
       }
       cachedSize = -1;
-      if (other.hasFFJHNGIINMN()) {
-        getMutableFFJHNGIINMN().addAll(other.fFJHNGIINMN);
+      if (other.hasRotaterData()) {
+        getMutableRotaterData().mergeFrom(other.rotaterData);
       }
       return this;
     }
 
     @Override
-    public RogueQuery clear() {
+    public DeployRotaterCsReq clear() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      fFJHNGIINMN.clear();
+      rotaterData.clear();
       return this;
     }
 
     @Override
-    public RogueQuery clearQuick() {
+    public DeployRotaterCsReq clearQuick() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      fFJHNGIINMN.clear();
+      rotaterData.clearQuick();
       return this;
     }
 
@@ -151,21 +139,19 @@ public final class RogueQueryOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof RogueQuery)) {
+      if (!(o instanceof DeployRotaterCsReq)) {
         return false;
       }
-      RogueQuery other = (RogueQuery) o;
+      DeployRotaterCsReq other = (DeployRotaterCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasFFJHNGIINMN() || fFJHNGIINMN.equals(other.fFJHNGIINMN));
+        && (!hasRotaterData() || rotaterData.equals(other.rotaterData));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        for (int i = 0; i < fFJHNGIINMN.length(); i++) {
-          output.writeRawByte((byte) 104);
-          output.writeUInt32NoTag(fFJHNGIINMN.array()[i]);
-        }
+        output.writeRawByte((byte) 34);
+        output.writeMessageNoTag(rotaterData);
       }
     }
 
@@ -173,21 +159,21 @@ public final class RogueQueryOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += (1 * fFJHNGIINMN.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(fFJHNGIINMN);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rotaterData);
       }
       return size;
     }
 
     @Override
     @SuppressWarnings("fallthrough")
-    public RogueQuery mergeFrom(final ProtoSource input) throws IOException {
+    public DeployRotaterCsReq mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 106: {
-            // fFJHNGIINMN [packed=true]
-            input.readPackedUInt32(fFJHNGIINMN, tag);
+          case 34: {
+            // rotaterData
+            input.readMessage(rotaterData);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
@@ -204,12 +190,6 @@ public final class RogueQueryOuterClass {
             tag = input.readTag();
             break;
           }
-          case 104: {
-            // fFJHNGIINMN [packed=false]
-            tag = input.readRepeatedUInt32(fFJHNGIINMN, tag);
-            bitField0_ |= 0x00000001;
-            break;
-          }
         }
       }
     }
@@ -218,22 +198,23 @@ public final class RogueQueryOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRepeatedUInt32(FieldNames.fFJHNGIINMN, fFJHNGIINMN);
+        output.writeMessage(FieldNames.rotaterData, rotaterData);
       }
       output.endObject();
     }
 
     @Override
-    public RogueQuery mergeFrom(final JsonSource input) throws IOException {
+    public DeployRotaterCsReq mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 825210744: {
-            if (input.isAtField(FieldNames.fFJHNGIINMN)) {
+          case 1880563393:
+          case -1807070094: {
+            if (input.isAtField(FieldNames.rotaterData)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(fFJHNGIINMN);
+                input.readMessage(rotaterData);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -252,8 +233,8 @@ public final class RogueQueryOuterClass {
     }
 
     @Override
-    public RogueQuery clone() {
-      return new RogueQuery().copyFrom(this);
+    public DeployRotaterCsReq clone() {
+      return new DeployRotaterCsReq().copyFrom(this);
     }
 
     @Override
@@ -261,31 +242,32 @@ public final class RogueQueryOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static RogueQuery parseFrom(final byte[] data) throws InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new RogueQuery(), data).checkInitialized();
+    public static DeployRotaterCsReq parseFrom(final byte[] data) throws
+        InvalidProtocolBufferException {
+      return ProtoMessage.mergeFrom(new DeployRotaterCsReq(), data).checkInitialized();
     }
 
-    public static RogueQuery parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new RogueQuery(), input).checkInitialized();
+    public static DeployRotaterCsReq parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new DeployRotaterCsReq(), input).checkInitialized();
     }
 
-    public static RogueQuery parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new RogueQuery(), input).checkInitialized();
+    public static DeployRotaterCsReq parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new DeployRotaterCsReq(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating RogueQuery messages
+     * @return factory for creating DeployRotaterCsReq messages
      */
-    public static MessageFactory<RogueQuery> getFactory() {
-      return RogueQueryFactory.INSTANCE;
+    public static MessageFactory<DeployRotaterCsReq> getFactory() {
+      return DeployRotaterCsReqFactory.INSTANCE;
     }
 
-    private enum RogueQueryFactory implements MessageFactory<RogueQuery> {
+    private enum DeployRotaterCsReqFactory implements MessageFactory<DeployRotaterCsReq> {
       INSTANCE;
 
       @Override
-      public RogueQuery create() {
-        return RogueQuery.newInstance();
+      public DeployRotaterCsReq create() {
+        return DeployRotaterCsReq.newInstance();
       }
     }
 
@@ -293,7 +275,7 @@ public final class RogueQueryOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName fFJHNGIINMN = FieldName.forField("FFJHNGIINMN");
+      static final FieldName rotaterData = FieldName.forField("rotaterData", "rotater_data");
     }
   }
 }

@@ -1,11 +1,9 @@
-package emu.lunarcore.data.excel;
+package emu.lunarcore.data.custom;
 
 import lombok.Getter;
 
-import java.util.List;
-
 @Getter
-public class ActivitySchedulingExcel {
+public class ActivityScheduleData {
     private int activityId;
     private long beginTime;
     private long endTime;

@@ -47,6 +47,7 @@ import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
+import emu.lunarcore.proto.AssistSimpleInfoOuterClass.AssistSimpleInfo;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.FriendOnlineStatusOuterClass.FriendOnlineStatus;
 import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
@@ -54,7 +55,6 @@ import emu.lunarcore.proto.PlatformTypeOuterClass.PlatformType;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
 import emu.lunarcore.proto.PlayerDetailInfoOuterClass.PlayerDetailInfo;
 import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
-import emu.lunarcore.proto.SimpleAvatarInfoOuterClass.SimpleAvatarInfo;
 import emu.lunarcore.proto.SimpleInfoOuterClass.SimpleInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
@@ -614,6 +614,14 @@ public class Player implements Tickable {
         
         // Handle any extra interaction actions
         switch (prop.getExcel().getPropType()) {
+            case PROP_DESTRUCT -> {
+                if (prop.getState() == PropState.Closed) {
+                    // Open chest
+                    prop.setState(PropState.Open);
+                } else {
+                    prop.setState(PropState.Closed);
+                }
+            }
             case PROP_TREASURE_CHEST -> {
                 if (oldState == PropState.ChestClosed && newState == PropState.ChestUsed) {
                     // Handle drops
@@ -634,6 +642,15 @@ public class Player implements Tickable {
                             p.setState(PropState.Open);
                         }
                     }
+                }
+            }
+            case PROP_ORDINARY -> {
+                if (prop.getPropInfo() != null && prop.getPropInfo().isCommonConsole()) {
+                    // Set platform states
+                    getScene().getEntitiesByGroup(EntityProp.class, prop.getGroupId())
+                        .stream()
+                        .filter(p -> p.getExcel().getPropType() == PropType.PROP_PLATFORM)
+                        .forEach(p -> p.setState(newState));
                 }
             }
             default -> {
@@ -926,7 +943,7 @@ public class Player implements Tickable {
                 .setOnlineStatus(this.isOnline() ? FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE : FriendOnlineStatus.FRIEND_ONLINE_STATUS_OFFLINE)
                 .setPlatformType(PlatformType.PC)
                 .setLastActiveTime(this.getLastActiveTime())
-                .setSimpleAvatarInfo(SimpleAvatarInfo.newInstance().setAvatarId(GameConstants.TRAILBLAZER_AVATAR_ID).setLevel(1)) // TODO
+                .addAssistSimpleInfo(AssistSimpleInfo.newInstance().setAvatarId(GameConstants.TRAILBLAZER_AVATAR_ID).setLevel(1)) // TODO
                 .setHeadIcon(this.getHeadIcon());
         
         return proto;

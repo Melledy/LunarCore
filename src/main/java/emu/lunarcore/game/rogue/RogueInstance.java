@@ -690,9 +690,9 @@ public class RogueInstance {
     
     public RogueAeon toAeonProto() {
         var proto = RogueAeon.newInstance()
-                .setAeonId(this.getAeonId())
-                .setAeonEnhanceBuffNum(3)
-                .setIsUnlockAeon(true);
+                .setAeonId(this.getAeonId());
+                //.setAeonEnhanceBuffNum(3)
+                //.setIsUnlockAeon(true);
         
         return proto;
     }

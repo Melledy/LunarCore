@@ -19,17 +19,17 @@ public final class StaminaInfoScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 next_recover_time = 7;</code>
+     * <code>optional int64 next_recover_time = 11;</code>
      */
     private long nextRecoverTime;
 
     /**
-     * <code>optional uint32 stamina = 4;</code>
+     * <code>optional uint32 stamina = 3;</code>
      */
     private int stamina;
 
     /**
-     * <code>optional uint32 reserve_stamina = 13;</code>
+     * <code>optional uint32 reserve_stamina = 7;</code>
      */
     private int reserveStamina;
 
@@ -44,7 +44,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional int64 next_recover_time = 7;</code>
+     * <code>optional int64 next_recover_time = 11;</code>
      * @return whether the nextRecoverTime field is set
      */
     public boolean hasNextRecoverTime() {
@@ -52,7 +52,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional int64 next_recover_time = 7;</code>
+     * <code>optional int64 next_recover_time = 11;</code>
      * @return this
      */
     public StaminaInfoScNotify clearNextRecoverTime() {
@@ -62,7 +62,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional int64 next_recover_time = 7;</code>
+     * <code>optional int64 next_recover_time = 11;</code>
      * @return the nextRecoverTime
      */
     public long getNextRecoverTime() {
@@ -70,7 +70,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional int64 next_recover_time = 7;</code>
+     * <code>optional int64 next_recover_time = 11;</code>
      * @param value the nextRecoverTime to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 4;</code>
+     * <code>optional uint32 stamina = 3;</code>
      * @return whether the stamina field is set
      */
     public boolean hasStamina() {
@@ -89,7 +89,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 4;</code>
+     * <code>optional uint32 stamina = 3;</code>
      * @return this
      */
     public StaminaInfoScNotify clearStamina() {
@@ -99,7 +99,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 4;</code>
+     * <code>optional uint32 stamina = 3;</code>
      * @return the stamina
      */
     public int getStamina() {
@@ -107,7 +107,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 4;</code>
+     * <code>optional uint32 stamina = 3;</code>
      * @param value the stamina to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 reserve_stamina = 13;</code>
+     * <code>optional uint32 reserve_stamina = 7;</code>
      * @return whether the reserveStamina field is set
      */
     public boolean hasReserveStamina() {
@@ -126,7 +126,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 reserve_stamina = 13;</code>
+     * <code>optional uint32 reserve_stamina = 7;</code>
      * @return this
      */
     public StaminaInfoScNotify clearReserveStamina() {
@@ -136,7 +136,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 reserve_stamina = 13;</code>
+     * <code>optional uint32 reserve_stamina = 7;</code>
      * @return the reserveStamina
      */
     public int getReserveStamina() {
@@ -144,7 +144,7 @@ public final class StaminaInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 reserve_stamina = 13;</code>
+     * <code>optional uint32 reserve_stamina = 7;</code>
      * @param value the reserveStamina to set
      * @return this
      */
@@ -225,15 +225,15 @@ public final class StaminaInfoScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 88);
         output.writeInt64NoTag(nextRecoverTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(stamina);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(reserveStamina);
       }
     }
@@ -260,25 +260,25 @@ public final class StaminaInfoScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 88: {
             // nextRecoverTime
             nextRecoverTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 24) {
               break;
             }
           }
-          case 32: {
+          case 24: {
             // stamina
             stamina = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 56) {
               break;
             }
           }
-          case 104: {
+          case 56: {
             // reserveStamina
             reserveStamina = input.readUInt32();
             bitField0_ |= 0x00000004;

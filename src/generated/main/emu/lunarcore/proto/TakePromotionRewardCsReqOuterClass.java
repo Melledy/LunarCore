@@ -19,12 +19,12 @@ public final class TakePromotionRewardCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
+     * <code>optional uint32 base_avatar_id = 5;</code>
      */
     private int baseAvatarId;
 
     /**
-     * <code>optional uint32 promotion = 12;</code>
+     * <code>optional uint32 promotion = 10;</code>
      */
     private int promotion;
 
@@ -39,7 +39,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
+     * <code>optional uint32 base_avatar_id = 5;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -47,7 +47,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
+     * <code>optional uint32 base_avatar_id = 5;</code>
      * @return this
      */
     public TakePromotionRewardCsReq clearBaseAvatarId() {
@@ -57,7 +57,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
+     * <code>optional uint32 base_avatar_id = 5;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -65,7 +65,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 8;</code>
+     * <code>optional uint32 base_avatar_id = 5;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 12;</code>
+     * <code>optional uint32 promotion = 10;</code>
      * @return whether the promotion field is set
      */
     public boolean hasPromotion() {
@@ -84,7 +84,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 12;</code>
+     * <code>optional uint32 promotion = 10;</code>
      * @return this
      */
     public TakePromotionRewardCsReq clearPromotion() {
@@ -94,7 +94,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 12;</code>
+     * <code>optional uint32 promotion = 10;</code>
      * @return the promotion
      */
     public int getPromotion() {
@@ -102,7 +102,7 @@ public final class TakePromotionRewardCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 12;</code>
+     * <code>optional uint32 promotion = 10;</code>
      * @param value the promotion to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class TakePromotionRewardCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(promotion);
       }
     }
@@ -205,16 +205,16 @@ public final class TakePromotionRewardCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 40: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 80) {
               break;
             }
           }
-          case 96: {
+          case 80: {
             // promotion
             promotion = input.readUInt32();
             bitField0_ |= 0x00000002;

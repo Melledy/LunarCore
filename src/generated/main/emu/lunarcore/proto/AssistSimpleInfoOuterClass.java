@@ -11,77 +11,82 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class SimpleAvatarInfoOuterClass {
+public final class AssistSimpleInfoOuterClass {
   /**
-   * Protobuf type {@code SimpleAvatarInfo}
+   * Protobuf type {@code AssistSimpleInfo}
    */
-  public static final class SimpleAvatarInfo extends ProtoMessage<SimpleAvatarInfo> implements Cloneable {
+  public static final class AssistSimpleInfo extends ProtoMessage<AssistSimpleInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 dressed_skin_id = 2;</code>
+     * <code>optional uint32 pos = 4;</code>
      */
-    private int dressedSkinId;
+    private int pos;
 
     /**
-     * <code>optional uint32 avatar_id = 5;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      */
     private int avatarId;
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      */
     private int level;
 
-    private SimpleAvatarInfo() {
+    /**
+     * <code>optional uint32 dressed_skin_id = 11;</code>
+     */
+    private int dressedSkinId;
+
+    private AssistSimpleInfo() {
     }
 
     /**
-     * @return a new empty instance of {@code SimpleAvatarInfo}
+     * @return a new empty instance of {@code AssistSimpleInfo}
      */
-    public static SimpleAvatarInfo newInstance() {
-      return new SimpleAvatarInfo();
+    public static AssistSimpleInfo newInstance() {
+      return new AssistSimpleInfo();
     }
 
     /**
-     * <code>optional uint32 dressed_skin_id = 2;</code>
-     * @return whether the dressedSkinId field is set
+     * <code>optional uint32 pos = 4;</code>
+     * @return whether the pos field is set
      */
-    public boolean hasDressedSkinId() {
+    public boolean hasPos() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 dressed_skin_id = 2;</code>
+     * <code>optional uint32 pos = 4;</code>
      * @return this
      */
-    public SimpleAvatarInfo clearDressedSkinId() {
+    public AssistSimpleInfo clearPos() {
       bitField0_ &= ~0x00000001;
-      dressedSkinId = 0;
+      pos = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 dressed_skin_id = 2;</code>
-     * @return the dressedSkinId
+     * <code>optional uint32 pos = 4;</code>
+     * @return the pos
      */
-    public int getDressedSkinId() {
-      return dressedSkinId;
+    public int getPos() {
+      return pos;
     }
 
     /**
-     * <code>optional uint32 dressed_skin_id = 2;</code>
-     * @param value the dressedSkinId to set
+     * <code>optional uint32 pos = 4;</code>
+     * @param value the pos to set
      * @return this
      */
-    public SimpleAvatarInfo setDressedSkinId(final int value) {
+    public AssistSimpleInfo setPos(final int value) {
       bitField0_ |= 0x00000001;
-      dressedSkinId = value;
+      pos = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 avatar_id = 5;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      * @return whether the avatarId field is set
      */
     public boolean hasAvatarId() {
@@ -89,17 +94,17 @@ public final class SimpleAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 5;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      * @return this
      */
-    public SimpleAvatarInfo clearAvatarId() {
+    public AssistSimpleInfo clearAvatarId() {
       bitField0_ &= ~0x00000002;
       avatarId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 avatar_id = 5;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      * @return the avatarId
      */
     public int getAvatarId() {
@@ -107,18 +112,18 @@ public final class SimpleAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 5;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      * @param value the avatarId to set
      * @return this
      */
-    public SimpleAvatarInfo setAvatarId(final int value) {
+    public AssistSimpleInfo setAvatarId(final int value) {
       bitField0_ |= 0x00000002;
       avatarId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -126,17 +131,17 @@ public final class SimpleAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return this
      */
-    public SimpleAvatarInfo clearLevel() {
+    public AssistSimpleInfo clearLevel() {
       bitField0_ &= ~0x00000004;
       level = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return the level
      */
     public int getLevel() {
@@ -144,36 +149,74 @@ public final class SimpleAvatarInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @param value the level to set
      * @return this
      */
-    public SimpleAvatarInfo setLevel(final int value) {
+    public AssistSimpleInfo setLevel(final int value) {
       bitField0_ |= 0x00000004;
       level = value;
       return this;
     }
 
+    /**
+     * <code>optional uint32 dressed_skin_id = 11;</code>
+     * @return whether the dressedSkinId field is set
+     */
+    public boolean hasDressedSkinId() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 dressed_skin_id = 11;</code>
+     * @return this
+     */
+    public AssistSimpleInfo clearDressedSkinId() {
+      bitField0_ &= ~0x00000008;
+      dressedSkinId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 dressed_skin_id = 11;</code>
+     * @return the dressedSkinId
+     */
+    public int getDressedSkinId() {
+      return dressedSkinId;
+    }
+
+    /**
+     * <code>optional uint32 dressed_skin_id = 11;</code>
+     * @param value the dressedSkinId to set
+     * @return this
+     */
+    public AssistSimpleInfo setDressedSkinId(final int value) {
+      bitField0_ |= 0x00000008;
+      dressedSkinId = value;
+      return this;
+    }
+
     @Override
-    public SimpleAvatarInfo copyFrom(final SimpleAvatarInfo other) {
+    public AssistSimpleInfo copyFrom(final AssistSimpleInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        dressedSkinId = other.dressedSkinId;
+        pos = other.pos;
         avatarId = other.avatarId;
         level = other.level;
+        dressedSkinId = other.dressedSkinId;
       }
       return this;
     }
 
     @Override
-    public SimpleAvatarInfo mergeFrom(final SimpleAvatarInfo other) {
+    public AssistSimpleInfo mergeFrom(final AssistSimpleInfo other) {
       if (other.isEmpty()) {
         return this;
       }
       cachedSize = -1;
-      if (other.hasDressedSkinId()) {
-        setDressedSkinId(other.dressedSkinId);
+      if (other.hasPos()) {
+        setPos(other.pos);
       }
       if (other.hasAvatarId()) {
         setAvatarId(other.avatarId);
@@ -181,24 +224,28 @@ public final class SimpleAvatarInfoOuterClass {
       if (other.hasLevel()) {
         setLevel(other.level);
       }
+      if (other.hasDressedSkinId()) {
+        setDressedSkinId(other.dressedSkinId);
+      }
       return this;
     }
 
     @Override
-    public SimpleAvatarInfo clear() {
+    public AssistSimpleInfo clear() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      dressedSkinId = 0;
+      pos = 0;
       avatarId = 0;
       level = 0;
+      dressedSkinId = 0;
       return this;
     }
 
     @Override
-    public SimpleAvatarInfo clearQuick() {
+    public AssistSimpleInfo clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -212,29 +259,34 @@ public final class SimpleAvatarInfoOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof SimpleAvatarInfo)) {
+      if (!(o instanceof AssistSimpleInfo)) {
         return false;
       }
-      SimpleAvatarInfo other = (SimpleAvatarInfo) o;
+      AssistSimpleInfo other = (AssistSimpleInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasDressedSkinId() || dressedSkinId == other.dressedSkinId)
+        && (!hasPos() || pos == other.pos)
         && (!hasAvatarId() || avatarId == other.avatarId)
-        && (!hasLevel() || level == other.level);
+        && (!hasLevel() || level == other.level)
+        && (!hasDressedSkinId() || dressedSkinId == other.dressedSkinId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(dressedSkinId);
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(pos);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(avatarId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(level);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(dressedSkinId);
       }
     }
 
@@ -242,7 +294,7 @@ public final class SimpleAvatarInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(dressedSkinId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(pos);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
@@ -250,38 +302,50 @@ public final class SimpleAvatarInfoOuterClass {
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(dressedSkinId);
+      }
       return size;
     }
 
     @Override
     @SuppressWarnings("fallthrough")
-    public SimpleAvatarInfo mergeFrom(final ProtoSource input) throws IOException {
+    public AssistSimpleInfo mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // dressedSkinId
-            dressedSkinId = input.readUInt32();
+          case 32: {
+            // pos
+            pos = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 56) {
               break;
             }
           }
-          case 40: {
+          case 56: {
             // avatarId
             avatarId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 64) {
               break;
             }
           }
-          case 80: {
+          case 64: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
+            // dressedSkinId
+            dressedSkinId = input.readUInt32();
+            bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -305,7 +369,7 @@ public final class SimpleAvatarInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.dressedSkinId, dressedSkinId);
+        output.writeUInt32(FieldNames.pos, pos);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.avatarId, avatarId);
@@ -313,21 +377,23 @@ public final class SimpleAvatarInfoOuterClass {
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.level, level);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.dressedSkinId, dressedSkinId);
+      }
       output.endObject();
     }
 
     @Override
-    public SimpleAvatarInfo mergeFrom(final JsonSource input) throws IOException {
+    public AssistSimpleInfo mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -407000018:
-          case 2012697844: {
-            if (input.isAtField(FieldNames.dressedSkinId)) {
+          case 111188: {
+            if (input.isAtField(FieldNames.pos)) {
               if (!input.trySkipNullValue()) {
-                dressedSkinId = input.readUInt32();
+                pos = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -358,6 +424,18 @@ public final class SimpleAvatarInfoOuterClass {
             }
             break;
           }
+          case -407000018:
+          case 2012697844: {
+            if (input.isAtField(FieldNames.dressedSkinId)) {
+              if (!input.trySkipNullValue()) {
+                dressedSkinId = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           default: {
             input.skipUnknownField();
             break;
@@ -369,8 +447,8 @@ public final class SimpleAvatarInfoOuterClass {
     }
 
     @Override
-    public SimpleAvatarInfo clone() {
-      return new SimpleAvatarInfo().copyFrom(this);
+    public AssistSimpleInfo clone() {
+      return new AssistSimpleInfo().copyFrom(this);
     }
 
     @Override
@@ -378,32 +456,32 @@ public final class SimpleAvatarInfoOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static SimpleAvatarInfo parseFrom(final byte[] data) throws
+    public static AssistSimpleInfo parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new SimpleAvatarInfo(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new AssistSimpleInfo(), data).checkInitialized();
     }
 
-    public static SimpleAvatarInfo parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new SimpleAvatarInfo(), input).checkInitialized();
+    public static AssistSimpleInfo parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new AssistSimpleInfo(), input).checkInitialized();
     }
 
-    public static SimpleAvatarInfo parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new SimpleAvatarInfo(), input).checkInitialized();
+    public static AssistSimpleInfo parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new AssistSimpleInfo(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating SimpleAvatarInfo messages
+     * @return factory for creating AssistSimpleInfo messages
      */
-    public static MessageFactory<SimpleAvatarInfo> getFactory() {
-      return SimpleAvatarInfoFactory.INSTANCE;
+    public static MessageFactory<AssistSimpleInfo> getFactory() {
+      return AssistSimpleInfoFactory.INSTANCE;
     }
 
-    private enum SimpleAvatarInfoFactory implements MessageFactory<SimpleAvatarInfo> {
+    private enum AssistSimpleInfoFactory implements MessageFactory<AssistSimpleInfo> {
       INSTANCE;
 
       @Override
-      public SimpleAvatarInfo create() {
-        return SimpleAvatarInfo.newInstance();
+      public AssistSimpleInfo create() {
+        return AssistSimpleInfo.newInstance();
       }
     }
 
@@ -411,11 +489,13 @@ public final class SimpleAvatarInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName dressedSkinId = FieldName.forField("dressedSkinId", "dressed_skin_id");
+      static final FieldName pos = FieldName.forField("pos");
 
       static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
 
       static final FieldName level = FieldName.forField("level");
+
+      static final FieldName dressedSkinId = FieldName.forField("dressedSkinId", "dressed_skin_id");
     }
   }
 }

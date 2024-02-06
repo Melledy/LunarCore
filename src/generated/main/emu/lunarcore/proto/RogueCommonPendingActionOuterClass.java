@@ -19,9 +19,13 @@ public final class RogueCommonPendingActionOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 action_unique_id = 3;</code>
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 GLFDHAJPJDF = 3;</code>
      */
-    private int actionUniqueId;
+    private int gLFDHAJPJDF;
 
     /**
      * <code>optional .RogueAction rogue_action = 7;</code>
@@ -39,39 +43,55 @@ public final class RogueCommonPendingActionOuterClass {
     }
 
     /**
-     * <code>optional uint32 action_unique_id = 3;</code>
-     * @return whether the actionUniqueId field is set
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 GLFDHAJPJDF = 3;</code>
+     * @return whether the gLFDHAJPJDF field is set
      */
-    public boolean hasActionUniqueId() {
+    public boolean hasGLFDHAJPJDF() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 action_unique_id = 3;</code>
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 GLFDHAJPJDF = 3;</code>
      * @return this
      */
-    public RogueCommonPendingAction clearActionUniqueId() {
+    public RogueCommonPendingAction clearGLFDHAJPJDF() {
       bitField0_ &= ~0x00000001;
-      actionUniqueId = 0;
+      gLFDHAJPJDF = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 action_unique_id = 3;</code>
-     * @return the actionUniqueId
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 GLFDHAJPJDF = 3;</code>
+     * @return the gLFDHAJPJDF
      */
-    public int getActionUniqueId() {
-      return actionUniqueId;
+    public int getGLFDHAJPJDF() {
+      return gLFDHAJPJDF;
     }
 
     /**
-     * <code>optional uint32 action_unique_id = 3;</code>
-     * @param value the actionUniqueId to set
+     * <pre>
+     *  idk
+     * </pre>
+     *
+     * <code>optional uint32 GLFDHAJPJDF = 3;</code>
+     * @param value the gLFDHAJPJDF to set
      * @return this
      */
-    public RogueCommonPendingAction setActionUniqueId(final int value) {
+    public RogueCommonPendingAction setGLFDHAJPJDF(final int value) {
       bitField0_ |= 0x00000001;
-      actionUniqueId = value;
+      gLFDHAJPJDF = value;
       return this;
     }
 
@@ -137,7 +157,7 @@ public final class RogueCommonPendingActionOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        actionUniqueId = other.actionUniqueId;
+        gLFDHAJPJDF = other.gLFDHAJPJDF;
         rogueAction.copyFrom(other.rogueAction);
       }
       return this;
@@ -149,8 +169,8 @@ public final class RogueCommonPendingActionOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasActionUniqueId()) {
-        setActionUniqueId(other.actionUniqueId);
+      if (other.hasGLFDHAJPJDF()) {
+        setGLFDHAJPJDF(other.gLFDHAJPJDF);
       }
       if (other.hasRogueAction()) {
         getMutableRogueAction().mergeFrom(other.rogueAction);
@@ -165,7 +185,7 @@ public final class RogueCommonPendingActionOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      actionUniqueId = 0;
+      gLFDHAJPJDF = 0;
       rogueAction.clear();
       return this;
     }
@@ -191,7 +211,7 @@ public final class RogueCommonPendingActionOuterClass {
       }
       RogueCommonPendingAction other = (RogueCommonPendingAction) o;
       return bitField0_ == other.bitField0_
-        && (!hasActionUniqueId() || actionUniqueId == other.actionUniqueId)
+        && (!hasGLFDHAJPJDF() || gLFDHAJPJDF == other.gLFDHAJPJDF)
         && (!hasRogueAction() || rogueAction.equals(other.rogueAction));
     }
 
@@ -199,7 +219,7 @@ public final class RogueCommonPendingActionOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(actionUniqueId);
+        output.writeUInt32NoTag(gLFDHAJPJDF);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 58);
@@ -211,7 +231,7 @@ public final class RogueCommonPendingActionOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(actionUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gLFDHAJPJDF);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(rogueAction);
@@ -227,8 +247,8 @@ public final class RogueCommonPendingActionOuterClass {
       while (true) {
         switch (tag) {
           case 24: {
-            // actionUniqueId
-            actionUniqueId = input.readUInt32();
+            // gLFDHAJPJDF
+            gLFDHAJPJDF = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 58) {
@@ -262,7 +282,7 @@ public final class RogueCommonPendingActionOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.actionUniqueId, actionUniqueId);
+        output.writeUInt32(FieldNames.gLFDHAJPJDF, gLFDHAJPJDF);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeMessage(FieldNames.rogueAction, rogueAction);
@@ -277,11 +297,10 @@ public final class RogueCommonPendingActionOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -208785118:
-          case 1003664768: {
-            if (input.isAtField(FieldNames.actionUniqueId)) {
+          case 1202020394: {
+            if (input.isAtField(FieldNames.gLFDHAJPJDF)) {
               if (!input.trySkipNullValue()) {
-                actionUniqueId = input.readUInt32();
+                gLFDHAJPJDF = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -354,7 +373,7 @@ public final class RogueCommonPendingActionOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName actionUniqueId = FieldName.forField("actionUniqueId", "action_unique_id");
+      static final FieldName gLFDHAJPJDF = FieldName.forField("GLFDHAJPJDF");
 
       static final FieldName rogueAction = FieldName.forField("rogueAction", "rogue_action");
     }

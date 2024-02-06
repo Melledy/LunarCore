@@ -19,7 +19,7 @@ public final class SetHeroBasicTypeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 15;</code>
      */
     private int basicType;
 
@@ -34,7 +34,7 @@ public final class SetHeroBasicTypeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 15;</code>
      * @return whether the basicType field is set
      */
     public boolean hasBasicType() {
@@ -42,7 +42,7 @@ public final class SetHeroBasicTypeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 15;</code>
      * @return this
      */
     public SetHeroBasicTypeCsReq clearBasicType() {
@@ -52,7 +52,7 @@ public final class SetHeroBasicTypeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 15;</code>
      * @return the basicType
      */
     public HeroBasicTypeOuterClass.HeroBasicType getBasicType() {
@@ -85,7 +85,7 @@ public final class SetHeroBasicTypeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .HeroBasicType basic_type = 7;</code>
+     * <code>optional .HeroBasicType basic_type = 15;</code>
      * @param value the basicType to set
      * @return this
      */
@@ -154,7 +154,7 @@ public final class SetHeroBasicTypeCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 120);
         output.writeEnumNoTag(basicType);
       }
     }
@@ -175,7 +175,7 @@ public final class SetHeroBasicTypeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 120: {
             // basicType
             final int value = input.readInt32();
             if (HeroBasicTypeOuterClass.HeroBasicType.forNumber(value) != null) {

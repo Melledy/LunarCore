@@ -11,8 +11,6 @@ import lombok.Getter;
 
 @Getter
 public class Config {
-    
-
     public DatabaseInfo accountDatabase = new DatabaseInfo();
     public DatabaseInfo gameDatabase = new DatabaseInfo();
     public InternalMongoInfo internalMongoServer = new InternalMongoInfo();

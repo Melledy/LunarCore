@@ -7,7 +7,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 import emu.lunarcore.data.config.*;
-import emu.lunarcore.data.excel.ActivitySchedulingExcel;
+
 import org.reflections.Reflections;
 
 import com.google.gson.Gson;
@@ -20,6 +20,7 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.ResourceDeserializers.LunarCoreDoubleDeserializer;
 import emu.lunarcore.data.ResourceDeserializers.LunarCoreHashDeserializer;
 import emu.lunarcore.data.config.FloorInfo.FloorGroupSimpleInfo;
+import emu.lunarcore.data.custom.ActivityScheduleData;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 
 public class ResourceLoader {
@@ -348,7 +349,7 @@ public class ResourceLoader {
         if (!file.exists()) return;
 
         try (FileReader reader = new FileReader(file)) {
-            List<ActivitySchedulingExcel> activityScheduleConfig = gson.fromJson(reader, TypeToken.getParameterized(List.class, ActivitySchedulingExcel.class).getType());
+            List<ActivityScheduleData> activityScheduleConfig = gson.fromJson(reader, TypeToken.getParameterized(List.class, ActivityScheduleData.class).getType());
             GameDepot.getActivityScheduleExcels().addAll(activityScheduleConfig);
         } catch (Exception e) {
             e.printStackTrace();

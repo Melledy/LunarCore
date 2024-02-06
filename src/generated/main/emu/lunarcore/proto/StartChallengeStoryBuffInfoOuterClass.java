@@ -19,12 +19,12 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 story_buff_one = 12;</code>
+     * <code>optional uint32 story_buff_one = 8;</code>
      */
     private int storyBuffOne;
 
     /**
-     * <code>optional uint32 story_buff_two = 13;</code>
+     * <code>optional uint32 story_buff_two = 9;</code>
      */
     private int storyBuffTwo;
 
@@ -39,7 +39,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_one = 12;</code>
+     * <code>optional uint32 story_buff_one = 8;</code>
      * @return whether the storyBuffOne field is set
      */
     public boolean hasStoryBuffOne() {
@@ -47,7 +47,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_one = 12;</code>
+     * <code>optional uint32 story_buff_one = 8;</code>
      * @return this
      */
     public StartChallengeStoryBuffInfo clearStoryBuffOne() {
@@ -57,7 +57,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_one = 12;</code>
+     * <code>optional uint32 story_buff_one = 8;</code>
      * @return the storyBuffOne
      */
     public int getStoryBuffOne() {
@@ -65,7 +65,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_one = 12;</code>
+     * <code>optional uint32 story_buff_one = 8;</code>
      * @param value the storyBuffOne to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_two = 13;</code>
+     * <code>optional uint32 story_buff_two = 9;</code>
      * @return whether the storyBuffTwo field is set
      */
     public boolean hasStoryBuffTwo() {
@@ -84,7 +84,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_two = 13;</code>
+     * <code>optional uint32 story_buff_two = 9;</code>
      * @return this
      */
     public StartChallengeStoryBuffInfo clearStoryBuffTwo() {
@@ -94,7 +94,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_two = 13;</code>
+     * <code>optional uint32 story_buff_two = 9;</code>
      * @return the storyBuffTwo
      */
     public int getStoryBuffTwo() {
@@ -102,7 +102,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 story_buff_two = 13;</code>
+     * <code>optional uint32 story_buff_two = 9;</code>
      * @param value the storyBuffTwo to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(storyBuffOne);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(storyBuffTwo);
       }
     }
@@ -205,16 +205,16 @@ public final class StartChallengeStoryBuffInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 64: {
             // storyBuffOne
             storyBuffOne = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 72) {
               break;
             }
           }
-          case 104: {
+          case 72: {
             // storyBuffTwo
             storyBuffTwo = input.readUInt32();
             bitField0_ |= 0x00000002;

@@ -19,12 +19,12 @@ public final class RankUpAvatarCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 rank = 6;</code>
+     * <code>optional uint32 rank = 10;</code>
      */
     private int rank;
 
     /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      */
     private int baseAvatarId;
 
@@ -44,7 +44,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 6;</code>
+     * <code>optional uint32 rank = 10;</code>
      * @return whether the rank field is set
      */
     public boolean hasRank() {
@@ -52,7 +52,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 6;</code>
+     * <code>optional uint32 rank = 10;</code>
      * @return this
      */
     public RankUpAvatarCsReq clearRank() {
@@ -62,7 +62,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 6;</code>
+     * <code>optional uint32 rank = 10;</code>
      * @return the rank
      */
     public int getRank() {
@@ -70,7 +70,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 6;</code>
+     * <code>optional uint32 rank = 10;</code>
      * @param value the rank to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -89,7 +89,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @return this
      */
     public RankUpAvatarCsReq clearBaseAvatarId() {
@@ -99,7 +99,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -107,7 +107,7 @@ public final class RankUpAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 10;</code>
+     * <code>optional uint32 base_avatar_id = 15;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -246,11 +246,11 @@ public final class RankUpAvatarCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(rank);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -281,16 +281,16 @@ public final class RankUpAvatarCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 80: {
             // rank
             rank = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 120) {
               break;
             }
           }
-          case 80: {
+          case 120: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000002;

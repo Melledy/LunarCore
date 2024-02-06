@@ -19,7 +19,7 @@ public final class FriendListInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .SimpleInfo simple_info = 7;</code>
+     * <code>optional .SimpleInfo simple_info = 10;</code>
      */
     private final SimpleInfoOuterClass.SimpleInfo simpleInfo = SimpleInfoOuterClass.SimpleInfo.newInstance();
 
@@ -34,7 +34,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 7;</code>
+     * <code>optional .SimpleInfo simple_info = 10;</code>
      * @return whether the simpleInfo field is set
      */
     public boolean hasSimpleInfo() {
@@ -42,7 +42,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 7;</code>
+     * <code>optional .SimpleInfo simple_info = 10;</code>
      * @return this
      */
     public FriendListInfo clearSimpleInfo() {
@@ -52,7 +52,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 7;</code>
+     * <code>optional .SimpleInfo simple_info = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 7;</code>
+     * <code>optional .SimpleInfo simple_info = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 7;</code>
+     * <code>optional .SimpleInfo simple_info = 10;</code>
      * @param value the simpleInfo to set
      * @return this
      */
@@ -150,7 +150,7 @@ public final class FriendListInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 82);
         output.writeMessageNoTag(simpleInfo);
       }
     }
@@ -171,7 +171,7 @@ public final class FriendListInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 58: {
+          case 82: {
             // simpleInfo
             input.readMessage(simpleInfo);
             bitField0_ |= 0x00000001;

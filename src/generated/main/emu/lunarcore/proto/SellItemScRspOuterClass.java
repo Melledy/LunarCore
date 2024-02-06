@@ -19,12 +19,12 @@ public final class SellItemScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 1;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .ItemList return_item_list = 15;</code>
+     * <code>optional .ItemList return_item_list = 2;</code>
      */
     private final ItemListOuterClass.ItemList returnItemList = ItemListOuterClass.ItemList.newInstance();
 
@@ -39,7 +39,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return this
      */
     public SellItemScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 15;</code>
+     * <code>optional .ItemList return_item_list = 2;</code>
      * @return whether the returnItemList field is set
      */
     public boolean hasReturnItemList() {
@@ -84,7 +84,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 15;</code>
+     * <code>optional .ItemList return_item_list = 2;</code>
      * @return this
      */
     public SellItemScRsp clearReturnItemList() {
@@ -94,7 +94,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 15;</code>
+     * <code>optional .ItemList return_item_list = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 15;</code>
+     * <code>optional .ItemList return_item_list = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class SellItemScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList return_item_list = 15;</code>
+     * <code>optional .ItemList return_item_list = 2;</code>
      * @param value the returnItemList to set
      * @return this
      */
@@ -198,11 +198,11 @@ public final class SellItemScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 122);
+        output.writeRawByte((byte) 18);
         output.writeMessageNoTag(returnItemList);
       }
     }
@@ -226,16 +226,16 @@ public final class SellItemScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 8: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 18) {
               break;
             }
           }
-          case 122: {
+          case 18: {
             // returnItemList
             input.readMessage(returnItemList);
             bitField0_ |= 0x00000002;

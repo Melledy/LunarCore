@@ -19,14 +19,14 @@ public final class GetGachaCeilingScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 gacha_type = 3;</code>
-     */
-    private int gachaType;
-
-    /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      */
     private int retcode;
+
+    /**
+     * <code>optional uint32 gacha_type = 6;</code>
+     */
+    private int gachaType;
 
     /**
      * <code>optional .GachaCeiling gacha_ceiling = 1;</code>
@@ -44,62 +44,25 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 3;</code>
-     * @return whether the gachaType field is set
+     * <code>optional uint32 retcode = 3;</code>
+     * @return whether the retcode field is set
      */
-    public boolean hasGachaType() {
+    public boolean hasRetcode() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 gacha_type = 3;</code>
-     * @return this
-     */
-    public GetGachaCeilingScRsp clearGachaType() {
-      bitField0_ &= ~0x00000001;
-      gachaType = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 gacha_type = 3;</code>
-     * @return the gachaType
-     */
-    public int getGachaType() {
-      return gachaType;
-    }
-
-    /**
-     * <code>optional uint32 gacha_type = 3;</code>
-     * @param value the gachaType to set
-     * @return this
-     */
-    public GetGachaCeilingScRsp setGachaType(final int value) {
-      bitField0_ |= 0x00000001;
-      gachaType = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 15;</code>
-     * @return whether the retcode field is set
-     */
-    public boolean hasRetcode() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return this
      */
     public GetGachaCeilingScRsp clearRetcode() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -107,13 +70,50 @@ public final class GetGachaCeilingScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @param value the retcode to set
      * @return this
      */
     public GetGachaCeilingScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 gacha_type = 6;</code>
+     * @return whether the gachaType field is set
+     */
+    public boolean hasGachaType() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 gacha_type = 6;</code>
+     * @return this
+     */
+    public GetGachaCeilingScRsp clearGachaType() {
+      bitField0_ &= ~0x00000002;
+      gachaType = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 gacha_type = 6;</code>
+     * @return the gachaType
+     */
+    public int getGachaType() {
+      return gachaType;
+    }
+
+    /**
+     * <code>optional uint32 gacha_type = 6;</code>
+     * @param value the gachaType to set
+     * @return this
+     */
+    public GetGachaCeilingScRsp setGachaType(final int value) {
+      bitField0_ |= 0x00000002;
+      gachaType = value;
       return this;
     }
 
@@ -179,8 +179,8 @@ public final class GetGachaCeilingScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        gachaType = other.gachaType;
         retcode = other.retcode;
+        gachaType = other.gachaType;
         gachaCeiling.copyFrom(other.gachaCeiling);
       }
       return this;
@@ -192,11 +192,11 @@ public final class GetGachaCeilingScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasGachaType()) {
-        setGachaType(other.gachaType);
-      }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasGachaType()) {
+        setGachaType(other.gachaType);
       }
       if (other.hasGachaCeiling()) {
         getMutableGachaCeiling().mergeFrom(other.gachaCeiling);
@@ -211,8 +211,8 @@ public final class GetGachaCeilingScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      gachaType = 0;
       retcode = 0;
+      gachaType = 0;
       gachaCeiling.clear();
       return this;
     }
@@ -238,8 +238,8 @@ public final class GetGachaCeilingScRspOuterClass {
       }
       GetGachaCeilingScRsp other = (GetGachaCeilingScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasGachaType() || gachaType == other.gachaType)
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasGachaType() || gachaType == other.gachaType)
         && (!hasGachaCeiling() || gachaCeiling.equals(other.gachaCeiling));
     }
 
@@ -247,11 +247,11 @@ public final class GetGachaCeilingScRspOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(gachaType);
+        output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(retcode);
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(gachaType);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 10);
@@ -263,10 +263,10 @@ public final class GetGachaCeilingScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaType);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaType);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(gachaCeiling);
@@ -282,17 +282,17 @@ public final class GetGachaCeilingScRspOuterClass {
       while (true) {
         switch (tag) {
           case 24: {
-            // gachaType
-            gachaType = input.readUInt32();
+            // retcode
+            retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 48) {
               break;
             }
           }
-          case 120: {
-            // retcode
-            retcode = input.readUInt32();
+          case 48: {
+            // gachaType
+            gachaType = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 10) {
@@ -326,10 +326,10 @@ public final class GetGachaCeilingScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.gachaType, gachaType);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.gachaType, gachaType);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.gachaCeiling, gachaCeiling);
@@ -344,11 +344,10 @@ public final class GetGachaCeilingScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 802848732:
-          case -871474217: {
-            if (input.isAtField(FieldNames.gachaType)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                gachaType = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -356,10 +355,11 @@ public final class GetGachaCeilingScRspOuterClass {
             }
             break;
           }
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 802848732:
+          case -871474217: {
+            if (input.isAtField(FieldNames.gachaType)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                gachaType = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -432,9 +432,9 @@ public final class GetGachaCeilingScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName gachaType = FieldName.forField("gachaType", "gacha_type");
-
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName gachaType = FieldName.forField("gachaType", "gacha_type");
 
       static final FieldName gachaCeiling = FieldName.forField("gachaCeiling", "gacha_ceiling");
     }

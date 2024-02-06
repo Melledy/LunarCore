@@ -19,7 +19,7 @@ public final class GetShopListCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 shop_type = 1;</code>
+     * <code>optional uint32 shop_type = 10;</code>
      */
     private int shopType;
 
@@ -34,7 +34,7 @@ public final class GetShopListCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 1;</code>
+     * <code>optional uint32 shop_type = 10;</code>
      * @return whether the shopType field is set
      */
     public boolean hasShopType() {
@@ -42,7 +42,7 @@ public final class GetShopListCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 1;</code>
+     * <code>optional uint32 shop_type = 10;</code>
      * @return this
      */
     public GetShopListCsReq clearShopType() {
@@ -52,7 +52,7 @@ public final class GetShopListCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 1;</code>
+     * <code>optional uint32 shop_type = 10;</code>
      * @return the shopType
      */
     public int getShopType() {
@@ -60,7 +60,7 @@ public final class GetShopListCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 1;</code>
+     * <code>optional uint32 shop_type = 10;</code>
      * @param value the shopType to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class GetShopListCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(shopType);
       }
     }
@@ -150,7 +150,7 @@ public final class GetShopListCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 80: {
             // shopType
             shopType = input.readUInt32();
             bitField0_ |= 0x00000001;

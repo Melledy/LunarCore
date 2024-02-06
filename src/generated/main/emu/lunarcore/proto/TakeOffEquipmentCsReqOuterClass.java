@@ -19,7 +19,7 @@ public final class TakeOffEquipmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 7;</code>
      */
     private int baseAvatarId;
 
@@ -34,7 +34,7 @@ public final class TakeOffEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 7;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -42,7 +42,7 @@ public final class TakeOffEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 7;</code>
      * @return this
      */
     public TakeOffEquipmentCsReq clearBaseAvatarId() {
@@ -52,7 +52,7 @@ public final class TakeOffEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 7;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -60,7 +60,7 @@ public final class TakeOffEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 12;</code>
+     * <code>optional uint32 base_avatar_id = 7;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class TakeOffEquipmentCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(baseAvatarId);
       }
     }
@@ -150,7 +150,7 @@ public final class TakeOffEquipmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 56: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;

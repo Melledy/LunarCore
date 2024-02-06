@@ -10,7 +10,7 @@ import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.excel.RogueBuffExcel;
 import emu.lunarcore.proto.ItemCostListOuterClass.ItemCostList;
 import emu.lunarcore.proto.ItemCostOuterClass.ItemCost;
-import emu.lunarcore.proto.ItemCostOuterClass.PileItem;
+import emu.lunarcore.proto.PileItemOuterClass.PileItem;
 import emu.lunarcore.proto.RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo;
 import emu.lunarcore.util.WeightedList;
 import lombok.Getter;

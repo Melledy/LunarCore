@@ -19,14 +19,14 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 to_uid = 2;</code>
-     */
-    private int toUid;
-
-    /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 8;</code>
      */
     private int senderUid;
+
+    /**
+     * <code>optional uint32 to_uid = 13;</code>
+     */
+    private int toUid;
 
     private GetPrivateChatHistoryCsReq() {
     }
@@ -39,62 +39,25 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 to_uid = 2;</code>
-     * @return whether the toUid field is set
+     * <code>optional uint32 sender_uid = 8;</code>
+     * @return whether the senderUid field is set
      */
-    public boolean hasToUid() {
+    public boolean hasSenderUid() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 to_uid = 2;</code>
-     * @return this
-     */
-    public GetPrivateChatHistoryCsReq clearToUid() {
-      bitField0_ &= ~0x00000001;
-      toUid = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 to_uid = 2;</code>
-     * @return the toUid
-     */
-    public int getToUid() {
-      return toUid;
-    }
-
-    /**
-     * <code>optional uint32 to_uid = 2;</code>
-     * @param value the toUid to set
-     * @return this
-     */
-    public GetPrivateChatHistoryCsReq setToUid(final int value) {
-      bitField0_ |= 0x00000001;
-      toUid = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 sender_uid = 5;</code>
-     * @return whether the senderUid field is set
-     */
-    public boolean hasSenderUid() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 8;</code>
      * @return this
      */
     public GetPrivateChatHistoryCsReq clearSenderUid() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       senderUid = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 8;</code>
      * @return the senderUid
      */
     public int getSenderUid() {
@@ -102,13 +65,50 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 8;</code>
      * @param value the senderUid to set
      * @return this
      */
     public GetPrivateChatHistoryCsReq setSenderUid(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       senderUid = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 to_uid = 13;</code>
+     * @return whether the toUid field is set
+     */
+    public boolean hasToUid() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 to_uid = 13;</code>
+     * @return this
+     */
+    public GetPrivateChatHistoryCsReq clearToUid() {
+      bitField0_ &= ~0x00000002;
+      toUid = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 to_uid = 13;</code>
+     * @return the toUid
+     */
+    public int getToUid() {
+      return toUid;
+    }
+
+    /**
+     * <code>optional uint32 to_uid = 13;</code>
+     * @param value the toUid to set
+     * @return this
+     */
+    public GetPrivateChatHistoryCsReq setToUid(final int value) {
+      bitField0_ |= 0x00000002;
+      toUid = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        toUid = other.toUid;
         senderUid = other.senderUid;
+        toUid = other.toUid;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasToUid()) {
-        setToUid(other.toUid);
-      }
       if (other.hasSenderUid()) {
         setSenderUid(other.senderUid);
+      }
+      if (other.hasToUid()) {
+        setToUid(other.toUid);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      toUid = 0;
       senderUid = 0;
+      toUid = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
       }
       GetPrivateChatHistoryCsReq other = (GetPrivateChatHistoryCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasToUid() || toUid == other.toUid)
-        && (!hasSenderUid() || senderUid == other.senderUid);
+        && (!hasSenderUid() || senderUid == other.senderUid)
+        && (!hasToUid() || toUid == other.toUid);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(toUid);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(senderUid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(senderUid);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(toUid);
       }
     }
 
@@ -190,10 +190,10 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(toUid);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(senderUid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(senderUid);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(toUid);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // toUid
-            toUid = input.readUInt32();
+          case 64: {
+            // senderUid
+            senderUid = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 104) {
               break;
             }
           }
-          case 40: {
-            // senderUid
-            senderUid = input.readUInt32();
+          case 104: {
+            // toUid
+            toUid = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.toUid, toUid);
+        output.writeUInt32(FieldNames.senderUid, senderUid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.senderUid, senderUid);
+        output.writeUInt32(FieldNames.toUid, toUid);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 110520277:
-          case -868529012: {
-            if (input.isAtField(FieldNames.toUid)) {
+          case 32180699:
+          case 997911366: {
+            if (input.isAtField(FieldNames.senderUid)) {
               if (!input.trySkipNullValue()) {
-                toUid = input.readUInt32();
+                senderUid = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
             }
             break;
           }
-          case 32180699:
-          case 997911366: {
-            if (input.isAtField(FieldNames.senderUid)) {
+          case 110520277:
+          case -868529012: {
+            if (input.isAtField(FieldNames.toUid)) {
               if (!input.trySkipNullValue()) {
-                senderUid = input.readUInt32();
+                toUid = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName toUid = FieldName.forField("toUid", "to_uid");
-
       static final FieldName senderUid = FieldName.forField("senderUid", "sender_uid");
+
+      static final FieldName toUid = FieldName.forField("toUid", "to_uid");
     }
   }
 }

@@ -19,22 +19,22 @@ public final class GroupStateInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 FIKOEFBNMHB = 4;</code>
-     */
-    private int fIKOEFBNMHB;
-
-    /**
-     * <code>optional uint32 entry_id = 5;</code>
-     */
-    private int entryId;
-
-    /**
-     * <code>optional uint32 group_id = 9;</code>
+     * <code>optional uint32 group_id = 1;</code>
      */
     private int groupId;
 
     /**
-     * <code>optional uint32 group_state = 15;</code>
+     * <code>optional uint32 entry_id = 3;</code>
+     */
+    private int entryId;
+
+    /**
+     * <code>optional uint32 IJMFKKGOPJF = 8;</code>
+     */
+    private int iJMFKKGOPJF;
+
+    /**
+     * <code>optional uint32 group_state = 14;</code>
      */
     private int groupState;
 
@@ -49,44 +49,44 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 FIKOEFBNMHB = 4;</code>
-     * @return whether the fIKOEFBNMHB field is set
+     * <code>optional uint32 group_id = 1;</code>
+     * @return whether the groupId field is set
      */
-    public boolean hasFIKOEFBNMHB() {
+    public boolean hasGroupId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 FIKOEFBNMHB = 4;</code>
+     * <code>optional uint32 group_id = 1;</code>
      * @return this
      */
-    public GroupStateInfo clearFIKOEFBNMHB() {
+    public GroupStateInfo clearGroupId() {
       bitField0_ &= ~0x00000001;
-      fIKOEFBNMHB = 0;
+      groupId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 FIKOEFBNMHB = 4;</code>
-     * @return the fIKOEFBNMHB
+     * <code>optional uint32 group_id = 1;</code>
+     * @return the groupId
      */
-    public int getFIKOEFBNMHB() {
-      return fIKOEFBNMHB;
+    public int getGroupId() {
+      return groupId;
     }
 
     /**
-     * <code>optional uint32 FIKOEFBNMHB = 4;</code>
-     * @param value the fIKOEFBNMHB to set
+     * <code>optional uint32 group_id = 1;</code>
+     * @param value the groupId to set
      * @return this
      */
-    public GroupStateInfo setFIKOEFBNMHB(final int value) {
+    public GroupStateInfo setGroupId(final int value) {
       bitField0_ |= 0x00000001;
-      fIKOEFBNMHB = value;
+      groupId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 entry_id = 5;</code>
+     * <code>optional uint32 entry_id = 3;</code>
      * @return whether the entryId field is set
      */
     public boolean hasEntryId() {
@@ -94,7 +94,7 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 5;</code>
+     * <code>optional uint32 entry_id = 3;</code>
      * @return this
      */
     public GroupStateInfo clearEntryId() {
@@ -104,7 +104,7 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 5;</code>
+     * <code>optional uint32 entry_id = 3;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -112,7 +112,7 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 5;</code>
+     * <code>optional uint32 entry_id = 3;</code>
      * @param value the entryId to set
      * @return this
      */
@@ -123,44 +123,44 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 9;</code>
-     * @return whether the groupId field is set
+     * <code>optional uint32 IJMFKKGOPJF = 8;</code>
+     * @return whether the iJMFKKGOPJF field is set
      */
-    public boolean hasGroupId() {
+    public boolean hasIJMFKKGOPJF() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 group_id = 9;</code>
+     * <code>optional uint32 IJMFKKGOPJF = 8;</code>
      * @return this
      */
-    public GroupStateInfo clearGroupId() {
+    public GroupStateInfo clearIJMFKKGOPJF() {
       bitField0_ &= ~0x00000004;
-      groupId = 0;
+      iJMFKKGOPJF = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 group_id = 9;</code>
-     * @return the groupId
+     * <code>optional uint32 IJMFKKGOPJF = 8;</code>
+     * @return the iJMFKKGOPJF
      */
-    public int getGroupId() {
-      return groupId;
+    public int getIJMFKKGOPJF() {
+      return iJMFKKGOPJF;
     }
 
     /**
-     * <code>optional uint32 group_id = 9;</code>
-     * @param value the groupId to set
+     * <code>optional uint32 IJMFKKGOPJF = 8;</code>
+     * @param value the iJMFKKGOPJF to set
      * @return this
      */
-    public GroupStateInfo setGroupId(final int value) {
+    public GroupStateInfo setIJMFKKGOPJF(final int value) {
       bitField0_ |= 0x00000004;
-      groupId = value;
+      iJMFKKGOPJF = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 group_state = 15;</code>
+     * <code>optional uint32 group_state = 14;</code>
      * @return whether the groupState field is set
      */
     public boolean hasGroupState() {
@@ -168,7 +168,7 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_state = 15;</code>
+     * <code>optional uint32 group_state = 14;</code>
      * @return this
      */
     public GroupStateInfo clearGroupState() {
@@ -178,7 +178,7 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_state = 15;</code>
+     * <code>optional uint32 group_state = 14;</code>
      * @return the groupState
      */
     public int getGroupState() {
@@ -186,7 +186,7 @@ public final class GroupStateInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_state = 15;</code>
+     * <code>optional uint32 group_state = 14;</code>
      * @param value the groupState to set
      * @return this
      */
@@ -201,9 +201,9 @@ public final class GroupStateInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        fIKOEFBNMHB = other.fIKOEFBNMHB;
-        entryId = other.entryId;
         groupId = other.groupId;
+        entryId = other.entryId;
+        iJMFKKGOPJF = other.iJMFKKGOPJF;
         groupState = other.groupState;
       }
       return this;
@@ -215,14 +215,14 @@ public final class GroupStateInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasFIKOEFBNMHB()) {
-        setFIKOEFBNMHB(other.fIKOEFBNMHB);
+      if (other.hasGroupId()) {
+        setGroupId(other.groupId);
       }
       if (other.hasEntryId()) {
         setEntryId(other.entryId);
       }
-      if (other.hasGroupId()) {
-        setGroupId(other.groupId);
+      if (other.hasIJMFKKGOPJF()) {
+        setIJMFKKGOPJF(other.iJMFKKGOPJF);
       }
       if (other.hasGroupState()) {
         setGroupState(other.groupState);
@@ -237,9 +237,9 @@ public final class GroupStateInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      fIKOEFBNMHB = 0;
-      entryId = 0;
       groupId = 0;
+      entryId = 0;
+      iJMFKKGOPJF = 0;
       groupState = 0;
       return this;
     }
@@ -264,28 +264,28 @@ public final class GroupStateInfoOuterClass {
       }
       GroupStateInfo other = (GroupStateInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasFIKOEFBNMHB() || fIKOEFBNMHB == other.fIKOEFBNMHB)
-        && (!hasEntryId() || entryId == other.entryId)
         && (!hasGroupId() || groupId == other.groupId)
+        && (!hasEntryId() || entryId == other.entryId)
+        && (!hasIJMFKKGOPJF() || iJMFKKGOPJF == other.iJMFKKGOPJF)
         && (!hasGroupState() || groupState == other.groupState);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(fIKOEFBNMHB);
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(entryId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(groupId);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(iJMFKKGOPJF);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(groupState);
       }
     }
@@ -294,13 +294,13 @@ public final class GroupStateInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(fIKOEFBNMHB);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(iJMFKKGOPJF);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(groupState);
@@ -315,34 +315,34 @@ public final class GroupStateInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // fIKOEFBNMHB
-            fIKOEFBNMHB = input.readUInt32();
+          case 8: {
+            // groupId
+            groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 24) {
               break;
             }
           }
-          case 40: {
+          case 24: {
             // entryId
             entryId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 64) {
               break;
             }
           }
-          case 72: {
-            // groupId
-            groupId = input.readUInt32();
+          case 64: {
+            // iJMFKKGOPJF
+            iJMFKKGOPJF = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 112) {
               break;
             }
           }
-          case 120: {
+          case 112: {
             // groupState
             groupState = input.readUInt32();
             bitField0_ |= 0x00000008;
@@ -369,13 +369,13 @@ public final class GroupStateInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.fIKOEFBNMHB, fIKOEFBNMHB);
+        output.writeUInt32(FieldNames.groupId, groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.entryId, entryId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.groupId, groupId);
+        output.writeUInt32(FieldNames.iJMFKKGOPJF, iJMFKKGOPJF);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.groupState, groupState);
@@ -390,10 +390,11 @@ public final class GroupStateInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1689558285: {
-            if (input.isAtField(FieldNames.fIKOEFBNMHB)) {
+          case 293428218:
+          case 506361563: {
+            if (input.isAtField(FieldNames.groupId)) {
               if (!input.trySkipNullValue()) {
-                fIKOEFBNMHB = input.readUInt32();
+                groupId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -413,11 +414,10 @@ public final class GroupStateInfoOuterClass {
             }
             break;
           }
-          case 293428218:
-          case 506361563: {
-            if (input.isAtField(FieldNames.groupId)) {
+          case 370526858: {
+            if (input.isAtField(FieldNames.iJMFKKGOPJF)) {
               if (!input.trySkipNullValue()) {
-                groupId = input.readUInt32();
+                iJMFKKGOPJF = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -490,11 +490,11 @@ public final class GroupStateInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName fIKOEFBNMHB = FieldName.forField("FIKOEFBNMHB");
+      static final FieldName groupId = FieldName.forField("groupId", "group_id");
 
       static final FieldName entryId = FieldName.forField("entryId", "entry_id");
 
-      static final FieldName groupId = FieldName.forField("groupId", "group_id");
+      static final FieldName iJMFKKGOPJF = FieldName.forField("IJMFKKGOPJF");
 
       static final FieldName groupState = FieldName.forField("groupState", "group_state");
     }

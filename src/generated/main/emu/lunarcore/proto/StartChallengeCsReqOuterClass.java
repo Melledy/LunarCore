@@ -19,12 +19,12 @@ public final class StartChallengeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 challenge_id = 6;</code>
+     * <code>optional uint32 challenge_id = 4;</code>
      */
     private int challengeId;
 
     /**
-     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * <code>optional .StartChallengeStoryInfo story_info = 10;</code>
      */
     private final StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo storyInfo = StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 6;</code>
+     * <code>optional uint32 challenge_id = 4;</code>
      * @return whether the challengeId field is set
      */
     public boolean hasChallengeId() {
@@ -47,7 +47,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 6;</code>
+     * <code>optional uint32 challenge_id = 4;</code>
      * @return this
      */
     public StartChallengeCsReq clearChallengeId() {
@@ -57,7 +57,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 6;</code>
+     * <code>optional uint32 challenge_id = 4;</code>
      * @return the challengeId
      */
     public int getChallengeId() {
@@ -65,7 +65,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 6;</code>
+     * <code>optional uint32 challenge_id = 4;</code>
      * @param value the challengeId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * <code>optional .StartChallengeStoryInfo story_info = 10;</code>
      * @return whether the storyInfo field is set
      */
     public boolean hasStoryInfo() {
@@ -84,7 +84,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * <code>optional .StartChallengeStoryInfo story_info = 10;</code>
      * @return this
      */
     public StartChallengeCsReq clearStoryInfo() {
@@ -94,7 +94,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * <code>optional .StartChallengeStoryInfo story_info = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * <code>optional .StartChallengeStoryInfo story_info = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryInfo story_info = 9;</code>
+     * <code>optional .StartChallengeStoryInfo story_info = 10;</code>
      * @param value the storyInfo to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class StartChallengeCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(challengeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 74);
+        output.writeRawByte((byte) 82);
         output.writeMessageNoTag(storyInfo);
       }
     }
@@ -227,16 +227,16 @@ public final class StartChallengeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 32: {
             // challengeId
             challengeId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 82) {
               break;
             }
           }
-          case 74: {
+          case 82: {
             // storyInfo
             input.readMessage(storyInfo);
             bitField0_ |= 0x00000002;

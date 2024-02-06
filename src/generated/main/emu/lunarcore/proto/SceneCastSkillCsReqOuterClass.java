@@ -20,32 +20,32 @@ public final class SceneCastSkillCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <code>optional uint32 caster_id = 1;</code>
+     */
+    private int casterId;
+
+    /**
+     * <code>optional uint32 skill_index = 6;</code>
+     */
+    private int skillIndex;
+
+    /**
      * <code>optional uint32 attacked_group_id = 8;</code>
      */
     private int attackedGroupId;
 
     /**
-     * <code>optional uint32 caster_id = 11;</code>
-     */
-    private int casterId;
-
-    /**
-     * <code>optional uint32 skill_index = 15;</code>
-     */
-    private int skillIndex;
-
-    /**
-     * <code>optional .MotionInfo target_motion = 7;</code>
+     * <code>optional .MotionInfo target_motion = 15;</code>
      */
     private final MotionInfoOuterClass.MotionInfo targetMotion = MotionInfoOuterClass.MotionInfo.newInstance();
 
     /**
-     * <code>repeated uint32 hit_target_entity_id_list = 2;</code>
+     * <code>repeated uint32 hit_target_entity_id_list = 13;</code>
      */
     private final RepeatedInt hitTargetEntityIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 assist_monster_entity_id_list = 13;</code>
+     * <code>repeated uint32 assist_monster_entity_id_list = 14;</code>
      */
     private final RepeatedInt assistMonsterEntityIdList = RepeatedInt.newEmptyInstance();
 
@@ -60,11 +60,85 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
+     * <code>optional uint32 caster_id = 1;</code>
+     * @return whether the casterId field is set
+     */
+    public boolean hasCasterId() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional uint32 caster_id = 1;</code>
+     * @return this
+     */
+    public SceneCastSkillCsReq clearCasterId() {
+      bitField0_ &= ~0x00000001;
+      casterId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 caster_id = 1;</code>
+     * @return the casterId
+     */
+    public int getCasterId() {
+      return casterId;
+    }
+
+    /**
+     * <code>optional uint32 caster_id = 1;</code>
+     * @param value the casterId to set
+     * @return this
+     */
+    public SceneCastSkillCsReq setCasterId(final int value) {
+      bitField0_ |= 0x00000001;
+      casterId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 skill_index = 6;</code>
+     * @return whether the skillIndex field is set
+     */
+    public boolean hasSkillIndex() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 skill_index = 6;</code>
+     * @return this
+     */
+    public SceneCastSkillCsReq clearSkillIndex() {
+      bitField0_ &= ~0x00000002;
+      skillIndex = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 skill_index = 6;</code>
+     * @return the skillIndex
+     */
+    public int getSkillIndex() {
+      return skillIndex;
+    }
+
+    /**
+     * <code>optional uint32 skill_index = 6;</code>
+     * @param value the skillIndex to set
+     * @return this
+     */
+    public SceneCastSkillCsReq setSkillIndex(final int value) {
+      bitField0_ |= 0x00000002;
+      skillIndex = value;
+      return this;
+    }
+
+    /**
      * <code>optional uint32 attacked_group_id = 8;</code>
      * @return whether the attackedGroupId field is set
      */
     public boolean hasAttackedGroupId() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
@@ -72,7 +146,7 @@ public final class SceneCastSkillCsReqOuterClass {
      * @return this
      */
     public SceneCastSkillCsReq clearAttackedGroupId() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000004;
       attackedGroupId = 0;
       return this;
     }
@@ -91,87 +165,13 @@ public final class SceneCastSkillCsReqOuterClass {
      * @return this
      */
     public SceneCastSkillCsReq setAttackedGroupId(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
       attackedGroupId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 caster_id = 11;</code>
-     * @return whether the casterId field is set
-     */
-    public boolean hasCasterId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 caster_id = 11;</code>
-     * @return this
-     */
-    public SceneCastSkillCsReq clearCasterId() {
-      bitField0_ &= ~0x00000002;
-      casterId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 caster_id = 11;</code>
-     * @return the casterId
-     */
-    public int getCasterId() {
-      return casterId;
-    }
-
-    /**
-     * <code>optional uint32 caster_id = 11;</code>
-     * @param value the casterId to set
-     * @return this
-     */
-    public SceneCastSkillCsReq setCasterId(final int value) {
-      bitField0_ |= 0x00000002;
-      casterId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 skill_index = 15;</code>
-     * @return whether the skillIndex field is set
-     */
-    public boolean hasSkillIndex() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 skill_index = 15;</code>
-     * @return this
-     */
-    public SceneCastSkillCsReq clearSkillIndex() {
-      bitField0_ &= ~0x00000004;
-      skillIndex = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 skill_index = 15;</code>
-     * @return the skillIndex
-     */
-    public int getSkillIndex() {
-      return skillIndex;
-    }
-
-    /**
-     * <code>optional uint32 skill_index = 15;</code>
-     * @param value the skillIndex to set
-     * @return this
-     */
-    public SceneCastSkillCsReq setSkillIndex(final int value) {
-      bitField0_ |= 0x00000004;
-      skillIndex = value;
-      return this;
-    }
-
-    /**
-     * <code>optional .MotionInfo target_motion = 7;</code>
+     * <code>optional .MotionInfo target_motion = 15;</code>
      * @return whether the targetMotion field is set
      */
     public boolean hasTargetMotion() {
@@ -179,7 +179,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo target_motion = 7;</code>
+     * <code>optional .MotionInfo target_motion = 15;</code>
      * @return this
      */
     public SceneCastSkillCsReq clearTargetMotion() {
@@ -189,7 +189,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo target_motion = 7;</code>
+     * <code>optional .MotionInfo target_motion = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -203,7 +203,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo target_motion = 7;</code>
+     * <code>optional .MotionInfo target_motion = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -217,7 +217,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo target_motion = 7;</code>
+     * <code>optional .MotionInfo target_motion = 15;</code>
      * @param value the targetMotion to set
      * @return this
      */
@@ -228,7 +228,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 hit_target_entity_id_list = 2;</code>
+     * <code>repeated uint32 hit_target_entity_id_list = 13;</code>
      * @return whether the hitTargetEntityIdList field is set
      */
     public boolean hasHitTargetEntityIdList() {
@@ -236,7 +236,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 hit_target_entity_id_list = 2;</code>
+     * <code>repeated uint32 hit_target_entity_id_list = 13;</code>
      * @return this
      */
     public SceneCastSkillCsReq clearHitTargetEntityIdList() {
@@ -246,7 +246,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 hit_target_entity_id_list = 2;</code>
+     * <code>repeated uint32 hit_target_entity_id_list = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -260,7 +260,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 hit_target_entity_id_list = 2;</code>
+     * <code>repeated uint32 hit_target_entity_id_list = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -274,7 +274,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 hit_target_entity_id_list = 2;</code>
+     * <code>repeated uint32 hit_target_entity_id_list = 13;</code>
      * @param value the hitTargetEntityIdList to add
      * @return this
      */
@@ -285,7 +285,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 hit_target_entity_id_list = 2;</code>
+     * <code>repeated uint32 hit_target_entity_id_list = 13;</code>
      * @param values the hitTargetEntityIdList to add
      * @return this
      */
@@ -296,7 +296,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 assist_monster_entity_id_list = 13;</code>
+     * <code>repeated uint32 assist_monster_entity_id_list = 14;</code>
      * @return whether the assistMonsterEntityIdList field is set
      */
     public boolean hasAssistMonsterEntityIdList() {
@@ -304,7 +304,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 assist_monster_entity_id_list = 13;</code>
+     * <code>repeated uint32 assist_monster_entity_id_list = 14;</code>
      * @return this
      */
     public SceneCastSkillCsReq clearAssistMonsterEntityIdList() {
@@ -314,7 +314,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 assist_monster_entity_id_list = 13;</code>
+     * <code>repeated uint32 assist_monster_entity_id_list = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -328,7 +328,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 assist_monster_entity_id_list = 13;</code>
+     * <code>repeated uint32 assist_monster_entity_id_list = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -342,7 +342,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 assist_monster_entity_id_list = 13;</code>
+     * <code>repeated uint32 assist_monster_entity_id_list = 14;</code>
      * @param value the assistMonsterEntityIdList to add
      * @return this
      */
@@ -353,7 +353,7 @@ public final class SceneCastSkillCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 assist_monster_entity_id_list = 13;</code>
+     * <code>repeated uint32 assist_monster_entity_id_list = 14;</code>
      * @param values the assistMonsterEntityIdList to add
      * @return this
      */
@@ -368,9 +368,9 @@ public final class SceneCastSkillCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        attackedGroupId = other.attackedGroupId;
         casterId = other.casterId;
         skillIndex = other.skillIndex;
+        attackedGroupId = other.attackedGroupId;
         targetMotion.copyFrom(other.targetMotion);
         hitTargetEntityIdList.copyFrom(other.hitTargetEntityIdList);
         assistMonsterEntityIdList.copyFrom(other.assistMonsterEntityIdList);
@@ -384,14 +384,14 @@ public final class SceneCastSkillCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasAttackedGroupId()) {
-        setAttackedGroupId(other.attackedGroupId);
-      }
       if (other.hasCasterId()) {
         setCasterId(other.casterId);
       }
       if (other.hasSkillIndex()) {
         setSkillIndex(other.skillIndex);
+      }
+      if (other.hasAttackedGroupId()) {
+        setAttackedGroupId(other.attackedGroupId);
       }
       if (other.hasTargetMotion()) {
         getMutableTargetMotion().mergeFrom(other.targetMotion);
@@ -412,9 +412,9 @@ public final class SceneCastSkillCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      attackedGroupId = 0;
       casterId = 0;
       skillIndex = 0;
+      attackedGroupId = 0;
       targetMotion.clear();
       hitTargetEntityIdList.clear();
       assistMonsterEntityIdList.clear();
@@ -444,9 +444,9 @@ public final class SceneCastSkillCsReqOuterClass {
       }
       SceneCastSkillCsReq other = (SceneCastSkillCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasAttackedGroupId() || attackedGroupId == other.attackedGroupId)
         && (!hasCasterId() || casterId == other.casterId)
         && (!hasSkillIndex() || skillIndex == other.skillIndex)
+        && (!hasAttackedGroupId() || attackedGroupId == other.attackedGroupId)
         && (!hasTargetMotion() || targetMotion.equals(other.targetMotion))
         && (!hasHitTargetEntityIdList() || hitTargetEntityIdList.equals(other.hitTargetEntityIdList))
         && (!hasAssistMonsterEntityIdList() || assistMonsterEntityIdList.equals(other.assistMonsterEntityIdList));
@@ -455,30 +455,30 @@ public final class SceneCastSkillCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(casterId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(skillIndex);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(attackedGroupId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(casterId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(skillIndex);
-      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 122);
         output.writeMessageNoTag(targetMotion);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         for (int i = 0; i < hitTargetEntityIdList.length(); i++) {
-          output.writeRawByte((byte) 16);
+          output.writeRawByte((byte) 104);
           output.writeUInt32NoTag(hitTargetEntityIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000020) != 0) {
         for (int i = 0; i < assistMonsterEntityIdList.length(); i++) {
-          output.writeRawByte((byte) 104);
+          output.writeRawByte((byte) 112);
           output.writeUInt32NoTag(assistMonsterEntityIdList.array()[i]);
         }
       }
@@ -488,13 +488,13 @@ public final class SceneCastSkillCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(attackedGroupId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(casterId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(skillIndex);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(attackedGroupId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(targetMotion);
@@ -515,52 +515,52 @@ public final class SceneCastSkillCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 8: {
+            // casterId
+            casterId = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
+            // skillIndex
+            skillIndex = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 64) {
+              break;
+            }
+          }
           case 64: {
             // attackedGroupId
             attackedGroupId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 88) {
-              break;
-            }
-          }
-          case 88: {
-            // casterId
-            casterId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
-            // skillIndex
-            skillIndex = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 122) {
               break;
             }
           }
-          case 58: {
+          case 122: {
             // targetMotion
             input.readMessage(targetMotion);
             bitField0_ |= 0x00000008;
-            tag = input.readTag();
-            if (tag != 18) {
-              break;
-            }
-          }
-          case 18: {
-            // hitTargetEntityIdList [packed=true]
-            input.readPackedUInt32(hitTargetEntityIdList, tag);
-            bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 106) {
               break;
             }
           }
           case 106: {
+            // hitTargetEntityIdList [packed=true]
+            input.readPackedUInt32(hitTargetEntityIdList, tag);
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 114) {
+              break;
+            }
+          }
+          case 114: {
             // assistMonsterEntityIdList [packed=true]
             input.readPackedUInt32(assistMonsterEntityIdList, tag);
             bitField0_ |= 0x00000020;
@@ -579,13 +579,13 @@ public final class SceneCastSkillCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 16: {
+          case 104: {
             // hitTargetEntityIdList [packed=false]
             tag = input.readRepeatedUInt32(hitTargetEntityIdList, tag);
             bitField0_ |= 0x00000010;
             break;
           }
-          case 104: {
+          case 112: {
             // assistMonsterEntityIdList [packed=false]
             tag = input.readRepeatedUInt32(assistMonsterEntityIdList, tag);
             bitField0_ |= 0x00000020;
@@ -599,13 +599,13 @@ public final class SceneCastSkillCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.attackedGroupId, attackedGroupId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.casterId, casterId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.skillIndex, skillIndex);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.attackedGroupId, attackedGroupId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeMessage(FieldNames.targetMotion, targetMotion);
@@ -626,24 +626,12 @@ public final class SceneCastSkillCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1725961965:
-          case -715836621: {
-            if (input.isAtField(FieldNames.attackedGroupId)) {
-              if (!input.trySkipNullValue()) {
-                attackedGroupId = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 35676775:
           case 1106001422: {
             if (input.isAtField(FieldNames.casterId)) {
               if (!input.trySkipNullValue()) {
                 casterId = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -655,6 +643,18 @@ public final class SceneCastSkillCsReqOuterClass {
             if (input.isAtField(FieldNames.skillIndex)) {
               if (!input.trySkipNullValue()) {
                 skillIndex = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1725961965:
+          case -715836621: {
+            if (input.isAtField(FieldNames.attackedGroupId)) {
+              if (!input.trySkipNullValue()) {
+                attackedGroupId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -751,11 +751,11 @@ public final class SceneCastSkillCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName attackedGroupId = FieldName.forField("attackedGroupId", "attacked_group_id");
-
       static final FieldName casterId = FieldName.forField("casterId", "caster_id");
 
       static final FieldName skillIndex = FieldName.forField("skillIndex", "skill_index");
+
+      static final FieldName attackedGroupId = FieldName.forField("attackedGroupId", "attacked_group_id");
 
       static final FieldName targetMotion = FieldName.forField("targetMotion", "target_motion");
 

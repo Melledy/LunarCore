@@ -19,12 +19,12 @@ public final class SetClientPausedScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional bool paused = 12;</code>
+     * <code>optional bool paused = 1;</code>
      */
     private boolean paused;
 
@@ -39,7 +39,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return this
      */
     public SetClientPausedScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 12;</code>
+     * <code>optional bool paused = 1;</code>
      * @return whether the paused field is set
      */
     public boolean hasPaused() {
@@ -84,7 +84,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 12;</code>
+     * <code>optional bool paused = 1;</code>
      * @return this
      */
     public SetClientPausedScRsp clearPaused() {
@@ -94,7 +94,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 12;</code>
+     * <code>optional bool paused = 1;</code>
      * @return the paused
      */
     public boolean getPaused() {
@@ -102,7 +102,7 @@ public final class SetClientPausedScRspOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 12;</code>
+     * <code>optional bool paused = 1;</code>
      * @param value the paused to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class SetClientPausedScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 8);
         output.writeBoolNoTag(paused);
       }
     }
@@ -205,16 +205,16 @@ public final class SetClientPausedScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 112: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 8) {
               break;
             }
           }
-          case 96: {
+          case 8: {
             // paused
             paused = input.readBool();
             bitField0_ |= 0x00000002;

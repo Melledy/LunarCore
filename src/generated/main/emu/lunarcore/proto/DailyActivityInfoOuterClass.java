@@ -19,22 +19,22 @@ public final class DailyActivityInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 6;</code>
      */
     private int dailyActivePoint;
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      */
     private int level;
 
     /**
-     * <code>optional uint32 world_level = 12;</code>
+     * <code>optional uint32 world_level = 15;</code>
      */
     private int worldLevel;
 
     /**
-     * <code>optional bool is_has_taken = 8;</code>
+     * <code>optional bool is_has_taken = 11;</code>
      */
     private boolean isHasTaken;
 
@@ -49,7 +49,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 6;</code>
      * @return whether the dailyActivePoint field is set
      */
     public boolean hasDailyActivePoint() {
@@ -57,7 +57,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 6;</code>
      * @return this
      */
     public DailyActivityInfo clearDailyActivePoint() {
@@ -67,7 +67,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 6;</code>
      * @return the dailyActivePoint
      */
     public int getDailyActivePoint() {
@@ -75,7 +75,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 daily_active_point = 2;</code>
+     * <code>optional uint32 daily_active_point = 6;</code>
      * @param value the dailyActivePoint to set
      * @return this
      */
@@ -86,7 +86,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -94,7 +94,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return this
      */
     public DailyActivityInfo clearLevel() {
@@ -104,7 +104,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return the level
      */
     public int getLevel() {
@@ -112,7 +112,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 10;</code>
+     * <code>optional uint32 level = 8;</code>
      * @param value the level to set
      * @return this
      */
@@ -123,7 +123,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 12;</code>
+     * <code>optional uint32 world_level = 15;</code>
      * @return whether the worldLevel field is set
      */
     public boolean hasWorldLevel() {
@@ -131,7 +131,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 12;</code>
+     * <code>optional uint32 world_level = 15;</code>
      * @return this
      */
     public DailyActivityInfo clearWorldLevel() {
@@ -141,7 +141,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 12;</code>
+     * <code>optional uint32 world_level = 15;</code>
      * @return the worldLevel
      */
     public int getWorldLevel() {
@@ -149,7 +149,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 12;</code>
+     * <code>optional uint32 world_level = 15;</code>
      * @param value the worldLevel to set
      * @return this
      */
@@ -160,7 +160,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_has_taken = 8;</code>
+     * <code>optional bool is_has_taken = 11;</code>
      * @return whether the isHasTaken field is set
      */
     public boolean hasIsHasTaken() {
@@ -168,7 +168,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_has_taken = 8;</code>
+     * <code>optional bool is_has_taken = 11;</code>
      * @return this
      */
     public DailyActivityInfo clearIsHasTaken() {
@@ -178,7 +178,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_has_taken = 8;</code>
+     * <code>optional bool is_has_taken = 11;</code>
      * @return the isHasTaken
      */
     public boolean getIsHasTaken() {
@@ -186,7 +186,7 @@ public final class DailyActivityInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_has_taken = 8;</code>
+     * <code>optional bool is_has_taken = 11;</code>
      * @param value the isHasTaken to set
      * @return this
      */
@@ -273,19 +273,19 @@ public final class DailyActivityInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(dailyActivePoint);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(worldLevel);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 88);
         output.writeBoolNoTag(isHasTaken);
       }
     }
@@ -315,34 +315,34 @@ public final class DailyActivityInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 48: {
             // dailyActivePoint
             dailyActivePoint = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
-            // level
-            level = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
-            // worldLevel
-            worldLevel = input.readUInt32();
-            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 64) {
               break;
             }
           }
           case 64: {
+            // level
+            level = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // worldLevel
+            worldLevel = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
             // isHasTaken
             isHasTaken = input.readBool();
             bitField0_ |= 0x00000008;

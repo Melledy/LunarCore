@@ -5,7 +5,7 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.GetRogueBuffEnhanceInfoScRspOuterClass.GetRogueBuffEnhanceInfoScRsp;
 import emu.lunarcore.proto.ItemCostListOuterClass.ItemCostList;
 import emu.lunarcore.proto.ItemCostOuterClass.ItemCost;
-import emu.lunarcore.proto.ItemCostOuterClass.PileItem;
+import emu.lunarcore.proto.PileItemOuterClass.PileItem;
 import emu.lunarcore.proto.RogueBuffEnhanceInfoOuterClass.RogueBuffEnhanceInfo;
 import emu.lunarcore.proto.RogueBuffEnhanceShopInfoOuterClass.RogueBuffEnhanceShopInfo;
 import emu.lunarcore.server.packet.BasePacket;

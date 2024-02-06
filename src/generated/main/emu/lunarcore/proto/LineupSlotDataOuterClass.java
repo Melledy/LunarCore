@@ -19,7 +19,7 @@ public final class LineupSlotDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 id = 3;</code>
+     * <code>optional uint32 id = 6;</code>
      */
     private int id;
 
@@ -29,7 +29,7 @@ public final class LineupSlotDataOuterClass {
     private int slot;
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 15;</code>
      */
     private int avatarType;
 
@@ -44,7 +44,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 3;</code>
+     * <code>optional uint32 id = 6;</code>
      * @return whether the id field is set
      */
     public boolean hasId() {
@@ -52,7 +52,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 3;</code>
+     * <code>optional uint32 id = 6;</code>
      * @return this
      */
     public LineupSlotData clearId() {
@@ -62,7 +62,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 3;</code>
+     * <code>optional uint32 id = 6;</code>
      * @return the id
      */
     public int getId() {
@@ -70,7 +70,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 3;</code>
+     * <code>optional uint32 id = 6;</code>
      * @param value the id to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 15;</code>
      * @return whether the avatarType field is set
      */
     public boolean hasAvatarType() {
@@ -126,7 +126,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 15;</code>
      * @return this
      */
     public LineupSlotData clearAvatarType() {
@@ -136,7 +136,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 15;</code>
      * @return the avatarType
      */
     public AvatarTypeOuterClass.AvatarType getAvatarType() {
@@ -169,7 +169,7 @@ public final class LineupSlotDataOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 2;</code>
+     * <code>optional .AvatarType avatar_type = 15;</code>
      * @param value the avatarType to set
      * @return this
      */
@@ -250,7 +250,7 @@ public final class LineupSlotDataOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(id);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -258,7 +258,7 @@ public final class LineupSlotDataOuterClass {
         output.writeUInt32NoTag(slot);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 120);
         output.writeEnumNoTag(avatarType);
       }
     }
@@ -285,7 +285,7 @@ public final class LineupSlotDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 48: {
             // id
             id = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -299,11 +299,11 @@ public final class LineupSlotDataOuterClass {
             slot = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 120) {
               break;
             }
           }
-          case 16: {
+          case 120: {
             // avatarType
             final int value = input.readInt32();
             if (AvatarTypeOuterClass.AvatarType.forNumber(value) != null) {

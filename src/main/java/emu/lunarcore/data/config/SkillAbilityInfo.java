@@ -68,7 +68,7 @@ public class SkillAbilityInfo {
             // TODO get sp increase value from params, also handle target alias
             actionList.add(new MazeSkillModifySP(50));
         } else if (task.getType().contains("CreateSummonUnit")) {
-            // Ignored
+            skill.setTriggerBattle(false);
         } else if (task.getSuccessTaskList() != null) {
             for (TaskInfo t : task.getSuccessTaskList()) {
                 parseTask(skill, actionList, t);

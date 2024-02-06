@@ -19,14 +19,14 @@ public final class DisplayAvatarOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 avatar_id = 8;</code>
-     */
-    private int avatarId;
-
-    /**
-     * <code>optional uint32 pos = 13;</code>
+     * <code>optional uint32 pos = 10;</code>
      */
     private int pos;
+
+    /**
+     * <code>optional uint32 avatar_id = 14;</code>
+     */
+    private int avatarId;
 
     private DisplayAvatar() {
     }
@@ -39,62 +39,25 @@ public final class DisplayAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 8;</code>
-     * @return whether the avatarId field is set
+     * <code>optional uint32 pos = 10;</code>
+     * @return whether the pos field is set
      */
-    public boolean hasAvatarId() {
+    public boolean hasPos() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 avatar_id = 8;</code>
-     * @return this
-     */
-    public DisplayAvatar clearAvatarId() {
-      bitField0_ &= ~0x00000001;
-      avatarId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 8;</code>
-     * @return the avatarId
-     */
-    public int getAvatarId() {
-      return avatarId;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 8;</code>
-     * @param value the avatarId to set
-     * @return this
-     */
-    public DisplayAvatar setAvatarId(final int value) {
-      bitField0_ |= 0x00000001;
-      avatarId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 pos = 13;</code>
-     * @return whether the pos field is set
-     */
-    public boolean hasPos() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 pos = 13;</code>
+     * <code>optional uint32 pos = 10;</code>
      * @return this
      */
     public DisplayAvatar clearPos() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       pos = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 pos = 13;</code>
+     * <code>optional uint32 pos = 10;</code>
      * @return the pos
      */
     public int getPos() {
@@ -102,13 +65,50 @@ public final class DisplayAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 pos = 13;</code>
+     * <code>optional uint32 pos = 10;</code>
      * @param value the pos to set
      * @return this
      */
     public DisplayAvatar setPos(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       pos = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 14;</code>
+     * @return whether the avatarId field is set
+     */
+    public boolean hasAvatarId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 14;</code>
+     * @return this
+     */
+    public DisplayAvatar clearAvatarId() {
+      bitField0_ &= ~0x00000002;
+      avatarId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 14;</code>
+     * @return the avatarId
+     */
+    public int getAvatarId() {
+      return avatarId;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 14;</code>
+     * @param value the avatarId to set
+     * @return this
+     */
+    public DisplayAvatar setAvatarId(final int value) {
+      bitField0_ |= 0x00000002;
+      avatarId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class DisplayAvatarOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        avatarId = other.avatarId;
         pos = other.pos;
+        avatarId = other.avatarId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class DisplayAvatarOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasAvatarId()) {
-        setAvatarId(other.avatarId);
-      }
       if (other.hasPos()) {
         setPos(other.pos);
+      }
+      if (other.hasAvatarId()) {
+        setAvatarId(other.avatarId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class DisplayAvatarOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      avatarId = 0;
       pos = 0;
+      avatarId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class DisplayAvatarOuterClass {
       }
       DisplayAvatar other = (DisplayAvatar) o;
       return bitField0_ == other.bitField0_
-        && (!hasAvatarId() || avatarId == other.avatarId)
-        && (!hasPos() || pos == other.pos);
+        && (!hasPos() || pos == other.pos)
+        && (!hasAvatarId() || avatarId == other.avatarId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(avatarId);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(pos);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(pos);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(avatarId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class DisplayAvatarOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(pos);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(pos);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class DisplayAvatarOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
-            // avatarId
-            avatarId = input.readUInt32();
+          case 80: {
+            // pos
+            pos = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 112) {
               break;
             }
           }
-          case 104: {
-            // pos
-            pos = input.readUInt32();
+          case 112: {
+            // avatarId
+            avatarId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class DisplayAvatarOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.avatarId, avatarId);
+        output.writeUInt32(FieldNames.pos, pos);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.pos, pos);
+        output.writeUInt32(FieldNames.avatarId, avatarId);
       }
       output.endObject();
     }
@@ -256,11 +256,10 @@ public final class DisplayAvatarOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1787287636:
-          case -428636735: {
-            if (input.isAtField(FieldNames.avatarId)) {
+          case 111188: {
+            if (input.isAtField(FieldNames.pos)) {
               if (!input.trySkipNullValue()) {
-                avatarId = input.readUInt32();
+                pos = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,10 +267,11 @@ public final class DisplayAvatarOuterClass {
             }
             break;
           }
-          case 111188: {
-            if (input.isAtField(FieldNames.pos)) {
+          case 1787287636:
+          case -428636735: {
+            if (input.isAtField(FieldNames.avatarId)) {
               if (!input.trySkipNullValue()) {
-                pos = input.readUInt32();
+                avatarId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -331,9 +331,9 @@ public final class DisplayAvatarOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
-
       static final FieldName pos = FieldName.forField("pos");
+
+      static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
     }
   }
 }

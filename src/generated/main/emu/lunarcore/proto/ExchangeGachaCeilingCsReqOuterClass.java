@@ -19,12 +19,12 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 1;</code>
      */
     private int avatarId;
 
     /**
-     * <code>optional uint32 gacha_type = 8;</code>
+     * <code>optional uint32 gacha_type = 5;</code>
      */
     private int gachaType;
 
@@ -39,7 +39,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 1;</code>
      * @return whether the avatarId field is set
      */
     public boolean hasAvatarId() {
@@ -47,7 +47,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 1;</code>
      * @return this
      */
     public ExchangeGachaCeilingCsReq clearAvatarId() {
@@ -57,7 +57,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 1;</code>
      * @return the avatarId
      */
     public int getAvatarId() {
@@ -65,7 +65,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 1;</code>
      * @param value the avatarId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 8;</code>
+     * <code>optional uint32 gacha_type = 5;</code>
      * @return whether the gachaType field is set
      */
     public boolean hasGachaType() {
@@ -84,7 +84,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 8;</code>
+     * <code>optional uint32 gacha_type = 5;</code>
      * @return this
      */
     public ExchangeGachaCeilingCsReq clearGachaType() {
@@ -94,7 +94,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 8;</code>
+     * <code>optional uint32 gacha_type = 5;</code>
      * @return the gachaType
      */
     public int getGachaType() {
@@ -102,7 +102,7 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 8;</code>
+     * <code>optional uint32 gacha_type = 5;</code>
      * @param value the gachaType to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(avatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(gachaType);
       }
     }
@@ -205,16 +205,16 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 8: {
             // avatarId
             avatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 40) {
               break;
             }
           }
-          case 64: {
+          case 40: {
             // gachaType
             gachaType = input.readUInt32();
             bitField0_ |= 0x00000002;

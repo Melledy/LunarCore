@@ -20,7 +20,7 @@ public final class TextJoinQueryCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 text_join_id_list = 6;</code>
+     * <code>repeated uint32 text_join_id_list = 15;</code>
      */
     private final RepeatedInt textJoinIdList = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 6;</code>
+     * <code>repeated uint32 text_join_id_list = 15;</code>
      * @return whether the textJoinIdList field is set
      */
     public boolean hasTextJoinIdList() {
@@ -43,7 +43,7 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 6;</code>
+     * <code>repeated uint32 text_join_id_list = 15;</code>
      * @return this
      */
     public TextJoinQueryCsReq clearTextJoinIdList() {
@@ -53,7 +53,7 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 6;</code>
+     * <code>repeated uint32 text_join_id_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 6;</code>
+     * <code>repeated uint32 text_join_id_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 6;</code>
+     * <code>repeated uint32 text_join_id_list = 15;</code>
      * @param value the textJoinIdList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 6;</code>
+     * <code>repeated uint32 text_join_id_list = 15;</code>
      * @param values the textJoinIdList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class TextJoinQueryCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < textJoinIdList.length(); i++) {
-          output.writeRawByte((byte) 48);
+          output.writeRawByte((byte) 120);
           output.writeUInt32NoTag(textJoinIdList.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class TextJoinQueryCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
+          case 122: {
             // textJoinIdList [packed=true]
             input.readPackedUInt32(textJoinIdList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class TextJoinQueryCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 48: {
+          case 120: {
             // textJoinIdList [packed=false]
             tag = input.readRepeatedUInt32(textJoinIdList, tag);
             bitField0_ |= 0x00000001;

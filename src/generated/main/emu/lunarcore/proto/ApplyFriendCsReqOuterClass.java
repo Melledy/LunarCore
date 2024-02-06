@@ -19,12 +19,12 @@ public final class ApplyFriendCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 uid = 11;</code>
+     * <code>optional uint32 uid = 5;</code>
      */
     private int uid;
 
     /**
-     * <code>optional .FriendApplySource source = 12;</code>
+     * <code>optional .FriendApplySource source = 14;</code>
      */
     private int source;
 
@@ -39,7 +39,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 11;</code>
+     * <code>optional uint32 uid = 5;</code>
      * @return whether the uid field is set
      */
     public boolean hasUid() {
@@ -47,7 +47,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 11;</code>
+     * <code>optional uint32 uid = 5;</code>
      * @return this
      */
     public ApplyFriendCsReq clearUid() {
@@ -57,7 +57,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 11;</code>
+     * <code>optional uint32 uid = 5;</code>
      * @return the uid
      */
     public int getUid() {
@@ -65,7 +65,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 11;</code>
+     * <code>optional uint32 uid = 5;</code>
      * @param value the uid to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional .FriendApplySource source = 12;</code>
+     * <code>optional .FriendApplySource source = 14;</code>
      * @return whether the source field is set
      */
     public boolean hasSource() {
@@ -84,7 +84,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional .FriendApplySource source = 12;</code>
+     * <code>optional .FriendApplySource source = 14;</code>
      * @return this
      */
     public ApplyFriendCsReq clearSource() {
@@ -94,7 +94,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional .FriendApplySource source = 12;</code>
+     * <code>optional .FriendApplySource source = 14;</code>
      * @return the source
      */
     public FriendApplySourceOuterClass.FriendApplySource getSource() {
@@ -127,7 +127,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional .FriendApplySource source = 12;</code>
+     * <code>optional .FriendApplySource source = 14;</code>
      * @param value the source to set
      * @return this
      */
@@ -202,11 +202,11 @@ public final class ApplyFriendCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(uid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 112);
         output.writeEnumNoTag(source);
       }
     }
@@ -230,16 +230,16 @@ public final class ApplyFriendCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 40: {
             // uid
             uid = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 112) {
               break;
             }
           }
-          case 96: {
+          case 112: {
             // source
             final int value = input.readInt32();
             if (FriendApplySourceOuterClass.FriendApplySource.forNumber(value) != null) {

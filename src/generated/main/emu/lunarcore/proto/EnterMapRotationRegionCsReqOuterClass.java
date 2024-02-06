@@ -10,64 +10,63 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.RepeatedInt;
 
-public final class OFHBFINPHAGOuterClass {
+public final class EnterMapRotationRegionCsReqOuterClass {
   /**
-   * Protobuf type {@code OFHBFINPHAG}
+   * Protobuf type {@code EnterMapRotationRegionCsReq}
    */
-  public static final class OFHBFINPHAG extends ProtoMessage<OFHBFINPHAG> implements Cloneable {
+  public static final class EnterMapRotationRegionCsReq extends ProtoMessage<EnterMapRotationRegionCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 AALLCOBKIDB = 14;</code>
+     * <code>optional .MotionInfo motion = 12;</code>
      */
-    private final RepeatedInt aALLCOBKIDB = RepeatedInt.newEmptyInstance();
+    private final MotionInfoOuterClass.MotionInfo motion = MotionInfoOuterClass.MotionInfo.newInstance();
 
-    private OFHBFINPHAG() {
+    private EnterMapRotationRegionCsReq() {
     }
 
     /**
-     * @return a new empty instance of {@code OFHBFINPHAG}
+     * @return a new empty instance of {@code EnterMapRotationRegionCsReq}
      */
-    public static OFHBFINPHAG newInstance() {
-      return new OFHBFINPHAG();
+    public static EnterMapRotationRegionCsReq newInstance() {
+      return new EnterMapRotationRegionCsReq();
     }
 
     /**
-     * <code>repeated uint32 AALLCOBKIDB = 14;</code>
-     * @return whether the aALLCOBKIDB field is set
+     * <code>optional .MotionInfo motion = 12;</code>
+     * @return whether the motion field is set
      */
-    public boolean hasAALLCOBKIDB() {
+    public boolean hasMotion() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>repeated uint32 AALLCOBKIDB = 14;</code>
+     * <code>optional .MotionInfo motion = 12;</code>
      * @return this
      */
-    public OFHBFINPHAG clearAALLCOBKIDB() {
+    public EnterMapRotationRegionCsReq clearMotion() {
       bitField0_ &= ~0x00000001;
-      aALLCOBKIDB.clear();
+      motion.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 AALLCOBKIDB = 14;</code>
+     * <code>optional .MotionInfo motion = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableAALLCOBKIDB()} if you want to modify it.
+     * Use {@link #getMutableMotion()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getAALLCOBKIDB() {
-      return aALLCOBKIDB;
+    public MotionInfoOuterClass.MotionInfo getMotion() {
+      return motion;
     }
 
     /**
-     * <code>repeated uint32 AALLCOBKIDB = 14;</code>
+     * <code>optional .MotionInfo motion = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -75,74 +74,63 @@ public final class OFHBFINPHAGOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableAALLCOBKIDB() {
+    public MotionInfoOuterClass.MotionInfo getMutableMotion() {
       bitField0_ |= 0x00000001;
-      return aALLCOBKIDB;
+      return motion;
     }
 
     /**
-     * <code>repeated uint32 AALLCOBKIDB = 14;</code>
-     * @param value the aALLCOBKIDB to add
+     * <code>optional .MotionInfo motion = 12;</code>
+     * @param value the motion to set
      * @return this
      */
-    public OFHBFINPHAG addAALLCOBKIDB(final int value) {
+    public EnterMapRotationRegionCsReq setMotion(final MotionInfoOuterClass.MotionInfo value) {
       bitField0_ |= 0x00000001;
-      aALLCOBKIDB.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 AALLCOBKIDB = 14;</code>
-     * @param values the aALLCOBKIDB to add
-     * @return this
-     */
-    public OFHBFINPHAG addAllAALLCOBKIDB(final int... values) {
-      bitField0_ |= 0x00000001;
-      aALLCOBKIDB.addAll(values);
+      motion.copyFrom(value);
       return this;
     }
 
     @Override
-    public OFHBFINPHAG copyFrom(final OFHBFINPHAG other) {
+    public EnterMapRotationRegionCsReq copyFrom(final EnterMapRotationRegionCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        aALLCOBKIDB.copyFrom(other.aALLCOBKIDB);
+        motion.copyFrom(other.motion);
       }
       return this;
     }
 
     @Override
-    public OFHBFINPHAG mergeFrom(final OFHBFINPHAG other) {
+    public EnterMapRotationRegionCsReq mergeFrom(final EnterMapRotationRegionCsReq other) {
       if (other.isEmpty()) {
         return this;
       }
       cachedSize = -1;
-      if (other.hasAALLCOBKIDB()) {
-        getMutableAALLCOBKIDB().addAll(other.aALLCOBKIDB);
+      if (other.hasMotion()) {
+        getMutableMotion().mergeFrom(other.motion);
       }
       return this;
     }
 
     @Override
-    public OFHBFINPHAG clear() {
+    public EnterMapRotationRegionCsReq clear() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      aALLCOBKIDB.clear();
+      motion.clear();
       return this;
     }
 
     @Override
-    public OFHBFINPHAG clearQuick() {
+    public EnterMapRotationRegionCsReq clearQuick() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      aALLCOBKIDB.clear();
+      motion.clearQuick();
       return this;
     }
 
@@ -151,21 +139,19 @@ public final class OFHBFINPHAGOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof OFHBFINPHAG)) {
+      if (!(o instanceof EnterMapRotationRegionCsReq)) {
         return false;
       }
-      OFHBFINPHAG other = (OFHBFINPHAG) o;
+      EnterMapRotationRegionCsReq other = (EnterMapRotationRegionCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasAALLCOBKIDB() || aALLCOBKIDB.equals(other.aALLCOBKIDB));
+        && (!hasMotion() || motion.equals(other.motion));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        for (int i = 0; i < aALLCOBKIDB.length(); i++) {
-          output.writeRawByte((byte) 112);
-          output.writeUInt32NoTag(aALLCOBKIDB.array()[i]);
-        }
+        output.writeRawByte((byte) 98);
+        output.writeMessageNoTag(motion);
       }
     }
 
@@ -173,21 +159,21 @@ public final class OFHBFINPHAGOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += (1 * aALLCOBKIDB.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(aALLCOBKIDB);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(motion);
       }
       return size;
     }
 
     @Override
     @SuppressWarnings("fallthrough")
-    public OFHBFINPHAG mergeFrom(final ProtoSource input) throws IOException {
+    public EnterMapRotationRegionCsReq mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 114: {
-            // aALLCOBKIDB [packed=true]
-            input.readPackedUInt32(aALLCOBKIDB, tag);
+          case 98: {
+            // motion
+            input.readMessage(motion);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
@@ -204,12 +190,6 @@ public final class OFHBFINPHAGOuterClass {
             tag = input.readTag();
             break;
           }
-          case 112: {
-            // aALLCOBKIDB [packed=false]
-            tag = input.readRepeatedUInt32(aALLCOBKIDB, tag);
-            bitField0_ |= 0x00000001;
-            break;
-          }
         }
       }
     }
@@ -218,22 +198,22 @@ public final class OFHBFINPHAGOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRepeatedUInt32(FieldNames.aALLCOBKIDB, aALLCOBKIDB);
+        output.writeMessage(FieldNames.motion, motion);
       }
       output.endObject();
     }
 
     @Override
-    public OFHBFINPHAG mergeFrom(final JsonSource input) throws IOException {
+    public EnterMapRotationRegionCsReq mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 313982738: {
-            if (input.isAtField(FieldNames.aALLCOBKIDB)) {
+          case -1068318794: {
+            if (input.isAtField(FieldNames.motion)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(aALLCOBKIDB);
+                input.readMessage(motion);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -252,8 +232,8 @@ public final class OFHBFINPHAGOuterClass {
     }
 
     @Override
-    public OFHBFINPHAG clone() {
-      return new OFHBFINPHAG().copyFrom(this);
+    public EnterMapRotationRegionCsReq clone() {
+      return new EnterMapRotationRegionCsReq().copyFrom(this);
     }
 
     @Override
@@ -261,31 +241,33 @@ public final class OFHBFINPHAGOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static OFHBFINPHAG parseFrom(final byte[] data) throws InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new OFHBFINPHAG(), data).checkInitialized();
+    public static EnterMapRotationRegionCsReq parseFrom(final byte[] data) throws
+        InvalidProtocolBufferException {
+      return ProtoMessage.mergeFrom(new EnterMapRotationRegionCsReq(), data).checkInitialized();
     }
 
-    public static OFHBFINPHAG parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new OFHBFINPHAG(), input).checkInitialized();
+    public static EnterMapRotationRegionCsReq parseFrom(final ProtoSource input) throws
+        IOException {
+      return ProtoMessage.mergeFrom(new EnterMapRotationRegionCsReq(), input).checkInitialized();
     }
 
-    public static OFHBFINPHAG parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new OFHBFINPHAG(), input).checkInitialized();
+    public static EnterMapRotationRegionCsReq parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new EnterMapRotationRegionCsReq(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating OFHBFINPHAG messages
+     * @return factory for creating EnterMapRotationRegionCsReq messages
      */
-    public static MessageFactory<OFHBFINPHAG> getFactory() {
-      return OFHBFINPHAGFactory.INSTANCE;
+    public static MessageFactory<EnterMapRotationRegionCsReq> getFactory() {
+      return EnterMapRotationRegionCsReqFactory.INSTANCE;
     }
 
-    private enum OFHBFINPHAGFactory implements MessageFactory<OFHBFINPHAG> {
+    private enum EnterMapRotationRegionCsReqFactory implements MessageFactory<EnterMapRotationRegionCsReq> {
       INSTANCE;
 
       @Override
-      public OFHBFINPHAG create() {
-        return OFHBFINPHAG.newInstance();
+      public EnterMapRotationRegionCsReq create() {
+        return EnterMapRotationRegionCsReq.newInstance();
       }
     }
 
@@ -293,7 +275,7 @@ public final class OFHBFINPHAGOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName aALLCOBKIDB = FieldName.forField("AALLCOBKIDB");
+      static final FieldName motion = FieldName.forField("motion");
     }
   }
 }

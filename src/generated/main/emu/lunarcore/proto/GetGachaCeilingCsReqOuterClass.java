@@ -19,7 +19,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 gacha_type = 10;</code>
+     * <code>optional uint32 gacha_type = 12;</code>
      */
     private int gachaType;
 
@@ -34,7 +34,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 10;</code>
+     * <code>optional uint32 gacha_type = 12;</code>
      * @return whether the gachaType field is set
      */
     public boolean hasGachaType() {
@@ -42,7 +42,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 10;</code>
+     * <code>optional uint32 gacha_type = 12;</code>
      * @return this
      */
     public GetGachaCeilingCsReq clearGachaType() {
@@ -52,7 +52,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 10;</code>
+     * <code>optional uint32 gacha_type = 12;</code>
      * @return the gachaType
      */
     public int getGachaType() {
@@ -60,7 +60,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 10;</code>
+     * <code>optional uint32 gacha_type = 12;</code>
      * @param value the gachaType to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class GetGachaCeilingCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(gachaType);
       }
     }
@@ -150,7 +150,7 @@ public final class GetGachaCeilingCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 96: {
             // gachaType
             gachaType = input.readUInt32();
             bitField0_ |= 0x00000001;

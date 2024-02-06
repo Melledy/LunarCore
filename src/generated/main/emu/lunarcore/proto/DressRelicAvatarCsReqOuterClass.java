@@ -20,12 +20,12 @@ public final class DressRelicAvatarCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      */
     private int baseAvatarId;
 
     /**
-     * <code>repeated .RelicParam param_list = 15;</code>
+     * <code>repeated .RelicParam param_list = 10;</code>
      */
     private final RepeatedMessage<RelicParamOuterClass.RelicParam> paramList = RepeatedMessage.newEmptyInstance(RelicParamOuterClass.RelicParam.getFactory());
 
@@ -40,7 +40,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -48,7 +48,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return this
      */
     public DressRelicAvatarCsReq clearBaseAvatarId() {
@@ -58,7 +58,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -66,7 +66,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 5;</code>
+     * <code>optional uint32 base_avatar_id = 3;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .RelicParam param_list = 15;</code>
+     * <code>repeated .RelicParam param_list = 10;</code>
      * @return whether the paramList field is set
      */
     public boolean hasParamList() {
@@ -85,7 +85,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .RelicParam param_list = 15;</code>
+     * <code>repeated .RelicParam param_list = 10;</code>
      * @return this
      */
     public DressRelicAvatarCsReq clearParamList() {
@@ -95,7 +95,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .RelicParam param_list = 15;</code>
+     * <code>repeated .RelicParam param_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .RelicParam param_list = 15;</code>
+     * <code>repeated .RelicParam param_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .RelicParam param_list = 15;</code>
+     * <code>repeated .RelicParam param_list = 10;</code>
      * @param value the paramList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class DressRelicAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .RelicParam param_list = 15;</code>
+     * <code>repeated .RelicParam param_list = 10;</code>
      * @param values the paramList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class DressRelicAvatarCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < paramList.length(); i++) {
-          output.writeRawByte((byte) 122);
+          output.writeRawByte((byte) 82);
           output.writeMessageNoTag(paramList.get(i));
         }
       }
@@ -240,16 +240,16 @@ public final class DressRelicAvatarCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 24: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 82) {
               break;
             }
           }
-          case 122: {
+          case 82: {
             // paramList
             tag = input.readRepeatedMessage(paramList, tag);
             bitField0_ |= 0x00000002;

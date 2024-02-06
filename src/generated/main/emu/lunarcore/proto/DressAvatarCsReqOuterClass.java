@@ -19,14 +19,14 @@ public final class DressAvatarCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 base_avatar_id = 2;</code>
-     */
-    private int baseAvatarId;
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 4;</code>
+     * <code>optional uint32 equipment_unique_id = 1;</code>
      */
     private int equipmentUniqueId;
+
+    /**
+     * <code>optional uint32 base_avatar_id = 10;</code>
+     */
+    private int baseAvatarId;
 
     private DressAvatarCsReq() {
     }
@@ -39,62 +39,25 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 2;</code>
-     * @return whether the baseAvatarId field is set
+     * <code>optional uint32 equipment_unique_id = 1;</code>
+     * @return whether the equipmentUniqueId field is set
      */
-    public boolean hasBaseAvatarId() {
+    public boolean hasEquipmentUniqueId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 2;</code>
-     * @return this
-     */
-    public DressAvatarCsReq clearBaseAvatarId() {
-      bitField0_ &= ~0x00000001;
-      baseAvatarId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 2;</code>
-     * @return the baseAvatarId
-     */
-    public int getBaseAvatarId() {
-      return baseAvatarId;
-    }
-
-    /**
-     * <code>optional uint32 base_avatar_id = 2;</code>
-     * @param value the baseAvatarId to set
-     * @return this
-     */
-    public DressAvatarCsReq setBaseAvatarId(final int value) {
-      bitField0_ |= 0x00000001;
-      baseAvatarId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 4;</code>
-     * @return whether the equipmentUniqueId field is set
-     */
-    public boolean hasEquipmentUniqueId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 4;</code>
+     * <code>optional uint32 equipment_unique_id = 1;</code>
      * @return this
      */
     public DressAvatarCsReq clearEquipmentUniqueId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       equipmentUniqueId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 4;</code>
+     * <code>optional uint32 equipment_unique_id = 1;</code>
      * @return the equipmentUniqueId
      */
     public int getEquipmentUniqueId() {
@@ -102,13 +65,50 @@ public final class DressAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 4;</code>
+     * <code>optional uint32 equipment_unique_id = 1;</code>
      * @param value the equipmentUniqueId to set
      * @return this
      */
     public DressAvatarCsReq setEquipmentUniqueId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       equipmentUniqueId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 base_avatar_id = 10;</code>
+     * @return whether the baseAvatarId field is set
+     */
+    public boolean hasBaseAvatarId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 base_avatar_id = 10;</code>
+     * @return this
+     */
+    public DressAvatarCsReq clearBaseAvatarId() {
+      bitField0_ &= ~0x00000002;
+      baseAvatarId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 base_avatar_id = 10;</code>
+     * @return the baseAvatarId
+     */
+    public int getBaseAvatarId() {
+      return baseAvatarId;
+    }
+
+    /**
+     * <code>optional uint32 base_avatar_id = 10;</code>
+     * @param value the baseAvatarId to set
+     * @return this
+     */
+    public DressAvatarCsReq setBaseAvatarId(final int value) {
+      bitField0_ |= 0x00000002;
+      baseAvatarId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class DressAvatarCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        baseAvatarId = other.baseAvatarId;
         equipmentUniqueId = other.equipmentUniqueId;
+        baseAvatarId = other.baseAvatarId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class DressAvatarCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBaseAvatarId()) {
-        setBaseAvatarId(other.baseAvatarId);
-      }
       if (other.hasEquipmentUniqueId()) {
         setEquipmentUniqueId(other.equipmentUniqueId);
+      }
+      if (other.hasBaseAvatarId()) {
+        setBaseAvatarId(other.baseAvatarId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class DressAvatarCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      baseAvatarId = 0;
       equipmentUniqueId = 0;
+      baseAvatarId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class DressAvatarCsReqOuterClass {
       }
       DressAvatarCsReq other = (DressAvatarCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId)
-        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId);
+        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
+        && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(baseAvatarId);
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(equipmentUniqueId);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(baseAvatarId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class DressAvatarCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(baseAvatarId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class DressAvatarCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // baseAvatarId
-            baseAvatarId = input.readUInt32();
+          case 8: {
+            // equipmentUniqueId
+            equipmentUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 80) {
               break;
             }
           }
-          case 32: {
-            // equipmentUniqueId
-            equipmentUniqueId = input.readUInt32();
+          case 80: {
+            // baseAvatarId
+            baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class DressAvatarCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
+        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
+        output.writeUInt32(FieldNames.baseAvatarId, baseAvatarId);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class DressAvatarCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 118022725:
-          case -1756826157: {
-            if (input.isAtField(FieldNames.baseAvatarId)) {
+          case -1867136902:
+          case 760467160: {
+            if (input.isAtField(FieldNames.equipmentUniqueId)) {
               if (!input.trySkipNullValue()) {
-                baseAvatarId = input.readUInt32();
+                equipmentUniqueId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class DressAvatarCsReqOuterClass {
             }
             break;
           }
-          case -1867136902:
-          case 760467160: {
-            if (input.isAtField(FieldNames.equipmentUniqueId)) {
+          case 118022725:
+          case -1756826157: {
+            if (input.isAtField(FieldNames.baseAvatarId)) {
               if (!input.trySkipNullValue()) {
-                equipmentUniqueId = input.readUInt32();
+                baseAvatarId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class DressAvatarCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName baseAvatarId = FieldName.forField("baseAvatarId", "base_avatar_id");
-
       static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
+
+      static final FieldName baseAvatarId = FieldName.forField("baseAvatarId", "base_avatar_id");
     }
   }
 }

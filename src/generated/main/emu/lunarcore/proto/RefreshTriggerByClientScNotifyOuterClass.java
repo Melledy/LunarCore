@@ -21,17 +21,17 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 trigger_entity_id = 4;</code>
+     * <code>optional uint32 trigger_entity_id = 7;</code>
      */
     private int triggerEntityId;
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      */
     private final Utf8String triggerName = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 trigger_target_id_list = 15;</code>
+     * <code>repeated uint32 trigger_target_id_list = 5;</code>
      */
     private final RepeatedInt triggerTargetIdList = RepeatedInt.newEmptyInstance();
 
@@ -46,7 +46,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 4;</code>
+     * <code>optional uint32 trigger_entity_id = 7;</code>
      * @return whether the triggerEntityId field is set
      */
     public boolean hasTriggerEntityId() {
@@ -54,7 +54,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 4;</code>
+     * <code>optional uint32 trigger_entity_id = 7;</code>
      * @return this
      */
     public RefreshTriggerByClientScNotify clearTriggerEntityId() {
@@ -64,7 +64,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 4;</code>
+     * <code>optional uint32 trigger_entity_id = 7;</code>
      * @return the triggerEntityId
      */
     public int getTriggerEntityId() {
@@ -72,7 +72,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 4;</code>
+     * <code>optional uint32 trigger_entity_id = 7;</code>
      * @param value the triggerEntityId to set
      * @return this
      */
@@ -83,7 +83,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      * @return whether the triggerName field is set
      */
     public boolean hasTriggerName() {
@@ -91,7 +91,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      * @return this
      */
     public RefreshTriggerByClientScNotify clearTriggerName() {
@@ -101,7 +101,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      * @return the triggerName
      */
     public String getTriggerName() {
@@ -109,7 +109,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      * @return internal {@code Utf8String} representation of triggerName for reading
      */
     public Utf8String getTriggerNameBytes() {
@@ -117,7 +117,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      * @return internal {@code Utf8String} representation of triggerName for modifications
      */
     public Utf8String getMutableTriggerNameBytes() {
@@ -126,7 +126,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      * @param value the triggerName to set
      * @return this
      */
@@ -137,7 +137,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 14;</code>
+     * <code>optional string trigger_name = 1;</code>
      * @param value the triggerName to set
      * @return this
      */
@@ -148,7 +148,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 trigger_target_id_list = 15;</code>
+     * <code>repeated uint32 trigger_target_id_list = 5;</code>
      * @return whether the triggerTargetIdList field is set
      */
     public boolean hasTriggerTargetIdList() {
@@ -156,7 +156,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 trigger_target_id_list = 15;</code>
+     * <code>repeated uint32 trigger_target_id_list = 5;</code>
      * @return this
      */
     public RefreshTriggerByClientScNotify clearTriggerTargetIdList() {
@@ -166,7 +166,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 trigger_target_id_list = 15;</code>
+     * <code>repeated uint32 trigger_target_id_list = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -180,7 +180,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 trigger_target_id_list = 15;</code>
+     * <code>repeated uint32 trigger_target_id_list = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -194,7 +194,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 trigger_target_id_list = 15;</code>
+     * <code>repeated uint32 trigger_target_id_list = 5;</code>
      * @param value the triggerTargetIdList to add
      * @return this
      */
@@ -205,7 +205,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 trigger_target_id_list = 15;</code>
+     * <code>repeated uint32 trigger_target_id_list = 5;</code>
      * @param values the triggerTargetIdList to add
      * @return this
      */
@@ -288,16 +288,16 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(triggerEntityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 10);
         output.writeStringNoTag(triggerName);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < triggerTargetIdList.length(); i++) {
-          output.writeRawByte((byte) 120);
+          output.writeRawByte((byte) 40);
           output.writeUInt32NoTag(triggerTargetIdList.array()[i]);
         }
       }
@@ -325,25 +325,25 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 56: {
             // triggerEntityId
             triggerEntityId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 10) {
               break;
             }
           }
-          case 114: {
+          case 10: {
             // triggerName
             input.readString(triggerName);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 42) {
               break;
             }
           }
-          case 122: {
+          case 42: {
             // triggerTargetIdList [packed=true]
             input.readPackedUInt32(triggerTargetIdList, tag);
             bitField0_ |= 0x00000004;
@@ -362,7 +362,7 @@ public final class RefreshTriggerByClientScNotifyOuterClass {
             tag = input.readTag();
             break;
           }
-          case 120: {
+          case 40: {
             // triggerTargetIdList [packed=false]
             tag = input.readRepeatedUInt32(triggerTargetIdList, tag);
             bitField0_ |= 0x00000004;

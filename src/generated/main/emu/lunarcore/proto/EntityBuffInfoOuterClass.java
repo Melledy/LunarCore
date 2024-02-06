@@ -20,12 +20,12 @@ public final class EntityBuffInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 11;</code>
      */
     private int entityId;
 
     /**
-     * <code>repeated .BuffInfo buff_list = 6;</code>
+     * <code>repeated .BuffInfo buff_list = 8;</code>
      */
     private final RepeatedMessage<BuffInfoOuterClass.BuffInfo> buffList = RepeatedMessage.newEmptyInstance(BuffInfoOuterClass.BuffInfo.getFactory());
 
@@ -40,7 +40,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 11;</code>
      * @return whether the entityId field is set
      */
     public boolean hasEntityId() {
@@ -48,7 +48,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 11;</code>
      * @return this
      */
     public EntityBuffInfo clearEntityId() {
@@ -58,7 +58,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 11;</code>
      * @return the entityId
      */
     public int getEntityId() {
@@ -66,7 +66,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 11;</code>
      * @param value the entityId to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .BuffInfo buff_list = 6;</code>
+     * <code>repeated .BuffInfo buff_list = 8;</code>
      * @return whether the buffList field is set
      */
     public boolean hasBuffList() {
@@ -85,7 +85,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .BuffInfo buff_list = 6;</code>
+     * <code>repeated .BuffInfo buff_list = 8;</code>
      * @return this
      */
     public EntityBuffInfo clearBuffList() {
@@ -95,7 +95,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .BuffInfo buff_list = 6;</code>
+     * <code>repeated .BuffInfo buff_list = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .BuffInfo buff_list = 6;</code>
+     * <code>repeated .BuffInfo buff_list = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .BuffInfo buff_list = 6;</code>
+     * <code>repeated .BuffInfo buff_list = 8;</code>
      * @param value the buffList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class EntityBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .BuffInfo buff_list = 6;</code>
+     * <code>repeated .BuffInfo buff_list = 8;</code>
      * @param values the buffList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class EntityBuffInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(entityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < buffList.length(); i++) {
-          output.writeRawByte((byte) 50);
+          output.writeRawByte((byte) 66);
           output.writeMessageNoTag(buffList.get(i));
         }
       }
@@ -240,16 +240,16 @@ public final class EntityBuffInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 88: {
             // entityId
             entityId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 66) {
               break;
             }
           }
-          case 50: {
+          case 66: {
             // buffList
             tag = input.readRepeatedMessage(buffList, tag);
             bitField0_ |= 0x00000002;

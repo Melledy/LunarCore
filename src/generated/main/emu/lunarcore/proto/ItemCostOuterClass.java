@@ -19,19 +19,19 @@ public final class ItemCostOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 2;</code>
-     */
-    private int equipmentUniqueId;
-
-    /**
-     * <code>optional uint32 relic_unique_id = 13;</code>
+     * <code>optional uint32 relic_unique_id = 3;</code>
      */
     private int relicUniqueId;
 
     /**
-     * <code>optional .PileItem pile_item = 6;</code>
+     * <code>optional uint32 equipment_unique_id = 13;</code>
      */
-    private final PileItem pileItem = PileItem.newInstance();
+    private int equipmentUniqueId;
+
+    /**
+     * <code>optional .PileItem pile_item = 12;</code>
+     */
+    private final PileItemOuterClass.PileItem pileItem = PileItemOuterClass.PileItem.newInstance();
 
     private ItemCost() {
     }
@@ -44,62 +44,25 @@ public final class ItemCostOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 2;</code>
-     * @return whether the equipmentUniqueId field is set
+     * <code>optional uint32 relic_unique_id = 3;</code>
+     * @return whether the relicUniqueId field is set
      */
-    public boolean hasEquipmentUniqueId() {
+    public boolean hasRelicUniqueId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 2;</code>
-     * @return this
-     */
-    public ItemCost clearEquipmentUniqueId() {
-      bitField0_ &= ~0x00000001;
-      equipmentUniqueId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 2;</code>
-     * @return the equipmentUniqueId
-     */
-    public int getEquipmentUniqueId() {
-      return equipmentUniqueId;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 2;</code>
-     * @param value the equipmentUniqueId to set
-     * @return this
-     */
-    public ItemCost setEquipmentUniqueId(final int value) {
-      bitField0_ |= 0x00000001;
-      equipmentUniqueId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 relic_unique_id = 13;</code>
-     * @return whether the relicUniqueId field is set
-     */
-    public boolean hasRelicUniqueId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 relic_unique_id = 13;</code>
+     * <code>optional uint32 relic_unique_id = 3;</code>
      * @return this
      */
     public ItemCost clearRelicUniqueId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       relicUniqueId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 13;</code>
+     * <code>optional uint32 relic_unique_id = 3;</code>
      * @return the relicUniqueId
      */
     public int getRelicUniqueId() {
@@ -107,18 +70,55 @@ public final class ItemCostOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 13;</code>
+     * <code>optional uint32 relic_unique_id = 3;</code>
      * @param value the relicUniqueId to set
      * @return this
      */
     public ItemCost setRelicUniqueId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       relicUniqueId = value;
       return this;
     }
 
     /**
-     * <code>optional .PileItem pile_item = 6;</code>
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @return whether the equipmentUniqueId field is set
+     */
+    public boolean hasEquipmentUniqueId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @return this
+     */
+    public ItemCost clearEquipmentUniqueId() {
+      bitField0_ &= ~0x00000002;
+      equipmentUniqueId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @return the equipmentUniqueId
+     */
+    public int getEquipmentUniqueId() {
+      return equipmentUniqueId;
+    }
+
+    /**
+     * <code>optional uint32 equipment_unique_id = 13;</code>
+     * @param value the equipmentUniqueId to set
+     * @return this
+     */
+    public ItemCost setEquipmentUniqueId(final int value) {
+      bitField0_ |= 0x00000002;
+      equipmentUniqueId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .PileItem pile_item = 12;</code>
      * @return whether the pileItem field is set
      */
     public boolean hasPileItem() {
@@ -126,7 +126,7 @@ public final class ItemCostOuterClass {
     }
 
     /**
-     * <code>optional .PileItem pile_item = 6;</code>
+     * <code>optional .PileItem pile_item = 12;</code>
      * @return this
      */
     public ItemCost clearPileItem() {
@@ -136,7 +136,7 @@ public final class ItemCostOuterClass {
     }
 
     /**
-     * <code>optional .PileItem pile_item = 6;</code>
+     * <code>optional .PileItem pile_item = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -145,12 +145,12 @@ public final class ItemCostOuterClass {
      *
      * @return internal storage object for reading
      */
-    public PileItem getPileItem() {
+    public PileItemOuterClass.PileItem getPileItem() {
       return pileItem;
     }
 
     /**
-     * <code>optional .PileItem pile_item = 6;</code>
+     * <code>optional .PileItem pile_item = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -158,17 +158,17 @@ public final class ItemCostOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public PileItem getMutablePileItem() {
+    public PileItemOuterClass.PileItem getMutablePileItem() {
       bitField0_ |= 0x00000004;
       return pileItem;
     }
 
     /**
-     * <code>optional .PileItem pile_item = 6;</code>
+     * <code>optional .PileItem pile_item = 12;</code>
      * @param value the pileItem to set
      * @return this
      */
-    public ItemCost setPileItem(final PileItem value) {
+    public ItemCost setPileItem(final PileItemOuterClass.PileItem value) {
       bitField0_ |= 0x00000004;
       pileItem.copyFrom(value);
       return this;
@@ -179,8 +179,8 @@ public final class ItemCostOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        equipmentUniqueId = other.equipmentUniqueId;
         relicUniqueId = other.relicUniqueId;
+        equipmentUniqueId = other.equipmentUniqueId;
         pileItem.copyFrom(other.pileItem);
       }
       return this;
@@ -192,11 +192,11 @@ public final class ItemCostOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasEquipmentUniqueId()) {
-        setEquipmentUniqueId(other.equipmentUniqueId);
-      }
       if (other.hasRelicUniqueId()) {
         setRelicUniqueId(other.relicUniqueId);
+      }
+      if (other.hasEquipmentUniqueId()) {
+        setEquipmentUniqueId(other.equipmentUniqueId);
       }
       if (other.hasPileItem()) {
         getMutablePileItem().mergeFrom(other.pileItem);
@@ -211,8 +211,8 @@ public final class ItemCostOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      equipmentUniqueId = 0;
       relicUniqueId = 0;
+      equipmentUniqueId = 0;
       pileItem.clear();
       return this;
     }
@@ -238,23 +238,23 @@ public final class ItemCostOuterClass {
       }
       ItemCost other = (ItemCost) o;
       return bitField0_ == other.bitField0_
-        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
         && (!hasRelicUniqueId() || relicUniqueId == other.relicUniqueId)
+        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
         && (!hasPileItem() || pileItem.equals(other.pileItem));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(equipmentUniqueId);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(relicUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(relicUniqueId);
+        output.writeUInt32NoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 98);
         output.writeMessageNoTag(pileItem);
       }
     }
@@ -263,10 +263,10 @@ public final class ItemCostOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(relicUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(relicUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(pileItem);
@@ -281,9 +281,9 @@ public final class ItemCostOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // equipmentUniqueId
-            equipmentUniqueId = input.readUInt32();
+          case 24: {
+            // relicUniqueId
+            relicUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 104) {
@@ -291,15 +291,15 @@ public final class ItemCostOuterClass {
             }
           }
           case 104: {
-            // relicUniqueId
-            relicUniqueId = input.readUInt32();
+            // equipmentUniqueId
+            equipmentUniqueId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 98) {
               break;
             }
           }
-          case 50: {
+          case 98: {
             // pileItem
             input.readMessage(pileItem);
             bitField0_ |= 0x00000004;
@@ -326,10 +326,10 @@ public final class ItemCostOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
+        output.writeUInt32(FieldNames.relicUniqueId, relicUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.relicUniqueId, relicUniqueId);
+        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.pileItem, pileItem);
@@ -344,11 +344,11 @@ public final class ItemCostOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1867136902:
-          case 760467160: {
-            if (input.isAtField(FieldNames.equipmentUniqueId)) {
+          case -1966200481:
+          case 49648253: {
+            if (input.isAtField(FieldNames.relicUniqueId)) {
               if (!input.trySkipNullValue()) {
-                equipmentUniqueId = input.readUInt32();
+                relicUniqueId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -356,11 +356,11 @@ public final class ItemCostOuterClass {
             }
             break;
           }
-          case -1966200481:
-          case 49648253: {
-            if (input.isAtField(FieldNames.relicUniqueId)) {
+          case -1867136902:
+          case 760467160: {
+            if (input.isAtField(FieldNames.equipmentUniqueId)) {
               if (!input.trySkipNullValue()) {
-                relicUniqueId = input.readUInt32();
+                equipmentUniqueId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -432,337 +432,11 @@ public final class ItemCostOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
-
       static final FieldName relicUniqueId = FieldName.forField("relicUniqueId", "relic_unique_id");
 
+      static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
+
       static final FieldName pileItem = FieldName.forField("pileItem", "pile_item");
-    }
-  }
-
-  /**
-   * Protobuf type {@code PileItem}
-   */
-  public static final class PileItem extends ProtoMessage<PileItem> implements Cloneable {
-    private static final long serialVersionUID = 0L;
-
-    /**
-     * <code>optional uint32 item_id = 10;</code>
-     */
-    private int itemId;
-
-    /**
-     * <code>optional uint32 item_num = 12;</code>
-     */
-    private int itemNum;
-
-    private PileItem() {
-    }
-
-    /**
-     * @return a new empty instance of {@code PileItem}
-     */
-    public static PileItem newInstance() {
-      return new PileItem();
-    }
-
-    /**
-     * <code>optional uint32 item_id = 10;</code>
-     * @return whether the itemId field is set
-     */
-    public boolean hasItemId() {
-      return (bitField0_ & 0x00000001) != 0;
-    }
-
-    /**
-     * <code>optional uint32 item_id = 10;</code>
-     * @return this
-     */
-    public PileItem clearItemId() {
-      bitField0_ &= ~0x00000001;
-      itemId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 item_id = 10;</code>
-     * @return the itemId
-     */
-    public int getItemId() {
-      return itemId;
-    }
-
-    /**
-     * <code>optional uint32 item_id = 10;</code>
-     * @param value the itemId to set
-     * @return this
-     */
-    public PileItem setItemId(final int value) {
-      bitField0_ |= 0x00000001;
-      itemId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 item_num = 12;</code>
-     * @return whether the itemNum field is set
-     */
-    public boolean hasItemNum() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 item_num = 12;</code>
-     * @return this
-     */
-    public PileItem clearItemNum() {
-      bitField0_ &= ~0x00000002;
-      itemNum = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 item_num = 12;</code>
-     * @return the itemNum
-     */
-    public int getItemNum() {
-      return itemNum;
-    }
-
-    /**
-     * <code>optional uint32 item_num = 12;</code>
-     * @param value the itemNum to set
-     * @return this
-     */
-    public PileItem setItemNum(final int value) {
-      bitField0_ |= 0x00000002;
-      itemNum = value;
-      return this;
-    }
-
-    @Override
-    public PileItem copyFrom(final PileItem other) {
-      cachedSize = other.cachedSize;
-      if ((bitField0_ | other.bitField0_) != 0) {
-        bitField0_ = other.bitField0_;
-        itemId = other.itemId;
-        itemNum = other.itemNum;
-      }
-      return this;
-    }
-
-    @Override
-    public PileItem mergeFrom(final PileItem other) {
-      if (other.isEmpty()) {
-        return this;
-      }
-      cachedSize = -1;
-      if (other.hasItemId()) {
-        setItemId(other.itemId);
-      }
-      if (other.hasItemNum()) {
-        setItemNum(other.itemNum);
-      }
-      return this;
-    }
-
-    @Override
-    public PileItem clear() {
-      if (isEmpty()) {
-        return this;
-      }
-      cachedSize = -1;
-      bitField0_ = 0;
-      itemId = 0;
-      itemNum = 0;
-      return this;
-    }
-
-    @Override
-    public PileItem clearQuick() {
-      if (isEmpty()) {
-        return this;
-      }
-      cachedSize = -1;
-      bitField0_ = 0;
-      return this;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-      if (o == this) {
-        return true;
-      }
-      if (!(o instanceof PileItem)) {
-        return false;
-      }
-      PileItem other = (PileItem) o;
-      return bitField0_ == other.bitField0_
-        && (!hasItemId() || itemId == other.itemId)
-        && (!hasItemNum() || itemNum == other.itemNum);
-    }
-
-    @Override
-    public void writeTo(final ProtoSink output) throws IOException {
-      if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(itemId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(itemNum);
-      }
-    }
-
-    @Override
-    protected int computeSerializedSize() {
-      int size = 0;
-      if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(itemId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(itemNum);
-      }
-      return size;
-    }
-
-    @Override
-    @SuppressWarnings("fallthrough")
-    public PileItem mergeFrom(final ProtoSource input) throws IOException {
-      // Enabled Fall-Through Optimization (QuickBuffers)
-      int tag = input.readTag();
-      while (true) {
-        switch (tag) {
-          case 80: {
-            // itemId
-            itemId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
-            // itemNum
-            itemNum = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 0) {
-              break;
-            }
-          }
-          case 0: {
-            return this;
-          }
-          default: {
-            if (!input.skipField(tag)) {
-              return this;
-            }
-            tag = input.readTag();
-            break;
-          }
-        }
-      }
-    }
-
-    @Override
-    public void writeTo(final JsonSink output) throws IOException {
-      output.beginObject();
-      if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.itemId, itemId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.itemNum, itemNum);
-      }
-      output.endObject();
-    }
-
-    @Override
-    public PileItem mergeFrom(final JsonSource input) throws IOException {
-      if (!input.beginObject()) {
-        return this;
-      }
-      while (!input.isAtEnd()) {
-        switch (input.readFieldHash()) {
-          case -1178662002:
-          case 2116204999: {
-            if (input.isAtField(FieldNames.itemId)) {
-              if (!input.trySkipNullValue()) {
-                itemId = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 2116189043:
-          case 1177850970: {
-            if (input.isAtField(FieldNames.itemNum)) {
-              if (!input.trySkipNullValue()) {
-                itemNum = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          default: {
-            input.skipUnknownField();
-            break;
-          }
-        }
-      }
-      input.endObject();
-      return this;
-    }
-
-    @Override
-    public PileItem clone() {
-      return new PileItem().copyFrom(this);
-    }
-
-    @Override
-    public boolean isEmpty() {
-      return ((bitField0_) == 0);
-    }
-
-    public static PileItem parseFrom(final byte[] data) throws InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new PileItem(), data).checkInitialized();
-    }
-
-    public static PileItem parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new PileItem(), input).checkInitialized();
-    }
-
-    public static PileItem parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new PileItem(), input).checkInitialized();
-    }
-
-    /**
-     * @return factory for creating PileItem messages
-     */
-    public static MessageFactory<PileItem> getFactory() {
-      return PileItemFactory.INSTANCE;
-    }
-
-    private enum PileItemFactory implements MessageFactory<PileItem> {
-      INSTANCE;
-
-      @Override
-      public PileItem create() {
-        return PileItem.newInstance();
-      }
-    }
-
-    /**
-     * Contains name constants used for serializing JSON
-     */
-    static class FieldNames {
-      static final FieldName itemId = FieldName.forField("itemId", "item_id");
-
-      static final FieldName itemNum = FieldName.forField("itemNum", "item_num");
     }
   }
 }

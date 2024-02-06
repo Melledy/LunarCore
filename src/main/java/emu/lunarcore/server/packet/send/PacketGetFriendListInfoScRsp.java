@@ -3,11 +3,11 @@ package emu.lunarcore.server.packet.send;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.friends.FriendList;
+import emu.lunarcore.proto.AssistSimpleInfoOuterClass.AssistSimpleInfo;
 import emu.lunarcore.proto.FriendListInfoOuterClass.FriendListInfo;
 import emu.lunarcore.proto.FriendOnlineStatusOuterClass.FriendOnlineStatus;
 import emu.lunarcore.proto.GetFriendListInfoScRspOuterClass.GetFriendListInfoScRsp;
 import emu.lunarcore.proto.PlatformTypeOuterClass.PlatformType;
-import emu.lunarcore.proto.SimpleAvatarInfoOuterClass.SimpleAvatarInfo;
 import emu.lunarcore.proto.SimpleInfoOuterClass.SimpleInfo;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
@@ -29,7 +29,7 @@ public class PacketGetFriendListInfoScRsp extends BasePacket {
                 .setChatBubbleId(serverFriendInfo.getChatBubbleId())
                 .setOnlineStatus(FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE)
                 .setPlatformType(PlatformType.PC)
-                .setSimpleAvatarInfo(SimpleAvatarInfo.newInstance().setAvatarId(serverFriendInfo.getDisplayAvatarId()).setLevel(serverFriendInfo.getDisplayAvatarLevel()))
+                .addAssistSimpleInfo(AssistSimpleInfo.newInstance().setAvatarId(serverFriendInfo.getDisplayAvatarId()).setLevel(serverFriendInfo.getDisplayAvatarLevel()))
                 .setHeadIcon(serverFriendInfo.getHeadIcon());
 
         var data = GetFriendListInfoScRsp.newInstance()

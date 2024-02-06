@@ -19,12 +19,12 @@ public final class LockEquipmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 15;</code>
+     * <code>optional uint32 equipment_unique_id = 4;</code>
      */
     private int equipmentUniqueId;
 
     /**
-     * <code>optional bool is_protected = 8;</code>
+     * <code>optional bool is_protected = 11;</code>
      */
     private boolean isProtected;
 
@@ -39,7 +39,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 15;</code>
+     * <code>optional uint32 equipment_unique_id = 4;</code>
      * @return whether the equipmentUniqueId field is set
      */
     public boolean hasEquipmentUniqueId() {
@@ -47,7 +47,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 15;</code>
+     * <code>optional uint32 equipment_unique_id = 4;</code>
      * @return this
      */
     public LockEquipmentCsReq clearEquipmentUniqueId() {
@@ -57,7 +57,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 15;</code>
+     * <code>optional uint32 equipment_unique_id = 4;</code>
      * @return the equipmentUniqueId
      */
     public int getEquipmentUniqueId() {
@@ -65,7 +65,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 15;</code>
+     * <code>optional uint32 equipment_unique_id = 4;</code>
      * @param value the equipmentUniqueId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 8;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @return whether the isProtected field is set
      */
     public boolean hasIsProtected() {
@@ -84,7 +84,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 8;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @return this
      */
     public LockEquipmentCsReq clearIsProtected() {
@@ -94,7 +94,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 8;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @return the isProtected
      */
     public boolean getIsProtected() {
@@ -102,7 +102,7 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 8;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @param value the isProtected to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class LockEquipmentCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 88);
         output.writeBoolNoTag(isProtected);
       }
     }
@@ -205,16 +205,16 @@ public final class LockEquipmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 32: {
             // equipmentUniqueId
             equipmentUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 88) {
               break;
             }
           }
-          case 64: {
+          case 88: {
             // isProtected
             isProtected = input.readBool();
             bitField0_ |= 0x00000002;

@@ -19,12 +19,12 @@ public final class RelicParamOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 8;</code>
      */
     private int slot;
 
     /**
-     * <code>optional uint32 relic_unique_id = 15;</code>
+     * <code>optional uint32 relic_unique_id = 13;</code>
      */
     private int relicUniqueId;
 
@@ -39,7 +39,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 8;</code>
      * @return whether the slot field is set
      */
     public boolean hasSlot() {
@@ -47,7 +47,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 8;</code>
      * @return this
      */
     public RelicParam clearSlot() {
@@ -57,7 +57,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 8;</code>
      * @return the slot
      */
     public int getSlot() {
@@ -65,7 +65,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 3;</code>
+     * <code>optional uint32 slot = 8;</code>
      * @param value the slot to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 15;</code>
+     * <code>optional uint32 relic_unique_id = 13;</code>
      * @return whether the relicUniqueId field is set
      */
     public boolean hasRelicUniqueId() {
@@ -84,7 +84,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 15;</code>
+     * <code>optional uint32 relic_unique_id = 13;</code>
      * @return this
      */
     public RelicParam clearRelicUniqueId() {
@@ -94,7 +94,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 15;</code>
+     * <code>optional uint32 relic_unique_id = 13;</code>
      * @return the relicUniqueId
      */
     public int getRelicUniqueId() {
@@ -102,7 +102,7 @@ public final class RelicParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 15;</code>
+     * <code>optional uint32 relic_unique_id = 13;</code>
      * @param value the relicUniqueId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RelicParamOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(relicUniqueId);
       }
     }
@@ -205,16 +205,16 @@ public final class RelicParamOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 64: {
             // slot
             slot = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 104) {
               break;
             }
           }
-          case 120: {
+          case 104: {
             // relicUniqueId
             relicUniqueId = input.readUInt32();
             bitField0_ |= 0x00000002;

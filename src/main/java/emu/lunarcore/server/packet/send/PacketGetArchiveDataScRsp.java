@@ -17,9 +17,11 @@ public class PacketGetArchiveDataScRsp extends BasePacket {
         var data = GetArchiveDataScRsp.newInstance();
         var archiveData = data.getMutableArchiveData();
         
+        /*
         for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
             archiveData.addArchiveAvatarIdList(avatarExcel.getAvatarID());
         }
+        */
 
         for (var monsterExcel : GameData.getMonsterExcelMap().values()) {
             MonsterArchive monsterinfo = MonsterArchive.newInstance()
@@ -37,9 +39,11 @@ public class PacketGetArchiveDataScRsp extends BasePacket {
             archiveData.addRelicList(relicInfo);
         }
         
+        /*
         for (var equipmentExcel : GameData.getEquipExcelMap().values()) {
             archiveData.addAllArchiveEquipmentIdList(equipmentExcel.getId());
         }
+        */
         
         this.setData(data);
     }

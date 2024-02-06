@@ -26,7 +26,7 @@ public final class BoardDataSyncOuterClass {
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 9;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 5;</code>
      */
     private final RepeatedMessage<HeadIconOuterClass.HeadIcon> unlockedHeadIconList = RepeatedMessage.newEmptyInstance(HeadIconOuterClass.HeadIcon.getFactory());
 
@@ -106,7 +106,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 9;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 5;</code>
      * @return whether the unlockedHeadIconList field is set
      */
     public boolean hasUnlockedHeadIconList() {
@@ -114,7 +114,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 9;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 5;</code>
      * @return this
      */
     public BoardDataSync clearUnlockedHeadIconList() {
@@ -124,7 +124,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 9;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -138,7 +138,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 9;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -152,7 +152,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 9;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 5;</code>
      * @param value the unlockedHeadIconList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 9;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 5;</code>
      * @param values the unlockedHeadIconList to add
      * @return this
      */
@@ -245,7 +245,7 @@ public final class BoardDataSyncOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < unlockedHeadIconList.length(); i++) {
-          output.writeRawByte((byte) 74);
+          output.writeRawByte((byte) 42);
           output.writeMessageNoTag(unlockedHeadIconList.get(i));
         }
       }
@@ -275,11 +275,11 @@ public final class BoardDataSyncOuterClass {
             input.readString(signature);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 42) {
               break;
             }
           }
-          case 74: {
+          case 42: {
             // unlockedHeadIconList
             tag = input.readRepeatedMessage(unlockedHeadIconList, tag);
             bitField0_ |= 0x00000002;

@@ -20,7 +20,7 @@ public final class DelMailCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 id_list = 13;</code>
+     * <code>repeated uint32 id_list = 8;</code>
      */
     private final RepeatedInt idList = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class DelMailCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 id_list = 13;</code>
+     * <code>repeated uint32 id_list = 8;</code>
      * @return whether the idList field is set
      */
     public boolean hasIdList() {
@@ -43,7 +43,7 @@ public final class DelMailCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 id_list = 13;</code>
+     * <code>repeated uint32 id_list = 8;</code>
      * @return this
      */
     public DelMailCsReq clearIdList() {
@@ -53,7 +53,7 @@ public final class DelMailCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 id_list = 13;</code>
+     * <code>repeated uint32 id_list = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class DelMailCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 id_list = 13;</code>
+     * <code>repeated uint32 id_list = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class DelMailCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 id_list = 13;</code>
+     * <code>repeated uint32 id_list = 8;</code>
      * @param value the idList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class DelMailCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 id_list = 13;</code>
+     * <code>repeated uint32 id_list = 8;</code>
      * @param values the idList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class DelMailCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < idList.length(); i++) {
-          output.writeRawByte((byte) 104);
+          output.writeRawByte((byte) 64);
           output.writeUInt32NoTag(idList.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class DelMailCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 106: {
+          case 66: {
             // idList [packed=true]
             input.readPackedUInt32(idList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class DelMailCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 104: {
+          case 64: {
             // idList [packed=false]
             tag = input.readRepeatedUInt32(idList, tag);
             bitField0_ |= 0x00000001;

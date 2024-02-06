@@ -11,82 +11,82 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class CommonRogueUpdateScNotifyOuterClass {
+public final class InteractChargerCsReqOuterClass {
   /**
-   * Protobuf type {@code CommonRogueUpdateScNotify}
+   * Protobuf type {@code InteractChargerCsReq}
    */
-  public static final class CommonRogueUpdateScNotify extends ProtoMessage<CommonRogueUpdateScNotify> implements Cloneable {
+  public static final class InteractChargerCsReq extends ProtoMessage<InteractChargerCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
      * <pre>
-     * CJFJFKJICGK NALLCHLAJPN = 10;
+     *  obf: GLOGIAFNKHA
      * </pre>
      *
-     * <code>optional .RogueUpdate rogue_update = 15;</code>
+     * <code>optional .ChargerInfo charger_info = 8;</code>
      */
-    private final RogueUpdateOuterClass.RogueUpdate rogueUpdate = RogueUpdateOuterClass.RogueUpdate.newInstance();
+    private final ChargerInfoOuterClass.ChargerInfo chargerInfo = ChargerInfoOuterClass.ChargerInfo.newInstance();
 
-    private CommonRogueUpdateScNotify() {
+    private InteractChargerCsReq() {
     }
 
     /**
-     * @return a new empty instance of {@code CommonRogueUpdateScNotify}
+     * @return a new empty instance of {@code InteractChargerCsReq}
      */
-    public static CommonRogueUpdateScNotify newInstance() {
-      return new CommonRogueUpdateScNotify();
+    public static InteractChargerCsReq newInstance() {
+      return new InteractChargerCsReq();
     }
 
     /**
      * <pre>
-     * CJFJFKJICGK NALLCHLAJPN = 10;
+     *  obf: GLOGIAFNKHA
      * </pre>
      *
-     * <code>optional .RogueUpdate rogue_update = 15;</code>
-     * @return whether the rogueUpdate field is set
+     * <code>optional .ChargerInfo charger_info = 8;</code>
+     * @return whether the chargerInfo field is set
      */
-    public boolean hasRogueUpdate() {
+    public boolean hasChargerInfo() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
      * <pre>
-     * CJFJFKJICGK NALLCHLAJPN = 10;
+     *  obf: GLOGIAFNKHA
      * </pre>
      *
-     * <code>optional .RogueUpdate rogue_update = 15;</code>
+     * <code>optional .ChargerInfo charger_info = 8;</code>
      * @return this
      */
-    public CommonRogueUpdateScNotify clearRogueUpdate() {
+    public InteractChargerCsReq clearChargerInfo() {
       bitField0_ &= ~0x00000001;
-      rogueUpdate.clear();
+      chargerInfo.clear();
       return this;
     }
 
     /**
      * <pre>
-     * CJFJFKJICGK NALLCHLAJPN = 10;
+     *  obf: GLOGIAFNKHA
      * </pre>
      *
-     * <code>optional .RogueUpdate rogue_update = 15;</code>
+     * <code>optional .ChargerInfo charger_info = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableRogueUpdate()} if you want to modify it.
+     * Use {@link #getMutableChargerInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RogueUpdateOuterClass.RogueUpdate getRogueUpdate() {
-      return rogueUpdate;
+    public ChargerInfoOuterClass.ChargerInfo getChargerInfo() {
+      return chargerInfo;
     }
 
     /**
      * <pre>
-     * CJFJFKJICGK NALLCHLAJPN = 10;
+     *  obf: GLOGIAFNKHA
      * </pre>
      *
-     * <code>optional .RogueUpdate rogue_update = 15;</code>
+     * <code>optional .ChargerInfo charger_info = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -94,67 +94,67 @@ public final class CommonRogueUpdateScNotifyOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RogueUpdateOuterClass.RogueUpdate getMutableRogueUpdate() {
+    public ChargerInfoOuterClass.ChargerInfo getMutableChargerInfo() {
       bitField0_ |= 0x00000001;
-      return rogueUpdate;
+      return chargerInfo;
     }
 
     /**
      * <pre>
-     * CJFJFKJICGK NALLCHLAJPN = 10;
+     *  obf: GLOGIAFNKHA
      * </pre>
      *
-     * <code>optional .RogueUpdate rogue_update = 15;</code>
-     * @param value the rogueUpdate to set
+     * <code>optional .ChargerInfo charger_info = 8;</code>
+     * @param value the chargerInfo to set
      * @return this
      */
-    public CommonRogueUpdateScNotify setRogueUpdate(final RogueUpdateOuterClass.RogueUpdate value) {
+    public InteractChargerCsReq setChargerInfo(final ChargerInfoOuterClass.ChargerInfo value) {
       bitField0_ |= 0x00000001;
-      rogueUpdate.copyFrom(value);
+      chargerInfo.copyFrom(value);
       return this;
     }
 
     @Override
-    public CommonRogueUpdateScNotify copyFrom(final CommonRogueUpdateScNotify other) {
+    public InteractChargerCsReq copyFrom(final InteractChargerCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        rogueUpdate.copyFrom(other.rogueUpdate);
+        chargerInfo.copyFrom(other.chargerInfo);
       }
       return this;
     }
 
     @Override
-    public CommonRogueUpdateScNotify mergeFrom(final CommonRogueUpdateScNotify other) {
+    public InteractChargerCsReq mergeFrom(final InteractChargerCsReq other) {
       if (other.isEmpty()) {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRogueUpdate()) {
-        getMutableRogueUpdate().mergeFrom(other.rogueUpdate);
+      if (other.hasChargerInfo()) {
+        getMutableChargerInfo().mergeFrom(other.chargerInfo);
       }
       return this;
     }
 
     @Override
-    public CommonRogueUpdateScNotify clear() {
+    public InteractChargerCsReq clear() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueUpdate.clear();
+      chargerInfo.clear();
       return this;
     }
 
     @Override
-    public CommonRogueUpdateScNotify clearQuick() {
+    public InteractChargerCsReq clearQuick() {
       if (isEmpty()) {
         return this;
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueUpdate.clearQuick();
+      chargerInfo.clearQuick();
       return this;
     }
 
@@ -163,19 +163,19 @@ public final class CommonRogueUpdateScNotifyOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof CommonRogueUpdateScNotify)) {
+      if (!(o instanceof InteractChargerCsReq)) {
         return false;
       }
-      CommonRogueUpdateScNotify other = (CommonRogueUpdateScNotify) o;
+      InteractChargerCsReq other = (InteractChargerCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasRogueUpdate() || rogueUpdate.equals(other.rogueUpdate));
+        && (!hasChargerInfo() || chargerInfo.equals(other.chargerInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 122);
-        output.writeMessageNoTag(rogueUpdate);
+        output.writeRawByte((byte) 66);
+        output.writeMessageNoTag(chargerInfo);
       }
     }
 
@@ -183,21 +183,21 @@ public final class CommonRogueUpdateScNotifyOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueUpdate);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(chargerInfo);
       }
       return size;
     }
 
     @Override
     @SuppressWarnings("fallthrough")
-    public CommonRogueUpdateScNotify mergeFrom(final ProtoSource input) throws IOException {
+    public InteractChargerCsReq mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 122: {
-            // rogueUpdate
-            input.readMessage(rogueUpdate);
+          case 66: {
+            // chargerInfo
+            input.readMessage(chargerInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
@@ -222,23 +222,23 @@ public final class CommonRogueUpdateScNotifyOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.rogueUpdate, rogueUpdate);
+        output.writeMessage(FieldNames.chargerInfo, chargerInfo);
       }
       output.endObject();
     }
 
     @Override
-    public CommonRogueUpdateScNotify mergeFrom(final JsonSource input) throws IOException {
+    public InteractChargerCsReq mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -782477501:
-          case 1952403150: {
-            if (input.isAtField(FieldNames.rogueUpdate)) {
+          case 1038073356:
+          case 2135678991: {
+            if (input.isAtField(FieldNames.chargerInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rogueUpdate);
+                input.readMessage(chargerInfo);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -257,8 +257,8 @@ public final class CommonRogueUpdateScNotifyOuterClass {
     }
 
     @Override
-    public CommonRogueUpdateScNotify clone() {
-      return new CommonRogueUpdateScNotify().copyFrom(this);
+    public InteractChargerCsReq clone() {
+      return new InteractChargerCsReq().copyFrom(this);
     }
 
     @Override
@@ -266,32 +266,32 @@ public final class CommonRogueUpdateScNotifyOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static CommonRogueUpdateScNotify parseFrom(final byte[] data) throws
+    public static InteractChargerCsReq parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new CommonRogueUpdateScNotify(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new InteractChargerCsReq(), data).checkInitialized();
     }
 
-    public static CommonRogueUpdateScNotify parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new CommonRogueUpdateScNotify(), input).checkInitialized();
+    public static InteractChargerCsReq parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new InteractChargerCsReq(), input).checkInitialized();
     }
 
-    public static CommonRogueUpdateScNotify parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new CommonRogueUpdateScNotify(), input).checkInitialized();
+    public static InteractChargerCsReq parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new InteractChargerCsReq(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating CommonRogueUpdateScNotify messages
+     * @return factory for creating InteractChargerCsReq messages
      */
-    public static MessageFactory<CommonRogueUpdateScNotify> getFactory() {
-      return CommonRogueUpdateScNotifyFactory.INSTANCE;
+    public static MessageFactory<InteractChargerCsReq> getFactory() {
+      return InteractChargerCsReqFactory.INSTANCE;
     }
 
-    private enum CommonRogueUpdateScNotifyFactory implements MessageFactory<CommonRogueUpdateScNotify> {
+    private enum InteractChargerCsReqFactory implements MessageFactory<InteractChargerCsReq> {
       INSTANCE;
 
       @Override
-      public CommonRogueUpdateScNotify create() {
-        return CommonRogueUpdateScNotify.newInstance();
+      public InteractChargerCsReq create() {
+        return InteractChargerCsReq.newInstance();
       }
     }
 
@@ -299,7 +299,7 @@ public final class CommonRogueUpdateScNotifyOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName rogueUpdate = FieldName.forField("rogueUpdate", "rogue_update");
+      static final FieldName chargerInfo = FieldName.forField("chargerInfo", "charger_info");
     }
   }
 }

@@ -20,7 +20,7 @@ public final class GetAvatarDataCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool is_get_all = 5;</code>
+     * <code>optional bool is_get_all = 6;</code>
      */
     private boolean isGetAll;
 
@@ -40,7 +40,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 5;</code>
+     * <code>optional bool is_get_all = 6;</code>
      * @return whether the isGetAll field is set
      */
     public boolean hasIsGetAll() {
@@ -48,7 +48,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 5;</code>
+     * <code>optional bool is_get_all = 6;</code>
      * @return this
      */
     public GetAvatarDataCsReq clearIsGetAll() {
@@ -58,7 +58,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 5;</code>
+     * <code>optional bool is_get_all = 6;</code>
      * @return the isGetAll
      */
     public boolean getIsGetAll() {
@@ -66,7 +66,7 @@ public final class GetAvatarDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_get_all = 5;</code>
+     * <code>optional bool is_get_all = 6;</code>
      * @param value the isGetAll to set
      * @return this
      */
@@ -210,7 +210,7 @@ public final class GetAvatarDataCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 48);
         output.writeBoolNoTag(isGetAll);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -240,7 +240,7 @@ public final class GetAvatarDataCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 48: {
             // isGetAll
             isGetAll = input.readBool();
             bitField0_ |= 0x00000001;

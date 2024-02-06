@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import emu.lunarcore.GameConstants;
+import emu.lunarcore.data.custom.ActivityScheduleData;
 import emu.lunarcore.data.excel.*;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -13,7 +14,7 @@ import lombok.Getter;
 // Game data that is parsed by the server goes here
 public class GameDepot {
     // Activity
-    @Getter private static List<ActivitySchedulingExcel> activityScheduleExcels = new ArrayList<>();
+    @Getter private static List<ActivityScheduleData> activityScheduleExcels = new ArrayList<>();
     
     // Exp
     @Getter private static List<AvatarExpItemExcel> avatarExpExcels = new ArrayList<>();

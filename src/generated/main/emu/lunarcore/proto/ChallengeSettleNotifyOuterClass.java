@@ -19,32 +19,32 @@ public final class ChallengeSettleNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 score_two = 6;</code>
-     */
-    private int scoreTwo;
-
-    /**
-     * <code>optional uint32 challenge_id = 9;</code>
-     */
-    private int challengeId;
-
-    /**
-     * <code>optional uint32 challenge_score = 11;</code>
+     * <code>optional uint32 challenge_score = 9;</code>
      */
     private int challengeScore;
 
     /**
-     * <code>optional uint32 stars = 15;</code>
+     * <code>optional uint32 score_two = 10;</code>
+     */
+    private int scoreTwo;
+
+    /**
+     * <code>optional uint32 stars = 13;</code>
      */
     private int stars;
 
     /**
-     * <code>optional bool is_win = 13;</code>
+     * <code>optional uint32 challenge_id = 14;</code>
+     */
+    private int challengeId;
+
+    /**
+     * <code>optional bool is_win = 15;</code>
      */
     private boolean isWin;
 
     /**
-     * <code>optional .ItemList reward = 8;</code>
+     * <code>optional .ItemList reward = 12;</code>
      */
     private final ItemListOuterClass.ItemList reward = ItemListOuterClass.ItemList.newInstance();
 
@@ -59,99 +59,25 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 score_two = 6;</code>
-     * @return whether the scoreTwo field is set
+     * <code>optional uint32 challenge_score = 9;</code>
+     * @return whether the challengeScore field is set
      */
-    public boolean hasScoreTwo() {
+    public boolean hasChallengeScore() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 score_two = 6;</code>
-     * @return this
-     */
-    public ChallengeSettleNotify clearScoreTwo() {
-      bitField0_ &= ~0x00000001;
-      scoreTwo = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 score_two = 6;</code>
-     * @return the scoreTwo
-     */
-    public int getScoreTwo() {
-      return scoreTwo;
-    }
-
-    /**
-     * <code>optional uint32 score_two = 6;</code>
-     * @param value the scoreTwo to set
-     * @return this
-     */
-    public ChallengeSettleNotify setScoreTwo(final int value) {
-      bitField0_ |= 0x00000001;
-      scoreTwo = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 9;</code>
-     * @return whether the challengeId field is set
-     */
-    public boolean hasChallengeId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 9;</code>
-     * @return this
-     */
-    public ChallengeSettleNotify clearChallengeId() {
-      bitField0_ &= ~0x00000002;
-      challengeId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 9;</code>
-     * @return the challengeId
-     */
-    public int getChallengeId() {
-      return challengeId;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 9;</code>
-     * @param value the challengeId to set
-     * @return this
-     */
-    public ChallengeSettleNotify setChallengeId(final int value) {
-      bitField0_ |= 0x00000002;
-      challengeId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 challenge_score = 11;</code>
-     * @return whether the challengeScore field is set
-     */
-    public boolean hasChallengeScore() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 challenge_score = 11;</code>
+     * <code>optional uint32 challenge_score = 9;</code>
      * @return this
      */
     public ChallengeSettleNotify clearChallengeScore() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       challengeScore = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 challenge_score = 11;</code>
+     * <code>optional uint32 challenge_score = 9;</code>
      * @return the challengeScore
      */
     public int getChallengeScore() {
@@ -159,36 +85,73 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_score = 11;</code>
+     * <code>optional uint32 challenge_score = 9;</code>
      * @param value the challengeScore to set
      * @return this
      */
     public ChallengeSettleNotify setChallengeScore(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       challengeScore = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 stars = 15;</code>
-     * @return whether the stars field is set
+     * <code>optional uint32 score_two = 10;</code>
+     * @return whether the scoreTwo field is set
      */
-    public boolean hasStars() {
-      return (bitField0_ & 0x00000008) != 0;
+    public boolean hasScoreTwo() {
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 stars = 15;</code>
+     * <code>optional uint32 score_two = 10;</code>
+     * @return this
+     */
+    public ChallengeSettleNotify clearScoreTwo() {
+      bitField0_ &= ~0x00000002;
+      scoreTwo = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 score_two = 10;</code>
+     * @return the scoreTwo
+     */
+    public int getScoreTwo() {
+      return scoreTwo;
+    }
+
+    /**
+     * <code>optional uint32 score_two = 10;</code>
+     * @param value the scoreTwo to set
+     * @return this
+     */
+    public ChallengeSettleNotify setScoreTwo(final int value) {
+      bitField0_ |= 0x00000002;
+      scoreTwo = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 stars = 13;</code>
+     * @return whether the stars field is set
+     */
+    public boolean hasStars() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 stars = 13;</code>
      * @return this
      */
     public ChallengeSettleNotify clearStars() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000004;
       stars = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 stars = 15;</code>
+     * <code>optional uint32 stars = 13;</code>
      * @return the stars
      */
     public int getStars() {
@@ -196,18 +159,55 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 15;</code>
+     * <code>optional uint32 stars = 13;</code>
      * @param value the stars to set
      * @return this
      */
     public ChallengeSettleNotify setStars(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       stars = value;
       return this;
     }
 
     /**
-     * <code>optional bool is_win = 13;</code>
+     * <code>optional uint32 challenge_id = 14;</code>
+     * @return whether the challengeId field is set
+     */
+    public boolean hasChallengeId() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 challenge_id = 14;</code>
+     * @return this
+     */
+    public ChallengeSettleNotify clearChallengeId() {
+      bitField0_ &= ~0x00000008;
+      challengeId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 challenge_id = 14;</code>
+     * @return the challengeId
+     */
+    public int getChallengeId() {
+      return challengeId;
+    }
+
+    /**
+     * <code>optional uint32 challenge_id = 14;</code>
+     * @param value the challengeId to set
+     * @return this
+     */
+    public ChallengeSettleNotify setChallengeId(final int value) {
+      bitField0_ |= 0x00000008;
+      challengeId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional bool is_win = 15;</code>
      * @return whether the isWin field is set
      */
     public boolean hasIsWin() {
@@ -215,7 +215,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 13;</code>
+     * <code>optional bool is_win = 15;</code>
      * @return this
      */
     public ChallengeSettleNotify clearIsWin() {
@@ -225,7 +225,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 13;</code>
+     * <code>optional bool is_win = 15;</code>
      * @return the isWin
      */
     public boolean getIsWin() {
@@ -233,7 +233,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional bool is_win = 13;</code>
+     * <code>optional bool is_win = 15;</code>
      * @param value the isWin to set
      * @return this
      */
@@ -244,7 +244,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 8;</code>
+     * <code>optional .ItemList reward = 12;</code>
      * @return whether the reward field is set
      */
     public boolean hasReward() {
@@ -252,7 +252,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 8;</code>
+     * <code>optional .ItemList reward = 12;</code>
      * @return this
      */
     public ChallengeSettleNotify clearReward() {
@@ -262,7 +262,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 8;</code>
+     * <code>optional .ItemList reward = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -276,7 +276,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 8;</code>
+     * <code>optional .ItemList reward = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -290,7 +290,7 @@ public final class ChallengeSettleNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 8;</code>
+     * <code>optional .ItemList reward = 12;</code>
      * @param value the reward to set
      * @return this
      */
@@ -305,10 +305,10 @@ public final class ChallengeSettleNotifyOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        scoreTwo = other.scoreTwo;
-        challengeId = other.challengeId;
         challengeScore = other.challengeScore;
+        scoreTwo = other.scoreTwo;
         stars = other.stars;
+        challengeId = other.challengeId;
         isWin = other.isWin;
         reward.copyFrom(other.reward);
       }
@@ -321,17 +321,17 @@ public final class ChallengeSettleNotifyOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasScoreTwo()) {
-        setScoreTwo(other.scoreTwo);
-      }
-      if (other.hasChallengeId()) {
-        setChallengeId(other.challengeId);
-      }
       if (other.hasChallengeScore()) {
         setChallengeScore(other.challengeScore);
       }
+      if (other.hasScoreTwo()) {
+        setScoreTwo(other.scoreTwo);
+      }
       if (other.hasStars()) {
         setStars(other.stars);
+      }
+      if (other.hasChallengeId()) {
+        setChallengeId(other.challengeId);
       }
       if (other.hasIsWin()) {
         setIsWin(other.isWin);
@@ -349,10 +349,10 @@ public final class ChallengeSettleNotifyOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      scoreTwo = 0;
-      challengeId = 0;
       challengeScore = 0;
+      scoreTwo = 0;
       stars = 0;
+      challengeId = 0;
       isWin = false;
       reward.clear();
       return this;
@@ -379,10 +379,10 @@ public final class ChallengeSettleNotifyOuterClass {
       }
       ChallengeSettleNotify other = (ChallengeSettleNotify) o;
       return bitField0_ == other.bitField0_
-        && (!hasScoreTwo() || scoreTwo == other.scoreTwo)
-        && (!hasChallengeId() || challengeId == other.challengeId)
         && (!hasChallengeScore() || challengeScore == other.challengeScore)
+        && (!hasScoreTwo() || scoreTwo == other.scoreTwo)
         && (!hasStars() || stars == other.stars)
+        && (!hasChallengeId() || challengeId == other.challengeId)
         && (!hasIsWin() || isWin == other.isWin)
         && (!hasReward() || reward.equals(other.reward));
     }
@@ -390,27 +390,27 @@ public final class ChallengeSettleNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(scoreTwo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(challengeId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(challengeScore);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(scoreTwo);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(stars);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(challengeId);
+      }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 120);
         output.writeBoolNoTag(isWin);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 66);
+        output.writeRawByte((byte) 98);
         output.writeMessageNoTag(reward);
       }
     }
@@ -419,16 +419,16 @@ public final class ChallengeSettleNotifyOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(scoreTwo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeScore);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(scoreTwo);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(stars);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += 2;
@@ -446,52 +446,52 @@ public final class ChallengeSettleNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // scoreTwo
-            scoreTwo = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 72) {
-              break;
-            }
-          }
           case 72: {
-            // challengeId
-            challengeId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 88) {
-              break;
-            }
-          }
-          case 88: {
             // challengeScore
             challengeScore = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 80) {
               break;
             }
           }
-          case 120: {
-            // stars
-            stars = input.readUInt32();
-            bitField0_ |= 0x00000008;
+          case 80: {
+            // scoreTwo
+            scoreTwo = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 104) {
               break;
             }
           }
           case 104: {
+            // stars
+            stars = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 112) {
+              break;
+            }
+          }
+          case 112: {
+            // challengeId
+            challengeId = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
             // isWin
             isWin = input.readBool();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 98) {
               break;
             }
           }
-          case 66: {
+          case 98: {
             // reward
             input.readMessage(reward);
             bitField0_ |= 0x00000020;
@@ -518,16 +518,16 @@ public final class ChallengeSettleNotifyOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.scoreTwo, scoreTwo);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.challengeId, challengeId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.challengeScore, challengeScore);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.scoreTwo, scoreTwo);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.stars, stars);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeUInt32(FieldNames.challengeId, challengeId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeBool(FieldNames.isWin, isWin);
@@ -545,12 +545,35 @@ public final class ChallengeSettleNotifyOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 591599599:
+          case 1517684662: {
+            if (input.isAtField(FieldNames.challengeScore)) {
+              if (!input.trySkipNullValue()) {
+                challengeScore = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -485512614:
           case 2129303327: {
             if (input.isAtField(FieldNames.scoreTwo)) {
               if (!input.trySkipNullValue()) {
                 scoreTwo = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 109757537: {
+            if (input.isAtField(FieldNames.stars)) {
+              if (!input.trySkipNullValue()) {
+                stars = input.readUInt32();
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -562,29 +585,6 @@ public final class ChallengeSettleNotifyOuterClass {
             if (input.isAtField(FieldNames.challengeId)) {
               if (!input.trySkipNullValue()) {
                 challengeId = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 591599599:
-          case 1517684662: {
-            if (input.isAtField(FieldNames.challengeScore)) {
-              if (!input.trySkipNullValue()) {
-                challengeScore = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 109757537: {
-            if (input.isAtField(FieldNames.stars)) {
-              if (!input.trySkipNullValue()) {
-                stars = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -668,13 +668,13 @@ public final class ChallengeSettleNotifyOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName scoreTwo = FieldName.forField("scoreTwo", "score_two");
-
-      static final FieldName challengeId = FieldName.forField("challengeId", "challenge_id");
-
       static final FieldName challengeScore = FieldName.forField("challengeScore", "challenge_score");
 
+      static final FieldName scoreTwo = FieldName.forField("scoreTwo", "score_two");
+
       static final FieldName stars = FieldName.forField("stars");
+
+      static final FieldName challengeId = FieldName.forField("challengeId", "challenge_id");
 
       static final FieldName isWin = FieldName.forField("isWin", "is_win");
 
