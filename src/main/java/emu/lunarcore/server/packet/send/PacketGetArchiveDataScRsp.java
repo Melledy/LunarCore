@@ -16,12 +16,19 @@ public class PacketGetArchiveDataScRsp extends BasePacket {
         
         var data = GetArchiveDataScRsp.newInstance();
         var archiveData = data.getMutableArchiveData();
+        var allRelicSetIds = GameData.getAllRelicSetIds();
         
-        /*
-        for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
-            archiveData.addArchiveAvatarIdList(avatarExcel.getAvatarID());
+        //for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
+            //archiveData.addArchiveAvatarIdList(avatarExcel.getAvatarID());
+        //}
+
+        for (int relicSetId : allRelicSetIds) {
+            int setType = GameData.getTypeValueFromSetID(relicSetId);
+            var relicSetInstance = RelicArchive.newInstance()
+                .setRelicId(relicSetId)
+                .setSlot(setType);
+            archiveData.addRelicList(relicSetInstance);
         }
-        */
 
         for (var monsterExcel : GameData.getMonsterExcelMap().values()) {
             MonsterArchive monsterinfo = MonsterArchive.newInstance()
@@ -33,17 +40,15 @@ public class PacketGetArchiveDataScRsp extends BasePacket {
 
         for (var relicExcel : GameData.getRelicExcelMap().values()) {
             RelicArchive relicInfo = RelicArchive.newInstance()
-                .setSlot(relicExcel.getType().getVal())
+                .setSlot(relicExcel.getType().getVal()) 
                 .setRelicId(relicExcel.getId()); // todo: add to db
 
             archiveData.addRelicList(relicInfo);
         }
         
-        /*
         for (var equipmentExcel : GameData.getEquipExcelMap().values()) {
             archiveData.addAllArchiveEquipmentIdList(equipmentExcel.getId());
         }
-        */
         
         this.setData(data);
     }
