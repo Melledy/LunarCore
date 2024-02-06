@@ -173,7 +173,8 @@ public class GameServer extends KcpServer {
 
         // Done
         LunarCore.getLogger().info("Game Server started on " + address.getPort());
-        LunarCore.getLogger().warn(String(Base64.getUrlDecoder().decode("TFVOQVJDT1JFIElTIEEgRlJFRSBTT0ZUV0FSRS4gSUYgWU9VIFBBSUQgRk9SIElULCBZT1UgSEFWRSBCRUVOIFNDQU1NRUQh"))); // endernon was here
+        String nuuhdontsellthis = new String(Base64.getUrlDecoder().decode("TFVOQVJDT1JFIElTIEEgRlJFRSBTT0ZUV0FSRS4gSUYgWU9VIFBBSUQgRk9SIElULCBZT1UgSEFWRSBCRUVOIFNDQU1NRUQh"));
+        LunarCore.getLogger().warn(nuuhdontsellthis); // endernon was here
     }
     
     private void onTick() {
