@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+import java.util.Base64;
 
 import emu.lunarcore.Config.GameServerConfig;
 import emu.lunarcore.LunarCore;
