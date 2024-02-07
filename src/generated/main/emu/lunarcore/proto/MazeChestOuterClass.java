@@ -19,7 +19,17 @@ public final class MazeChestOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional uint32 unlocked_amount_list = 1;</code>
+     */
+    private int unlockedAmountList;
+
+    /**
+     * <code>optional uint32 total_amount_list = 4;</code>
+     */
+    private int totalAmountList;
+
+    /**
+     * <code>optional .MapInfoChestType map_info_chest_type = 14;</code>
      */
     private int mapInfoChestType;
 
@@ -34,25 +44,99 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
-     * @return whether the mapInfoChestType field is set
+     * <code>optional uint32 unlocked_amount_list = 1;</code>
+     * @return whether the unlockedAmountList field is set
      */
-    public boolean hasMapInfoChestType() {
+    public boolean hasUnlockedAmountList() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional uint32 unlocked_amount_list = 1;</code>
+     * @return this
+     */
+    public MazeChest clearUnlockedAmountList() {
+      bitField0_ &= ~0x00000001;
+      unlockedAmountList = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 unlocked_amount_list = 1;</code>
+     * @return the unlockedAmountList
+     */
+    public int getUnlockedAmountList() {
+      return unlockedAmountList;
+    }
+
+    /**
+     * <code>optional uint32 unlocked_amount_list = 1;</code>
+     * @param value the unlockedAmountList to set
+     * @return this
+     */
+    public MazeChest setUnlockedAmountList(final int value) {
+      bitField0_ |= 0x00000001;
+      unlockedAmountList = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 total_amount_list = 4;</code>
+     * @return whether the totalAmountList field is set
+     */
+    public boolean hasTotalAmountList() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 total_amount_list = 4;</code>
+     * @return this
+     */
+    public MazeChest clearTotalAmountList() {
+      bitField0_ &= ~0x00000002;
+      totalAmountList = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 total_amount_list = 4;</code>
+     * @return the totalAmountList
+     */
+    public int getTotalAmountList() {
+      return totalAmountList;
+    }
+
+    /**
+     * <code>optional uint32 total_amount_list = 4;</code>
+     * @param value the totalAmountList to set
+     * @return this
+     */
+    public MazeChest setTotalAmountList(final int value) {
+      bitField0_ |= 0x00000002;
+      totalAmountList = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .MapInfoChestType map_info_chest_type = 14;</code>
+     * @return whether the mapInfoChestType field is set
+     */
+    public boolean hasMapInfoChestType() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional .MapInfoChestType map_info_chest_type = 14;</code>
      * @return this
      */
     public MazeChest clearMapInfoChestType() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000004;
       mapInfoChestType = 0;
       return this;
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 14;</code>
      * @return the mapInfoChestType
      */
     public MapInfoChestTypeOuterClass.MapInfoChestType getMapInfoChestType() {
@@ -79,18 +163,18 @@ public final class MazeChestOuterClass {
      * @return this
      */
     public MazeChest setMapInfoChestTypeValue(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
       mapInfoChestType = value;
       return this;
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 14;</code>
      * @param value the mapInfoChestType to set
      * @return this
      */
     public MazeChest setMapInfoChestType(final MapInfoChestTypeOuterClass.MapInfoChestType value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000004;
       mapInfoChestType = value.getNumber();
       return this;
     }
@@ -100,6 +184,8 @@ public final class MazeChestOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        unlockedAmountList = other.unlockedAmountList;
+        totalAmountList = other.totalAmountList;
         mapInfoChestType = other.mapInfoChestType;
       }
       return this;
@@ -111,6 +197,12 @@ public final class MazeChestOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasUnlockedAmountList()) {
+        setUnlockedAmountList(other.unlockedAmountList);
+      }
+      if (other.hasTotalAmountList()) {
+        setTotalAmountList(other.totalAmountList);
+      }
       if (other.hasMapInfoChestType()) {
         setMapInfoChestTypeValue(other.mapInfoChestType);
       }
@@ -124,6 +216,8 @@ public final class MazeChestOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      unlockedAmountList = 0;
+      totalAmountList = 0;
       mapInfoChestType = 0;
       return this;
     }
@@ -148,13 +242,23 @@ public final class MazeChestOuterClass {
       }
       MazeChest other = (MazeChest) o;
       return bitField0_ == other.bitField0_
+        && (!hasUnlockedAmountList() || unlockedAmountList == other.unlockedAmountList)
+        && (!hasTotalAmountList() || totalAmountList == other.totalAmountList)
         && (!hasMapInfoChestType() || mapInfoChestType == other.mapInfoChestType);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(unlockedAmountList);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(totalAmountList);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 112);
         output.writeEnumNoTag(mapInfoChestType);
       }
     }
@@ -163,6 +267,12 @@ public final class MazeChestOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(unlockedAmountList);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(totalAmountList);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(mapInfoChestType);
       }
       return size;
@@ -175,12 +285,30 @@ public final class MazeChestOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 8: {
+            // unlockedAmountList
+            unlockedAmountList = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 32) {
+              break;
+            }
+          }
           case 32: {
+            // totalAmountList
+            totalAmountList = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 112) {
+              break;
+            }
+          }
+          case 112: {
             // mapInfoChestType
             final int value = input.readInt32();
             if (MapInfoChestTypeOuterClass.MapInfoChestType.forNumber(value) != null) {
               mapInfoChestType = value;
-              bitField0_ |= 0x00000001;
+              bitField0_ |= 0x00000004;
             }
             tag = input.readTag();
             if (tag != 0) {
@@ -205,6 +333,12 @@ public final class MazeChestOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeUInt32(FieldNames.unlockedAmountList, unlockedAmountList);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.totalAmountList, totalAmountList);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeEnum(FieldNames.mapInfoChestType, mapInfoChestType, MapInfoChestTypeOuterClass.MapInfoChestType.converter());
       }
       output.endObject();
@@ -217,6 +351,30 @@ public final class MazeChestOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case -47476647:
+          case -941040439: {
+            if (input.isAtField(FieldNames.unlockedAmountList)) {
+              if (!input.trySkipNullValue()) {
+                unlockedAmountList = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1767834758:
+          case -642776150: {
+            if (input.isAtField(FieldNames.totalAmountList)) {
+              if (!input.trySkipNullValue()) {
+                totalAmountList = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 602980561:
           case -763087610: {
             if (input.isAtField(FieldNames.mapInfoChestType)) {
@@ -224,7 +382,7 @@ public final class MazeChestOuterClass {
                 final MapInfoChestTypeOuterClass.MapInfoChestType value = input.readEnum(MapInfoChestTypeOuterClass.MapInfoChestType.converter());
                 if (value != null) {
                   mapInfoChestType = value.getNumber();
-                  bitField0_ |= 0x00000001;
+                  bitField0_ |= 0x00000004;
                 } else {
                   input.skipUnknownEnumValue();
                 }
@@ -286,6 +444,10 @@ public final class MazeChestOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName unlockedAmountList = FieldName.forField("unlockedAmountList", "unlocked_amount_list");
+
+      static final FieldName totalAmountList = FieldName.forField("totalAmountList", "total_amount_list");
+
       static final FieldName mapInfoChestType = FieldName.forField("mapInfoChestType", "map_info_chest_type");
     }
   }
