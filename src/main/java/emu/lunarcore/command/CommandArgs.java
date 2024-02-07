@@ -268,6 +268,8 @@ public class CommandArgs {
                 }
                 
                 item.getSubAffixes().forEach(subAffix -> subAffix.setStep(subAffix.getCount() * 2));
+            } if (this.hasFlag("-sorted")) {
+                item.sortSubAffixes();
             }
         }
         

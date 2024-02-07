@@ -1,6 +1,7 @@
 package emu.lunarcore.game.inventory;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import org.bson.types.ObjectId;
@@ -103,6 +104,8 @@ public class GameItem {
                 // Sub affixes
                 int baseSubAffixes = Math.min(Math.max(getExcel().getRarity().getVal() - 2, 0), 3);
                 this.addSubAffixes(Utils.randomRange(baseSubAffixes, baseSubAffixes + 1));
+                // Sort sub affixes
+                this.sortSubAffixes();
             }
             break;
         default:
@@ -237,6 +240,14 @@ public class GameItem {
      */
     public int getMaxNormalSubAffixCount() {
         return (getExcel().getRarity().getVal() - 1) + (int) Math.floor(this.getLevel() / 3.0);
+    }
+    
+    public void sortSubAffixes() {
+        if (this.subAffixes == null || this.subAffixes.size() == 0) {
+            return;
+        }
+        
+        Collections.sort(this.subAffixes);
     }
 
     // Database

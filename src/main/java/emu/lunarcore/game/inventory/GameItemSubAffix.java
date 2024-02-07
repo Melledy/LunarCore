@@ -9,7 +9,7 @@ import lombok.Setter;
 
 @Getter
 @Entity(useDiscriminator = false)
-public class GameItemSubAffix {
+public class GameItemSubAffix implements Comparable<GameItemSubAffix> {
     private int id; // Affix id
     
     @Setter private int count;
@@ -42,5 +42,10 @@ public class GameItemSubAffix {
                 .setStep(this.step);
         
         return proto;
+    }
+
+    @Override
+    public int compareTo(GameItemSubAffix o) {
+        return this.getId() - o.getId();
     }
 }
