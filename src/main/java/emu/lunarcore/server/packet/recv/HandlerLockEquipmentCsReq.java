@@ -13,7 +13,7 @@ public class HandlerLockEquipmentCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = LockEquipmentCsReq.parseFrom(data);
 
-        session.getServer().getInventoryService().lockEquip(session.getPlayer(), req.getEquipmentUniqueId(), req.getIsProtected());
+        session.getServer().getInventoryService().lockItem(session.getPlayer(), req.getEquipmentUniqueId(), req.getIsProtected());
         session.send(CmdId.LockEquipmentScRsp);
     }
 

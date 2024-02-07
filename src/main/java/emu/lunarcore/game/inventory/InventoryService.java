@@ -526,18 +526,30 @@ public class InventoryService extends BaseGameService {
 
     // === Etc ===
 
-    public void lockEquip(Player player, int equipId, boolean locked) {
-        GameItem equip = player.getInventory().getItemByUid(equipId);
-
-        if (equip == null || !equip.getExcel().isEquippable()) {
+    public void lockItem(Player player, int equipId, boolean locked) {
+        GameItem item = player.getInventory().getItemByUid(equipId);
+        if (item == null || !item.getExcel().isEquippable()) {
             return;
         }
 
-        equip.setLocked(locked);
-        equip.save();
+        item.setLocked(locked);
+        item.save();
 
         //  Send packet
-        player.sendPacket(new PacketPlayerSyncScNotify(equip));
+        player.sendPacket(new PacketPlayerSyncScNotify(item));
+    }
+    
+    public void discardRelic(Player player, int equipId, boolean discarded) {
+        GameItem relic = player.getInventory().getItemByUid(equipId);
+        if (relic == null || !relic.getExcel().isRelic()) {
+            return;
+        }
+
+        relic.setDiscarded(discarded);
+        relic.save();
+
+        //  Send packet
+        player.sendPacket(new PacketPlayerSyncScNotify(relic));
     }
 
     public Int2IntMap sellItems(Player player, List<ItemParam> items) {

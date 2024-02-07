@@ -48,7 +48,8 @@ public class GameItem {
     @Setter private int promotion;
     @Setter private int rank; // Superimpose
     @Setter private boolean locked;
-
+    @Setter private boolean discarded;
+    
     @Setter private int mainAffix;
     private List<GameItemSubAffix> subAffixes;
 
@@ -277,6 +278,7 @@ public class GameItem {
                 .setLevel(this.getLevel())
                 .setExp(this.getExp())
                 .setIsProtected(this.isLocked())
+                .setIsDiscarded(this.isDiscarded())
                 .setBaseAvatarId(this.getEquipAvatar())
                 .setMainAffixId(this.mainAffix);
 

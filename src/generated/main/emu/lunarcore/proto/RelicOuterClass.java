@@ -50,6 +50,11 @@ public final class RelicOuterClass {
     private int mainAffixId;
 
     /**
+     * <code>optional bool is_discarded = 4;</code>
+     */
+    private boolean isDiscarded;
+
+    /**
      * <code>optional bool is_protected = 11;</code>
      */
     private boolean isProtected;
@@ -292,11 +297,48 @@ public final class RelicOuterClass {
     }
 
     /**
+     * <code>optional bool is_discarded = 4;</code>
+     * @return whether the isDiscarded field is set
+     */
+    public boolean hasIsDiscarded() {
+      return (bitField0_ & 0x00000040) != 0;
+    }
+
+    /**
+     * <code>optional bool is_discarded = 4;</code>
+     * @return this
+     */
+    public Relic clearIsDiscarded() {
+      bitField0_ &= ~0x00000040;
+      isDiscarded = false;
+      return this;
+    }
+
+    /**
+     * <code>optional bool is_discarded = 4;</code>
+     * @return the isDiscarded
+     */
+    public boolean getIsDiscarded() {
+      return isDiscarded;
+    }
+
+    /**
+     * <code>optional bool is_discarded = 4;</code>
+     * @param value the isDiscarded to set
+     * @return this
+     */
+    public Relic setIsDiscarded(final boolean value) {
+      bitField0_ |= 0x00000040;
+      isDiscarded = value;
+      return this;
+    }
+
+    /**
      * <code>optional bool is_protected = 11;</code>
      * @return whether the isProtected field is set
      */
     public boolean hasIsProtected() {
-      return (bitField0_ & 0x00000040) != 0;
+      return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
@@ -304,7 +346,7 @@ public final class RelicOuterClass {
      * @return this
      */
     public Relic clearIsProtected() {
-      bitField0_ &= ~0x00000040;
+      bitField0_ &= ~0x00000080;
       isProtected = false;
       return this;
     }
@@ -323,7 +365,7 @@ public final class RelicOuterClass {
      * @return this
      */
     public Relic setIsProtected(final boolean value) {
-      bitField0_ |= 0x00000040;
+      bitField0_ |= 0x00000080;
       isProtected = value;
       return this;
     }
@@ -333,7 +375,7 @@ public final class RelicOuterClass {
      * @return whether the subAffixList field is set
      */
     public boolean hasSubAffixList() {
-      return (bitField0_ & 0x00000080) != 0;
+      return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
@@ -341,7 +383,7 @@ public final class RelicOuterClass {
      * @return this
      */
     public Relic clearSubAffixList() {
-      bitField0_ &= ~0x00000080;
+      bitField0_ &= ~0x00000100;
       subAffixList.clear();
       return this;
     }
@@ -370,7 +412,7 @@ public final class RelicOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RelicAffixOuterClass.RelicAffix> getMutableSubAffixList() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       return subAffixList;
     }
 
@@ -380,7 +422,7 @@ public final class RelicOuterClass {
      * @return this
      */
     public Relic addSubAffixList(final RelicAffixOuterClass.RelicAffix value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       subAffixList.add(value);
       return this;
     }
@@ -391,7 +433,7 @@ public final class RelicOuterClass {
      * @return this
      */
     public Relic addAllSubAffixList(final RelicAffixOuterClass.RelicAffix... values) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       subAffixList.addAll(values);
       return this;
     }
@@ -407,6 +449,7 @@ public final class RelicOuterClass {
         baseAvatarId = other.baseAvatarId;
         exp = other.exp;
         mainAffixId = other.mainAffixId;
+        isDiscarded = other.isDiscarded;
         isProtected = other.isProtected;
         subAffixList.copyFrom(other.subAffixList);
       }
@@ -437,6 +480,9 @@ public final class RelicOuterClass {
       if (other.hasMainAffixId()) {
         setMainAffixId(other.mainAffixId);
       }
+      if (other.hasIsDiscarded()) {
+        setIsDiscarded(other.isDiscarded);
+      }
       if (other.hasIsProtected()) {
         setIsProtected(other.isProtected);
       }
@@ -459,6 +505,7 @@ public final class RelicOuterClass {
       baseAvatarId = 0;
       exp = 0;
       mainAffixId = 0;
+      isDiscarded = false;
       isProtected = false;
       subAffixList.clear();
       return this;
@@ -491,6 +538,7 @@ public final class RelicOuterClass {
         && (!hasBaseAvatarId() || baseAvatarId == other.baseAvatarId)
         && (!hasExp() || exp == other.exp)
         && (!hasMainAffixId() || mainAffixId == other.mainAffixId)
+        && (!hasIsDiscarded() || isDiscarded == other.isDiscarded)
         && (!hasIsProtected() || isProtected == other.isProtected)
         && (!hasSubAffixList() || subAffixList.equals(other.subAffixList));
     }
@@ -522,10 +570,14 @@ public final class RelicOuterClass {
         output.writeUInt32NoTag(mainAffixId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
+        output.writeRawByte((byte) 32);
+        output.writeBoolNoTag(isDiscarded);
+      }
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeRawByte((byte) 88);
         output.writeBoolNoTag(isProtected);
       }
-      if ((bitField0_ & 0x00000080) != 0) {
+      if ((bitField0_ & 0x00000100) != 0) {
         for (int i = 0; i < subAffixList.length(); i++) {
           output.writeRawByte((byte) 66);
           output.writeMessageNoTag(subAffixList.get(i));
@@ -558,6 +610,9 @@ public final class RelicOuterClass {
         size += 2;
       }
       if ((bitField0_ & 0x00000080) != 0) {
+        size += 2;
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
         size += (1 * subAffixList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(subAffixList);
       }
       return size;
@@ -620,6 +675,15 @@ public final class RelicOuterClass {
             mainAffixId = input.readUInt32();
             bitField0_ |= 0x00000020;
             tag = input.readTag();
+            if (tag != 32) {
+              break;
+            }
+          }
+          case 32: {
+            // isDiscarded
+            isDiscarded = input.readBool();
+            bitField0_ |= 0x00000040;
+            tag = input.readTag();
             if (tag != 88) {
               break;
             }
@@ -627,7 +691,7 @@ public final class RelicOuterClass {
           case 88: {
             // isProtected
             isProtected = input.readBool();
-            bitField0_ |= 0x00000040;
+            bitField0_ |= 0x00000080;
             tag = input.readTag();
             if (tag != 66) {
               break;
@@ -636,7 +700,7 @@ public final class RelicOuterClass {
           case 66: {
             // subAffixList
             tag = input.readRepeatedMessage(subAffixList, tag);
-            bitField0_ |= 0x00000080;
+            bitField0_ |= 0x00000100;
             if (tag != 0) {
               break;
             }
@@ -677,9 +741,12 @@ public final class RelicOuterClass {
         output.writeUInt32(FieldNames.mainAffixId, mainAffixId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeBool(FieldNames.isProtected, isProtected);
+        output.writeBool(FieldNames.isDiscarded, isDiscarded);
       }
       if ((bitField0_ & 0x00000080) != 0) {
+        output.writeBool(FieldNames.isProtected, isProtected);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
         output.writeRepeatedMessage(FieldNames.subAffixList, subAffixList);
       }
       output.endObject();
@@ -761,12 +828,24 @@ public final class RelicOuterClass {
             }
             break;
           }
+          case 1044162483:
+          case -1445363480: {
+            if (input.isAtField(FieldNames.isDiscarded)) {
+              if (!input.trySkipNullValue()) {
+                isDiscarded = input.readBool();
+                bitField0_ |= 0x00000040;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 569879972:
           case -1919645991: {
             if (input.isAtField(FieldNames.isProtected)) {
               if (!input.trySkipNullValue()) {
                 isProtected = input.readBool();
-                bitField0_ |= 0x00000040;
+                bitField0_ |= 0x00000080;
               }
             } else {
               input.skipUnknownField();
@@ -778,7 +857,7 @@ public final class RelicOuterClass {
             if (input.isAtField(FieldNames.subAffixList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(subAffixList);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000100;
               }
             } else {
               input.skipUnknownField();
@@ -848,6 +927,8 @@ public final class RelicOuterClass {
       static final FieldName exp = FieldName.forField("exp");
 
       static final FieldName mainAffixId = FieldName.forField("mainAffixId", "main_affix_id");
+
+      static final FieldName isDiscarded = FieldName.forField("isDiscarded", "is_discarded");
 
       static final FieldName isProtected = FieldName.forField("isProtected", "is_protected");
 
