@@ -117,6 +117,12 @@ public class Inventory extends BasePlayerManager {
     }
 
     public boolean addItem(GameItem item) {
+        // Set excel in case its missing
+        if (item.getExcel() == null) {
+            item.setExcel(GameData.getItemExcelMap().get(item.getItemId()));
+        }
+        
+        // Put item into inventory
         GameItem result = putItem(item);
 
         if (result != null) {
