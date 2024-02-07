@@ -23,11 +23,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
      */
     private int groupId;
 
-    /**
-     * <code>optional uint32 star_count = 10;</code>
-     */
-    private int starCount;
-
     private TakeChallengeRewardCsReq() {
     }
 
@@ -75,50 +70,12 @@ public final class TakeChallengeRewardCsReqOuterClass {
       return this;
     }
 
-    /**
-     * <code>optional uint32 star_count = 10;</code>
-     * @return whether the starCount field is set
-     */
-    public boolean hasStarCount() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 star_count = 10;</code>
-     * @return this
-     */
-    public TakeChallengeRewardCsReq clearStarCount() {
-      bitField0_ &= ~0x00000002;
-      starCount = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 star_count = 10;</code>
-     * @return the starCount
-     */
-    public int getStarCount() {
-      return starCount;
-    }
-
-    /**
-     * <code>optional uint32 star_count = 10;</code>
-     * @param value the starCount to set
-     * @return this
-     */
-    public TakeChallengeRewardCsReq setStarCount(final int value) {
-      bitField0_ |= 0x00000002;
-      starCount = value;
-      return this;
-    }
-
     @Override
     public TakeChallengeRewardCsReq copyFrom(final TakeChallengeRewardCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         groupId = other.groupId;
-        starCount = other.starCount;
       }
       return this;
     }
@@ -132,9 +89,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
       if (other.hasGroupId()) {
         setGroupId(other.groupId);
       }
-      if (other.hasStarCount()) {
-        setStarCount(other.starCount);
-      }
       return this;
     }
 
@@ -146,7 +100,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       groupId = 0;
-      starCount = 0;
       return this;
     }
 
@@ -170,8 +123,7 @@ public final class TakeChallengeRewardCsReqOuterClass {
       }
       TakeChallengeRewardCsReq other = (TakeChallengeRewardCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasGroupId() || groupId == other.groupId)
-        && (!hasStarCount() || starCount == other.starCount);
+        && (!hasGroupId() || groupId == other.groupId);
     }
 
     @Override
@@ -180,10 +132,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
         output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(groupId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(starCount);
-      }
     }
 
     @Override
@@ -191,9 +139,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(starCount);
       }
       return size;
     }
@@ -209,15 +154,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
-            // starCount
-            starCount = input.readUInt32();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -243,9 +179,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.groupId, groupId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.starCount, starCount);
-      }
       output.endObject();
     }
 
@@ -262,18 +195,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
               if (!input.trySkipNullValue()) {
                 groupId = input.readUInt32();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 2121235933:
-          case 2124166370: {
-            if (input.isAtField(FieldNames.starCount)) {
-              if (!input.trySkipNullValue()) {
-                starCount = input.readUInt32();
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -334,8 +255,6 @@ public final class TakeChallengeRewardCsReqOuterClass {
      */
     static class FieldNames {
       static final FieldName groupId = FieldName.forField("groupId", "group_id");
-
-      static final FieldName starCount = FieldName.forField("starCount", "star_count");
     }
   }
 }

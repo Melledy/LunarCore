@@ -24,6 +24,9 @@ public class GameDepot {
     // Relics
     private static Int2ObjectMap<List<RelicMainAffixExcel>> relicMainAffixDepot = new Int2ObjectOpenHashMap<>();
     private static Int2ObjectMap<List<RelicSubAffixExcel>> relicSubAffixDepot = new Int2ObjectOpenHashMap<>();
+    
+    // Challenges
+    @Getter private static Int2ObjectMap<List<ChallengeRewardExcel>> challengeRewardLines = new Int2ObjectOpenHashMap<>();
 
     // Rogue
     @Getter private static Int2ObjectMap<int[]> rogueMapGen = new Int2ObjectOpenHashMap<>();

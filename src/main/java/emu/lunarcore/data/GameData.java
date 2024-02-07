@@ -46,7 +46,6 @@ public class GameData {
     @Getter private static Int2ObjectMap<ChallengeGroupExcel> challengeGroupExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ChallengeExcel> challengeExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ChallengeTargetExcel> challengeTargetExcelMap = new Int2ObjectOpenHashMap<>();
-    private static Int2ObjectMap<ChallengeRewardExcel> challengeRewardExcelMap = new Int2ObjectOpenHashMap<>();
     
     @Getter private static Int2ObjectMap<RogueManagerExcel> rogueManagerExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<RogueTalentExcel> rogueTalentExcelMap = new Int2ObjectOpenHashMap<>();
@@ -219,10 +218,6 @@ public class GameData {
     
     public static MonsterDropExcel getMonsterDropExcel(int monsterNpcId, int worldLevel) {
         return monsterDropExcelMap.get((monsterNpcId << 4) + worldLevel);
-    }
-    
-    public static ChallengeRewardExcel getChallengeRewardExcel(int groupId, int starCount) {
-        return challengeRewardExcelMap.get((groupId << 16) + starCount);
     }
     
     public static RogueMapExcel getRogueMapExcel(int rogueMapId, int siteId) {

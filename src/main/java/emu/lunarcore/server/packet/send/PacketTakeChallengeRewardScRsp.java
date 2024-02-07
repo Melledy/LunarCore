@@ -2,24 +2,23 @@ package emu.lunarcore.server.packet.send;
 
 import java.util.Collection;
 
-import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.proto.TakeChallengeRewardScRspOuterClass.TakeChallengeRewardScRsp;
+import emu.lunarcore.proto.TakenChallengeRewardInfoOuterClass.TakenChallengeRewardInfo;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 
 public class PacketTakeChallengeRewardScRsp extends BasePacket {
 
-    public PacketTakeChallengeRewardScRsp(int groupId, int starCount, Collection<GameItem> rewards) {
+    public PacketTakeChallengeRewardScRsp(int groupId, Collection<TakenChallengeRewardInfo> rewards) {
         super(CmdId.TakeChallengeRewardScRsp);
         
         var data = TakeChallengeRewardScRsp.newInstance();
         
         if (rewards != null) {
-            data.setGroupId(groupId)
-                .setStarCount(starCount);
+            data.setGroupId(groupId);
             
-            for (GameItem item : rewards) {
-                data.getMutableReward().addItemList(item.toProto());
+            for (var rewardInfo : rewards) {
+                data.getMutableTakenRewardList().add(rewardInfo);
             }
         } else {
             data.setRetcode(1);

@@ -3,6 +3,7 @@ package emu.lunarcore.data.common;
 import com.google.gson.annotations.SerializedName;
 
 import emu.lunarcore.proto.ItemCostOuterClass.ItemCost;
+import emu.lunarcore.proto.ItemOuterClass.Item;
 import lombok.Getter;
 
 @Getter
@@ -47,5 +48,11 @@ public class ItemParam {
 
     public static enum ItemParamType {
         UNKNOWN, PILE, UNIQUE;
+    }
+
+    public Item toProto() {
+        return Item.newInstance()
+                .setItemId(this.getId())
+                .setNum(this.getCount());
     }
 }

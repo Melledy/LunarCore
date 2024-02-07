@@ -2,8 +2,8 @@ package emu.lunarcore.server.packet.recv;
 
 import java.util.List;
 
-import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.proto.TakeChallengeRewardCsReqOuterClass.TakeChallengeRewardCsReq;
+import emu.lunarcore.proto.TakenChallengeRewardInfoOuterClass.TakenChallengeRewardInfo;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
@@ -17,8 +17,8 @@ public class HandlerTakeChallengeRewardCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = TakeChallengeRewardCsReq.parseFrom(data);
         
-        List<GameItem> rewards = session.getPlayer().getChallengeManager().takeRewards(req.getGroupId(), req.getStarCount());
-        session.send(new PacketTakeChallengeRewardScRsp(req.getGroupId(), req.getStarCount(), rewards));
+        List<TakenChallengeRewardInfo> rewardInfos = session.getPlayer().getChallengeManager().takeRewards(req.getGroupId());
+        session.send(new PacketTakeChallengeRewardScRsp(req.getGroupId(), rewardInfos));
     }
 
 }
