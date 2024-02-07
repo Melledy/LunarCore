@@ -230,7 +230,7 @@ public class ResourceLoader {
         
         // Notify the server owner if we are missing any files
         if (missingGroupInfos) {
-            LunarCore.getLogger().warn("Group infos are missing, please check your resources folder: {resources}/Config/LevelOutput/Group. Teleports and natural world spawns may not work!");
+            LunarCore.getLogger().warn("Group infos are missing, please check your resources folder: {resources}/Config/LevelOutput/Group. Teleports, monster battles, and natural world spawns may not work!");
         }
         
         // Done
