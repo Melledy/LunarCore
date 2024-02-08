@@ -133,18 +133,27 @@ public class Inventory extends BasePlayerManager {
         return false;
     }
     
-    public List<GameItem> addItems(Collection<GameItem> items) {
+    /**
+     * Adds all items from this list to the inventory.
+     * @param items List of items to add
+     * @return List of items that were added.
+     */
+    public List<GameItem> addItems(List<GameItem> items) {
         return addItems(items, false);
     }
     
-    public List<GameItem> addItems(Collection<GameItem> items, boolean showHint) {
+    /**
+     * Adds all items from this list to the inventory.
+     * @param items List of items to add
+     * @param showHint Whether or not to notify the player that items were added
+     * @return List of items that were added.
+     */
+    public List<GameItem> addItems(List<GameItem> items, boolean showHint) {
         // Init results
         List<GameItem> results = new ArrayList<>(items.size());
         
-        // Sanity
-        if (items.size() == 0) {
-            return results;
-        }
+        // Sanity check
+        if (items.size() == 0) return results;
         
         // Add to inventory
         for (GameItem item : items) {
@@ -162,7 +171,16 @@ public class Inventory extends BasePlayerManager {
             }
         }
         
-        return results;
+        return items;
+    }
+    
+    /**
+     * Adds all items from this item param map to the inventory.
+     * @param map A map of item ids/amounts
+     * @return List of items that were added.
+     */
+    public List<GameItem> addItems(ItemParamMap map) {
+        return addItems(map.toItemList(), false);
     }
     
     public List<GameItem> addItemParams(Collection<ItemParam> params) {

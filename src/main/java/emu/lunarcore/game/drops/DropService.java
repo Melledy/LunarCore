@@ -5,8 +5,8 @@ import java.util.List;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.excel.ItemExcel;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.inventory.ItemParamMap;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.server.game.BaseGameService;
@@ -22,7 +22,7 @@ public class DropService extends BaseGameService {
     // TODO this isnt the right way drops are calculated on the official server... but its good enough for now
     public void calculateDrops(Battle battle) {
         // Setup drop map
-        var dropMap = new DropMap();
+        var dropMap = new ItemParamMap();
         
         // Calculate drops from monsters
         for (EntityMonster monster : battle.getNpcMonsters()) {
@@ -53,26 +53,9 @@ public class DropService extends BaseGameService {
         }
         
         // Create drops
-        for (var entry : dropMap.entries()) {
-            // Get amount
-            int amount = entry.getIntValue();
-            if (amount <= 0) {
-                continue;
-            }
-            
-            // Create item and add it to player
-            ItemExcel excel = GameData.getItemExcelMap().get(entry.getIntKey());
-            if (excel == null) continue;
-            
-            // Add item
-            if (excel.isEquippable()) {
-                for (int i = 0; i < amount; i++) {
-                    battle.getDrops().add(new GameItem(excel, 1));
-                }
-            } else {
-                battle.getDrops().add(new GameItem(excel, amount));
-            }
-        }
+        dropMap.forEachItem(item -> {
+            battle.getDrops().add(item);
+        });
         
         // Add to inventory
         battle.getPlayer().getInventory().addItems(battle.getDrops());

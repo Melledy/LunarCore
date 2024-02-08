@@ -1,25 +1,22 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.proto.ItemOuterClass.Item;
+import java.util.Collection;
+
+import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.proto.SellItemScRspOuterClass.SellItemScRsp;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
-import it.unimi.dsi.fastutil.ints.Int2IntMap;
 
 public class PacketSellItemScRsp extends BasePacket {
 
-    public PacketSellItemScRsp(Int2IntMap returnItems) {
+    public PacketSellItemScRsp(Collection<GameItem> returnItems) {
         super(CmdId.SellItemScRsp);
 
         var data = SellItemScRsp.newInstance();
 
         if (returnItems != null) {
-            for (var item : returnItems.int2IntEntrySet()) {
-                var itemProto = Item.newInstance()
-                        .setItemId(item.getIntKey())
-                        .setNum(item.getIntValue());
-                
-                data.getMutableReturnItemList().addItemList(itemProto);
+            for (var item : returnItems) {
+                data.getMutableReturnItemList().addItemList(item.toProto());
             }
         } else {
             data.setRetcode(1);
