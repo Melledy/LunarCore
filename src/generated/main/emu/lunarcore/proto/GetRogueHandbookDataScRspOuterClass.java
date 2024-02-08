@@ -19,12 +19,12 @@ public final class GetRogueHandbookDataScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 14;</code>
+     * <code>optional .RogueHandbookData handbook_info = 7;</code>
      */
     private final RogueHandbookDataOuterClass.RogueHandbookData handbookInfo = RogueHandbookDataOuterClass.RogueHandbookData.newInstance();
 
@@ -39,7 +39,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return this
      */
     public GetRogueHandbookDataScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 14;</code>
+     * <code>optional .RogueHandbookData handbook_info = 7;</code>
      * @return whether the handbookInfo field is set
      */
     public boolean hasHandbookInfo() {
@@ -84,7 +84,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 14;</code>
+     * <code>optional .RogueHandbookData handbook_info = 7;</code>
      * @return this
      */
     public GetRogueHandbookDataScRsp clearHandbookInfo() {
@@ -94,7 +94,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 14;</code>
+     * <code>optional .RogueHandbookData handbook_info = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 14;</code>
+     * <code>optional .RogueHandbookData handbook_info = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 14;</code>
+     * <code>optional .RogueHandbookData handbook_info = 7;</code>
      * @param value the handbookInfo to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class GetRogueHandbookDataScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(handbookInfo);
       }
     }
@@ -227,16 +227,16 @@ public final class GetRogueHandbookDataScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 88: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 58) {
               break;
             }
           }
-          case 114: {
+          case 58: {
             // handbookInfo
             input.readMessage(handbookInfo);
             bitField0_ |= 0x00000002;

@@ -20,9 +20,19 @@ public final class RogueAchivedMiracleInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueMiracle rogue_miracle_list = 13;</code>
+     * <code>optional uint32 unlock_slot_count = 9;</code>
      */
-    private final RepeatedMessage<RogueMiracleOuterClass.RogueMiracle> rogueMiracleList = RepeatedMessage.newEmptyInstance(RogueMiracleOuterClass.RogueMiracle.getFactory());
+    private int unlockSlotCount;
+
+    /**
+     * <code>optional uint32 total_slot_count = 10;</code>
+     */
+    private int totalSlotCount;
+
+    /**
+     * <code>repeated .RogueMiracle miracle_list = 14;</code>
+     */
+    private final RepeatedMessage<RogueMiracleOuterClass.RogueMiracle> miracleList = RepeatedMessage.newEmptyInstance(RogueMiracleOuterClass.RogueMiracle.getFactory());
 
     private RogueAchivedMiracleInfo() {
     }
@@ -35,39 +45,113 @@ public final class RogueAchivedMiracleInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle rogue_miracle_list = 13;</code>
-     * @return whether the rogueMiracleList field is set
+     * <code>optional uint32 unlock_slot_count = 9;</code>
+     * @return whether the unlockSlotCount field is set
      */
-    public boolean hasRogueMiracleList() {
+    public boolean hasUnlockSlotCount() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>repeated .RogueMiracle rogue_miracle_list = 13;</code>
+     * <code>optional uint32 unlock_slot_count = 9;</code>
      * @return this
      */
-    public RogueAchivedMiracleInfo clearRogueMiracleList() {
+    public RogueAchivedMiracleInfo clearUnlockSlotCount() {
       bitField0_ &= ~0x00000001;
-      rogueMiracleList.clear();
+      unlockSlotCount = 0;
       return this;
     }
 
     /**
-     * <code>repeated .RogueMiracle rogue_miracle_list = 13;</code>
+     * <code>optional uint32 unlock_slot_count = 9;</code>
+     * @return the unlockSlotCount
+     */
+    public int getUnlockSlotCount() {
+      return unlockSlotCount;
+    }
+
+    /**
+     * <code>optional uint32 unlock_slot_count = 9;</code>
+     * @param value the unlockSlotCount to set
+     * @return this
+     */
+    public RogueAchivedMiracleInfo setUnlockSlotCount(final int value) {
+      bitField0_ |= 0x00000001;
+      unlockSlotCount = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 total_slot_count = 10;</code>
+     * @return whether the totalSlotCount field is set
+     */
+    public boolean hasTotalSlotCount() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 total_slot_count = 10;</code>
+     * @return this
+     */
+    public RogueAchivedMiracleInfo clearTotalSlotCount() {
+      bitField0_ &= ~0x00000002;
+      totalSlotCount = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 total_slot_count = 10;</code>
+     * @return the totalSlotCount
+     */
+    public int getTotalSlotCount() {
+      return totalSlotCount;
+    }
+
+    /**
+     * <code>optional uint32 total_slot_count = 10;</code>
+     * @param value the totalSlotCount to set
+     * @return this
+     */
+    public RogueAchivedMiracleInfo setTotalSlotCount(final int value) {
+      bitField0_ |= 0x00000002;
+      totalSlotCount = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated .RogueMiracle miracle_list = 14;</code>
+     * @return whether the miracleList field is set
+     */
+    public boolean hasMiracleList() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>repeated .RogueMiracle miracle_list = 14;</code>
+     * @return this
+     */
+    public RogueAchivedMiracleInfo clearMiracleList() {
+      bitField0_ &= ~0x00000004;
+      miracleList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .RogueMiracle miracle_list = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableRogueMiracleList()} if you want to modify it.
+     * Use {@link #getMutableMiracleList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedMessage<RogueMiracleOuterClass.RogueMiracle> getRogueMiracleList() {
-      return rogueMiracleList;
+    public RepeatedMessage<RogueMiracleOuterClass.RogueMiracle> getMiracleList() {
+      return miracleList;
     }
 
     /**
-     * <code>repeated .RogueMiracle rogue_miracle_list = 13;</code>
+     * <code>repeated .RogueMiracle miracle_list = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -75,32 +159,31 @@ public final class RogueAchivedMiracleInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedMessage<RogueMiracleOuterClass.RogueMiracle> getMutableRogueMiracleList() {
-      bitField0_ |= 0x00000001;
-      return rogueMiracleList;
+    public RepeatedMessage<RogueMiracleOuterClass.RogueMiracle> getMutableMiracleList() {
+      bitField0_ |= 0x00000004;
+      return miracleList;
     }
 
     /**
-     * <code>repeated .RogueMiracle rogue_miracle_list = 13;</code>
-     * @param value the rogueMiracleList to add
+     * <code>repeated .RogueMiracle miracle_list = 14;</code>
+     * @param value the miracleList to add
      * @return this
      */
-    public RogueAchivedMiracleInfo addRogueMiracleList(
-        final RogueMiracleOuterClass.RogueMiracle value) {
-      bitField0_ |= 0x00000001;
-      rogueMiracleList.add(value);
+    public RogueAchivedMiracleInfo addMiracleList(final RogueMiracleOuterClass.RogueMiracle value) {
+      bitField0_ |= 0x00000004;
+      miracleList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .RogueMiracle rogue_miracle_list = 13;</code>
-     * @param values the rogueMiracleList to add
+     * <code>repeated .RogueMiracle miracle_list = 14;</code>
+     * @param values the miracleList to add
      * @return this
      */
-    public RogueAchivedMiracleInfo addAllRogueMiracleList(
+    public RogueAchivedMiracleInfo addAllMiracleList(
         final RogueMiracleOuterClass.RogueMiracle... values) {
-      bitField0_ |= 0x00000001;
-      rogueMiracleList.addAll(values);
+      bitField0_ |= 0x00000004;
+      miracleList.addAll(values);
       return this;
     }
 
@@ -109,7 +192,9 @@ public final class RogueAchivedMiracleInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        rogueMiracleList.copyFrom(other.rogueMiracleList);
+        unlockSlotCount = other.unlockSlotCount;
+        totalSlotCount = other.totalSlotCount;
+        miracleList.copyFrom(other.miracleList);
       }
       return this;
     }
@@ -120,8 +205,14 @@ public final class RogueAchivedMiracleInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRogueMiracleList()) {
-        getMutableRogueMiracleList().addAll(other.rogueMiracleList);
+      if (other.hasUnlockSlotCount()) {
+        setUnlockSlotCount(other.unlockSlotCount);
+      }
+      if (other.hasTotalSlotCount()) {
+        setTotalSlotCount(other.totalSlotCount);
+      }
+      if (other.hasMiracleList()) {
+        getMutableMiracleList().addAll(other.miracleList);
       }
       return this;
     }
@@ -133,7 +224,9 @@ public final class RogueAchivedMiracleInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueMiracleList.clear();
+      unlockSlotCount = 0;
+      totalSlotCount = 0;
+      miracleList.clear();
       return this;
     }
 
@@ -144,7 +237,7 @@ public final class RogueAchivedMiracleInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueMiracleList.clearQuick();
+      miracleList.clearQuick();
       return this;
     }
 
@@ -158,15 +251,25 @@ public final class RogueAchivedMiracleInfoOuterClass {
       }
       RogueAchivedMiracleInfo other = (RogueAchivedMiracleInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasRogueMiracleList() || rogueMiracleList.equals(other.rogueMiracleList));
+        && (!hasUnlockSlotCount() || unlockSlotCount == other.unlockSlotCount)
+        && (!hasTotalSlotCount() || totalSlotCount == other.totalSlotCount)
+        && (!hasMiracleList() || miracleList.equals(other.miracleList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        for (int i = 0; i < rogueMiracleList.length(); i++) {
-          output.writeRawByte((byte) 106);
-          output.writeMessageNoTag(rogueMiracleList.get(i));
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(unlockSlotCount);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(totalSlotCount);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        for (int i = 0; i < miracleList.length(); i++) {
+          output.writeRawByte((byte) 114);
+          output.writeMessageNoTag(miracleList.get(i));
         }
       }
     }
@@ -175,7 +278,13 @@ public final class RogueAchivedMiracleInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += (1 * rogueMiracleList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(rogueMiracleList);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(unlockSlotCount);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(totalSlotCount);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += (1 * miracleList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(miracleList);
       }
       return size;
     }
@@ -187,10 +296,28 @@ public final class RogueAchivedMiracleInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 106: {
-            // rogueMiracleList
-            tag = input.readRepeatedMessage(rogueMiracleList, tag);
+          case 72: {
+            // unlockSlotCount
+            unlockSlotCount = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 80) {
+              break;
+            }
+          }
+          case 80: {
+            // totalSlotCount
+            totalSlotCount = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 114) {
+              break;
+            }
+          }
+          case 114: {
+            // miracleList
+            tag = input.readRepeatedMessage(miracleList, tag);
+            bitField0_ |= 0x00000004;
             if (tag != 0) {
               break;
             }
@@ -213,7 +340,13 @@ public final class RogueAchivedMiracleInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRepeatedMessage(FieldNames.rogueMiracleList, rogueMiracleList);
+        output.writeUInt32(FieldNames.unlockSlotCount, unlockSlotCount);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.totalSlotCount, totalSlotCount);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRepeatedMessage(FieldNames.miracleList, miracleList);
       }
       output.endObject();
     }
@@ -225,12 +358,36 @@ public final class RogueAchivedMiracleInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -452426123:
-          case 1925521905: {
-            if (input.isAtField(FieldNames.rogueMiracleList)) {
+          case 1641951949:
+          case 1265281897: {
+            if (input.isAtField(FieldNames.unlockSlotCount)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(rogueMiracleList);
+                unlockSlotCount = input.readUInt32();
                 bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1481291469:
+          case 1489383273: {
+            if (input.isAtField(FieldNames.totalSlotCount)) {
+              if (!input.trySkipNullValue()) {
+                totalSlotCount = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 760391855:
+          case 2114937772: {
+            if (input.isAtField(FieldNames.miracleList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(miracleList);
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -290,7 +447,11 @@ public final class RogueAchivedMiracleInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName rogueMiracleList = FieldName.forField("rogueMiracleList", "rogue_miracle_list");
+      static final FieldName unlockSlotCount = FieldName.forField("unlockSlotCount", "unlock_slot_count");
+
+      static final FieldName totalSlotCount = FieldName.forField("totalSlotCount", "total_slot_count");
+
+      static final FieldName miracleList = FieldName.forField("miracleList", "miracle_list");
     }
   }
 }

@@ -24,7 +24,7 @@ public final class EnableRogueTalentScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 1;</code>
+     * <code>optional .RogueTalentInfo talent_info = 6;</code>
      */
     private final RogueTalentInfoOuterClass.RogueTalentInfo talentInfo = RogueTalentInfoOuterClass.RogueTalentInfo.newInstance();
 
@@ -76,7 +76,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 1;</code>
+     * <code>optional .RogueTalentInfo talent_info = 6;</code>
      * @return whether the talentInfo field is set
      */
     public boolean hasTalentInfo() {
@@ -84,7 +84,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 1;</code>
+     * <code>optional .RogueTalentInfo talent_info = 6;</code>
      * @return this
      */
     public EnableRogueTalentScRsp clearTalentInfo() {
@@ -94,7 +94,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 1;</code>
+     * <code>optional .RogueTalentInfo talent_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 1;</code>
+     * <code>optional .RogueTalentInfo talent_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class EnableRogueTalentScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueTalentInfo talent_info = 1;</code>
+     * <code>optional .RogueTalentInfo talent_info = 6;</code>
      * @param value the talentInfo to set
      * @return this
      */
@@ -203,7 +203,7 @@ public final class EnableRogueTalentScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 10);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(talentInfo);
       }
     }
@@ -232,11 +232,11 @@ public final class EnableRogueTalentScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 50) {
               break;
             }
           }
-          case 10: {
+          case 50: {
             // talentInfo
             input.readMessage(talentInfo);
             bitField0_ |= 0x00000002;

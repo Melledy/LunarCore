@@ -20,7 +20,7 @@ public final class RogueTalentInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueTalent rogue_talent = 8;</code>
+     * <code>repeated .RogueTalent rogue_talent = 3;</code>
      */
     private final RepeatedMessage<RogueTalentOuterClass.RogueTalent> rogueTalent = RepeatedMessage.newEmptyInstance(RogueTalentOuterClass.RogueTalent.getFactory());
 
@@ -35,7 +35,7 @@ public final class RogueTalentInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueTalent rogue_talent = 8;</code>
+     * <code>repeated .RogueTalent rogue_talent = 3;</code>
      * @return whether the rogueTalent field is set
      */
     public boolean hasRogueTalent() {
@@ -43,7 +43,7 @@ public final class RogueTalentInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueTalent rogue_talent = 8;</code>
+     * <code>repeated .RogueTalent rogue_talent = 3;</code>
      * @return this
      */
     public RogueTalentInfo clearRogueTalent() {
@@ -53,7 +53,7 @@ public final class RogueTalentInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueTalent rogue_talent = 8;</code>
+     * <code>repeated .RogueTalent rogue_talent = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class RogueTalentInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueTalent rogue_talent = 8;</code>
+     * <code>repeated .RogueTalent rogue_talent = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class RogueTalentInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueTalent rogue_talent = 8;</code>
+     * <code>repeated .RogueTalent rogue_talent = 3;</code>
      * @param value the rogueTalent to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class RogueTalentInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueTalent rogue_talent = 8;</code>
+     * <code>repeated .RogueTalent rogue_talent = 3;</code>
      * @param values the rogueTalent to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class RogueTalentInfoOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < rogueTalent.length(); i++) {
-          output.writeRawByte((byte) 66);
+          output.writeRawByte((byte) 26);
           output.writeMessageNoTag(rogueTalent.get(i));
         }
       }
@@ -185,7 +185,7 @@ public final class RogueTalentInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 66: {
+          case 26: {
             // rogueTalent
             tag = input.readRepeatedMessage(rogueTalent, tag);
             bitField0_ |= 0x00000001;
