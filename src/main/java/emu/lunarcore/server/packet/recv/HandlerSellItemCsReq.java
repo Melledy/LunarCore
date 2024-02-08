@@ -24,7 +24,7 @@ public class HandlerSellItemCsReq extends PacketHandler {
             items.add(new ItemParam(cost));
         }
 
-        var returnItems = session.getServer().getInventoryService().sellItems(session.getPlayer(), items);
+        var returnItems = session.getServer().getInventoryService().sellItems(session.getPlayer(), req.getToMaterial(), items);
         session.send(new PacketSellItemScRsp(returnItems));
     }
 

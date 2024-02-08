@@ -4,12 +4,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.common.ItemParam;
 import emu.lunarcore.data.excel.*;
 import emu.lunarcore.data.excel.ItemComposeExcel.FormulaType;
 import emu.lunarcore.game.avatar.GameAvatar;
+import emu.lunarcore.game.enums.ItemRarity;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
@@ -552,20 +554,26 @@ public class InventoryService extends BaseGameService {
         player.sendPacket(new PacketPlayerSyncScNotify(relic));
     }
 
-    public Int2IntMap sellItems(Player player, List<ItemParam> items) {
+    public Int2IntMap sellItems(Player player, boolean toMaterials, List<ItemParam> items) {
         // Verify items
         var returnItems = new Int2IntOpenHashMap();
 
         for (ItemParam param : items) {
+            // Get item in inventory
             GameItem item = player.getInventory().getItemByParam(param);
             if (item == null || item.isLocked() || item.getCount() < param.getCount()) {
                 return null;
             }
 
             // Add return items
-            for (ItemParam ret : item.getExcel().getReturnItemIDList()) {
-                // Add to return items
-                returnItems.put(ret.getId(), returnItems.getOrDefault(ret.getId(), 0) + ret.getCount());
+            if (item.getExcel().getRarity() == ItemRarity.SuperRare && !toMaterials) {
+                // Relic remains
+                returnItems.addTo(GameConstants.RELIC_REMAINS_ID, 10);
+            } else {
+                // Add basic return items
+                for (ItemParam ret : item.getExcel().getReturnItemIDList()) {
+                    returnItems.addTo(ret.getId(), ret.getCount());
+                }
             }
         }
 

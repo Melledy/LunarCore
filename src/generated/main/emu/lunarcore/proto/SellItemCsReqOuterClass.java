@@ -19,6 +19,11 @@ public final class SellItemCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <code>optional bool to_material = 1;</code>
+     */
+    private boolean toMaterial;
+
+    /**
      * <code>optional .ItemCostList item_cost_list = 8;</code>
      */
     private final ItemCostListOuterClass.ItemCostList itemCostList = ItemCostListOuterClass.ItemCostList.newInstance();
@@ -34,11 +39,48 @@ public final class SellItemCsReqOuterClass {
     }
 
     /**
+     * <code>optional bool to_material = 1;</code>
+     * @return whether the toMaterial field is set
+     */
+    public boolean hasToMaterial() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional bool to_material = 1;</code>
+     * @return this
+     */
+    public SellItemCsReq clearToMaterial() {
+      bitField0_ &= ~0x00000001;
+      toMaterial = false;
+      return this;
+    }
+
+    /**
+     * <code>optional bool to_material = 1;</code>
+     * @return the toMaterial
+     */
+    public boolean getToMaterial() {
+      return toMaterial;
+    }
+
+    /**
+     * <code>optional bool to_material = 1;</code>
+     * @param value the toMaterial to set
+     * @return this
+     */
+    public SellItemCsReq setToMaterial(final boolean value) {
+      bitField0_ |= 0x00000001;
+      toMaterial = value;
+      return this;
+    }
+
+    /**
      * <code>optional .ItemCostList item_cost_list = 8;</code>
      * @return whether the itemCostList field is set
      */
     public boolean hasItemCostList() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -46,7 +88,7 @@ public final class SellItemCsReqOuterClass {
      * @return this
      */
     public SellItemCsReq clearItemCostList() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       itemCostList.clear();
       return this;
     }
@@ -75,7 +117,7 @@ public final class SellItemCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public ItemCostListOuterClass.ItemCostList getMutableItemCostList() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return itemCostList;
     }
 
@@ -85,7 +127,7 @@ public final class SellItemCsReqOuterClass {
      * @return this
      */
     public SellItemCsReq setItemCostList(final ItemCostListOuterClass.ItemCostList value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       itemCostList.copyFrom(value);
       return this;
     }
@@ -95,6 +137,7 @@ public final class SellItemCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        toMaterial = other.toMaterial;
         itemCostList.copyFrom(other.itemCostList);
       }
       return this;
@@ -106,6 +149,9 @@ public final class SellItemCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasToMaterial()) {
+        setToMaterial(other.toMaterial);
+      }
       if (other.hasItemCostList()) {
         getMutableItemCostList().mergeFrom(other.itemCostList);
       }
@@ -119,6 +165,7 @@ public final class SellItemCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      toMaterial = false;
       itemCostList.clear();
       return this;
     }
@@ -144,12 +191,17 @@ public final class SellItemCsReqOuterClass {
       }
       SellItemCsReq other = (SellItemCsReq) o;
       return bitField0_ == other.bitField0_
+        && (!hasToMaterial() || toMaterial == other.toMaterial)
         && (!hasItemCostList() || itemCostList.equals(other.itemCostList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 8);
+        output.writeBoolNoTag(toMaterial);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 66);
         output.writeMessageNoTag(itemCostList);
       }
@@ -159,6 +211,9 @@ public final class SellItemCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
+        size += 2;
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(itemCostList);
       }
       return size;
@@ -171,10 +226,19 @@ public final class SellItemCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
+          case 8: {
+            // toMaterial
+            toMaterial = input.readBool();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 66) {
+              break;
+            }
+          }
           case 66: {
             // itemCostList
             input.readMessage(itemCostList);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -198,6 +262,9 @@ public final class SellItemCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeBool(FieldNames.toMaterial, toMaterial);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeMessage(FieldNames.itemCostList, itemCostList);
       }
       output.endObject();
@@ -210,12 +277,24 @@ public final class SellItemCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 278998210:
+          case 2058461803: {
+            if (input.isAtField(FieldNames.toMaterial)) {
+              if (!input.trySkipNullValue()) {
+                toMaterial = input.readBool();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 203506238:
           case -1124889692: {
             if (input.isAtField(FieldNames.itemCostList)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(itemCostList);
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -274,6 +353,8 @@ public final class SellItemCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName toMaterial = FieldName.forField("toMaterial", "to_material");
+
       static final FieldName itemCostList = FieldName.forField("itemCostList", "item_cost_list");
     }
   }

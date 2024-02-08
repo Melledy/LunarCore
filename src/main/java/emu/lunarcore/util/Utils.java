@@ -127,7 +127,7 @@ public class Utils {
      * Add 2 integers without overflowing
      */
     public static int safeAdd(int a, int b) {
-        return safeAdd(a, b, Integer.MAX_VALUE, Integer.MIN_VALUE);
+        return safeAdd(a, b, Integer.MAX_VALUE, 0);
     }
     
     public static int safeAdd(int a, int b, long max, long min) {

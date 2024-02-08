@@ -313,25 +313,30 @@ public class Inventory extends BasePlayerManager {
         List<GameItem> results = new ArrayList<GameItem>(items.size());
         
         for (ItemParam param : items) {
-            // Check param type
-            if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
-                // Remove credits
-                getPlayer().addSCoin(-param.getCount() * multiplier);
-            } else if (param.getId() == GameConstants.MATERIAL_HCOIN_ID) {
-                // Remove credits
-                getPlayer().addHCoin(-param.getCount() * multiplier);
-            } else if (param.getId() == GameConstants.ROGUE_TALENT_POINT_ITEM_ID) {
-                // Remove credits
-                getPlayer().addTalentPoints(-param.getCount() * multiplier);
-            } else {
-                // Remove param items
-                GameItem item = this.getItemByParam(param);
-                if (item == null) continue;
-                
-                GameItem result = this.deleteItem(item, param.getCount() * multiplier);
-                if (result != null) {
-                    results.add(result);
+            // Remove virtual items first
+            if (param.getType() == ItemParamType.PILE) {
+                if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
+                    // Remove credits
+                    getPlayer().addSCoin(-param.getCount() * multiplier);
+                    continue;
+                } else if (param.getId() == GameConstants.MATERIAL_HCOIN_ID) {
+                    // Remove credits
+                    getPlayer().addHCoin(-param.getCount() * multiplier);
+                    continue;
+                } else if (param.getId() == GameConstants.ROGUE_TALENT_POINT_ITEM_ID) {
+                    // Remove credits
+                    getPlayer().addTalentPoints(-param.getCount() * multiplier);
+                    continue;
                 }
+            }
+            
+            // Remove param items
+            GameItem item = this.getItemByParam(param);
+            if (item == null) continue;
+            
+            GameItem result = this.deleteItem(item, param.getCount() * multiplier);
+            if (result != null) {
+                results.add(result);
             }
         }
         
