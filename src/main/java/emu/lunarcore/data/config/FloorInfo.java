@@ -88,6 +88,7 @@ public class FloorInfo {
     @Getter
     public static class FloorGroupSimpleInfo {
         private String GroupPath;
+        private boolean IsDelete;
         private int ID;
     }
 }

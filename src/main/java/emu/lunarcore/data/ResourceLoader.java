@@ -205,6 +205,12 @@ public class ResourceLoader {
         // Load group infos
         for (FloorInfo floor : GameData.getFloorInfos().values()) {
             for (FloorGroupSimpleInfo simpleGroup : floor.getSimpleGroupList()) {
+                // Dont load "deprecated" groups
+                if (simpleGroup.isIsDelete()) {
+                    continue;
+                }
+                
+                // Get file from resource directory
                 File file = new File(LunarCore.getConfig().getResourceDir() + "/" + simpleGroup.getGroupPath());
                 if (!file.exists()) continue;
 
