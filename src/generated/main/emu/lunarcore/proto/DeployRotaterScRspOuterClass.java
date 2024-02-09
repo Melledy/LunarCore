@@ -24,9 +24,9 @@ public final class DeployRotaterScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .DeployRotaterScRsp.EnergyInfo energy_info = 7;</code>
+     * <code>optional .RotatorEnergyInfo energy_info = 7;</code>
      */
-    private final EnergyInfo energyInfo = EnergyInfo.newInstance();
+    private final RotatorEnergyInfoOuterClass.RotatorEnergyInfo energyInfo = RotatorEnergyInfoOuterClass.RotatorEnergyInfo.newInstance();
 
     /**
      * <code>optional .RotaterData rotater_data = 9;</code>
@@ -81,7 +81,7 @@ public final class DeployRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional .DeployRotaterScRsp.EnergyInfo energy_info = 7;</code>
+     * <code>optional .RotatorEnergyInfo energy_info = 7;</code>
      * @return whether the energyInfo field is set
      */
     public boolean hasEnergyInfo() {
@@ -89,7 +89,7 @@ public final class DeployRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional .DeployRotaterScRsp.EnergyInfo energy_info = 7;</code>
+     * <code>optional .RotatorEnergyInfo energy_info = 7;</code>
      * @return this
      */
     public DeployRotaterScRsp clearEnergyInfo() {
@@ -99,7 +99,7 @@ public final class DeployRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional .DeployRotaterScRsp.EnergyInfo energy_info = 7;</code>
+     * <code>optional .RotatorEnergyInfo energy_info = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,12 +108,12 @@ public final class DeployRotaterScRspOuterClass {
      *
      * @return internal storage object for reading
      */
-    public EnergyInfo getEnergyInfo() {
+    public RotatorEnergyInfoOuterClass.RotatorEnergyInfo getEnergyInfo() {
       return energyInfo;
     }
 
     /**
-     * <code>optional .DeployRotaterScRsp.EnergyInfo energy_info = 7;</code>
+     * <code>optional .RotatorEnergyInfo energy_info = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -121,17 +121,18 @@ public final class DeployRotaterScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public EnergyInfo getMutableEnergyInfo() {
+    public RotatorEnergyInfoOuterClass.RotatorEnergyInfo getMutableEnergyInfo() {
       bitField0_ |= 0x00000002;
       return energyInfo;
     }
 
     /**
-     * <code>optional .DeployRotaterScRsp.EnergyInfo energy_info = 7;</code>
+     * <code>optional .RotatorEnergyInfo energy_info = 7;</code>
      * @param value the energyInfo to set
      * @return this
      */
-    public DeployRotaterScRsp setEnergyInfo(final EnergyInfo value) {
+    public DeployRotaterScRsp setEnergyInfo(
+        final RotatorEnergyInfoOuterClass.RotatorEnergyInfo value) {
       bitField0_ |= 0x00000002;
       energyInfo.copyFrom(value);
       return this;
@@ -438,332 +439,6 @@ public final class DeployRotaterScRspOuterClass {
      */
     public static MessageFactory<DeployRotaterScRsp> getFactory() {
       return DeployRotaterScRspFactory.INSTANCE;
-    }
-
-    /**
-     * Protobuf type {@code EnergyInfo}
-     */
-    public static final class EnergyInfo extends ProtoMessage<EnergyInfo> implements Cloneable {
-      private static final long serialVersionUID = 0L;
-
-      /**
-       * <code>optional uint32 cur_num = 3;</code>
-       */
-      private int curNum;
-
-      /**
-       * <code>optional uint32 max_num = 14;</code>
-       */
-      private int maxNum;
-
-      private EnergyInfo() {
-      }
-
-      /**
-       * @return a new empty instance of {@code EnergyInfo}
-       */
-      public static EnergyInfo newInstance() {
-        return new EnergyInfo();
-      }
-
-      /**
-       * <code>optional uint32 cur_num = 3;</code>
-       * @return whether the curNum field is set
-       */
-      public boolean hasCurNum() {
-        return (bitField0_ & 0x00000001) != 0;
-      }
-
-      /**
-       * <code>optional uint32 cur_num = 3;</code>
-       * @return this
-       */
-      public EnergyInfo clearCurNum() {
-        bitField0_ &= ~0x00000001;
-        curNum = 0;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 cur_num = 3;</code>
-       * @return the curNum
-       */
-      public int getCurNum() {
-        return curNum;
-      }
-
-      /**
-       * <code>optional uint32 cur_num = 3;</code>
-       * @param value the curNum to set
-       * @return this
-       */
-      public EnergyInfo setCurNum(final int value) {
-        bitField0_ |= 0x00000001;
-        curNum = value;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 max_num = 14;</code>
-       * @return whether the maxNum field is set
-       */
-      public boolean hasMaxNum() {
-        return (bitField0_ & 0x00000002) != 0;
-      }
-
-      /**
-       * <code>optional uint32 max_num = 14;</code>
-       * @return this
-       */
-      public EnergyInfo clearMaxNum() {
-        bitField0_ &= ~0x00000002;
-        maxNum = 0;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 max_num = 14;</code>
-       * @return the maxNum
-       */
-      public int getMaxNum() {
-        return maxNum;
-      }
-
-      /**
-       * <code>optional uint32 max_num = 14;</code>
-       * @param value the maxNum to set
-       * @return this
-       */
-      public EnergyInfo setMaxNum(final int value) {
-        bitField0_ |= 0x00000002;
-        maxNum = value;
-        return this;
-      }
-
-      @Override
-      public EnergyInfo copyFrom(final EnergyInfo other) {
-        cachedSize = other.cachedSize;
-        if ((bitField0_ | other.bitField0_) != 0) {
-          bitField0_ = other.bitField0_;
-          curNum = other.curNum;
-          maxNum = other.maxNum;
-        }
-        return this;
-      }
-
-      @Override
-      public EnergyInfo mergeFrom(final EnergyInfo other) {
-        if (other.isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        if (other.hasCurNum()) {
-          setCurNum(other.curNum);
-        }
-        if (other.hasMaxNum()) {
-          setMaxNum(other.maxNum);
-        }
-        return this;
-      }
-
-      @Override
-      public EnergyInfo clear() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        curNum = 0;
-        maxNum = 0;
-        return this;
-      }
-
-      @Override
-      public EnergyInfo clearQuick() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        return this;
-      }
-
-      @Override
-      public boolean equals(Object o) {
-        if (o == this) {
-          return true;
-        }
-        if (!(o instanceof EnergyInfo)) {
-          return false;
-        }
-        EnergyInfo other = (EnergyInfo) o;
-        return bitField0_ == other.bitField0_
-          && (!hasCurNum() || curNum == other.curNum)
-          && (!hasMaxNum() || maxNum == other.maxNum);
-      }
-
-      @Override
-      public void writeTo(final ProtoSink output) throws IOException {
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeRawByte((byte) 24);
-          output.writeUInt32NoTag(curNum);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeRawByte((byte) 112);
-          output.writeUInt32NoTag(maxNum);
-        }
-      }
-
-      @Override
-      protected int computeSerializedSize() {
-        int size = 0;
-        if ((bitField0_ & 0x00000001) != 0) {
-          size += 1 + ProtoSink.computeUInt32SizeNoTag(curNum);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          size += 1 + ProtoSink.computeUInt32SizeNoTag(maxNum);
-        }
-        return size;
-      }
-
-      @Override
-      @SuppressWarnings("fallthrough")
-      public EnergyInfo mergeFrom(final ProtoSource input) throws IOException {
-        // Enabled Fall-Through Optimization (QuickBuffers)
-        int tag = input.readTag();
-        while (true) {
-          switch (tag) {
-            case 24: {
-              // curNum
-              curNum = input.readUInt32();
-              bitField0_ |= 0x00000001;
-              tag = input.readTag();
-              if (tag != 112) {
-                break;
-              }
-            }
-            case 112: {
-              // maxNum
-              maxNum = input.readUInt32();
-              bitField0_ |= 0x00000002;
-              tag = input.readTag();
-              if (tag != 0) {
-                break;
-              }
-            }
-            case 0: {
-              return this;
-            }
-            default: {
-              if (!input.skipField(tag)) {
-                return this;
-              }
-              tag = input.readTag();
-              break;
-            }
-          }
-        }
-      }
-
-      @Override
-      public void writeTo(final JsonSink output) throws IOException {
-        output.beginObject();
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeUInt32(FieldNames.curNum, curNum);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeUInt32(FieldNames.maxNum, maxNum);
-        }
-        output.endObject();
-      }
-
-      @Override
-      public EnergyInfo mergeFrom(final JsonSource input) throws IOException {
-        if (!input.beginObject()) {
-          return this;
-        }
-        while (!input.isAtEnd()) {
-          switch (input.readFieldHash()) {
-            case -1349154522:
-            case 1126382855: {
-              if (input.isAtField(FieldNames.curNum)) {
-                if (!input.trySkipNullValue()) {
-                  curNum = input.readUInt32();
-                  bitField0_ |= 0x00000001;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            case -1081154686:
-            case 844443179: {
-              if (input.isAtField(FieldNames.maxNum)) {
-                if (!input.trySkipNullValue()) {
-                  maxNum = input.readUInt32();
-                  bitField0_ |= 0x00000002;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            default: {
-              input.skipUnknownField();
-              break;
-            }
-          }
-        }
-        input.endObject();
-        return this;
-      }
-
-      @Override
-      public EnergyInfo clone() {
-        return new EnergyInfo().copyFrom(this);
-      }
-
-      @Override
-      public boolean isEmpty() {
-        return ((bitField0_) == 0);
-      }
-
-      public static EnergyInfo parseFrom(final byte[] data) throws InvalidProtocolBufferException {
-        return ProtoMessage.mergeFrom(new EnergyInfo(), data).checkInitialized();
-      }
-
-      public static EnergyInfo parseFrom(final ProtoSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new EnergyInfo(), input).checkInitialized();
-      }
-
-      public static EnergyInfo parseFrom(final JsonSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new EnergyInfo(), input).checkInitialized();
-      }
-
-      /**
-       * @return factory for creating EnergyInfo messages
-       */
-      public static MessageFactory<EnergyInfo> getFactory() {
-        return EnergyInfoFactory.INSTANCE;
-      }
-
-      private enum EnergyInfoFactory implements MessageFactory<EnergyInfo> {
-        INSTANCE;
-
-        @Override
-        public EnergyInfo create() {
-          return EnergyInfo.newInstance();
-        }
-      }
-
-      /**
-       * Contains name constants used for serializing JSON
-       */
-      static class FieldNames {
-        static final FieldName curNum = FieldName.forField("curNum", "cur_num");
-
-        static final FieldName maxNum = FieldName.forField("maxNum", "max_num");
-      }
     }
 
     private enum DeployRotaterScRspFactory implements MessageFactory<DeployRotaterScRsp> {

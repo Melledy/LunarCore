@@ -24,15 +24,6 @@ public final class InteractChargerScRspOuterClass {
     private int retcode;
 
     /**
-     * <pre>
-     *  obf: MIAGCEIOPJH
-     * </pre>
-     *
-     * <code>optional .InteractChargerScRsp.ECKNFHCDJFH OEKHAFALOFB = 6;</code>
-     */
-    private final ECKNFHCDJFH oEKHAFALOFB = ECKNFHCDJFH.newInstance();
-
-    /**
      * <code>optional .ChargerInfo charger_info = 13;</code>
      */
     private final ChargerInfoOuterClass.ChargerInfo chargerInfo = ChargerInfoOuterClass.ChargerInfo.newInstance();
@@ -85,88 +76,11 @@ public final class InteractChargerScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  obf: MIAGCEIOPJH
-     * </pre>
-     *
-     * <code>optional .InteractChargerScRsp.ECKNFHCDJFH OEKHAFALOFB = 6;</code>
-     * @return whether the oEKHAFALOFB field is set
-     */
-    public boolean hasOEKHAFALOFB() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <pre>
-     *  obf: MIAGCEIOPJH
-     * </pre>
-     *
-     * <code>optional .InteractChargerScRsp.ECKNFHCDJFH OEKHAFALOFB = 6;</code>
-     * @return this
-     */
-    public InteractChargerScRsp clearOEKHAFALOFB() {
-      bitField0_ &= ~0x00000002;
-      oEKHAFALOFB.clear();
-      return this;
-    }
-
-    /**
-     * <pre>
-     *  obf: MIAGCEIOPJH
-     * </pre>
-     *
-     * <code>optional .InteractChargerScRsp.ECKNFHCDJFH OEKHAFALOFB = 6;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableOEKHAFALOFB()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public ECKNFHCDJFH getOEKHAFALOFB() {
-      return oEKHAFALOFB;
-    }
-
-    /**
-     * <pre>
-     *  obf: MIAGCEIOPJH
-     * </pre>
-     *
-     * <code>optional .InteractChargerScRsp.ECKNFHCDJFH OEKHAFALOFB = 6;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public ECKNFHCDJFH getMutableOEKHAFALOFB() {
-      bitField0_ |= 0x00000002;
-      return oEKHAFALOFB;
-    }
-
-    /**
-     * <pre>
-     *  obf: MIAGCEIOPJH
-     * </pre>
-     *
-     * <code>optional .InteractChargerScRsp.ECKNFHCDJFH OEKHAFALOFB = 6;</code>
-     * @param value the oEKHAFALOFB to set
-     * @return this
-     */
-    public InteractChargerScRsp setOEKHAFALOFB(final ECKNFHCDJFH value) {
-      bitField0_ |= 0x00000002;
-      oEKHAFALOFB.copyFrom(value);
-      return this;
-    }
-
-    /**
      * <code>optional .ChargerInfo charger_info = 13;</code>
      * @return whether the chargerInfo field is set
      */
     public boolean hasChargerInfo() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -174,7 +88,7 @@ public final class InteractChargerScRspOuterClass {
      * @return this
      */
     public InteractChargerScRsp clearChargerInfo() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       chargerInfo.clear();
       return this;
     }
@@ -203,7 +117,7 @@ public final class InteractChargerScRspOuterClass {
      * @return internal storage object for modifications
      */
     public ChargerInfoOuterClass.ChargerInfo getMutableChargerInfo() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       return chargerInfo;
     }
 
@@ -213,7 +127,7 @@ public final class InteractChargerScRspOuterClass {
      * @return this
      */
     public InteractChargerScRsp setChargerInfo(final ChargerInfoOuterClass.ChargerInfo value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       chargerInfo.copyFrom(value);
       return this;
     }
@@ -224,7 +138,6 @@ public final class InteractChargerScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        oEKHAFALOFB.copyFrom(other.oEKHAFALOFB);
         chargerInfo.copyFrom(other.chargerInfo);
       }
       return this;
@@ -238,9 +151,6 @@ public final class InteractChargerScRspOuterClass {
       cachedSize = -1;
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
-      }
-      if (other.hasOEKHAFALOFB()) {
-        getMutableOEKHAFALOFB().mergeFrom(other.oEKHAFALOFB);
       }
       if (other.hasChargerInfo()) {
         getMutableChargerInfo().mergeFrom(other.chargerInfo);
@@ -256,7 +166,6 @@ public final class InteractChargerScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      oEKHAFALOFB.clear();
       chargerInfo.clear();
       return this;
     }
@@ -268,7 +177,6 @@ public final class InteractChargerScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      oEKHAFALOFB.clearQuick();
       chargerInfo.clearQuick();
       return this;
     }
@@ -284,7 +192,6 @@ public final class InteractChargerScRspOuterClass {
       InteractChargerScRsp other = (InteractChargerScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasOEKHAFALOFB() || oEKHAFALOFB.equals(other.oEKHAFALOFB))
         && (!hasChargerInfo() || chargerInfo.equals(other.chargerInfo));
     }
 
@@ -295,10 +202,6 @@ public final class InteractChargerScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(oEKHAFALOFB);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 106);
         output.writeMessageNoTag(chargerInfo);
       }
@@ -311,9 +214,6 @@ public final class InteractChargerScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(oEKHAFALOFB);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(chargerInfo);
       }
       return size;
@@ -331,15 +231,6 @@ public final class InteractChargerScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
-              break;
-            }
-          }
-          case 50: {
-            // oEKHAFALOFB
-            input.readMessage(oEKHAFALOFB);
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
             if (tag != 106) {
               break;
             }
@@ -347,7 +238,7 @@ public final class InteractChargerScRspOuterClass {
           case 106: {
             // chargerInfo
             input.readMessage(chargerInfo);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -374,9 +265,6 @@ public final class InteractChargerScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.oEKHAFALOFB, oEKHAFALOFB);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.chargerInfo, chargerInfo);
       }
       output.endObject();
@@ -400,23 +288,12 @@ public final class InteractChargerScRspOuterClass {
             }
             break;
           }
-          case 1533003560: {
-            if (input.isAtField(FieldNames.oEKHAFALOFB)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(oEKHAFALOFB);
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 1038073356:
           case 2135678991: {
             if (input.isAtField(FieldNames.chargerInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(chargerInfo);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -463,330 +340,6 @@ public final class InteractChargerScRspOuterClass {
       return InteractChargerScRspFactory.INSTANCE;
     }
 
-    /**
-     * Protobuf type {@code ECKNFHCDJFH}
-     */
-    public static final class ECKNFHCDJFH extends ProtoMessage<ECKNFHCDJFH> implements Cloneable {
-      private static final long serialVersionUID = 0L;
-
-      /**
-       * <code>optional uint32 PJHMBIAHHBG = 3;</code>
-       */
-      private int pJHMBIAHHBG;
-
-      /**
-       * <code>optional uint32 CLMDBEPFDNG = 14;</code>
-       */
-      private int cLMDBEPFDNG;
-
-      private ECKNFHCDJFH() {
-      }
-
-      /**
-       * @return a new empty instance of {@code ECKNFHCDJFH}
-       */
-      public static ECKNFHCDJFH newInstance() {
-        return new ECKNFHCDJFH();
-      }
-
-      /**
-       * <code>optional uint32 PJHMBIAHHBG = 3;</code>
-       * @return whether the pJHMBIAHHBG field is set
-       */
-      public boolean hasPJHMBIAHHBG() {
-        return (bitField0_ & 0x00000001) != 0;
-      }
-
-      /**
-       * <code>optional uint32 PJHMBIAHHBG = 3;</code>
-       * @return this
-       */
-      public ECKNFHCDJFH clearPJHMBIAHHBG() {
-        bitField0_ &= ~0x00000001;
-        pJHMBIAHHBG = 0;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 PJHMBIAHHBG = 3;</code>
-       * @return the pJHMBIAHHBG
-       */
-      public int getPJHMBIAHHBG() {
-        return pJHMBIAHHBG;
-      }
-
-      /**
-       * <code>optional uint32 PJHMBIAHHBG = 3;</code>
-       * @param value the pJHMBIAHHBG to set
-       * @return this
-       */
-      public ECKNFHCDJFH setPJHMBIAHHBG(final int value) {
-        bitField0_ |= 0x00000001;
-        pJHMBIAHHBG = value;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 CLMDBEPFDNG = 14;</code>
-       * @return whether the cLMDBEPFDNG field is set
-       */
-      public boolean hasCLMDBEPFDNG() {
-        return (bitField0_ & 0x00000002) != 0;
-      }
-
-      /**
-       * <code>optional uint32 CLMDBEPFDNG = 14;</code>
-       * @return this
-       */
-      public ECKNFHCDJFH clearCLMDBEPFDNG() {
-        bitField0_ &= ~0x00000002;
-        cLMDBEPFDNG = 0;
-        return this;
-      }
-
-      /**
-       * <code>optional uint32 CLMDBEPFDNG = 14;</code>
-       * @return the cLMDBEPFDNG
-       */
-      public int getCLMDBEPFDNG() {
-        return cLMDBEPFDNG;
-      }
-
-      /**
-       * <code>optional uint32 CLMDBEPFDNG = 14;</code>
-       * @param value the cLMDBEPFDNG to set
-       * @return this
-       */
-      public ECKNFHCDJFH setCLMDBEPFDNG(final int value) {
-        bitField0_ |= 0x00000002;
-        cLMDBEPFDNG = value;
-        return this;
-      }
-
-      @Override
-      public ECKNFHCDJFH copyFrom(final ECKNFHCDJFH other) {
-        cachedSize = other.cachedSize;
-        if ((bitField0_ | other.bitField0_) != 0) {
-          bitField0_ = other.bitField0_;
-          pJHMBIAHHBG = other.pJHMBIAHHBG;
-          cLMDBEPFDNG = other.cLMDBEPFDNG;
-        }
-        return this;
-      }
-
-      @Override
-      public ECKNFHCDJFH mergeFrom(final ECKNFHCDJFH other) {
-        if (other.isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        if (other.hasPJHMBIAHHBG()) {
-          setPJHMBIAHHBG(other.pJHMBIAHHBG);
-        }
-        if (other.hasCLMDBEPFDNG()) {
-          setCLMDBEPFDNG(other.cLMDBEPFDNG);
-        }
-        return this;
-      }
-
-      @Override
-      public ECKNFHCDJFH clear() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        pJHMBIAHHBG = 0;
-        cLMDBEPFDNG = 0;
-        return this;
-      }
-
-      @Override
-      public ECKNFHCDJFH clearQuick() {
-        if (isEmpty()) {
-          return this;
-        }
-        cachedSize = -1;
-        bitField0_ = 0;
-        return this;
-      }
-
-      @Override
-      public boolean equals(Object o) {
-        if (o == this) {
-          return true;
-        }
-        if (!(o instanceof ECKNFHCDJFH)) {
-          return false;
-        }
-        ECKNFHCDJFH other = (ECKNFHCDJFH) o;
-        return bitField0_ == other.bitField0_
-          && (!hasPJHMBIAHHBG() || pJHMBIAHHBG == other.pJHMBIAHHBG)
-          && (!hasCLMDBEPFDNG() || cLMDBEPFDNG == other.cLMDBEPFDNG);
-      }
-
-      @Override
-      public void writeTo(final ProtoSink output) throws IOException {
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeRawByte((byte) 24);
-          output.writeUInt32NoTag(pJHMBIAHHBG);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeRawByte((byte) 112);
-          output.writeUInt32NoTag(cLMDBEPFDNG);
-        }
-      }
-
-      @Override
-      protected int computeSerializedSize() {
-        int size = 0;
-        if ((bitField0_ & 0x00000001) != 0) {
-          size += 1 + ProtoSink.computeUInt32SizeNoTag(pJHMBIAHHBG);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          size += 1 + ProtoSink.computeUInt32SizeNoTag(cLMDBEPFDNG);
-        }
-        return size;
-      }
-
-      @Override
-      @SuppressWarnings("fallthrough")
-      public ECKNFHCDJFH mergeFrom(final ProtoSource input) throws IOException {
-        // Enabled Fall-Through Optimization (QuickBuffers)
-        int tag = input.readTag();
-        while (true) {
-          switch (tag) {
-            case 24: {
-              // pJHMBIAHHBG
-              pJHMBIAHHBG = input.readUInt32();
-              bitField0_ |= 0x00000001;
-              tag = input.readTag();
-              if (tag != 112) {
-                break;
-              }
-            }
-            case 112: {
-              // cLMDBEPFDNG
-              cLMDBEPFDNG = input.readUInt32();
-              bitField0_ |= 0x00000002;
-              tag = input.readTag();
-              if (tag != 0) {
-                break;
-              }
-            }
-            case 0: {
-              return this;
-            }
-            default: {
-              if (!input.skipField(tag)) {
-                return this;
-              }
-              tag = input.readTag();
-              break;
-            }
-          }
-        }
-      }
-
-      @Override
-      public void writeTo(final JsonSink output) throws IOException {
-        output.beginObject();
-        if ((bitField0_ & 0x00000001) != 0) {
-          output.writeUInt32(FieldNames.pJHMBIAHHBG, pJHMBIAHHBG);
-        }
-        if ((bitField0_ & 0x00000002) != 0) {
-          output.writeUInt32(FieldNames.cLMDBEPFDNG, cLMDBEPFDNG);
-        }
-        output.endObject();
-      }
-
-      @Override
-      public ECKNFHCDJFH mergeFrom(final JsonSource input) throws IOException {
-        if (!input.beginObject()) {
-          return this;
-        }
-        while (!input.isAtEnd()) {
-          switch (input.readFieldHash()) {
-            case 978262976: {
-              if (input.isAtField(FieldNames.pJHMBIAHHBG)) {
-                if (!input.trySkipNullValue()) {
-                  pJHMBIAHHBG = input.readUInt32();
-                  bitField0_ |= 0x00000001;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            case -877688540: {
-              if (input.isAtField(FieldNames.cLMDBEPFDNG)) {
-                if (!input.trySkipNullValue()) {
-                  cLMDBEPFDNG = input.readUInt32();
-                  bitField0_ |= 0x00000002;
-                }
-              } else {
-                input.skipUnknownField();
-              }
-              break;
-            }
-            default: {
-              input.skipUnknownField();
-              break;
-            }
-          }
-        }
-        input.endObject();
-        return this;
-      }
-
-      @Override
-      public ECKNFHCDJFH clone() {
-        return new ECKNFHCDJFH().copyFrom(this);
-      }
-
-      @Override
-      public boolean isEmpty() {
-        return ((bitField0_) == 0);
-      }
-
-      public static ECKNFHCDJFH parseFrom(final byte[] data) throws InvalidProtocolBufferException {
-        return ProtoMessage.mergeFrom(new ECKNFHCDJFH(), data).checkInitialized();
-      }
-
-      public static ECKNFHCDJFH parseFrom(final ProtoSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new ECKNFHCDJFH(), input).checkInitialized();
-      }
-
-      public static ECKNFHCDJFH parseFrom(final JsonSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new ECKNFHCDJFH(), input).checkInitialized();
-      }
-
-      /**
-       * @return factory for creating ECKNFHCDJFH messages
-       */
-      public static MessageFactory<ECKNFHCDJFH> getFactory() {
-        return ECKNFHCDJFHFactory.INSTANCE;
-      }
-
-      private enum ECKNFHCDJFHFactory implements MessageFactory<ECKNFHCDJFH> {
-        INSTANCE;
-
-        @Override
-        public ECKNFHCDJFH create() {
-          return ECKNFHCDJFH.newInstance();
-        }
-      }
-
-      /**
-       * Contains name constants used for serializing JSON
-       */
-      static class FieldNames {
-        static final FieldName pJHMBIAHHBG = FieldName.forField("PJHMBIAHHBG");
-
-        static final FieldName cLMDBEPFDNG = FieldName.forField("CLMDBEPFDNG");
-      }
-    }
-
     private enum InteractChargerScRspFactory implements MessageFactory<InteractChargerScRsp> {
       INSTANCE;
 
@@ -801,8 +354,6 @@ public final class InteractChargerScRspOuterClass {
      */
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
-
-      static final FieldName oEKHAFALOFB = FieldName.forField("OEKHAFALOFB");
 
       static final FieldName chargerInfo = FieldName.forField("chargerInfo", "charger_info");
     }
