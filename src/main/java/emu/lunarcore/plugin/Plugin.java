@@ -65,7 +65,6 @@ public abstract class Plugin {
          *
          * @return True if the config is valid, false otherwise.
          */
-        @SuppressWarnings("BooleanMethodIsAlwaysInverted")
         public boolean validate() {
             return name != null && description != null && mainClass != null && api != null;
         }
