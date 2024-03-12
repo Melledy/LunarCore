@@ -80,6 +80,7 @@ Server commands can be run in the server console or in-game. There is a dummy us
 /reload. Reloads the server config.
 /scene [scene id] [floor id]. Teleports the player to the specified scene.
 /spawn [monster/prop id] x[amount] s[stage id]. Spawns a monster or prop near the targeted player.
+/stop. Stops the server
 /unstuck @[player id]. Unstucks an offline player if they're in a scene that doesn't load.
 /worldlevel [world level]. Sets the targeted player's equilibrium level.
 ```
