@@ -33,11 +33,11 @@
 1. Open your system terminal, and compile the server with `./gradlew jar`
 2. Create a folder named `resources` in your server directory
 3. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
-4. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resources folder. REPLACE any files that your system asks about. These are for world spawns and are quite important for the server.
-5. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway.
-6. If you have `autoCreateAccount` set to true in the config, then you can skip creating an account. Otherwise, use the `/account` command in the server console to create one.
+4. Delete the `/resources/Config/LevelOutput` folder.
+5. Download the `Config` folder from [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) and place them into your resources folder. These are for world spawns and are very important for the server.
+6. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway. 
 
-### Connecting with the client (Fiddler)
+### Connecting with the client (Fiddler method)
 1. **Log in with the client to an official server and Hoyoverse account at least once to download game data.**
 2. Install and have [Fiddler Classic](https://www.telerik.com/fiddler) running.
 3. Set fiddler to decrypt https traffic. (Tools -> Options -> HTTPS -> Decrypt HTTPS traffic) Make sure `ignore server certificate errors` is checked as well.
@@ -59,7 +59,8 @@ class Handlers
 };
 ```
 
-5. Login with your account name, the password can be set to anything.
+5. If `autoCreateAccount` is set to true in the config, then you can skip this step. Otherwise, type `/account create [account name]` in the server console to create an account.
+6. Login with your account name, the password field is ignored by the server and can be set to anything.
 
 ### Server commands
 Server commands can be run in the server console or in-game. There is a dummy user named "Server" in every player's friends list that you can message to use in-game commands.
