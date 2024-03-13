@@ -37,6 +37,8 @@ public class ResourceLoader {
         // Make sure we don't load more than once
         if (loaded) return;
 
+        // Create data folder if it doesnt exist when starting the server
+        checkDataFolder();
         // Start loading resources
         loadResources();
         // Load floor infos after resources
@@ -53,6 +55,13 @@ public class ResourceLoader {
         // Done
         loaded = true;
         LunarCore.getLogger().info("Resource loading complete");
+    }
+    
+    private static void checkDataFolder() {
+        File dir = new File(LunarCore.getConfig().getDataDir());
+        if (!dir.exists()) {
+            dir.mkdir();
+        }
     }
 
     private static List<Class<?>> getResourceDefClasses() {
