@@ -84,24 +84,7 @@ public class GameData {
     
     // Configs (Bin)
     @Getter private static Object2ObjectMap<String, FloorInfo> floorInfos = new Object2ObjectOpenHashMap<>();
-
-    public static Int2ObjectMap<?> getMapForExcel(Class<?> resourceDefinition) {
-        Int2ObjectMap<?> map = null;
-
-        try {
-            Field field = GameData.class.getDeclaredField(Utils.lowerCaseFirstChar(resourceDefinition.getSimpleName()) + "Map");
-            field.setAccessible(true);
-
-            map = (Int2ObjectMap<?>) field.get(null);
-
-            field.setAccessible(false);
-        } catch (Exception e) {
-
-        }
-
-        return map;
-    }
-
+    
     public static List<Integer> getAllRelicIds() {
         return relicExcelMap.values().stream().map(RelicExcel::getId).toList();
     }

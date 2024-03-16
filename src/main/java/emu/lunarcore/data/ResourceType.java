@@ -8,6 +8,8 @@ public @interface ResourceType {
 
     /** Names of the file that this Resource loads from */
     String[] name();
+    
+    Class<?> gameDataClass() default GameData.class;
 
     /** Load priority - dictates which order to load this resource, with "highest" being loaded first */
     LoadPriority loadPriority() default LoadPriority.NORMAL;
