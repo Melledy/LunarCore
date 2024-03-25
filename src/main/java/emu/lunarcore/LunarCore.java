@@ -190,6 +190,8 @@ public class LunarCore {
         // Sanity check
         if (LunarCore.getConfig() == null) {
             LunarCore.config = new Config();
+        } else {
+            LunarCore.getConfig().validate();
         }
         
         // Save config

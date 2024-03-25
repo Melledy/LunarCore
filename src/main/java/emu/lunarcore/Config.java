@@ -102,9 +102,14 @@ public class Config {
         public String name = "Lunar Core";
         public String description = "A LunarCore server";
         public int kcpInterval = 40;
+        public Integer kcpTimeout = 30;
 
         public GameServerConfig(int port) {
             super(port);
+        }
+        
+        public int getKcpTimeout() {
+            return kcpTimeout.intValue();
         }
     }
     
@@ -195,6 +200,12 @@ public class Config {
         public String exResourceUrl = null;
         public String luaUrl = null;
         public String ifixUrl = null;
+    }
+
+    public void validate() {
+        if (this.gameServer.kcpTimeout == null) {
+            this.gameServer.kcpTimeout = 30;
+        }
     }
 
 }

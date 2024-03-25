@@ -152,11 +152,11 @@ public class GameServer extends KcpServer {
     public void start() {
         // Setup config and init server
         ChannelConfig channelConfig = new ChannelConfig();
-        channelConfig.nodelay(true, this.getServerConfig().getKcpInterval(), 2, true);
+        channelConfig.nodelay(true, getServerConfig().getKcpInterval(), 2, true);
         channelConfig.setMtu(1400);
         channelConfig.setSndwnd(256);
         channelConfig.setRcvwnd(256);
-        channelConfig.setTimeoutMillis(30 * 1000); // 30s
+        channelConfig.setTimeoutMillis(getServerConfig().getKcpTimeout() * 1000);
         channelConfig.setUseConvChannel(true);
         channelConfig.setAckNoDelay(true);
 
