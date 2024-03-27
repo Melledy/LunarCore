@@ -19,12 +19,7 @@ public final class LockEquipmentScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     */
-    private int equipmentUniqueId;
-
-    /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
@@ -39,62 +34,25 @@ public final class LockEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @return whether the equipmentUniqueId field is set
+     * <code>optional uint32 retcode = 12;</code>
+     * @return whether the retcode field is set
      */
-    public boolean hasEquipmentUniqueId() {
+    public boolean hasRetcode() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @return this
-     */
-    public LockEquipmentScRsp clearEquipmentUniqueId() {
-      bitField0_ &= ~0x00000001;
-      equipmentUniqueId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @return the equipmentUniqueId
-     */
-    public int getEquipmentUniqueId() {
-      return equipmentUniqueId;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 3;</code>
-     * @param value the equipmentUniqueId to set
-     * @return this
-     */
-    public LockEquipmentScRsp setEquipmentUniqueId(final int value) {
-      bitField0_ |= 0x00000001;
-      equipmentUniqueId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 13;</code>
-     * @return whether the retcode field is set
-     */
-    public boolean hasRetcode() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public LockEquipmentScRsp clearRetcode() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -102,12 +60,12 @@ public final class LockEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
     public LockEquipmentScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       retcode = value;
       return this;
     }
@@ -117,7 +75,6 @@ public final class LockEquipmentScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        equipmentUniqueId = other.equipmentUniqueId;
         retcode = other.retcode;
       }
       return this;
@@ -129,9 +86,6 @@ public final class LockEquipmentScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasEquipmentUniqueId()) {
-        setEquipmentUniqueId(other.equipmentUniqueId);
-      }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
@@ -145,7 +99,6 @@ public final class LockEquipmentScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      equipmentUniqueId = 0;
       retcode = 0;
       return this;
     }
@@ -170,18 +123,13 @@ public final class LockEquipmentScRspOuterClass {
       }
       LockEquipmentScRsp other = (LockEquipmentScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
         && (!hasRetcode() || retcode == other.retcode);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(equipmentUniqueId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -190,9 +138,6 @@ public final class LockEquipmentScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       return size;
@@ -205,19 +150,10 @@ public final class LockEquipmentScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // equipmentUniqueId
-            equipmentUniqueId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -241,9 +177,6 @@ public final class LockEquipmentScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       output.endObject();
@@ -256,23 +189,11 @@ public final class LockEquipmentScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1867136902:
-          case 760467160: {
-            if (input.isAtField(FieldNames.equipmentUniqueId)) {
-              if (!input.trySkipNullValue()) {
-                equipmentUniqueId = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 1097936398: {
             if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -332,8 +253,6 @@ public final class LockEquipmentScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
-
       static final FieldName retcode = FieldName.forField("retcode");
     }
   }

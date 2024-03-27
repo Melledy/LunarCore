@@ -20,19 +20,19 @@ public final class DialogueResultOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 HFHKBMGBJAN = 15;</code>
+     * <code>optional uint32 HFHKBMGBJAN = 2;</code>
      */
     private int hFHKBMGBJAN;
 
     /**
-     * <code>optional .ItemList item_result = 6;</code>
+     * <code>optional .ItemList item_result = 5;</code>
      */
     private final ItemListOuterClass.ItemList itemResult = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <code>repeated uint32 BLGIMDCNDHJ = 5;</code>
+     * <code>repeated uint32 event_ids = 15;</code>
      */
-    private final RepeatedInt bLGIMDCNDHJ = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt eventIds = RepeatedInt.newEmptyInstance();
 
     private DialogueResult() {
     }
@@ -45,7 +45,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 HFHKBMGBJAN = 15;</code>
+     * <code>optional uint32 HFHKBMGBJAN = 2;</code>
      * @return whether the hFHKBMGBJAN field is set
      */
     public boolean hasHFHKBMGBJAN() {
@@ -53,7 +53,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 HFHKBMGBJAN = 15;</code>
+     * <code>optional uint32 HFHKBMGBJAN = 2;</code>
      * @return this
      */
     public DialogueResult clearHFHKBMGBJAN() {
@@ -63,7 +63,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 HFHKBMGBJAN = 15;</code>
+     * <code>optional uint32 HFHKBMGBJAN = 2;</code>
      * @return the hFHKBMGBJAN
      */
     public int getHFHKBMGBJAN() {
@@ -71,7 +71,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 HFHKBMGBJAN = 15;</code>
+     * <code>optional uint32 HFHKBMGBJAN = 2;</code>
      * @param value the hFHKBMGBJAN to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional .ItemList item_result = 6;</code>
+     * <code>optional .ItemList item_result = 5;</code>
      * @return whether the itemResult field is set
      */
     public boolean hasItemResult() {
@@ -90,7 +90,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional .ItemList item_result = 6;</code>
+     * <code>optional .ItemList item_result = 5;</code>
      * @return this
      */
     public DialogueResult clearItemResult() {
@@ -100,7 +100,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional .ItemList item_result = 6;</code>
+     * <code>optional .ItemList item_result = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -114,7 +114,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional .ItemList item_result = 6;</code>
+     * <code>optional .ItemList item_result = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -128,7 +128,7 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>optional .ItemList item_result = 6;</code>
+     * <code>optional .ItemList item_result = 5;</code>
      * @param value the itemResult to set
      * @return this
      */
@@ -139,39 +139,39 @@ public final class DialogueResultOuterClass {
     }
 
     /**
-     * <code>repeated uint32 BLGIMDCNDHJ = 5;</code>
-     * @return whether the bLGIMDCNDHJ field is set
+     * <code>repeated uint32 event_ids = 15;</code>
+     * @return whether the eventIds field is set
      */
-    public boolean hasBLGIMDCNDHJ() {
+    public boolean hasEventIds() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>repeated uint32 BLGIMDCNDHJ = 5;</code>
+     * <code>repeated uint32 event_ids = 15;</code>
      * @return this
      */
-    public DialogueResult clearBLGIMDCNDHJ() {
+    public DialogueResult clearEventIds() {
       bitField0_ &= ~0x00000004;
-      bLGIMDCNDHJ.clear();
+      eventIds.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 BLGIMDCNDHJ = 5;</code>
+     * <code>repeated uint32 event_ids = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableBLGIMDCNDHJ()} if you want to modify it.
+     * Use {@link #getMutableEventIds()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getBLGIMDCNDHJ() {
-      return bLGIMDCNDHJ;
+    public RepeatedInt getEventIds() {
+      return eventIds;
     }
 
     /**
-     * <code>repeated uint32 BLGIMDCNDHJ = 5;</code>
+     * <code>repeated uint32 event_ids = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -179,30 +179,30 @@ public final class DialogueResultOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableBLGIMDCNDHJ() {
+    public RepeatedInt getMutableEventIds() {
       bitField0_ |= 0x00000004;
-      return bLGIMDCNDHJ;
+      return eventIds;
     }
 
     /**
-     * <code>repeated uint32 BLGIMDCNDHJ = 5;</code>
-     * @param value the bLGIMDCNDHJ to add
+     * <code>repeated uint32 event_ids = 15;</code>
+     * @param value the eventIds to add
      * @return this
      */
-    public DialogueResult addBLGIMDCNDHJ(final int value) {
+    public DialogueResult addEventIds(final int value) {
       bitField0_ |= 0x00000004;
-      bLGIMDCNDHJ.add(value);
+      eventIds.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 BLGIMDCNDHJ = 5;</code>
-     * @param values the bLGIMDCNDHJ to add
+     * <code>repeated uint32 event_ids = 15;</code>
+     * @param values the eventIds to add
      * @return this
      */
-    public DialogueResult addAllBLGIMDCNDHJ(final int... values) {
+    public DialogueResult addAllEventIds(final int... values) {
       bitField0_ |= 0x00000004;
-      bLGIMDCNDHJ.addAll(values);
+      eventIds.addAll(values);
       return this;
     }
 
@@ -213,7 +213,7 @@ public final class DialogueResultOuterClass {
         bitField0_ = other.bitField0_;
         hFHKBMGBJAN = other.hFHKBMGBJAN;
         itemResult.copyFrom(other.itemResult);
-        bLGIMDCNDHJ.copyFrom(other.bLGIMDCNDHJ);
+        eventIds.copyFrom(other.eventIds);
       }
       return this;
     }
@@ -230,8 +230,8 @@ public final class DialogueResultOuterClass {
       if (other.hasItemResult()) {
         getMutableItemResult().mergeFrom(other.itemResult);
       }
-      if (other.hasBLGIMDCNDHJ()) {
-        getMutableBLGIMDCNDHJ().addAll(other.bLGIMDCNDHJ);
+      if (other.hasEventIds()) {
+        getMutableEventIds().addAll(other.eventIds);
       }
       return this;
     }
@@ -245,7 +245,7 @@ public final class DialogueResultOuterClass {
       bitField0_ = 0;
       hFHKBMGBJAN = 0;
       itemResult.clear();
-      bLGIMDCNDHJ.clear();
+      eventIds.clear();
       return this;
     }
 
@@ -257,7 +257,7 @@ public final class DialogueResultOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       itemResult.clearQuick();
-      bLGIMDCNDHJ.clear();
+      eventIds.clear();
       return this;
     }
 
@@ -273,23 +273,23 @@ public final class DialogueResultOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasHFHKBMGBJAN() || hFHKBMGBJAN == other.hFHKBMGBJAN)
         && (!hasItemResult() || itemResult.equals(other.itemResult))
-        && (!hasBLGIMDCNDHJ() || bLGIMDCNDHJ.equals(other.bLGIMDCNDHJ));
+        && (!hasEventIds() || eventIds.equals(other.eventIds));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(hFHKBMGBJAN);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 42);
         output.writeMessageNoTag(itemResult);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < bLGIMDCNDHJ.length(); i++) {
-          output.writeRawByte((byte) 40);
-          output.writeUInt32NoTag(bLGIMDCNDHJ.array()[i]);
+        for (int i = 0; i < eventIds.length(); i++) {
+          output.writeRawByte((byte) 120);
+          output.writeUInt32NoTag(eventIds.array()[i]);
         }
       }
     }
@@ -304,7 +304,7 @@ public final class DialogueResultOuterClass {
         size += 1 + ProtoSink.computeMessageSizeNoTag(itemResult);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * bLGIMDCNDHJ.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(bLGIMDCNDHJ);
+        size += (1 * eventIds.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(eventIds);
       }
       return size;
     }
@@ -316,27 +316,27 @@ public final class DialogueResultOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 16: {
             // hFHKBMGBJAN
             hFHKBMGBJAN = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 50) {
-              break;
-            }
-          }
-          case 50: {
-            // itemResult
-            input.readMessage(itemResult);
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 42) {
               break;
             }
           }
           case 42: {
-            // bLGIMDCNDHJ [packed=true]
-            input.readPackedUInt32(bLGIMDCNDHJ, tag);
+            // itemResult
+            input.readMessage(itemResult);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 122) {
+              break;
+            }
+          }
+          case 122: {
+            // eventIds [packed=true]
+            input.readPackedUInt32(eventIds, tag);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -353,9 +353,9 @@ public final class DialogueResultOuterClass {
             tag = input.readTag();
             break;
           }
-          case 40: {
-            // bLGIMDCNDHJ [packed=false]
-            tag = input.readRepeatedUInt32(bLGIMDCNDHJ, tag);
+          case 120: {
+            // eventIds [packed=false]
+            tag = input.readRepeatedUInt32(eventIds, tag);
             bitField0_ |= 0x00000004;
             break;
           }
@@ -373,7 +373,7 @@ public final class DialogueResultOuterClass {
         output.writeMessage(FieldNames.itemResult, itemResult);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.bLGIMDCNDHJ, bLGIMDCNDHJ);
+        output.writeRepeatedUInt32(FieldNames.eventIds, eventIds);
       }
       output.endObject();
     }
@@ -408,10 +408,11 @@ public final class DialogueResultOuterClass {
             }
             break;
           }
-          case 135413912: {
-            if (input.isAtField(FieldNames.bLGIMDCNDHJ)) {
+          case 278097342:
+          case 31742867: {
+            if (input.isAtField(FieldNames.eventIds)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(bLGIMDCNDHJ);
+                input.readRepeatedUInt32(eventIds);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -476,7 +477,7 @@ public final class DialogueResultOuterClass {
 
       static final FieldName itemResult = FieldName.forField("itemResult", "item_result");
 
-      static final FieldName bLGIMDCNDHJ = FieldName.forField("BLGIMDCNDHJ");
+      static final FieldName eventIds = FieldName.forField("eventIds", "event_ids");
     }
   }
 }

@@ -19,7 +19,7 @@ public final class RogueCommonBuffSelectResultOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 1;</code>
      */
     private int buffId;
 
@@ -34,7 +34,7 @@ public final class RogueCommonBuffSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 1;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -42,7 +42,7 @@ public final class RogueCommonBuffSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 1;</code>
      * @return this
      */
     public RogueCommonBuffSelectResult clearBuffId() {
@@ -52,7 +52,7 @@ public final class RogueCommonBuffSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 1;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -60,7 +60,7 @@ public final class RogueCommonBuffSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 1;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class RogueCommonBuffSelectResultOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(buffId);
       }
     }
@@ -150,7 +150,7 @@ public final class RogueCommonBuffSelectResultOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 8: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -25,7 +25,7 @@ public final class ExpUpEquipmentScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>repeated .PileItem return_item_list = 12;</code>
+     * <code>repeated .PileItem return_item_list = 4;</code>
      */
     private final RepeatedMessage<PileItemOuterClass.PileItem> returnItemList = RepeatedMessage.newEmptyInstance(PileItemOuterClass.PileItem.getFactory());
 
@@ -77,7 +77,7 @@ public final class ExpUpEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 12;</code>
+     * <code>repeated .PileItem return_item_list = 4;</code>
      * @return whether the returnItemList field is set
      */
     public boolean hasReturnItemList() {
@@ -85,7 +85,7 @@ public final class ExpUpEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 12;</code>
+     * <code>repeated .PileItem return_item_list = 4;</code>
      * @return this
      */
     public ExpUpEquipmentScRsp clearReturnItemList() {
@@ -95,7 +95,7 @@ public final class ExpUpEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 12;</code>
+     * <code>repeated .PileItem return_item_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class ExpUpEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 12;</code>
+     * <code>repeated .PileItem return_item_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class ExpUpEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 12;</code>
+     * <code>repeated .PileItem return_item_list = 4;</code>
      * @param value the returnItemList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class ExpUpEquipmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 12;</code>
+     * <code>repeated .PileItem return_item_list = 4;</code>
      * @param values the returnItemList to add
      * @return this
      */
@@ -215,7 +215,7 @@ public final class ExpUpEquipmentScRspOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < returnItemList.length(); i++) {
-          output.writeRawByte((byte) 98);
+          output.writeRawByte((byte) 34);
           output.writeMessageNoTag(returnItemList.get(i));
         }
       }
@@ -245,11 +245,11 @@ public final class ExpUpEquipmentScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 34) {
               break;
             }
           }
-          case 98: {
+          case 34: {
             // returnItemList
             tag = input.readRepeatedMessage(returnItemList, tag);
             bitField0_ |= 0x00000002;

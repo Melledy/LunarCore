@@ -19,22 +19,22 @@ public final class ActivityScheduleInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
+     * <code>optional int64 begin_time = 1;</code>
      */
     private long beginTime;
 
     /**
-     * <code>optional int64 end_time = 7;</code>
+     * <code>optional int64 end_time = 5;</code>
      */
     private long endTime;
 
     /**
-     * <code>optional uint32 module_id = 5;</code>
+     * <code>optional uint32 module_id = 2;</code>
      */
     private int moduleId;
 
     /**
-     * <code>optional uint32 activity_id = 12;</code>
+     * <code>optional uint32 activity_id = 13;</code>
      */
     private int activityId;
 
@@ -49,7 +49,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
+     * <code>optional int64 begin_time = 1;</code>
      * @return whether the beginTime field is set
      */
     public boolean hasBeginTime() {
@@ -57,7 +57,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
+     * <code>optional int64 begin_time = 1;</code>
      * @return this
      */
     public ActivityScheduleInfo clearBeginTime() {
@@ -67,7 +67,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
+     * <code>optional int64 begin_time = 1;</code>
      * @return the beginTime
      */
     public long getBeginTime() {
@@ -75,7 +75,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 6;</code>
+     * <code>optional int64 begin_time = 1;</code>
      * @param value the beginTime to set
      * @return this
      */
@@ -86,7 +86,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 7;</code>
+     * <code>optional int64 end_time = 5;</code>
      * @return whether the endTime field is set
      */
     public boolean hasEndTime() {
@@ -94,7 +94,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 7;</code>
+     * <code>optional int64 end_time = 5;</code>
      * @return this
      */
     public ActivityScheduleInfo clearEndTime() {
@@ -104,7 +104,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 7;</code>
+     * <code>optional int64 end_time = 5;</code>
      * @return the endTime
      */
     public long getEndTime() {
@@ -112,7 +112,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 7;</code>
+     * <code>optional int64 end_time = 5;</code>
      * @param value the endTime to set
      * @return this
      */
@@ -123,7 +123,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 module_id = 5;</code>
+     * <code>optional uint32 module_id = 2;</code>
      * @return whether the moduleId field is set
      */
     public boolean hasModuleId() {
@@ -131,7 +131,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 module_id = 5;</code>
+     * <code>optional uint32 module_id = 2;</code>
      * @return this
      */
     public ActivityScheduleInfo clearModuleId() {
@@ -141,7 +141,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 module_id = 5;</code>
+     * <code>optional uint32 module_id = 2;</code>
      * @return the moduleId
      */
     public int getModuleId() {
@@ -149,7 +149,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 module_id = 5;</code>
+     * <code>optional uint32 module_id = 2;</code>
      * @param value the moduleId to set
      * @return this
      */
@@ -160,7 +160,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 activity_id = 12;</code>
+     * <code>optional uint32 activity_id = 13;</code>
      * @return whether the activityId field is set
      */
     public boolean hasActivityId() {
@@ -168,7 +168,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 activity_id = 12;</code>
+     * <code>optional uint32 activity_id = 13;</code>
      * @return this
      */
     public ActivityScheduleInfo clearActivityId() {
@@ -178,7 +178,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 activity_id = 12;</code>
+     * <code>optional uint32 activity_id = 13;</code>
      * @return the activityId
      */
     public int getActivityId() {
@@ -186,7 +186,7 @@ public final class ActivityScheduleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 activity_id = 12;</code>
+     * <code>optional uint32 activity_id = 13;</code>
      * @param value the activityId to set
      * @return this
      */
@@ -273,19 +273,19 @@ public final class ActivityScheduleInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 8);
         output.writeInt64NoTag(beginTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 40);
         output.writeInt64NoTag(endTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(moduleId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(activityId);
       }
     }
@@ -315,34 +315,34 @@ public final class ActivityScheduleInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 8: {
             // beginTime
             beginTime = input.readInt64();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
-          case 56: {
-            // endTime
-            endTime = input.readInt64();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 40) {
               break;
             }
           }
           case 40: {
+            // endTime
+            endTime = input.readInt64();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 16) {
+              break;
+            }
+          }
+          case 16: {
             // moduleId
             moduleId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 104) {
               break;
             }
           }
-          case 96: {
+          case 104: {
             // activityId
             activityId = input.readUInt32();
             bitField0_ |= 0x00000008;

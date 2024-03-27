@@ -19,7 +19,7 @@ public final class RogueMiracleSelectResultOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 miracle_id = 6;</code>
+     * <code>optional uint32 miracle_id = 8;</code>
      */
     private int miracleId;
 
@@ -34,7 +34,7 @@ public final class RogueMiracleSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 6;</code>
+     * <code>optional uint32 miracle_id = 8;</code>
      * @return whether the miracleId field is set
      */
     public boolean hasMiracleId() {
@@ -42,7 +42,7 @@ public final class RogueMiracleSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 6;</code>
+     * <code>optional uint32 miracle_id = 8;</code>
      * @return this
      */
     public RogueMiracleSelectResult clearMiracleId() {
@@ -52,7 +52,7 @@ public final class RogueMiracleSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 6;</code>
+     * <code>optional uint32 miracle_id = 8;</code>
      * @return the miracleId
      */
     public int getMiracleId() {
@@ -60,7 +60,7 @@ public final class RogueMiracleSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 6;</code>
+     * <code>optional uint32 miracle_id = 8;</code>
      * @param value the miracleId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class RogueMiracleSelectResultOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(miracleId);
       }
     }
@@ -150,7 +150,7 @@ public final class RogueMiracleSelectResultOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 64: {
             // miracleId
             miracleId = input.readUInt32();
             bitField0_ |= 0x00000001;

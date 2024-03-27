@@ -20,7 +20,7 @@ public final class RogueBonusSelectInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 bonus_info = 5;</code>
+     * <code>repeated uint32 bonus_info = 11;</code>
      */
     private final RepeatedInt bonusInfo = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class RogueBonusSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 bonus_info = 5;</code>
+     * <code>repeated uint32 bonus_info = 11;</code>
      * @return whether the bonusInfo field is set
      */
     public boolean hasBonusInfo() {
@@ -43,7 +43,7 @@ public final class RogueBonusSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 bonus_info = 5;</code>
+     * <code>repeated uint32 bonus_info = 11;</code>
      * @return this
      */
     public RogueBonusSelectInfo clearBonusInfo() {
@@ -53,7 +53,7 @@ public final class RogueBonusSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 bonus_info = 5;</code>
+     * <code>repeated uint32 bonus_info = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class RogueBonusSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 bonus_info = 5;</code>
+     * <code>repeated uint32 bonus_info = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class RogueBonusSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 bonus_info = 5;</code>
+     * <code>repeated uint32 bonus_info = 11;</code>
      * @param value the bonusInfo to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class RogueBonusSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 bonus_info = 5;</code>
+     * <code>repeated uint32 bonus_info = 11;</code>
      * @param values the bonusInfo to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class RogueBonusSelectInfoOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < bonusInfo.length(); i++) {
-          output.writeRawByte((byte) 40);
+          output.writeRawByte((byte) 88);
           output.writeUInt32NoTag(bonusInfo.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class RogueBonusSelectInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 42: {
+          case 90: {
             // bonusInfo [packed=true]
             input.readPackedUInt32(bonusInfo, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class RogueBonusSelectInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 40: {
+          case 88: {
             // bonusInfo [packed=false]
             tag = input.readRepeatedUInt32(bonusInfo, tag);
             bitField0_ |= 0x00000001;

@@ -19,39 +19,39 @@ public final class ItemOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 main_affix_id = 4;</code>
+     * <code>optional uint32 promotion = 1;</code>
      */
-    private int mainAffixId;
+    private int promotion;
 
     /**
-     * <code>optional uint32 unique_id = 5;</code>
-     */
-    private int uniqueId;
-
-    /**
-     * <code>optional uint32 item_id = 6;</code>
-     */
-    private int itemId;
-
-    /**
-     * <code>optional uint32 num = 11;</code>
-     */
-    private int num;
-
-    /**
-     * <code>optional uint32 level = 13;</code>
-     */
-    private int level;
-
-    /**
-     * <code>optional uint32 rank = 14;</code>
+     * <code>optional uint32 rank = 2;</code>
      */
     private int rank;
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
+     * <code>optional uint32 level = 7;</code>
      */
-    private int promotion;
+    private int level;
+
+    /**
+     * <code>optional uint32 num = 9;</code>
+     */
+    private int num;
+
+    /**
+     * <code>optional uint32 main_affix_id = 10;</code>
+     */
+    private int mainAffixId;
+
+    /**
+     * <code>optional uint32 item_id = 12;</code>
+     */
+    private int itemId;
+
+    /**
+     * <code>optional uint32 unique_id = 14;</code>
+     */
+    private int uniqueId;
 
     private Item() {
     }
@@ -64,118 +64,118 @@ public final class ItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 4;</code>
-     * @return whether the mainAffixId field is set
+     * <code>optional uint32 promotion = 1;</code>
+     * @return whether the promotion field is set
      */
-    public boolean hasMainAffixId() {
+    public boolean hasPromotion() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 4;</code>
+     * <code>optional uint32 promotion = 1;</code>
      * @return this
      */
-    public Item clearMainAffixId() {
+    public Item clearPromotion() {
       bitField0_ &= ~0x00000001;
-      mainAffixId = 0;
+      promotion = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 4;</code>
-     * @return the mainAffixId
+     * <code>optional uint32 promotion = 1;</code>
+     * @return the promotion
      */
-    public int getMainAffixId() {
-      return mainAffixId;
+    public int getPromotion() {
+      return promotion;
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 4;</code>
-     * @param value the mainAffixId to set
+     * <code>optional uint32 promotion = 1;</code>
+     * @param value the promotion to set
      * @return this
      */
-    public Item setMainAffixId(final int value) {
+    public Item setPromotion(final int value) {
       bitField0_ |= 0x00000001;
-      mainAffixId = value;
+      promotion = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 unique_id = 5;</code>
-     * @return whether the uniqueId field is set
+     * <code>optional uint32 rank = 2;</code>
+     * @return whether the rank field is set
      */
-    public boolean hasUniqueId() {
+    public boolean hasRank() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 unique_id = 5;</code>
+     * <code>optional uint32 rank = 2;</code>
      * @return this
      */
-    public Item clearUniqueId() {
+    public Item clearRank() {
       bitField0_ &= ~0x00000002;
-      uniqueId = 0;
+      rank = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 unique_id = 5;</code>
-     * @return the uniqueId
+     * <code>optional uint32 rank = 2;</code>
+     * @return the rank
      */
-    public int getUniqueId() {
-      return uniqueId;
+    public int getRank() {
+      return rank;
     }
 
     /**
-     * <code>optional uint32 unique_id = 5;</code>
-     * @param value the uniqueId to set
+     * <code>optional uint32 rank = 2;</code>
+     * @param value the rank to set
      * @return this
      */
-    public Item setUniqueId(final int value) {
+    public Item setRank(final int value) {
       bitField0_ |= 0x00000002;
-      uniqueId = value;
+      rank = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 item_id = 6;</code>
-     * @return whether the itemId field is set
+     * <code>optional uint32 level = 7;</code>
+     * @return whether the level field is set
      */
-    public boolean hasItemId() {
+    public boolean hasLevel() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 item_id = 6;</code>
+     * <code>optional uint32 level = 7;</code>
      * @return this
      */
-    public Item clearItemId() {
+    public Item clearLevel() {
       bitField0_ &= ~0x00000004;
-      itemId = 0;
+      level = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 item_id = 6;</code>
-     * @return the itemId
+     * <code>optional uint32 level = 7;</code>
+     * @return the level
      */
-    public int getItemId() {
-      return itemId;
+    public int getLevel() {
+      return level;
     }
 
     /**
-     * <code>optional uint32 item_id = 6;</code>
-     * @param value the itemId to set
+     * <code>optional uint32 level = 7;</code>
+     * @param value the level to set
      * @return this
      */
-    public Item setItemId(final int value) {
+    public Item setLevel(final int value) {
       bitField0_ |= 0x00000004;
-      itemId = value;
+      level = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 num = 11;</code>
+     * <code>optional uint32 num = 9;</code>
      * @return whether the num field is set
      */
     public boolean hasNum() {
@@ -183,7 +183,7 @@ public final class ItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 11;</code>
+     * <code>optional uint32 num = 9;</code>
      * @return this
      */
     public Item clearNum() {
@@ -193,7 +193,7 @@ public final class ItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 11;</code>
+     * <code>optional uint32 num = 9;</code>
      * @return the num
      */
     public int getNum() {
@@ -201,7 +201,7 @@ public final class ItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 11;</code>
+     * <code>optional uint32 num = 9;</code>
      * @param value the num to set
      * @return this
      */
@@ -212,113 +212,113 @@ public final class ItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 13;</code>
-     * @return whether the level field is set
+     * <code>optional uint32 main_affix_id = 10;</code>
+     * @return whether the mainAffixId field is set
      */
-    public boolean hasLevel() {
+    public boolean hasMainAffixId() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional uint32 level = 13;</code>
+     * <code>optional uint32 main_affix_id = 10;</code>
      * @return this
      */
-    public Item clearLevel() {
+    public Item clearMainAffixId() {
       bitField0_ &= ~0x00000010;
-      level = 0;
+      mainAffixId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 13;</code>
-     * @return the level
+     * <code>optional uint32 main_affix_id = 10;</code>
+     * @return the mainAffixId
      */
-    public int getLevel() {
-      return level;
+    public int getMainAffixId() {
+      return mainAffixId;
     }
 
     /**
-     * <code>optional uint32 level = 13;</code>
-     * @param value the level to set
+     * <code>optional uint32 main_affix_id = 10;</code>
+     * @param value the mainAffixId to set
      * @return this
      */
-    public Item setLevel(final int value) {
+    public Item setMainAffixId(final int value) {
       bitField0_ |= 0x00000010;
-      level = value;
+      mainAffixId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 rank = 14;</code>
-     * @return whether the rank field is set
+     * <code>optional uint32 item_id = 12;</code>
+     * @return whether the itemId field is set
      */
-    public boolean hasRank() {
+    public boolean hasItemId() {
       return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
-     * <code>optional uint32 rank = 14;</code>
+     * <code>optional uint32 item_id = 12;</code>
      * @return this
      */
-    public Item clearRank() {
+    public Item clearItemId() {
       bitField0_ &= ~0x00000020;
-      rank = 0;
+      itemId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 rank = 14;</code>
-     * @return the rank
+     * <code>optional uint32 item_id = 12;</code>
+     * @return the itemId
      */
-    public int getRank() {
-      return rank;
+    public int getItemId() {
+      return itemId;
     }
 
     /**
-     * <code>optional uint32 rank = 14;</code>
-     * @param value the rank to set
+     * <code>optional uint32 item_id = 12;</code>
+     * @param value the itemId to set
      * @return this
      */
-    public Item setRank(final int value) {
+    public Item setItemId(final int value) {
       bitField0_ |= 0x00000020;
-      rank = value;
+      itemId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
-     * @return whether the promotion field is set
+     * <code>optional uint32 unique_id = 14;</code>
+     * @return whether the uniqueId field is set
      */
-    public boolean hasPromotion() {
+    public boolean hasUniqueId() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
+     * <code>optional uint32 unique_id = 14;</code>
      * @return this
      */
-    public Item clearPromotion() {
+    public Item clearUniqueId() {
       bitField0_ &= ~0x00000040;
-      promotion = 0;
+      uniqueId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
-     * @return the promotion
+     * <code>optional uint32 unique_id = 14;</code>
+     * @return the uniqueId
      */
-    public int getPromotion() {
-      return promotion;
+    public int getUniqueId() {
+      return uniqueId;
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
-     * @param value the promotion to set
+     * <code>optional uint32 unique_id = 14;</code>
+     * @param value the uniqueId to set
      * @return this
      */
-    public Item setPromotion(final int value) {
+    public Item setUniqueId(final int value) {
       bitField0_ |= 0x00000040;
-      promotion = value;
+      uniqueId = value;
       return this;
     }
 
@@ -327,13 +327,13 @@ public final class ItemOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        mainAffixId = other.mainAffixId;
-        uniqueId = other.uniqueId;
-        itemId = other.itemId;
-        num = other.num;
-        level = other.level;
-        rank = other.rank;
         promotion = other.promotion;
+        rank = other.rank;
+        level = other.level;
+        num = other.num;
+        mainAffixId = other.mainAffixId;
+        itemId = other.itemId;
+        uniqueId = other.uniqueId;
       }
       return this;
     }
@@ -344,26 +344,26 @@ public final class ItemOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasMainAffixId()) {
-        setMainAffixId(other.mainAffixId);
-      }
-      if (other.hasUniqueId()) {
-        setUniqueId(other.uniqueId);
-      }
-      if (other.hasItemId()) {
-        setItemId(other.itemId);
-      }
-      if (other.hasNum()) {
-        setNum(other.num);
-      }
-      if (other.hasLevel()) {
-        setLevel(other.level);
+      if (other.hasPromotion()) {
+        setPromotion(other.promotion);
       }
       if (other.hasRank()) {
         setRank(other.rank);
       }
-      if (other.hasPromotion()) {
-        setPromotion(other.promotion);
+      if (other.hasLevel()) {
+        setLevel(other.level);
+      }
+      if (other.hasNum()) {
+        setNum(other.num);
+      }
+      if (other.hasMainAffixId()) {
+        setMainAffixId(other.mainAffixId);
+      }
+      if (other.hasItemId()) {
+        setItemId(other.itemId);
+      }
+      if (other.hasUniqueId()) {
+        setUniqueId(other.uniqueId);
       }
       return this;
     }
@@ -375,13 +375,13 @@ public final class ItemOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      mainAffixId = 0;
-      uniqueId = 0;
-      itemId = 0;
-      num = 0;
-      level = 0;
-      rank = 0;
       promotion = 0;
+      rank = 0;
+      level = 0;
+      num = 0;
+      mainAffixId = 0;
+      itemId = 0;
+      uniqueId = 0;
       return this;
     }
 
@@ -405,44 +405,44 @@ public final class ItemOuterClass {
       }
       Item other = (Item) o;
       return bitField0_ == other.bitField0_
-        && (!hasMainAffixId() || mainAffixId == other.mainAffixId)
-        && (!hasUniqueId() || uniqueId == other.uniqueId)
-        && (!hasItemId() || itemId == other.itemId)
-        && (!hasNum() || num == other.num)
-        && (!hasLevel() || level == other.level)
+        && (!hasPromotion() || promotion == other.promotion)
         && (!hasRank() || rank == other.rank)
-        && (!hasPromotion() || promotion == other.promotion);
+        && (!hasLevel() || level == other.level)
+        && (!hasNum() || num == other.num)
+        && (!hasMainAffixId() || mainAffixId == other.mainAffixId)
+        && (!hasItemId() || itemId == other.itemId)
+        && (!hasUniqueId() || uniqueId == other.uniqueId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(mainAffixId);
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(promotion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(uniqueId);
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(rank);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(itemId);
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(num);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(level);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(mainAffixId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(rank);
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(itemId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(promotion);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(uniqueId);
       }
     }
 
@@ -450,25 +450,25 @@ public final class ItemOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(mainAffixId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(promotion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(uniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rank);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(itemId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(num);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(mainAffixId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rank);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(itemId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(promotion);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(uniqueId);
       }
       return size;
     }
@@ -480,63 +480,63 @@ public final class ItemOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // mainAffixId
-            mainAffixId = input.readUInt32();
+          case 8: {
+            // promotion
+            promotion = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 16) {
               break;
             }
           }
-          case 40: {
-            // uniqueId
-            uniqueId = input.readUInt32();
+          case 16: {
+            // rank
+            rank = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 56) {
               break;
             }
           }
-          case 48: {
-            // itemId
-            itemId = input.readUInt32();
+          case 56: {
+            // level
+            level = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 72) {
               break;
             }
           }
-          case 88: {
+          case 72: {
             // num
             num = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 80) {
               break;
             }
           }
-          case 104: {
-            // level
-            level = input.readUInt32();
+          case 80: {
+            // mainAffixId
+            mainAffixId = input.readUInt32();
             bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
+            // itemId
+            itemId = input.readUInt32();
+            bitField0_ |= 0x00000020;
             tag = input.readTag();
             if (tag != 112) {
               break;
             }
           }
           case 112: {
-            // rank
-            rank = input.readUInt32();
-            bitField0_ |= 0x00000020;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
-            // promotion
-            promotion = input.readUInt32();
+            // uniqueId
+            uniqueId = input.readUInt32();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 0) {
@@ -561,25 +561,25 @@ public final class ItemOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.mainAffixId, mainAffixId);
+        output.writeUInt32(FieldNames.promotion, promotion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.uniqueId, uniqueId);
+        output.writeUInt32(FieldNames.rank, rank);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.itemId, itemId);
+        output.writeUInt32(FieldNames.level, level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.num, num);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.level, level);
+        output.writeUInt32(FieldNames.mainAffixId, mainAffixId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeUInt32(FieldNames.rank, rank);
+        output.writeUInt32(FieldNames.itemId, itemId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeUInt32(FieldNames.promotion, promotion);
+        output.writeUInt32(FieldNames.uniqueId, uniqueId);
       }
       output.endObject();
     }
@@ -591,11 +591,10 @@ public final class ItemOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1973876974:
-          case -1426712144: {
-            if (input.isAtField(FieldNames.mainAffixId)) {
+          case -799212381: {
+            if (input.isAtField(FieldNames.promotion)) {
               if (!input.trySkipNullValue()) {
-                mainAffixId = input.readUInt32();
+                promotion = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -603,11 +602,10 @@ public final class ItemOuterClass {
             }
             break;
           }
-          case -294460212:
-          case -538310583: {
-            if (input.isAtField(FieldNames.uniqueId)) {
+          case 3492908: {
+            if (input.isAtField(FieldNames.rank)) {
               if (!input.trySkipNullValue()) {
-                uniqueId = input.readUInt32();
+                rank = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -615,11 +613,10 @@ public final class ItemOuterClass {
             }
             break;
           }
-          case -1178662002:
-          case 2116204999: {
-            if (input.isAtField(FieldNames.itemId)) {
+          case 102865796: {
+            if (input.isAtField(FieldNames.level)) {
               if (!input.trySkipNullValue()) {
-                itemId = input.readUInt32();
+                level = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -638,10 +635,11 @@ public final class ItemOuterClass {
             }
             break;
           }
-          case 102865796: {
-            if (input.isAtField(FieldNames.level)) {
+          case -1973876974:
+          case -1426712144: {
+            if (input.isAtField(FieldNames.mainAffixId)) {
               if (!input.trySkipNullValue()) {
-                level = input.readUInt32();
+                mainAffixId = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -649,10 +647,11 @@ public final class ItemOuterClass {
             }
             break;
           }
-          case 3492908: {
-            if (input.isAtField(FieldNames.rank)) {
+          case -1178662002:
+          case 2116204999: {
+            if (input.isAtField(FieldNames.itemId)) {
               if (!input.trySkipNullValue()) {
-                rank = input.readUInt32();
+                itemId = input.readUInt32();
                 bitField0_ |= 0x00000020;
               }
             } else {
@@ -660,10 +659,11 @@ public final class ItemOuterClass {
             }
             break;
           }
-          case -799212381: {
-            if (input.isAtField(FieldNames.promotion)) {
+          case -294460212:
+          case -538310583: {
+            if (input.isAtField(FieldNames.uniqueId)) {
               if (!input.trySkipNullValue()) {
-                promotion = input.readUInt32();
+                uniqueId = input.readUInt32();
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -723,19 +723,19 @@ public final class ItemOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName mainAffixId = FieldName.forField("mainAffixId", "main_affix_id");
-
-      static final FieldName uniqueId = FieldName.forField("uniqueId", "unique_id");
-
-      static final FieldName itemId = FieldName.forField("itemId", "item_id");
-
-      static final FieldName num = FieldName.forField("num");
-
-      static final FieldName level = FieldName.forField("level");
+      static final FieldName promotion = FieldName.forField("promotion");
 
       static final FieldName rank = FieldName.forField("rank");
 
-      static final FieldName promotion = FieldName.forField("promotion");
+      static final FieldName level = FieldName.forField("level");
+
+      static final FieldName num = FieldName.forField("num");
+
+      static final FieldName mainAffixId = FieldName.forField("mainAffixId", "main_affix_id");
+
+      static final FieldName itemId = FieldName.forField("itemId", "item_id");
+
+      static final FieldName uniqueId = FieldName.forField("uniqueId", "unique_id");
     }
   }
 }

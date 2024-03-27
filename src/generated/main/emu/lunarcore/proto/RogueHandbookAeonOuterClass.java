@@ -20,32 +20,40 @@ public final class RogueHandbookAeonOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 aeon_id = 2;</code>
+     * <code>optional uint32 aeon_id = 5;</code>
      */
     private int aeonId;
 
     /**
-     * <code>optional uint32 level = 4;</code>
-     */
-    private int level;
-
-    /**
-     * <code>optional uint32 max_level = 5;</code>
-     */
-    private int maxLevel;
-
-    /**
-     * <code>optional uint32 exp = 15;</code>
+     * <code>optional uint32 exp = 6;</code>
      */
     private int exp;
 
     /**
-     * <code>repeated uint32 taken_reward_list = 10;</code>
+     * <code>optional uint32 level = 10;</code>
+     */
+    private int level;
+
+    /**
+     * <code>optional uint32 max_level = 14;</code>
+     */
+    private int maxLevel;
+
+    /**
+     * <pre>
+     *  BODAGGMFDMJ
+     * </pre>
+     *
+     * <code>repeated uint32 taken_reward_list = 7;</code>
      */
     private final RepeatedInt takenRewardList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 archive_unlock_list = 13;</code>
+     * <pre>
+     *  KPFEEKHKANG
+     * </pre>
+     *
+     * <code>repeated uint32 archive_unlock_list = 15;</code>
      */
     private final RepeatedInt archiveUnlockList = RepeatedInt.newEmptyInstance();
 
@@ -60,7 +68,7 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 2;</code>
+     * <code>optional uint32 aeon_id = 5;</code>
      * @return whether the aeonId field is set
      */
     public boolean hasAeonId() {
@@ -68,7 +76,7 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 2;</code>
+     * <code>optional uint32 aeon_id = 5;</code>
      * @return this
      */
     public RogueHandbookAeon clearAeonId() {
@@ -78,7 +86,7 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 2;</code>
+     * <code>optional uint32 aeon_id = 5;</code>
      * @return the aeonId
      */
     public int getAeonId() {
@@ -86,7 +94,7 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 2;</code>
+     * <code>optional uint32 aeon_id = 5;</code>
      * @param value the aeonId to set
      * @return this
      */
@@ -97,99 +105,25 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 4;</code>
-     * @return whether the level field is set
+     * <code>optional uint32 exp = 6;</code>
+     * @return whether the exp field is set
      */
-    public boolean hasLevel() {
+    public boolean hasExp() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 level = 4;</code>
-     * @return this
-     */
-    public RogueHandbookAeon clearLevel() {
-      bitField0_ &= ~0x00000002;
-      level = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 level = 4;</code>
-     * @return the level
-     */
-    public int getLevel() {
-      return level;
-    }
-
-    /**
-     * <code>optional uint32 level = 4;</code>
-     * @param value the level to set
-     * @return this
-     */
-    public RogueHandbookAeon setLevel(final int value) {
-      bitField0_ |= 0x00000002;
-      level = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 max_level = 5;</code>
-     * @return whether the maxLevel field is set
-     */
-    public boolean hasMaxLevel() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 max_level = 5;</code>
-     * @return this
-     */
-    public RogueHandbookAeon clearMaxLevel() {
-      bitField0_ &= ~0x00000004;
-      maxLevel = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 max_level = 5;</code>
-     * @return the maxLevel
-     */
-    public int getMaxLevel() {
-      return maxLevel;
-    }
-
-    /**
-     * <code>optional uint32 max_level = 5;</code>
-     * @param value the maxLevel to set
-     * @return this
-     */
-    public RogueHandbookAeon setMaxLevel(final int value) {
-      bitField0_ |= 0x00000004;
-      maxLevel = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 exp = 15;</code>
-     * @return whether the exp field is set
-     */
-    public boolean hasExp() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 exp = 15;</code>
+     * <code>optional uint32 exp = 6;</code>
      * @return this
      */
     public RogueHandbookAeon clearExp() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000002;
       exp = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 exp = 15;</code>
+     * <code>optional uint32 exp = 6;</code>
      * @return the exp
      */
     public int getExp() {
@@ -197,18 +131,96 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 exp = 15;</code>
+     * <code>optional uint32 exp = 6;</code>
      * @param value the exp to set
      * @return this
      */
     public RogueHandbookAeon setExp(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000002;
       exp = value;
       return this;
     }
 
     /**
-     * <code>repeated uint32 taken_reward_list = 10;</code>
+     * <code>optional uint32 level = 10;</code>
+     * @return whether the level field is set
+     */
+    public boolean hasLevel() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return this
+     */
+    public RogueHandbookAeon clearLevel() {
+      bitField0_ &= ~0x00000004;
+      level = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @return the level
+     */
+    public int getLevel() {
+      return level;
+    }
+
+    /**
+     * <code>optional uint32 level = 10;</code>
+     * @param value the level to set
+     * @return this
+     */
+    public RogueHandbookAeon setLevel(final int value) {
+      bitField0_ |= 0x00000004;
+      level = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 max_level = 14;</code>
+     * @return whether the maxLevel field is set
+     */
+    public boolean hasMaxLevel() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 max_level = 14;</code>
+     * @return this
+     */
+    public RogueHandbookAeon clearMaxLevel() {
+      bitField0_ &= ~0x00000008;
+      maxLevel = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 max_level = 14;</code>
+     * @return the maxLevel
+     */
+    public int getMaxLevel() {
+      return maxLevel;
+    }
+
+    /**
+     * <code>optional uint32 max_level = 14;</code>
+     * @param value the maxLevel to set
+     * @return this
+     */
+    public RogueHandbookAeon setMaxLevel(final int value) {
+      bitField0_ |= 0x00000008;
+      maxLevel = value;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  BODAGGMFDMJ
+     * </pre>
+     *
+     * <code>repeated uint32 taken_reward_list = 7;</code>
      * @return whether the takenRewardList field is set
      */
     public boolean hasTakenRewardList() {
@@ -216,7 +228,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 taken_reward_list = 10;</code>
+     * <pre>
+     *  BODAGGMFDMJ
+     * </pre>
+     *
+     * <code>repeated uint32 taken_reward_list = 7;</code>
      * @return this
      */
     public RogueHandbookAeon clearTakenRewardList() {
@@ -226,7 +242,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 taken_reward_list = 10;</code>
+     * <pre>
+     *  BODAGGMFDMJ
+     * </pre>
+     *
+     * <code>repeated uint32 taken_reward_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -240,7 +260,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 taken_reward_list = 10;</code>
+     * <pre>
+     *  BODAGGMFDMJ
+     * </pre>
+     *
+     * <code>repeated uint32 taken_reward_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -254,7 +278,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 taken_reward_list = 10;</code>
+     * <pre>
+     *  BODAGGMFDMJ
+     * </pre>
+     *
+     * <code>repeated uint32 taken_reward_list = 7;</code>
      * @param value the takenRewardList to add
      * @return this
      */
@@ -265,7 +293,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 taken_reward_list = 10;</code>
+     * <pre>
+     *  BODAGGMFDMJ
+     * </pre>
+     *
+     * <code>repeated uint32 taken_reward_list = 7;</code>
      * @param values the takenRewardList to add
      * @return this
      */
@@ -276,7 +308,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_unlock_list = 13;</code>
+     * <pre>
+     *  KPFEEKHKANG
+     * </pre>
+     *
+     * <code>repeated uint32 archive_unlock_list = 15;</code>
      * @return whether the archiveUnlockList field is set
      */
     public boolean hasArchiveUnlockList() {
@@ -284,7 +320,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_unlock_list = 13;</code>
+     * <pre>
+     *  KPFEEKHKANG
+     * </pre>
+     *
+     * <code>repeated uint32 archive_unlock_list = 15;</code>
      * @return this
      */
     public RogueHandbookAeon clearArchiveUnlockList() {
@@ -294,7 +334,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_unlock_list = 13;</code>
+     * <pre>
+     *  KPFEEKHKANG
+     * </pre>
+     *
+     * <code>repeated uint32 archive_unlock_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -308,7 +352,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_unlock_list = 13;</code>
+     * <pre>
+     *  KPFEEKHKANG
+     * </pre>
+     *
+     * <code>repeated uint32 archive_unlock_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -322,7 +370,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_unlock_list = 13;</code>
+     * <pre>
+     *  KPFEEKHKANG
+     * </pre>
+     *
+     * <code>repeated uint32 archive_unlock_list = 15;</code>
      * @param value the archiveUnlockList to add
      * @return this
      */
@@ -333,7 +385,11 @@ public final class RogueHandbookAeonOuterClass {
     }
 
     /**
-     * <code>repeated uint32 archive_unlock_list = 13;</code>
+     * <pre>
+     *  KPFEEKHKANG
+     * </pre>
+     *
+     * <code>repeated uint32 archive_unlock_list = 15;</code>
      * @param values the archiveUnlockList to add
      * @return this
      */
@@ -349,9 +405,9 @@ public final class RogueHandbookAeonOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         aeonId = other.aeonId;
+        exp = other.exp;
         level = other.level;
         maxLevel = other.maxLevel;
-        exp = other.exp;
         takenRewardList.copyFrom(other.takenRewardList);
         archiveUnlockList.copyFrom(other.archiveUnlockList);
       }
@@ -367,14 +423,14 @@ public final class RogueHandbookAeonOuterClass {
       if (other.hasAeonId()) {
         setAeonId(other.aeonId);
       }
+      if (other.hasExp()) {
+        setExp(other.exp);
+      }
       if (other.hasLevel()) {
         setLevel(other.level);
       }
       if (other.hasMaxLevel()) {
         setMaxLevel(other.maxLevel);
-      }
-      if (other.hasExp()) {
-        setExp(other.exp);
       }
       if (other.hasTakenRewardList()) {
         getMutableTakenRewardList().addAll(other.takenRewardList);
@@ -393,9 +449,9 @@ public final class RogueHandbookAeonOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       aeonId = 0;
+      exp = 0;
       level = 0;
       maxLevel = 0;
-      exp = 0;
       takenRewardList.clear();
       archiveUnlockList.clear();
       return this;
@@ -424,9 +480,9 @@ public final class RogueHandbookAeonOuterClass {
       RogueHandbookAeon other = (RogueHandbookAeon) o;
       return bitField0_ == other.bitField0_
         && (!hasAeonId() || aeonId == other.aeonId)
+        && (!hasExp() || exp == other.exp)
         && (!hasLevel() || level == other.level)
         && (!hasMaxLevel() || maxLevel == other.maxLevel)
-        && (!hasExp() || exp == other.exp)
         && (!hasTakenRewardList() || takenRewardList.equals(other.takenRewardList))
         && (!hasArchiveUnlockList() || archiveUnlockList.equals(other.archiveUnlockList));
     }
@@ -434,30 +490,30 @@ public final class RogueHandbookAeonOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(level);
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(exp);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(maxLevel);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(exp);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(maxLevel);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         for (int i = 0; i < takenRewardList.length(); i++) {
-          output.writeRawByte((byte) 80);
+          output.writeRawByte((byte) 56);
           output.writeUInt32NoTag(takenRewardList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000020) != 0) {
         for (int i = 0; i < archiveUnlockList.length(); i++) {
-          output.writeRawByte((byte) 104);
+          output.writeRawByte((byte) 120);
           output.writeUInt32NoTag(archiveUnlockList.array()[i]);
         }
       }
@@ -470,13 +526,13 @@ public final class RogueHandbookAeonOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(exp);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(maxLevel);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(exp);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(maxLevel);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += (1 * takenRewardList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(takenRewardList);
@@ -494,52 +550,52 @@ public final class RogueHandbookAeonOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 40: {
             // aeonId
             aeonId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 48) {
               break;
             }
           }
-          case 32: {
-            // level
-            level = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 40) {
-              break;
-            }
-          }
-          case 40: {
-            // maxLevel
-            maxLevel = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
+          case 48: {
             // exp
             exp = input.readUInt32();
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 80) {
               break;
             }
           }
-          case 82: {
+          case 80: {
+            // level
+            level = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 112) {
+              break;
+            }
+          }
+          case 112: {
+            // maxLevel
+            maxLevel = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 58) {
+              break;
+            }
+          }
+          case 58: {
             // takenRewardList [packed=true]
             input.readPackedUInt32(takenRewardList, tag);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 122) {
               break;
             }
           }
-          case 106: {
+          case 122: {
             // archiveUnlockList [packed=true]
             input.readPackedUInt32(archiveUnlockList, tag);
             bitField0_ |= 0x00000020;
@@ -558,13 +614,13 @@ public final class RogueHandbookAeonOuterClass {
             tag = input.readTag();
             break;
           }
-          case 80: {
+          case 56: {
             // takenRewardList [packed=false]
             tag = input.readRepeatedUInt32(takenRewardList, tag);
             bitField0_ |= 0x00000010;
             break;
           }
-          case 104: {
+          case 120: {
             // archiveUnlockList [packed=false]
             tag = input.readRepeatedUInt32(archiveUnlockList, tag);
             bitField0_ |= 0x00000020;
@@ -581,13 +637,13 @@ public final class RogueHandbookAeonOuterClass {
         output.writeUInt32(FieldNames.aeonId, aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.level, level);
+        output.writeUInt32(FieldNames.exp, exp);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.maxLevel, maxLevel);
+        output.writeUInt32(FieldNames.level, level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.exp, exp);
+        output.writeUInt32(FieldNames.maxLevel, maxLevel);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRepeatedUInt32(FieldNames.takenRewardList, takenRewardList);
@@ -617,11 +673,22 @@ public final class RogueHandbookAeonOuterClass {
             }
             break;
           }
+          case 100893: {
+            if (input.isAtField(FieldNames.exp)) {
+              if (!input.trySkipNullValue()) {
+                exp = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 102865796: {
             if (input.isAtField(FieldNames.level)) {
               if (!input.trySkipNullValue()) {
                 level = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -633,17 +700,6 @@ public final class RogueHandbookAeonOuterClass {
             if (input.isAtField(FieldNames.maxLevel)) {
               if (!input.trySkipNullValue()) {
                 maxLevel = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 100893: {
-            if (input.isAtField(FieldNames.exp)) {
-              if (!input.trySkipNullValue()) {
-                exp = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -730,11 +786,11 @@ public final class RogueHandbookAeonOuterClass {
     static class FieldNames {
       static final FieldName aeonId = FieldName.forField("aeonId", "aeon_id");
 
+      static final FieldName exp = FieldName.forField("exp");
+
       static final FieldName level = FieldName.forField("level");
 
       static final FieldName maxLevel = FieldName.forField("maxLevel", "max_level");
-
-      static final FieldName exp = FieldName.forField("exp");
 
       static final FieldName takenRewardList = FieldName.forField("takenRewardList", "taken_reward_list");
 

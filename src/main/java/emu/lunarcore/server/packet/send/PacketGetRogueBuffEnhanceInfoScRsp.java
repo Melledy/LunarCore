@@ -24,7 +24,7 @@ public class PacketGetRogueBuffEnhanceInfoScRsp extends BasePacket {
             shop.addBuffInfo(RogueBuffEnhanceInfo.newInstance()
                 .setBuffId(buff.getId())
                 .setItemCostList(this.getItemCostList(buff.getExcel()))
-                .setHNHFMFCDCOC(1));
+                .setUnkFloat(1));
         }
         proto.setShopInfo(shop);
         

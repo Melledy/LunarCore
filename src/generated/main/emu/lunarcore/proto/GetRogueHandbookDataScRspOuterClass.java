@@ -24,7 +24,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 7;</code>
+     * <code>optional .RogueHandbookData handbook_info = 10;</code>
      */
     private final RogueHandbookDataOuterClass.RogueHandbookData handbookInfo = RogueHandbookDataOuterClass.RogueHandbookData.newInstance();
 
@@ -76,7 +76,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 7;</code>
+     * <code>optional .RogueHandbookData handbook_info = 10;</code>
      * @return whether the handbookInfo field is set
      */
     public boolean hasHandbookInfo() {
@@ -84,7 +84,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 7;</code>
+     * <code>optional .RogueHandbookData handbook_info = 10;</code>
      * @return this
      */
     public GetRogueHandbookDataScRsp clearHandbookInfo() {
@@ -94,7 +94,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 7;</code>
+     * <code>optional .RogueHandbookData handbook_info = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 7;</code>
+     * <code>optional .RogueHandbookData handbook_info = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueHandbookData handbook_info = 7;</code>
+     * <code>optional .RogueHandbookData handbook_info = 10;</code>
      * @param value the handbookInfo to set
      * @return this
      */
@@ -203,7 +203,7 @@ public final class GetRogueHandbookDataScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 82);
         output.writeMessageNoTag(handbookInfo);
       }
     }
@@ -232,11 +232,11 @@ public final class GetRogueHandbookDataScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 82) {
               break;
             }
           }
-          case 58: {
+          case 82: {
             // handbookInfo
             input.readMessage(handbookInfo);
             bitField0_ |= 0x00000002;

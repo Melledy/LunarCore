@@ -20,17 +20,17 @@ public final class RogueBuffEnhanceInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional float HNHFMFCDCOC = 7;</code>
+     * <code>optional float unk_float = 14;</code>
      */
-    private float hNHFMFCDCOC;
+    private float unkFloat;
 
     /**
-     * <code>optional uint32 buff_id = 11;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      */
     private int buffId;
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 8;</code>
      */
     private final ItemCostListOuterClass.ItemCostList itemCostList = ItemCostListOuterClass.ItemCostList.newInstance();
 
@@ -45,44 +45,44 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional float HNHFMFCDCOC = 7;</code>
-     * @return whether the hNHFMFCDCOC field is set
+     * <code>optional float unk_float = 14;</code>
+     * @return whether the unkFloat field is set
      */
-    public boolean hasHNHFMFCDCOC() {
+    public boolean hasUnkFloat() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional float HNHFMFCDCOC = 7;</code>
+     * <code>optional float unk_float = 14;</code>
      * @return this
      */
-    public RogueBuffEnhanceInfo clearHNHFMFCDCOC() {
+    public RogueBuffEnhanceInfo clearUnkFloat() {
       bitField0_ &= ~0x00000001;
-      hNHFMFCDCOC = 0F;
+      unkFloat = 0F;
       return this;
     }
 
     /**
-     * <code>optional float HNHFMFCDCOC = 7;</code>
-     * @return the hNHFMFCDCOC
+     * <code>optional float unk_float = 14;</code>
+     * @return the unkFloat
      */
-    public float getHNHFMFCDCOC() {
-      return hNHFMFCDCOC;
+    public float getUnkFloat() {
+      return unkFloat;
     }
 
     /**
-     * <code>optional float HNHFMFCDCOC = 7;</code>
-     * @param value the hNHFMFCDCOC to set
+     * <code>optional float unk_float = 14;</code>
+     * @param value the unkFloat to set
      * @return this
      */
-    public RogueBuffEnhanceInfo setHNHFMFCDCOC(final float value) {
+    public RogueBuffEnhanceInfo setUnkFloat(final float value) {
       bitField0_ |= 0x00000001;
-      hNHFMFCDCOC = value;
+      unkFloat = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 buff_id = 11;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -90,7 +90,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 11;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @return this
      */
     public RogueBuffEnhanceInfo clearBuffId() {
@@ -100,7 +100,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 11;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -108,7 +108,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 11;</code>
+     * <code>optional uint32 buff_id = 9;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 8;</code>
      * @return whether the itemCostList field is set
      */
     public boolean hasItemCostList() {
@@ -127,7 +127,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 8;</code>
      * @return this
      */
     public RogueBuffEnhanceInfo clearItemCostList() {
@@ -137,7 +137,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +151,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -165,7 +165,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 8;</code>
      * @param value the itemCostList to set
      * @return this
      */
@@ -180,7 +180,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        hNHFMFCDCOC = other.hNHFMFCDCOC;
+        unkFloat = other.unkFloat;
         buffId = other.buffId;
         itemCostList.copyFrom(other.itemCostList);
       }
@@ -193,8 +193,8 @@ public final class RogueBuffEnhanceInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasHNHFMFCDCOC()) {
-        setHNHFMFCDCOC(other.hNHFMFCDCOC);
+      if (other.hasUnkFloat()) {
+        setUnkFloat(other.unkFloat);
       }
       if (other.hasBuffId()) {
         setBuffId(other.buffId);
@@ -212,7 +212,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      hNHFMFCDCOC = 0F;
+      unkFloat = 0F;
       buffId = 0;
       itemCostList.clear();
       return this;
@@ -239,7 +239,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
       }
       RogueBuffEnhanceInfo other = (RogueBuffEnhanceInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasHNHFMFCDCOC() || ProtoUtil.isEqual(hNHFMFCDCOC, other.hNHFMFCDCOC))
+        && (!hasUnkFloat() || ProtoUtil.isEqual(unkFloat, other.unkFloat))
         && (!hasBuffId() || buffId == other.buffId)
         && (!hasItemCostList() || itemCostList.equals(other.itemCostList));
     }
@@ -247,15 +247,15 @@ public final class RogueBuffEnhanceInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 61);
-        output.writeFloatNoTag(hNHFMFCDCOC);
+        output.writeRawByte((byte) 117);
+        output.writeFloatNoTag(unkFloat);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(buffId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(itemCostList);
       }
     }
@@ -282,25 +282,25 @@ public final class RogueBuffEnhanceInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 61: {
-            // hNHFMFCDCOC
-            hNHFMFCDCOC = input.readFloat();
+          case 117: {
+            // unkFloat
+            unkFloat = input.readFloat();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 72) {
               break;
             }
           }
-          case 88: {
+          case 72: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 66) {
               break;
             }
           }
-          case 34: {
+          case 66: {
             // itemCostList
             input.readMessage(itemCostList);
             bitField0_ |= 0x00000004;
@@ -327,7 +327,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeFloat(FieldNames.hNHFMFCDCOC, hNHFMFCDCOC);
+        output.writeFloat(FieldNames.unkFloat, unkFloat);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.buffId, buffId);
@@ -345,10 +345,11 @@ public final class RogueBuffEnhanceInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -838377895: {
-            if (input.isAtField(FieldNames.hNHFMFCDCOC)) {
+          case -277171062:
+          case 707742927: {
+            if (input.isAtField(FieldNames.unkFloat)) {
               if (!input.trySkipNullValue()) {
-                hNHFMFCDCOC = input.readFloat();
+                unkFloat = input.readFloat();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -433,7 +434,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName hNHFMFCDCOC = FieldName.forField("HNHFMFCDCOC");
+      static final FieldName unkFloat = FieldName.forField("unkFloat", "unk_float");
 
       static final FieldName buffId = FieldName.forField("buffId", "buff_id");
 

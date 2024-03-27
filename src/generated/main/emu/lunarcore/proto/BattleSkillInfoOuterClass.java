@@ -11,7 +11,6 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 import us.hebi.quickbuf.ProtoUtil;
-import us.hebi.quickbuf.RepeatedInt;
 
 public final class BattleSkillInfoOuterClass {
   /**
@@ -19,11 +18,6 @@ public final class BattleSkillInfoOuterClass {
    */
   public static final class BattleSkillInfo extends ProtoMessage<BattleSkillInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
-
-    /**
-     * <code>optional double ECLKNMPFOOF = 2;</code>
-     */
-    private double eCLKNMPFOOF;
 
     /**
      * <code>optional double damage = 4;</code>
@@ -34,11 +28,6 @@ public final class BattleSkillInfoOuterClass {
      * <code>optional uint32 skill_id = 1;</code>
      */
     private int skillId;
-
-    /**
-     * <code>repeated uint32 HEOGMIOCDIC = 3;</code>
-     */
-    private final RepeatedInt hEOGMIOCDIC = RepeatedInt.newEmptyInstance();
 
     private BattleSkillInfo() {
     }
@@ -51,48 +40,11 @@ public final class BattleSkillInfoOuterClass {
     }
 
     /**
-     * <code>optional double ECLKNMPFOOF = 2;</code>
-     * @return whether the eCLKNMPFOOF field is set
-     */
-    public boolean hasECLKNMPFOOF() {
-      return (bitField0_ & 0x00000001) != 0;
-    }
-
-    /**
-     * <code>optional double ECLKNMPFOOF = 2;</code>
-     * @return this
-     */
-    public BattleSkillInfo clearECLKNMPFOOF() {
-      bitField0_ &= ~0x00000001;
-      eCLKNMPFOOF = 0D;
-      return this;
-    }
-
-    /**
-     * <code>optional double ECLKNMPFOOF = 2;</code>
-     * @return the eCLKNMPFOOF
-     */
-    public double getECLKNMPFOOF() {
-      return eCLKNMPFOOF;
-    }
-
-    /**
-     * <code>optional double ECLKNMPFOOF = 2;</code>
-     * @param value the eCLKNMPFOOF to set
-     * @return this
-     */
-    public BattleSkillInfo setECLKNMPFOOF(final double value) {
-      bitField0_ |= 0x00000001;
-      eCLKNMPFOOF = value;
-      return this;
-    }
-
-    /**
      * <code>optional double damage = 4;</code>
      * @return whether the damage field is set
      */
     public boolean hasDamage() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
@@ -100,7 +52,7 @@ public final class BattleSkillInfoOuterClass {
      * @return this
      */
     public BattleSkillInfo clearDamage() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       damage = 0D;
       return this;
     }
@@ -119,7 +71,7 @@ public final class BattleSkillInfoOuterClass {
      * @return this
      */
     public BattleSkillInfo setDamage(final double value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       damage = value;
       return this;
     }
@@ -129,7 +81,7 @@ public final class BattleSkillInfoOuterClass {
      * @return whether the skillId field is set
      */
     public boolean hasSkillId() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -137,7 +89,7 @@ public final class BattleSkillInfoOuterClass {
      * @return this
      */
     public BattleSkillInfo clearSkillId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       skillId = 0;
       return this;
     }
@@ -156,76 +108,8 @@ public final class BattleSkillInfoOuterClass {
      * @return this
      */
     public BattleSkillInfo setSkillId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       skillId = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 HEOGMIOCDIC = 3;</code>
-     * @return whether the hEOGMIOCDIC field is set
-     */
-    public boolean hasHEOGMIOCDIC() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 HEOGMIOCDIC = 3;</code>
-     * @return this
-     */
-    public BattleSkillInfo clearHEOGMIOCDIC() {
-      bitField0_ &= ~0x00000008;
-      hEOGMIOCDIC.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 HEOGMIOCDIC = 3;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableHEOGMIOCDIC()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getHEOGMIOCDIC() {
-      return hEOGMIOCDIC;
-    }
-
-    /**
-     * <code>repeated uint32 HEOGMIOCDIC = 3;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableHEOGMIOCDIC() {
-      bitField0_ |= 0x00000008;
-      return hEOGMIOCDIC;
-    }
-
-    /**
-     * <code>repeated uint32 HEOGMIOCDIC = 3;</code>
-     * @param value the hEOGMIOCDIC to add
-     * @return this
-     */
-    public BattleSkillInfo addHEOGMIOCDIC(final int value) {
-      bitField0_ |= 0x00000008;
-      hEOGMIOCDIC.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 HEOGMIOCDIC = 3;</code>
-     * @param values the hEOGMIOCDIC to add
-     * @return this
-     */
-    public BattleSkillInfo addAllHEOGMIOCDIC(final int... values) {
-      bitField0_ |= 0x00000008;
-      hEOGMIOCDIC.addAll(values);
       return this;
     }
 
@@ -234,10 +118,8 @@ public final class BattleSkillInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        eCLKNMPFOOF = other.eCLKNMPFOOF;
         damage = other.damage;
         skillId = other.skillId;
-        hEOGMIOCDIC.copyFrom(other.hEOGMIOCDIC);
       }
       return this;
     }
@@ -248,17 +130,11 @@ public final class BattleSkillInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasECLKNMPFOOF()) {
-        setECLKNMPFOOF(other.eCLKNMPFOOF);
-      }
       if (other.hasDamage()) {
         setDamage(other.damage);
       }
       if (other.hasSkillId()) {
         setSkillId(other.skillId);
-      }
-      if (other.hasHEOGMIOCDIC()) {
-        getMutableHEOGMIOCDIC().addAll(other.hEOGMIOCDIC);
       }
       return this;
     }
@@ -270,10 +146,8 @@ public final class BattleSkillInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      eCLKNMPFOOF = 0D;
       damage = 0D;
       skillId = 0;
-      hEOGMIOCDIC.clear();
       return this;
     }
 
@@ -284,7 +158,6 @@ public final class BattleSkillInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      hEOGMIOCDIC.clear();
       return this;
     }
 
@@ -298,31 +171,19 @@ public final class BattleSkillInfoOuterClass {
       }
       BattleSkillInfo other = (BattleSkillInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasECLKNMPFOOF() || ProtoUtil.isEqual(eCLKNMPFOOF, other.eCLKNMPFOOF))
         && (!hasDamage() || ProtoUtil.isEqual(damage, other.damage))
-        && (!hasSkillId() || skillId == other.skillId)
-        && (!hasHEOGMIOCDIC() || hEOGMIOCDIC.equals(other.hEOGMIOCDIC));
+        && (!hasSkillId() || skillId == other.skillId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 17);
-        output.writeDoubleNoTag(eCLKNMPFOOF);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 33);
         output.writeDoubleNoTag(damage);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(skillId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        for (int i = 0; i < hEOGMIOCDIC.length(); i++) {
-          output.writeRawByte((byte) 24);
-          output.writeUInt32NoTag(hEOGMIOCDIC.array()[i]);
-        }
       }
     }
 
@@ -333,13 +194,7 @@ public final class BattleSkillInfoOuterClass {
         size += 9;
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 9;
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(skillId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        size += (1 * hEOGMIOCDIC.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(hEOGMIOCDIC);
       }
       return size;
     }
@@ -351,19 +206,10 @@ public final class BattleSkillInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 17: {
-            // eCLKNMPFOOF
-            eCLKNMPFOOF = input.readDouble();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 33) {
-              break;
-            }
-          }
           case 33: {
             // damage
             damage = input.readDouble();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 8) {
               break;
@@ -372,16 +218,7 @@ public final class BattleSkillInfoOuterClass {
           case 8: {
             // skillId
             skillId = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 26) {
-              break;
-            }
-          }
-          case 26: {
-            // hEOGMIOCDIC [packed=true]
-            input.readPackedUInt32(hEOGMIOCDIC, tag);
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -397,12 +234,6 @@ public final class BattleSkillInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 24: {
-            // hEOGMIOCDIC [packed=false]
-            tag = input.readRepeatedUInt32(hEOGMIOCDIC, tag);
-            bitField0_ |= 0x00000008;
-            break;
-          }
         }
       }
     }
@@ -411,16 +242,10 @@ public final class BattleSkillInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeDouble(FieldNames.eCLKNMPFOOF, eCLKNMPFOOF);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeDouble(FieldNames.damage, damage);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.skillId, skillId);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRepeatedUInt32(FieldNames.hEOGMIOCDIC, hEOGMIOCDIC);
       }
       output.endObject();
     }
@@ -432,22 +257,11 @@ public final class BattleSkillInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 708408596: {
-            if (input.isAtField(FieldNames.eCLKNMPFOOF)) {
-              if (!input.trySkipNullValue()) {
-                eCLKNMPFOOF = input.readDouble();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case -1339126929: {
             if (input.isAtField(FieldNames.damage)) {
               if (!input.trySkipNullValue()) {
                 damage = input.readDouble();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -459,18 +273,7 @@ public final class BattleSkillInfoOuterClass {
             if (input.isAtField(FieldNames.skillId)) {
               if (!input.trySkipNullValue()) {
                 skillId = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1292251975: {
-            if (input.isAtField(FieldNames.hEOGMIOCDIC)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(hEOGMIOCDIC);
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -530,13 +333,9 @@ public final class BattleSkillInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName eCLKNMPFOOF = FieldName.forField("ECLKNMPFOOF");
-
       static final FieldName damage = FieldName.forField("damage");
 
       static final FieldName skillId = FieldName.forField("skillId", "skill_id");
-
-      static final FieldName hEOGMIOCDIC = FieldName.forField("HEOGMIOCDIC");
     }
   }
 }

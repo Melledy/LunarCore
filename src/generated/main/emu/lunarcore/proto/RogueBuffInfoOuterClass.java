@@ -20,7 +20,7 @@ public final class RogueBuffInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 10;</code>
      */
     private final RepeatedMessage<RogueBuffOuterClass.RogueBuff> mazeBuffList = RepeatedMessage.newEmptyInstance(RogueBuffOuterClass.RogueBuff.getFactory());
 
@@ -35,7 +35,7 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 10;</code>
      * @return whether the mazeBuffList field is set
      */
     public boolean hasMazeBuffList() {
@@ -43,7 +43,7 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 10;</code>
      * @return this
      */
     public RogueBuffInfo clearMazeBuffList() {
@@ -53,7 +53,7 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 10;</code>
      * @param value the mazeBuffList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class RogueBuffInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff maze_buff_list = 1;</code>
+     * <code>repeated .RogueBuff maze_buff_list = 10;</code>
      * @param values the mazeBuffList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class RogueBuffInfoOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < mazeBuffList.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 82);
           output.writeMessageNoTag(mazeBuffList.get(i));
         }
       }
@@ -185,7 +185,7 @@ public final class RogueBuffInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 10: {
+          case 82: {
             // mazeBuffList
             tag = input.readRepeatedMessage(mazeBuffList, tag);
             bitField0_ |= 0x00000001;

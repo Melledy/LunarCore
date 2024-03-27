@@ -20,17 +20,22 @@ public final class SceneGroupRefreshInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 state = 3;</code>
-     */
-    private int state;
-
-    /**
-     * <code>optional uint32 group_id = 12;</code>
+     * <code>optional uint32 group_id = 9;</code>
      */
     private int groupId;
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 14;</code>
+     * <code>optional uint32 state = 12;</code>
+     */
+    private int state;
+
+    /**
+     * <code>optional .SceneGroupRefreshType refresh_type = 11;</code>
+     */
+    private int refreshType;
+
+    /**
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 10;</code>
      */
     private final RepeatedMessage<SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo> refreshEntity = RepeatedMessage.newEmptyInstance(SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo.getFactory());
 
@@ -45,62 +50,25 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 3;</code>
-     * @return whether the state field is set
+     * <code>optional uint32 group_id = 9;</code>
+     * @return whether the groupId field is set
      */
-    public boolean hasState() {
+    public boolean hasGroupId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 state = 3;</code>
-     * @return this
-     */
-    public SceneGroupRefreshInfo clearState() {
-      bitField0_ &= ~0x00000001;
-      state = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 state = 3;</code>
-     * @return the state
-     */
-    public int getState() {
-      return state;
-    }
-
-    /**
-     * <code>optional uint32 state = 3;</code>
-     * @param value the state to set
-     * @return this
-     */
-    public SceneGroupRefreshInfo setState(final int value) {
-      bitField0_ |= 0x00000001;
-      state = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 12;</code>
-     * @return whether the groupId field is set
-     */
-    public boolean hasGroupId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 12;</code>
+     * <code>optional uint32 group_id = 9;</code>
      * @return this
      */
     public SceneGroupRefreshInfo clearGroupId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       groupId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 group_id = 12;</code>
+     * <code>optional uint32 group_id = 9;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -108,36 +76,136 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 12;</code>
+     * <code>optional uint32 group_id = 9;</code>
      * @param value the groupId to set
      * @return this
      */
     public SceneGroupRefreshInfo setGroupId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       groupId = value;
       return this;
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 14;</code>
-     * @return whether the refreshEntity field is set
+     * <code>optional uint32 state = 12;</code>
+     * @return whether the state field is set
      */
-    public boolean hasRefreshEntity() {
+    public boolean hasState() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 state = 12;</code>
+     * @return this
+     */
+    public SceneGroupRefreshInfo clearState() {
+      bitField0_ &= ~0x00000002;
+      state = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 state = 12;</code>
+     * @return the state
+     */
+    public int getState() {
+      return state;
+    }
+
+    /**
+     * <code>optional uint32 state = 12;</code>
+     * @param value the state to set
+     * @return this
+     */
+    public SceneGroupRefreshInfo setState(final int value) {
+      bitField0_ |= 0x00000002;
+      state = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneGroupRefreshType refresh_type = 11;</code>
+     * @return whether the refreshType field is set
+     */
+    public boolean hasRefreshType() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 14;</code>
+     * <code>optional .SceneGroupRefreshType refresh_type = 11;</code>
+     * @return this
+     */
+    public SceneGroupRefreshInfo clearRefreshType() {
+      bitField0_ &= ~0x00000004;
+      refreshType = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneGroupRefreshType refresh_type = 11;</code>
+     * @return the refreshType
+     */
+    public SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType getRefreshType() {
+      return SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType.forNumber(refreshType);
+    }
+
+    /**
+     * Gets the value of the internal enum store. The result is
+     * equivalent to {@link SceneGroupRefreshInfo#getRefreshType()}.getNumber().
+     *
+     * @return numeric wire representation
+     */
+    public int getRefreshTypeValue() {
+      return refreshType;
+    }
+
+    /**
+     * Sets the value of the internal enum store. This does not
+     * do any validity checks, so be sure to use appropriate value
+     * constants from {@link SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType}. Setting an invalid value
+     * can cause {@link SceneGroupRefreshInfo#getRefreshType()} to return null
+     *
+     * @param value the numeric wire value to set
+     * @return this
+     */
+    public SceneGroupRefreshInfo setRefreshTypeValue(final int value) {
+      bitField0_ |= 0x00000004;
+      refreshType = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneGroupRefreshType refresh_type = 11;</code>
+     * @param value the refreshType to set
+     * @return this
+     */
+    public SceneGroupRefreshInfo setRefreshType(
+        final SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType value) {
+      bitField0_ |= 0x00000004;
+      refreshType = value.getNumber();
+      return this;
+    }
+
+    /**
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 10;</code>
+     * @return whether the refreshEntity field is set
+     */
+    public boolean hasRefreshEntity() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 10;</code>
      * @return this
      */
     public SceneGroupRefreshInfo clearRefreshEntity() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000008;
       refreshEntity.clear();
       return this;
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 14;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -152,7 +220,7 @@ public final class SceneGroupRefreshInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 14;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -162,30 +230,30 @@ public final class SceneGroupRefreshInfoOuterClass {
      */
     public RepeatedMessage<SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo> getMutableRefreshEntity(
         ) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       return refreshEntity;
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 14;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 10;</code>
      * @param value the refreshEntity to add
      * @return this
      */
     public SceneGroupRefreshInfo addRefreshEntity(
         final SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       refreshEntity.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 14;</code>
+     * <code>repeated .SceneEntityRefreshInfo refresh_entity = 10;</code>
      * @param values the refreshEntity to add
      * @return this
      */
     public SceneGroupRefreshInfo addAllRefreshEntity(
         final SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo... values) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       refreshEntity.addAll(values);
       return this;
     }
@@ -195,8 +263,9 @@ public final class SceneGroupRefreshInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        state = other.state;
         groupId = other.groupId;
+        state = other.state;
+        refreshType = other.refreshType;
         refreshEntity.copyFrom(other.refreshEntity);
       }
       return this;
@@ -208,11 +277,14 @@ public final class SceneGroupRefreshInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasGroupId()) {
+        setGroupId(other.groupId);
+      }
       if (other.hasState()) {
         setState(other.state);
       }
-      if (other.hasGroupId()) {
-        setGroupId(other.groupId);
+      if (other.hasRefreshType()) {
+        setRefreshTypeValue(other.refreshType);
       }
       if (other.hasRefreshEntity()) {
         getMutableRefreshEntity().addAll(other.refreshEntity);
@@ -227,8 +299,9 @@ public final class SceneGroupRefreshInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      state = 0;
       groupId = 0;
+      state = 0;
+      refreshType = 0;
       refreshEntity.clear();
       return this;
     }
@@ -254,24 +327,29 @@ public final class SceneGroupRefreshInfoOuterClass {
       }
       SceneGroupRefreshInfo other = (SceneGroupRefreshInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasState() || state == other.state)
         && (!hasGroupId() || groupId == other.groupId)
+        && (!hasState() || state == other.state)
+        && (!hasRefreshType() || refreshType == other.refreshType)
         && (!hasRefreshEntity() || refreshEntity.equals(other.refreshEntity));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(state);
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(groupId);
+        output.writeUInt32NoTag(state);
       }
       if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 88);
+        output.writeEnumNoTag(refreshType);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < refreshEntity.length(); i++) {
-          output.writeRawByte((byte) 114);
+          output.writeRawByte((byte) 82);
           output.writeMessageNoTag(refreshEntity.get(i));
         }
       }
@@ -281,12 +359,15 @@ public final class SceneGroupRefreshInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(state);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(state);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeEnumSizeNoTag(refreshType);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         size += (1 * refreshEntity.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(refreshEntity);
       }
       return size;
@@ -299,9 +380,9 @@ public final class SceneGroupRefreshInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // state
-            state = input.readUInt32();
+          case 72: {
+            // groupId
+            groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 96) {
@@ -309,18 +390,30 @@ public final class SceneGroupRefreshInfoOuterClass {
             }
           }
           case 96: {
-            // groupId
-            groupId = input.readUInt32();
+            // state
+            state = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 88) {
               break;
             }
           }
-          case 114: {
+          case 88: {
+            // refreshType
+            final int value = input.readInt32();
+            if (SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType.forNumber(value) != null) {
+              refreshType = value;
+              bitField0_ |= 0x00000004;
+            }
+            tag = input.readTag();
+            if (tag != 82) {
+              break;
+            }
+          }
+          case 82: {
             // refreshEntity
             tag = input.readRepeatedMessage(refreshEntity, tag);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
             }
@@ -343,12 +436,15 @@ public final class SceneGroupRefreshInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.state, state);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.groupId, groupId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.state, state);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
+        output.writeEnum(FieldNames.refreshType, refreshType, SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType.converter());
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRepeatedMessage(FieldNames.refreshEntity, refreshEntity);
       }
       output.endObject();
@@ -361,10 +457,11 @@ public final class SceneGroupRefreshInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 109757585: {
-            if (input.isAtField(FieldNames.state)) {
+          case 293428218:
+          case 506361563: {
+            if (input.isAtField(FieldNames.groupId)) {
               if (!input.trySkipNullValue()) {
-                state = input.readUInt32();
+                groupId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -372,12 +469,28 @@ public final class SceneGroupRefreshInfoOuterClass {
             }
             break;
           }
-          case 293428218:
-          case 506361563: {
-            if (input.isAtField(FieldNames.groupId)) {
+          case 109757585: {
+            if (input.isAtField(FieldNames.state)) {
               if (!input.trySkipNullValue()) {
-                groupId = input.readUInt32();
+                state = input.readUInt32();
                 bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1387286347:
+          case -46184930: {
+            if (input.isAtField(FieldNames.refreshType)) {
+              if (!input.trySkipNullValue()) {
+                final SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType value = input.readEnum(SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType.converter());
+                if (value != null) {
+                  refreshType = value.getNumber();
+                  bitField0_ |= 0x00000004;
+                } else {
+                  input.skipUnknownEnumValue();
+                }
               }
             } else {
               input.skipUnknownField();
@@ -389,7 +502,7 @@ public final class SceneGroupRefreshInfoOuterClass {
             if (input.isAtField(FieldNames.refreshEntity)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(refreshEntity);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -449,9 +562,11 @@ public final class SceneGroupRefreshInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName groupId = FieldName.forField("groupId", "group_id");
+
       static final FieldName state = FieldName.forField("state");
 
-      static final FieldName groupId = FieldName.forField("groupId", "group_id");
+      static final FieldName refreshType = FieldName.forField("refreshType", "refresh_type");
 
       static final FieldName refreshEntity = FieldName.forField("refreshEntity", "refresh_entity");
     }

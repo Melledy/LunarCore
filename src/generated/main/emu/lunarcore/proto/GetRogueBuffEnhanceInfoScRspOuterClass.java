@@ -19,12 +19,12 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 4;</code>
+     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 5;</code>
      */
     private final RogueBuffEnhanceShopInfoOuterClass.RogueBuffEnhanceShopInfo shopInfo = RogueBuffEnhanceShopInfoOuterClass.RogueBuffEnhanceShopInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return this
      */
     public GetRogueBuffEnhanceInfoScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 4;</code>
+     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 5;</code>
      * @return whether the shopInfo field is set
      */
     public boolean hasShopInfo() {
@@ -84,7 +84,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 4;</code>
+     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 5;</code>
      * @return this
      */
     public GetRogueBuffEnhanceInfoScRsp clearShopInfo() {
@@ -94,7 +94,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 4;</code>
+     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 4;</code>
+     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 4;</code>
+     * <code>optional .RogueBuffEnhanceShopInfo shop_info = 5;</code>
      * @param value the shopInfo to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 42);
         output.writeMessageNoTag(shopInfo);
       }
     }
@@ -227,16 +227,16 @@ public final class GetRogueBuffEnhanceInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 120: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 42) {
               break;
             }
           }
-          case 34: {
+          case 42: {
             // shopInfo
             input.readMessage(shopInfo);
             bitField0_ |= 0x00000002;

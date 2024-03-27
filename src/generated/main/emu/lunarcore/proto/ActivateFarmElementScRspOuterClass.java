@@ -19,19 +19,19 @@ public final class ActivateFarmElementScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 world_level = 1;</code>
+     * <code>optional uint32 world_level = 4;</code>
      */
     private int worldLevel;
-
-    /**
-     * <code>optional uint32 entity_id = 4;</code>
-     */
-    private int entityId;
 
     /**
      * <code>optional uint32 retcode = 5;</code>
      */
     private int retcode;
+
+    /**
+     * <code>optional uint32 entity_id = 7;</code>
+     */
+    private int entityId;
 
     private ActivateFarmElementScRsp() {
     }
@@ -44,7 +44,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 1;</code>
+     * <code>optional uint32 world_level = 4;</code>
      * @return whether the worldLevel field is set
      */
     public boolean hasWorldLevel() {
@@ -52,7 +52,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 1;</code>
+     * <code>optional uint32 world_level = 4;</code>
      * @return this
      */
     public ActivateFarmElementScRsp clearWorldLevel() {
@@ -62,7 +62,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 1;</code>
+     * <code>optional uint32 world_level = 4;</code>
      * @return the worldLevel
      */
     public int getWorldLevel() {
@@ -70,7 +70,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 1;</code>
+     * <code>optional uint32 world_level = 4;</code>
      * @param value the worldLevel to set
      * @return this
      */
@@ -81,48 +81,11 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 4;</code>
-     * @return whether the entityId field is set
-     */
-    public boolean hasEntityId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 entity_id = 4;</code>
-     * @return this
-     */
-    public ActivateFarmElementScRsp clearEntityId() {
-      bitField0_ &= ~0x00000002;
-      entityId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entity_id = 4;</code>
-     * @return the entityId
-     */
-    public int getEntityId() {
-      return entityId;
-    }
-
-    /**
-     * <code>optional uint32 entity_id = 4;</code>
-     * @param value the entityId to set
-     * @return this
-     */
-    public ActivateFarmElementScRsp setEntityId(final int value) {
-      bitField0_ |= 0x00000002;
-      entityId = value;
-      return this;
-    }
-
-    /**
      * <code>optional uint32 retcode = 5;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -130,7 +93,7 @@ public final class ActivateFarmElementScRspOuterClass {
      * @return this
      */
     public ActivateFarmElementScRsp clearRetcode() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       retcode = 0;
       return this;
     }
@@ -149,8 +112,45 @@ public final class ActivateFarmElementScRspOuterClass {
      * @return this
      */
     public ActivateFarmElementScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 7;</code>
+     * @return whether the entityId field is set
+     */
+    public boolean hasEntityId() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 7;</code>
+     * @return this
+     */
+    public ActivateFarmElementScRsp clearEntityId() {
+      bitField0_ &= ~0x00000004;
+      entityId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 7;</code>
+     * @return the entityId
+     */
+    public int getEntityId() {
+      return entityId;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 7;</code>
+     * @param value the entityId to set
+     * @return this
+     */
+    public ActivateFarmElementScRsp setEntityId(final int value) {
+      bitField0_ |= 0x00000004;
+      entityId = value;
       return this;
     }
 
@@ -160,8 +160,8 @@ public final class ActivateFarmElementScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         worldLevel = other.worldLevel;
-        entityId = other.entityId;
         retcode = other.retcode;
+        entityId = other.entityId;
       }
       return this;
     }
@@ -175,11 +175,11 @@ public final class ActivateFarmElementScRspOuterClass {
       if (other.hasWorldLevel()) {
         setWorldLevel(other.worldLevel);
       }
-      if (other.hasEntityId()) {
-        setEntityId(other.entityId);
-      }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasEntityId()) {
+        setEntityId(other.entityId);
       }
       return this;
     }
@@ -192,8 +192,8 @@ public final class ActivateFarmElementScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       worldLevel = 0;
-      entityId = 0;
       retcode = 0;
+      entityId = 0;
       return this;
     }
 
@@ -218,23 +218,23 @@ public final class ActivateFarmElementScRspOuterClass {
       ActivateFarmElementScRsp other = (ActivateFarmElementScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasWorldLevel() || worldLevel == other.worldLevel)
-        && (!hasEntityId() || entityId == other.entityId)
-        && (!hasRetcode() || retcode == other.retcode);
+        && (!hasRetcode() || retcode == other.retcode)
+        && (!hasEntityId() || entityId == other.entityId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(worldLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(entityId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(entityId);
       }
     }
 
@@ -245,10 +245,10 @@ public final class ActivateFarmElementScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(worldLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
       }
       return size;
     }
@@ -260,19 +260,10 @@ public final class ActivateFarmElementScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 32: {
             // worldLevel
             worldLevel = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 32) {
-              break;
-            }
-          }
-          case 32: {
-            // entityId
-            entityId = input.readUInt32();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 40) {
               break;
@@ -281,6 +272,15 @@ public final class ActivateFarmElementScRspOuterClass {
           case 40: {
             // retcode
             retcode = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 56) {
+              break;
+            }
+          }
+          case 56: {
+            // entityId
+            entityId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -308,10 +308,10 @@ public final class ActivateFarmElementScRspOuterClass {
         output.writeUInt32(FieldNames.worldLevel, worldLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.entityId, entityId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.entityId, entityId);
       }
       output.endObject();
     }
@@ -335,11 +335,10 @@ public final class ActivateFarmElementScRspOuterClass {
             }
             break;
           }
-          case -2102099874:
-          case -740565257: {
-            if (input.isAtField(FieldNames.entityId)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                entityId = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -347,10 +346,11 @@ public final class ActivateFarmElementScRspOuterClass {
             }
             break;
           }
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case -2102099874:
+          case -740565257: {
+            if (input.isAtField(FieldNames.entityId)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                entityId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -413,9 +413,9 @@ public final class ActivateFarmElementScRspOuterClass {
     static class FieldNames {
       static final FieldName worldLevel = FieldName.forField("worldLevel", "world_level");
 
-      static final FieldName entityId = FieldName.forField("entityId", "entity_id");
-
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName entityId = FieldName.forField("entityId", "entity_id");
     }
   }
 }

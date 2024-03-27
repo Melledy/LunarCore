@@ -21,42 +21,42 @@ public final class SimpleInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 last_active_time = 9;</code>
+     * <code>optional int64 last_active_time = 13;</code>
      */
     private long lastActiveTime;
 
     /**
-     * <code>optional uint32 uid = 1;</code>
-     */
-    private int uid;
-
-    /**
-     * <code>optional uint32 chat_bubble_id = 2;</code>
-     */
-    private int chatBubbleId;
-
-    /**
-     * <code>optional uint32 head_icon = 3;</code>
-     */
-    private int headIcon;
-
-    /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 1;</code>
      */
     private int level;
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 4;</code>
+     * <code>optional uint32 uid = 4;</code>
+     */
+    private int uid;
+
+    /**
+     * <code>optional uint32 head_icon = 5;</code>
+     */
+    private int headIcon;
+
+    /**
+     * <code>optional uint32 chat_bubble_id = 11;</code>
+     */
+    private int chatBubbleId;
+
+    /**
+     * <code>optional .FriendOnlineStatus online_status = 9;</code>
      */
     private int onlineStatus;
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 14;</code>
      */
     private int platformType;
 
     /**
-     * <code>optional bool is_banned = 12;</code>
+     * <code>optional bool is_banned = 15;</code>
      */
     private boolean isBanned;
 
@@ -66,12 +66,12 @@ public final class SimpleInfoOuterClass {
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      */
     private final Utf8String nickname = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated .AssistSimpleInfo assist_simple_info = 11;</code>
+     * <code>repeated .AssistSimpleInfo assist_simple_info = 8;</code>
      */
     private final RepeatedMessage<AssistSimpleInfoOuterClass.AssistSimpleInfo> assistSimpleInfo = RepeatedMessage.newEmptyInstance(AssistSimpleInfoOuterClass.AssistSimpleInfo.getFactory());
 
@@ -86,7 +86,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 last_active_time = 9;</code>
+     * <code>optional int64 last_active_time = 13;</code>
      * @return whether the lastActiveTime field is set
      */
     public boolean hasLastActiveTime() {
@@ -94,7 +94,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 last_active_time = 9;</code>
+     * <code>optional int64 last_active_time = 13;</code>
      * @return this
      */
     public SimpleInfo clearLastActiveTime() {
@@ -104,7 +104,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 last_active_time = 9;</code>
+     * <code>optional int64 last_active_time = 13;</code>
      * @return the lastActiveTime
      */
     public long getLastActiveTime() {
@@ -112,7 +112,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 last_active_time = 9;</code>
+     * <code>optional int64 last_active_time = 13;</code>
      * @param value the lastActiveTime to set
      * @return this
      */
@@ -123,25 +123,62 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 1;</code>
-     * @return whether the uid field is set
+     * <code>optional uint32 level = 1;</code>
+     * @return whether the level field is set
      */
-    public boolean hasUid() {
+    public boolean hasLevel() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 uid = 1;</code>
+     * <code>optional uint32 level = 1;</code>
+     * @return this
+     */
+    public SimpleInfo clearLevel() {
+      bitField0_ &= ~0x00000002;
+      level = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 1;</code>
+     * @return the level
+     */
+    public int getLevel() {
+      return level;
+    }
+
+    /**
+     * <code>optional uint32 level = 1;</code>
+     * @param value the level to set
+     * @return this
+     */
+    public SimpleInfo setLevel(final int value) {
+      bitField0_ |= 0x00000002;
+      level = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 uid = 4;</code>
+     * @return whether the uid field is set
+     */
+    public boolean hasUid() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 uid = 4;</code>
      * @return this
      */
     public SimpleInfo clearUid() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000004;
       uid = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 uid = 1;</code>
+     * <code>optional uint32 uid = 4;</code>
      * @return the uid
      */
     public int getUid() {
@@ -149,55 +186,18 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 1;</code>
+     * <code>optional uint32 uid = 4;</code>
      * @param value the uid to set
      * @return this
      */
     public SimpleInfo setUid(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       uid = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 chat_bubble_id = 2;</code>
-     * @return whether the chatBubbleId field is set
-     */
-    public boolean hasChatBubbleId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 chat_bubble_id = 2;</code>
-     * @return this
-     */
-    public SimpleInfo clearChatBubbleId() {
-      bitField0_ &= ~0x00000004;
-      chatBubbleId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 chat_bubble_id = 2;</code>
-     * @return the chatBubbleId
-     */
-    public int getChatBubbleId() {
-      return chatBubbleId;
-    }
-
-    /**
-     * <code>optional uint32 chat_bubble_id = 2;</code>
-     * @param value the chatBubbleId to set
-     * @return this
-     */
-    public SimpleInfo setChatBubbleId(final int value) {
-      bitField0_ |= 0x00000004;
-      chatBubbleId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 head_icon = 3;</code>
+     * <code>optional uint32 head_icon = 5;</code>
      * @return whether the headIcon field is set
      */
     public boolean hasHeadIcon() {
@@ -205,7 +205,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 head_icon = 3;</code>
+     * <code>optional uint32 head_icon = 5;</code>
      * @return this
      */
     public SimpleInfo clearHeadIcon() {
@@ -215,7 +215,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 head_icon = 3;</code>
+     * <code>optional uint32 head_icon = 5;</code>
      * @return the headIcon
      */
     public int getHeadIcon() {
@@ -223,7 +223,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 head_icon = 3;</code>
+     * <code>optional uint32 head_icon = 5;</code>
      * @param value the headIcon to set
      * @return this
      */
@@ -234,44 +234,44 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
-     * @return whether the level field is set
+     * <code>optional uint32 chat_bubble_id = 11;</code>
+     * @return whether the chatBubbleId field is set
      */
-    public boolean hasLevel() {
+    public boolean hasChatBubbleId() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 chat_bubble_id = 11;</code>
      * @return this
      */
-    public SimpleInfo clearLevel() {
+    public SimpleInfo clearChatBubbleId() {
       bitField0_ &= ~0x00000010;
-      level = 0;
+      chatBubbleId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
-     * @return the level
+     * <code>optional uint32 chat_bubble_id = 11;</code>
+     * @return the chatBubbleId
      */
-    public int getLevel() {
-      return level;
+    public int getChatBubbleId() {
+      return chatBubbleId;
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
-     * @param value the level to set
+     * <code>optional uint32 chat_bubble_id = 11;</code>
+     * @param value the chatBubbleId to set
      * @return this
      */
-    public SimpleInfo setLevel(final int value) {
+    public SimpleInfo setChatBubbleId(final int value) {
       bitField0_ |= 0x00000010;
-      level = value;
+      chatBubbleId = value;
       return this;
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 4;</code>
+     * <code>optional .FriendOnlineStatus online_status = 9;</code>
      * @return whether the onlineStatus field is set
      */
     public boolean hasOnlineStatus() {
@@ -279,7 +279,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 4;</code>
+     * <code>optional .FriendOnlineStatus online_status = 9;</code>
      * @return this
      */
     public SimpleInfo clearOnlineStatus() {
@@ -289,7 +289,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 4;</code>
+     * <code>optional .FriendOnlineStatus online_status = 9;</code>
      * @return the onlineStatus
      */
     public FriendOnlineStatusOuterClass.FriendOnlineStatus getOnlineStatus() {
@@ -322,7 +322,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .FriendOnlineStatus online_status = 4;</code>
+     * <code>optional .FriendOnlineStatus online_status = 9;</code>
      * @param value the onlineStatus to set
      * @return this
      */
@@ -333,7 +333,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 14;</code>
      * @return whether the platformType field is set
      */
     public boolean hasPlatformType() {
@@ -341,7 +341,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 14;</code>
      * @return this
      */
     public SimpleInfo clearPlatformType() {
@@ -351,7 +351,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 14;</code>
      * @return the platformType
      */
     public PlatformTypeOuterClass.PlatformType getPlatformType() {
@@ -384,7 +384,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 14;</code>
      * @param value the platformType to set
      * @return this
      */
@@ -395,7 +395,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 12;</code>
+     * <code>optional bool is_banned = 15;</code>
      * @return whether the isBanned field is set
      */
     public boolean hasIsBanned() {
@@ -403,7 +403,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 12;</code>
+     * <code>optional bool is_banned = 15;</code>
      * @return this
      */
     public SimpleInfo clearIsBanned() {
@@ -413,7 +413,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 12;</code>
+     * <code>optional bool is_banned = 15;</code>
      * @return the isBanned
      */
     public boolean getIsBanned() {
@@ -421,7 +421,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 12;</code>
+     * <code>optional bool is_banned = 15;</code>
      * @param value the isBanned to set
      * @return this
      */
@@ -497,7 +497,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      * @return whether the nickname field is set
      */
     public boolean hasNickname() {
@@ -505,7 +505,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      * @return this
      */
     public SimpleInfo clearNickname() {
@@ -515,7 +515,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      * @return the nickname
      */
     public String getNickname() {
@@ -523,7 +523,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      * @return internal {@code Utf8String} representation of nickname for reading
      */
     public Utf8String getNicknameBytes() {
@@ -531,7 +531,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      * @return internal {@code Utf8String} representation of nickname for modifications
      */
     public Utf8String getMutableNicknameBytes() {
@@ -540,7 +540,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      * @param value the nickname to set
      * @return this
      */
@@ -551,7 +551,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 13;</code>
+     * <code>optional string nickname = 7;</code>
      * @param value the nickname to set
      * @return this
      */
@@ -562,7 +562,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AssistSimpleInfo assist_simple_info = 11;</code>
+     * <code>repeated .AssistSimpleInfo assist_simple_info = 8;</code>
      * @return whether the assistSimpleInfo field is set
      */
     public boolean hasAssistSimpleInfo() {
@@ -570,7 +570,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AssistSimpleInfo assist_simple_info = 11;</code>
+     * <code>repeated .AssistSimpleInfo assist_simple_info = 8;</code>
      * @return this
      */
     public SimpleInfo clearAssistSimpleInfo() {
@@ -580,7 +580,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AssistSimpleInfo assist_simple_info = 11;</code>
+     * <code>repeated .AssistSimpleInfo assist_simple_info = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -594,7 +594,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AssistSimpleInfo assist_simple_info = 11;</code>
+     * <code>repeated .AssistSimpleInfo assist_simple_info = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -609,7 +609,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AssistSimpleInfo assist_simple_info = 11;</code>
+     * <code>repeated .AssistSimpleInfo assist_simple_info = 8;</code>
      * @param value the assistSimpleInfo to add
      * @return this
      */
@@ -620,7 +620,7 @@ public final class SimpleInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AssistSimpleInfo assist_simple_info = 11;</code>
+     * <code>repeated .AssistSimpleInfo assist_simple_info = 8;</code>
      * @param values the assistSimpleInfo to add
      * @return this
      */
@@ -637,10 +637,10 @@ public final class SimpleInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         lastActiveTime = other.lastActiveTime;
-        uid = other.uid;
-        chatBubbleId = other.chatBubbleId;
-        headIcon = other.headIcon;
         level = other.level;
+        uid = other.uid;
+        headIcon = other.headIcon;
+        chatBubbleId = other.chatBubbleId;
         onlineStatus = other.onlineStatus;
         platformType = other.platformType;
         isBanned = other.isBanned;
@@ -660,17 +660,17 @@ public final class SimpleInfoOuterClass {
       if (other.hasLastActiveTime()) {
         setLastActiveTime(other.lastActiveTime);
       }
+      if (other.hasLevel()) {
+        setLevel(other.level);
+      }
       if (other.hasUid()) {
         setUid(other.uid);
-      }
-      if (other.hasChatBubbleId()) {
-        setChatBubbleId(other.chatBubbleId);
       }
       if (other.hasHeadIcon()) {
         setHeadIcon(other.headIcon);
       }
-      if (other.hasLevel()) {
-        setLevel(other.level);
+      if (other.hasChatBubbleId()) {
+        setChatBubbleId(other.chatBubbleId);
       }
       if (other.hasOnlineStatus()) {
         setOnlineStatusValue(other.onlineStatus);
@@ -701,10 +701,10 @@ public final class SimpleInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       lastActiveTime = 0L;
-      uid = 0;
-      chatBubbleId = 0;
-      headIcon = 0;
       level = 0;
+      uid = 0;
+      headIcon = 0;
+      chatBubbleId = 0;
       onlineStatus = 0;
       platformType = 0;
       isBanned = false;
@@ -738,10 +738,10 @@ public final class SimpleInfoOuterClass {
       SimpleInfo other = (SimpleInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasLastActiveTime() || lastActiveTime == other.lastActiveTime)
-        && (!hasUid() || uid == other.uid)
-        && (!hasChatBubbleId() || chatBubbleId == other.chatBubbleId)
-        && (!hasHeadIcon() || headIcon == other.headIcon)
         && (!hasLevel() || level == other.level)
+        && (!hasUid() || uid == other.uid)
+        && (!hasHeadIcon() || headIcon == other.headIcon)
+        && (!hasChatBubbleId() || chatBubbleId == other.chatBubbleId)
         && (!hasOnlineStatus() || onlineStatus == other.onlineStatus)
         && (!hasPlatformType() || platformType == other.platformType)
         && (!hasIsBanned() || isBanned == other.isBanned)
@@ -753,35 +753,35 @@ public final class SimpleInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 104);
         output.writeInt64NoTag(lastActiveTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(uid);
+        output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(chatBubbleId);
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(uid);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(headIcon);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(level);
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(chatBubbleId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 72);
         output.writeEnumNoTag(onlineStatus);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 112);
         output.writeEnumNoTag(platformType);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 120);
         output.writeBoolNoTag(isBanned);
       }
       if ((bitField0_ & 0x00000100) != 0) {
@@ -789,12 +789,12 @@ public final class SimpleInfoOuterClass {
         output.writeStringNoTag(signature);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 58);
         output.writeStringNoTag(nickname);
       }
       if ((bitField0_ & 0x00000400) != 0) {
         for (int i = 0; i < assistSimpleInfo.length(); i++) {
-          output.writeRawByte((byte) 90);
+          output.writeRawByte((byte) 66);
           output.writeMessageNoTag(assistSimpleInfo.get(i));
         }
       }
@@ -807,16 +807,16 @@ public final class SimpleInfoOuterClass {
         size += 1 + ProtoSink.computeInt64SizeNoTag(lastActiveTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(uid);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(chatBubbleId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(uid);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(headIcon);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(chatBubbleId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(onlineStatus);
@@ -846,7 +846,7 @@ public final class SimpleInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 104: {
             // lastActiveTime
             lastActiveTime = input.readInt64();
             bitField0_ |= 0x00000001;
@@ -856,42 +856,42 @@ public final class SimpleInfoOuterClass {
             }
           }
           case 8: {
-            // uid
-            uid = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 16) {
-              break;
-            }
-          }
-          case 16: {
-            // chatBubbleId
-            chatBubbleId = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
-            // headIcon
-            headIcon = input.readUInt32();
-            bitField0_ |= 0x00000008;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
             // level
             level = input.readUInt32();
-            bitField0_ |= 0x00000010;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 32) {
               break;
             }
           }
           case 32: {
+            // uid
+            uid = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 40) {
+              break;
+            }
+          }
+          case 40: {
+            // headIcon
+            headIcon = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
+            // chatBubbleId
+            chatBubbleId = input.readUInt32();
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
             // onlineStatus
             final int value = input.readInt32();
             if (FriendOnlineStatusOuterClass.FriendOnlineStatus.forNumber(value) != null) {
@@ -899,11 +899,11 @@ public final class SimpleInfoOuterClass {
               bitField0_ |= 0x00000020;
             }
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 112) {
               break;
             }
           }
-          case 40: {
+          case 112: {
             // platformType
             final int value = input.readInt32();
             if (PlatformTypeOuterClass.PlatformType.forNumber(value) != null) {
@@ -911,11 +911,11 @@ public final class SimpleInfoOuterClass {
               bitField0_ |= 0x00000040;
             }
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 120) {
               break;
             }
           }
-          case 96: {
+          case 120: {
             // isBanned
             isBanned = input.readBool();
             bitField0_ |= 0x00000080;
@@ -929,20 +929,20 @@ public final class SimpleInfoOuterClass {
             input.readString(signature);
             bitField0_ |= 0x00000100;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 58) {
               break;
             }
           }
-          case 106: {
+          case 58: {
             // nickname
             input.readString(nickname);
             bitField0_ |= 0x00000200;
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 66) {
               break;
             }
           }
-          case 90: {
+          case 66: {
             // assistSimpleInfo
             tag = input.readRepeatedMessage(assistSimpleInfo, tag);
             bitField0_ |= 0x00000400;
@@ -971,16 +971,16 @@ public final class SimpleInfoOuterClass {
         output.writeInt64(FieldNames.lastActiveTime, lastActiveTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.uid, uid);
+        output.writeUInt32(FieldNames.level, level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.chatBubbleId, chatBubbleId);
+        output.writeUInt32(FieldNames.uid, uid);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.headIcon, headIcon);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.level, level);
+        output.writeUInt32(FieldNames.chatBubbleId, chatBubbleId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeEnum(FieldNames.onlineStatus, onlineStatus, FriendOnlineStatusOuterClass.FriendOnlineStatus.converter());
@@ -1022,10 +1022,10 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
-          case 115792: {
-            if (input.isAtField(FieldNames.uid)) {
+          case 102865796: {
+            if (input.isAtField(FieldNames.level)) {
               if (!input.trySkipNullValue()) {
-                uid = input.readUInt32();
+                level = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -1033,11 +1033,10 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
-          case -678761921:
-          case 1892426119: {
-            if (input.isAtField(FieldNames.chatBubbleId)) {
+          case 115792: {
+            if (input.isAtField(FieldNames.uid)) {
               if (!input.trySkipNullValue()) {
-                chatBubbleId = input.readUInt32();
+                uid = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -1057,10 +1056,11 @@ public final class SimpleInfoOuterClass {
             }
             break;
           }
-          case 102865796: {
-            if (input.isAtField(FieldNames.level)) {
+          case -678761921:
+          case 1892426119: {
+            if (input.isAtField(FieldNames.chatBubbleId)) {
               if (!input.trySkipNullValue()) {
-                level = input.readUInt32();
+                chatBubbleId = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -1202,13 +1202,13 @@ public final class SimpleInfoOuterClass {
     static class FieldNames {
       static final FieldName lastActiveTime = FieldName.forField("lastActiveTime", "last_active_time");
 
-      static final FieldName uid = FieldName.forField("uid");
+      static final FieldName level = FieldName.forField("level");
 
-      static final FieldName chatBubbleId = FieldName.forField("chatBubbleId", "chat_bubble_id");
+      static final FieldName uid = FieldName.forField("uid");
 
       static final FieldName headIcon = FieldName.forField("headIcon", "head_icon");
 
-      static final FieldName level = FieldName.forField("level");
+      static final FieldName chatBubbleId = FieldName.forField("chatBubbleId", "chat_bubble_id");
 
       static final FieldName onlineStatus = FieldName.forField("onlineStatus", "online_status");
 

@@ -20,7 +20,7 @@ public final class HeroBasicTypeInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 rank = 11;</code>
+     * <code>optional uint32 rank = 14;</code>
      */
     private int rank;
 
@@ -30,7 +30,7 @@ public final class HeroBasicTypeInfoOuterClass {
     private int basicType;
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 15;</code>
      */
     private final RepeatedMessage<AvatarSkillTreeOuterClass.AvatarSkillTree> skillTreeList = RepeatedMessage.newEmptyInstance(AvatarSkillTreeOuterClass.AvatarSkillTree.getFactory());
 
@@ -45,7 +45,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 11;</code>
+     * <code>optional uint32 rank = 14;</code>
      * @return whether the rank field is set
      */
     public boolean hasRank() {
@@ -53,7 +53,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 11;</code>
+     * <code>optional uint32 rank = 14;</code>
      * @return this
      */
     public HeroBasicTypeInfo clearRank() {
@@ -63,7 +63,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 11;</code>
+     * <code>optional uint32 rank = 14;</code>
      * @return the rank
      */
     public int getRank() {
@@ -71,7 +71,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 11;</code>
+     * <code>optional uint32 rank = 14;</code>
      * @param value the rank to set
      * @return this
      */
@@ -144,7 +144,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 15;</code>
      * @return whether the skillTreeList field is set
      */
     public boolean hasSkillTreeList() {
@@ -152,7 +152,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 15;</code>
      * @return this
      */
     public HeroBasicTypeInfo clearSkillTreeList() {
@@ -162,7 +162,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -176,7 +176,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -190,7 +190,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 15;</code>
      * @param value the skillTreeList to add
      * @return this
      */
@@ -202,7 +202,7 @@ public final class HeroBasicTypeInfoOuterClass {
     }
 
     /**
-     * <code>repeated .AvatarSkillTree skill_tree_list = 12;</code>
+     * <code>repeated .AvatarSkillTree skill_tree_list = 15;</code>
      * @param values the skillTreeList to add
      * @return this
      */
@@ -285,7 +285,7 @@ public final class HeroBasicTypeInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(rank);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -294,7 +294,7 @@ public final class HeroBasicTypeInfoOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < skillTreeList.length(); i++) {
-          output.writeRawByte((byte) 98);
+          output.writeRawByte((byte) 122);
           output.writeMessageNoTag(skillTreeList.get(i));
         }
       }
@@ -322,7 +322,7 @@ public final class HeroBasicTypeInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 112: {
             // rank
             rank = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -339,11 +339,11 @@ public final class HeroBasicTypeInfoOuterClass {
               bitField0_ |= 0x00000002;
             }
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 122) {
               break;
             }
           }
-          case 98: {
+          case 122: {
             // skillTreeList
             tag = input.readRepeatedMessage(skillTreeList, tag);
             bitField0_ |= 0x00000004;

@@ -19,12 +19,7 @@ public final class ChessRogueAvatarOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 PGPLJENDONA = 9;</code>
-     */
-    private int pGPLJENDONA;
-
-    /**
-     * <code>optional uint32 avatar_id = 14;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      */
     private int avatarId;
 
@@ -39,62 +34,25 @@ public final class ChessRogueAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 PGPLJENDONA = 9;</code>
-     * @return whether the pGPLJENDONA field is set
+     * <code>optional uint32 avatar_id = 7;</code>
+     * @return whether the avatarId field is set
      */
-    public boolean hasPGPLJENDONA() {
+    public boolean hasAvatarId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 PGPLJENDONA = 9;</code>
-     * @return this
-     */
-    public ChessRogueAvatar clearPGPLJENDONA() {
-      bitField0_ &= ~0x00000001;
-      pGPLJENDONA = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 PGPLJENDONA = 9;</code>
-     * @return the pGPLJENDONA
-     */
-    public int getPGPLJENDONA() {
-      return pGPLJENDONA;
-    }
-
-    /**
-     * <code>optional uint32 PGPLJENDONA = 9;</code>
-     * @param value the pGPLJENDONA to set
-     * @return this
-     */
-    public ChessRogueAvatar setPGPLJENDONA(final int value) {
-      bitField0_ |= 0x00000001;
-      pGPLJENDONA = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 14;</code>
-     * @return whether the avatarId field is set
-     */
-    public boolean hasAvatarId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 14;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      * @return this
      */
     public ChessRogueAvatar clearAvatarId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       avatarId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 avatar_id = 14;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      * @return the avatarId
      */
     public int getAvatarId() {
@@ -102,12 +60,12 @@ public final class ChessRogueAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 14;</code>
+     * <code>optional uint32 avatar_id = 7;</code>
      * @param value the avatarId to set
      * @return this
      */
     public ChessRogueAvatar setAvatarId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       avatarId = value;
       return this;
     }
@@ -117,7 +75,6 @@ public final class ChessRogueAvatarOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        pGPLJENDONA = other.pGPLJENDONA;
         avatarId = other.avatarId;
       }
       return this;
@@ -129,9 +86,6 @@ public final class ChessRogueAvatarOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPGPLJENDONA()) {
-        setPGPLJENDONA(other.pGPLJENDONA);
-      }
       if (other.hasAvatarId()) {
         setAvatarId(other.avatarId);
       }
@@ -145,7 +99,6 @@ public final class ChessRogueAvatarOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      pGPLJENDONA = 0;
       avatarId = 0;
       return this;
     }
@@ -170,18 +123,13 @@ public final class ChessRogueAvatarOuterClass {
       }
       ChessRogueAvatar other = (ChessRogueAvatar) o;
       return bitField0_ == other.bitField0_
-        && (!hasPGPLJENDONA() || pGPLJENDONA == other.pGPLJENDONA)
         && (!hasAvatarId() || avatarId == other.avatarId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(pGPLJENDONA);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(avatarId);
       }
     }
@@ -190,9 +138,6 @@ public final class ChessRogueAvatarOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(pGPLJENDONA);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
       }
       return size;
@@ -205,19 +150,10 @@ public final class ChessRogueAvatarOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
-            // pGPLJENDONA
-            pGPLJENDONA = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
+          case 56: {
             // avatarId
             avatarId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -241,9 +177,6 @@ public final class ChessRogueAvatarOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.pGPLJENDONA, pGPLJENDONA);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.avatarId, avatarId);
       }
       output.endObject();
@@ -256,23 +189,12 @@ public final class ChessRogueAvatarOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 952698590: {
-            if (input.isAtField(FieldNames.pGPLJENDONA)) {
-              if (!input.trySkipNullValue()) {
-                pGPLJENDONA = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 1787287636:
           case -428636735: {
             if (input.isAtField(FieldNames.avatarId)) {
               if (!input.trySkipNullValue()) {
                 avatarId = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -332,8 +254,6 @@ public final class ChessRogueAvatarOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName pGPLJENDONA = FieldName.forField("PGPLJENDONA");
-
       static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
     }
   }

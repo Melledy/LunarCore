@@ -19,17 +19,17 @@ public final class MissionOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 progress = 4;</code>
+     * <code>optional uint32 progress = 3;</code>
      */
     private int progress;
 
     /**
-     * <code>optional uint32 id = 14;</code>
+     * <code>optional uint32 id = 4;</code>
      */
     private int id;
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 1;</code>
      */
     private int status;
 
@@ -44,7 +44,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 4;</code>
+     * <code>optional uint32 progress = 3;</code>
      * @return whether the progress field is set
      */
     public boolean hasProgress() {
@@ -52,7 +52,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 4;</code>
+     * <code>optional uint32 progress = 3;</code>
      * @return this
      */
     public Mission clearProgress() {
@@ -62,7 +62,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 4;</code>
+     * <code>optional uint32 progress = 3;</code>
      * @return the progress
      */
     public int getProgress() {
@@ -70,7 +70,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 4;</code>
+     * <code>optional uint32 progress = 3;</code>
      * @param value the progress to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 14;</code>
+     * <code>optional uint32 id = 4;</code>
      * @return whether the id field is set
      */
     public boolean hasId() {
@@ -89,7 +89,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 14;</code>
+     * <code>optional uint32 id = 4;</code>
      * @return this
      */
     public Mission clearId() {
@@ -99,7 +99,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 14;</code>
+     * <code>optional uint32 id = 4;</code>
      * @return the id
      */
     public int getId() {
@@ -107,7 +107,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 14;</code>
+     * <code>optional uint32 id = 4;</code>
      * @param value the id to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 1;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -126,7 +126,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 1;</code>
      * @return this
      */
     public Mission clearStatus() {
@@ -136,7 +136,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 1;</code>
      * @return the status
      */
     public MissionStatusOuterClass.MissionStatus getStatus() {
@@ -169,7 +169,7 @@ public final class MissionOuterClass {
     }
 
     /**
-     * <code>optional .MissionStatus status = 8;</code>
+     * <code>optional .MissionStatus status = 1;</code>
      * @param value the status to set
      * @return this
      */
@@ -250,15 +250,15 @@ public final class MissionOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(progress);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 8);
         output.writeEnumNoTag(status);
       }
     }
@@ -285,25 +285,25 @@ public final class MissionOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 24: {
             // progress
             progress = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 32) {
               break;
             }
           }
-          case 112: {
+          case 32: {
             // id
             id = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 8) {
               break;
             }
           }
-          case 64: {
+          case 8: {
             // status
             final int value = input.readInt32();
             if (MissionStatusOuterClass.MissionStatus.forNumber(value) != null) {

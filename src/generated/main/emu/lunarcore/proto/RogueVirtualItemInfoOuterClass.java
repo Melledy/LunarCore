@@ -19,12 +19,12 @@ public final class RogueVirtualItemInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 money = 1;</code>
+     * <code>optional uint32 money = 8;</code>
      */
     private int money;
 
     /**
-     * <code>optional uint32 X = 4;</code>
+     * <code>optional uint32 X = 9;</code>
      */
     private int x;
 
@@ -39,7 +39,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 money = 1;</code>
+     * <code>optional uint32 money = 8;</code>
      * @return whether the money field is set
      */
     public boolean hasMoney() {
@@ -47,7 +47,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 money = 1;</code>
+     * <code>optional uint32 money = 8;</code>
      * @return this
      */
     public RogueVirtualItemInfo clearMoney() {
@@ -57,7 +57,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 money = 1;</code>
+     * <code>optional uint32 money = 8;</code>
      * @return the money
      */
     public int getMoney() {
@@ -65,7 +65,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 money = 1;</code>
+     * <code>optional uint32 money = 8;</code>
      * @param value the money to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 X = 4;</code>
+     * <code>optional uint32 X = 9;</code>
      * @return whether the x field is set
      */
     public boolean hasX() {
@@ -84,7 +84,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 X = 4;</code>
+     * <code>optional uint32 X = 9;</code>
      * @return this
      */
     public RogueVirtualItemInfo clearX() {
@@ -94,7 +94,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 X = 4;</code>
+     * <code>optional uint32 X = 9;</code>
      * @return the x
      */
     public int getX() {
@@ -102,7 +102,7 @@ public final class RogueVirtualItemInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 X = 4;</code>
+     * <code>optional uint32 X = 9;</code>
      * @param value the x to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RogueVirtualItemInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(money);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(x);
       }
     }
@@ -205,16 +205,16 @@ public final class RogueVirtualItemInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 64: {
             // money
             money = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 72) {
               break;
             }
           }
-          case 32: {
+          case 72: {
             // x
             x = input.readUInt32();
             bitField0_ |= 0x00000002;

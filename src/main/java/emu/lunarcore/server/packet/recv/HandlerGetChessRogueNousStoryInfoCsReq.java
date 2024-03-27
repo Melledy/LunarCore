@@ -10,6 +10,6 @@ import emu.lunarcore.server.packet.send.PacketGetChessRogueNousStoryInfoScRsp;
 public class HandlerGetChessRogueNousStoryInfoCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
-        session.send(new PacketGetChessRogueNousStoryInfoScRsp());
+        //session.send(new PacketGetChessRogueNousStoryInfoScRsp());
     }
 }

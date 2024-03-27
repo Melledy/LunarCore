@@ -1,8 +1,8 @@
 package emu.lunarcore.game.rogue;
 
 import java.util.Arrays;
-import java.util.concurrent.TimeUnit;
 
+import java.util.stream.IntStream;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
@@ -20,6 +20,7 @@ import emu.lunarcore.proto.RogueInfoDataOuterClass.RogueInfoData;
 import emu.lunarcore.proto.RogueInfoOuterClass.RogueInfo;
 import emu.lunarcore.proto.RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo;
 import emu.lunarcore.proto.RogueSeasonInfoOuterClass.RogueSeasonInfo;
+import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
 import emu.lunarcore.proto.RogueTalentInfoOuterClass.RogueTalentInfo;
 import emu.lunarcore.proto.RogueTalentOuterClass.RogueTalent;
 import emu.lunarcore.proto.RogueTalentStatusOuterClass.RogueTalentStatus;
@@ -168,31 +169,37 @@ public class RogueManager extends BasePlayerManager {
         var schedule = GameDepot.getCurrentRogueSchedule();
         
         int seasonId = 0;
-        long beginTime = (System.currentTimeMillis() / 1000) - TimeUnit.DAYS.toSeconds(1);
-        long endTime = beginTime + TimeUnit.DAYS.toSeconds(8);
+        long beginTime = 0;
+        long endTime = 1999999999;
         
         if (schedule != null) {
             seasonId = schedule.getRogueSeason();
         }
         
         var score = RogueScoreRewardInfo.newInstance()
-                .setPoolId(20 + getPlayer().getWorldLevel()) // TODO pool ids should not change when world level changes
-                .setPoolRefreshed(true)
+                .setPoolId(26) // TODO pool ids should not change when world level changes
+                .setPoolRefreshed(false)
                 .setHasTakenInitialScore(true)
+                .setScore(14000)
                 .setBeginTime(beginTime)
-                .setEndTime(endTime);
+                .setEndTime(endTime)
+                .addAllHasTakenReward(IntStream.rangeClosed(1, 20).flatMap(i -> IntStream.generate(() -> i).limit(20)).toArray());
         
         var season = RogueSeasonInfo.newInstance()
                 .setBeginTime(beginTime)
                 .setSeasonId(seasonId)
                 .setEndTime(endTime);
+
+        var rogueVirtualItemInfo = RogueVirtualItemInfo.newInstance()
+                .setMoney(100000)
+                .setX(100000);
         
         // Path resonance
         var aeonInfo = RogueAeonInfo.newInstance();
         
         aeonInfo.setIsUnlocked(false);
         
-        if (this.hasTalent(1) || true) {  // Consider using a constant for this because talent is not working now
+        if (true) {  // Consider using a constant for this because talent is not working now
             aeonInfo = RogueAeonInfo.newInstance()
                     .setUnlockAeonNum(GameData.getRogueAeonExcelMap().size());
             
@@ -220,11 +227,14 @@ public class RogueManager extends BasePlayerManager {
                 
                 var area = RogueArea.newInstance()
                         .setAreaId(excel.getRogueAreaID())
+                        .setRogueStatus(4)
+                        .setHasTakenRewards(true)
                         .setRogueAreaStatus(RogueAreaStatus.ROGUE_AREA_STATUS_FIRST_PASS.getNumber());
                 
                 if (instance != null && excel == instance.getExcel()) {
                     area.setMapId(instance.getExcel().getMapId());
                     area.setCurReachRoomNum(instance.getCurrentRoomProgress());
+                    area.setRogueStatus(4);
                     //area.setRogueStatus(instance.getStatus());
                 }
                 

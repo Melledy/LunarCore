@@ -20,7 +20,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 1;</code>
+     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 2;</code>
      */
     private final RepeatedMessage<RogueDialogueEventOuterClass.RogueDialogueEvent> rogueDialogueEvent = RepeatedMessage.newEmptyInstance(RogueDialogueEventOuterClass.RogueDialogueEvent.getFactory());
 
@@ -35,7 +35,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 1;</code>
+     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 2;</code>
      * @return whether the rogueDialogueEvent field is set
      */
     public boolean hasRogueDialogueEvent() {
@@ -43,7 +43,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 1;</code>
+     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 2;</code>
      * @return this
      */
     public SyncRogueDialogueEventDataScNotify clearRogueDialogueEvent() {
@@ -53,7 +53,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 1;</code>
+     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -68,7 +68,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 1;</code>
+     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -83,7 +83,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 1;</code>
+     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 2;</code>
      * @param value the rogueDialogueEvent to add
      * @return this
      */
@@ -95,7 +95,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 1;</code>
+     * <code>repeated .RogueDialogueEvent rogue_dialogue_event = 2;</code>
      * @param values the rogueDialogueEvent to add
      * @return this
      */
@@ -169,7 +169,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < rogueDialogueEvent.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 18);
           output.writeMessageNoTag(rogueDialogueEvent.get(i));
         }
       }
@@ -192,7 +192,7 @@ public final class SyncRogueDialogueEventDataScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 10: {
+          case 18: {
             // rogueDialogueEvent
             tag = input.readRepeatedMessage(rogueDialogueEvent, tag);
             bitField0_ |= 0x00000001;

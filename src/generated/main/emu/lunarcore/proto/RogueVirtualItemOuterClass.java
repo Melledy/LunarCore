@@ -19,19 +19,19 @@ public final class RogueVirtualItemOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 MFOPPKIBGNJ = 8;</code>
+     * <code>optional uint32 JLGAKDGCBOH = 1;</code>
      */
-    private int mFOPPKIBGNJ;
+    private int jLGAKDGCBOH;
 
     /**
-     * <code>optional uint32 DDOPHIJMILL = 9;</code>
+     * <code>optional uint32 FGHILCKHDDO = 4;</code>
      */
-    private int dDOPHIJMILL;
+    private int fGHILCKHDDO;
 
     /**
-     * <code>optional uint32 ACJKANLIGBM = 10;</code>
+     * <code>optional uint32 LGFMKJAOICA = 8;</code>
      */
-    private int aCJKANLIGBM;
+    private int lGFMKJAOICA;
 
     /**
      * <code>optional uint32 money = 15;</code>
@@ -49,113 +49,113 @@ public final class RogueVirtualItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 MFOPPKIBGNJ = 8;</code>
-     * @return whether the mFOPPKIBGNJ field is set
+     * <code>optional uint32 JLGAKDGCBOH = 1;</code>
+     * @return whether the jLGAKDGCBOH field is set
      */
-    public boolean hasMFOPPKIBGNJ() {
+    public boolean hasJLGAKDGCBOH() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 MFOPPKIBGNJ = 8;</code>
+     * <code>optional uint32 JLGAKDGCBOH = 1;</code>
      * @return this
      */
-    public RogueVirtualItem clearMFOPPKIBGNJ() {
+    public RogueVirtualItem clearJLGAKDGCBOH() {
       bitField0_ &= ~0x00000001;
-      mFOPPKIBGNJ = 0;
+      jLGAKDGCBOH = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 MFOPPKIBGNJ = 8;</code>
-     * @return the mFOPPKIBGNJ
+     * <code>optional uint32 JLGAKDGCBOH = 1;</code>
+     * @return the jLGAKDGCBOH
      */
-    public int getMFOPPKIBGNJ() {
-      return mFOPPKIBGNJ;
+    public int getJLGAKDGCBOH() {
+      return jLGAKDGCBOH;
     }
 
     /**
-     * <code>optional uint32 MFOPPKIBGNJ = 8;</code>
-     * @param value the mFOPPKIBGNJ to set
+     * <code>optional uint32 JLGAKDGCBOH = 1;</code>
+     * @param value the jLGAKDGCBOH to set
      * @return this
      */
-    public RogueVirtualItem setMFOPPKIBGNJ(final int value) {
+    public RogueVirtualItem setJLGAKDGCBOH(final int value) {
       bitField0_ |= 0x00000001;
-      mFOPPKIBGNJ = value;
+      jLGAKDGCBOH = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 DDOPHIJMILL = 9;</code>
-     * @return whether the dDOPHIJMILL field is set
+     * <code>optional uint32 FGHILCKHDDO = 4;</code>
+     * @return whether the fGHILCKHDDO field is set
      */
-    public boolean hasDDOPHIJMILL() {
+    public boolean hasFGHILCKHDDO() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 DDOPHIJMILL = 9;</code>
+     * <code>optional uint32 FGHILCKHDDO = 4;</code>
      * @return this
      */
-    public RogueVirtualItem clearDDOPHIJMILL() {
+    public RogueVirtualItem clearFGHILCKHDDO() {
       bitField0_ &= ~0x00000002;
-      dDOPHIJMILL = 0;
+      fGHILCKHDDO = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 DDOPHIJMILL = 9;</code>
-     * @return the dDOPHIJMILL
+     * <code>optional uint32 FGHILCKHDDO = 4;</code>
+     * @return the fGHILCKHDDO
      */
-    public int getDDOPHIJMILL() {
-      return dDOPHIJMILL;
+    public int getFGHILCKHDDO() {
+      return fGHILCKHDDO;
     }
 
     /**
-     * <code>optional uint32 DDOPHIJMILL = 9;</code>
-     * @param value the dDOPHIJMILL to set
+     * <code>optional uint32 FGHILCKHDDO = 4;</code>
+     * @param value the fGHILCKHDDO to set
      * @return this
      */
-    public RogueVirtualItem setDDOPHIJMILL(final int value) {
+    public RogueVirtualItem setFGHILCKHDDO(final int value) {
       bitField0_ |= 0x00000002;
-      dDOPHIJMILL = value;
+      fGHILCKHDDO = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 ACJKANLIGBM = 10;</code>
-     * @return whether the aCJKANLIGBM field is set
+     * <code>optional uint32 LGFMKJAOICA = 8;</code>
+     * @return whether the lGFMKJAOICA field is set
      */
-    public boolean hasACJKANLIGBM() {
+    public boolean hasLGFMKJAOICA() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 ACJKANLIGBM = 10;</code>
+     * <code>optional uint32 LGFMKJAOICA = 8;</code>
      * @return this
      */
-    public RogueVirtualItem clearACJKANLIGBM() {
+    public RogueVirtualItem clearLGFMKJAOICA() {
       bitField0_ &= ~0x00000004;
-      aCJKANLIGBM = 0;
+      lGFMKJAOICA = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 ACJKANLIGBM = 10;</code>
-     * @return the aCJKANLIGBM
+     * <code>optional uint32 LGFMKJAOICA = 8;</code>
+     * @return the lGFMKJAOICA
      */
-    public int getACJKANLIGBM() {
-      return aCJKANLIGBM;
+    public int getLGFMKJAOICA() {
+      return lGFMKJAOICA;
     }
 
     /**
-     * <code>optional uint32 ACJKANLIGBM = 10;</code>
-     * @param value the aCJKANLIGBM to set
+     * <code>optional uint32 LGFMKJAOICA = 8;</code>
+     * @param value the lGFMKJAOICA to set
      * @return this
      */
-    public RogueVirtualItem setACJKANLIGBM(final int value) {
+    public RogueVirtualItem setLGFMKJAOICA(final int value) {
       bitField0_ |= 0x00000004;
-      aCJKANLIGBM = value;
+      lGFMKJAOICA = value;
       return this;
     }
 
@@ -201,9 +201,9 @@ public final class RogueVirtualItemOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        mFOPPKIBGNJ = other.mFOPPKIBGNJ;
-        dDOPHIJMILL = other.dDOPHIJMILL;
-        aCJKANLIGBM = other.aCJKANLIGBM;
+        jLGAKDGCBOH = other.jLGAKDGCBOH;
+        fGHILCKHDDO = other.fGHILCKHDDO;
+        lGFMKJAOICA = other.lGFMKJAOICA;
         money = other.money;
       }
       return this;
@@ -215,14 +215,14 @@ public final class RogueVirtualItemOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasMFOPPKIBGNJ()) {
-        setMFOPPKIBGNJ(other.mFOPPKIBGNJ);
+      if (other.hasJLGAKDGCBOH()) {
+        setJLGAKDGCBOH(other.jLGAKDGCBOH);
       }
-      if (other.hasDDOPHIJMILL()) {
-        setDDOPHIJMILL(other.dDOPHIJMILL);
+      if (other.hasFGHILCKHDDO()) {
+        setFGHILCKHDDO(other.fGHILCKHDDO);
       }
-      if (other.hasACJKANLIGBM()) {
-        setACJKANLIGBM(other.aCJKANLIGBM);
+      if (other.hasLGFMKJAOICA()) {
+        setLGFMKJAOICA(other.lGFMKJAOICA);
       }
       if (other.hasMoney()) {
         setMoney(other.money);
@@ -237,9 +237,9 @@ public final class RogueVirtualItemOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      mFOPPKIBGNJ = 0;
-      dDOPHIJMILL = 0;
-      aCJKANLIGBM = 0;
+      jLGAKDGCBOH = 0;
+      fGHILCKHDDO = 0;
+      lGFMKJAOICA = 0;
       money = 0;
       return this;
     }
@@ -264,25 +264,25 @@ public final class RogueVirtualItemOuterClass {
       }
       RogueVirtualItem other = (RogueVirtualItem) o;
       return bitField0_ == other.bitField0_
-        && (!hasMFOPPKIBGNJ() || mFOPPKIBGNJ == other.mFOPPKIBGNJ)
-        && (!hasDDOPHIJMILL() || dDOPHIJMILL == other.dDOPHIJMILL)
-        && (!hasACJKANLIGBM() || aCJKANLIGBM == other.aCJKANLIGBM)
+        && (!hasJLGAKDGCBOH() || jLGAKDGCBOH == other.jLGAKDGCBOH)
+        && (!hasFGHILCKHDDO() || fGHILCKHDDO == other.fGHILCKHDDO)
+        && (!hasLGFMKJAOICA() || lGFMKJAOICA == other.lGFMKJAOICA)
         && (!hasMoney() || money == other.money);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(mFOPPKIBGNJ);
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(jLGAKDGCBOH);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(dDOPHIJMILL);
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(fGHILCKHDDO);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(aCJKANLIGBM);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(lGFMKJAOICA);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 120);
@@ -294,13 +294,13 @@ public final class RogueVirtualItemOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(mFOPPKIBGNJ);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(jLGAKDGCBOH);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(dDOPHIJMILL);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(fGHILCKHDDO);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(aCJKANLIGBM);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(lGFMKJAOICA);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(money);
@@ -315,27 +315,27 @@ public final class RogueVirtualItemOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
-            // mFOPPKIBGNJ
-            mFOPPKIBGNJ = input.readUInt32();
+          case 8: {
+            // jLGAKDGCBOH
+            jLGAKDGCBOH = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 32) {
               break;
             }
           }
-          case 72: {
-            // dDOPHIJMILL
-            dDOPHIJMILL = input.readUInt32();
+          case 32: {
+            // fGHILCKHDDO
+            fGHILCKHDDO = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 64) {
               break;
             }
           }
-          case 80: {
-            // aCJKANLIGBM
-            aCJKANLIGBM = input.readUInt32();
+          case 64: {
+            // lGFMKJAOICA
+            lGFMKJAOICA = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 120) {
@@ -369,13 +369,13 @@ public final class RogueVirtualItemOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.mFOPPKIBGNJ, mFOPPKIBGNJ);
+        output.writeUInt32(FieldNames.jLGAKDGCBOH, jLGAKDGCBOH);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.dDOPHIJMILL, dDOPHIJMILL);
+        output.writeUInt32(FieldNames.fGHILCKHDDO, fGHILCKHDDO);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.aCJKANLIGBM, aCJKANLIGBM);
+        output.writeUInt32(FieldNames.lGFMKJAOICA, lGFMKJAOICA);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.money, money);
@@ -390,10 +390,10 @@ public final class RogueVirtualItemOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -663962379: {
-            if (input.isAtField(FieldNames.mFOPPKIBGNJ)) {
+          case 110448746: {
+            if (input.isAtField(FieldNames.jLGAKDGCBOH)) {
               if (!input.trySkipNullValue()) {
-                mFOPPKIBGNJ = input.readUInt32();
+                jLGAKDGCBOH = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -401,10 +401,10 @@ public final class RogueVirtualItemOuterClass {
             }
             break;
           }
-          case 155657604: {
-            if (input.isAtField(FieldNames.dDOPHIJMILL)) {
+          case -196267399: {
+            if (input.isAtField(FieldNames.fGHILCKHDDO)) {
               if (!input.trySkipNullValue()) {
-                dDOPHIJMILL = input.readUInt32();
+                fGHILCKHDDO = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -412,10 +412,10 @@ public final class RogueVirtualItemOuterClass {
             }
             break;
           }
-          case -1408539: {
-            if (input.isAtField(FieldNames.aCJKANLIGBM)) {
+          case -1087946824: {
+            if (input.isAtField(FieldNames.lGFMKJAOICA)) {
               if (!input.trySkipNullValue()) {
-                aCJKANLIGBM = input.readUInt32();
+                lGFMKJAOICA = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -487,11 +487,11 @@ public final class RogueVirtualItemOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName mFOPPKIBGNJ = FieldName.forField("MFOPPKIBGNJ");
+      static final FieldName jLGAKDGCBOH = FieldName.forField("JLGAKDGCBOH");
 
-      static final FieldName dDOPHIJMILL = FieldName.forField("DDOPHIJMILL");
+      static final FieldName fGHILCKHDDO = FieldName.forField("FGHILCKHDDO");
 
-      static final FieldName aCJKANLIGBM = FieldName.forField("ACJKANLIGBM");
+      static final FieldName lGFMKJAOICA = FieldName.forField("LGFMKJAOICA");
 
       static final FieldName money = FieldName.forField("money");
     }

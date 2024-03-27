@@ -19,7 +19,7 @@ public final class SellItemCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool to_material = 1;</code>
+     * <code>optional bool to_material = 7;</code>
      */
     private boolean toMaterial;
 
@@ -39,7 +39,7 @@ public final class SellItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool to_material = 1;</code>
+     * <code>optional bool to_material = 7;</code>
      * @return whether the toMaterial field is set
      */
     public boolean hasToMaterial() {
@@ -47,7 +47,7 @@ public final class SellItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool to_material = 1;</code>
+     * <code>optional bool to_material = 7;</code>
      * @return this
      */
     public SellItemCsReq clearToMaterial() {
@@ -57,7 +57,7 @@ public final class SellItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool to_material = 1;</code>
+     * <code>optional bool to_material = 7;</code>
      * @return the toMaterial
      */
     public boolean getToMaterial() {
@@ -65,7 +65,7 @@ public final class SellItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool to_material = 1;</code>
+     * <code>optional bool to_material = 7;</code>
      * @param value the toMaterial to set
      * @return this
      */
@@ -198,7 +198,7 @@ public final class SellItemCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 56);
         output.writeBoolNoTag(toMaterial);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -226,7 +226,7 @@ public final class SellItemCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 56: {
             // toMaterial
             toMaterial = input.readBool();
             bitField0_ |= 0x00000001;

@@ -43,7 +43,7 @@ public class RogueBuffData {
     public RogueCommonBuff toCommonProto() {
         var proto = RogueCommonBuff.newInstance()
                 .setBuffId(this.getId())
-                .setLevel(this.getLevel());
+                .setBuffLevel(this.getLevel());
         
         return proto;
     }

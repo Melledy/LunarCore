@@ -19,12 +19,12 @@ public final class RogueInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 748;</code>
      */
     private final RogueInfoDataOuterClass.RogueInfoData rogueInfoData = RogueInfoDataOuterClass.RogueInfoData.newInstance();
 
     /**
-     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 902;</code>
      */
     private final RogueCurrentInfoOuterClass.RogueCurrentInfo rogueCurrentInfo = RogueCurrentInfoOuterClass.RogueCurrentInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 748;</code>
      * @return whether the rogueInfoData field is set
      */
     public boolean hasRogueInfoData() {
@@ -47,7 +47,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 748;</code>
      * @return this
      */
     public RogueInfo clearRogueInfoData() {
@@ -57,7 +57,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 748;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -71,7 +71,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 748;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -85,7 +85,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueInfoData rogue_info_data = 342;</code>
+     * <code>optional .RogueInfoData rogue_info_data = 748;</code>
      * @param value the rogueInfoData to set
      * @return this
      */
@@ -96,7 +96,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 902;</code>
      * @return whether the rogueCurrentInfo field is set
      */
     public boolean hasRogueCurrentInfo() {
@@ -104,7 +104,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 902;</code>
      * @return this
      */
     public RogueInfo clearRogueCurrentInfo() {
@@ -114,7 +114,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 902;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -128,7 +128,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 902;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -142,7 +142,7 @@ public final class RogueInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCurrentInfo rogue_current_info = 1466;</code>
+     * <code>optional .RogueCurrentInfo rogue_current_info = 902;</code>
      * @param value the rogueCurrentInfo to set
      * @return this
      */
@@ -219,11 +219,11 @@ public final class RogueInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawLittleEndian16((short) 5554);
+        output.writeRawLittleEndian16((short) 12002);
         output.writeMessageNoTag(rogueInfoData);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawLittleEndian16((short) 23506);
+        output.writeRawLittleEndian16((short) 14514);
         output.writeMessageNoTag(rogueCurrentInfo);
       }
     }
@@ -247,16 +247,16 @@ public final class RogueInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 2738: {
+          case 5986: {
             // rogueInfoData
             input.readMessage(rogueInfoData);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 11730) {
+            if (tag != 7218) {
               break;
             }
           }
-          case 11730: {
+          case 7218: {
             // rogueCurrentInfo
             input.readMessage(rogueCurrentInfo);
             bitField0_ |= 0x00000002;

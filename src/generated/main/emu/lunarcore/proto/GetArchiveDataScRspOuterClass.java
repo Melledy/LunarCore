@@ -19,12 +19,12 @@ public final class GetArchiveDataScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 3;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .ArchiveData archive_data = 15;</code>
+     * <code>optional .ArchiveData archive_data = 4;</code>
      */
     private final ArchiveDataOuterClass.ArchiveData archiveData = ArchiveDataOuterClass.ArchiveData.newInstance();
 
@@ -39,7 +39,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return this
      */
     public GetArchiveDataScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .ArchiveData archive_data = 15;</code>
+     * <code>optional .ArchiveData archive_data = 4;</code>
      * @return whether the archiveData field is set
      */
     public boolean hasArchiveData() {
@@ -84,7 +84,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .ArchiveData archive_data = 15;</code>
+     * <code>optional .ArchiveData archive_data = 4;</code>
      * @return this
      */
     public GetArchiveDataScRsp clearArchiveData() {
@@ -94,7 +94,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .ArchiveData archive_data = 15;</code>
+     * <code>optional .ArchiveData archive_data = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .ArchiveData archive_data = 15;</code>
+     * <code>optional .ArchiveData archive_data = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetArchiveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional .ArchiveData archive_data = 15;</code>
+     * <code>optional .ArchiveData archive_data = 4;</code>
      * @param value the archiveData to set
      * @return this
      */
@@ -198,11 +198,11 @@ public final class GetArchiveDataScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 122);
+        output.writeRawByte((byte) 34);
         output.writeMessageNoTag(archiveData);
       }
     }
@@ -226,16 +226,16 @@ public final class GetArchiveDataScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 24: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 34) {
               break;
             }
           }
-          case 122: {
+          case 34: {
             // archiveData
             input.readMessage(archiveData);
             bitField0_ |= 0x00000002;

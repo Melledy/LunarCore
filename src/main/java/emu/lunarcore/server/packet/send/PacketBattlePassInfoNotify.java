@@ -17,7 +17,7 @@ public class PacketBattlePassInfoNotify extends BasePacket {
             .setTakenPremiumOptionalReward(0x7FFFFFFFFFFFEL)
             .setTakenFreeExtendedReward(127)
             .setTakenPremiumExtendedReward(127)
-            .setUnkfield(4)
+            //.setUnkfield(4)
             .setLevel(70)
             .setCurWeekAddExpSum(8000)
             .setExp(800)

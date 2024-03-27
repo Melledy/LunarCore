@@ -20,31 +20,35 @@ public final class RogueActionOuterClass {
 
     /**
      * <pre>
-     * LLFCJMIMLKM AHNMLHMDONN = 1018;
-     * HKNINLMGOBO KDNAICGDMPF = 300;
-     * MEOJKHHEBII BNCDLNBHMPB = 187;
-     * CPPHCDOAOMC KNNHLJKEGEJ = 746;
-     * FNMHPFGFAML JGLPEKLFGBM = 1274;
+     * CELLDKOCJIA DONMAOEJMEF = 618;
+     * RogueMiracleRepairAction IJGDIIAMLOO = 1746;
+     * RogueMiracleDestroyAction BAECAJOMOJM = 1403;
+     * RogueMiracleDropAction CDLPPJNNBIM = 196;
+     * RogueMiracleSelectDestroyedAction PKEFIKCMDOM = 1336;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1074;</code>
+     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1849;</code>
      */
     private final RogueBonusSelectInfoOuterClass.RogueBonusSelectInfo bonusSelectInfo = RogueBonusSelectInfoOuterClass.RogueBonusSelectInfo.newInstance();
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1185;</code>
+     * <pre>
+     * RogueBuffDropInfo BMIDONBKJNJ = 590;
+     * RogueBuffEnhanceSelectInfo BDLINKPALNL = 1837;
+     * </pre>
+     *
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1899;</code>
      */
-    private final RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo buffSelectInfo = RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo.newInstance();
+    private final RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo miracleSelectInfo = RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo.newInstance();
 
     /**
      * <pre>
-     * MJBKKJOHDBI BMIDONBKJNJ = 1111;
-     * APICFOIELNJ BDLINKPALNL = 1279;
+     *  done
      * </pre>
      *
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1967;</code>
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1978;</code>
      */
-    private final RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo miracleSelectInfo = RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo.newInstance();
+    private final RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo buffSelectInfo = RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo.newInstance();
 
     private RogueAction() {
     }
@@ -56,16 +60,50 @@ public final class RogueActionOuterClass {
       return new RogueAction();
     }
 
+    public boolean hasAction() {
+      return (((bitField0_ & 0x00000007)) != 0);
+    }
+
+    public RogueAction clearAction() {
+      if (hasAction()) {
+        clearBonusSelectInfo();
+        clearMiracleSelectInfo();
+        clearBuffSelectInfo();
+      }
+      return this;
+    }
+
+    private void clearActionOtherBonusSelectInfo() {
+      if ((((bitField0_ & 0x00000006)) != 0)) {
+        clearMiracleSelectInfo();
+        clearBuffSelectInfo();
+      }
+    }
+
+    private void clearActionOtherMiracleSelectInfo() {
+      if ((((bitField0_ & 0x00000005)) != 0)) {
+        clearBonusSelectInfo();
+        clearBuffSelectInfo();
+      }
+    }
+
+    private void clearActionOtherBuffSelectInfo() {
+      if ((((bitField0_ & 0x00000003)) != 0)) {
+        clearBonusSelectInfo();
+        clearMiracleSelectInfo();
+      }
+    }
+
     /**
      * <pre>
-     * LLFCJMIMLKM AHNMLHMDONN = 1018;
-     * HKNINLMGOBO KDNAICGDMPF = 300;
-     * MEOJKHHEBII BNCDLNBHMPB = 187;
-     * CPPHCDOAOMC KNNHLJKEGEJ = 746;
-     * FNMHPFGFAML JGLPEKLFGBM = 1274;
+     * CELLDKOCJIA DONMAOEJMEF = 618;
+     * RogueMiracleRepairAction IJGDIIAMLOO = 1746;
+     * RogueMiracleDestroyAction BAECAJOMOJM = 1403;
+     * RogueMiracleDropAction CDLPPJNNBIM = 196;
+     * RogueMiracleSelectDestroyedAction PKEFIKCMDOM = 1336;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1074;</code>
+     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1849;</code>
      * @return whether the bonusSelectInfo field is set
      */
     public boolean hasBonusSelectInfo() {
@@ -74,14 +112,14 @@ public final class RogueActionOuterClass {
 
     /**
      * <pre>
-     * LLFCJMIMLKM AHNMLHMDONN = 1018;
-     * HKNINLMGOBO KDNAICGDMPF = 300;
-     * MEOJKHHEBII BNCDLNBHMPB = 187;
-     * CPPHCDOAOMC KNNHLJKEGEJ = 746;
-     * FNMHPFGFAML JGLPEKLFGBM = 1274;
+     * CELLDKOCJIA DONMAOEJMEF = 618;
+     * RogueMiracleRepairAction IJGDIIAMLOO = 1746;
+     * RogueMiracleDestroyAction BAECAJOMOJM = 1403;
+     * RogueMiracleDropAction CDLPPJNNBIM = 196;
+     * RogueMiracleSelectDestroyedAction PKEFIKCMDOM = 1336;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1074;</code>
+     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1849;</code>
      * @return this
      */
     public RogueAction clearBonusSelectInfo() {
@@ -92,14 +130,14 @@ public final class RogueActionOuterClass {
 
     /**
      * <pre>
-     * LLFCJMIMLKM AHNMLHMDONN = 1018;
-     * HKNINLMGOBO KDNAICGDMPF = 300;
-     * MEOJKHHEBII BNCDLNBHMPB = 187;
-     * CPPHCDOAOMC KNNHLJKEGEJ = 746;
-     * FNMHPFGFAML JGLPEKLFGBM = 1274;
+     * CELLDKOCJIA DONMAOEJMEF = 618;
+     * RogueMiracleRepairAction IJGDIIAMLOO = 1746;
+     * RogueMiracleDestroyAction BAECAJOMOJM = 1403;
+     * RogueMiracleDropAction CDLPPJNNBIM = 196;
+     * RogueMiracleSelectDestroyedAction PKEFIKCMDOM = 1336;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1074;</code>
+     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1849;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -114,14 +152,14 @@ public final class RogueActionOuterClass {
 
     /**
      * <pre>
-     * LLFCJMIMLKM AHNMLHMDONN = 1018;
-     * HKNINLMGOBO KDNAICGDMPF = 300;
-     * MEOJKHHEBII BNCDLNBHMPB = 187;
-     * CPPHCDOAOMC KNNHLJKEGEJ = 746;
-     * FNMHPFGFAML JGLPEKLFGBM = 1274;
+     * CELLDKOCJIA DONMAOEJMEF = 618;
+     * RogueMiracleRepairAction IJGDIIAMLOO = 1746;
+     * RogueMiracleDestroyAction BAECAJOMOJM = 1403;
+     * RogueMiracleDropAction CDLPPJNNBIM = 196;
+     * RogueMiracleSelectDestroyedAction PKEFIKCMDOM = 1336;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1074;</code>
+     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1849;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -130,124 +168,67 @@ public final class RogueActionOuterClass {
      * @return internal storage object for modifications
      */
     public RogueBonusSelectInfoOuterClass.RogueBonusSelectInfo getMutableBonusSelectInfo() {
+      clearActionOtherBonusSelectInfo();
       bitField0_ |= 0x00000001;
       return bonusSelectInfo;
     }
 
     /**
      * <pre>
-     * LLFCJMIMLKM AHNMLHMDONN = 1018;
-     * HKNINLMGOBO KDNAICGDMPF = 300;
-     * MEOJKHHEBII BNCDLNBHMPB = 187;
-     * CPPHCDOAOMC KNNHLJKEGEJ = 746;
-     * FNMHPFGFAML JGLPEKLFGBM = 1274;
+     * CELLDKOCJIA DONMAOEJMEF = 618;
+     * RogueMiracleRepairAction IJGDIIAMLOO = 1746;
+     * RogueMiracleDestroyAction BAECAJOMOJM = 1403;
+     * RogueMiracleDropAction CDLPPJNNBIM = 196;
+     * RogueMiracleSelectDestroyedAction PKEFIKCMDOM = 1336;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1074;</code>
+     * <code>optional .RogueBonusSelectInfo bonus_select_info = 1849;</code>
      * @param value the bonusSelectInfo to set
      * @return this
      */
     public RogueAction setBonusSelectInfo(
         final RogueBonusSelectInfoOuterClass.RogueBonusSelectInfo value) {
+      clearActionOtherBonusSelectInfo();
       bitField0_ |= 0x00000001;
       bonusSelectInfo.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1185;</code>
-     * @return whether the buffSelectInfo field is set
+     * <pre>
+     * RogueBuffDropInfo BMIDONBKJNJ = 590;
+     * RogueBuffEnhanceSelectInfo BDLINKPALNL = 1837;
+     * </pre>
+     *
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1899;</code>
+     * @return whether the miracleSelectInfo field is set
      */
-    public boolean hasBuffSelectInfo() {
+    public boolean hasMiracleSelectInfo() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1185;</code>
-     * @return this
-     */
-    public RogueAction clearBuffSelectInfo() {
-      bitField0_ &= ~0x00000002;
-      buffSelectInfo.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1185;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableBuffSelectInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo getBuffSelectInfo() {
-      return buffSelectInfo;
-    }
-
-    /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1185;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo getMutableBuffSelectInfo(
-        ) {
-      bitField0_ |= 0x00000002;
-      return buffSelectInfo;
-    }
-
-    /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1185;</code>
-     * @param value the buffSelectInfo to set
-     * @return this
-     */
-    public RogueAction setBuffSelectInfo(
-        final RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo value) {
-      bitField0_ |= 0x00000002;
-      buffSelectInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
      * <pre>
-     * MJBKKJOHDBI BMIDONBKJNJ = 1111;
-     * APICFOIELNJ BDLINKPALNL = 1279;
+     * RogueBuffDropInfo BMIDONBKJNJ = 590;
+     * RogueBuffEnhanceSelectInfo BDLINKPALNL = 1837;
      * </pre>
      *
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1967;</code>
-     * @return whether the miracleSelectInfo field is set
-     */
-    public boolean hasMiracleSelectInfo() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <pre>
-     * MJBKKJOHDBI BMIDONBKJNJ = 1111;
-     * APICFOIELNJ BDLINKPALNL = 1279;
-     * </pre>
-     *
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1967;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1899;</code>
      * @return this
      */
     public RogueAction clearMiracleSelectInfo() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       miracleSelectInfo.clear();
       return this;
     }
 
     /**
      * <pre>
-     * MJBKKJOHDBI BMIDONBKJNJ = 1111;
-     * APICFOIELNJ BDLINKPALNL = 1279;
+     * RogueBuffDropInfo BMIDONBKJNJ = 590;
+     * RogueBuffEnhanceSelectInfo BDLINKPALNL = 1837;
      * </pre>
      *
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1967;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1899;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -262,11 +243,11 @@ public final class RogueActionOuterClass {
 
     /**
      * <pre>
-     * MJBKKJOHDBI BMIDONBKJNJ = 1111;
-     * APICFOIELNJ BDLINKPALNL = 1279;
+     * RogueBuffDropInfo BMIDONBKJNJ = 590;
+     * RogueBuffEnhanceSelectInfo BDLINKPALNL = 1837;
      * </pre>
      *
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1967;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1899;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -275,24 +256,107 @@ public final class RogueActionOuterClass {
      * @return internal storage object for modifications
      */
     public RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo getMutableMiracleSelectInfo() {
-      bitField0_ |= 0x00000004;
+      clearActionOtherMiracleSelectInfo();
+      bitField0_ |= 0x00000002;
       return miracleSelectInfo;
     }
 
     /**
      * <pre>
-     * MJBKKJOHDBI BMIDONBKJNJ = 1111;
-     * APICFOIELNJ BDLINKPALNL = 1279;
+     * RogueBuffDropInfo BMIDONBKJNJ = 590;
+     * RogueBuffEnhanceSelectInfo BDLINKPALNL = 1837;
      * </pre>
      *
-     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1967;</code>
+     * <code>optional .RogueMiracleSelectInfo miracle_select_info = 1899;</code>
      * @param value the miracleSelectInfo to set
      * @return this
      */
     public RogueAction setMiracleSelectInfo(
         final RogueMiracleSelectInfoOuterClass.RogueMiracleSelectInfo value) {
-      bitField0_ |= 0x00000004;
+      clearActionOtherMiracleSelectInfo();
+      bitField0_ |= 0x00000002;
       miracleSelectInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  done
+     * </pre>
+     *
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1978;</code>
+     * @return whether the buffSelectInfo field is set
+     */
+    public boolean hasBuffSelectInfo() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <pre>
+     *  done
+     * </pre>
+     *
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1978;</code>
+     * @return this
+     */
+    public RogueAction clearBuffSelectInfo() {
+      bitField0_ &= ~0x00000004;
+      buffSelectInfo.clear();
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  done
+     * </pre>
+     *
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1978;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableBuffSelectInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo getBuffSelectInfo() {
+      return buffSelectInfo;
+    }
+
+    /**
+     * <pre>
+     *  done
+     * </pre>
+     *
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1978;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo getMutableBuffSelectInfo(
+        ) {
+      clearActionOtherBuffSelectInfo();
+      bitField0_ |= 0x00000004;
+      return buffSelectInfo;
+    }
+
+    /**
+     * <pre>
+     *  done
+     * </pre>
+     *
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 1978;</code>
+     * @param value the buffSelectInfo to set
+     * @return this
+     */
+    public RogueAction setBuffSelectInfo(
+        final RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo value) {
+      clearActionOtherBuffSelectInfo();
+      bitField0_ |= 0x00000004;
+      buffSelectInfo.copyFrom(value);
       return this;
     }
 
@@ -302,8 +366,8 @@ public final class RogueActionOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         bonusSelectInfo.copyFrom(other.bonusSelectInfo);
-        buffSelectInfo.copyFrom(other.buffSelectInfo);
         miracleSelectInfo.copyFrom(other.miracleSelectInfo);
+        buffSelectInfo.copyFrom(other.buffSelectInfo);
       }
       return this;
     }
@@ -317,11 +381,11 @@ public final class RogueActionOuterClass {
       if (other.hasBonusSelectInfo()) {
         getMutableBonusSelectInfo().mergeFrom(other.bonusSelectInfo);
       }
-      if (other.hasBuffSelectInfo()) {
-        getMutableBuffSelectInfo().mergeFrom(other.buffSelectInfo);
-      }
       if (other.hasMiracleSelectInfo()) {
         getMutableMiracleSelectInfo().mergeFrom(other.miracleSelectInfo);
+      }
+      if (other.hasBuffSelectInfo()) {
+        getMutableBuffSelectInfo().mergeFrom(other.buffSelectInfo);
       }
       return this;
     }
@@ -334,8 +398,8 @@ public final class RogueActionOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       bonusSelectInfo.clear();
-      buffSelectInfo.clear();
       miracleSelectInfo.clear();
+      buffSelectInfo.clear();
       return this;
     }
 
@@ -347,8 +411,8 @@ public final class RogueActionOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       bonusSelectInfo.clearQuick();
-      buffSelectInfo.clearQuick();
       miracleSelectInfo.clearQuick();
+      buffSelectInfo.clearQuick();
       return this;
     }
 
@@ -363,23 +427,23 @@ public final class RogueActionOuterClass {
       RogueAction other = (RogueAction) o;
       return bitField0_ == other.bitField0_
         && (!hasBonusSelectInfo() || bonusSelectInfo.equals(other.bonusSelectInfo))
-        && (!hasBuffSelectInfo() || buffSelectInfo.equals(other.buffSelectInfo))
-        && (!hasMiracleSelectInfo() || miracleSelectInfo.equals(other.miracleSelectInfo));
+        && (!hasMiracleSelectInfo() || miracleSelectInfo.equals(other.miracleSelectInfo))
+        && (!hasBuffSelectInfo() || buffSelectInfo.equals(other.buffSelectInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawLittleEndian16((short) 17298);
+        output.writeRawLittleEndian16((short) 29642);
         output.writeMessageNoTag(bonusSelectInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawLittleEndian16((short) 19082);
-        output.writeMessageNoTag(buffSelectInfo);
+        output.writeRawLittleEndian16((short) 30426);
+        output.writeMessageNoTag(miracleSelectInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawLittleEndian16((short) 31482);
-        output.writeMessageNoTag(miracleSelectInfo);
+        output.writeRawLittleEndian16((short) 31698);
+        output.writeMessageNoTag(buffSelectInfo);
       }
     }
 
@@ -390,10 +454,10 @@ public final class RogueActionOuterClass {
         size += 2 + ProtoSink.computeMessageSizeNoTag(bonusSelectInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(buffSelectInfo);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(miracleSelectInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(miracleSelectInfo);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(buffSelectInfo);
       }
       return size;
     }
@@ -405,27 +469,30 @@ public final class RogueActionOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8594: {
+          case 14794: {
             // bonusSelectInfo
+            clearActionOtherBonusSelectInfo();
             input.readMessage(bonusSelectInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 9482) {
+            if (tag != 15194) {
               break;
             }
           }
-          case 9482: {
-            // buffSelectInfo
-            input.readMessage(buffSelectInfo);
+          case 15194: {
+            // miracleSelectInfo
+            clearActionOtherMiracleSelectInfo();
+            input.readMessage(miracleSelectInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 15738) {
+            if (tag != 15826) {
               break;
             }
           }
-          case 15738: {
-            // miracleSelectInfo
-            input.readMessage(miracleSelectInfo);
+          case 15826: {
+            // buffSelectInfo
+            clearActionOtherBuffSelectInfo();
+            input.readMessage(buffSelectInfo);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -453,10 +520,10 @@ public final class RogueActionOuterClass {
         output.writeMessage(FieldNames.bonusSelectInfo, bonusSelectInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.buffSelectInfo, buffSelectInfo);
+        output.writeMessage(FieldNames.miracleSelectInfo, miracleSelectInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeMessage(FieldNames.miracleSelectInfo, miracleSelectInfo);
+        output.writeMessage(FieldNames.buffSelectInfo, buffSelectInfo);
       }
       output.endObject();
     }
@@ -472,20 +539,9 @@ public final class RogueActionOuterClass {
           case -1836716559: {
             if (input.isAtField(FieldNames.bonusSelectInfo)) {
               if (!input.trySkipNullValue()) {
+                clearActionOtherBonusSelectInfo();
                 input.readMessage(bonusSelectInfo);
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -255242115:
-          case 1500540965: {
-            if (input.isAtField(FieldNames.buffSelectInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(buffSelectInfo);
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -496,7 +552,21 @@ public final class RogueActionOuterClass {
           case -1608054973: {
             if (input.isAtField(FieldNames.miracleSelectInfo)) {
               if (!input.trySkipNullValue()) {
+                clearActionOtherMiracleSelectInfo();
                 input.readMessage(miracleSelectInfo);
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -255242115:
+          case 1500540965: {
+            if (input.isAtField(FieldNames.buffSelectInfo)) {
+              if (!input.trySkipNullValue()) {
+                clearActionOtherBuffSelectInfo();
+                input.readMessage(buffSelectInfo);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -558,9 +628,9 @@ public final class RogueActionOuterClass {
     static class FieldNames {
       static final FieldName bonusSelectInfo = FieldName.forField("bonusSelectInfo", "bonus_select_info");
 
-      static final FieldName buffSelectInfo = FieldName.forField("buffSelectInfo", "buff_select_info");
-
       static final FieldName miracleSelectInfo = FieldName.forField("miracleSelectInfo", "miracle_select_info");
+
+      static final FieldName buffSelectInfo = FieldName.forField("buffSelectInfo", "buff_select_info");
     }
   }
 }

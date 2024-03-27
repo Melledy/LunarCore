@@ -26,12 +26,12 @@ public final class DailyActiveInfoNotifyOuterClass {
     private int dailyActivePoint;
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 12;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      */
     private final RepeatedInt dailyActiveQuestIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 15;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 4;</code>
      */
     private final RepeatedMessage<DailyActivityInfoOuterClass.DailyActivityInfo> dailyActiveLevelList = RepeatedMessage.newEmptyInstance(DailyActivityInfoOuterClass.DailyActivityInfo.getFactory());
 
@@ -83,7 +83,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 12;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @return whether the dailyActiveQuestIdList field is set
      */
     public boolean hasDailyActiveQuestIdList() {
@@ -91,7 +91,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 12;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @return this
      */
     public DailyActiveInfoNotify clearDailyActiveQuestIdList() {
@@ -101,7 +101,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 12;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -115,7 +115,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 12;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -129,7 +129,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 12;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @param value the dailyActiveQuestIdList to add
      * @return this
      */
@@ -140,7 +140,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated uint32 daily_active_quest_id_list = 12;</code>
+     * <code>repeated uint32 daily_active_quest_id_list = 15;</code>
      * @param values the dailyActiveQuestIdList to add
      * @return this
      */
@@ -151,7 +151,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 15;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 4;</code>
      * @return whether the dailyActiveLevelList field is set
      */
     public boolean hasDailyActiveLevelList() {
@@ -159,7 +159,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 15;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 4;</code>
      * @return this
      */
     public DailyActiveInfoNotify clearDailyActiveLevelList() {
@@ -169,7 +169,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 15;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -184,7 +184,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 15;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -199,7 +199,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 15;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 4;</code>
      * @param value the dailyActiveLevelList to add
      * @return this
      */
@@ -211,7 +211,7 @@ public final class DailyActiveInfoNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .DailyActivityInfo daily_active_level_list = 15;</code>
+     * <code>repeated .DailyActivityInfo daily_active_level_list = 4;</code>
      * @param values the dailyActiveLevelList to add
      * @return this
      */
@@ -300,13 +300,13 @@ public final class DailyActiveInfoNotifyOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < dailyActiveQuestIdList.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 120);
           output.writeUInt32NoTag(dailyActiveQuestIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < dailyActiveLevelList.length(); i++) {
-          output.writeRawByte((byte) 122);
+          output.writeRawByte((byte) 34);
           output.writeMessageNoTag(dailyActiveLevelList.get(i));
         }
       }
@@ -339,20 +339,20 @@ public final class DailyActiveInfoNotifyOuterClass {
             dailyActivePoint = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 98) {
-              break;
-            }
-          }
-          case 98: {
-            // dailyActiveQuestIdList [packed=true]
-            input.readPackedUInt32(dailyActiveQuestIdList, tag);
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
             if (tag != 122) {
               break;
             }
           }
           case 122: {
+            // dailyActiveQuestIdList [packed=true]
+            input.readPackedUInt32(dailyActiveQuestIdList, tag);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 34) {
+              break;
+            }
+          }
+          case 34: {
             // dailyActiveLevelList
             tag = input.readRepeatedMessage(dailyActiveLevelList, tag);
             bitField0_ |= 0x00000004;
@@ -370,7 +370,7 @@ public final class DailyActiveInfoNotifyOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
+          case 120: {
             // dailyActiveQuestIdList [packed=false]
             tag = input.readRepeatedUInt32(dailyActiveQuestIdList, tag);
             bitField0_ |= 0x00000002;

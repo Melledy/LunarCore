@@ -24,7 +24,7 @@ public final class SetHeadIconScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional uint32 current_head_icon_id = 13;</code>
+     * <code>optional uint32 current_head_icon_id = 6;</code>
      */
     private int currentHeadIconId;
 
@@ -76,7 +76,7 @@ public final class SetHeadIconScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 current_head_icon_id = 13;</code>
+     * <code>optional uint32 current_head_icon_id = 6;</code>
      * @return whether the currentHeadIconId field is set
      */
     public boolean hasCurrentHeadIconId() {
@@ -84,7 +84,7 @@ public final class SetHeadIconScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 current_head_icon_id = 13;</code>
+     * <code>optional uint32 current_head_icon_id = 6;</code>
      * @return this
      */
     public SetHeadIconScRsp clearCurrentHeadIconId() {
@@ -94,7 +94,7 @@ public final class SetHeadIconScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 current_head_icon_id = 13;</code>
+     * <code>optional uint32 current_head_icon_id = 6;</code>
      * @return the currentHeadIconId
      */
     public int getCurrentHeadIconId() {
@@ -102,7 +102,7 @@ public final class SetHeadIconScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 current_head_icon_id = 13;</code>
+     * <code>optional uint32 current_head_icon_id = 6;</code>
      * @param value the currentHeadIconId to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class SetHeadIconScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(currentHeadIconId);
       }
     }
@@ -210,11 +210,11 @@ public final class SetHeadIconScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 48) {
               break;
             }
           }
-          case 104: {
+          case 48: {
             // currentHeadIconId
             currentHeadIconId = input.readUInt32();
             bitField0_ |= 0x00000002;

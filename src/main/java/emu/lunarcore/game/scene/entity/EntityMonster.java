@@ -1,9 +1,11 @@
 package emu.lunarcore.game.scene.entity;
 
+import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.game.battle.Battle;
+import emu.lunarcore.game.inventory.ItemParamMap;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.triggers.PropTriggerType;
@@ -46,6 +48,10 @@ public class EntityMonster implements GameEntity, Tickable {
         this.groupId = group.getId();
         this.instId = monsterInfo.getID();
         this.farmElementId = monsterInfo.getFarmElementID();
+    }
+
+    public boolean isAlive() {
+        return this.entityId > 0;
     }
     
     public boolean isFarmElement() {
@@ -104,6 +110,15 @@ public class EntityMonster implements GameEntity, Tickable {
         
         // Failure
         return false;
+    }
+    
+    public void calculateDrops(ItemParamMap drops) {
+        var dropExcel = GameData.getMonsterDropExcel(this.getExcel().getId(), this.getWorldLevel());
+        if (dropExcel == null) return;
+        
+        for (var dropParam : dropExcel.getDropList()) {
+            dropParam.roll(drops);
+        }
     }
     
     @Override

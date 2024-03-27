@@ -24,12 +24,12 @@ public final class EnterSceneByServerScNotifyOuterClass {
     private int reason;
 
     /**
-     * <code>optional .SceneInfo scene = 5;</code>
+     * <code>optional .SceneInfo scene = 4;</code>
      */
     private final SceneInfoOuterClass.SceneInfo scene = SceneInfoOuterClass.SceneInfo.newInstance();
 
     /**
-     * <code>optional .LineupInfo lineup = 6;</code>
+     * <code>optional .LineupInfo lineup = 11;</code>
      */
     private final LineupInfoOuterClass.LineupInfo lineup = LineupInfoOuterClass.LineupInfo.newInstance();
 
@@ -107,7 +107,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .SceneInfo scene = 5;</code>
+     * <code>optional .SceneInfo scene = 4;</code>
      * @return whether the scene field is set
      */
     public boolean hasScene() {
@@ -115,7 +115,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .SceneInfo scene = 5;</code>
+     * <code>optional .SceneInfo scene = 4;</code>
      * @return this
      */
     public EnterSceneByServerScNotify clearScene() {
@@ -125,7 +125,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .SceneInfo scene = 5;</code>
+     * <code>optional .SceneInfo scene = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -139,7 +139,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .SceneInfo scene = 5;</code>
+     * <code>optional .SceneInfo scene = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -153,7 +153,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .SceneInfo scene = 5;</code>
+     * <code>optional .SceneInfo scene = 4;</code>
      * @param value the scene to set
      * @return this
      */
@@ -164,7 +164,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 6;</code>
+     * <code>optional .LineupInfo lineup = 11;</code>
      * @return whether the lineup field is set
      */
     public boolean hasLineup() {
@@ -172,7 +172,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 6;</code>
+     * <code>optional .LineupInfo lineup = 11;</code>
      * @return this
      */
     public EnterSceneByServerScNotify clearLineup() {
@@ -182,7 +182,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 6;</code>
+     * <code>optional .LineupInfo lineup = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -196,7 +196,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 6;</code>
+     * <code>optional .LineupInfo lineup = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -210,7 +210,7 @@ public final class EnterSceneByServerScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 6;</code>
+     * <code>optional .LineupInfo lineup = 11;</code>
      * @param value the lineup to set
      * @return this
      */
@@ -297,11 +297,11 @@ public final class EnterSceneByServerScNotifyOuterClass {
         output.writeEnumNoTag(reason);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 34);
         output.writeMessageNoTag(scene);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 90);
         output.writeMessageNoTag(lineup);
       }
     }
@@ -336,20 +336,20 @@ public final class EnterSceneByServerScNotifyOuterClass {
               bitField0_ |= 0x00000001;
             }
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 34) {
               break;
             }
           }
-          case 42: {
+          case 34: {
             // scene
             input.readMessage(scene);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 90) {
               break;
             }
           }
-          case 50: {
+          case 90: {
             // lineup
             input.readMessage(lineup);
             bitField0_ |= 0x00000004;

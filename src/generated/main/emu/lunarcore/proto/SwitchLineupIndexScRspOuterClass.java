@@ -19,14 +19,14 @@ public final class SwitchLineupIndexScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 4;</code>
      */
     private int index;
+
+    /**
+     * <code>optional uint32 retcode = 10;</code>
+     */
+    private int retcode;
 
     private SwitchLineupIndexScRsp() {
     }
@@ -39,62 +39,25 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 index = 4;</code>
+     * @return whether the index field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasIndex() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 4;</code>
-     * @return this
-     */
-    public SwitchLineupIndexScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 4;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 4;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public SwitchLineupIndexScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 index = 6;</code>
-     * @return whether the index field is set
-     */
-    public boolean hasIndex() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 4;</code>
      * @return this
      */
     public SwitchLineupIndexScRsp clearIndex() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       index = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 4;</code>
      * @return the index
      */
     public int getIndex() {
@@ -102,13 +65,50 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 4;</code>
      * @param value the index to set
      * @return this
      */
     public SwitchLineupIndexScRsp setIndex(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       index = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 10;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 10;</code>
+     * @return this
+     */
+    public SwitchLineupIndexScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 10;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 10;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public SwitchLineupIndexScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class SwitchLineupIndexScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        retcode = other.retcode;
         index = other.index;
+        retcode = other.retcode;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class SwitchLineupIndexScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
-      }
       if (other.hasIndex()) {
         setIndex(other.index);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class SwitchLineupIndexScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      retcode = 0;
       index = 0;
+      retcode = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class SwitchLineupIndexScRspOuterClass {
       }
       SwitchLineupIndexScRsp other = (SwitchLineupIndexScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode)
-        && (!hasIndex() || index == other.index);
+        && (!hasIndex() || index == other.index)
+        && (!hasRetcode() || retcode == other.retcode);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(retcode);
+        output.writeUInt32NoTag(index);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(index);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(retcode);
       }
     }
 
@@ -190,10 +190,10 @@ public final class SwitchLineupIndexScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(index);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(index);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       return size;
     }
@@ -206,17 +206,17 @@ public final class SwitchLineupIndexScRspOuterClass {
       while (true) {
         switch (tag) {
           case 32: {
-            // retcode
-            retcode = input.readUInt32();
+            // index
+            index = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 80) {
               break;
             }
           }
-          case 48: {
-            // index
-            index = input.readUInt32();
+          case 80: {
+            // retcode
+            retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class SwitchLineupIndexScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.index, index);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.index, index);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       output.endObject();
     }
@@ -256,10 +256,10 @@ public final class SwitchLineupIndexScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 100346066: {
+            if (input.isAtField(FieldNames.index)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                index = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -267,10 +267,10 @@ public final class SwitchLineupIndexScRspOuterClass {
             }
             break;
           }
-          case 100346066: {
-            if (input.isAtField(FieldNames.index)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                index = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -331,9 +331,9 @@ public final class SwitchLineupIndexScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName retcode = FieldName.forField("retcode");
-
       static final FieldName index = FieldName.forField("index");
+
+      static final FieldName retcode = FieldName.forField("retcode");
     }
   }
 }

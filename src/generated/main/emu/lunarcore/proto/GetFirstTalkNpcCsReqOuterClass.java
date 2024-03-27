@@ -20,7 +20,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 npc_id = 12;</code>
+     * <code>repeated uint32 npc_id = 15;</code>
      */
     private final RepeatedInt npcId = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 npc_id = 12;</code>
+     * <code>repeated uint32 npc_id = 15;</code>
      * @return whether the npcId field is set
      */
     public boolean hasNpcId() {
@@ -43,7 +43,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 npc_id = 12;</code>
+     * <code>repeated uint32 npc_id = 15;</code>
      * @return this
      */
     public GetFirstTalkNpcCsReq clearNpcId() {
@@ -53,7 +53,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 npc_id = 12;</code>
+     * <code>repeated uint32 npc_id = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 npc_id = 12;</code>
+     * <code>repeated uint32 npc_id = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 npc_id = 12;</code>
+     * <code>repeated uint32 npc_id = 15;</code>
      * @param value the npcId to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 npc_id = 12;</code>
+     * <code>repeated uint32 npc_id = 15;</code>
      * @param values the npcId to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < npcId.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 120);
           output.writeUInt32NoTag(npcId.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 98: {
+          case 122: {
             // npcId [packed=true]
             input.readPackedUInt32(npcId, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class GetFirstTalkNpcCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
+          case 120: {
             // npcId [packed=false]
             tag = input.readRepeatedUInt32(npcId, tag);
             bitField0_ |= 0x00000001;

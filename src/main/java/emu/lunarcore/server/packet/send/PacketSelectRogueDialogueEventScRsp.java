@@ -32,12 +32,12 @@ public class PacketSelectRogueDialogueEventScRsp extends BasePacket {
         
         var l = DialogueResult.newInstance();
         for (var param : params) {
-            l.addBLGIMDCNDHJ(param.getDialogueEventId());
+            l.addEventIds(param.getDialogueEventId());
         }
         if (nextEventId != 0) {
-            l.addBLGIMDCNDHJ(nextEventId);
+            l.addEventIds(nextEventId);
         }
-        data.addDialogueResult(l);
+        data.setDialogueResult(l);
         data.setEventData(event);
         
         this.setData(data);

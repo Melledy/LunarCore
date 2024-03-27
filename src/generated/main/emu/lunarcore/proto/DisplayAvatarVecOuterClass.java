@@ -20,7 +20,7 @@ public final class DisplayAvatarVecOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool is_display = 3;</code>
+     * <code>optional bool is_display = 2;</code>
      */
     private boolean isDisplay;
 
@@ -40,7 +40,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 3;</code>
+     * <code>optional bool is_display = 2;</code>
      * @return whether the isDisplay field is set
      */
     public boolean hasIsDisplay() {
@@ -48,7 +48,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 3;</code>
+     * <code>optional bool is_display = 2;</code>
      * @return this
      */
     public DisplayAvatarVec clearIsDisplay() {
@@ -58,7 +58,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 3;</code>
+     * <code>optional bool is_display = 2;</code>
      * @return the isDisplay
      */
     public boolean getIsDisplay() {
@@ -66,7 +66,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 3;</code>
+     * <code>optional bool is_display = 2;</code>
      * @param value the isDisplay to set
      * @return this
      */
@@ -212,7 +212,7 @@ public final class DisplayAvatarVecOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 16);
         output.writeBoolNoTag(isDisplay);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -242,7 +242,7 @@ public final class DisplayAvatarVecOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 16: {
             // isDisplay
             isDisplay = input.readBool();
             bitField0_ |= 0x00000001;

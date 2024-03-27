@@ -19,22 +19,22 @@ public final class ChallengeOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 score = 2;</code>
-     */
-    private int score;
-
-    /**
-     * <code>optional uint32 challenge_id = 8;</code>
-     */
-    private int challengeId;
-
-    /**
-     * <code>optional uint32 taken_reward = 10;</code>
+     * <code>optional uint32 taken_reward = 7;</code>
      */
     private int takenReward;
 
     /**
-     * <code>optional uint32 stars = 11;</code>
+     * <code>optional uint32 score = 9;</code>
+     */
+    private int score;
+
+    /**
+     * <code>optional uint32 challenge_id = 10;</code>
+     */
+    private int challengeId;
+
+    /**
+     * <code>optional uint32 stars = 13;</code>
      */
     private int stars;
 
@@ -49,99 +49,25 @@ public final class ChallengeOuterClass {
     }
 
     /**
-     * <code>optional uint32 score = 2;</code>
-     * @return whether the score field is set
+     * <code>optional uint32 taken_reward = 7;</code>
+     * @return whether the takenReward field is set
      */
-    public boolean hasScore() {
+    public boolean hasTakenReward() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 score = 2;</code>
-     * @return this
-     */
-    public Challenge clearScore() {
-      bitField0_ &= ~0x00000001;
-      score = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 score = 2;</code>
-     * @return the score
-     */
-    public int getScore() {
-      return score;
-    }
-
-    /**
-     * <code>optional uint32 score = 2;</code>
-     * @param value the score to set
-     * @return this
-     */
-    public Challenge setScore(final int value) {
-      bitField0_ |= 0x00000001;
-      score = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 8;</code>
-     * @return whether the challengeId field is set
-     */
-    public boolean hasChallengeId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 8;</code>
-     * @return this
-     */
-    public Challenge clearChallengeId() {
-      bitField0_ &= ~0x00000002;
-      challengeId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 8;</code>
-     * @return the challengeId
-     */
-    public int getChallengeId() {
-      return challengeId;
-    }
-
-    /**
-     * <code>optional uint32 challenge_id = 8;</code>
-     * @param value the challengeId to set
-     * @return this
-     */
-    public Challenge setChallengeId(final int value) {
-      bitField0_ |= 0x00000002;
-      challengeId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 taken_reward = 10;</code>
-     * @return whether the takenReward field is set
-     */
-    public boolean hasTakenReward() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 taken_reward = 10;</code>
+     * <code>optional uint32 taken_reward = 7;</code>
      * @return this
      */
     public Challenge clearTakenReward() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       takenReward = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 taken_reward = 10;</code>
+     * <code>optional uint32 taken_reward = 7;</code>
      * @return the takenReward
      */
     public int getTakenReward() {
@@ -149,18 +75,92 @@ public final class ChallengeOuterClass {
     }
 
     /**
-     * <code>optional uint32 taken_reward = 10;</code>
+     * <code>optional uint32 taken_reward = 7;</code>
      * @param value the takenReward to set
      * @return this
      */
     public Challenge setTakenReward(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       takenReward = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 stars = 11;</code>
+     * <code>optional uint32 score = 9;</code>
+     * @return whether the score field is set
+     */
+    public boolean hasScore() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 score = 9;</code>
+     * @return this
+     */
+    public Challenge clearScore() {
+      bitField0_ &= ~0x00000002;
+      score = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 score = 9;</code>
+     * @return the score
+     */
+    public int getScore() {
+      return score;
+    }
+
+    /**
+     * <code>optional uint32 score = 9;</code>
+     * @param value the score to set
+     * @return this
+     */
+    public Challenge setScore(final int value) {
+      bitField0_ |= 0x00000002;
+      score = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 challenge_id = 10;</code>
+     * @return whether the challengeId field is set
+     */
+    public boolean hasChallengeId() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 challenge_id = 10;</code>
+     * @return this
+     */
+    public Challenge clearChallengeId() {
+      bitField0_ &= ~0x00000004;
+      challengeId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 challenge_id = 10;</code>
+     * @return the challengeId
+     */
+    public int getChallengeId() {
+      return challengeId;
+    }
+
+    /**
+     * <code>optional uint32 challenge_id = 10;</code>
+     * @param value the challengeId to set
+     * @return this
+     */
+    public Challenge setChallengeId(final int value) {
+      bitField0_ |= 0x00000004;
+      challengeId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 stars = 13;</code>
      * @return whether the stars field is set
      */
     public boolean hasStars() {
@@ -168,7 +168,7 @@ public final class ChallengeOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 11;</code>
+     * <code>optional uint32 stars = 13;</code>
      * @return this
      */
     public Challenge clearStars() {
@@ -178,7 +178,7 @@ public final class ChallengeOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 11;</code>
+     * <code>optional uint32 stars = 13;</code>
      * @return the stars
      */
     public int getStars() {
@@ -186,7 +186,7 @@ public final class ChallengeOuterClass {
     }
 
     /**
-     * <code>optional uint32 stars = 11;</code>
+     * <code>optional uint32 stars = 13;</code>
      * @param value the stars to set
      * @return this
      */
@@ -201,9 +201,9 @@ public final class ChallengeOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        takenReward = other.takenReward;
         score = other.score;
         challengeId = other.challengeId;
-        takenReward = other.takenReward;
         stars = other.stars;
       }
       return this;
@@ -215,14 +215,14 @@ public final class ChallengeOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasTakenReward()) {
+        setTakenReward(other.takenReward);
+      }
       if (other.hasScore()) {
         setScore(other.score);
       }
       if (other.hasChallengeId()) {
         setChallengeId(other.challengeId);
-      }
-      if (other.hasTakenReward()) {
-        setTakenReward(other.takenReward);
       }
       if (other.hasStars()) {
         setStars(other.stars);
@@ -237,9 +237,9 @@ public final class ChallengeOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      takenReward = 0;
       score = 0;
       challengeId = 0;
-      takenReward = 0;
       stars = 0;
       return this;
     }
@@ -264,28 +264,28 @@ public final class ChallengeOuterClass {
       }
       Challenge other = (Challenge) o;
       return bitField0_ == other.bitField0_
+        && (!hasTakenReward() || takenReward == other.takenReward)
         && (!hasScore() || score == other.score)
         && (!hasChallengeId() || challengeId == other.challengeId)
-        && (!hasTakenReward() || takenReward == other.takenReward)
         && (!hasStars() || stars == other.stars);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(score);
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(takenReward);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(challengeId);
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(score);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(takenReward);
+        output.writeUInt32NoTag(challengeId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(stars);
       }
     }
@@ -294,13 +294,13 @@ public final class ChallengeOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(score);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(takenReward);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(score);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(takenReward);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(stars);
@@ -315,18 +315,18 @@ public final class ChallengeOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // score
-            score = input.readUInt32();
+          case 56: {
+            // takenReward
+            takenReward = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 72) {
               break;
             }
           }
-          case 64: {
-            // challengeId
-            challengeId = input.readUInt32();
+          case 72: {
+            // score
+            score = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 80) {
@@ -334,15 +334,15 @@ public final class ChallengeOuterClass {
             }
           }
           case 80: {
-            // takenReward
-            takenReward = input.readUInt32();
+            // challengeId
+            challengeId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 104) {
               break;
             }
           }
-          case 88: {
+          case 104: {
             // stars
             stars = input.readUInt32();
             bitField0_ |= 0x00000008;
@@ -369,13 +369,13 @@ public final class ChallengeOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.score, score);
+        output.writeUInt32(FieldNames.takenReward, takenReward);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.challengeId, challengeId);
+        output.writeUInt32(FieldNames.score, score);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.takenReward, takenReward);
+        output.writeUInt32(FieldNames.challengeId, challengeId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.stars, stars);
@@ -390,11 +390,23 @@ public final class ChallengeOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 1216849622:
+          case -1923526233: {
+            if (input.isAtField(FieldNames.takenReward)) {
+              if (!input.trySkipNullValue()) {
+                takenReward = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 109264530: {
             if (input.isAtField(FieldNames.score)) {
               if (!input.trySkipNullValue()) {
                 score = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -406,18 +418,6 @@ public final class ChallengeOuterClass {
             if (input.isAtField(FieldNames.challengeId)) {
               if (!input.trySkipNullValue()) {
                 challengeId = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 1216849622:
-          case -1923526233: {
-            if (input.isAtField(FieldNames.takenReward)) {
-              if (!input.trySkipNullValue()) {
-                takenReward = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -488,11 +488,11 @@ public final class ChallengeOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName takenReward = FieldName.forField("takenReward", "taken_reward");
+
       static final FieldName score = FieldName.forField("score");
 
       static final FieldName challengeId = FieldName.forField("challengeId", "challenge_id");
-
-      static final FieldName takenReward = FieldName.forField("takenReward", "taken_reward");
 
       static final FieldName stars = FieldName.forField("stars");
     }

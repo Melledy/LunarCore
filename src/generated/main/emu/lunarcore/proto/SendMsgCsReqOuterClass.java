@@ -21,27 +21,27 @@ public final class SendMsgCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 emote = 13;</code>
+     * <code>optional uint32 emote = 12;</code>
      */
     private int emote;
 
     /**
-     * <code>optional .MsgType msg_type = 5;</code>
+     * <code>optional .MsgType msg_type = 11;</code>
      */
     private int msgType;
 
     /**
-     * <code>optional .ChatType chat_type = 6;</code>
+     * <code>optional .ChatType chat_type = 15;</code>
      */
     private int chatType;
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      */
     private final Utf8String text = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 to_uid_list = 4;</code>
+     * <code>repeated uint32 to_uid_list = 10;</code>
      */
     private final RepeatedInt toUidList = RepeatedInt.newEmptyInstance();
 
@@ -56,7 +56,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 emote = 13;</code>
+     * <code>optional uint32 emote = 12;</code>
      * @return whether the emote field is set
      */
     public boolean hasEmote() {
@@ -64,7 +64,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 emote = 13;</code>
+     * <code>optional uint32 emote = 12;</code>
      * @return this
      */
     public SendMsgCsReq clearEmote() {
@@ -74,7 +74,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 emote = 13;</code>
+     * <code>optional uint32 emote = 12;</code>
      * @return the emote
      */
     public int getEmote() {
@@ -82,7 +82,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 emote = 13;</code>
+     * <code>optional uint32 emote = 12;</code>
      * @param value the emote to set
      * @return this
      */
@@ -93,7 +93,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MsgType msg_type = 5;</code>
+     * <code>optional .MsgType msg_type = 11;</code>
      * @return whether the msgType field is set
      */
     public boolean hasMsgType() {
@@ -101,7 +101,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MsgType msg_type = 5;</code>
+     * <code>optional .MsgType msg_type = 11;</code>
      * @return this
      */
     public SendMsgCsReq clearMsgType() {
@@ -111,7 +111,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MsgType msg_type = 5;</code>
+     * <code>optional .MsgType msg_type = 11;</code>
      * @return the msgType
      */
     public MsgTypeOuterClass.MsgType getMsgType() {
@@ -144,7 +144,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .MsgType msg_type = 5;</code>
+     * <code>optional .MsgType msg_type = 11;</code>
      * @param value the msgType to set
      * @return this
      */
@@ -155,7 +155,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChatType chat_type = 6;</code>
+     * <code>optional .ChatType chat_type = 15;</code>
      * @return whether the chatType field is set
      */
     public boolean hasChatType() {
@@ -163,7 +163,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChatType chat_type = 6;</code>
+     * <code>optional .ChatType chat_type = 15;</code>
      * @return this
      */
     public SendMsgCsReq clearChatType() {
@@ -173,7 +173,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChatType chat_type = 6;</code>
+     * <code>optional .ChatType chat_type = 15;</code>
      * @return the chatType
      */
     public ChatTypeOuterClass.ChatType getChatType() {
@@ -206,7 +206,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChatType chat_type = 6;</code>
+     * <code>optional .ChatType chat_type = 15;</code>
      * @param value the chatType to set
      * @return this
      */
@@ -217,7 +217,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      * @return whether the text field is set
      */
     public boolean hasText() {
@@ -225,7 +225,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      * @return this
      */
     public SendMsgCsReq clearText() {
@@ -235,7 +235,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      * @return the text
      */
     public String getText() {
@@ -243,7 +243,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      * @return internal {@code Utf8String} representation of text for reading
      */
     public Utf8String getTextBytes() {
@@ -251,7 +251,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      * @return internal {@code Utf8String} representation of text for modifications
      */
     public Utf8String getMutableTextBytes() {
@@ -260,7 +260,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      * @param value the text to set
      * @return this
      */
@@ -271,7 +271,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>optional string text = 12;</code>
+     * <code>optional string text = 2;</code>
      * @param value the text to set
      * @return this
      */
@@ -282,7 +282,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 to_uid_list = 4;</code>
+     * <code>repeated uint32 to_uid_list = 10;</code>
      * @return whether the toUidList field is set
      */
     public boolean hasToUidList() {
@@ -290,7 +290,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 to_uid_list = 4;</code>
+     * <code>repeated uint32 to_uid_list = 10;</code>
      * @return this
      */
     public SendMsgCsReq clearToUidList() {
@@ -300,7 +300,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 to_uid_list = 4;</code>
+     * <code>repeated uint32 to_uid_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -314,7 +314,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 to_uid_list = 4;</code>
+     * <code>repeated uint32 to_uid_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -328,7 +328,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 to_uid_list = 4;</code>
+     * <code>repeated uint32 to_uid_list = 10;</code>
      * @param value the toUidList to add
      * @return this
      */
@@ -339,7 +339,7 @@ public final class SendMsgCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 to_uid_list = 4;</code>
+     * <code>repeated uint32 to_uid_list = 10;</code>
      * @param values the toUidList to add
      * @return this
      */
@@ -434,24 +434,24 @@ public final class SendMsgCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(emote);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 88);
         output.writeEnumNoTag(msgType);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 120);
         output.writeEnumNoTag(chatType);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 98);
+        output.writeRawByte((byte) 18);
         output.writeStringNoTag(text);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         for (int i = 0; i < toUidList.length(); i++) {
-          output.writeRawByte((byte) 32);
+          output.writeRawByte((byte) 80);
           output.writeUInt32NoTag(toUidList.array()[i]);
         }
       }
@@ -485,16 +485,16 @@ public final class SendMsgCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 96: {
             // emote
             emote = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 88) {
               break;
             }
           }
-          case 40: {
+          case 88: {
             // msgType
             final int value = input.readInt32();
             if (MsgTypeOuterClass.MsgType.forNumber(value) != null) {
@@ -502,11 +502,11 @@ public final class SendMsgCsReqOuterClass {
               bitField0_ |= 0x00000002;
             }
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 120) {
               break;
             }
           }
-          case 48: {
+          case 120: {
             // chatType
             final int value = input.readInt32();
             if (ChatTypeOuterClass.ChatType.forNumber(value) != null) {
@@ -514,20 +514,20 @@ public final class SendMsgCsReqOuterClass {
               bitField0_ |= 0x00000004;
             }
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 18) {
               break;
             }
           }
-          case 98: {
+          case 18: {
             // text
             input.readString(text);
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 82) {
               break;
             }
           }
-          case 34: {
+          case 82: {
             // toUidList [packed=true]
             input.readPackedUInt32(toUidList, tag);
             bitField0_ |= 0x00000010;
@@ -546,7 +546,7 @@ public final class SendMsgCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 32: {
+          case 80: {
             // toUidList [packed=false]
             tag = input.readRepeatedUInt32(toUidList, tag);
             bitField0_ |= 0x00000010;

@@ -19,7 +19,12 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entity_id = 5;</code>
+     * <code>optional uint32 dialogue_group_id = 1;</code>
+     */
+    private int dialogueGroupId;
+
+    /**
+     * <code>optional uint32 entity_id = 15;</code>
      */
     private int entityId;
 
@@ -34,25 +39,62 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 5;</code>
-     * @return whether the entityId field is set
+     * <code>optional uint32 dialogue_group_id = 1;</code>
+     * @return whether the dialogueGroupId field is set
      */
-    public boolean hasEntityId() {
+    public boolean hasDialogueGroupId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 entity_id = 5;</code>
+     * <code>optional uint32 dialogue_group_id = 1;</code>
+     * @return this
+     */
+    public FinishRogueDialogueGroupCsReq clearDialogueGroupId() {
+      bitField0_ &= ~0x00000001;
+      dialogueGroupId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 dialogue_group_id = 1;</code>
+     * @return the dialogueGroupId
+     */
+    public int getDialogueGroupId() {
+      return dialogueGroupId;
+    }
+
+    /**
+     * <code>optional uint32 dialogue_group_id = 1;</code>
+     * @param value the dialogueGroupId to set
+     * @return this
+     */
+    public FinishRogueDialogueGroupCsReq setDialogueGroupId(final int value) {
+      bitField0_ |= 0x00000001;
+      dialogueGroupId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 15;</code>
+     * @return whether the entityId field is set
+     */
+    public boolean hasEntityId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 15;</code>
      * @return this
      */
     public FinishRogueDialogueGroupCsReq clearEntityId() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       entityId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 entity_id = 5;</code>
+     * <code>optional uint32 entity_id = 15;</code>
      * @return the entityId
      */
     public int getEntityId() {
@@ -60,12 +102,12 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 5;</code>
+     * <code>optional uint32 entity_id = 15;</code>
      * @param value the entityId to set
      * @return this
      */
     public FinishRogueDialogueGroupCsReq setEntityId(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       entityId = value;
       return this;
     }
@@ -75,6 +117,7 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        dialogueGroupId = other.dialogueGroupId;
         entityId = other.entityId;
       }
       return this;
@@ -86,6 +129,9 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasDialogueGroupId()) {
+        setDialogueGroupId(other.dialogueGroupId);
+      }
       if (other.hasEntityId()) {
         setEntityId(other.entityId);
       }
@@ -99,6 +145,7 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      dialogueGroupId = 0;
       entityId = 0;
       return this;
     }
@@ -123,13 +170,18 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
       }
       FinishRogueDialogueGroupCsReq other = (FinishRogueDialogueGroupCsReq) o;
       return bitField0_ == other.bitField0_
+        && (!hasDialogueGroupId() || dialogueGroupId == other.dialogueGroupId)
         && (!hasEntityId() || entityId == other.entityId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 8);
+        output.writeUInt32NoTag(dialogueGroupId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(entityId);
       }
     }
@@ -138,6 +190,9 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(dialogueGroupId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
       }
       return size;
@@ -150,10 +205,19 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 8: {
+            // dialogueGroupId
+            dialogueGroupId = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
             // entityId
             entityId = input.readUInt32();
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -177,6 +241,9 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeUInt32(FieldNames.dialogueGroupId, dialogueGroupId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.entityId, entityId);
       }
       output.endObject();
@@ -189,12 +256,24 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 1758320386:
+          case 1899979106: {
+            if (input.isAtField(FieldNames.dialogueGroupId)) {
+              if (!input.trySkipNullValue()) {
+                dialogueGroupId = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -2102099874:
           case -740565257: {
             if (input.isAtField(FieldNames.entityId)) {
               if (!input.trySkipNullValue()) {
                 entityId = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -256,6 +335,8 @@ public final class FinishRogueDialogueGroupCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName dialogueGroupId = FieldName.forField("dialogueGroupId", "dialogue_group_id");
+
       static final FieldName entityId = FieldName.forField("entityId", "entity_id");
     }
   }

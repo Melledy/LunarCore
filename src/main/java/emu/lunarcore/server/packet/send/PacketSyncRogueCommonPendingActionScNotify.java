@@ -10,20 +10,20 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 
 public class PacketSyncRogueCommonPendingActionScNotify extends BasePacket {
+    
     public PacketSyncRogueCommonPendingActionScNotify(RogueCommonPendingAction action) {
         super(CmdId.SyncRogueCommonPendingActionScNotify);
         
-        var proto = SyncRogueCommonPendingActionScNotify.newInstance();
-        
-        proto.setRogueCommonPendingAction(action);
-            //.setRogueVersionId(101);  // common rogue
+        var proto = SyncRogueCommonPendingActionScNotify.newInstance()
+                .setRogueCommonPendingAction(action)
+                .setRogueVersionId(101);
         
         this.setData(proto);
     }
     
     public PacketSyncRogueCommonPendingActionScNotify(RogueAction action, int id) {
         this(RogueCommonPendingAction.newInstance()
-            //.setActionUniqueId(id)
+            .setUniqueId(id)
             .setRogueAction(action));
     }
     
@@ -32,18 +32,15 @@ public class PacketSyncRogueCommonPendingActionScNotify extends BasePacket {
     }
     
     public PacketSyncRogueCommonPendingActionScNotify(RogueCommonBuffSelectInfo info, int id) {
-        this(RogueAction.newInstance()
-                .setBuffSelectInfo(info), id);
+        this(RogueAction.newInstance().setBuffSelectInfo(info), id);
     }
     
     public PacketSyncRogueCommonPendingActionScNotify(RogueMiracleSelectInfo info, int id) {
-        this(RogueAction.newInstance()
-                .setMiracleSelectInfo(info), id);
+        this(RogueAction.newInstance().setMiracleSelectInfo(info), id);
     }
     
     public PacketSyncRogueCommonPendingActionScNotify(RogueBonusSelectInfo info, int id) {
-        this(RogueAction.newInstance()
-                .setBonusSelectInfo(info), id);
+        this(RogueAction.newInstance().setBonusSelectInfo(info), id);
     }
     
     public RogueCommonPendingAction toProto() {

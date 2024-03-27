@@ -20,22 +20,22 @@ public final class RefreshTriggerByClientScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 trigger_entity_id = 5;</code>
+     * <code>optional uint32 trigger_entity_id = 1;</code>
      */
     private int triggerEntityId;
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 10;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional bool refresh_trigger = 11;</code>
+     * <code>optional bool refresh_trigger = 12;</code>
      */
     private boolean refreshTrigger;
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      */
     private final Utf8String triggerName = Utf8String.newEmptyInstance();
 
@@ -50,7 +50,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 5;</code>
+     * <code>optional uint32 trigger_entity_id = 1;</code>
      * @return whether the triggerEntityId field is set
      */
     public boolean hasTriggerEntityId() {
@@ -58,7 +58,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 5;</code>
+     * <code>optional uint32 trigger_entity_id = 1;</code>
      * @return this
      */
     public RefreshTriggerByClientScRsp clearTriggerEntityId() {
@@ -68,7 +68,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 5;</code>
+     * <code>optional uint32 trigger_entity_id = 1;</code>
      * @return the triggerEntityId
      */
     public int getTriggerEntityId() {
@@ -76,7 +76,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 trigger_entity_id = 5;</code>
+     * <code>optional uint32 trigger_entity_id = 1;</code>
      * @param value the triggerEntityId to set
      * @return this
      */
@@ -87,7 +87,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -95,7 +95,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @return this
      */
     public RefreshTriggerByClientScRsp clearRetcode() {
@@ -105,7 +105,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -113,7 +113,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -124,7 +124,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional bool refresh_trigger = 11;</code>
+     * <code>optional bool refresh_trigger = 12;</code>
      * @return whether the refreshTrigger field is set
      */
     public boolean hasRefreshTrigger() {
@@ -132,7 +132,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional bool refresh_trigger = 11;</code>
+     * <code>optional bool refresh_trigger = 12;</code>
      * @return this
      */
     public RefreshTriggerByClientScRsp clearRefreshTrigger() {
@@ -142,7 +142,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional bool refresh_trigger = 11;</code>
+     * <code>optional bool refresh_trigger = 12;</code>
      * @return the refreshTrigger
      */
     public boolean getRefreshTrigger() {
@@ -150,7 +150,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional bool refresh_trigger = 11;</code>
+     * <code>optional bool refresh_trigger = 12;</code>
      * @param value the refreshTrigger to set
      * @return this
      */
@@ -161,7 +161,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      * @return whether the triggerName field is set
      */
     public boolean hasTriggerName() {
@@ -169,7 +169,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      * @return this
      */
     public RefreshTriggerByClientScRsp clearTriggerName() {
@@ -179,7 +179,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      * @return the triggerName
      */
     public String getTriggerName() {
@@ -187,7 +187,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      * @return internal {@code Utf8String} representation of triggerName for reading
      */
     public Utf8String getTriggerNameBytes() {
@@ -195,7 +195,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      * @return internal {@code Utf8String} representation of triggerName for modifications
      */
     public Utf8String getMutableTriggerNameBytes() {
@@ -204,7 +204,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      * @param value the triggerName to set
      * @return this
      */
@@ -215,7 +215,7 @@ public final class RefreshTriggerByClientScRspOuterClass {
     }
 
     /**
-     * <code>optional string trigger_name = 9;</code>
+     * <code>optional string trigger_name = 2;</code>
      * @param value the triggerName to set
      * @return this
      */
@@ -303,19 +303,19 @@ public final class RefreshTriggerByClientScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(triggerEntityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 96);
         output.writeBoolNoTag(refreshTrigger);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 74);
+        output.writeRawByte((byte) 18);
         output.writeStringNoTag(triggerName);
       }
     }
@@ -345,34 +345,34 @@ public final class RefreshTriggerByClientScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 8: {
             // triggerEntityId
             triggerEntityId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 80) {
               break;
             }
           }
-          case 48: {
+          case 80: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 96) {
               break;
             }
           }
-          case 88: {
+          case 96: {
             // refreshTrigger
             refreshTrigger = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 18) {
               break;
             }
           }
-          case 74: {
+          case 18: {
             // triggerName
             input.readString(triggerName);
             bitField0_ |= 0x00000008;

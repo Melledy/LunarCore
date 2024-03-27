@@ -19,12 +19,12 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 room_id = 2;</code>
+     * <code>optional uint32 room_id = 4;</code>
      */
     private int roomId;
 
     /**
-     * <code>optional uint32 site_id = 5;</code>
+     * <code>optional uint32 site_id = 12;</code>
      */
     private int siteId;
 
@@ -39,7 +39,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 2;</code>
+     * <code>optional uint32 room_id = 4;</code>
      * @return whether the roomId field is set
      */
     public boolean hasRoomId() {
@@ -47,7 +47,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 2;</code>
+     * <code>optional uint32 room_id = 4;</code>
      * @return this
      */
     public EnterRogueMapRoomCsReq clearRoomId() {
@@ -57,7 +57,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 2;</code>
+     * <code>optional uint32 room_id = 4;</code>
      * @return the roomId
      */
     public int getRoomId() {
@@ -65,7 +65,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 2;</code>
+     * <code>optional uint32 room_id = 4;</code>
      * @param value the roomId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 5;</code>
+     * <code>optional uint32 site_id = 12;</code>
      * @return whether the siteId field is set
      */
     public boolean hasSiteId() {
@@ -84,7 +84,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 5;</code>
+     * <code>optional uint32 site_id = 12;</code>
      * @return this
      */
     public EnterRogueMapRoomCsReq clearSiteId() {
@@ -94,7 +94,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 5;</code>
+     * <code>optional uint32 site_id = 12;</code>
      * @return the siteId
      */
     public int getSiteId() {
@@ -102,7 +102,7 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 5;</code>
+     * <code>optional uint32 site_id = 12;</code>
      * @param value the siteId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class EnterRogueMapRoomCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(roomId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(siteId);
       }
     }
@@ -205,16 +205,16 @@ public final class EnterRogueMapRoomCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 32: {
             // roomId
             roomId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 96) {
               break;
             }
           }
-          case 40: {
+          case 96: {
             // siteId
             siteId = input.readUInt32();
             bitField0_ |= 0x00000002;

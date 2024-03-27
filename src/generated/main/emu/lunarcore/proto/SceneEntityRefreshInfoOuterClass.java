@@ -19,12 +19,12 @@ public final class SceneEntityRefreshInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 13;</code>
      */
     private int delEntity;
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 1;</code>
+     * <code>optional .SceneEntityInfo add_entity = 8;</code>
      */
     private final SceneEntityInfoOuterClass.SceneEntityInfo addEntity = SceneEntityInfoOuterClass.SceneEntityInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 13;</code>
      * @return whether the delEntity field is set
      */
     public boolean hasDelEntity() {
@@ -47,7 +47,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 13;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearDelEntity() {
@@ -57,7 +57,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 13;</code>
      * @return the delEntity
      */
     public int getDelEntity() {
@@ -65,7 +65,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 del_entity = 7;</code>
+     * <code>optional uint32 del_entity = 13;</code>
      * @param value the delEntity to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 1;</code>
+     * <code>optional .SceneEntityInfo add_entity = 8;</code>
      * @return whether the addEntity field is set
      */
     public boolean hasAddEntity() {
@@ -84,7 +84,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 1;</code>
+     * <code>optional .SceneEntityInfo add_entity = 8;</code>
      * @return this
      */
     public SceneEntityRefreshInfo clearAddEntity() {
@@ -94,7 +94,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 1;</code>
+     * <code>optional .SceneEntityInfo add_entity = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 1;</code>
+     * <code>optional .SceneEntityInfo add_entity = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class SceneEntityRefreshInfoOuterClass {
     }
 
     /**
-     * <code>optional .SceneEntityInfo add_entity = 1;</code>
+     * <code>optional .SceneEntityInfo add_entity = 8;</code>
      * @param value the addEntity to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class SceneEntityRefreshInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(delEntity);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 10);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(addEntity);
       }
     }
@@ -227,16 +227,16 @@ public final class SceneEntityRefreshInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 104: {
             // delEntity
             delEntity = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 66) {
               break;
             }
           }
-          case 10: {
+          case 66: {
             // addEntity
             input.readMessage(addEntity);
             bitField0_ |= 0x00000002;

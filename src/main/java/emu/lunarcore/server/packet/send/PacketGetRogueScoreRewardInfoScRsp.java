@@ -1,5 +1,6 @@
 package emu.lunarcore.server.packet.send;
 
+import java.util.stream.IntStream;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.GetRogueScoreRewardInfoScRspOuterClass.GetRogueScoreRewardInfoScRsp;
 import emu.lunarcore.server.packet.BasePacket;
@@ -19,10 +20,12 @@ public class PacketGetRogueScoreRewardInfoScRsp extends BasePacket {
 
         data.getMutableScoreRewardInfo()
             .setPoolId(20 + player.getWorldLevel()) // TODO pool ids should not change when world level changes
-            .setPoolRefreshed(true)
+            .setPoolRefreshed(false)
+            .setScore(14000)
             .setHasTakenInitialScore(true)
             .setBeginTime(beginTime)
-            .setEndTime(endTime);
+            .setEndTime(endTime)
+            .addAllHasTakenReward(IntStream.rangeClosed(1, 20).flatMap(i -> IntStream.generate(() -> i).limit(20)).toArray());
         
         this.setData(data);
     }

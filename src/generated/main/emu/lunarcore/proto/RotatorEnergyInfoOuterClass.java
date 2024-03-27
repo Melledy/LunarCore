@@ -19,12 +19,12 @@ public final class RotatorEnergyInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 cur_num = 3;</code>
+     * <code>optional uint32 cur_num = 2;</code>
      */
     private int curNum;
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <code>optional uint32 max_num = 6;</code>
      */
     private int maxNum;
 
@@ -39,7 +39,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 3;</code>
+     * <code>optional uint32 cur_num = 2;</code>
      * @return whether the curNum field is set
      */
     public boolean hasCurNum() {
@@ -47,7 +47,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 3;</code>
+     * <code>optional uint32 cur_num = 2;</code>
      * @return this
      */
     public RotatorEnergyInfo clearCurNum() {
@@ -57,7 +57,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 3;</code>
+     * <code>optional uint32 cur_num = 2;</code>
      * @return the curNum
      */
     public int getCurNum() {
@@ -65,7 +65,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 3;</code>
+     * <code>optional uint32 cur_num = 2;</code>
      * @param value the curNum to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <code>optional uint32 max_num = 6;</code>
      * @return whether the maxNum field is set
      */
     public boolean hasMaxNum() {
@@ -84,7 +84,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <code>optional uint32 max_num = 6;</code>
      * @return this
      */
     public RotatorEnergyInfo clearMaxNum() {
@@ -94,7 +94,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <code>optional uint32 max_num = 6;</code>
      * @return the maxNum
      */
     public int getMaxNum() {
@@ -102,7 +102,7 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <code>optional uint32 max_num = 6;</code>
      * @param value the maxNum to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RotatorEnergyInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(curNum);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(maxNum);
       }
     }
@@ -205,16 +205,16 @@ public final class RotatorEnergyInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 16: {
             // curNum
             curNum = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 48) {
               break;
             }
           }
-          case 112: {
+          case 48: {
             // maxNum
             maxNum = input.readUInt32();
             bitField0_ |= 0x00000002;

@@ -24,7 +24,7 @@ public final class PileItemOuterClass {
     private int itemId;
 
     /**
-     * <code>optional uint32 item_num = 14;</code>
+     * <code>optional uint32 item_num = 12;</code>
      */
     private int itemNum;
 
@@ -76,7 +76,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 14;</code>
+     * <code>optional uint32 item_num = 12;</code>
      * @return whether the itemNum field is set
      */
     public boolean hasItemNum() {
@@ -84,7 +84,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 14;</code>
+     * <code>optional uint32 item_num = 12;</code>
      * @return this
      */
     public PileItem clearItemNum() {
@@ -94,7 +94,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 14;</code>
+     * <code>optional uint32 item_num = 12;</code>
      * @return the itemNum
      */
     public int getItemNum() {
@@ -102,7 +102,7 @@ public final class PileItemOuterClass {
     }
 
     /**
-     * <code>optional uint32 item_num = 14;</code>
+     * <code>optional uint32 item_num = 12;</code>
      * @param value the itemNum to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class PileItemOuterClass {
         output.writeUInt32NoTag(itemId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(itemNum);
       }
     }
@@ -210,11 +210,11 @@ public final class PileItemOuterClass {
             itemId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 96) {
               break;
             }
           }
-          case 112: {
+          case 96: {
             // itemNum
             itemNum = input.readUInt32();
             bitField0_ |= 0x00000002;

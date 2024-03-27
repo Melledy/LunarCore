@@ -19,12 +19,12 @@ public final class SceneMonsterWaveParamOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 hard_level_group = 3;</code>
+     * <code>optional uint32 hard_level_group = 4;</code>
      */
     private int hardLevelGroup;
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 6;</code>
      */
     private int level;
 
@@ -44,7 +44,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 hard_level_group = 3;</code>
+     * <code>optional uint32 hard_level_group = 4;</code>
      * @return whether the hardLevelGroup field is set
      */
     public boolean hasHardLevelGroup() {
@@ -52,7 +52,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 hard_level_group = 3;</code>
+     * <code>optional uint32 hard_level_group = 4;</code>
      * @return this
      */
     public SceneMonsterWaveParam clearHardLevelGroup() {
@@ -62,7 +62,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 hard_level_group = 3;</code>
+     * <code>optional uint32 hard_level_group = 4;</code>
      * @return the hardLevelGroup
      */
     public int getHardLevelGroup() {
@@ -70,7 +70,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 hard_level_group = 3;</code>
+     * <code>optional uint32 hard_level_group = 4;</code>
      * @param value the hardLevelGroup to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 6;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -89,7 +89,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 6;</code>
      * @return this
      */
     public SceneMonsterWaveParam clearLevel() {
@@ -99,7 +99,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 6;</code>
      * @return the level
      */
     public int getLevel() {
@@ -107,7 +107,7 @@ public final class SceneMonsterWaveParamOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 8;</code>
+     * <code>optional uint32 level = 6;</code>
      * @param value the level to set
      * @return this
      */
@@ -225,11 +225,11 @@ public final class SceneMonsterWaveParamOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(hardLevelGroup);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -260,16 +260,16 @@ public final class SceneMonsterWaveParamOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 32: {
             // hardLevelGroup
             hardLevelGroup = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 48) {
               break;
             }
           }
-          case 64: {
+          case 48: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000002;

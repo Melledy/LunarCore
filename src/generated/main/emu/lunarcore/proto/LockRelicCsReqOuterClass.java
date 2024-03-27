@@ -19,12 +19,12 @@ public final class LockRelicCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 relic_unique_id = 1;</code>
+     * <code>optional uint32 relic_unique_id = 2;</code>
      */
     private int relicUniqueId;
 
     /**
-     * <code>optional bool is_protected = 10;</code>
+     * <code>optional bool is_protected = 11;</code>
      */
     private boolean isProtected;
 
@@ -39,7 +39,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 1;</code>
+     * <code>optional uint32 relic_unique_id = 2;</code>
      * @return whether the relicUniqueId field is set
      */
     public boolean hasRelicUniqueId() {
@@ -47,7 +47,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 1;</code>
+     * <code>optional uint32 relic_unique_id = 2;</code>
      * @return this
      */
     public LockRelicCsReq clearRelicUniqueId() {
@@ -57,7 +57,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 1;</code>
+     * <code>optional uint32 relic_unique_id = 2;</code>
      * @return the relicUniqueId
      */
     public int getRelicUniqueId() {
@@ -65,7 +65,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_unique_id = 1;</code>
+     * <code>optional uint32 relic_unique_id = 2;</code>
      * @param value the relicUniqueId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 10;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @return whether the isProtected field is set
      */
     public boolean hasIsProtected() {
@@ -84,7 +84,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 10;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @return this
      */
     public LockRelicCsReq clearIsProtected() {
@@ -94,7 +94,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 10;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @return the isProtected
      */
     public boolean getIsProtected() {
@@ -102,7 +102,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 10;</code>
+     * <code>optional bool is_protected = 11;</code>
      * @param value the isProtected to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class LockRelicCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(relicUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 88);
         output.writeBoolNoTag(isProtected);
       }
     }
@@ -205,16 +205,16 @@ public final class LockRelicCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 16: {
             // relicUniqueId
             relicUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 88) {
               break;
             }
           }
-          case 80: {
+          case 88: {
             // isProtected
             isProtected = input.readBool();
             bitField0_ |= 0x00000002;

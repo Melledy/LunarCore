@@ -19,12 +19,12 @@ public final class RogueHandbookMiracleOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      */
     private int miracleId;
 
     /**
-     * <code>optional bool is_unlocked = 4;</code>
+     * <code>optional bool is_unlocked = 14;</code>
      */
     private boolean isUnlocked;
 
@@ -39,7 +39,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @return whether the miracleId field is set
      */
     public boolean hasMiracleId() {
@@ -47,7 +47,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @return this
      */
     public RogueHandbookMiracle clearMiracleId() {
@@ -57,7 +57,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @return the miracleId
      */
     public int getMiracleId() {
@@ -65,7 +65,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 3;</code>
      * @param value the miracleId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 4;</code>
+     * <code>optional bool is_unlocked = 14;</code>
      * @return whether the isUnlocked field is set
      */
     public boolean hasIsUnlocked() {
@@ -84,7 +84,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 4;</code>
+     * <code>optional bool is_unlocked = 14;</code>
      * @return this
      */
     public RogueHandbookMiracle clearIsUnlocked() {
@@ -94,7 +94,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 4;</code>
+     * <code>optional bool is_unlocked = 14;</code>
      * @return the isUnlocked
      */
     public boolean getIsUnlocked() {
@@ -102,7 +102,7 @@ public final class RogueHandbookMiracleOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 4;</code>
+     * <code>optional bool is_unlocked = 14;</code>
      * @param value the isUnlocked to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RogueHandbookMiracleOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(miracleId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 112);
         output.writeBoolNoTag(isUnlocked);
       }
     }
@@ -205,16 +205,16 @@ public final class RogueHandbookMiracleOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 24: {
             // miracleId
             miracleId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 112) {
               break;
             }
           }
-          case 32: {
+          case 112: {
             // isUnlocked
             isUnlocked = input.readBool();
             bitField0_ |= 0x00000002;

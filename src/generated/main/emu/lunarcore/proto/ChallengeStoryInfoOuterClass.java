@@ -33,6 +33,17 @@ public final class ChallengeStoryInfoOuterClass {
       return new ChallengeStoryInfo();
     }
 
+    public boolean hasStoryBuffs() {
+      return (((bitField0_ & 0x00000001)) != 0);
+    }
+
+    public ChallengeStoryInfo clearStoryBuffs() {
+      if (hasStoryBuffs()) {
+        clearCurStoryBuffs();
+      }
+      return this;
+    }
+
     /**
      * <code>optional .ChallengeStoryBuffInfo cur_story_buffs = 1;</code>
      * @return whether the curStoryBuffs field is set

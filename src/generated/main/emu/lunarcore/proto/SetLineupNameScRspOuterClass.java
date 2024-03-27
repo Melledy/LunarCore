@@ -20,17 +20,17 @@ public final class SetLineupNameScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 5;</code>
      */
     private int index;
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 13;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      */
     private final Utf8String name = Utf8String.newEmptyInstance();
 
@@ -45,7 +45,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 5;</code>
      * @return whether the index field is set
      */
     public boolean hasIndex() {
@@ -53,7 +53,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 5;</code>
      * @return this
      */
     public SetLineupNameScRsp clearIndex() {
@@ -63,7 +63,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 5;</code>
      * @return the index
      */
     public int getIndex() {
@@ -71,7 +71,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 6;</code>
+     * <code>optional uint32 index = 5;</code>
      * @param value the index to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -90,7 +90,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @return this
      */
     public SetLineupNameScRsp clearRetcode() {
@@ -100,7 +100,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -108,7 +108,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      * @return whether the name field is set
      */
     public boolean hasName() {
@@ -127,7 +127,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      * @return this
      */
     public SetLineupNameScRsp clearName() {
@@ -137,7 +137,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      * @return the name
      */
     public String getName() {
@@ -145,7 +145,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      * @return internal {@code Utf8String} representation of name for reading
      */
     public Utf8String getNameBytes() {
@@ -153,7 +153,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      * @return internal {@code Utf8String} representation of name for modifications
      */
     public Utf8String getMutableNameBytes() {
@@ -162,7 +162,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      * @param value the name to set
      * @return this
      */
@@ -173,7 +173,7 @@ public final class SetLineupNameScRspOuterClass {
     }
 
     /**
-     * <code>optional string name = 15;</code>
+     * <code>optional string name = 9;</code>
      * @param value the name to set
      * @return this
      */
@@ -255,15 +255,15 @@ public final class SetLineupNameScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(index);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 122);
+        output.writeRawByte((byte) 74);
         output.writeStringNoTag(name);
       }
     }
@@ -290,25 +290,25 @@ public final class SetLineupNameScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 40: {
             // index
             index = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 104) {
               break;
             }
           }
-          case 72: {
+          case 104: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 74) {
               break;
             }
           }
-          case 122: {
+          case 74: {
             // name
             input.readString(name);
             bitField0_ |= 0x00000004;

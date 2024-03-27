@@ -19,7 +19,7 @@ public final class RogueAeonOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 aeon_id = 10;</code>
+     * <code>optional uint32 aeon_id = 15;</code>
      */
     private int aeonId;
 
@@ -43,7 +43,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 10;</code>
+     * <code>optional uint32 aeon_id = 15;</code>
      * @return whether the aeonId field is set
      */
     public boolean hasAeonId() {
@@ -51,7 +51,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 10;</code>
+     * <code>optional uint32 aeon_id = 15;</code>
      * @return this
      */
     public RogueAeon clearAeonId() {
@@ -61,7 +61,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 10;</code>
+     * <code>optional uint32 aeon_id = 15;</code>
      * @return the aeonId
      */
     public int getAeonId() {
@@ -69,7 +69,7 @@ public final class RogueAeonOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 10;</code>
+     * <code>optional uint32 aeon_id = 15;</code>
      * @param value the aeonId to set
      * @return this
      */
@@ -197,7 +197,7 @@ public final class RogueAeonOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -225,7 +225,7 @@ public final class RogueAeonOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 120: {
             // aeonId
             aeonId = input.readUInt32();
             bitField0_ |= 0x00000001;

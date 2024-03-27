@@ -19,12 +19,12 @@ public final class MonsterArchiveOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
+     * <code>optional uint32 monster_id = 2;</code>
      */
     private int monsterId;
 
     /**
-     * <code>optional uint32 num = 13;</code>
+     * <code>optional uint32 num = 9;</code>
      */
     private int num;
 
@@ -39,7 +39,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
+     * <code>optional uint32 monster_id = 2;</code>
      * @return whether the monsterId field is set
      */
     public boolean hasMonsterId() {
@@ -47,7 +47,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
+     * <code>optional uint32 monster_id = 2;</code>
      * @return this
      */
     public MonsterArchive clearMonsterId() {
@@ -57,7 +57,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
+     * <code>optional uint32 monster_id = 2;</code>
      * @return the monsterId
      */
     public int getMonsterId() {
@@ -65,7 +65,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
+     * <code>optional uint32 monster_id = 2;</code>
      * @param value the monsterId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 13;</code>
+     * <code>optional uint32 num = 9;</code>
      * @return whether the num field is set
      */
     public boolean hasNum() {
@@ -84,7 +84,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 13;</code>
+     * <code>optional uint32 num = 9;</code>
      * @return this
      */
     public MonsterArchive clearNum() {
@@ -94,7 +94,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 13;</code>
+     * <code>optional uint32 num = 9;</code>
      * @return the num
      */
     public int getNum() {
@@ -102,7 +102,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 13;</code>
+     * <code>optional uint32 num = 9;</code>
      * @param value the num to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class MonsterArchiveOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(monsterId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(num);
       }
     }
@@ -205,16 +205,16 @@ public final class MonsterArchiveOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 16: {
             // monsterId
             monsterId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 72) {
               break;
             }
           }
-          case 104: {
+          case 72: {
             // num
             num = input.readUInt32();
             bitField0_ |= 0x00000002;

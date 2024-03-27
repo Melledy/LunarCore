@@ -182,12 +182,8 @@ public class RogueInstance {
             for (int i = 0; i < amount; i++) {
                 this.pendingBuffSelects.add(buffs);
             }
-            RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
+            this.updateBuffSelect();
         }
-        
-//        if (buffSelect != null) {
-//            getPlayer().sendPacket(new PacketSyncRogueBuffSelectInfoScNotify(buffSelect));
-//        }
     }
     
     public synchronized void createBuffSelect(int amount, Set<RogueBuffData> buffs) {
@@ -195,18 +191,16 @@ public class RogueInstance {
             for (int i = 0; i < amount; i++) {
                 this.pendingBuffSelects.add(buffs);
             }
-            RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
+            
+            this.updateBuffSelect();
         }
-//        if (buffSelect != null) {
-//            getPlayer().sendPacket(new PacketSyncRogueBuffSelectInfoScNotify(buffSelect));
-//        }
     }
     
     public synchronized void createBuffSelect(int amount) {
         for (int i = 0; i < amount; i++) {
             this.pendingBuffSelects.add(normalBuff);
         }
-        RogueBuffSelectMenu buffSelect = this.updateBuffSelect();
+        this.updateBuffSelect();
     }
     
     public synchronized RogueBuffSelectMenu updateBuffSelect() {
@@ -318,11 +312,7 @@ public class RogueInstance {
     
     public synchronized void createMiracleSelect(int amount) {
         this.pendingMiracleSelects += amount;
-        
-        RogueMiracleSelectMenu miracleSelect = this.updateMiracleSelect();
-//        if (miracleSelect != null) {
-//            getPlayer().sendPacket(new PacketSyncRogueMiracleSelectInfoScNotify(miracleSelect));
-//        }
+        this.updateMiracleSelect();
     }
     
     public synchronized RogueMiracleSelectMenu updateMiracleSelect() {
@@ -359,7 +349,7 @@ public class RogueInstance {
         this.miracleSelect = null;
         this.pendingAction = null;
         this.getMiracles().put(miracle.getId(), miracle);
-        //getPlayer().sendPacket(new PacketAddRogueMiracleScNotify(miracle, RogueMiracleSource.ROGUE_MIRACLE_SOURCE_TYPE_SELECT));
+        
         this.updateMiracleSelect();
         this.getPlayer().sendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_SELECT, miracle.toDataProto()));
         
@@ -372,8 +362,7 @@ public class RogueInstance {
     
     public synchronized void createBonusSelect(int amount) {
         this.pendingBonusSelects += amount;
-
-        RogueBonusSelectMenu bonusSelect = this.updateBonusSelect();
+        this.updateBonusSelect();
     }
     
     public synchronized RogueBonusSelectMenu updateBonusSelect() {
@@ -430,10 +419,20 @@ public class RogueInstance {
         this.getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this.getPlayer()));
     }
     
+    public synchronized void addMoney(int amount) {
+        this.setMoney(this.money + amount);
+    }
+    
     public synchronized void addDialogueMoney(int money) {
         this.money += money;
         this.getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this.getPlayer()));
         this.getPlayer().sendPacket(new PacketSyncRogueCommonActionResultScNotify(RogueBuffSource.ROGUE_BUFF_SOURCE_TYPE_DIALOGUE, money));
+    }
+
+    public synchronized void addCommandMoney(int money_num) {
+        this.money += money_num;
+        this.getPlayer().sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this.getPlayer()));
+        this.getPlayer().sendPacket(new PacketScenePlaneEventScNotify(new GameItem(31, money)));
     }
     
     public synchronized void pickAvatar(RepeatedInt avatarId) {
@@ -595,12 +594,12 @@ public class RogueInstance {
             } else {
                 // Give blessings to player
                 int amount = battle.getNpcMonsters().size();
-                if (this.getCurrentRoom().getExcel().getRogueRoomType() == 6) {  // area boss
+                if (this.getCurrentRoom().getExcel().getRogueRoomType() == RogueRoomType.ELITE.getVal()) {
                     this.createBuffSelect(amount, this.getUncommonBuff());
                 } else {
                     this.createBuffSelect(amount);
                 }
-                this.setMoney(this.getMoney() + Utils.randomRange(20, 80) * amount);
+                this.addMoney(Utils.randomRange(20, 40) * amount);
             }
         } else {
             this.getPlayer().getRogueManager().quitRogue();
@@ -630,7 +629,7 @@ public class RogueInstance {
                 .setRoomMap(this.toMapInfoProto())
                 .setRogueBuffInfo(this.toBuffInfoProto())
                 .setRogueMiracleInfo(this.toMiracleInfoProto())
-                .setRogueAeon(this.toAeonProto())
+                .setRogueAeonInfo(this.toAeonProto())
                 .setRogueVirtualItem(this.toVirtualItemProto());
         
         if (pendingAction != null) {

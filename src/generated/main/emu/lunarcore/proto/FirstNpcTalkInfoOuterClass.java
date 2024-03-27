@@ -19,14 +19,14 @@ public final class FirstNpcTalkInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 npc_id = 3;</code>
+     * <code>optional uint32 npc_id = 15;</code>
      */
     private int npcId;
 
     /**
-     * <code>optional bool KGCJMBBFBIA = 7;</code>
+     * <code>optional bool unk_bool = 12;</code>
      */
-    private boolean kGCJMBBFBIA;
+    private boolean unkBool;
 
     private FirstNpcTalkInfo() {
     }
@@ -39,7 +39,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 3;</code>
+     * <code>optional uint32 npc_id = 15;</code>
      * @return whether the npcId field is set
      */
     public boolean hasNpcId() {
@@ -47,7 +47,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 3;</code>
+     * <code>optional uint32 npc_id = 15;</code>
      * @return this
      */
     public FirstNpcTalkInfo clearNpcId() {
@@ -57,7 +57,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 3;</code>
+     * <code>optional uint32 npc_id = 15;</code>
      * @return the npcId
      */
     public int getNpcId() {
@@ -65,7 +65,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 3;</code>
+     * <code>optional uint32 npc_id = 15;</code>
      * @param value the npcId to set
      * @return this
      */
@@ -76,39 +76,39 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional bool KGCJMBBFBIA = 7;</code>
-     * @return whether the kGCJMBBFBIA field is set
+     * <code>optional bool unk_bool = 12;</code>
+     * @return whether the unkBool field is set
      */
-    public boolean hasKGCJMBBFBIA() {
+    public boolean hasUnkBool() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional bool KGCJMBBFBIA = 7;</code>
+     * <code>optional bool unk_bool = 12;</code>
      * @return this
      */
-    public FirstNpcTalkInfo clearKGCJMBBFBIA() {
+    public FirstNpcTalkInfo clearUnkBool() {
       bitField0_ &= ~0x00000002;
-      kGCJMBBFBIA = false;
+      unkBool = false;
       return this;
     }
 
     /**
-     * <code>optional bool KGCJMBBFBIA = 7;</code>
-     * @return the kGCJMBBFBIA
+     * <code>optional bool unk_bool = 12;</code>
+     * @return the unkBool
      */
-    public boolean getKGCJMBBFBIA() {
-      return kGCJMBBFBIA;
+    public boolean getUnkBool() {
+      return unkBool;
     }
 
     /**
-     * <code>optional bool KGCJMBBFBIA = 7;</code>
-     * @param value the kGCJMBBFBIA to set
+     * <code>optional bool unk_bool = 12;</code>
+     * @param value the unkBool to set
      * @return this
      */
-    public FirstNpcTalkInfo setKGCJMBBFBIA(final boolean value) {
+    public FirstNpcTalkInfo setUnkBool(final boolean value) {
       bitField0_ |= 0x00000002;
-      kGCJMBBFBIA = value;
+      unkBool = value;
       return this;
     }
 
@@ -118,7 +118,7 @@ public final class FirstNpcTalkInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         npcId = other.npcId;
-        kGCJMBBFBIA = other.kGCJMBBFBIA;
+        unkBool = other.unkBool;
       }
       return this;
     }
@@ -132,8 +132,8 @@ public final class FirstNpcTalkInfoOuterClass {
       if (other.hasNpcId()) {
         setNpcId(other.npcId);
       }
-      if (other.hasKGCJMBBFBIA()) {
-        setKGCJMBBFBIA(other.kGCJMBBFBIA);
+      if (other.hasUnkBool()) {
+        setUnkBool(other.unkBool);
       }
       return this;
     }
@@ -146,7 +146,7 @@ public final class FirstNpcTalkInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       npcId = 0;
-      kGCJMBBFBIA = false;
+      unkBool = false;
       return this;
     }
 
@@ -171,18 +171,18 @@ public final class FirstNpcTalkInfoOuterClass {
       FirstNpcTalkInfo other = (FirstNpcTalkInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasNpcId() || npcId == other.npcId)
-        && (!hasKGCJMBBFBIA() || kGCJMBBFBIA == other.kGCJMBBFBIA);
+        && (!hasUnkBool() || unkBool == other.unkBool);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeBoolNoTag(kGCJMBBFBIA);
+        output.writeRawByte((byte) 96);
+        output.writeBoolNoTag(unkBool);
       }
     }
 
@@ -205,18 +205,18 @@ public final class FirstNpcTalkInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 120: {
             // npcId
             npcId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 96) {
               break;
             }
           }
-          case 56: {
-            // kGCJMBBFBIA
-            kGCJMBBFBIA = input.readBool();
+          case 96: {
+            // unkBool
+            unkBool = input.readBool();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -244,7 +244,7 @@ public final class FirstNpcTalkInfoOuterClass {
         output.writeUInt32(FieldNames.npcId, npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.kGCJMBBFBIA, kGCJMBBFBIA);
+        output.writeBool(FieldNames.unkBool, unkBool);
       }
       output.endObject();
     }
@@ -268,10 +268,11 @@ public final class FirstNpcTalkInfoOuterClass {
             }
             break;
           }
-          case -1845407362: {
-            if (input.isAtField(FieldNames.kGCJMBBFBIA)) {
+          case -286151940:
+          case -254380521: {
+            if (input.isAtField(FieldNames.unkBool)) {
               if (!input.trySkipNullValue()) {
-                kGCJMBBFBIA = input.readBool();
+                unkBool = input.readBool();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -334,7 +335,7 @@ public final class FirstNpcTalkInfoOuterClass {
     static class FieldNames {
       static final FieldName npcId = FieldName.forField("npcId", "npc_id");
 
-      static final FieldName kGCJMBBFBIA = FieldName.forField("KGCJMBBFBIA");
+      static final FieldName unkBool = FieldName.forField("unkBool", "unk_bool");
     }
   }
 }

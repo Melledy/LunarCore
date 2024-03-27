@@ -19,34 +19,34 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     * PHDCDDGMOJD MKNBOHDIBMC = 1285;
-     * LNKCIHHBMCN LMGOMLNGOCL = 1618;
-     * ECNFHANMIJD PCEFILHFHDH = 368;
-     * GOGIJMPCNAO FBDCGDPCBNL = 569;
-     * </pre>
-     *
-     * <code>optional .RogueBonusSelectResult bonus_select_result = 136;</code>
-     */
-    private final RogueBonusSelectResultOuterClass.RogueBonusSelectResult bonusSelectResult = RogueBonusSelectResultOuterClass.RogueBonusSelectResult.newInstance();
-
-    /**
-     * <code>optional .RogueMiracleSelectResult miracle_select_result = 194;</code>
+     * <code>optional .RogueMiracleSelectResult miracle_select_result = 1175;</code>
      */
     private final RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult miracleSelectResult = RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult.newInstance();
 
     /**
      * <pre>
-     * KINJFMEPCKE LIIGPIFDPLK = 1157;
-     * CKGDDAIDEMO OECLKHEGBFM = 1521;
+     * JACBIHGHBBH GINJAHMNLMN = 21;
+     * DIALLJLHKEK NLCPCIOBHKN = 1424;
+     * OLNALBGNCPE NFPPMBBMMJL = 1886;
+     * JFCGPBHHKLD EFGNPNPEDEA = 220;
      * </pre>
      *
-     * <code>optional .RogueBuffRollInfo roll_buff = 689;</code>
+     * <code>optional .RogueBonusSelectResult bonus_select_result = 1242;</code>
+     */
+    private final RogueBonusSelectResultOuterClass.RogueBonusSelectResult bonusSelectResult = RogueBonusSelectResultOuterClass.RogueBonusSelectResult.newInstance();
+
+    /**
+     * <pre>
+     * JNJLFGDKHJC GKCFOFJCFLO = 907;
+     * FCCPIEBHDJA NLMFGNLNHJL = 1353;
+     * </pre>
+     *
+     * <code>optional .RogueBuffRollInfo roll_buff = 1414;</code>
      */
     private final RogueBuffRollInfoOuterClass.RogueBuffRollInfo rollBuff = RogueBuffRollInfoOuterClass.RogueBuffRollInfo.newInstance();
 
     /**
-     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1139;</code>
+     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1802;</code>
      */
     private final RogueCommonBuffSelectResultOuterClass.RogueCommonBuffSelectResult buffSelectResult = RogueCommonBuffSelectResultOuterClass.RogueCommonBuffSelectResult.newInstance();
 
@@ -61,46 +61,105 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     * PHDCDDGMOJD MKNBOHDIBMC = 1285;
-     * LNKCIHHBMCN LMGOMLNGOCL = 1618;
-     * ECNFHANMIJD PCEFILHFHDH = 368;
-     * GOGIJMPCNAO FBDCGDPCBNL = 569;
-     * </pre>
-     *
-     * <code>optional .RogueBonusSelectResult bonus_select_result = 136;</code>
-     * @return whether the bonusSelectResult field is set
+     * <code>optional .RogueMiracleSelectResult miracle_select_result = 1175;</code>
+     * @return whether the miracleSelectResult field is set
      */
-    public boolean hasBonusSelectResult() {
+    public boolean hasMiracleSelectResult() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
+     * <code>optional .RogueMiracleSelectResult miracle_select_result = 1175;</code>
+     * @return this
+     */
+    public HandleRogueCommonPendingActionCsReq clearMiracleSelectResult() {
+      bitField0_ &= ~0x00000001;
+      miracleSelectResult.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueMiracleSelectResult miracle_select_result = 1175;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableMiracleSelectResult()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult getMiracleSelectResult() {
+      return miracleSelectResult;
+    }
+
+    /**
+     * <code>optional .RogueMiracleSelectResult miracle_select_result = 1175;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult getMutableMiracleSelectResult(
+        ) {
+      bitField0_ |= 0x00000001;
+      return miracleSelectResult;
+    }
+
+    /**
+     * <code>optional .RogueMiracleSelectResult miracle_select_result = 1175;</code>
+     * @param value the miracleSelectResult to set
+     * @return this
+     */
+    public HandleRogueCommonPendingActionCsReq setMiracleSelectResult(
+        final RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult value) {
+      bitField0_ |= 0x00000001;
+      miracleSelectResult.copyFrom(value);
+      return this;
+    }
+
+    /**
      * <pre>
-     * PHDCDDGMOJD MKNBOHDIBMC = 1285;
-     * LNKCIHHBMCN LMGOMLNGOCL = 1618;
-     * ECNFHANMIJD PCEFILHFHDH = 368;
-     * GOGIJMPCNAO FBDCGDPCBNL = 569;
+     * JACBIHGHBBH GINJAHMNLMN = 21;
+     * DIALLJLHKEK NLCPCIOBHKN = 1424;
+     * OLNALBGNCPE NFPPMBBMMJL = 1886;
+     * JFCGPBHHKLD EFGNPNPEDEA = 220;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectResult bonus_select_result = 136;</code>
+     * <code>optional .RogueBonusSelectResult bonus_select_result = 1242;</code>
+     * @return whether the bonusSelectResult field is set
+     */
+    public boolean hasBonusSelectResult() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <pre>
+     * JACBIHGHBBH GINJAHMNLMN = 21;
+     * DIALLJLHKEK NLCPCIOBHKN = 1424;
+     * OLNALBGNCPE NFPPMBBMMJL = 1886;
+     * JFCGPBHHKLD EFGNPNPEDEA = 220;
+     * </pre>
+     *
+     * <code>optional .RogueBonusSelectResult bonus_select_result = 1242;</code>
      * @return this
      */
     public HandleRogueCommonPendingActionCsReq clearBonusSelectResult() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       bonusSelectResult.clear();
       return this;
     }
 
     /**
      * <pre>
-     * PHDCDDGMOJD MKNBOHDIBMC = 1285;
-     * LNKCIHHBMCN LMGOMLNGOCL = 1618;
-     * ECNFHANMIJD PCEFILHFHDH = 368;
-     * GOGIJMPCNAO FBDCGDPCBNL = 569;
+     * JACBIHGHBBH GINJAHMNLMN = 21;
+     * DIALLJLHKEK NLCPCIOBHKN = 1424;
+     * OLNALBGNCPE NFPPMBBMMJL = 1886;
+     * JFCGPBHHKLD EFGNPNPEDEA = 220;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectResult bonus_select_result = 136;</code>
+     * <code>optional .RogueBonusSelectResult bonus_select_result = 1242;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -115,13 +174,13 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
 
     /**
      * <pre>
-     * PHDCDDGMOJD MKNBOHDIBMC = 1285;
-     * LNKCIHHBMCN LMGOMLNGOCL = 1618;
-     * ECNFHANMIJD PCEFILHFHDH = 368;
-     * GOGIJMPCNAO FBDCGDPCBNL = 569;
+     * JACBIHGHBBH GINJAHMNLMN = 21;
+     * DIALLJLHKEK NLCPCIOBHKN = 1424;
+     * OLNALBGNCPE NFPPMBBMMJL = 1886;
+     * JFCGPBHHKLD EFGNPNPEDEA = 220;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectResult bonus_select_result = 136;</code>
+     * <code>optional .RogueBonusSelectResult bonus_select_result = 1242;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -130,95 +189,36 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
      * @return internal storage object for modifications
      */
     public RogueBonusSelectResultOuterClass.RogueBonusSelectResult getMutableBonusSelectResult() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return bonusSelectResult;
     }
 
     /**
      * <pre>
-     * PHDCDDGMOJD MKNBOHDIBMC = 1285;
-     * LNKCIHHBMCN LMGOMLNGOCL = 1618;
-     * ECNFHANMIJD PCEFILHFHDH = 368;
-     * GOGIJMPCNAO FBDCGDPCBNL = 569;
+     * JACBIHGHBBH GINJAHMNLMN = 21;
+     * DIALLJLHKEK NLCPCIOBHKN = 1424;
+     * OLNALBGNCPE NFPPMBBMMJL = 1886;
+     * JFCGPBHHKLD EFGNPNPEDEA = 220;
      * </pre>
      *
-     * <code>optional .RogueBonusSelectResult bonus_select_result = 136;</code>
+     * <code>optional .RogueBonusSelectResult bonus_select_result = 1242;</code>
      * @param value the bonusSelectResult to set
      * @return this
      */
     public HandleRogueCommonPendingActionCsReq setBonusSelectResult(
         final RogueBonusSelectResultOuterClass.RogueBonusSelectResult value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       bonusSelectResult.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional .RogueMiracleSelectResult miracle_select_result = 194;</code>
-     * @return whether the miracleSelectResult field is set
-     */
-    public boolean hasMiracleSelectResult() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional .RogueMiracleSelectResult miracle_select_result = 194;</code>
-     * @return this
-     */
-    public HandleRogueCommonPendingActionCsReq clearMiracleSelectResult() {
-      bitField0_ &= ~0x00000002;
-      miracleSelectResult.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueMiracleSelectResult miracle_select_result = 194;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableMiracleSelectResult()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult getMiracleSelectResult() {
-      return miracleSelectResult;
-    }
-
-    /**
-     * <code>optional .RogueMiracleSelectResult miracle_select_result = 194;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult getMutableMiracleSelectResult(
-        ) {
-      bitField0_ |= 0x00000002;
-      return miracleSelectResult;
-    }
-
-    /**
-     * <code>optional .RogueMiracleSelectResult miracle_select_result = 194;</code>
-     * @param value the miracleSelectResult to set
-     * @return this
-     */
-    public HandleRogueCommonPendingActionCsReq setMiracleSelectResult(
-        final RogueMiracleSelectResultOuterClass.RogueMiracleSelectResult value) {
-      bitField0_ |= 0x00000002;
-      miracleSelectResult.copyFrom(value);
-      return this;
-    }
-
-    /**
      * <pre>
-     * KINJFMEPCKE LIIGPIFDPLK = 1157;
-     * CKGDDAIDEMO OECLKHEGBFM = 1521;
+     * JNJLFGDKHJC GKCFOFJCFLO = 907;
+     * FCCPIEBHDJA NLMFGNLNHJL = 1353;
      * </pre>
      *
-     * <code>optional .RogueBuffRollInfo roll_buff = 689;</code>
+     * <code>optional .RogueBuffRollInfo roll_buff = 1414;</code>
      * @return whether the rollBuff field is set
      */
     public boolean hasRollBuff() {
@@ -227,11 +227,11 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
 
     /**
      * <pre>
-     * KINJFMEPCKE LIIGPIFDPLK = 1157;
-     * CKGDDAIDEMO OECLKHEGBFM = 1521;
+     * JNJLFGDKHJC GKCFOFJCFLO = 907;
+     * FCCPIEBHDJA NLMFGNLNHJL = 1353;
      * </pre>
      *
-     * <code>optional .RogueBuffRollInfo roll_buff = 689;</code>
+     * <code>optional .RogueBuffRollInfo roll_buff = 1414;</code>
      * @return this
      */
     public HandleRogueCommonPendingActionCsReq clearRollBuff() {
@@ -242,11 +242,11 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
 
     /**
      * <pre>
-     * KINJFMEPCKE LIIGPIFDPLK = 1157;
-     * CKGDDAIDEMO OECLKHEGBFM = 1521;
+     * JNJLFGDKHJC GKCFOFJCFLO = 907;
+     * FCCPIEBHDJA NLMFGNLNHJL = 1353;
      * </pre>
      *
-     * <code>optional .RogueBuffRollInfo roll_buff = 689;</code>
+     * <code>optional .RogueBuffRollInfo roll_buff = 1414;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -261,11 +261,11 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
 
     /**
      * <pre>
-     * KINJFMEPCKE LIIGPIFDPLK = 1157;
-     * CKGDDAIDEMO OECLKHEGBFM = 1521;
+     * JNJLFGDKHJC GKCFOFJCFLO = 907;
+     * FCCPIEBHDJA NLMFGNLNHJL = 1353;
      * </pre>
      *
-     * <code>optional .RogueBuffRollInfo roll_buff = 689;</code>
+     * <code>optional .RogueBuffRollInfo roll_buff = 1414;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -280,11 +280,11 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
 
     /**
      * <pre>
-     * KINJFMEPCKE LIIGPIFDPLK = 1157;
-     * CKGDDAIDEMO OECLKHEGBFM = 1521;
+     * JNJLFGDKHJC GKCFOFJCFLO = 907;
+     * FCCPIEBHDJA NLMFGNLNHJL = 1353;
      * </pre>
      *
-     * <code>optional .RogueBuffRollInfo roll_buff = 689;</code>
+     * <code>optional .RogueBuffRollInfo roll_buff = 1414;</code>
      * @param value the rollBuff to set
      * @return this
      */
@@ -296,7 +296,7 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1139;</code>
+     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1802;</code>
      * @return whether the buffSelectResult field is set
      */
     public boolean hasBuffSelectResult() {
@@ -304,7 +304,7 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1139;</code>
+     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1802;</code>
      * @return this
      */
     public HandleRogueCommonPendingActionCsReq clearBuffSelectResult() {
@@ -314,7 +314,7 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1139;</code>
+     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1802;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -328,7 +328,7 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1139;</code>
+     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1802;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -343,7 +343,7 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1139;</code>
+     * <code>optional .RogueCommonBuffSelectResult buff_select_result = 1802;</code>
      * @param value the buffSelectResult to set
      * @return this
      */
@@ -360,8 +360,8 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        bonusSelectResult.copyFrom(other.bonusSelectResult);
         miracleSelectResult.copyFrom(other.miracleSelectResult);
+        bonusSelectResult.copyFrom(other.bonusSelectResult);
         rollBuff.copyFrom(other.rollBuff);
         buffSelectResult.copyFrom(other.buffSelectResult);
       }
@@ -375,11 +375,11 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBonusSelectResult()) {
-        getMutableBonusSelectResult().mergeFrom(other.bonusSelectResult);
-      }
       if (other.hasMiracleSelectResult()) {
         getMutableMiracleSelectResult().mergeFrom(other.miracleSelectResult);
+      }
+      if (other.hasBonusSelectResult()) {
+        getMutableBonusSelectResult().mergeFrom(other.bonusSelectResult);
       }
       if (other.hasRollBuff()) {
         getMutableRollBuff().mergeFrom(other.rollBuff);
@@ -397,8 +397,8 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      bonusSelectResult.clear();
       miracleSelectResult.clear();
+      bonusSelectResult.clear();
       rollBuff.clear();
       buffSelectResult.clear();
       return this;
@@ -411,8 +411,8 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      bonusSelectResult.clearQuick();
       miracleSelectResult.clearQuick();
+      bonusSelectResult.clearQuick();
       rollBuff.clearQuick();
       buffSelectResult.clearQuick();
       return this;
@@ -428,8 +428,8 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
       }
       HandleRogueCommonPendingActionCsReq other = (HandleRogueCommonPendingActionCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasBonusSelectResult() || bonusSelectResult.equals(other.bonusSelectResult))
         && (!hasMiracleSelectResult() || miracleSelectResult.equals(other.miracleSelectResult))
+        && (!hasBonusSelectResult() || bonusSelectResult.equals(other.bonusSelectResult))
         && (!hasRollBuff() || rollBuff.equals(other.rollBuff))
         && (!hasBuffSelectResult() || buffSelectResult.equals(other.buffSelectResult));
     }
@@ -437,19 +437,19 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawLittleEndian16((short) 2242);
-        output.writeMessageNoTag(bonusSelectResult);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawLittleEndian16((short) 3218);
+        output.writeRawLittleEndian16((short) 18874);
         output.writeMessageNoTag(miracleSelectResult);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawLittleEndian16((short) 19922);
+        output.writeMessageNoTag(bonusSelectResult);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawLittleEndian16((short) 11146);
+        output.writeRawLittleEndian16((short) 22706);
         output.writeMessageNoTag(rollBuff);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawLittleEndian16((short) 18330);
+        output.writeRawLittleEndian16((short) 28882);
         output.writeMessageNoTag(buffSelectResult);
       }
     }
@@ -458,10 +458,10 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(bonusSelectResult);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(miracleSelectResult);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(miracleSelectResult);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(bonusSelectResult);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 2 + ProtoSink.computeMessageSizeNoTag(rollBuff);
@@ -480,34 +480,34 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 1090: {
-            // bonusSelectResult
-            input.readMessage(bonusSelectResult);
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 1554) {
-              break;
-            }
-          }
-          case 1554: {
+          case 9402: {
             // miracleSelectResult
             input.readMessage(miracleSelectResult);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 5514) {
+            if (tag != 9938) {
               break;
             }
           }
-          case 5514: {
+          case 9938: {
+            // bonusSelectResult
+            input.readMessage(bonusSelectResult);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 11314) {
+              break;
+            }
+          }
+          case 11314: {
             // rollBuff
             input.readMessage(rollBuff);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 9114) {
+            if (tag != 14418) {
               break;
             }
           }
-          case 9114: {
+          case 14418: {
             // buffSelectResult
             input.readMessage(buffSelectResult);
             bitField0_ |= 0x00000008;
@@ -534,10 +534,10 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.bonusSelectResult, bonusSelectResult);
+        output.writeMessage(FieldNames.miracleSelectResult, miracleSelectResult);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.miracleSelectResult, miracleSelectResult);
+        output.writeMessage(FieldNames.bonusSelectResult, bonusSelectResult);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.rollBuff, rollBuff);
@@ -556,11 +556,11 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 732920312:
-          case 396692640: {
-            if (input.isAtField(FieldNames.bonusSelectResult)) {
+          case 961581898:
+          case 1097144690: {
+            if (input.isAtField(FieldNames.miracleSelectResult)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(bonusSelectResult);
+                input.readMessage(miracleSelectResult);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -568,11 +568,11 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
             }
             break;
           }
-          case 961581898:
-          case 1097144690: {
-            if (input.isAtField(FieldNames.miracleSelectResult)) {
+          case 732920312:
+          case 396692640: {
+            if (input.isAtField(FieldNames.bonusSelectResult)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(miracleSelectResult);
+                input.readMessage(bonusSelectResult);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -659,9 +659,9 @@ public final class HandleRogueCommonPendingActionCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName bonusSelectResult = FieldName.forField("bonusSelectResult", "bonus_select_result");
-
       static final FieldName miracleSelectResult = FieldName.forField("miracleSelectResult", "miracle_select_result");
+
+      static final FieldName bonusSelectResult = FieldName.forField("bonusSelectResult", "bonus_select_result");
 
       static final FieldName rollBuff = FieldName.forField("rollBuff", "roll_buff");
 

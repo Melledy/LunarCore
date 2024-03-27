@@ -146,11 +146,11 @@ public class RogueBuffSelectMenu {
         }
         
         // Create item list for reroll cost
-        proto.setRollBuffsCost(ItemCostList.newInstance()
+        proto.getMutableRollBuffsCost()
             .addItemList(ItemCost.newInstance()
                 .setPileItem(PileItem.newInstance()
                     .setItemId(31)
-                    .setItemNum(30))));
+                    .setItemNum(30)));
         
         return proto;
     }

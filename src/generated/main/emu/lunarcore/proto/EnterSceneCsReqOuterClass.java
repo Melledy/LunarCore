@@ -19,12 +19,12 @@ public final class EnterSceneCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entry_id = 1;</code>
+     * <code>optional uint32 entry_id = 2;</code>
      */
     private int entryId;
 
     /**
-     * <code>optional uint32 teleport_id = 14;</code>
+     * <code>optional uint32 teleport_id = 8;</code>
      */
     private int teleportId;
 
@@ -39,7 +39,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 1;</code>
+     * <code>optional uint32 entry_id = 2;</code>
      * @return whether the entryId field is set
      */
     public boolean hasEntryId() {
@@ -47,7 +47,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 1;</code>
+     * <code>optional uint32 entry_id = 2;</code>
      * @return this
      */
     public EnterSceneCsReq clearEntryId() {
@@ -57,7 +57,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 1;</code>
+     * <code>optional uint32 entry_id = 2;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -65,7 +65,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 1;</code>
+     * <code>optional uint32 entry_id = 2;</code>
      * @param value the entryId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 teleport_id = 14;</code>
+     * <code>optional uint32 teleport_id = 8;</code>
      * @return whether the teleportId field is set
      */
     public boolean hasTeleportId() {
@@ -84,7 +84,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 teleport_id = 14;</code>
+     * <code>optional uint32 teleport_id = 8;</code>
      * @return this
      */
     public EnterSceneCsReq clearTeleportId() {
@@ -94,7 +94,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 teleport_id = 14;</code>
+     * <code>optional uint32 teleport_id = 8;</code>
      * @return the teleportId
      */
     public int getTeleportId() {
@@ -102,7 +102,7 @@ public final class EnterSceneCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 teleport_id = 14;</code>
+     * <code>optional uint32 teleport_id = 8;</code>
      * @param value the teleportId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class EnterSceneCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(entryId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(teleportId);
       }
     }
@@ -205,16 +205,16 @@ public final class EnterSceneCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 16: {
             // entryId
             entryId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 64) {
               break;
             }
           }
-          case 112: {
+          case 64: {
             // teleportId
             teleportId = input.readUInt32();
             bitField0_ |= 0x00000002;

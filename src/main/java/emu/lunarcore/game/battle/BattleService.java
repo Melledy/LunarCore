@@ -105,20 +105,26 @@ public class BattleService extends BaseGameService {
             return;
         }
         
-        // Add any assisting monsters from monster assist list
-        for (int entityId : assistMonsters) {
-            GameEntity entity = player.getScene().getEntities().get(entityId);
-            
-            if (entity != null && entity instanceof EntityMonster monster) {
-                monsters.add(monster);
-            }
-        }
-        
         // Start battle
         if (monsters.size() > 0) {
             // Maze skill attack event
             if (castedSkill != null && castingAvatar != null) {
                 castedSkill.onAttack(castingAvatar, targets);
+            }
+            
+            // Skip battle if monsters were killed
+            if (monsters.stream().filter(m -> m.isAlive()).count() == 0) {
+                player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
+                return;
+            }
+            
+            // Add any assisting monsters from monster assist list
+            for (int entityId : assistMonsters) {
+                GameEntity entity = player.getScene().getEntities().get(entityId);
+                
+                if (entity != null && entity instanceof EntityMonster monster) {
+                    monsters.add(monster);
+                }
             }
             
             // Create battle and add npc monsters to it

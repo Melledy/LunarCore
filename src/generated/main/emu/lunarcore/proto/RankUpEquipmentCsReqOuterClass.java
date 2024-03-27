@@ -19,12 +19,12 @@ public final class RankUpEquipmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 10;</code>
+     * <code>optional uint32 equipment_unique_id = 13;</code>
      */
     private int equipmentUniqueId;
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 9;</code>
      */
     private final ItemCostListOuterClass.ItemCostList itemCostList = ItemCostListOuterClass.ItemCostList.newInstance();
 
@@ -39,7 +39,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 10;</code>
+     * <code>optional uint32 equipment_unique_id = 13;</code>
      * @return whether the equipmentUniqueId field is set
      */
     public boolean hasEquipmentUniqueId() {
@@ -47,7 +47,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 10;</code>
+     * <code>optional uint32 equipment_unique_id = 13;</code>
      * @return this
      */
     public RankUpEquipmentCsReq clearEquipmentUniqueId() {
@@ -57,7 +57,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 10;</code>
+     * <code>optional uint32 equipment_unique_id = 13;</code>
      * @return the equipmentUniqueId
      */
     public int getEquipmentUniqueId() {
@@ -65,7 +65,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 10;</code>
+     * <code>optional uint32 equipment_unique_id = 13;</code>
      * @param value the equipmentUniqueId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 9;</code>
      * @return whether the itemCostList field is set
      */
     public boolean hasItemCostList() {
@@ -84,7 +84,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 9;</code>
      * @return this
      */
     public RankUpEquipmentCsReq clearItemCostList() {
@@ -94,7 +94,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class RankUpEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 4;</code>
+     * <code>optional .ItemCostList item_cost_list = 9;</code>
      * @param value the itemCostList to set
      * @return this
      */
@@ -198,11 +198,11 @@ public final class RankUpEquipmentCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(equipmentUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 74);
         output.writeMessageNoTag(itemCostList);
       }
     }
@@ -226,16 +226,16 @@ public final class RankUpEquipmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 104: {
             // equipmentUniqueId
             equipmentUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 74) {
               break;
             }
           }
-          case 34: {
+          case 74: {
             // itemCostList
             input.readMessage(itemCostList);
             bitField0_ |= 0x00000002;

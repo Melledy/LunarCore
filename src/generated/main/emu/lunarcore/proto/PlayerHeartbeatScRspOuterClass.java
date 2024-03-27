@@ -19,12 +19,12 @@ public final class PlayerHeartbeatScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 server_time_ms = 11;</code>
+     * <code>optional uint64 server_time_ms = 5;</code>
      */
     private long serverTimeMs;
 
     /**
-     * <code>optional uint64 client_time_ms = 13;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      */
     private long clientTimeMs;
 
@@ -44,7 +44,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 11;</code>
+     * <code>optional uint64 server_time_ms = 5;</code>
      * @return whether the serverTimeMs field is set
      */
     public boolean hasServerTimeMs() {
@@ -52,7 +52,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 11;</code>
+     * <code>optional uint64 server_time_ms = 5;</code>
      * @return this
      */
     public PlayerHeartbeatScRsp clearServerTimeMs() {
@@ -62,7 +62,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 11;</code>
+     * <code>optional uint64 server_time_ms = 5;</code>
      * @return the serverTimeMs
      */
     public long getServerTimeMs() {
@@ -70,7 +70,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 11;</code>
+     * <code>optional uint64 server_time_ms = 5;</code>
      * @param value the serverTimeMs to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 13;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @return whether the clientTimeMs field is set
      */
     public boolean hasClientTimeMs() {
@@ -89,7 +89,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 13;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @return this
      */
     public PlayerHeartbeatScRsp clearClientTimeMs() {
@@ -99,7 +99,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 13;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @return the clientTimeMs
      */
     public long getClientTimeMs() {
@@ -107,7 +107,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 13;</code>
+     * <code>optional uint64 client_time_ms = 12;</code>
      * @param value the clientTimeMs to set
      * @return this
      */
@@ -225,11 +225,11 @@ public final class PlayerHeartbeatScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 40);
         output.writeUInt64NoTag(serverTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 96);
         output.writeUInt64NoTag(clientTimeMs);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -260,16 +260,16 @@ public final class PlayerHeartbeatScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 40: {
             // serverTimeMs
             serverTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 96) {
               break;
             }
           }
-          case 104: {
+          case 96: {
             // clientTimeMs
             clientTimeMs = input.readUInt64();
             bitField0_ |= 0x00000002;

@@ -19,7 +19,7 @@ public final class RogueBonusSelectResultOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 bonus_id = 9;</code>
+     * <code>optional uint32 bonus_id = 12;</code>
      */
     private int bonusId;
 
@@ -34,7 +34,7 @@ public final class RogueBonusSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 bonus_id = 9;</code>
+     * <code>optional uint32 bonus_id = 12;</code>
      * @return whether the bonusId field is set
      */
     public boolean hasBonusId() {
@@ -42,7 +42,7 @@ public final class RogueBonusSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 bonus_id = 9;</code>
+     * <code>optional uint32 bonus_id = 12;</code>
      * @return this
      */
     public RogueBonusSelectResult clearBonusId() {
@@ -52,7 +52,7 @@ public final class RogueBonusSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 bonus_id = 9;</code>
+     * <code>optional uint32 bonus_id = 12;</code>
      * @return the bonusId
      */
     public int getBonusId() {
@@ -60,7 +60,7 @@ public final class RogueBonusSelectResultOuterClass {
     }
 
     /**
-     * <code>optional uint32 bonus_id = 9;</code>
+     * <code>optional uint32 bonus_id = 12;</code>
      * @param value the bonusId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class RogueBonusSelectResultOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(bonusId);
       }
     }
@@ -150,7 +150,7 @@ public final class RogueBonusSelectResultOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 96: {
             // bonusId
             bonusId = input.readUInt32();
             bitField0_ |= 0x00000001;

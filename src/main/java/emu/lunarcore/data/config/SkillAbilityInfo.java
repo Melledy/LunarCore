@@ -23,17 +23,17 @@ public class SkillAbilityInfo {
             List<MazeSkillAction> actionList = null;
             
             // Skip if not a maze skill
-            if (ability.getName().contains("MazeSkill")) {
+            if (ability.getName().endsWith("MazeSkill")) {
                 skill = new MazeSkill(avatarExcel, 2);
                 avatarExcel.setMazeSkill(skill);
                 
                 actionList = skill.getCastActions();
                 
                 // Hacky way to check if an avatar can summon with their skill
-                var summonUnitExcel = GameData.getSummonUnitExcelMap().get((skill.getId() * 10) + 1);
-                if (summonUnitExcel != null && !summonUnitExcel.isIsClient()) {
+                var excel = GameData.getSummonUnitExcelMap().get((skill.getId() * 10) + 1);
+                if (excel != null && !excel.isIsClient() && excel.getInfo() != null) {
                     // TODO duration is hardcoded
-                    skill.getCastActions().add(new MazeSkillSummonUnit(summonUnitExcel, 20));
+                    skill.getCastActions().add(new MazeSkillSummonUnit(excel, 20));
                 }
             } else if (ability.getName().contains("NormalAtk")) {
                 skill = new MazeSkill(avatarExcel, 1);
@@ -69,18 +69,25 @@ public class SkillAbilityInfo {
             actionList.add(new MazeSkillModifySP(50));
         } else if (task.getType().contains("CreateSummonUnit")) {
             skill.setTriggerBattle(false);
+        } else if (task.getType().contains("AdventureSetAttackTargetMonsterDie")) {
+            actionList.add(new MazeSkillSetAttackTargetMonsterDie());
         } else if (task.getSuccessTaskList() != null) {
             for (TaskInfo t : task.getSuccessTaskList()) {
                 parseTask(skill, actionList, t);
             }
         } else if (task.getType().contains("AdventureTriggerAttack")) {
+            if (skill.getIndex() == 2) {
+                skill.setTriggerBattle(task.isTriggerBattle());
+            }
             if (task.getOnAttack() != null) {
                 for (TaskInfo t : task.getOnAttack()) {
                     parseTask(skill, skill.getAttackActions(), t);
                 }
             }
-            if (skill.getIndex() == 2) {
-                skill.setTriggerBattle(task.isTriggerBattle());
+            if (task.getOnBattle() != null) {
+                for (TaskInfo t : task.getOnBattle()) {
+                    parseTask(skill, skill.getAttackActions(), t);
+                }
             }
         } else if (task.getType().contains("AdventureFireProjectile")) {
             if (task.getOnProjectileHit() != null) {

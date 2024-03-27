@@ -19,12 +19,12 @@ public final class MazeGroupOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 modify_time = 2;</code>
+     * <code>optional int64 modify_time = 3;</code>
      */
     private long modifyTime;
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 8;</code>
      */
     private int groupId;
 
@@ -39,7 +39,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional int64 modify_time = 2;</code>
+     * <code>optional int64 modify_time = 3;</code>
      * @return whether the modifyTime field is set
      */
     public boolean hasModifyTime() {
@@ -47,7 +47,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional int64 modify_time = 2;</code>
+     * <code>optional int64 modify_time = 3;</code>
      * @return this
      */
     public MazeGroup clearModifyTime() {
@@ -57,7 +57,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional int64 modify_time = 2;</code>
+     * <code>optional int64 modify_time = 3;</code>
      * @return the modifyTime
      */
     public long getModifyTime() {
@@ -65,7 +65,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional int64 modify_time = 2;</code>
+     * <code>optional int64 modify_time = 3;</code>
      * @param value the modifyTime to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 8;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -84,7 +84,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 8;</code>
      * @return this
      */
     public MazeGroup clearGroupId() {
@@ -94,7 +94,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 8;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -102,7 +102,7 @@ public final class MazeGroupOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 6;</code>
+     * <code>optional uint32 group_id = 8;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class MazeGroupOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 24);
         output.writeInt64NoTag(modifyTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(groupId);
       }
     }
@@ -205,16 +205,16 @@ public final class MazeGroupOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 24: {
             // modifyTime
             modifyTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 64) {
               break;
             }
           }
-          case 48: {
+          case 64: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000002;
