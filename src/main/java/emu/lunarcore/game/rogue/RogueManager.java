@@ -16,11 +16,9 @@ import emu.lunarcore.proto.RogueAeonInfoOuterClass.RogueAeonInfo;
 import emu.lunarcore.proto.RogueAreaInfoOuterClass.RogueAreaInfo;
 import emu.lunarcore.proto.RogueAreaOuterClass.RogueArea;
 import emu.lunarcore.proto.RogueAreaStatusOuterClass.RogueAreaStatus;
-import emu.lunarcore.proto.RogueInfoDataOuterClass.RogueInfoData;
 import emu.lunarcore.proto.RogueInfoOuterClass.RogueInfo;
 import emu.lunarcore.proto.RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo;
 import emu.lunarcore.proto.RogueSeasonInfoOuterClass.RogueSeasonInfo;
-import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
 import emu.lunarcore.proto.RogueTalentInfoOuterClass.RogueTalentInfo;
 import emu.lunarcore.proto.RogueTalentOuterClass.RogueTalent;
 import emu.lunarcore.proto.RogueTalentStatusOuterClass.RogueTalentStatus;
@@ -176,6 +174,9 @@ public class RogueManager extends BasePlayerManager {
             seasonId = schedule.getRogueSeason();
         }
         
+        var proto = RogueInfo.newInstance();
+        var data = proto.getMutableRogueInfoData();
+        
         var score = RogueScoreRewardInfo.newInstance()
                 .setPoolId(26) // TODO pool ids should not change when world level changes
                 .setPoolRefreshed(false)
@@ -189,10 +190,6 @@ public class RogueManager extends BasePlayerManager {
                 .setBeginTime(beginTime)
                 .setSeasonId(seasonId)
                 .setEndTime(endTime);
-
-        var rogueVirtualItemInfo = RogueVirtualItemInfo.newInstance()
-                .setMoney(100000)
-                .setX(100000);
         
         // Path resonance
         var aeonInfo = RogueAeonInfo.newInstance();
@@ -209,13 +206,14 @@ public class RogueManager extends BasePlayerManager {
             aeonInfo.setIsUnlocked(true);
             //aeonInfo.setUnlockAeonEnhanceNum(3);  // guess
         }
-
-        var data = RogueInfoData.newInstance()
-            .setRogueScoreInfo(score)
-            .setRogueAeonInfo(aeonInfo)
-            .setRogueSeasonInfo(season);
         
-        // Rogue data
+        // Set rogue data
+        data.setRogueScoreInfo(score)
+            .setRogueAeonInfo(aeonInfo)
+            .setRogueSeasonInfo(season)
+            .setRogueVirtualItemInfo(getPlayer().getCurRogueVirtualItem());
+        
+        // Get rogue instance
         RogueInstance instance = this.getPlayer().getRogueInstance();
         
         // Add areas
@@ -243,9 +241,6 @@ public class RogueManager extends BasePlayerManager {
             }
         }
         data.setRogueAreaInfo(areaInfo);
-        
-        var proto = RogueInfo.newInstance()
-            .setRogueInfoData(data);
         
         if (instance != null) {
             proto.setRogueCurrentInfo(instance.toProto());

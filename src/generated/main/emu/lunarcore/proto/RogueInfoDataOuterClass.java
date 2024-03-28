@@ -24,9 +24,9 @@ public final class RogueInfoDataOuterClass {
     private final RogueAeonInfoOuterClass.RogueAeonInfo rogueAeonInfo = RogueAeonInfoOuterClass.RogueAeonInfo.newInstance();
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 9;</code>
+     * <code>optional .RogueCurVirtualItemInfo rogue_virtual_item_info = 9;</code>
      */
-    private final RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo rogueVirtualItemInfo = RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo.newInstance();
+    private final RogueCurVirtualItemInfoOuterClass.RogueCurVirtualItemInfo rogueVirtualItemInfo = RogueCurVirtualItemInfoOuterClass.RogueCurVirtualItemInfo.newInstance();
 
     /**
      * <code>optional .RogueAreaInfo rogue_area_info = 11;</code>
@@ -111,7 +111,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 9;</code>
+     * <code>optional .RogueCurVirtualItemInfo rogue_virtual_item_info = 9;</code>
      * @return whether the rogueVirtualItemInfo field is set
      */
     public boolean hasRogueVirtualItemInfo() {
@@ -119,7 +119,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 9;</code>
+     * <code>optional .RogueCurVirtualItemInfo rogue_virtual_item_info = 9;</code>
      * @return this
      */
     public RogueInfoData clearRogueVirtualItemInfo() {
@@ -129,7 +129,7 @@ public final class RogueInfoDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 9;</code>
+     * <code>optional .RogueCurVirtualItemInfo rogue_virtual_item_info = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -138,12 +138,12 @@ public final class RogueInfoDataOuterClass {
      *
      * @return internal storage object for reading
      */
-    public RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo getRogueVirtualItemInfo() {
+    public RogueCurVirtualItemInfoOuterClass.RogueCurVirtualItemInfo getRogueVirtualItemInfo() {
       return rogueVirtualItemInfo;
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 9;</code>
+     * <code>optional .RogueCurVirtualItemInfo rogue_virtual_item_info = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -151,18 +151,19 @@ public final class RogueInfoDataOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo getMutableRogueVirtualItemInfo() {
+    public RogueCurVirtualItemInfoOuterClass.RogueCurVirtualItemInfo getMutableRogueVirtualItemInfo(
+        ) {
       bitField0_ |= 0x00000002;
       return rogueVirtualItemInfo;
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 9;</code>
+     * <code>optional .RogueCurVirtualItemInfo rogue_virtual_item_info = 9;</code>
      * @param value the rogueVirtualItemInfo to set
      * @return this
      */
     public RogueInfoData setRogueVirtualItemInfo(
-        final RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo value) {
+        final RogueCurVirtualItemInfoOuterClass.RogueCurVirtualItemInfo value) {
       bitField0_ |= 0x00000002;
       rogueVirtualItemInfo.copyFrom(value);
       return this;

@@ -30,7 +30,7 @@ import emu.lunarcore.proto.RogueRecordAvatarOuterClass.RogueRecordAvatar;
 import emu.lunarcore.proto.RogueRecordInfoOuterClass.RogueRecordInfo;
 import emu.lunarcore.proto.RogueRoomStatusOuterClass.RogueRoomStatus;
 import emu.lunarcore.proto.RogueStatusOuterClass.RogueStatus;
-import emu.lunarcore.proto.RogueVirtualItemOuterClass.RogueVirtualItem;
+import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
 import emu.lunarcore.server.packet.send.*;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -630,7 +630,7 @@ public class RogueInstance {
                 .setRogueBuffInfo(this.toBuffInfoProto())
                 .setRogueMiracleInfo(this.toMiracleInfoProto())
                 .setRogueAeonInfo(this.toAeonProto())
-                .setRogueVirtualItem(this.toVirtualItemProto());
+                .setRogueVirtualItem(this.toRogueVirtualItemProto());
         
         if (pendingAction != null) {
             proto.setPendingAction(pendingAction);
@@ -695,13 +695,6 @@ public class RogueInstance {
         
         return proto;
     }
-    
-    public RogueVirtualItem toVirtualItemProto() {
-        var proto = RogueVirtualItem.newInstance()
-                .setMoney(this.getMoney());
-        
-        return proto;
-    }
 
     public RogueFinishInfo toFinishInfoProto() {
         // Rogue record info
@@ -740,4 +733,10 @@ public class RogueInstance {
         return proto;
     }
     
+    public RogueVirtualItemInfo toRogueVirtualItemProto() {
+        var proto = RogueVirtualItemInfo.newInstance()
+                .setRogueCoin(this.getMoney());
+        
+        return proto;
+    }
 }

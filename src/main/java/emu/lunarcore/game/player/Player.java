@@ -54,7 +54,7 @@ import emu.lunarcore.proto.HeadIconOuterClass.HeadIcon;
 import emu.lunarcore.proto.PlatformTypeOuterClass.PlatformType;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
 import emu.lunarcore.proto.PlayerDetailInfoOuterClass.PlayerDetailInfo;
-import emu.lunarcore.proto.RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo;
+import emu.lunarcore.proto.RogueCurVirtualItemInfoOuterClass.RogueCurVirtualItemInfo;
 import emu.lunarcore.proto.SimpleInfoOuterClass.SimpleInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
@@ -960,12 +960,14 @@ public class Player implements Tickable {
         return proto;
     }
     
-    public RogueVirtualItemInfo toRogueVirtualItemsProto() {
-        var proto = RogueVirtualItemInfo.newInstance()
-                .setX(this.getTalentPoints());  // remain to be discussed
+    public RogueCurVirtualItemInfo getCurRogueVirtualItem() {
+        var proto = RogueCurVirtualItemInfo.newInstance()
+                .setCurRogueAbilityPoint(this.getTalentPoints());
+        
         if (this.getRogueInstance() != null) {
-            proto.setMoney(this.getRogueInstance().getMoney());
+            proto.setCurRogueCoin(this.getRogueInstance().getMoney());
         }
+        
         return proto;
     }
 }

@@ -10,8 +10,11 @@ public class PacketSyncRogueVirtualItemInfoScNotify extends BasePacket {
     public PacketSyncRogueVirtualItemInfoScNotify(Player player) {
         super(CmdId.SyncRogueVirtualItemInfoScNotify);
         
-        var data = SyncRogueVirtualItemInfoScNotify.newInstance()
-                .setRogueVirtualItemInfo(player.toRogueVirtualItemsProto());
+        var data = SyncRogueVirtualItemInfoScNotify.newInstance();
+        
+        if (player.getRogueInstance() != null) {
+            data.setRogueVirtualItemInfo(player.getRogueInstance().toRogueVirtualItemProto());
+        }
         
         this.setData(data);
     }
