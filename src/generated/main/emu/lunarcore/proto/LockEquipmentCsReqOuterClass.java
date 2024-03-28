@@ -10,6 +10,7 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
+import us.hebi.quickbuf.RepeatedInt;
 
 public final class LockEquipmentCsReqOuterClass {
   /**
@@ -19,14 +20,14 @@ public final class LockEquipmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
-     */
-    private int equipmentUniqueId;
-
-    /**
      * <code>optional bool is_protected = 1;</code>
      */
     private boolean isProtected;
+
+    /**
+     * <code>repeated uint32 equipment_id_list = 8;</code>
+     */
+    private final RepeatedInt equipmentIdList = RepeatedInt.newEmptyInstance();
 
     private LockEquipmentCsReq() {
     }
@@ -39,48 +40,11 @@ public final class LockEquipmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
-     * @return whether the equipmentUniqueId field is set
-     */
-    public boolean hasEquipmentUniqueId() {
-      return (bitField0_ & 0x00000001) != 0;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
-     * @return this
-     */
-    public LockEquipmentCsReq clearEquipmentUniqueId() {
-      bitField0_ &= ~0x00000001;
-      equipmentUniqueId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
-     * @return the equipmentUniqueId
-     */
-    public int getEquipmentUniqueId() {
-      return equipmentUniqueId;
-    }
-
-    /**
-     * <code>optional uint32 equipment_unique_id = 8;</code>
-     * @param value the equipmentUniqueId to set
-     * @return this
-     */
-    public LockEquipmentCsReq setEquipmentUniqueId(final int value) {
-      bitField0_ |= 0x00000001;
-      equipmentUniqueId = value;
-      return this;
-    }
-
-    /**
      * <code>optional bool is_protected = 1;</code>
      * @return whether the isProtected field is set
      */
     public boolean hasIsProtected() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
@@ -88,7 +52,7 @@ public final class LockEquipmentCsReqOuterClass {
      * @return this
      */
     public LockEquipmentCsReq clearIsProtected() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       isProtected = false;
       return this;
     }
@@ -107,8 +71,76 @@ public final class LockEquipmentCsReqOuterClass {
      * @return this
      */
     public LockEquipmentCsReq setIsProtected(final boolean value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       isProtected = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 equipment_id_list = 8;</code>
+     * @return whether the equipmentIdList field is set
+     */
+    public boolean hasEquipmentIdList() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 equipment_id_list = 8;</code>
+     * @return this
+     */
+    public LockEquipmentCsReq clearEquipmentIdList() {
+      bitField0_ &= ~0x00000002;
+      equipmentIdList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 equipment_id_list = 8;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableEquipmentIdList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getEquipmentIdList() {
+      return equipmentIdList;
+    }
+
+    /**
+     * <code>repeated uint32 equipment_id_list = 8;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableEquipmentIdList() {
+      bitField0_ |= 0x00000002;
+      return equipmentIdList;
+    }
+
+    /**
+     * <code>repeated uint32 equipment_id_list = 8;</code>
+     * @param value the equipmentIdList to add
+     * @return this
+     */
+    public LockEquipmentCsReq addEquipmentIdList(final int value) {
+      bitField0_ |= 0x00000002;
+      equipmentIdList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 equipment_id_list = 8;</code>
+     * @param values the equipmentIdList to add
+     * @return this
+     */
+    public LockEquipmentCsReq addAllEquipmentIdList(final int... values) {
+      bitField0_ |= 0x00000002;
+      equipmentIdList.addAll(values);
       return this;
     }
 
@@ -117,8 +149,8 @@ public final class LockEquipmentCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        equipmentUniqueId = other.equipmentUniqueId;
         isProtected = other.isProtected;
+        equipmentIdList.copyFrom(other.equipmentIdList);
       }
       return this;
     }
@@ -129,11 +161,11 @@ public final class LockEquipmentCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasEquipmentUniqueId()) {
-        setEquipmentUniqueId(other.equipmentUniqueId);
-      }
       if (other.hasIsProtected()) {
         setIsProtected(other.isProtected);
+      }
+      if (other.hasEquipmentIdList()) {
+        getMutableEquipmentIdList().addAll(other.equipmentIdList);
       }
       return this;
     }
@@ -145,8 +177,8 @@ public final class LockEquipmentCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      equipmentUniqueId = 0;
       isProtected = false;
+      equipmentIdList.clear();
       return this;
     }
 
@@ -157,6 +189,7 @@ public final class LockEquipmentCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      equipmentIdList.clear();
       return this;
     }
 
@@ -170,19 +203,21 @@ public final class LockEquipmentCsReqOuterClass {
       }
       LockEquipmentCsReq other = (LockEquipmentCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasEquipmentUniqueId() || equipmentUniqueId == other.equipmentUniqueId)
-        && (!hasIsProtected() || isProtected == other.isProtected);
+        && (!hasIsProtected() || isProtected == other.isProtected)
+        && (!hasEquipmentIdList() || equipmentIdList.equals(other.equipmentIdList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(equipmentUniqueId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 8);
         output.writeBoolNoTag(isProtected);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        for (int i = 0; i < equipmentIdList.length(); i++) {
+          output.writeRawByte((byte) 64);
+          output.writeUInt32NoTag(equipmentIdList.array()[i]);
+        }
       }
     }
 
@@ -190,10 +225,10 @@ public final class LockEquipmentCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipmentUniqueId);
+        size += 2;
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 2;
+        size += (1 * equipmentIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(equipmentIdList);
       }
       return size;
     }
@@ -205,18 +240,18 @@ public final class LockEquipmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
-            // equipmentUniqueId
-            equipmentUniqueId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 8) {
-              break;
-            }
-          }
           case 8: {
             // isProtected
             isProtected = input.readBool();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 66) {
+              break;
+            }
+          }
+          case 66: {
+            // equipmentIdList [packed=true]
+            input.readPackedUInt32(equipmentIdList, tag);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -233,6 +268,12 @@ public final class LockEquipmentCsReqOuterClass {
             tag = input.readTag();
             break;
           }
+          case 64: {
+            // equipmentIdList [packed=false]
+            tag = input.readRepeatedUInt32(equipmentIdList, tag);
+            bitField0_ |= 0x00000002;
+            break;
+          }
         }
       }
     }
@@ -241,10 +282,10 @@ public final class LockEquipmentCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.equipmentUniqueId, equipmentUniqueId);
+        output.writeBool(FieldNames.isProtected, isProtected);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.isProtected, isProtected);
+        output.writeRepeatedUInt32(FieldNames.equipmentIdList, equipmentIdList);
       }
       output.endObject();
     }
@@ -256,11 +297,11 @@ public final class LockEquipmentCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1867136902:
-          case 760467160: {
-            if (input.isAtField(FieldNames.equipmentUniqueId)) {
+          case 569879972:
+          case -1919645991: {
+            if (input.isAtField(FieldNames.isProtected)) {
               if (!input.trySkipNullValue()) {
-                equipmentUniqueId = input.readUInt32();
+                isProtected = input.readBool();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +309,11 @@ public final class LockEquipmentCsReqOuterClass {
             }
             break;
           }
-          case 569879972:
-          case -1919645991: {
-            if (input.isAtField(FieldNames.isProtected)) {
+          case 332667783:
+          case -1921485935: {
+            if (input.isAtField(FieldNames.equipmentIdList)) {
               if (!input.trySkipNullValue()) {
-                isProtected = input.readBool();
+                input.readRepeatedUInt32(equipmentIdList);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +374,9 @@ public final class LockEquipmentCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName equipmentUniqueId = FieldName.forField("equipmentUniqueId", "equipment_unique_id");
-
       static final FieldName isProtected = FieldName.forField("isProtected", "is_protected");
+
+      static final FieldName equipmentIdList = FieldName.forField("equipmentIdList", "equipment_id_list");
     }
   }
 }
