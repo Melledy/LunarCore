@@ -19,7 +19,7 @@ public final class SyncClientResVersionCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 client_res_version = 14;</code>
+     * <code>optional uint32 client_res_version = 7;</code>
      */
     private int clientResVersion;
 
@@ -34,7 +34,7 @@ public final class SyncClientResVersionCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_res_version = 14;</code>
+     * <code>optional uint32 client_res_version = 7;</code>
      * @return whether the clientResVersion field is set
      */
     public boolean hasClientResVersion() {
@@ -42,7 +42,7 @@ public final class SyncClientResVersionCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_res_version = 14;</code>
+     * <code>optional uint32 client_res_version = 7;</code>
      * @return this
      */
     public SyncClientResVersionCsReq clearClientResVersion() {
@@ -52,7 +52,7 @@ public final class SyncClientResVersionCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_res_version = 14;</code>
+     * <code>optional uint32 client_res_version = 7;</code>
      * @return the clientResVersion
      */
     public int getClientResVersion() {
@@ -60,7 +60,7 @@ public final class SyncClientResVersionCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_res_version = 14;</code>
+     * <code>optional uint32 client_res_version = 7;</code>
      * @param value the clientResVersion to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SyncClientResVersionCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(clientResVersion);
       }
     }
@@ -150,7 +150,7 @@ public final class SyncClientResVersionCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 112: {
+          case 56: {
             // clientResVersion
             clientResVersion = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -20,12 +20,12 @@ public final class GetFriendListInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 10;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .FriendListInfo friend_list = 6;</code>
+     * <code>repeated .FriendListInfo friend_list = 3;</code>
      */
     private final RepeatedMessage<FriendListInfoOuterClass.FriendListInfo> friendList = RepeatedMessage.newEmptyInstance(FriendListInfoOuterClass.FriendListInfo.getFactory());
 
@@ -40,7 +40,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @return this
      */
     public GetFriendListInfoScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 10;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendListInfo friend_list = 6;</code>
+     * <code>repeated .FriendListInfo friend_list = 3;</code>
      * @return whether the friendList field is set
      */
     public boolean hasFriendList() {
@@ -85,7 +85,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendListInfo friend_list = 6;</code>
+     * <code>repeated .FriendListInfo friend_list = 3;</code>
      * @return this
      */
     public GetFriendListInfoScRsp clearFriendList() {
@@ -95,7 +95,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendListInfo friend_list = 6;</code>
+     * <code>repeated .FriendListInfo friend_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendListInfo friend_list = 6;</code>
+     * <code>repeated .FriendListInfo friend_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendListInfo friend_list = 6;</code>
+     * <code>repeated .FriendListInfo friend_list = 3;</code>
      * @param value the friendList to add
      * @return this
      */
@@ -135,7 +135,7 @@ public final class GetFriendListInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .FriendListInfo friend_list = 6;</code>
+     * <code>repeated .FriendListInfo friend_list = 3;</code>
      * @param values the friendList to add
      * @return this
      */
@@ -212,12 +212,12 @@ public final class GetFriendListInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < friendList.length(); i++) {
-          output.writeRawByte((byte) 50);
+          output.writeRawByte((byte) 26);
           output.writeMessageNoTag(friendList.get(i));
         }
       }
@@ -242,16 +242,16 @@ public final class GetFriendListInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 80: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 26) {
               break;
             }
           }
-          case 50: {
+          case 26: {
             // friendList
             tag = input.readRepeatedMessage(friendList, tag);
             bitField0_ |= 0x00000002;

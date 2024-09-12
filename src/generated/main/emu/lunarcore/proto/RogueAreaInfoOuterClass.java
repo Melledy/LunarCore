@@ -20,7 +20,7 @@ public final class RogueAreaInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueArea rogue_area = 11;</code>
+     * <code>repeated .RogueArea rogue_area = 2;</code>
      */
     private final RepeatedMessage<RogueAreaOuterClass.RogueArea> rogueArea = RepeatedMessage.newEmptyInstance(RogueAreaOuterClass.RogueArea.getFactory());
 
@@ -35,7 +35,7 @@ public final class RogueAreaInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueArea rogue_area = 11;</code>
+     * <code>repeated .RogueArea rogue_area = 2;</code>
      * @return whether the rogueArea field is set
      */
     public boolean hasRogueArea() {
@@ -43,7 +43,7 @@ public final class RogueAreaInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueArea rogue_area = 11;</code>
+     * <code>repeated .RogueArea rogue_area = 2;</code>
      * @return this
      */
     public RogueAreaInfo clearRogueArea() {
@@ -53,7 +53,7 @@ public final class RogueAreaInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueArea rogue_area = 11;</code>
+     * <code>repeated .RogueArea rogue_area = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class RogueAreaInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueArea rogue_area = 11;</code>
+     * <code>repeated .RogueArea rogue_area = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class RogueAreaInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueArea rogue_area = 11;</code>
+     * <code>repeated .RogueArea rogue_area = 2;</code>
      * @param value the rogueArea to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class RogueAreaInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueArea rogue_area = 11;</code>
+     * <code>repeated .RogueArea rogue_area = 2;</code>
      * @param values the rogueArea to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class RogueAreaInfoOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < rogueArea.length(); i++) {
-          output.writeRawByte((byte) 90);
+          output.writeRawByte((byte) 18);
           output.writeMessageNoTag(rogueArea.get(i));
         }
       }
@@ -185,7 +185,7 @@ public final class RogueAreaInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 90: {
+          case 18: {
             // rogueArea
             tag = input.readRepeatedMessage(rogueArea, tag);
             bitField0_ |= 0x00000001;

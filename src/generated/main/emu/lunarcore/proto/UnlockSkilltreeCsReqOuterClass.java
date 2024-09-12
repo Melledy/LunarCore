@@ -20,17 +20,17 @@ public final class UnlockSkilltreeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 point_id = 12;</code>
+     * <code>optional uint32 point_id = 10;</code>
      */
     private int pointId;
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 13;</code>
      */
     private int level;
 
     /**
-     * <code>repeated .ItemCost item_list = 6;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      */
     private final RepeatedMessage<ItemCostOuterClass.ItemCost> itemList = RepeatedMessage.newEmptyInstance(ItemCostOuterClass.ItemCost.getFactory());
 
@@ -45,7 +45,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 point_id = 12;</code>
+     * <code>optional uint32 point_id = 10;</code>
      * @return whether the pointId field is set
      */
     public boolean hasPointId() {
@@ -53,7 +53,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 point_id = 12;</code>
+     * <code>optional uint32 point_id = 10;</code>
      * @return this
      */
     public UnlockSkilltreeCsReq clearPointId() {
@@ -63,7 +63,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 point_id = 12;</code>
+     * <code>optional uint32 point_id = 10;</code>
      * @return the pointId
      */
     public int getPointId() {
@@ -71,7 +71,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 point_id = 12;</code>
+     * <code>optional uint32 point_id = 10;</code>
      * @param value the pointId to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 13;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -90,7 +90,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 13;</code>
      * @return this
      */
     public UnlockSkilltreeCsReq clearLevel() {
@@ -100,7 +100,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 13;</code>
      * @return the level
      */
     public int getLevel() {
@@ -108,7 +108,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 13;</code>
      * @param value the level to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 6;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @return whether the itemList field is set
      */
     public boolean hasItemList() {
@@ -127,7 +127,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 6;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @return this
      */
     public UnlockSkilltreeCsReq clearItemList() {
@@ -137,7 +137,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 6;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +151,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 6;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -165,7 +165,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 6;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @param value the itemList to add
      * @return this
      */
@@ -176,7 +176,7 @@ public final class UnlockSkilltreeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 6;</code>
+     * <code>repeated .ItemCost item_list = 15;</code>
      * @param values the itemList to add
      * @return this
      */
@@ -258,16 +258,16 @@ public final class UnlockSkilltreeCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(pointId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < itemList.length(); i++) {
-          output.writeRawByte((byte) 50);
+          output.writeRawByte((byte) 122);
           output.writeMessageNoTag(itemList.get(i));
         }
       }
@@ -295,25 +295,25 @@ public final class UnlockSkilltreeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 80: {
             // pointId
             pointId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 104) {
               break;
             }
           }
-          case 112: {
+          case 104: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 122) {
               break;
             }
           }
-          case 50: {
+          case 122: {
             // itemList
             tag = input.readRepeatedMessage(itemList, tag);
             bitField0_ |= 0x00000004;

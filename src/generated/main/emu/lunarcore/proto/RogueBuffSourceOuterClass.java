@@ -137,7 +137,7 @@ public final class RogueBuffSourceOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<RogueBuffSource> converter() {
+    public static ProtoEnum.EnumConverter<RogueBuffSource> converter() {
       return RogueBuffSourceConverter.INSTANCE;
     }
 
@@ -159,7 +159,7 @@ public final class RogueBuffSourceOuterClass {
       return value == null ? other : value;
     }
 
-    enum RogueBuffSourceConverter implements EnumConverter<RogueBuffSource> {
+    enum RogueBuffSourceConverter implements ProtoEnum.EnumConverter<RogueBuffSource> {
       INSTANCE;
 
       private static final RogueBuffSource[] lookup = new RogueBuffSource[10];

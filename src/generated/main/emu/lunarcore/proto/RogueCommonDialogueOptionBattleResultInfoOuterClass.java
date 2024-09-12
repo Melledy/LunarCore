@@ -19,7 +19,7 @@ public final class RogueCommonDialogueOptionBattleResultInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 battle_event_id = 8;</code>
+     * <code>optional uint32 battle_event_id = 6;</code>
      */
     private int battleEventId;
 
@@ -34,7 +34,7 @@ public final class RogueCommonDialogueOptionBattleResultInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 battle_event_id = 8;</code>
+     * <code>optional uint32 battle_event_id = 6;</code>
      * @return whether the battleEventId field is set
      */
     public boolean hasBattleEventId() {
@@ -42,7 +42,7 @@ public final class RogueCommonDialogueOptionBattleResultInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 battle_event_id = 8;</code>
+     * <code>optional uint32 battle_event_id = 6;</code>
      * @return this
      */
     public RogueCommonDialogueOptionBattleResultInfo clearBattleEventId() {
@@ -52,7 +52,7 @@ public final class RogueCommonDialogueOptionBattleResultInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 battle_event_id = 8;</code>
+     * <code>optional uint32 battle_event_id = 6;</code>
      * @return the battleEventId
      */
     public int getBattleEventId() {
@@ -60,7 +60,7 @@ public final class RogueCommonDialogueOptionBattleResultInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 battle_event_id = 8;</code>
+     * <code>optional uint32 battle_event_id = 6;</code>
      * @param value the battleEventId to set
      * @return this
      */
@@ -131,7 +131,7 @@ public final class RogueCommonDialogueOptionBattleResultInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(battleEventId);
       }
     }
@@ -153,7 +153,7 @@ public final class RogueCommonDialogueOptionBattleResultInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 48: {
             // battleEventId
             battleEventId = input.readUInt32();
             bitField0_ |= 0x00000001;

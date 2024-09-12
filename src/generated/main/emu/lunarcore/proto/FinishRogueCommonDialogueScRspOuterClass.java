@@ -19,14 +19,14 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 event_unique_id = 13;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      */
     private int eventUniqueId;
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     */
+    private int retcode;
 
     private FinishRogueCommonDialogueScRsp() {
     }
@@ -39,62 +39,25 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 event_unique_id = 3;</code>
+     * @return whether the eventUniqueId field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasEventUniqueId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return this
-     */
-    public FinishRogueCommonDialogueScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public FinishRogueCommonDialogueScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 event_unique_id = 13;</code>
-     * @return whether the eventUniqueId field is set
-     */
-    public boolean hasEventUniqueId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 event_unique_id = 13;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      * @return this
      */
     public FinishRogueCommonDialogueScRsp clearEventUniqueId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       eventUniqueId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 13;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      * @return the eventUniqueId
      */
     public int getEventUniqueId() {
@@ -102,13 +65,50 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 13;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      * @param value the eventUniqueId to set
      * @return this
      */
     public FinishRogueCommonDialogueScRsp setEventUniqueId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       eventUniqueId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @return this
+     */
+    public FinishRogueCommonDialogueScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 13;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public FinishRogueCommonDialogueScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        retcode = other.retcode;
         eventUniqueId = other.eventUniqueId;
+        retcode = other.retcode;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
-      }
       if (other.hasEventUniqueId()) {
         setEventUniqueId(other.eventUniqueId);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      retcode = 0;
       eventUniqueId = 0;
+      retcode = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
       }
       FinishRogueCommonDialogueScRsp other = (FinishRogueCommonDialogueScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode)
-        && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId);
+        && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId)
+        && (!hasRetcode() || retcode == other.retcode);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(retcode);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(eventUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(eventUniqueId);
+        output.writeUInt32NoTag(retcode);
       }
     }
 
@@ -190,10 +190,10 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       return size;
     }
@@ -205,9 +205,9 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // retcode
-            retcode = input.readUInt32();
+          case 24: {
+            // eventUniqueId
+            eventUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 104) {
@@ -215,8 +215,8 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
             }
           }
           case 104: {
-            // eventUniqueId
-            eventUniqueId = input.readUInt32();
+            // retcode
+            retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       output.endObject();
     }
@@ -256,10 +256,11 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 2091680134:
+          case -157385500: {
+            if (input.isAtField(FieldNames.eventUniqueId)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                eventUniqueId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -267,11 +268,10 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
             }
             break;
           }
-          case 2091680134:
-          case -157385500: {
-            if (input.isAtField(FieldNames.eventUniqueId)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                eventUniqueId = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -334,9 +334,9 @@ public final class FinishRogueCommonDialogueScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName retcode = FieldName.forField("retcode");
-
       static final FieldName eventUniqueId = FieldName.forField("eventUniqueId", "event_unique_id");
+
+      static final FieldName retcode = FieldName.forField("retcode");
     }
   }
 }

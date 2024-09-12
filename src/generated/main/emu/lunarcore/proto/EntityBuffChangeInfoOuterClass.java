@@ -19,17 +19,17 @@ public final class EntityBuffChangeInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entity_id = 12;</code>
-     */
-    private int entityId;
-
-    /**
-     * <code>optional uint32 remove_buff_id = 15;</code>
+     * <code>optional uint32 remove_buff_id = 9;</code>
      */
     private int removeBuffId;
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 5;</code>
+     * <code>optional uint32 entity_id = 13;</code>
+     */
+    private int entityId;
+
+    /**
+     * <code>optional .BuffInfo add_buff_info = 8;</code>
      */
     private final BuffInfoOuterClass.BuffInfo addBuffInfo = BuffInfoOuterClass.BuffInfo.newInstance();
 
@@ -44,62 +44,25 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 12;</code>
-     * @return whether the entityId field is set
+     * <code>optional uint32 remove_buff_id = 9;</code>
+     * @return whether the removeBuffId field is set
      */
-    public boolean hasEntityId() {
+    public boolean hasRemoveBuffId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 entity_id = 12;</code>
-     * @return this
-     */
-    public EntityBuffChangeInfo clearEntityId() {
-      bitField0_ &= ~0x00000001;
-      entityId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entity_id = 12;</code>
-     * @return the entityId
-     */
-    public int getEntityId() {
-      return entityId;
-    }
-
-    /**
-     * <code>optional uint32 entity_id = 12;</code>
-     * @param value the entityId to set
-     * @return this
-     */
-    public EntityBuffChangeInfo setEntityId(final int value) {
-      bitField0_ |= 0x00000001;
-      entityId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 remove_buff_id = 15;</code>
-     * @return whether the removeBuffId field is set
-     */
-    public boolean hasRemoveBuffId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 remove_buff_id = 15;</code>
+     * <code>optional uint32 remove_buff_id = 9;</code>
      * @return this
      */
     public EntityBuffChangeInfo clearRemoveBuffId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       removeBuffId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 remove_buff_id = 15;</code>
+     * <code>optional uint32 remove_buff_id = 9;</code>
      * @return the removeBuffId
      */
     public int getRemoveBuffId() {
@@ -107,18 +70,55 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 remove_buff_id = 15;</code>
+     * <code>optional uint32 remove_buff_id = 9;</code>
      * @param value the removeBuffId to set
      * @return this
      */
     public EntityBuffChangeInfo setRemoveBuffId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       removeBuffId = value;
       return this;
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 5;</code>
+     * <code>optional uint32 entity_id = 13;</code>
+     * @return whether the entityId field is set
+     */
+    public boolean hasEntityId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 13;</code>
+     * @return this
+     */
+    public EntityBuffChangeInfo clearEntityId() {
+      bitField0_ &= ~0x00000002;
+      entityId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 13;</code>
+     * @return the entityId
+     */
+    public int getEntityId() {
+      return entityId;
+    }
+
+    /**
+     * <code>optional uint32 entity_id = 13;</code>
+     * @param value the entityId to set
+     * @return this
+     */
+    public EntityBuffChangeInfo setEntityId(final int value) {
+      bitField0_ |= 0x00000002;
+      entityId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .BuffInfo add_buff_info = 8;</code>
      * @return whether the addBuffInfo field is set
      */
     public boolean hasAddBuffInfo() {
@@ -126,7 +126,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 5;</code>
+     * <code>optional .BuffInfo add_buff_info = 8;</code>
      * @return this
      */
     public EntityBuffChangeInfo clearAddBuffInfo() {
@@ -136,7 +136,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 5;</code>
+     * <code>optional .BuffInfo add_buff_info = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 5;</code>
+     * <code>optional .BuffInfo add_buff_info = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class EntityBuffChangeInfoOuterClass {
     }
 
     /**
-     * <code>optional .BuffInfo add_buff_info = 5;</code>
+     * <code>optional .BuffInfo add_buff_info = 8;</code>
      * @param value the addBuffInfo to set
      * @return this
      */
@@ -179,8 +179,8 @@ public final class EntityBuffChangeInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        entityId = other.entityId;
         removeBuffId = other.removeBuffId;
+        entityId = other.entityId;
         addBuffInfo.copyFrom(other.addBuffInfo);
       }
       return this;
@@ -192,11 +192,11 @@ public final class EntityBuffChangeInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasEntityId()) {
-        setEntityId(other.entityId);
-      }
       if (other.hasRemoveBuffId()) {
         setRemoveBuffId(other.removeBuffId);
+      }
+      if (other.hasEntityId()) {
+        setEntityId(other.entityId);
       }
       if (other.hasAddBuffInfo()) {
         getMutableAddBuffInfo().mergeFrom(other.addBuffInfo);
@@ -211,8 +211,8 @@ public final class EntityBuffChangeInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      entityId = 0;
       removeBuffId = 0;
+      entityId = 0;
       addBuffInfo.clear();
       return this;
     }
@@ -238,23 +238,23 @@ public final class EntityBuffChangeInfoOuterClass {
       }
       EntityBuffChangeInfo other = (EntityBuffChangeInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasEntityId() || entityId == other.entityId)
         && (!hasRemoveBuffId() || removeBuffId == other.removeBuffId)
+        && (!hasEntityId() || entityId == other.entityId)
         && (!hasAddBuffInfo() || addBuffInfo.equals(other.addBuffInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(entityId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(removeBuffId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(entityId);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(addBuffInfo);
       }
     }
@@ -263,10 +263,10 @@ public final class EntityBuffChangeInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(removeBuffId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(removeBuffId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(entityId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(addBuffInfo);
@@ -281,25 +281,25 @@ public final class EntityBuffChangeInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
-            // entityId
-            entityId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
+          case 72: {
             // removeBuffId
             removeBuffId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 104) {
               break;
             }
           }
-          case 42: {
+          case 104: {
+            // entityId
+            entityId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 66) {
+              break;
+            }
+          }
+          case 66: {
             // addBuffInfo
             input.readMessage(addBuffInfo);
             bitField0_ |= 0x00000004;
@@ -326,10 +326,10 @@ public final class EntityBuffChangeInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.entityId, entityId);
+        output.writeUInt32(FieldNames.removeBuffId, removeBuffId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.removeBuffId, removeBuffId);
+        output.writeUInt32(FieldNames.entityId, entityId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.addBuffInfo, addBuffInfo);
@@ -344,11 +344,11 @@ public final class EntityBuffChangeInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -2102099874:
-          case -740565257: {
-            if (input.isAtField(FieldNames.entityId)) {
+          case -1339555214:
+          case 927119308: {
+            if (input.isAtField(FieldNames.removeBuffId)) {
               if (!input.trySkipNullValue()) {
-                entityId = input.readUInt32();
+                removeBuffId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -356,11 +356,11 @@ public final class EntityBuffChangeInfoOuterClass {
             }
             break;
           }
-          case -1339555214:
-          case 927119308: {
-            if (input.isAtField(FieldNames.removeBuffId)) {
+          case -2102099874:
+          case -740565257: {
+            if (input.isAtField(FieldNames.entityId)) {
               if (!input.trySkipNullValue()) {
-                removeBuffId = input.readUInt32();
+                entityId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -433,9 +433,9 @@ public final class EntityBuffChangeInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName entityId = FieldName.forField("entityId", "entity_id");
-
       static final FieldName removeBuffId = FieldName.forField("removeBuffId", "remove_buff_id");
+
+      static final FieldName entityId = FieldName.forField("entityId", "entity_id");
 
       static final FieldName addBuffInfo = FieldName.forField("addBuffInfo", "add_buff_info");
     }

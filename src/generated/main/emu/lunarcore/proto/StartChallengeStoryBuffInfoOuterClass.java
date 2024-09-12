@@ -23,18 +23,18 @@ public final class StartChallengeStoryBuffInfoOuterClass {
      *  ?
      * </pre>
      *
-     * <code>optional uint32 story_buff_one = 7;</code>
+     * <code>optional uint32 story_buff_two = 2;</code>
      */
-    private int storyBuffOne;
+    private int storyBuffTwo;
 
     /**
      * <pre>
      *  ?
      * </pre>
      *
-     * <code>optional uint32 story_buff_two = 10;</code>
+     * <code>optional uint32 story_buff_one = 13;</code>
      */
-    private int storyBuffTwo;
+    private int storyBuffOne;
 
     private StartChallengeStoryBuffInfo() {
     }
@@ -51,10 +51,10 @@ public final class StartChallengeStoryBuffInfoOuterClass {
      *  ?
      * </pre>
      *
-     * <code>optional uint32 story_buff_one = 7;</code>
-     * @return whether the storyBuffOne field is set
+     * <code>optional uint32 story_buff_two = 2;</code>
+     * @return whether the storyBuffTwo field is set
      */
-    public boolean hasStoryBuffOne() {
+    public boolean hasStoryBuffTwo() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
@@ -63,64 +63,11 @@ public final class StartChallengeStoryBuffInfoOuterClass {
      *  ?
      * </pre>
      *
-     * <code>optional uint32 story_buff_one = 7;</code>
-     * @return this
-     */
-    public StartChallengeStoryBuffInfo clearStoryBuffOne() {
-      bitField0_ &= ~0x00000001;
-      storyBuffOne = 0;
-      return this;
-    }
-
-    /**
-     * <pre>
-     *  ?
-     * </pre>
-     *
-     * <code>optional uint32 story_buff_one = 7;</code>
-     * @return the storyBuffOne
-     */
-    public int getStoryBuffOne() {
-      return storyBuffOne;
-    }
-
-    /**
-     * <pre>
-     *  ?
-     * </pre>
-     *
-     * <code>optional uint32 story_buff_one = 7;</code>
-     * @param value the storyBuffOne to set
-     * @return this
-     */
-    public StartChallengeStoryBuffInfo setStoryBuffOne(final int value) {
-      bitField0_ |= 0x00000001;
-      storyBuffOne = value;
-      return this;
-    }
-
-    /**
-     * <pre>
-     *  ?
-     * </pre>
-     *
-     * <code>optional uint32 story_buff_two = 10;</code>
-     * @return whether the storyBuffTwo field is set
-     */
-    public boolean hasStoryBuffTwo() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <pre>
-     *  ?
-     * </pre>
-     *
-     * <code>optional uint32 story_buff_two = 10;</code>
+     * <code>optional uint32 story_buff_two = 2;</code>
      * @return this
      */
     public StartChallengeStoryBuffInfo clearStoryBuffTwo() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       storyBuffTwo = 0;
       return this;
     }
@@ -130,7 +77,7 @@ public final class StartChallengeStoryBuffInfoOuterClass {
      *  ?
      * </pre>
      *
-     * <code>optional uint32 story_buff_two = 10;</code>
+     * <code>optional uint32 story_buff_two = 2;</code>
      * @return the storyBuffTwo
      */
     public int getStoryBuffTwo() {
@@ -142,13 +89,66 @@ public final class StartChallengeStoryBuffInfoOuterClass {
      *  ?
      * </pre>
      *
-     * <code>optional uint32 story_buff_two = 10;</code>
+     * <code>optional uint32 story_buff_two = 2;</code>
      * @param value the storyBuffTwo to set
      * @return this
      */
     public StartChallengeStoryBuffInfo setStoryBuffTwo(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       storyBuffTwo = value;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  ?
+     * </pre>
+     *
+     * <code>optional uint32 story_buff_one = 13;</code>
+     * @return whether the storyBuffOne field is set
+     */
+    public boolean hasStoryBuffOne() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <pre>
+     *  ?
+     * </pre>
+     *
+     * <code>optional uint32 story_buff_one = 13;</code>
+     * @return this
+     */
+    public StartChallengeStoryBuffInfo clearStoryBuffOne() {
+      bitField0_ &= ~0x00000002;
+      storyBuffOne = 0;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  ?
+     * </pre>
+     *
+     * <code>optional uint32 story_buff_one = 13;</code>
+     * @return the storyBuffOne
+     */
+    public int getStoryBuffOne() {
+      return storyBuffOne;
+    }
+
+    /**
+     * <pre>
+     *  ?
+     * </pre>
+     *
+     * <code>optional uint32 story_buff_one = 13;</code>
+     * @param value the storyBuffOne to set
+     * @return this
+     */
+    public StartChallengeStoryBuffInfo setStoryBuffOne(final int value) {
+      bitField0_ |= 0x00000002;
+      storyBuffOne = value;
       return this;
     }
 
@@ -157,8 +157,8 @@ public final class StartChallengeStoryBuffInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        storyBuffOne = other.storyBuffOne;
         storyBuffTwo = other.storyBuffTwo;
+        storyBuffOne = other.storyBuffOne;
       }
       return this;
     }
@@ -169,11 +169,11 @@ public final class StartChallengeStoryBuffInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasStoryBuffOne()) {
-        setStoryBuffOne(other.storyBuffOne);
-      }
       if (other.hasStoryBuffTwo()) {
         setStoryBuffTwo(other.storyBuffTwo);
+      }
+      if (other.hasStoryBuffOne()) {
+        setStoryBuffOne(other.storyBuffOne);
       }
       return this;
     }
@@ -185,8 +185,8 @@ public final class StartChallengeStoryBuffInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      storyBuffOne = 0;
       storyBuffTwo = 0;
+      storyBuffOne = 0;
       return this;
     }
 
@@ -210,19 +210,19 @@ public final class StartChallengeStoryBuffInfoOuterClass {
       }
       StartChallengeStoryBuffInfo other = (StartChallengeStoryBuffInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasStoryBuffOne() || storyBuffOne == other.storyBuffOne)
-        && (!hasStoryBuffTwo() || storyBuffTwo == other.storyBuffTwo);
+        && (!hasStoryBuffTwo() || storyBuffTwo == other.storyBuffTwo)
+        && (!hasStoryBuffOne() || storyBuffOne == other.storyBuffOne);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(storyBuffOne);
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(storyBuffTwo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(storyBuffTwo);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(storyBuffOne);
       }
     }
 
@@ -230,10 +230,10 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(storyBuffOne);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(storyBuffTwo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(storyBuffTwo);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(storyBuffOne);
       }
       return size;
     }
@@ -245,18 +245,18 @@ public final class StartChallengeStoryBuffInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
-            // storyBuffOne
-            storyBuffOne = input.readUInt32();
+          case 16: {
+            // storyBuffTwo
+            storyBuffTwo = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 104) {
               break;
             }
           }
-          case 80: {
-            // storyBuffTwo
-            storyBuffTwo = input.readUInt32();
+          case 104: {
+            // storyBuffOne
+            storyBuffOne = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -281,10 +281,10 @@ public final class StartChallengeStoryBuffInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.storyBuffOne, storyBuffOne);
+        output.writeUInt32(FieldNames.storyBuffTwo, storyBuffTwo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.storyBuffTwo, storyBuffTwo);
+        output.writeUInt32(FieldNames.storyBuffOne, storyBuffOne);
       }
       output.endObject();
     }
@@ -296,11 +296,11 @@ public final class StartChallengeStoryBuffInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1761423966:
-          case 1329547396: {
-            if (input.isAtField(FieldNames.storyBuffOne)) {
+          case 1761429060:
+          case 1329552490: {
+            if (input.isAtField(FieldNames.storyBuffTwo)) {
               if (!input.trySkipNullValue()) {
-                storyBuffOne = input.readUInt32();
+                storyBuffTwo = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -308,11 +308,11 @@ public final class StartChallengeStoryBuffInfoOuterClass {
             }
             break;
           }
-          case 1761429060:
-          case 1329552490: {
-            if (input.isAtField(FieldNames.storyBuffTwo)) {
+          case 1761423966:
+          case 1329547396: {
+            if (input.isAtField(FieldNames.storyBuffOne)) {
               if (!input.trySkipNullValue()) {
-                storyBuffTwo = input.readUInt32();
+                storyBuffOne = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -374,9 +374,9 @@ public final class StartChallengeStoryBuffInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName storyBuffOne = FieldName.forField("storyBuffOne", "story_buff_one");
-
       static final FieldName storyBuffTwo = FieldName.forField("storyBuffTwo", "story_buff_two");
+
+      static final FieldName storyBuffOne = FieldName.forField("storyBuffOne", "story_buff_one");
     }
   }
 }

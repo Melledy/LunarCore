@@ -15,33 +15,37 @@ import us.hebi.quickbuf.Utf8String;
 
 public final class PlayerDetailInfoOuterClass {
   /**
+   * <pre>
+   *  TODO: verify DisplayAvatarDetailInfo repeateds
+   * </pre>
+   *
    * Protobuf type {@code PlayerDetailInfo}
    */
   public static final class PlayerDetailInfo extends ProtoMessage<PlayerDetailInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 world_level = 6;</code>
+     * <code>optional uint32 world_level = 5;</code>
      */
     private int worldLevel;
 
     /**
-     * <code>optional uint32 uid = 9;</code>
-     */
-    private int uid;
-
-    /**
-     * <code>optional uint32 head_icon = 12;</code>
+     * <code>optional uint32 head_icon = 8;</code>
      */
     private int headIcon;
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 uid = 13;</code>
+     */
+    private int uid;
+
+    /**
+     * <code>optional uint32 level = 15;</code>
      */
     private int level;
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 3;</code>
      */
     private int platformType;
 
@@ -51,37 +55,37 @@ public final class PlayerDetailInfoOuterClass {
     private boolean showDisplayAvatars;
 
     /**
-     * <code>optional bool is_banned = 11;</code>
+     * <code>optional bool is_banned = 12;</code>
      */
     private boolean isBanned;
 
     /**
-     * <code>optional .PlayerRecordInfo record_info = 13;</code>
+     * <code>optional .PlayerRecordInfo record_info = 7;</code>
      */
     private final PlayerRecordInfoOuterClass.PlayerRecordInfo recordInfo = PlayerRecordInfoOuterClass.PlayerRecordInfo.newInstance();
 
     /**
-     * <code>optional .PlayerDisplaySettings display_settings = 1265;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
      */
     private final PlayerDisplaySettingsOuterClass.PlayerDisplaySettings displaySettings = PlayerDisplaySettingsOuterClass.PlayerDisplaySettings.newInstance();
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      */
     private final Utf8String nickname = Utf8String.newEmptyInstance();
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      */
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 8;</code>
+     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 11;</code>
      */
     private final RepeatedMessage<DisplayAvatarDetailInfoOuterClass.DisplayAvatarDetailInfo> displayAvatarList = RepeatedMessage.newEmptyInstance(DisplayAvatarDetailInfoOuterClass.DisplayAvatarDetailInfo.getFactory());
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1854;</code>
+     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1700;</code>
      */
     private final RepeatedMessage<DisplayAvatarDetailInfoOuterClass.DisplayAvatarDetailInfo> assistAvatarList = RepeatedMessage.newEmptyInstance(DisplayAvatarDetailInfoOuterClass.DisplayAvatarDetailInfo.getFactory());
 
@@ -89,6 +93,10 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *  TODO: verify DisplayAvatarDetailInfo repeateds
+     * </pre>
+     *
      * @return a new empty instance of {@code PlayerDetailInfo}
      */
     public static PlayerDetailInfo newInstance() {
@@ -96,7 +104,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 6;</code>
+     * <code>optional uint32 world_level = 5;</code>
      * @return whether the worldLevel field is set
      */
     public boolean hasWorldLevel() {
@@ -104,7 +112,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 6;</code>
+     * <code>optional uint32 world_level = 5;</code>
      * @return this
      */
     public PlayerDetailInfo clearWorldLevel() {
@@ -114,7 +122,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 6;</code>
+     * <code>optional uint32 world_level = 5;</code>
      * @return the worldLevel
      */
     public int getWorldLevel() {
@@ -122,7 +130,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 6;</code>
+     * <code>optional uint32 world_level = 5;</code>
      * @param value the worldLevel to set
      * @return this
      */
@@ -133,62 +141,25 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 9;</code>
-     * @return whether the uid field is set
+     * <code>optional uint32 head_icon = 8;</code>
+     * @return whether the headIcon field is set
      */
-    public boolean hasUid() {
+    public boolean hasHeadIcon() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 uid = 9;</code>
-     * @return this
-     */
-    public PlayerDetailInfo clearUid() {
-      bitField0_ &= ~0x00000002;
-      uid = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 uid = 9;</code>
-     * @return the uid
-     */
-    public int getUid() {
-      return uid;
-    }
-
-    /**
-     * <code>optional uint32 uid = 9;</code>
-     * @param value the uid to set
-     * @return this
-     */
-    public PlayerDetailInfo setUid(final int value) {
-      bitField0_ |= 0x00000002;
-      uid = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 head_icon = 12;</code>
-     * @return whether the headIcon field is set
-     */
-    public boolean hasHeadIcon() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 head_icon = 12;</code>
+     * <code>optional uint32 head_icon = 8;</code>
      * @return this
      */
     public PlayerDetailInfo clearHeadIcon() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       headIcon = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 head_icon = 12;</code>
+     * <code>optional uint32 head_icon = 8;</code>
      * @return the headIcon
      */
     public int getHeadIcon() {
@@ -196,18 +167,55 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 head_icon = 12;</code>
+     * <code>optional uint32 head_icon = 8;</code>
      * @param value the headIcon to set
      * @return this
      */
     public PlayerDetailInfo setHeadIcon(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       headIcon = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 uid = 13;</code>
+     * @return whether the uid field is set
+     */
+    public boolean hasUid() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 uid = 13;</code>
+     * @return this
+     */
+    public PlayerDetailInfo clearUid() {
+      bitField0_ &= ~0x00000004;
+      uid = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 uid = 13;</code>
+     * @return the uid
+     */
+    public int getUid() {
+      return uid;
+    }
+
+    /**
+     * <code>optional uint32 uid = 13;</code>
+     * @param value the uid to set
+     * @return this
+     */
+    public PlayerDetailInfo setUid(final int value) {
+      bitField0_ |= 0x00000004;
+      uid = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 15;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -215,7 +223,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 15;</code>
      * @return this
      */
     public PlayerDetailInfo clearLevel() {
@@ -225,7 +233,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 15;</code>
      * @return the level
      */
     public int getLevel() {
@@ -233,7 +241,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 14;</code>
+     * <code>optional uint32 level = 15;</code>
      * @param value the level to set
      * @return this
      */
@@ -244,7 +252,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 3;</code>
      * @return whether the platformType field is set
      */
     public boolean hasPlatformType() {
@@ -252,7 +260,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 3;</code>
      * @return this
      */
     public PlayerDetailInfo clearPlatformType() {
@@ -262,7 +270,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 3;</code>
      * @return the platformType
      */
     public PlatformTypeOuterClass.PlatformType getPlatformType() {
@@ -295,7 +303,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlatformType platform_type = 5;</code>
+     * <code>optional .PlatformType platform_type = 3;</code>
      * @param value the platformType to set
      * @return this
      */
@@ -343,7 +351,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 11;</code>
+     * <code>optional bool is_banned = 12;</code>
      * @return whether the isBanned field is set
      */
     public boolean hasIsBanned() {
@@ -351,7 +359,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 11;</code>
+     * <code>optional bool is_banned = 12;</code>
      * @return this
      */
     public PlayerDetailInfo clearIsBanned() {
@@ -361,7 +369,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 11;</code>
+     * <code>optional bool is_banned = 12;</code>
      * @return the isBanned
      */
     public boolean getIsBanned() {
@@ -369,7 +377,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_banned = 11;</code>
+     * <code>optional bool is_banned = 12;</code>
      * @param value the isBanned to set
      * @return this
      */
@@ -380,7 +388,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerRecordInfo record_info = 13;</code>
+     * <code>optional .PlayerRecordInfo record_info = 7;</code>
      * @return whether the recordInfo field is set
      */
     public boolean hasRecordInfo() {
@@ -388,7 +396,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerRecordInfo record_info = 13;</code>
+     * <code>optional .PlayerRecordInfo record_info = 7;</code>
      * @return this
      */
     public PlayerDetailInfo clearRecordInfo() {
@@ -398,7 +406,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerRecordInfo record_info = 13;</code>
+     * <code>optional .PlayerRecordInfo record_info = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -412,7 +420,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerRecordInfo record_info = 13;</code>
+     * <code>optional .PlayerRecordInfo record_info = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -426,7 +434,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerRecordInfo record_info = 13;</code>
+     * <code>optional .PlayerRecordInfo record_info = 7;</code>
      * @param value the recordInfo to set
      * @return this
      */
@@ -437,7 +445,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerDisplaySettings display_settings = 1265;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
      * @return whether the displaySettings field is set
      */
     public boolean hasDisplaySettings() {
@@ -445,7 +453,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerDisplaySettings display_settings = 1265;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
      * @return this
      */
     public PlayerDetailInfo clearDisplaySettings() {
@@ -455,7 +463,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerDisplaySettings display_settings = 1265;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -469,7 +477,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerDisplaySettings display_settings = 1265;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -483,7 +491,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayerDisplaySettings display_settings = 1265;</code>
+     * <code>optional .PlayerDisplaySettings display_settings = 1743;</code>
      * @param value the displaySettings to set
      * @return this
      */
@@ -495,7 +503,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      * @return whether the nickname field is set
      */
     public boolean hasNickname() {
@@ -503,7 +511,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      * @return this
      */
     public PlayerDetailInfo clearNickname() {
@@ -513,7 +521,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      * @return the nickname
      */
     public String getNickname() {
@@ -521,7 +529,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      * @return internal {@code Utf8String} representation of nickname for reading
      */
     public Utf8String getNicknameBytes() {
@@ -529,7 +537,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      * @return internal {@code Utf8String} representation of nickname for modifications
      */
     public Utf8String getMutableNicknameBytes() {
@@ -538,7 +546,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      * @param value the nickname to set
      * @return this
      */
@@ -549,7 +557,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string nickname = 2;</code>
+     * <code>optional string nickname = 4;</code>
      * @param value the nickname to set
      * @return this
      */
@@ -560,7 +568,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      * @return whether the signature field is set
      */
     public boolean hasSignature() {
@@ -568,7 +576,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      * @return this
      */
     public PlayerDetailInfo clearSignature() {
@@ -578,7 +586,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      * @return the signature
      */
     public String getSignature() {
@@ -586,7 +594,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      * @return internal {@code Utf8String} representation of signature for reading
      */
     public Utf8String getSignatureBytes() {
@@ -594,7 +602,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      * @return internal {@code Utf8String} representation of signature for modifications
      */
     public Utf8String getMutableSignatureBytes() {
@@ -603,7 +611,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      * @param value the signature to set
      * @return this
      */
@@ -614,7 +622,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>optional string signature = 4;</code>
+     * <code>optional string signature = 14;</code>
      * @param value the signature to set
      * @return this
      */
@@ -625,7 +633,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 8;</code>
+     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 11;</code>
      * @return whether the displayAvatarList field is set
      */
     public boolean hasDisplayAvatarList() {
@@ -633,7 +641,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 8;</code>
+     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 11;</code>
      * @return this
      */
     public PlayerDetailInfo clearDisplayAvatarList() {
@@ -643,7 +651,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 8;</code>
+     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -658,7 +666,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 8;</code>
+     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -673,7 +681,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 8;</code>
+     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 11;</code>
      * @param value the displayAvatarList to add
      * @return this
      */
@@ -685,7 +693,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 8;</code>
+     * <code>repeated .DisplayAvatarDetailInfo display_avatar_list = 11;</code>
      * @param values the displayAvatarList to add
      * @return this
      */
@@ -697,7 +705,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1854;</code>
+     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1700;</code>
      * @return whether the assistAvatarList field is set
      */
     public boolean hasAssistAvatarList() {
@@ -705,7 +713,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1854;</code>
+     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1700;</code>
      * @return this
      */
     public PlayerDetailInfo clearAssistAvatarList() {
@@ -715,7 +723,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1854;</code>
+     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1700;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -730,7 +738,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1854;</code>
+     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1700;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -745,7 +753,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1854;</code>
+     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1700;</code>
      * @param value the assistAvatarList to add
      * @return this
      */
@@ -757,7 +765,7 @@ public final class PlayerDetailInfoOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1854;</code>
+     * <code>repeated .DisplayAvatarDetailInfo assist_avatar_list = 1700;</code>
      * @param values the assistAvatarList to add
      * @return this
      */
@@ -774,8 +782,8 @@ public final class PlayerDetailInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         worldLevel = other.worldLevel;
-        uid = other.uid;
         headIcon = other.headIcon;
+        uid = other.uid;
         level = other.level;
         platformType = other.platformType;
         showDisplayAvatars = other.showDisplayAvatars;
@@ -799,11 +807,11 @@ public final class PlayerDetailInfoOuterClass {
       if (other.hasWorldLevel()) {
         setWorldLevel(other.worldLevel);
       }
-      if (other.hasUid()) {
-        setUid(other.uid);
-      }
       if (other.hasHeadIcon()) {
         setHeadIcon(other.headIcon);
+      }
+      if (other.hasUid()) {
+        setUid(other.uid);
       }
       if (other.hasLevel()) {
         setLevel(other.level);
@@ -846,8 +854,8 @@ public final class PlayerDetailInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       worldLevel = 0;
-      uid = 0;
       headIcon = 0;
+      uid = 0;
       level = 0;
       platformType = 0;
       showDisplayAvatars = false;
@@ -888,8 +896,8 @@ public final class PlayerDetailInfoOuterClass {
       PlayerDetailInfo other = (PlayerDetailInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasWorldLevel() || worldLevel == other.worldLevel)
-        && (!hasUid() || uid == other.uid)
         && (!hasHeadIcon() || headIcon == other.headIcon)
+        && (!hasUid() || uid == other.uid)
         && (!hasLevel() || level == other.level)
         && (!hasPlatformType() || platformType == other.platformType)
         && (!hasShowDisplayAvatars() || showDisplayAvatars == other.showDisplayAvatars)
@@ -905,23 +913,23 @@ public final class PlayerDetailInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(worldLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(uid);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(headIcon);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(uid);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 24);
         output.writeEnumNoTag(platformType);
       }
       if ((bitField0_ & 0x00000020) != 0) {
@@ -929,34 +937,34 @@ public final class PlayerDetailInfoOuterClass {
         output.writeBoolNoTag(showDisplayAvatars);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 96);
         output.writeBoolNoTag(isBanned);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(recordInfo);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawLittleEndian16((short) 20362);
+        output.writeRawLittleEndian16((short) 27898);
         output.writeMessageNoTag(displaySettings);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 34);
         output.writeStringNoTag(nickname);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 114);
         output.writeStringNoTag(signature);
       }
       if ((bitField0_ & 0x00000800) != 0) {
         for (int i = 0; i < displayAvatarList.length(); i++) {
-          output.writeRawByte((byte) 66);
+          output.writeRawByte((byte) 90);
           output.writeMessageNoTag(displayAvatarList.get(i));
         }
       }
       if ((bitField0_ & 0x00001000) != 0) {
         for (int i = 0; i < assistAvatarList.length(); i++) {
-          output.writeRawLittleEndian16((short) 29682);
+          output.writeRawLittleEndian16((short) 27298);
           output.writeMessageNoTag(assistAvatarList.get(i));
         }
       }
@@ -969,10 +977,10 @@ public final class PlayerDetailInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(worldLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(uid);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(headIcon);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(headIcon);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(uid);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
@@ -1014,43 +1022,43 @@ public final class PlayerDetailInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 40: {
             // worldLevel
             worldLevel = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 64) {
               break;
             }
           }
-          case 72: {
-            // uid
-            uid = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
+          case 64: {
             // headIcon
             headIcon = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 104) {
               break;
             }
           }
-          case 112: {
+          case 104: {
+            // uid
+            uid = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 24) {
               break;
             }
           }
-          case 40: {
+          case 24: {
             // platformType
             final int value = input.readInt32();
             if (PlatformTypeOuterClass.PlatformType.forNumber(value) != null) {
@@ -1067,64 +1075,64 @@ public final class PlayerDetailInfoOuterClass {
             showDisplayAvatars = input.readBool();
             bitField0_ |= 0x00000020;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 96) {
               break;
             }
           }
-          case 88: {
+          case 96: {
             // isBanned
             isBanned = input.readBool();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 58) {
               break;
             }
           }
-          case 106: {
+          case 58: {
             // recordInfo
             input.readMessage(recordInfo);
             bitField0_ |= 0x00000080;
             tag = input.readTag();
-            if (tag != 10122) {
+            if (tag != 13946) {
               break;
             }
           }
-          case 10122: {
+          case 13946: {
             // displaySettings
             input.readMessage(displaySettings);
             bitField0_ |= 0x00000100;
-            tag = input.readTag();
-            if (tag != 18) {
-              break;
-            }
-          }
-          case 18: {
-            // nickname
-            input.readString(nickname);
-            bitField0_ |= 0x00000200;
             tag = input.readTag();
             if (tag != 34) {
               break;
             }
           }
           case 34: {
+            // nickname
+            input.readString(nickname);
+            bitField0_ |= 0x00000200;
+            tag = input.readTag();
+            if (tag != 114) {
+              break;
+            }
+          }
+          case 114: {
             // signature
             input.readString(signature);
             bitField0_ |= 0x00000400;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 90) {
               break;
             }
           }
-          case 66: {
+          case 90: {
             // displayAvatarList
             tag = input.readRepeatedMessage(displayAvatarList, tag);
             bitField0_ |= 0x00000800;
-            if (tag != 14834) {
+            if (tag != 13602) {
               break;
             }
           }
-          case 14834: {
+          case 13602: {
             // assistAvatarList
             tag = input.readRepeatedMessage(assistAvatarList, tag);
             bitField0_ |= 0x00001000;
@@ -1153,10 +1161,10 @@ public final class PlayerDetailInfoOuterClass {
         output.writeUInt32(FieldNames.worldLevel, worldLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.uid, uid);
+        output.writeUInt32(FieldNames.headIcon, headIcon);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.headIcon, headIcon);
+        output.writeUInt32(FieldNames.uid, uid);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.level, level);
@@ -1210,10 +1218,11 @@ public final class PlayerDetailInfoOuterClass {
             }
             break;
           }
-          case 115792: {
-            if (input.isAtField(FieldNames.uid)) {
+          case -1116107143:
+          case -219098248: {
+            if (input.isAtField(FieldNames.headIcon)) {
               if (!input.trySkipNullValue()) {
-                uid = input.readUInt32();
+                headIcon = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -1221,11 +1230,10 @@ public final class PlayerDetailInfoOuterClass {
             }
             break;
           }
-          case -1116107143:
-          case -219098248: {
-            if (input.isAtField(FieldNames.headIcon)) {
+          case 115792: {
+            if (input.isAtField(FieldNames.uid)) {
               if (!input.trySkipNullValue()) {
-                headIcon = input.readUInt32();
+                uid = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -1410,9 +1418,9 @@ public final class PlayerDetailInfoOuterClass {
     static class FieldNames {
       static final FieldName worldLevel = FieldName.forField("worldLevel", "world_level");
 
-      static final FieldName uid = FieldName.forField("uid");
-
       static final FieldName headIcon = FieldName.forField("headIcon", "head_icon");
+
+      static final FieldName uid = FieldName.forField("uid");
 
       static final FieldName level = FieldName.forField("level");
 

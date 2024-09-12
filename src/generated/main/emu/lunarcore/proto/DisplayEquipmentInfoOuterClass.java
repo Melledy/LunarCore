@@ -19,29 +19,29 @@ public final class DisplayEquipmentInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 rank = 1;</code>
-     */
-    private int rank;
-
-    /**
-     * <code>optional uint32 exp = 3;</code>
+     * <code>optional uint32 exp = 2;</code>
      */
     private int exp;
 
     /**
-     * <code>optional uint32 promotion = 5;</code>
+     * <code>optional uint32 rank = 4;</code>
      */
-    private int promotion;
+    private int rank;
 
     /**
-     * <code>optional uint32 level = 7;</code>
+     * <code>optional uint32 level = 5;</code>
      */
     private int level;
 
     /**
-     * <code>optional uint32 tid = 11;</code>
+     * <code>optional uint32 tid = 12;</code>
      */
     private int tid;
+
+    /**
+     * <code>optional uint32 promotion = 15;</code>
+     */
+    private int promotion;
 
     private DisplayEquipmentInfo() {
     }
@@ -54,62 +54,25 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 1;</code>
-     * @return whether the rank field is set
+     * <code>optional uint32 exp = 2;</code>
+     * @return whether the exp field is set
      */
-    public boolean hasRank() {
+    public boolean hasExp() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 rank = 1;</code>
-     * @return this
-     */
-    public DisplayEquipmentInfo clearRank() {
-      bitField0_ &= ~0x00000001;
-      rank = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 rank = 1;</code>
-     * @return the rank
-     */
-    public int getRank() {
-      return rank;
-    }
-
-    /**
-     * <code>optional uint32 rank = 1;</code>
-     * @param value the rank to set
-     * @return this
-     */
-    public DisplayEquipmentInfo setRank(final int value) {
-      bitField0_ |= 0x00000001;
-      rank = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 exp = 3;</code>
-     * @return whether the exp field is set
-     */
-    public boolean hasExp() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 exp = 3;</code>
+     * <code>optional uint32 exp = 2;</code>
      * @return this
      */
     public DisplayEquipmentInfo clearExp() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       exp = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 exp = 3;</code>
+     * <code>optional uint32 exp = 2;</code>
      * @return the exp
      */
     public int getExp() {
@@ -117,73 +80,73 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 exp = 3;</code>
+     * <code>optional uint32 exp = 2;</code>
      * @param value the exp to set
      * @return this
      */
     public DisplayEquipmentInfo setExp(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       exp = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @return whether the promotion field is set
+     * <code>optional uint32 rank = 4;</code>
+     * @return whether the rank field is set
      */
-    public boolean hasPromotion() {
+    public boolean hasRank() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 rank = 4;</code>
+     * @return this
+     */
+    public DisplayEquipmentInfo clearRank() {
+      bitField0_ &= ~0x00000002;
+      rank = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 rank = 4;</code>
+     * @return the rank
+     */
+    public int getRank() {
+      return rank;
+    }
+
+    /**
+     * <code>optional uint32 rank = 4;</code>
+     * @param value the rank to set
+     * @return this
+     */
+    public DisplayEquipmentInfo setRank(final int value) {
+      bitField0_ |= 0x00000002;
+      rank = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 5;</code>
+     * @return whether the level field is set
+     */
+    public boolean hasLevel() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @return this
-     */
-    public DisplayEquipmentInfo clearPromotion() {
-      bitField0_ &= ~0x00000004;
-      promotion = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @return the promotion
-     */
-    public int getPromotion() {
-      return promotion;
-    }
-
-    /**
-     * <code>optional uint32 promotion = 5;</code>
-     * @param value the promotion to set
-     * @return this
-     */
-    public DisplayEquipmentInfo setPromotion(final int value) {
-      bitField0_ |= 0x00000004;
-      promotion = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 level = 7;</code>
-     * @return whether the level field is set
-     */
-    public boolean hasLevel() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 level = 7;</code>
+     * <code>optional uint32 level = 5;</code>
      * @return this
      */
     public DisplayEquipmentInfo clearLevel() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000004;
       level = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 7;</code>
+     * <code>optional uint32 level = 5;</code>
      * @return the level
      */
     public int getLevel() {
@@ -191,36 +154,36 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 7;</code>
+     * <code>optional uint32 level = 5;</code>
      * @param value the level to set
      * @return this
      */
     public DisplayEquipmentInfo setLevel(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       level = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 tid = 11;</code>
+     * <code>optional uint32 tid = 12;</code>
      * @return whether the tid field is set
      */
     public boolean hasTid() {
-      return (bitField0_ & 0x00000010) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 tid = 11;</code>
+     * <code>optional uint32 tid = 12;</code>
      * @return this
      */
     public DisplayEquipmentInfo clearTid() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000008;
       tid = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 tid = 11;</code>
+     * <code>optional uint32 tid = 12;</code>
      * @return the tid
      */
     public int getTid() {
@@ -228,13 +191,50 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 tid = 11;</code>
+     * <code>optional uint32 tid = 12;</code>
      * @param value the tid to set
      * @return this
      */
     public DisplayEquipmentInfo setTid(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       tid = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 15;</code>
+     * @return whether the promotion field is set
+     */
+    public boolean hasPromotion() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 15;</code>
+     * @return this
+     */
+    public DisplayEquipmentInfo clearPromotion() {
+      bitField0_ &= ~0x00000010;
+      promotion = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 15;</code>
+     * @return the promotion
+     */
+    public int getPromotion() {
+      return promotion;
+    }
+
+    /**
+     * <code>optional uint32 promotion = 15;</code>
+     * @param value the promotion to set
+     * @return this
+     */
+    public DisplayEquipmentInfo setPromotion(final int value) {
+      bitField0_ |= 0x00000010;
+      promotion = value;
       return this;
     }
 
@@ -243,11 +243,11 @@ public final class DisplayEquipmentInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        rank = other.rank;
         exp = other.exp;
-        promotion = other.promotion;
+        rank = other.rank;
         level = other.level;
         tid = other.tid;
+        promotion = other.promotion;
       }
       return this;
     }
@@ -258,20 +258,20 @@ public final class DisplayEquipmentInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRank()) {
-        setRank(other.rank);
-      }
       if (other.hasExp()) {
         setExp(other.exp);
       }
-      if (other.hasPromotion()) {
-        setPromotion(other.promotion);
+      if (other.hasRank()) {
+        setRank(other.rank);
       }
       if (other.hasLevel()) {
         setLevel(other.level);
       }
       if (other.hasTid()) {
         setTid(other.tid);
+      }
+      if (other.hasPromotion()) {
+        setPromotion(other.promotion);
       }
       return this;
     }
@@ -283,11 +283,11 @@ public final class DisplayEquipmentInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rank = 0;
       exp = 0;
-      promotion = 0;
+      rank = 0;
       level = 0;
       tid = 0;
+      promotion = 0;
       return this;
     }
 
@@ -311,34 +311,34 @@ public final class DisplayEquipmentInfoOuterClass {
       }
       DisplayEquipmentInfo other = (DisplayEquipmentInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasRank() || rank == other.rank)
         && (!hasExp() || exp == other.exp)
-        && (!hasPromotion() || promotion == other.promotion)
+        && (!hasRank() || rank == other.rank)
         && (!hasLevel() || level == other.level)
-        && (!hasTid() || tid == other.tid);
+        && (!hasTid() || tid == other.tid)
+        && (!hasPromotion() || promotion == other.promotion);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(rank);
+        output.writeRawByte((byte) 16);
+        output.writeUInt32NoTag(exp);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(exp);
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(rank);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(promotion);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(level);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 88);
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(tid);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(promotion);
       }
     }
 
@@ -346,19 +346,19 @@ public final class DisplayEquipmentInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rank);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(exp);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(promotion);
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rank);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(tid);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(promotion);
       }
       return size;
     }
@@ -370,18 +370,18 @@ public final class DisplayEquipmentInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // rank
-            rank = input.readUInt32();
+          case 16: {
+            // exp
+            exp = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 24) {
+            if (tag != 32) {
               break;
             }
           }
-          case 24: {
-            // exp
-            exp = input.readUInt32();
+          case 32: {
+            // rank
+            rank = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 40) {
@@ -389,26 +389,26 @@ public final class DisplayEquipmentInfoOuterClass {
             }
           }
           case 40: {
-            // promotion
-            promotion = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
-          case 56: {
             // level
             level = input.readUInt32();
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 96) {
               break;
             }
           }
-          case 88: {
+          case 96: {
             // tid
             tid = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // promotion
+            promotion = input.readUInt32();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 0) {
@@ -433,19 +433,19 @@ public final class DisplayEquipmentInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.rank, rank);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.exp, exp);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.promotion, promotion);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.rank, rank);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.level, level);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.tid, tid);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeUInt32(FieldNames.promotion, promotion);
       }
       output.endObject();
     }
@@ -457,10 +457,10 @@ public final class DisplayEquipmentInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 3492908: {
-            if (input.isAtField(FieldNames.rank)) {
+          case 100893: {
+            if (input.isAtField(FieldNames.exp)) {
               if (!input.trySkipNullValue()) {
-                rank = input.readUInt32();
+                exp = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -468,22 +468,11 @@ public final class DisplayEquipmentInfoOuterClass {
             }
             break;
           }
-          case 100893: {
-            if (input.isAtField(FieldNames.exp)) {
+          case 3492908: {
+            if (input.isAtField(FieldNames.rank)) {
               if (!input.trySkipNullValue()) {
-                exp = input.readUInt32();
+                rank = input.readUInt32();
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -799212381: {
-            if (input.isAtField(FieldNames.promotion)) {
-              if (!input.trySkipNullValue()) {
-                promotion = input.readUInt32();
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -494,7 +483,7 @@ public final class DisplayEquipmentInfoOuterClass {
             if (input.isAtField(FieldNames.level)) {
               if (!input.trySkipNullValue()) {
                 level = input.readUInt32();
-                bitField0_ |= 0x00000008;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -505,6 +494,17 @@ public final class DisplayEquipmentInfoOuterClass {
             if (input.isAtField(FieldNames.tid)) {
               if (!input.trySkipNullValue()) {
                 tid = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -799212381: {
+            if (input.isAtField(FieldNames.promotion)) {
+              if (!input.trySkipNullValue()) {
+                promotion = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -565,15 +565,15 @@ public final class DisplayEquipmentInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName rank = FieldName.forField("rank");
-
       static final FieldName exp = FieldName.forField("exp");
 
-      static final FieldName promotion = FieldName.forField("promotion");
+      static final FieldName rank = FieldName.forField("rank");
 
       static final FieldName level = FieldName.forField("level");
 
       static final FieldName tid = FieldName.forField("tid");
+
+      static final FieldName promotion = FieldName.forField("promotion");
     }
   }
 }

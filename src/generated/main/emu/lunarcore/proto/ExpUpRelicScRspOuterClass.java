@@ -20,12 +20,12 @@ public final class ExpUpRelicScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .PileItem return_item_list = 6;</code>
+     * <code>repeated .PileItem return_item_list = 10;</code>
      */
     private final RepeatedMessage<PileItemOuterClass.PileItem> returnItemList = RepeatedMessage.newEmptyInstance(PileItemOuterClass.PileItem.getFactory());
 
@@ -40,7 +40,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return this
      */
     public ExpUpRelicScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 6;</code>
+     * <code>repeated .PileItem return_item_list = 10;</code>
      * @return whether the returnItemList field is set
      */
     public boolean hasReturnItemList() {
@@ -85,7 +85,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 6;</code>
+     * <code>repeated .PileItem return_item_list = 10;</code>
      * @return this
      */
     public ExpUpRelicScRsp clearReturnItemList() {
@@ -95,7 +95,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 6;</code>
+     * <code>repeated .PileItem return_item_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 6;</code>
+     * <code>repeated .PileItem return_item_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 6;</code>
+     * <code>repeated .PileItem return_item_list = 10;</code>
      * @param value the returnItemList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class ExpUpRelicScRspOuterClass {
     }
 
     /**
-     * <code>repeated .PileItem return_item_list = 6;</code>
+     * <code>repeated .PileItem return_item_list = 10;</code>
      * @param values the returnItemList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class ExpUpRelicScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < returnItemList.length(); i++) {
-          output.writeRawByte((byte) 50);
+          output.writeRawByte((byte) 82);
           output.writeMessageNoTag(returnItemList.get(i));
         }
       }
@@ -240,16 +240,16 @@ public final class ExpUpRelicScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 88: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 82) {
               break;
             }
           }
-          case 50: {
+          case 82: {
             // returnItemList
             tag = input.readRepeatedMessage(returnItemList, tag);
             bitField0_ |= 0x00000002;

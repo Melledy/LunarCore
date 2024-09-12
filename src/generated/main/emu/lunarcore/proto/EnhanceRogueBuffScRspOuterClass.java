@@ -19,17 +19,17 @@ public final class EnhanceRogueBuffScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 6;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional bool is_success = 3;</code>
+     * <code>optional bool is_success = 1;</code>
      */
     private boolean isSuccess;
 
     /**
-     * <code>optional .RogueBuff rogue_buff = 11;</code>
+     * <code>optional .RogueBuff rogue_buff = 15;</code>
      */
     private final RogueBuffOuterClass.RogueBuff rogueBuff = RogueBuffOuterClass.RogueBuff.newInstance();
 
@@ -44,7 +44,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -52,7 +52,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return this
      */
     public EnhanceRogueBuffScRsp clearRetcode() {
@@ -62,7 +62,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -70,7 +70,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_success = 3;</code>
+     * <code>optional bool is_success = 1;</code>
      * @return whether the isSuccess field is set
      */
     public boolean hasIsSuccess() {
@@ -89,7 +89,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_success = 3;</code>
+     * <code>optional bool is_success = 1;</code>
      * @return this
      */
     public EnhanceRogueBuffScRsp clearIsSuccess() {
@@ -99,7 +99,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_success = 3;</code>
+     * <code>optional bool is_success = 1;</code>
      * @return the isSuccess
      */
     public boolean getIsSuccess() {
@@ -107,7 +107,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_success = 3;</code>
+     * <code>optional bool is_success = 1;</code>
      * @param value the isSuccess to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff rogue_buff = 11;</code>
+     * <code>optional .RogueBuff rogue_buff = 15;</code>
      * @return whether the rogueBuff field is set
      */
     public boolean hasRogueBuff() {
@@ -126,7 +126,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff rogue_buff = 11;</code>
+     * <code>optional .RogueBuff rogue_buff = 15;</code>
      * @return this
      */
     public EnhanceRogueBuffScRsp clearRogueBuff() {
@@ -136,7 +136,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff rogue_buff = 11;</code>
+     * <code>optional .RogueBuff rogue_buff = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff rogue_buff = 11;</code>
+     * <code>optional .RogueBuff rogue_buff = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class EnhanceRogueBuffScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueBuff rogue_buff = 11;</code>
+     * <code>optional .RogueBuff rogue_buff = 15;</code>
      * @param value the rogueBuff to set
      * @return this
      */
@@ -246,15 +246,15 @@ public final class EnhanceRogueBuffScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 8);
         output.writeBoolNoTag(isSuccess);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 122);
         output.writeMessageNoTag(rogueBuff);
       }
     }
@@ -281,25 +281,25 @@ public final class EnhanceRogueBuffScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 48: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 24) {
+            if (tag != 8) {
               break;
             }
           }
-          case 24: {
+          case 8: {
             // isSuccess
             isSuccess = input.readBool();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 122) {
               break;
             }
           }
-          case 90: {
+          case 122: {
             // rogueBuff
             input.readMessage(rogueBuff);
             bitField0_ |= 0x00000004;

@@ -19,65 +19,69 @@ public final class RogueFinishInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 pass_room_count = 1;</code>
+     * <code>optional uint32 pass_room_count = 2;</code>
      */
     private int passRoomCount;
 
     /**
-     * <code>optional uint32 total_score = 9;</code>
-     */
-    private int totalScore;
-
-    /**
-     * <code>optional uint32 taken_score = 15;</code>
+     * <pre>
+     *  uint32 CNIIIJODKJF = 10
+     * </pre>
+     *
+     * <code>optional uint32 taken_score = 4;</code>
      */
     private int takenScore;
 
     /**
-     * <code>optional uint32 area_id = 1131;</code>
+     * <code>optional uint32 total_score = 14;</code>
      */
-    private int areaId;
+    private int totalScore;
 
     /**
      * <pre>
      *  unfinished, idk those
      * </pre>
      *
-     * <code>optional uint32 reach_room_count = 1818;</code>
+     * <code>optional uint32 reach_room_count = 508;</code>
      */
     private int reachRoomCount;
 
     /**
+     * <code>optional uint32 area_id = 859;</code>
+     */
+    private int areaId;
+
+    /**
      * <pre>
-     *  could be 10?
+     *  could be 12?
      * </pre>
      *
-     * <code>optional bool is_win = 4;</code>
+     * <code>optional bool is_win = 5;</code>
      */
     private boolean isWin;
 
     /**
      * <pre>
-     *  may be 5
+     *  may be 15
      * </pre>
      *
-     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 2;</code>
-     */
-    private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo curScoreRewardInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
-
-    /**
-     * <pre>
-     *  may be 2
-     * </pre>
-     *
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 5;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 9;</code>
      */
     private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo scoreRewardInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
 
     /**
-     * <code>optional .RogueRecordInfo record_info = 14;</code>
+     * <code>optional .RogueRecordInfo record_info = 11;</code>
      */
     private final RogueRecordInfoOuterClass.RogueRecordInfo recordInfo = RogueRecordInfoOuterClass.RogueRecordInfo.newInstance();
+
+    /**
+     * <pre>
+     *  may be 9
+     * </pre>
+     *
+     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 15;</code>
+     */
+    private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo curScoreRewardInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
 
     private RogueFinishInfo() {
     }
@@ -90,7 +94,7 @@ public final class RogueFinishInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 pass_room_count = 1;</code>
+     * <code>optional uint32 pass_room_count = 2;</code>
      * @return whether the passRoomCount field is set
      */
     public boolean hasPassRoomCount() {
@@ -98,7 +102,7 @@ public final class RogueFinishInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 pass_room_count = 1;</code>
+     * <code>optional uint32 pass_room_count = 2;</code>
      * @return this
      */
     public RogueFinishInfo clearPassRoomCount() {
@@ -108,7 +112,7 @@ public final class RogueFinishInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 pass_room_count = 1;</code>
+     * <code>optional uint32 pass_room_count = 2;</code>
      * @return the passRoomCount
      */
     public int getPassRoomCount() {
@@ -116,7 +120,7 @@ public final class RogueFinishInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 pass_room_count = 1;</code>
+     * <code>optional uint32 pass_room_count = 2;</code>
      * @param value the passRoomCount to set
      * @return this
      */
@@ -127,62 +131,37 @@ public final class RogueFinishInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_score = 9;</code>
-     * @return whether the totalScore field is set
+     * <pre>
+     *  uint32 CNIIIJODKJF = 10
+     * </pre>
+     *
+     * <code>optional uint32 taken_score = 4;</code>
+     * @return whether the takenScore field is set
      */
-    public boolean hasTotalScore() {
+    public boolean hasTakenScore() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 total_score = 9;</code>
-     * @return this
-     */
-    public RogueFinishInfo clearTotalScore() {
-      bitField0_ &= ~0x00000002;
-      totalScore = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 total_score = 9;</code>
-     * @return the totalScore
-     */
-    public int getTotalScore() {
-      return totalScore;
-    }
-
-    /**
-     * <code>optional uint32 total_score = 9;</code>
-     * @param value the totalScore to set
-     * @return this
-     */
-    public RogueFinishInfo setTotalScore(final int value) {
-      bitField0_ |= 0x00000002;
-      totalScore = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 taken_score = 15;</code>
-     * @return whether the takenScore field is set
-     */
-    public boolean hasTakenScore() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 taken_score = 15;</code>
+     * <pre>
+     *  uint32 CNIIIJODKJF = 10
+     * </pre>
+     *
+     * <code>optional uint32 taken_score = 4;</code>
      * @return this
      */
     public RogueFinishInfo clearTakenScore() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       takenScore = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 taken_score = 15;</code>
+     * <pre>
+     *  uint32 CNIIIJODKJF = 10
+     * </pre>
+     *
+     * <code>optional uint32 taken_score = 4;</code>
      * @return the takenScore
      */
     public int getTakenScore() {
@@ -190,75 +169,79 @@ public final class RogueFinishInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 taken_score = 15;</code>
+     * <pre>
+     *  uint32 CNIIIJODKJF = 10
+     * </pre>
+     *
+     * <code>optional uint32 taken_score = 4;</code>
      * @param value the takenScore to set
      * @return this
      */
     public RogueFinishInfo setTakenScore(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       takenScore = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 area_id = 1131;</code>
-     * @return whether the areaId field is set
+     * <code>optional uint32 total_score = 14;</code>
+     * @return whether the totalScore field is set
      */
-    public boolean hasAreaId() {
+    public boolean hasTotalScore() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 total_score = 14;</code>
+     * @return this
+     */
+    public RogueFinishInfo clearTotalScore() {
+      bitField0_ &= ~0x00000004;
+      totalScore = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 total_score = 14;</code>
+     * @return the totalScore
+     */
+    public int getTotalScore() {
+      return totalScore;
+    }
+
+    /**
+     * <code>optional uint32 total_score = 14;</code>
+     * @param value the totalScore to set
+     * @return this
+     */
+    public RogueFinishInfo setTotalScore(final int value) {
+      bitField0_ |= 0x00000004;
+      totalScore = value;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  unfinished, idk those
+     * </pre>
+     *
+     * <code>optional uint32 reach_room_count = 508;</code>
+     * @return whether the reachRoomCount field is set
+     */
+    public boolean hasReachRoomCount() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 area_id = 1131;</code>
-     * @return this
-     */
-    public RogueFinishInfo clearAreaId() {
-      bitField0_ &= ~0x00000008;
-      areaId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 area_id = 1131;</code>
-     * @return the areaId
-     */
-    public int getAreaId() {
-      return areaId;
-    }
-
-    /**
-     * <code>optional uint32 area_id = 1131;</code>
-     * @param value the areaId to set
-     * @return this
-     */
-    public RogueFinishInfo setAreaId(final int value) {
-      bitField0_ |= 0x00000008;
-      areaId = value;
-      return this;
-    }
-
-    /**
      * <pre>
      *  unfinished, idk those
      * </pre>
      *
-     * <code>optional uint32 reach_room_count = 1818;</code>
-     * @return whether the reachRoomCount field is set
-     */
-    public boolean hasReachRoomCount() {
-      return (bitField0_ & 0x00000010) != 0;
-    }
-
-    /**
-     * <pre>
-     *  unfinished, idk those
-     * </pre>
-     *
-     * <code>optional uint32 reach_room_count = 1818;</code>
+     * <code>optional uint32 reach_room_count = 508;</code>
      * @return this
      */
     public RogueFinishInfo clearReachRoomCount() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000008;
       reachRoomCount = 0;
       return this;
     }
@@ -268,7 +251,7 @@ public final class RogueFinishInfoOuterClass {
      *  unfinished, idk those
      * </pre>
      *
-     * <code>optional uint32 reach_room_count = 1818;</code>
+     * <code>optional uint32 reach_room_count = 508;</code>
      * @return the reachRoomCount
      */
     public int getReachRoomCount() {
@@ -280,22 +263,59 @@ public final class RogueFinishInfoOuterClass {
      *  unfinished, idk those
      * </pre>
      *
-     * <code>optional uint32 reach_room_count = 1818;</code>
+     * <code>optional uint32 reach_room_count = 508;</code>
      * @param value the reachRoomCount to set
      * @return this
      */
     public RogueFinishInfo setReachRoomCount(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000008;
       reachRoomCount = value;
       return this;
     }
 
     /**
+     * <code>optional uint32 area_id = 859;</code>
+     * @return whether the areaId field is set
+     */
+    public boolean hasAreaId() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional uint32 area_id = 859;</code>
+     * @return this
+     */
+    public RogueFinishInfo clearAreaId() {
+      bitField0_ &= ~0x00000010;
+      areaId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 area_id = 859;</code>
+     * @return the areaId
+     */
+    public int getAreaId() {
+      return areaId;
+    }
+
+    /**
+     * <code>optional uint32 area_id = 859;</code>
+     * @param value the areaId to set
+     * @return this
+     */
+    public RogueFinishInfo setAreaId(final int value) {
+      bitField0_ |= 0x00000010;
+      areaId = value;
+      return this;
+    }
+
+    /**
      * <pre>
-     *  could be 10?
+     *  could be 12?
      * </pre>
      *
-     * <code>optional bool is_win = 4;</code>
+     * <code>optional bool is_win = 5;</code>
      * @return whether the isWin field is set
      */
     public boolean hasIsWin() {
@@ -304,10 +324,10 @@ public final class RogueFinishInfoOuterClass {
 
     /**
      * <pre>
-     *  could be 10?
+     *  could be 12?
      * </pre>
      *
-     * <code>optional bool is_win = 4;</code>
+     * <code>optional bool is_win = 5;</code>
      * @return this
      */
     public RogueFinishInfo clearIsWin() {
@@ -318,10 +338,10 @@ public final class RogueFinishInfoOuterClass {
 
     /**
      * <pre>
-     *  could be 10?
+     *  could be 12?
      * </pre>
      *
-     * <code>optional bool is_win = 4;</code>
+     * <code>optional bool is_win = 5;</code>
      * @return the isWin
      */
     public boolean getIsWin() {
@@ -330,10 +350,10 @@ public final class RogueFinishInfoOuterClass {
 
     /**
      * <pre>
-     *  could be 10?
+     *  could be 12?
      * </pre>
      *
-     * <code>optional bool is_win = 4;</code>
+     * <code>optional bool is_win = 5;</code>
      * @param value the isWin to set
      * @return this
      */
@@ -345,114 +365,36 @@ public final class RogueFinishInfoOuterClass {
 
     /**
      * <pre>
-     *  may be 5
+     *  may be 15
      * </pre>
      *
-     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 2;</code>
-     * @return whether the curScoreRewardInfo field is set
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 9;</code>
+     * @return whether the scoreRewardInfo field is set
      */
-    public boolean hasCurScoreRewardInfo() {
+    public boolean hasScoreRewardInfo() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
      * <pre>
-     *  may be 5
+     *  may be 15
      * </pre>
      *
-     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 2;</code>
-     * @return this
-     */
-    public RogueFinishInfo clearCurScoreRewardInfo() {
-      bitField0_ &= ~0x00000040;
-      curScoreRewardInfo.clear();
-      return this;
-    }
-
-    /**
-     * <pre>
-     *  may be 5
-     * </pre>
-     *
-     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 2;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableCurScoreRewardInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getCurScoreRewardInfo() {
-      return curScoreRewardInfo;
-    }
-
-    /**
-     * <pre>
-     *  may be 5
-     * </pre>
-     *
-     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 2;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getMutableCurScoreRewardInfo() {
-      bitField0_ |= 0x00000040;
-      return curScoreRewardInfo;
-    }
-
-    /**
-     * <pre>
-     *  may be 5
-     * </pre>
-     *
-     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 2;</code>
-     * @param value the curScoreRewardInfo to set
-     * @return this
-     */
-    public RogueFinishInfo setCurScoreRewardInfo(
-        final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo value) {
-      bitField0_ |= 0x00000040;
-      curScoreRewardInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <pre>
-     *  may be 2
-     * </pre>
-     *
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 5;</code>
-     * @return whether the scoreRewardInfo field is set
-     */
-    public boolean hasScoreRewardInfo() {
-      return (bitField0_ & 0x00000080) != 0;
-    }
-
-    /**
-     * <pre>
-     *  may be 2
-     * </pre>
-     *
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 5;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 9;</code>
      * @return this
      */
     public RogueFinishInfo clearScoreRewardInfo() {
-      bitField0_ &= ~0x00000080;
+      bitField0_ &= ~0x00000040;
       scoreRewardInfo.clear();
       return this;
     }
 
     /**
      * <pre>
-     *  may be 2
+     *  may be 15
      * </pre>
      *
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 5;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -467,10 +409,10 @@ public final class RogueFinishInfoOuterClass {
 
     /**
      * <pre>
-     *  may be 2
+     *  may be 15
      * </pre>
      *
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 5;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -479,46 +421,46 @@ public final class RogueFinishInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getMutableScoreRewardInfo() {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000040;
       return scoreRewardInfo;
     }
 
     /**
      * <pre>
-     *  may be 2
+     *  may be 15
      * </pre>
      *
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 5;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 9;</code>
      * @param value the scoreRewardInfo to set
      * @return this
      */
     public RogueFinishInfo setScoreRewardInfo(
         final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000040;
       scoreRewardInfo.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional .RogueRecordInfo record_info = 14;</code>
+     * <code>optional .RogueRecordInfo record_info = 11;</code>
      * @return whether the recordInfo field is set
      */
     public boolean hasRecordInfo() {
-      return (bitField0_ & 0x00000100) != 0;
+      return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>optional .RogueRecordInfo record_info = 14;</code>
+     * <code>optional .RogueRecordInfo record_info = 11;</code>
      * @return this
      */
     public RogueFinishInfo clearRecordInfo() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000080;
       recordInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueRecordInfo record_info = 14;</code>
+     * <code>optional .RogueRecordInfo record_info = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -532,7 +474,7 @@ public final class RogueFinishInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueRecordInfo record_info = 14;</code>
+     * <code>optional .RogueRecordInfo record_info = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -541,18 +483,96 @@ public final class RogueFinishInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RogueRecordInfoOuterClass.RogueRecordInfo getMutableRecordInfo() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000080;
       return recordInfo;
     }
 
     /**
-     * <code>optional .RogueRecordInfo record_info = 14;</code>
+     * <code>optional .RogueRecordInfo record_info = 11;</code>
      * @param value the recordInfo to set
      * @return this
      */
     public RogueFinishInfo setRecordInfo(final RogueRecordInfoOuterClass.RogueRecordInfo value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000080;
       recordInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  may be 9
+     * </pre>
+     *
+     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 15;</code>
+     * @return whether the curScoreRewardInfo field is set
+     */
+    public boolean hasCurScoreRewardInfo() {
+      return (bitField0_ & 0x00000100) != 0;
+    }
+
+    /**
+     * <pre>
+     *  may be 9
+     * </pre>
+     *
+     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 15;</code>
+     * @return this
+     */
+    public RogueFinishInfo clearCurScoreRewardInfo() {
+      bitField0_ &= ~0x00000100;
+      curScoreRewardInfo.clear();
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  may be 9
+     * </pre>
+     *
+     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 15;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableCurScoreRewardInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getCurScoreRewardInfo() {
+      return curScoreRewardInfo;
+    }
+
+    /**
+     * <pre>
+     *  may be 9
+     * </pre>
+     *
+     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 15;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo getMutableCurScoreRewardInfo() {
+      bitField0_ |= 0x00000100;
+      return curScoreRewardInfo;
+    }
+
+    /**
+     * <pre>
+     *  may be 9
+     * </pre>
+     *
+     * <code>optional .RogueScoreRewardInfo cur_score_reward_info = 15;</code>
+     * @param value the curScoreRewardInfo to set
+     * @return this
+     */
+    public RogueFinishInfo setCurScoreRewardInfo(
+        final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo value) {
+      bitField0_ |= 0x00000100;
+      curScoreRewardInfo.copyFrom(value);
       return this;
     }
 
@@ -562,14 +582,14 @@ public final class RogueFinishInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         passRoomCount = other.passRoomCount;
-        totalScore = other.totalScore;
         takenScore = other.takenScore;
-        areaId = other.areaId;
+        totalScore = other.totalScore;
         reachRoomCount = other.reachRoomCount;
+        areaId = other.areaId;
         isWin = other.isWin;
-        curScoreRewardInfo.copyFrom(other.curScoreRewardInfo);
         scoreRewardInfo.copyFrom(other.scoreRewardInfo);
         recordInfo.copyFrom(other.recordInfo);
+        curScoreRewardInfo.copyFrom(other.curScoreRewardInfo);
       }
       return this;
     }
@@ -583,29 +603,29 @@ public final class RogueFinishInfoOuterClass {
       if (other.hasPassRoomCount()) {
         setPassRoomCount(other.passRoomCount);
       }
-      if (other.hasTotalScore()) {
-        setTotalScore(other.totalScore);
-      }
       if (other.hasTakenScore()) {
         setTakenScore(other.takenScore);
       }
-      if (other.hasAreaId()) {
-        setAreaId(other.areaId);
+      if (other.hasTotalScore()) {
+        setTotalScore(other.totalScore);
       }
       if (other.hasReachRoomCount()) {
         setReachRoomCount(other.reachRoomCount);
       }
+      if (other.hasAreaId()) {
+        setAreaId(other.areaId);
+      }
       if (other.hasIsWin()) {
         setIsWin(other.isWin);
-      }
-      if (other.hasCurScoreRewardInfo()) {
-        getMutableCurScoreRewardInfo().mergeFrom(other.curScoreRewardInfo);
       }
       if (other.hasScoreRewardInfo()) {
         getMutableScoreRewardInfo().mergeFrom(other.scoreRewardInfo);
       }
       if (other.hasRecordInfo()) {
         getMutableRecordInfo().mergeFrom(other.recordInfo);
+      }
+      if (other.hasCurScoreRewardInfo()) {
+        getMutableCurScoreRewardInfo().mergeFrom(other.curScoreRewardInfo);
       }
       return this;
     }
@@ -618,14 +638,14 @@ public final class RogueFinishInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       passRoomCount = 0;
-      totalScore = 0;
       takenScore = 0;
-      areaId = 0;
+      totalScore = 0;
       reachRoomCount = 0;
+      areaId = 0;
       isWin = false;
-      curScoreRewardInfo.clear();
       scoreRewardInfo.clear();
       recordInfo.clear();
+      curScoreRewardInfo.clear();
       return this;
     }
 
@@ -636,9 +656,9 @@ public final class RogueFinishInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      curScoreRewardInfo.clearQuick();
       scoreRewardInfo.clearQuick();
       recordInfo.clearQuick();
+      curScoreRewardInfo.clearQuick();
       return this;
     }
 
@@ -653,53 +673,53 @@ public final class RogueFinishInfoOuterClass {
       RogueFinishInfo other = (RogueFinishInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasPassRoomCount() || passRoomCount == other.passRoomCount)
-        && (!hasTotalScore() || totalScore == other.totalScore)
         && (!hasTakenScore() || takenScore == other.takenScore)
-        && (!hasAreaId() || areaId == other.areaId)
+        && (!hasTotalScore() || totalScore == other.totalScore)
         && (!hasReachRoomCount() || reachRoomCount == other.reachRoomCount)
+        && (!hasAreaId() || areaId == other.areaId)
         && (!hasIsWin() || isWin == other.isWin)
-        && (!hasCurScoreRewardInfo() || curScoreRewardInfo.equals(other.curScoreRewardInfo))
         && (!hasScoreRewardInfo() || scoreRewardInfo.equals(other.scoreRewardInfo))
-        && (!hasRecordInfo() || recordInfo.equals(other.recordInfo));
+        && (!hasRecordInfo() || recordInfo.equals(other.recordInfo))
+        && (!hasCurScoreRewardInfo() || curScoreRewardInfo.equals(other.curScoreRewardInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(passRoomCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(totalScore);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(takenScore);
       }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawLittleEndian16((short) 18136);
-        output.writeUInt32NoTag(areaId);
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(totalScore);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawLittleEndian16((short) 29136);
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawLittleEndian16((short) 8160);
         output.writeUInt32NoTag(reachRoomCount);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawLittleEndian16((short) 13784);
+        output.writeUInt32NoTag(areaId);
+      }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 40);
         output.writeBoolNoTag(isWin);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 18);
-        output.writeMessageNoTag(curScoreRewardInfo);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 74);
         output.writeMessageNoTag(scoreRewardInfo);
       }
-      if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawByte((byte) 114);
+      if ((bitField0_ & 0x00000080) != 0) {
+        output.writeRawByte((byte) 90);
         output.writeMessageNoTag(recordInfo);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        output.writeRawByte((byte) 122);
+        output.writeMessageNoTag(curScoreRewardInfo);
       }
     }
 
@@ -710,28 +730,28 @@ public final class RogueFinishInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(passRoomCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(totalScore);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(takenScore);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(totalScore);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 2 + ProtoSink.computeUInt32SizeNoTag(areaId);
+        size += 2 + ProtoSink.computeUInt32SizeNoTag(reachRoomCount);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 2 + ProtoSink.computeUInt32SizeNoTag(reachRoomCount);
+        size += 2 + ProtoSink.computeUInt32SizeNoTag(areaId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         size += 2;
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(curScoreRewardInfo);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(scoreRewardInfo);
       }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(recordInfo);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(curScoreRewardInfo);
       }
       return size;
     }
@@ -743,81 +763,81 @@ public final class RogueFinishInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 16: {
             // passRoomCount
             passRoomCount = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 72) {
-              break;
-            }
-          }
-          case 72: {
-            // totalScore
-            totalScore = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
-            // takenScore
-            takenScore = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 9048) {
-              break;
-            }
-          }
-          case 9048: {
-            // areaId
-            areaId = input.readUInt32();
-            bitField0_ |= 0x00000008;
-            tag = input.readTag();
-            if (tag != 14544) {
-              break;
-            }
-          }
-          case 14544: {
-            // reachRoomCount
-            reachRoomCount = input.readUInt32();
-            bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 32) {
               break;
             }
           }
           case 32: {
+            // takenScore
+            takenScore = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 112) {
+              break;
+            }
+          }
+          case 112: {
+            // totalScore
+            totalScore = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 4064) {
+              break;
+            }
+          }
+          case 4064: {
+            // reachRoomCount
+            reachRoomCount = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 6872) {
+              break;
+            }
+          }
+          case 6872: {
+            // areaId
+            areaId = input.readUInt32();
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 40) {
+              break;
+            }
+          }
+          case 40: {
             // isWin
             isWin = input.readBool();
             bitField0_ |= 0x00000020;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 74) {
               break;
             }
           }
-          case 18: {
-            // curScoreRewardInfo
-            input.readMessage(curScoreRewardInfo);
-            bitField0_ |= 0x00000040;
-            tag = input.readTag();
-            if (tag != 42) {
-              break;
-            }
-          }
-          case 42: {
+          case 74: {
             // scoreRewardInfo
             input.readMessage(scoreRewardInfo);
-            bitField0_ |= 0x00000080;
+            bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 90) {
               break;
             }
           }
-          case 114: {
+          case 90: {
             // recordInfo
             input.readMessage(recordInfo);
+            bitField0_ |= 0x00000080;
+            tag = input.readTag();
+            if (tag != 122) {
+              break;
+            }
+          }
+          case 122: {
+            // curScoreRewardInfo
+            input.readMessage(curScoreRewardInfo);
             bitField0_ |= 0x00000100;
             tag = input.readTag();
             if (tag != 0) {
@@ -845,28 +865,28 @@ public final class RogueFinishInfoOuterClass {
         output.writeUInt32(FieldNames.passRoomCount, passRoomCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.totalScore, totalScore);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.takenScore, takenScore);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.totalScore, totalScore);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.areaId, areaId);
+        output.writeUInt32(FieldNames.reachRoomCount, reachRoomCount);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.reachRoomCount, reachRoomCount);
+        output.writeUInt32(FieldNames.areaId, areaId);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeBool(FieldNames.isWin, isWin);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeMessage(FieldNames.curScoreRewardInfo, curScoreRewardInfo);
-      }
-      if ((bitField0_ & 0x00000080) != 0) {
         output.writeMessage(FieldNames.scoreRewardInfo, scoreRewardInfo);
       }
-      if ((bitField0_ & 0x00000100) != 0) {
+      if ((bitField0_ & 0x00000080) != 0) {
         output.writeMessage(FieldNames.recordInfo, recordInfo);
+      }
+      if ((bitField0_ & 0x00000100) != 0) {
+        output.writeMessage(FieldNames.curScoreRewardInfo, curScoreRewardInfo);
       }
       output.endObject();
     }
@@ -890,11 +910,11 @@ public final class RogueFinishInfoOuterClass {
             }
             break;
           }
-          case -716972626:
-          case -393348649: {
-            if (input.isAtField(FieldNames.totalScore)) {
+          case -375532021:
+          case 1601375514: {
+            if (input.isAtField(FieldNames.takenScore)) {
               if (!input.trySkipNullValue()) {
-                totalScore = input.readUInt32();
+                takenScore = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -902,24 +922,12 @@ public final class RogueFinishInfoOuterClass {
             }
             break;
           }
-          case -375532021:
-          case 1601375514: {
-            if (input.isAtField(FieldNames.takenScore)) {
+          case -716972626:
+          case -393348649: {
+            if (input.isAtField(FieldNames.totalScore)) {
               if (!input.trySkipNullValue()) {
-                takenScore = input.readUInt32();
+                totalScore = input.readUInt32();
                 bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1409553784:
-          case -746472947: {
-            if (input.isAtField(FieldNames.areaId)) {
-              if (!input.trySkipNullValue()) {
-                areaId = input.readUInt32();
-                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -931,6 +939,18 @@ public final class RogueFinishInfoOuterClass {
             if (input.isAtField(FieldNames.reachRoomCount)) {
               if (!input.trySkipNullValue()) {
                 reachRoomCount = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1409553784:
+          case -746472947: {
+            if (input.isAtField(FieldNames.areaId)) {
+              if (!input.trySkipNullValue()) {
+                areaId = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -950,24 +970,12 @@ public final class RogueFinishInfoOuterClass {
             }
             break;
           }
-          case 1101722191:
-          case 1894162770: {
-            if (input.isAtField(FieldNames.curScoreRewardInfo)) {
-              if (!input.trySkipNullValue()) {
-                input.readMessage(curScoreRewardInfo);
-                bitField0_ |= 0x00000040;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 672564399:
           case 751191441: {
             if (input.isAtField(FieldNames.scoreRewardInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(scoreRewardInfo);
-                bitField0_ |= 0x00000080;
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -979,6 +987,18 @@ public final class RogueFinishInfoOuterClass {
             if (input.isAtField(FieldNames.recordInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(recordInfo);
+                bitField0_ |= 0x00000080;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1101722191:
+          case 1894162770: {
+            if (input.isAtField(FieldNames.curScoreRewardInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(curScoreRewardInfo);
                 bitField0_ |= 0x00000100;
               }
             } else {
@@ -1041,21 +1061,21 @@ public final class RogueFinishInfoOuterClass {
     static class FieldNames {
       static final FieldName passRoomCount = FieldName.forField("passRoomCount", "pass_room_count");
 
-      static final FieldName totalScore = FieldName.forField("totalScore", "total_score");
-
       static final FieldName takenScore = FieldName.forField("takenScore", "taken_score");
 
-      static final FieldName areaId = FieldName.forField("areaId", "area_id");
+      static final FieldName totalScore = FieldName.forField("totalScore", "total_score");
 
       static final FieldName reachRoomCount = FieldName.forField("reachRoomCount", "reach_room_count");
 
-      static final FieldName isWin = FieldName.forField("isWin", "is_win");
+      static final FieldName areaId = FieldName.forField("areaId", "area_id");
 
-      static final FieldName curScoreRewardInfo = FieldName.forField("curScoreRewardInfo", "cur_score_reward_info");
+      static final FieldName isWin = FieldName.forField("isWin", "is_win");
 
       static final FieldName scoreRewardInfo = FieldName.forField("scoreRewardInfo", "score_reward_info");
 
       static final FieldName recordInfo = FieldName.forField("recordInfo", "record_info");
+
+      static final FieldName curScoreRewardInfo = FieldName.forField("curScoreRewardInfo", "cur_score_reward_info");
     }
   }
 }

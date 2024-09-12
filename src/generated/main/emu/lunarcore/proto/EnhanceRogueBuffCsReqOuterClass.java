@@ -19,7 +19,7 @@ public final class EnhanceRogueBuffCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 buff_id = 8;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      */
     private int buffId;
 
@@ -34,7 +34,7 @@ public final class EnhanceRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 8;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -42,7 +42,7 @@ public final class EnhanceRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 8;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @return this
      */
     public EnhanceRogueBuffCsReq clearBuffId() {
@@ -52,7 +52,7 @@ public final class EnhanceRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 8;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -60,7 +60,7 @@ public final class EnhanceRogueBuffCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 8;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class EnhanceRogueBuffCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(buffId);
       }
     }
@@ -150,7 +150,7 @@ public final class EnhanceRogueBuffCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 40: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000001;

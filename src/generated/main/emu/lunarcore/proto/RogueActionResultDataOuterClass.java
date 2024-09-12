@@ -19,21 +19,21 @@ public final class RogueActionResultDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueVirtualItemData remove_item_list = 2;</code>
-     */
-    private final RogueVirtualItemDataOuterClass.RogueVirtualItemData removeItemList = RogueVirtualItemDataOuterClass.RogueVirtualItemData.newInstance();
-
-    /**
-     * <code>optional .RogueVirtualItemData add_item_list = 6;</code>
+     * <code>optional .RogueVirtualItemData add_item_list = 4;</code>
      */
     private final RogueVirtualItemDataOuterClass.RogueVirtualItemData addItemList = RogueVirtualItemDataOuterClass.RogueVirtualItemData.newInstance();
 
     /**
+     * <code>optional .RogueVirtualItemData remove_item_list = 10;</code>
+     */
+    private final RogueVirtualItemDataOuterClass.RogueVirtualItemData removeItemList = RogueVirtualItemDataOuterClass.RogueVirtualItemData.newInstance();
+
+    /**
      * <pre>
-     *  1263, 217 or 265
+     *  idk
      * </pre>
      *
-     * <code>optional .RogueMiracleData add_miracle_list = 217;</code>
+     * <code>optional .RogueMiracleData add_miracle_list = 11;</code>
      */
     private final RogueMiracleDataOuterClass.RogueMiracleData addMiracleList = RogueMiracleDataOuterClass.RogueMiracleData.newInstance();
 
@@ -63,8 +63,8 @@ public final class RogueActionResultDataOuterClass {
 
     public RogueActionResultData clearResultAction() {
       if (hasResultAction()) {
-        clearRemoveItemList();
         clearAddItemList();
+        clearRemoveItemList();
         clearAddMiracleList();
         clearRemoveBuffList();
         clearAddBuffList();
@@ -72,18 +72,18 @@ public final class RogueActionResultDataOuterClass {
       return this;
     }
 
-    private void clearResultActionOtherRemoveItemList() {
+    private void clearResultActionOtherAddItemList() {
       if ((((bitField0_ & 0x0000001e)) != 0)) {
-        clearAddItemList();
+        clearRemoveItemList();
         clearAddMiracleList();
         clearRemoveBuffList();
         clearAddBuffList();
       }
     }
 
-    private void clearResultActionOtherAddItemList() {
+    private void clearResultActionOtherRemoveItemList() {
       if ((((bitField0_ & 0x0000001d)) != 0)) {
-        clearRemoveItemList();
+        clearAddItemList();
         clearAddMiracleList();
         clearRemoveBuffList();
         clearAddBuffList();
@@ -92,8 +92,8 @@ public final class RogueActionResultDataOuterClass {
 
     private void clearResultActionOtherAddMiracleList() {
       if ((((bitField0_ & 0x0000001b)) != 0)) {
-        clearRemoveItemList();
         clearAddItemList();
+        clearRemoveItemList();
         clearRemoveBuffList();
         clearAddBuffList();
       }
@@ -101,8 +101,8 @@ public final class RogueActionResultDataOuterClass {
 
     private void clearResultActionOtherRemoveBuffList() {
       if ((((bitField0_ & 0x00000017)) != 0)) {
-        clearRemoveItemList();
         clearAddItemList();
+        clearRemoveItemList();
         clearAddMiracleList();
         clearAddBuffList();
       }
@@ -110,93 +110,33 @@ public final class RogueActionResultDataOuterClass {
 
     private void clearResultActionOtherAddBuffList() {
       if ((((bitField0_ & 0x0000000f)) != 0)) {
-        clearRemoveItemList();
         clearAddItemList();
+        clearRemoveItemList();
         clearAddMiracleList();
         clearRemoveBuffList();
       }
     }
 
     /**
-     * <code>optional .RogueVirtualItemData remove_item_list = 2;</code>
-     * @return whether the removeItemList field is set
+     * <code>optional .RogueVirtualItemData add_item_list = 4;</code>
+     * @return whether the addItemList field is set
      */
-    public boolean hasRemoveItemList() {
+    public boolean hasAddItemList() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional .RogueVirtualItemData remove_item_list = 2;</code>
-     * @return this
-     */
-    public RogueActionResultData clearRemoveItemList() {
-      bitField0_ &= ~0x00000001;
-      removeItemList.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemData remove_item_list = 2;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableRemoveItemList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RogueVirtualItemDataOuterClass.RogueVirtualItemData getRemoveItemList() {
-      return removeItemList;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemData remove_item_list = 2;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RogueVirtualItemDataOuterClass.RogueVirtualItemData getMutableRemoveItemList() {
-      clearResultActionOtherRemoveItemList();
-      bitField0_ |= 0x00000001;
-      return removeItemList;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemData remove_item_list = 2;</code>
-     * @param value the removeItemList to set
-     * @return this
-     */
-    public RogueActionResultData setRemoveItemList(
-        final RogueVirtualItemDataOuterClass.RogueVirtualItemData value) {
-      clearResultActionOtherRemoveItemList();
-      bitField0_ |= 0x00000001;
-      removeItemList.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemData add_item_list = 6;</code>
-     * @return whether the addItemList field is set
-     */
-    public boolean hasAddItemList() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional .RogueVirtualItemData add_item_list = 6;</code>
+     * <code>optional .RogueVirtualItemData add_item_list = 4;</code>
      * @return this
      */
     public RogueActionResultData clearAddItemList() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       addItemList.clear();
       return this;
     }
 
     /**
-     * <code>optional .RogueVirtualItemData add_item_list = 6;</code>
+     * <code>optional .RogueVirtualItemData add_item_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -210,7 +150,7 @@ public final class RogueActionResultDataOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemData add_item_list = 6;</code>
+     * <code>optional .RogueVirtualItemData add_item_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -220,29 +160,89 @@ public final class RogueActionResultDataOuterClass {
      */
     public RogueVirtualItemDataOuterClass.RogueVirtualItemData getMutableAddItemList() {
       clearResultActionOtherAddItemList();
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       return addItemList;
     }
 
     /**
-     * <code>optional .RogueVirtualItemData add_item_list = 6;</code>
+     * <code>optional .RogueVirtualItemData add_item_list = 4;</code>
      * @param value the addItemList to set
      * @return this
      */
     public RogueActionResultData setAddItemList(
         final RogueVirtualItemDataOuterClass.RogueVirtualItemData value) {
       clearResultActionOtherAddItemList();
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       addItemList.copyFrom(value);
       return this;
     }
 
     /**
+     * <code>optional .RogueVirtualItemData remove_item_list = 10;</code>
+     * @return whether the removeItemList field is set
+     */
+    public boolean hasRemoveItemList() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional .RogueVirtualItemData remove_item_list = 10;</code>
+     * @return this
+     */
+    public RogueActionResultData clearRemoveItemList() {
+      bitField0_ &= ~0x00000002;
+      removeItemList.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueVirtualItemData remove_item_list = 10;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableRemoveItemList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RogueVirtualItemDataOuterClass.RogueVirtualItemData getRemoveItemList() {
+      return removeItemList;
+    }
+
+    /**
+     * <code>optional .RogueVirtualItemData remove_item_list = 10;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RogueVirtualItemDataOuterClass.RogueVirtualItemData getMutableRemoveItemList() {
+      clearResultActionOtherRemoveItemList();
+      bitField0_ |= 0x00000002;
+      return removeItemList;
+    }
+
+    /**
+     * <code>optional .RogueVirtualItemData remove_item_list = 10;</code>
+     * @param value the removeItemList to set
+     * @return this
+     */
+    public RogueActionResultData setRemoveItemList(
+        final RogueVirtualItemDataOuterClass.RogueVirtualItemData value) {
+      clearResultActionOtherRemoveItemList();
+      bitField0_ |= 0x00000002;
+      removeItemList.copyFrom(value);
+      return this;
+    }
+
+    /**
      * <pre>
-     *  1263, 217 or 265
+     *  idk
      * </pre>
      *
-     * <code>optional .RogueMiracleData add_miracle_list = 217;</code>
+     * <code>optional .RogueMiracleData add_miracle_list = 11;</code>
      * @return whether the addMiracleList field is set
      */
     public boolean hasAddMiracleList() {
@@ -251,10 +251,10 @@ public final class RogueActionResultDataOuterClass {
 
     /**
      * <pre>
-     *  1263, 217 or 265
+     *  idk
      * </pre>
      *
-     * <code>optional .RogueMiracleData add_miracle_list = 217;</code>
+     * <code>optional .RogueMiracleData add_miracle_list = 11;</code>
      * @return this
      */
     public RogueActionResultData clearAddMiracleList() {
@@ -265,10 +265,10 @@ public final class RogueActionResultDataOuterClass {
 
     /**
      * <pre>
-     *  1263, 217 or 265
+     *  idk
      * </pre>
      *
-     * <code>optional .RogueMiracleData add_miracle_list = 217;</code>
+     * <code>optional .RogueMiracleData add_miracle_list = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -283,10 +283,10 @@ public final class RogueActionResultDataOuterClass {
 
     /**
      * <pre>
-     *  1263, 217 or 265
+     *  idk
      * </pre>
      *
-     * <code>optional .RogueMiracleData add_miracle_list = 217;</code>
+     * <code>optional .RogueMiracleData add_miracle_list = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -302,10 +302,10 @@ public final class RogueActionResultDataOuterClass {
 
     /**
      * <pre>
-     *  1263, 217 or 265
+     *  idk
      * </pre>
      *
-     * <code>optional .RogueMiracleData add_miracle_list = 217;</code>
+     * <code>optional .RogueMiracleData add_miracle_list = 11;</code>
      * @param value the addMiracleList to set
      * @return this
      */
@@ -441,8 +441,8 @@ public final class RogueActionResultDataOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        removeItemList.copyFrom(other.removeItemList);
         addItemList.copyFrom(other.addItemList);
+        removeItemList.copyFrom(other.removeItemList);
         addMiracleList.copyFrom(other.addMiracleList);
         removeBuffList.copyFrom(other.removeBuffList);
         addBuffList.copyFrom(other.addBuffList);
@@ -456,11 +456,11 @@ public final class RogueActionResultDataOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRemoveItemList()) {
-        getMutableRemoveItemList().mergeFrom(other.removeItemList);
-      }
       if (other.hasAddItemList()) {
         getMutableAddItemList().mergeFrom(other.addItemList);
+      }
+      if (other.hasRemoveItemList()) {
+        getMutableRemoveItemList().mergeFrom(other.removeItemList);
       }
       if (other.hasAddMiracleList()) {
         getMutableAddMiracleList().mergeFrom(other.addMiracleList);
@@ -481,8 +481,8 @@ public final class RogueActionResultDataOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      removeItemList.clear();
       addItemList.clear();
+      removeItemList.clear();
       addMiracleList.clear();
       removeBuffList.clear();
       addBuffList.clear();
@@ -496,8 +496,8 @@ public final class RogueActionResultDataOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      removeItemList.clearQuick();
       addItemList.clearQuick();
+      removeItemList.clearQuick();
       addMiracleList.clearQuick();
       removeBuffList.clearQuick();
       addBuffList.clearQuick();
@@ -514,8 +514,8 @@ public final class RogueActionResultDataOuterClass {
       }
       RogueActionResultData other = (RogueActionResultData) o;
       return bitField0_ == other.bitField0_
-        && (!hasRemoveItemList() || removeItemList.equals(other.removeItemList))
         && (!hasAddItemList() || addItemList.equals(other.addItemList))
+        && (!hasRemoveItemList() || removeItemList.equals(other.removeItemList))
         && (!hasAddMiracleList() || addMiracleList.equals(other.addMiracleList))
         && (!hasRemoveBuffList() || removeBuffList.equals(other.removeBuffList))
         && (!hasAddBuffList() || addBuffList.equals(other.addBuffList));
@@ -524,15 +524,15 @@ public final class RogueActionResultDataOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 18);
-        output.writeMessageNoTag(removeItemList);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 34);
         output.writeMessageNoTag(addItemList);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 82);
+        output.writeMessageNoTag(removeItemList);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawLittleEndian16((short) 3530);
+        output.writeRawByte((byte) 90);
         output.writeMessageNoTag(addMiracleList);
       }
       if ((bitField0_ & 0x00000008) != 0) {
@@ -549,13 +549,13 @@ public final class RogueActionResultDataOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(removeItemList);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(addItemList);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(removeItemList);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(addMiracleList);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(addMiracleList);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 2 + ProtoSink.computeMessageSizeNoTag(removeBuffList);
@@ -573,27 +573,27 @@ public final class RogueActionResultDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 18: {
-            // removeItemList
-            clearResultActionOtherRemoveItemList();
-            input.readMessage(removeItemList);
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 50) {
-              break;
-            }
-          }
-          case 50: {
+          case 34: {
             // addItemList
             clearResultActionOtherAddItemList();
             input.readMessage(addItemList);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 1738) {
+            if (tag != 82) {
               break;
             }
           }
-          case 1738: {
+          case 82: {
+            // removeItemList
+            clearResultActionOtherRemoveItemList();
+            input.readMessage(removeItemList);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 90) {
+              break;
+            }
+          }
+          case 90: {
             // addMiracleList
             clearResultActionOtherAddMiracleList();
             input.readMessage(addMiracleList);
@@ -641,10 +641,10 @@ public final class RogueActionResultDataOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.removeItemList, removeItemList);
+        output.writeMessage(FieldNames.addItemList, addItemList);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.addItemList, addItemList);
+        output.writeMessage(FieldNames.removeItemList, removeItemList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.addMiracleList, addMiracleList);
@@ -665,12 +665,12 @@ public final class RogueActionResultDataOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -417171723:
-          case -293666737: {
-            if (input.isAtField(FieldNames.removeItemList)) {
+          case 203000338:
+          case -1308770260: {
+            if (input.isAtField(FieldNames.addItemList)) {
               if (!input.trySkipNullValue()) {
-                clearResultActionOtherRemoveItemList();
-                input.readMessage(removeItemList);
+                clearResultActionOtherAddItemList();
+                input.readMessage(addItemList);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -678,12 +678,12 @@ public final class RogueActionResultDataOuterClass {
             }
             break;
           }
-          case 203000338:
-          case -1308770260: {
-            if (input.isAtField(FieldNames.addItemList)) {
+          case -417171723:
+          case -293666737: {
+            if (input.isAtField(FieldNames.removeItemList)) {
               if (!input.trySkipNullValue()) {
-                clearResultActionOtherAddItemList();
-                input.readMessage(addItemList);
+                clearResultActionOtherRemoveItemList();
+                input.readMessage(removeItemList);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -783,9 +783,9 @@ public final class RogueActionResultDataOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName removeItemList = FieldName.forField("removeItemList", "remove_item_list");
-
       static final FieldName addItemList = FieldName.forField("addItemList", "add_item_list");
+
+      static final FieldName removeItemList = FieldName.forField("removeItemList", "remove_item_list");
 
       static final FieldName addMiracleList = FieldName.forField("addMiracleList", "add_miracle_list");
 

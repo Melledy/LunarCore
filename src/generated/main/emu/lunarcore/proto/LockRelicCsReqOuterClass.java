@@ -20,12 +20,12 @@ public final class LockRelicCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool is_protected = 4;</code>
+     * <code>optional bool is_protected = 5;</code>
      */
     private boolean isProtected;
 
     /**
-     * <code>repeated uint32 relic_id_list = 12;</code>
+     * <code>repeated uint32 relic_id_list = 4;</code>
      */
     private final RepeatedInt relicIdList = RepeatedInt.newEmptyInstance();
 
@@ -40,7 +40,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
+     * <code>optional bool is_protected = 5;</code>
      * @return whether the isProtected field is set
      */
     public boolean hasIsProtected() {
@@ -48,7 +48,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
+     * <code>optional bool is_protected = 5;</code>
      * @return this
      */
     public LockRelicCsReq clearIsProtected() {
@@ -58,7 +58,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
+     * <code>optional bool is_protected = 5;</code>
      * @return the isProtected
      */
     public boolean getIsProtected() {
@@ -66,7 +66,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
+     * <code>optional bool is_protected = 5;</code>
      * @param value the isProtected to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 12;</code>
+     * <code>repeated uint32 relic_id_list = 4;</code>
      * @return whether the relicIdList field is set
      */
     public boolean hasRelicIdList() {
@@ -85,7 +85,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 12;</code>
+     * <code>repeated uint32 relic_id_list = 4;</code>
      * @return this
      */
     public LockRelicCsReq clearRelicIdList() {
@@ -95,7 +95,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 12;</code>
+     * <code>repeated uint32 relic_id_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 12;</code>
+     * <code>repeated uint32 relic_id_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 12;</code>
+     * <code>repeated uint32 relic_id_list = 4;</code>
      * @param value the relicIdList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class LockRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 12;</code>
+     * <code>repeated uint32 relic_id_list = 4;</code>
      * @param values the relicIdList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class LockRelicCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 40);
         output.writeBoolNoTag(isProtected);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < relicIdList.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(relicIdList.array()[i]);
         }
       }
@@ -240,16 +240,16 @@ public final class LockRelicCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 40: {
             // isProtected
             isProtected = input.readBool();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 34) {
               break;
             }
           }
-          case 98: {
+          case 34: {
             // relicIdList [packed=true]
             input.readPackedUInt32(relicIdList, tag);
             bitField0_ |= 0x00000002;
@@ -268,7 +268,7 @@ public final class LockRelicCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
+          case 32: {
             // relicIdList [packed=false]
             tag = input.readRepeatedUInt32(relicIdList, tag);
             bitField0_ |= 0x00000002;

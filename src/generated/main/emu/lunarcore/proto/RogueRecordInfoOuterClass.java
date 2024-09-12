@@ -21,17 +21,17 @@ public final class RogueRecordInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 rogue_miracle_list = 10;</code>
+     * <code>repeated uint32 rogue_miracle_list = 8;</code>
      */
     private final RepeatedInt rogueMiracleList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .RogueRecordAvatar avatar_list = 6;</code>
+     * <code>repeated .RogueRecordAvatar avatar_list = 7;</code>
      */
     private final RepeatedMessage<RogueRecordAvatarOuterClass.RogueRecordAvatar> avatarList = RepeatedMessage.newEmptyInstance(RogueRecordAvatarOuterClass.RogueRecordAvatar.getFactory());
 
     /**
-     * <code>repeated .RogueBuff buff_list = 15;</code>
+     * <code>repeated .RogueBuff buff_list = 9;</code>
      */
     private final RepeatedMessage<RogueBuffOuterClass.RogueBuff> buffList = RepeatedMessage.newEmptyInstance(RogueBuffOuterClass.RogueBuff.getFactory());
 
@@ -46,7 +46,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 rogue_miracle_list = 10;</code>
+     * <code>repeated uint32 rogue_miracle_list = 8;</code>
      * @return whether the rogueMiracleList field is set
      */
     public boolean hasRogueMiracleList() {
@@ -54,7 +54,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 rogue_miracle_list = 10;</code>
+     * <code>repeated uint32 rogue_miracle_list = 8;</code>
      * @return this
      */
     public RogueRecordInfo clearRogueMiracleList() {
@@ -64,7 +64,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 rogue_miracle_list = 10;</code>
+     * <code>repeated uint32 rogue_miracle_list = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -78,7 +78,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 rogue_miracle_list = 10;</code>
+     * <code>repeated uint32 rogue_miracle_list = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -92,7 +92,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 rogue_miracle_list = 10;</code>
+     * <code>repeated uint32 rogue_miracle_list = 8;</code>
      * @param value the rogueMiracleList to add
      * @return this
      */
@@ -103,7 +103,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 rogue_miracle_list = 10;</code>
+     * <code>repeated uint32 rogue_miracle_list = 8;</code>
      * @param values the rogueMiracleList to add
      * @return this
      */
@@ -114,7 +114,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueRecordAvatar avatar_list = 6;</code>
+     * <code>repeated .RogueRecordAvatar avatar_list = 7;</code>
      * @return whether the avatarList field is set
      */
     public boolean hasAvatarList() {
@@ -122,7 +122,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueRecordAvatar avatar_list = 6;</code>
+     * <code>repeated .RogueRecordAvatar avatar_list = 7;</code>
      * @return this
      */
     public RogueRecordInfo clearAvatarList() {
@@ -132,7 +132,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueRecordAvatar avatar_list = 6;</code>
+     * <code>repeated .RogueRecordAvatar avatar_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -146,7 +146,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueRecordAvatar avatar_list = 6;</code>
+     * <code>repeated .RogueRecordAvatar avatar_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -160,7 +160,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueRecordAvatar avatar_list = 6;</code>
+     * <code>repeated .RogueRecordAvatar avatar_list = 7;</code>
      * @param value the avatarList to add
      * @return this
      */
@@ -172,7 +172,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueRecordAvatar avatar_list = 6;</code>
+     * <code>repeated .RogueRecordAvatar avatar_list = 7;</code>
      * @param values the avatarList to add
      * @return this
      */
@@ -184,7 +184,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff buff_list = 15;</code>
+     * <code>repeated .RogueBuff buff_list = 9;</code>
      * @return whether the buffList field is set
      */
     public boolean hasBuffList() {
@@ -192,7 +192,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff buff_list = 15;</code>
+     * <code>repeated .RogueBuff buff_list = 9;</code>
      * @return this
      */
     public RogueRecordInfo clearBuffList() {
@@ -202,7 +202,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff buff_list = 15;</code>
+     * <code>repeated .RogueBuff buff_list = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -216,7 +216,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff buff_list = 15;</code>
+     * <code>repeated .RogueBuff buff_list = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -230,7 +230,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff buff_list = 15;</code>
+     * <code>repeated .RogueBuff buff_list = 9;</code>
      * @param value the buffList to add
      * @return this
      */
@@ -241,7 +241,7 @@ public final class RogueRecordInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuff buff_list = 15;</code>
+     * <code>repeated .RogueBuff buff_list = 9;</code>
      * @param values the buffList to add
      * @return this
      */
@@ -326,19 +326,19 @@ public final class RogueRecordInfoOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < rogueMiracleList.length(); i++) {
-          output.writeRawByte((byte) 80);
+          output.writeRawByte((byte) 64);
           output.writeUInt32NoTag(rogueMiracleList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < avatarList.length(); i++) {
-          output.writeRawByte((byte) 50);
+          output.writeRawByte((byte) 58);
           output.writeMessageNoTag(avatarList.get(i));
         }
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < buffList.length(); i++) {
-          output.writeRawByte((byte) 122);
+          output.writeRawByte((byte) 74);
           output.writeMessageNoTag(buffList.get(i));
         }
       }
@@ -366,24 +366,24 @@ public final class RogueRecordInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 82: {
+          case 66: {
             // rogueMiracleList [packed=true]
             input.readPackedUInt32(rogueMiracleList, tag);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 58) {
               break;
             }
           }
-          case 50: {
+          case 58: {
             // avatarList
             tag = input.readRepeatedMessage(avatarList, tag);
             bitField0_ |= 0x00000002;
-            if (tag != 122) {
+            if (tag != 74) {
               break;
             }
           }
-          case 122: {
+          case 74: {
             // buffList
             tag = input.readRepeatedMessage(buffList, tag);
             bitField0_ |= 0x00000004;
@@ -401,7 +401,7 @@ public final class RogueRecordInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 80: {
+          case 64: {
             // rogueMiracleList [packed=false]
             tag = input.readRepeatedUInt32(rogueMiracleList, tag);
             bitField0_ |= 0x00000001;

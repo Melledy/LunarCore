@@ -19,12 +19,12 @@ public final class SetAvatarPathScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 9;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 9;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
      */
     private int avatarId;
 
@@ -39,7 +39,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return this
      */
     public SetAvatarPathScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 9;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
      * @return whether the avatarId field is set
      */
     public boolean hasAvatarId() {
@@ -84,7 +84,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 9;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
      * @return this
      */
     public SetAvatarPathScRsp clearAvatarId() {
@@ -94,7 +94,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 9;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
      * @return the avatarId
      */
     public MultiPathAvatarTypeOuterClass.MultiPathAvatarType getAvatarId() {
@@ -127,7 +127,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 9;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
      * @param value the avatarId to set
      * @return this
      */
@@ -203,11 +203,11 @@ public final class SetAvatarPathScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 112);
         output.writeEnumNoTag(avatarId);
       }
     }
@@ -231,16 +231,16 @@ public final class SetAvatarPathScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 72: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 112) {
               break;
             }
           }
-          case 72: {
+          case 112: {
             // avatarId
             final int value = input.readInt32();
             if (MultiPathAvatarTypeOuterClass.MultiPathAvatarType.forNumber(value) != null) {

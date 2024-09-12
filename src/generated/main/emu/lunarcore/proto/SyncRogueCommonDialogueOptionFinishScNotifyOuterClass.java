@@ -19,22 +19,22 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 event_unique_id = 3;</code>
-     */
-    private int eventUniqueId;
-
-    /**
-     * <code>optional uint32 option_id = 7;</code>
+     * <code>optional uint32 option_id = 9;</code>
      */
     private int optionId;
 
     /**
-     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 2;</code>
+     * <code>optional uint32 event_unique_id = 15;</code>
+     */
+    private int eventUniqueId;
+
+    /**
+     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 12;</code>
      */
     private final RogueCommonDialogueOptionInfoOuterClass.RogueCommonDialogueOptionInfo resultOptionInfo = RogueCommonDialogueOptionInfoOuterClass.RogueCommonDialogueOptionInfo.newInstance();
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 12;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 13;</code>
      */
     private final RogueCommonDialogueDataInfoOuterClass.RogueCommonDialogueDataInfo dialogueData = RogueCommonDialogueDataInfoOuterClass.RogueCommonDialogueDataInfo.newInstance();
 
@@ -49,62 +49,25 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 3;</code>
-     * @return whether the eventUniqueId field is set
+     * <code>optional uint32 option_id = 9;</code>
+     * @return whether the optionId field is set
      */
-    public boolean hasEventUniqueId() {
+    public boolean hasOptionId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 3;</code>
-     * @return this
-     */
-    public SyncRogueCommonDialogueOptionFinishScNotify clearEventUniqueId() {
-      bitField0_ &= ~0x00000001;
-      eventUniqueId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 event_unique_id = 3;</code>
-     * @return the eventUniqueId
-     */
-    public int getEventUniqueId() {
-      return eventUniqueId;
-    }
-
-    /**
-     * <code>optional uint32 event_unique_id = 3;</code>
-     * @param value the eventUniqueId to set
-     * @return this
-     */
-    public SyncRogueCommonDialogueOptionFinishScNotify setEventUniqueId(final int value) {
-      bitField0_ |= 0x00000001;
-      eventUniqueId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 option_id = 7;</code>
-     * @return whether the optionId field is set
-     */
-    public boolean hasOptionId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 option_id = 7;</code>
+     * <code>optional uint32 option_id = 9;</code>
      * @return this
      */
     public SyncRogueCommonDialogueOptionFinishScNotify clearOptionId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       optionId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 option_id = 7;</code>
+     * <code>optional uint32 option_id = 9;</code>
      * @return the optionId
      */
     public int getOptionId() {
@@ -112,18 +75,55 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 option_id = 7;</code>
+     * <code>optional uint32 option_id = 9;</code>
      * @param value the optionId to set
      * @return this
      */
     public SyncRogueCommonDialogueOptionFinishScNotify setOptionId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       optionId = value;
       return this;
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 2;</code>
+     * <code>optional uint32 event_unique_id = 15;</code>
+     * @return whether the eventUniqueId field is set
+     */
+    public boolean hasEventUniqueId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 event_unique_id = 15;</code>
+     * @return this
+     */
+    public SyncRogueCommonDialogueOptionFinishScNotify clearEventUniqueId() {
+      bitField0_ &= ~0x00000002;
+      eventUniqueId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 event_unique_id = 15;</code>
+     * @return the eventUniqueId
+     */
+    public int getEventUniqueId() {
+      return eventUniqueId;
+    }
+
+    /**
+     * <code>optional uint32 event_unique_id = 15;</code>
+     * @param value the eventUniqueId to set
+     * @return this
+     */
+    public SyncRogueCommonDialogueOptionFinishScNotify setEventUniqueId(final int value) {
+      bitField0_ |= 0x00000002;
+      eventUniqueId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 12;</code>
      * @return whether the resultOptionInfo field is set
      */
     public boolean hasResultOptionInfo() {
@@ -131,7 +131,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 2;</code>
+     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 12;</code>
      * @return this
      */
     public SyncRogueCommonDialogueOptionFinishScNotify clearResultOptionInfo() {
@@ -141,7 +141,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 2;</code>
+     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -156,7 +156,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 2;</code>
+     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -171,7 +171,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 2;</code>
+     * <code>optional .RogueCommonDialogueOptionInfo result_option_info = 12;</code>
      * @param value the resultOptionInfo to set
      * @return this
      */
@@ -183,7 +183,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 12;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 13;</code>
      * @return whether the dialogueData field is set
      */
     public boolean hasDialogueData() {
@@ -191,7 +191,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 12;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 13;</code>
      * @return this
      */
     public SyncRogueCommonDialogueOptionFinishScNotify clearDialogueData() {
@@ -201,7 +201,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 12;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -215,7 +215,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 12;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -230,7 +230,7 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 12;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 13;</code>
      * @param value the dialogueData to set
      * @return this
      */
@@ -247,8 +247,8 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        eventUniqueId = other.eventUniqueId;
         optionId = other.optionId;
+        eventUniqueId = other.eventUniqueId;
         resultOptionInfo.copyFrom(other.resultOptionInfo);
         dialogueData.copyFrom(other.dialogueData);
       }
@@ -262,11 +262,11 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasEventUniqueId()) {
-        setEventUniqueId(other.eventUniqueId);
-      }
       if (other.hasOptionId()) {
         setOptionId(other.optionId);
+      }
+      if (other.hasEventUniqueId()) {
+        setEventUniqueId(other.eventUniqueId);
       }
       if (other.hasResultOptionInfo()) {
         getMutableResultOptionInfo().mergeFrom(other.resultOptionInfo);
@@ -284,8 +284,8 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      eventUniqueId = 0;
       optionId = 0;
+      eventUniqueId = 0;
       resultOptionInfo.clear();
       dialogueData.clear();
       return this;
@@ -313,8 +313,8 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
       }
       SyncRogueCommonDialogueOptionFinishScNotify other = (SyncRogueCommonDialogueOptionFinishScNotify) o;
       return bitField0_ == other.bitField0_
-        && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId)
         && (!hasOptionId() || optionId == other.optionId)
+        && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId)
         && (!hasResultOptionInfo() || resultOptionInfo.equals(other.resultOptionInfo))
         && (!hasDialogueData() || dialogueData.equals(other.dialogueData));
     }
@@ -322,19 +322,19 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(eventUniqueId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(optionId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(eventUniqueId);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 98);
         output.writeMessageNoTag(resultOptionInfo);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 98);
+        output.writeRawByte((byte) 106);
         output.writeMessageNoTag(dialogueData);
       }
     }
@@ -343,10 +343,10 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(optionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(optionId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(resultOptionInfo);
@@ -365,34 +365,34 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // eventUniqueId
-            eventUniqueId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
-          case 56: {
+          case 72: {
             // optionId
             optionId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 120) {
               break;
             }
           }
-          case 18: {
-            // resultOptionInfo
-            input.readMessage(resultOptionInfo);
-            bitField0_ |= 0x00000004;
+          case 120: {
+            // eventUniqueId
+            eventUniqueId = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 98) {
               break;
             }
           }
           case 98: {
+            // resultOptionInfo
+            input.readMessage(resultOptionInfo);
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 106) {
+              break;
+            }
+          }
+          case 106: {
             // dialogueData
             input.readMessage(dialogueData);
             bitField0_ |= 0x00000008;
@@ -419,10 +419,10 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
+        output.writeUInt32(FieldNames.optionId, optionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.optionId, optionId);
+        output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.resultOptionInfo, resultOptionInfo);
@@ -441,11 +441,11 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 2091680134:
-          case -157385500: {
-            if (input.isAtField(FieldNames.eventUniqueId)) {
+          case -79017872:
+          case 1845434661: {
+            if (input.isAtField(FieldNames.optionId)) {
               if (!input.trySkipNullValue()) {
-                eventUniqueId = input.readUInt32();
+                optionId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -453,11 +453,11 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
             }
             break;
           }
-          case -79017872:
-          case 1845434661: {
-            if (input.isAtField(FieldNames.optionId)) {
+          case 2091680134:
+          case -157385500: {
+            if (input.isAtField(FieldNames.eventUniqueId)) {
               if (!input.trySkipNullValue()) {
-                optionId = input.readUInt32();
+                eventUniqueId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -544,9 +544,9 @@ public final class SyncRogueCommonDialogueOptionFinishScNotifyOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName eventUniqueId = FieldName.forField("eventUniqueId", "event_unique_id");
-
       static final FieldName optionId = FieldName.forField("optionId", "option_id");
+
+      static final FieldName eventUniqueId = FieldName.forField("eventUniqueId", "event_unique_id");
 
       static final FieldName resultOptionInfo = FieldName.forField("resultOptionInfo", "result_option_info");
 

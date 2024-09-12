@@ -63,7 +63,9 @@ public enum AvatarPropertyType {
     StatusResistanceBase (57),
     BreakDamageAddedRatio (58),
     BreakDamageAddedRatioBase (59),
-    MaxSP (60);
+    MaxSP (60),
+    Count (61),
+    SpecialMaxSP (62);
 
     @Getter
     private int val;

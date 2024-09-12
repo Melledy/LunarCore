@@ -20,12 +20,12 @@ public final class ServerPrefsOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 server_prefs_id = 12;</code>
+     * <code>optional uint32 server_prefs_id = 15;</code>
      */
     private int serverPrefsId;
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      */
     private final RepeatedByte data = RepeatedByte.newEmptyInstance();
 
@@ -40,7 +40,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional uint32 server_prefs_id = 12;</code>
+     * <code>optional uint32 server_prefs_id = 15;</code>
      * @return whether the serverPrefsId field is set
      */
     public boolean hasServerPrefsId() {
@@ -48,7 +48,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional uint32 server_prefs_id = 12;</code>
+     * <code>optional uint32 server_prefs_id = 15;</code>
      * @return this
      */
     public ServerPrefs clearServerPrefsId() {
@@ -58,7 +58,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional uint32 server_prefs_id = 12;</code>
+     * <code>optional uint32 server_prefs_id = 15;</code>
      * @return the serverPrefsId
      */
     public int getServerPrefsId() {
@@ -66,7 +66,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional uint32 server_prefs_id = 12;</code>
+     * <code>optional uint32 server_prefs_id = 15;</code>
      * @param value the serverPrefsId to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      * @return whether the data field is set
      */
     public boolean hasData() {
@@ -85,7 +85,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      * @return this
      */
     public ServerPrefs clearData() {
@@ -95,7 +95,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      * @param value the data to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      * @param values the data to add
      * @return this
      */
@@ -145,7 +145,7 @@ public final class ServerPrefsOuterClass {
     }
 
     /**
-     * <code>optional bytes data = 15;</code>
+     * <code>optional bytes data = 5;</code>
      * @param values the data to set
      * @return this
      */
@@ -221,11 +221,11 @@ public final class ServerPrefsOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(serverPrefsId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 122);
+        output.writeRawByte((byte) 42);
         output.writeBytesNoTag(data);
       }
     }
@@ -249,16 +249,16 @@ public final class ServerPrefsOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 120: {
             // serverPrefsId
             serverPrefsId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 42) {
               break;
             }
           }
-          case 122: {
+          case 42: {
             // data
             input.readBytes(data);
             bitField0_ |= 0x00000002;

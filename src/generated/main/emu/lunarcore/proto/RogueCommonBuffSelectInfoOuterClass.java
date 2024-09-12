@@ -21,24 +21,14 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 roll_buff_max_times = 1;</code>
-     */
-    private int rollBuffMaxTimes;
-
-    /**
-     * <code>optional uint32 source_cur_count = 2;</code>
+     * <code>optional uint32 source_cur_count = 4;</code>
      */
     private int sourceCurCount;
 
     /**
-     * <code>optional uint32 source_total_count = 3;</code>
+     * <code>optional uint32 roll_buff_max_times = 6;</code>
      */
-    private int sourceTotalCount;
-
-    /**
-     * <code>optional uint32 roll_buff_times = 6;</code>
-     */
-    private int rollBuffTimes;
+    private int rollBuffMaxTimes;
 
     /**
      * <code>optional uint32 roll_buff_free_count = 9;</code>
@@ -46,42 +36,52 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     private int rollBuffFreeCount;
 
     /**
-     * <code>optional uint32 certain_select_buff_id = 14;</code>
-     */
-    private int certainSelectBuffId;
-
-    /**
-     * <code>optional uint32 select_buff_source_hint = 15;</code>
+     * <code>optional uint32 select_buff_source_hint = 11;</code>
      */
     private int selectBuffSourceHint;
 
     /**
-     * <code>optional .RogueCommonBuffSelectSource source_type = 4;</code>
+     * <code>optional uint32 roll_buff_times = 12;</code>
+     */
+    private int rollBuffTimes;
+
+    /**
+     * <code>optional uint32 certain_select_buff_id = 13;</code>
+     */
+    private int certainSelectBuffId;
+
+    /**
+     * <code>optional uint32 source_total_count = 15;</code>
+     */
+    private int sourceTotalCount;
+
+    /**
+     * <code>optional .RogueCommonBuffSelectSource source_type = 8;</code>
      */
     private int sourceType;
 
     /**
-     * <code>optional bool can_roll = 7;</code>
+     * <code>optional bool can_roll = 1;</code>
      */
     private boolean canRoll;
 
     /**
-     * <code>optional .ItemCostList roll_buffs_cost = 12;</code>
+     * <code>optional .ItemCostList roll_buffs_cost = 5;</code>
      */
     private final ItemCostListOuterClass.ItemCostList rollBuffsCost = ItemCostListOuterClass.ItemCostList.newInstance();
 
     /**
-     * <code>repeated uint32 first_buff_type_list = 8;</code>
+     * <code>repeated uint32 first_buff_type_list = 2;</code>
      */
     private final RepeatedInt firstBuffTypeList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 handbook_unlock_buff_id_list = 13;</code>
+     * <code>repeated uint32 handbook_unlock_buff_id_list = 3;</code>
      */
     private final RepeatedInt handbookUnlockBuffIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .RogueCommonBuff maze_buff_list = 10;</code>
+     * <code>repeated .RogueCommonBuff maze_buff_list = 7;</code>
      */
     private final RepeatedMessage<RogueCommonBuffOuterClass.RogueCommonBuff> mazeBuffList = RepeatedMessage.newEmptyInstance(RogueCommonBuffOuterClass.RogueCommonBuff.getFactory());
 
@@ -96,62 +96,25 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 roll_buff_max_times = 1;</code>
-     * @return whether the rollBuffMaxTimes field is set
+     * <code>optional uint32 source_cur_count = 4;</code>
+     * @return whether the sourceCurCount field is set
      */
-    public boolean hasRollBuffMaxTimes() {
+    public boolean hasSourceCurCount() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 roll_buff_max_times = 1;</code>
-     * @return this
-     */
-    public RogueCommonBuffSelectInfo clearRollBuffMaxTimes() {
-      bitField0_ &= ~0x00000001;
-      rollBuffMaxTimes = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 roll_buff_max_times = 1;</code>
-     * @return the rollBuffMaxTimes
-     */
-    public int getRollBuffMaxTimes() {
-      return rollBuffMaxTimes;
-    }
-
-    /**
-     * <code>optional uint32 roll_buff_max_times = 1;</code>
-     * @param value the rollBuffMaxTimes to set
-     * @return this
-     */
-    public RogueCommonBuffSelectInfo setRollBuffMaxTimes(final int value) {
-      bitField0_ |= 0x00000001;
-      rollBuffMaxTimes = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 source_cur_count = 2;</code>
-     * @return whether the sourceCurCount field is set
-     */
-    public boolean hasSourceCurCount() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 source_cur_count = 2;</code>
+     * <code>optional uint32 source_cur_count = 4;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearSourceCurCount() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       sourceCurCount = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 source_cur_count = 2;</code>
+     * <code>optional uint32 source_cur_count = 4;</code>
      * @return the sourceCurCount
      */
     public int getSourceCurCount() {
@@ -159,87 +122,50 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 source_cur_count = 2;</code>
+     * <code>optional uint32 source_cur_count = 4;</code>
      * @param value the sourceCurCount to set
      * @return this
      */
     public RogueCommonBuffSelectInfo setSourceCurCount(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       sourceCurCount = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 source_total_count = 3;</code>
-     * @return whether the sourceTotalCount field is set
+     * <code>optional uint32 roll_buff_max_times = 6;</code>
+     * @return whether the rollBuffMaxTimes field is set
      */
-    public boolean hasSourceTotalCount() {
-      return (bitField0_ & 0x00000004) != 0;
+    public boolean hasRollBuffMaxTimes() {
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 source_total_count = 3;</code>
+     * <code>optional uint32 roll_buff_max_times = 6;</code>
      * @return this
      */
-    public RogueCommonBuffSelectInfo clearSourceTotalCount() {
-      bitField0_ &= ~0x00000004;
-      sourceTotalCount = 0;
+    public RogueCommonBuffSelectInfo clearRollBuffMaxTimes() {
+      bitField0_ &= ~0x00000002;
+      rollBuffMaxTimes = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 source_total_count = 3;</code>
-     * @return the sourceTotalCount
+     * <code>optional uint32 roll_buff_max_times = 6;</code>
+     * @return the rollBuffMaxTimes
      */
-    public int getSourceTotalCount() {
-      return sourceTotalCount;
+    public int getRollBuffMaxTimes() {
+      return rollBuffMaxTimes;
     }
 
     /**
-     * <code>optional uint32 source_total_count = 3;</code>
-     * @param value the sourceTotalCount to set
+     * <code>optional uint32 roll_buff_max_times = 6;</code>
+     * @param value the rollBuffMaxTimes to set
      * @return this
      */
-    public RogueCommonBuffSelectInfo setSourceTotalCount(final int value) {
-      bitField0_ |= 0x00000004;
-      sourceTotalCount = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 roll_buff_times = 6;</code>
-     * @return whether the rollBuffTimes field is set
-     */
-    public boolean hasRollBuffTimes() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 roll_buff_times = 6;</code>
-     * @return this
-     */
-    public RogueCommonBuffSelectInfo clearRollBuffTimes() {
-      bitField0_ &= ~0x00000008;
-      rollBuffTimes = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 roll_buff_times = 6;</code>
-     * @return the rollBuffTimes
-     */
-    public int getRollBuffTimes() {
-      return rollBuffTimes;
-    }
-
-    /**
-     * <code>optional uint32 roll_buff_times = 6;</code>
-     * @param value the rollBuffTimes to set
-     * @return this
-     */
-    public RogueCommonBuffSelectInfo setRollBuffTimes(final int value) {
-      bitField0_ |= 0x00000008;
-      rollBuffTimes = value;
+    public RogueCommonBuffSelectInfo setRollBuffMaxTimes(final int value) {
+      bitField0_ |= 0x00000002;
+      rollBuffMaxTimes = value;
       return this;
     }
 
@@ -248,7 +174,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
      * @return whether the rollBuffFreeCount field is set
      */
     public boolean hasRollBuffFreeCount() {
-      return (bitField0_ & 0x00000010) != 0;
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
@@ -256,7 +182,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
      * @return this
      */
     public RogueCommonBuffSelectInfo clearRollBuffFreeCount() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000004;
       rollBuffFreeCount = 0;
       return this;
     }
@@ -275,13 +201,87 @@ public final class RogueCommonBuffSelectInfoOuterClass {
      * @return this
      */
     public RogueCommonBuffSelectInfo setRollBuffFreeCount(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       rollBuffFreeCount = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 certain_select_buff_id = 14;</code>
+     * <code>optional uint32 select_buff_source_hint = 11;</code>
+     * @return whether the selectBuffSourceHint field is set
+     */
+    public boolean hasSelectBuffSourceHint() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional uint32 select_buff_source_hint = 11;</code>
+     * @return this
+     */
+    public RogueCommonBuffSelectInfo clearSelectBuffSourceHint() {
+      bitField0_ &= ~0x00000008;
+      selectBuffSourceHint = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 select_buff_source_hint = 11;</code>
+     * @return the selectBuffSourceHint
+     */
+    public int getSelectBuffSourceHint() {
+      return selectBuffSourceHint;
+    }
+
+    /**
+     * <code>optional uint32 select_buff_source_hint = 11;</code>
+     * @param value the selectBuffSourceHint to set
+     * @return this
+     */
+    public RogueCommonBuffSelectInfo setSelectBuffSourceHint(final int value) {
+      bitField0_ |= 0x00000008;
+      selectBuffSourceHint = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 roll_buff_times = 12;</code>
+     * @return whether the rollBuffTimes field is set
+     */
+    public boolean hasRollBuffTimes() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional uint32 roll_buff_times = 12;</code>
+     * @return this
+     */
+    public RogueCommonBuffSelectInfo clearRollBuffTimes() {
+      bitField0_ &= ~0x00000010;
+      rollBuffTimes = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 roll_buff_times = 12;</code>
+     * @return the rollBuffTimes
+     */
+    public int getRollBuffTimes() {
+      return rollBuffTimes;
+    }
+
+    /**
+     * <code>optional uint32 roll_buff_times = 12;</code>
+     * @param value the rollBuffTimes to set
+     * @return this
+     */
+    public RogueCommonBuffSelectInfo setRollBuffTimes(final int value) {
+      bitField0_ |= 0x00000010;
+      rollBuffTimes = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 certain_select_buff_id = 13;</code>
      * @return whether the certainSelectBuffId field is set
      */
     public boolean hasCertainSelectBuffId() {
@@ -289,7 +289,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 certain_select_buff_id = 14;</code>
+     * <code>optional uint32 certain_select_buff_id = 13;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearCertainSelectBuffId() {
@@ -299,7 +299,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 certain_select_buff_id = 14;</code>
+     * <code>optional uint32 certain_select_buff_id = 13;</code>
      * @return the certainSelectBuffId
      */
     public int getCertainSelectBuffId() {
@@ -307,7 +307,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 certain_select_buff_id = 14;</code>
+     * <code>optional uint32 certain_select_buff_id = 13;</code>
      * @param value the certainSelectBuffId to set
      * @return this
      */
@@ -318,44 +318,44 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 select_buff_source_hint = 15;</code>
-     * @return whether the selectBuffSourceHint field is set
+     * <code>optional uint32 source_total_count = 15;</code>
+     * @return whether the sourceTotalCount field is set
      */
-    public boolean hasSelectBuffSourceHint() {
+    public boolean hasSourceTotalCount() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional uint32 select_buff_source_hint = 15;</code>
+     * <code>optional uint32 source_total_count = 15;</code>
      * @return this
      */
-    public RogueCommonBuffSelectInfo clearSelectBuffSourceHint() {
+    public RogueCommonBuffSelectInfo clearSourceTotalCount() {
       bitField0_ &= ~0x00000040;
-      selectBuffSourceHint = 0;
+      sourceTotalCount = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 select_buff_source_hint = 15;</code>
-     * @return the selectBuffSourceHint
+     * <code>optional uint32 source_total_count = 15;</code>
+     * @return the sourceTotalCount
      */
-    public int getSelectBuffSourceHint() {
-      return selectBuffSourceHint;
+    public int getSourceTotalCount() {
+      return sourceTotalCount;
     }
 
     /**
-     * <code>optional uint32 select_buff_source_hint = 15;</code>
-     * @param value the selectBuffSourceHint to set
+     * <code>optional uint32 source_total_count = 15;</code>
+     * @param value the sourceTotalCount to set
      * @return this
      */
-    public RogueCommonBuffSelectInfo setSelectBuffSourceHint(final int value) {
+    public RogueCommonBuffSelectInfo setSourceTotalCount(final int value) {
       bitField0_ |= 0x00000040;
-      selectBuffSourceHint = value;
+      sourceTotalCount = value;
       return this;
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectSource source_type = 4;</code>
+     * <code>optional .RogueCommonBuffSelectSource source_type = 8;</code>
      * @return whether the sourceType field is set
      */
     public boolean hasSourceType() {
@@ -363,7 +363,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectSource source_type = 4;</code>
+     * <code>optional .RogueCommonBuffSelectSource source_type = 8;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearSourceType() {
@@ -373,7 +373,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectSource source_type = 4;</code>
+     * <code>optional .RogueCommonBuffSelectSource source_type = 8;</code>
      * @return the sourceType
      */
     public RogueCommonBuffSelectSourceOuterClass.RogueCommonBuffSelectSource getSourceType() {
@@ -406,7 +406,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectSource source_type = 4;</code>
+     * <code>optional .RogueCommonBuffSelectSource source_type = 8;</code>
      * @param value the sourceType to set
      * @return this
      */
@@ -418,7 +418,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional bool can_roll = 7;</code>
+     * <code>optional bool can_roll = 1;</code>
      * @return whether the canRoll field is set
      */
     public boolean hasCanRoll() {
@@ -426,7 +426,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional bool can_roll = 7;</code>
+     * <code>optional bool can_roll = 1;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearCanRoll() {
@@ -436,7 +436,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional bool can_roll = 7;</code>
+     * <code>optional bool can_roll = 1;</code>
      * @return the canRoll
      */
     public boolean getCanRoll() {
@@ -444,7 +444,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional bool can_roll = 7;</code>
+     * <code>optional bool can_roll = 1;</code>
      * @param value the canRoll to set
      * @return this
      */
@@ -455,7 +455,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList roll_buffs_cost = 12;</code>
+     * <code>optional .ItemCostList roll_buffs_cost = 5;</code>
      * @return whether the rollBuffsCost field is set
      */
     public boolean hasRollBuffsCost() {
@@ -463,7 +463,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList roll_buffs_cost = 12;</code>
+     * <code>optional .ItemCostList roll_buffs_cost = 5;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearRollBuffsCost() {
@@ -473,7 +473,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList roll_buffs_cost = 12;</code>
+     * <code>optional .ItemCostList roll_buffs_cost = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -487,7 +487,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList roll_buffs_cost = 12;</code>
+     * <code>optional .ItemCostList roll_buffs_cost = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -501,7 +501,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList roll_buffs_cost = 12;</code>
+     * <code>optional .ItemCostList roll_buffs_cost = 5;</code>
      * @param value the rollBuffsCost to set
      * @return this
      */
@@ -513,7 +513,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_buff_type_list = 8;</code>
+     * <code>repeated uint32 first_buff_type_list = 2;</code>
      * @return whether the firstBuffTypeList field is set
      */
     public boolean hasFirstBuffTypeList() {
@@ -521,7 +521,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_buff_type_list = 8;</code>
+     * <code>repeated uint32 first_buff_type_list = 2;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearFirstBuffTypeList() {
@@ -531,7 +531,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_buff_type_list = 8;</code>
+     * <code>repeated uint32 first_buff_type_list = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -545,7 +545,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_buff_type_list = 8;</code>
+     * <code>repeated uint32 first_buff_type_list = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -559,7 +559,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_buff_type_list = 8;</code>
+     * <code>repeated uint32 first_buff_type_list = 2;</code>
      * @param value the firstBuffTypeList to add
      * @return this
      */
@@ -570,7 +570,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_buff_type_list = 8;</code>
+     * <code>repeated uint32 first_buff_type_list = 2;</code>
      * @param values the firstBuffTypeList to add
      * @return this
      */
@@ -581,7 +581,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 handbook_unlock_buff_id_list = 13;</code>
+     * <code>repeated uint32 handbook_unlock_buff_id_list = 3;</code>
      * @return whether the handbookUnlockBuffIdList field is set
      */
     public boolean hasHandbookUnlockBuffIdList() {
@@ -589,7 +589,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 handbook_unlock_buff_id_list = 13;</code>
+     * <code>repeated uint32 handbook_unlock_buff_id_list = 3;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearHandbookUnlockBuffIdList() {
@@ -599,7 +599,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 handbook_unlock_buff_id_list = 13;</code>
+     * <code>repeated uint32 handbook_unlock_buff_id_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -613,7 +613,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 handbook_unlock_buff_id_list = 13;</code>
+     * <code>repeated uint32 handbook_unlock_buff_id_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -627,7 +627,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 handbook_unlock_buff_id_list = 13;</code>
+     * <code>repeated uint32 handbook_unlock_buff_id_list = 3;</code>
      * @param value the handbookUnlockBuffIdList to add
      * @return this
      */
@@ -638,7 +638,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 handbook_unlock_buff_id_list = 13;</code>
+     * <code>repeated uint32 handbook_unlock_buff_id_list = 3;</code>
      * @param values the handbookUnlockBuffIdList to add
      * @return this
      */
@@ -649,7 +649,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonBuff maze_buff_list = 10;</code>
+     * <code>repeated .RogueCommonBuff maze_buff_list = 7;</code>
      * @return whether the mazeBuffList field is set
      */
     public boolean hasMazeBuffList() {
@@ -657,7 +657,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonBuff maze_buff_list = 10;</code>
+     * <code>repeated .RogueCommonBuff maze_buff_list = 7;</code>
      * @return this
      */
     public RogueCommonBuffSelectInfo clearMazeBuffList() {
@@ -667,7 +667,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonBuff maze_buff_list = 10;</code>
+     * <code>repeated .RogueCommonBuff maze_buff_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -681,7 +681,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonBuff maze_buff_list = 10;</code>
+     * <code>repeated .RogueCommonBuff maze_buff_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -695,7 +695,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonBuff maze_buff_list = 10;</code>
+     * <code>repeated .RogueCommonBuff maze_buff_list = 7;</code>
      * @param value the mazeBuffList to add
      * @return this
      */
@@ -707,7 +707,7 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonBuff maze_buff_list = 10;</code>
+     * <code>repeated .RogueCommonBuff maze_buff_list = 7;</code>
      * @param values the mazeBuffList to add
      * @return this
      */
@@ -723,13 +723,13 @@ public final class RogueCommonBuffSelectInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        rollBuffMaxTimes = other.rollBuffMaxTimes;
         sourceCurCount = other.sourceCurCount;
-        sourceTotalCount = other.sourceTotalCount;
-        rollBuffTimes = other.rollBuffTimes;
+        rollBuffMaxTimes = other.rollBuffMaxTimes;
         rollBuffFreeCount = other.rollBuffFreeCount;
-        certainSelectBuffId = other.certainSelectBuffId;
         selectBuffSourceHint = other.selectBuffSourceHint;
+        rollBuffTimes = other.rollBuffTimes;
+        certainSelectBuffId = other.certainSelectBuffId;
+        sourceTotalCount = other.sourceTotalCount;
         sourceType = other.sourceType;
         canRoll = other.canRoll;
         rollBuffsCost.copyFrom(other.rollBuffsCost);
@@ -746,26 +746,26 @@ public final class RogueCommonBuffSelectInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRollBuffMaxTimes()) {
-        setRollBuffMaxTimes(other.rollBuffMaxTimes);
-      }
       if (other.hasSourceCurCount()) {
         setSourceCurCount(other.sourceCurCount);
       }
-      if (other.hasSourceTotalCount()) {
-        setSourceTotalCount(other.sourceTotalCount);
-      }
-      if (other.hasRollBuffTimes()) {
-        setRollBuffTimes(other.rollBuffTimes);
+      if (other.hasRollBuffMaxTimes()) {
+        setRollBuffMaxTimes(other.rollBuffMaxTimes);
       }
       if (other.hasRollBuffFreeCount()) {
         setRollBuffFreeCount(other.rollBuffFreeCount);
       }
+      if (other.hasSelectBuffSourceHint()) {
+        setSelectBuffSourceHint(other.selectBuffSourceHint);
+      }
+      if (other.hasRollBuffTimes()) {
+        setRollBuffTimes(other.rollBuffTimes);
+      }
       if (other.hasCertainSelectBuffId()) {
         setCertainSelectBuffId(other.certainSelectBuffId);
       }
-      if (other.hasSelectBuffSourceHint()) {
-        setSelectBuffSourceHint(other.selectBuffSourceHint);
+      if (other.hasSourceTotalCount()) {
+        setSourceTotalCount(other.sourceTotalCount);
       }
       if (other.hasSourceType()) {
         setSourceTypeValue(other.sourceType);
@@ -795,13 +795,13 @@ public final class RogueCommonBuffSelectInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rollBuffMaxTimes = 0;
       sourceCurCount = 0;
-      sourceTotalCount = 0;
-      rollBuffTimes = 0;
+      rollBuffMaxTimes = 0;
       rollBuffFreeCount = 0;
-      certainSelectBuffId = 0;
       selectBuffSourceHint = 0;
+      rollBuffTimes = 0;
+      certainSelectBuffId = 0;
+      sourceTotalCount = 0;
       sourceType = 0;
       canRoll = false;
       rollBuffsCost.clear();
@@ -835,13 +835,13 @@ public final class RogueCommonBuffSelectInfoOuterClass {
       }
       RogueCommonBuffSelectInfo other = (RogueCommonBuffSelectInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasRollBuffMaxTimes() || rollBuffMaxTimes == other.rollBuffMaxTimes)
         && (!hasSourceCurCount() || sourceCurCount == other.sourceCurCount)
-        && (!hasSourceTotalCount() || sourceTotalCount == other.sourceTotalCount)
-        && (!hasRollBuffTimes() || rollBuffTimes == other.rollBuffTimes)
+        && (!hasRollBuffMaxTimes() || rollBuffMaxTimes == other.rollBuffMaxTimes)
         && (!hasRollBuffFreeCount() || rollBuffFreeCount == other.rollBuffFreeCount)
-        && (!hasCertainSelectBuffId() || certainSelectBuffId == other.certainSelectBuffId)
         && (!hasSelectBuffSourceHint() || selectBuffSourceHint == other.selectBuffSourceHint)
+        && (!hasRollBuffTimes() || rollBuffTimes == other.rollBuffTimes)
+        && (!hasCertainSelectBuffId() || certainSelectBuffId == other.certainSelectBuffId)
+        && (!hasSourceTotalCount() || sourceTotalCount == other.sourceTotalCount)
         && (!hasSourceType() || sourceType == other.sourceType)
         && (!hasCanRoll() || canRoll == other.canRoll)
         && (!hasRollBuffsCost() || rollBuffsCost.equals(other.rollBuffsCost))
@@ -853,60 +853,60 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(rollBuffMaxTimes);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(sourceCurCount);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(sourceTotalCount);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(rollBuffTimes);
+        output.writeUInt32NoTag(rollBuffMaxTimes);
       }
-      if ((bitField0_ & 0x00000010) != 0) {
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(rollBuffFreeCount);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(selectBuffSourceHint);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(rollBuffTimes);
+      }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(certainSelectBuffId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(selectBuffSourceHint);
+        output.writeUInt32NoTag(sourceTotalCount);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 64);
         output.writeEnumNoTag(sourceType);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 8);
         output.writeBoolNoTag(canRoll);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeRawByte((byte) 98);
+        output.writeRawByte((byte) 42);
         output.writeMessageNoTag(rollBuffsCost);
       }
       if ((bitField0_ & 0x00000400) != 0) {
         for (int i = 0; i < firstBuffTypeList.length(); i++) {
-          output.writeRawByte((byte) 64);
+          output.writeRawByte((byte) 16);
           output.writeUInt32NoTag(firstBuffTypeList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000800) != 0) {
         for (int i = 0; i < handbookUnlockBuffIdList.length(); i++) {
-          output.writeRawByte((byte) 104);
+          output.writeRawByte((byte) 24);
           output.writeUInt32NoTag(handbookUnlockBuffIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00001000) != 0) {
         for (int i = 0; i < mazeBuffList.length(); i++) {
-          output.writeRawByte((byte) 82);
+          output.writeRawByte((byte) 58);
           output.writeMessageNoTag(mazeBuffList.get(i));
         }
       }
@@ -916,25 +916,25 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollBuffMaxTimes);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(sourceCurCount);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollBuffMaxTimes);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(sourceTotalCount);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollBuffFreeCount);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollBuffTimes);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(selectBuffSourceHint);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollBuffFreeCount);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rollBuffTimes);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(certainSelectBuffId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(selectBuffSourceHint);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(sourceTotalCount);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(sourceType);
@@ -964,37 +964,19 @@ public final class RogueCommonBuffSelectInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // rollBuffMaxTimes
-            rollBuffMaxTimes = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 16) {
-              break;
-            }
-          }
-          case 16: {
+          case 32: {
             // sourceCurCount
             sourceCurCount = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
-            // sourceTotalCount
-            sourceTotalCount = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 48) {
               break;
             }
           }
           case 48: {
-            // rollBuffTimes
-            rollBuffTimes = input.readUInt32();
-            bitField0_ |= 0x00000008;
+            // rollBuffMaxTimes
+            rollBuffMaxTimes = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 72) {
               break;
@@ -1003,13 +985,31 @@ public final class RogueCommonBuffSelectInfoOuterClass {
           case 72: {
             // rollBuffFreeCount
             rollBuffFreeCount = input.readUInt32();
-            bitField0_ |= 0x00000010;
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 88) {
               break;
             }
           }
-          case 112: {
+          case 88: {
+            // selectBuffSourceHint
+            selectBuffSourceHint = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
+            // rollBuffTimes
+            rollBuffTimes = input.readUInt32();
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 104) {
+              break;
+            }
+          }
+          case 104: {
             // certainSelectBuffId
             certainSelectBuffId = input.readUInt32();
             bitField0_ |= 0x00000020;
@@ -1019,15 +1019,15 @@ public final class RogueCommonBuffSelectInfoOuterClass {
             }
           }
           case 120: {
-            // selectBuffSourceHint
-            selectBuffSourceHint = input.readUInt32();
+            // sourceTotalCount
+            sourceTotalCount = input.readUInt32();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 64) {
               break;
             }
           }
-          case 32: {
+          case 64: {
             // sourceType
             final int value = input.readInt32();
             if (RogueCommonBuffSelectSourceOuterClass.RogueCommonBuffSelectSource.forNumber(value) != null) {
@@ -1035,47 +1035,47 @@ public final class RogueCommonBuffSelectInfoOuterClass {
               bitField0_ |= 0x00000080;
             }
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 8) {
               break;
             }
           }
-          case 56: {
+          case 8: {
             // canRoll
             canRoll = input.readBool();
             bitField0_ |= 0x00000100;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 42) {
               break;
             }
           }
-          case 98: {
+          case 42: {
             // rollBuffsCost
             input.readMessage(rollBuffsCost);
             bitField0_ |= 0x00000200;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 18) {
               break;
             }
           }
-          case 66: {
+          case 18: {
             // firstBuffTypeList [packed=true]
             input.readPackedUInt32(firstBuffTypeList, tag);
             bitField0_ |= 0x00000400;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 26) {
               break;
             }
           }
-          case 106: {
+          case 26: {
             // handbookUnlockBuffIdList [packed=true]
             input.readPackedUInt32(handbookUnlockBuffIdList, tag);
             bitField0_ |= 0x00000800;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 58) {
               break;
             }
           }
-          case 82: {
+          case 58: {
             // mazeBuffList
             tag = input.readRepeatedMessage(mazeBuffList, tag);
             bitField0_ |= 0x00001000;
@@ -1093,13 +1093,13 @@ public final class RogueCommonBuffSelectInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 64: {
+          case 16: {
             // firstBuffTypeList [packed=false]
             tag = input.readRepeatedUInt32(firstBuffTypeList, tag);
             bitField0_ |= 0x00000400;
             break;
           }
-          case 104: {
+          case 24: {
             // handbookUnlockBuffIdList [packed=false]
             tag = input.readRepeatedUInt32(handbookUnlockBuffIdList, tag);
             bitField0_ |= 0x00000800;
@@ -1113,25 +1113,25 @@ public final class RogueCommonBuffSelectInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.rollBuffMaxTimes, rollBuffMaxTimes);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.sourceCurCount, sourceCurCount);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.rollBuffMaxTimes, rollBuffMaxTimes);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.sourceTotalCount, sourceTotalCount);
+        output.writeUInt32(FieldNames.rollBuffFreeCount, rollBuffFreeCount);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.rollBuffTimes, rollBuffTimes);
+        output.writeUInt32(FieldNames.selectBuffSourceHint, selectBuffSourceHint);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeUInt32(FieldNames.rollBuffFreeCount, rollBuffFreeCount);
+        output.writeUInt32(FieldNames.rollBuffTimes, rollBuffTimes);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         output.writeUInt32(FieldNames.certainSelectBuffId, certainSelectBuffId);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeUInt32(FieldNames.selectBuffSourceHint, selectBuffSourceHint);
+        output.writeUInt32(FieldNames.sourceTotalCount, sourceTotalCount);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeEnum(FieldNames.sourceType, sourceType, RogueCommonBuffSelectSourceOuterClass.RogueCommonBuffSelectSource.converter());
@@ -1161,11 +1161,11 @@ public final class RogueCommonBuffSelectInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -564731182:
-          case -792528959: {
-            if (input.isAtField(FieldNames.rollBuffMaxTimes)) {
+          case -831207446:
+          case 557368108: {
+            if (input.isAtField(FieldNames.sourceCurCount)) {
               if (!input.trySkipNullValue()) {
-                rollBuffMaxTimes = input.readUInt32();
+                sourceCurCount = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -1173,36 +1173,12 @@ public final class RogueCommonBuffSelectInfoOuterClass {
             }
             break;
           }
-          case -831207446:
-          case 557368108: {
-            if (input.isAtField(FieldNames.sourceCurCount)) {
+          case -564731182:
+          case -792528959: {
+            if (input.isAtField(FieldNames.rollBuffMaxTimes)) {
               if (!input.trySkipNullValue()) {
-                sourceCurCount = input.readUInt32();
+                rollBuffMaxTimes = input.readUInt32();
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -1098445146:
-          case -1750826448: {
-            if (input.isAtField(FieldNames.sourceTotalCount)) {
-              if (!input.trySkipNullValue()) {
-                sourceTotalCount = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -436216138:
-          case 2038334812: {
-            if (input.isAtField(FieldNames.rollBuffTimes)) {
-              if (!input.trySkipNullValue()) {
-                rollBuffTimes = input.readUInt32();
-                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -1214,6 +1190,30 @@ public final class RogueCommonBuffSelectInfoOuterClass {
             if (input.isAtField(FieldNames.rollBuffFreeCount)) {
               if (!input.trySkipNullValue()) {
                 rollBuffFreeCount = input.readUInt32();
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1160450543:
+          case -335538398: {
+            if (input.isAtField(FieldNames.selectBuffSourceHint)) {
+              if (!input.trySkipNullValue()) {
+                selectBuffSourceHint = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -436216138:
+          case 2038334812: {
+            if (input.isAtField(FieldNames.rollBuffTimes)) {
+              if (!input.trySkipNullValue()) {
+                rollBuffTimes = input.readUInt32();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -1233,11 +1233,11 @@ public final class RogueCommonBuffSelectInfoOuterClass {
             }
             break;
           }
-          case -1160450543:
-          case -335538398: {
-            if (input.isAtField(FieldNames.selectBuffSourceHint)) {
+          case -1098445146:
+          case -1750826448: {
+            if (input.isAtField(FieldNames.sourceTotalCount)) {
               if (!input.trySkipNullValue()) {
-                selectBuffSourceHint = input.readUInt32();
+                sourceTotalCount = input.readUInt32();
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -1375,19 +1375,19 @@ public final class RogueCommonBuffSelectInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName rollBuffMaxTimes = FieldName.forField("rollBuffMaxTimes", "roll_buff_max_times");
-
       static final FieldName sourceCurCount = FieldName.forField("sourceCurCount", "source_cur_count");
 
-      static final FieldName sourceTotalCount = FieldName.forField("sourceTotalCount", "source_total_count");
-
-      static final FieldName rollBuffTimes = FieldName.forField("rollBuffTimes", "roll_buff_times");
+      static final FieldName rollBuffMaxTimes = FieldName.forField("rollBuffMaxTimes", "roll_buff_max_times");
 
       static final FieldName rollBuffFreeCount = FieldName.forField("rollBuffFreeCount", "roll_buff_free_count");
 
+      static final FieldName selectBuffSourceHint = FieldName.forField("selectBuffSourceHint", "select_buff_source_hint");
+
+      static final FieldName rollBuffTimes = FieldName.forField("rollBuffTimes", "roll_buff_times");
+
       static final FieldName certainSelectBuffId = FieldName.forField("certainSelectBuffId", "certain_select_buff_id");
 
-      static final FieldName selectBuffSourceHint = FieldName.forField("selectBuffSourceHint", "select_buff_source_hint");
+      static final FieldName sourceTotalCount = FieldName.forField("sourceTotalCount", "source_total_count");
 
       static final FieldName sourceType = FieldName.forField("sourceType", "source_type");
 

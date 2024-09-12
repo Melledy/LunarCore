@@ -87,7 +87,7 @@ public final class AvatarTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<AvatarType> converter() {
+    public static ProtoEnum.EnumConverter<AvatarType> converter() {
       return AvatarTypeConverter.INSTANCE;
     }
 
@@ -109,7 +109,7 @@ public final class AvatarTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum AvatarTypeConverter implements EnumConverter<AvatarType> {
+    enum AvatarTypeConverter implements ProtoEnum.EnumConverter<AvatarType> {
       INSTANCE;
 
       private static final AvatarType[] lookup = new AvatarType[5];

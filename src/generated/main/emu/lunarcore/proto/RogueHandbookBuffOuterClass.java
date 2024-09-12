@@ -19,7 +19,7 @@ public final class RogueHandbookBuffOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 buff_id = 15;</code>
+     * <code>optional uint32 buff_id = 4;</code>
      */
     private int buffId;
 
@@ -34,7 +34,7 @@ public final class RogueHandbookBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 15;</code>
+     * <code>optional uint32 buff_id = 4;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -42,7 +42,7 @@ public final class RogueHandbookBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 15;</code>
+     * <code>optional uint32 buff_id = 4;</code>
      * @return this
      */
     public RogueHandbookBuff clearBuffId() {
@@ -52,7 +52,7 @@ public final class RogueHandbookBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 15;</code>
+     * <code>optional uint32 buff_id = 4;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -60,7 +60,7 @@ public final class RogueHandbookBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 15;</code>
+     * <code>optional uint32 buff_id = 4;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class RogueHandbookBuffOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(buffId);
       }
     }
@@ -150,7 +150,7 @@ public final class RogueHandbookBuffOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 32: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000001;

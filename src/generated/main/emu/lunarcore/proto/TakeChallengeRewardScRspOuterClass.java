@@ -20,17 +20,17 @@ public final class TakeChallengeRewardScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 group_id = 5;</code>
+     * <code>optional uint32 group_id = 10;</code>
      */
     private int groupId;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 11;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 13;</code>
+     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 5;</code>
      */
     private final RepeatedMessage<TakenChallengeRewardInfoOuterClass.TakenChallengeRewardInfo> takenRewardList = RepeatedMessage.newEmptyInstance(TakenChallengeRewardInfoOuterClass.TakenChallengeRewardInfo.getFactory());
 
@@ -45,7 +45,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 5;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -53,7 +53,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 5;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @return this
      */
     public TakeChallengeRewardScRsp clearGroupId() {
@@ -63,7 +63,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 5;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -71,7 +71,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 5;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -90,7 +90,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return this
      */
     public TakeChallengeRewardScRsp clearRetcode() {
@@ -100,7 +100,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -108,7 +108,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 13;</code>
+     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 5;</code>
      * @return whether the takenRewardList field is set
      */
     public boolean hasTakenRewardList() {
@@ -127,7 +127,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 13;</code>
+     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 5;</code>
      * @return this
      */
     public TakeChallengeRewardScRsp clearTakenRewardList() {
@@ -137,7 +137,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 13;</code>
+     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -152,7 +152,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 13;</code>
+     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -167,7 +167,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 13;</code>
+     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 5;</code>
      * @param value the takenRewardList to add
      * @return this
      */
@@ -179,7 +179,7 @@ public final class TakeChallengeRewardScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 13;</code>
+     * <code>repeated .TakenChallengeRewardInfo taken_reward_list = 5;</code>
      * @param values the takenRewardList to add
      * @return this
      */
@@ -262,16 +262,16 @@ public final class TakeChallengeRewardScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < takenRewardList.length(); i++) {
-          output.writeRawByte((byte) 106);
+          output.writeRawByte((byte) 42);
           output.writeMessageNoTag(takenRewardList.get(i));
         }
       }
@@ -299,25 +299,25 @@ public final class TakeChallengeRewardScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 80: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 88) {
               break;
             }
           }
-          case 120: {
+          case 88: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 42) {
               break;
             }
           }
-          case 106: {
+          case 42: {
             // takenRewardList
             tag = input.readRepeatedMessage(takenRewardList, tag);
             bitField0_ |= 0x00000004;

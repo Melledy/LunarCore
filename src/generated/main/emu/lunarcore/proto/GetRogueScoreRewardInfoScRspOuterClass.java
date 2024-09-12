@@ -19,12 +19,12 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 4;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 4;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 1;</code>
      */
     private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo scoreRewardInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return this
      */
     public GetRogueScoreRewardInfoScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 4;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 1;</code>
      * @return whether the scoreRewardInfo field is set
      */
     public boolean hasScoreRewardInfo() {
@@ -84,7 +84,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 4;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 1;</code>
      * @return this
      */
     public GetRogueScoreRewardInfoScRsp clearScoreRewardInfo() {
@@ -94,7 +94,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 4;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 4;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo score_reward_info = 4;</code>
+     * <code>optional .RogueScoreRewardInfo score_reward_info = 1;</code>
      * @param value the scoreRewardInfo to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(scoreRewardInfo);
       }
     }
@@ -227,16 +227,16 @@ public final class GetRogueScoreRewardInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 112: {
+          case 32: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 10) {
               break;
             }
           }
-          case 34: {
+          case 10: {
             // scoreRewardInfo
             input.readMessage(scoreRewardInfo);
             bitField0_ |= 0x00000002;

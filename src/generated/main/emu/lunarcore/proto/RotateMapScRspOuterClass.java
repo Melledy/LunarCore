@@ -24,12 +24,12 @@ public final class RotateMapScRspOuterClass {
     private int clientPosVersion;
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 11;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .MotionInfo motion = 11;</code>
+     * <code>optional .MotionInfo motion = 4;</code>
      */
     private final MotionInfoOuterClass.MotionInfo motion = MotionInfoOuterClass.MotionInfo.newInstance();
 
@@ -81,7 +81,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -89,7 +89,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return this
      */
     public RotateMapScRsp clearRetcode() {
@@ -99,7 +99,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -107,7 +107,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 11;</code>
+     * <code>optional .MotionInfo motion = 4;</code>
      * @return whether the motion field is set
      */
     public boolean hasMotion() {
@@ -126,7 +126,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 11;</code>
+     * <code>optional .MotionInfo motion = 4;</code>
      * @return this
      */
     public RotateMapScRsp clearMotion() {
@@ -136,7 +136,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 11;</code>
+     * <code>optional .MotionInfo motion = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 11;</code>
+     * <code>optional .MotionInfo motion = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 11;</code>
+     * <code>optional .MotionInfo motion = 4;</code>
      * @param value the motion to set
      * @return this
      */
@@ -250,11 +250,11 @@ public final class RotateMapScRspOuterClass {
         output.writeUInt32NoTag(clientPosVersion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 34);
         output.writeMessageNoTag(motion);
       }
     }
@@ -286,20 +286,20 @@ public final class RotateMapScRspOuterClass {
             clientPosVersion = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 88) {
               break;
             }
           }
-          case 80: {
+          case 88: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 34) {
               break;
             }
           }
-          case 90: {
+          case 34: {
             // motion
             input.readMessage(motion);
             bitField0_ |= 0x00000004;

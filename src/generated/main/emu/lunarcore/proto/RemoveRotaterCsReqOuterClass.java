@@ -19,7 +19,7 @@ public final class RemoveRotaterCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RotaterData rotater_data = 6;</code>
+     * <code>optional .RotaterData rotater_data = 12;</code>
      */
     private final RotaterDataOuterClass.RotaterData rotaterData = RotaterDataOuterClass.RotaterData.newInstance();
 
@@ -34,7 +34,7 @@ public final class RemoveRotaterCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 6;</code>
+     * <code>optional .RotaterData rotater_data = 12;</code>
      * @return whether the rotaterData field is set
      */
     public boolean hasRotaterData() {
@@ -42,7 +42,7 @@ public final class RemoveRotaterCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 6;</code>
+     * <code>optional .RotaterData rotater_data = 12;</code>
      * @return this
      */
     public RemoveRotaterCsReq clearRotaterData() {
@@ -52,7 +52,7 @@ public final class RemoveRotaterCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 6;</code>
+     * <code>optional .RotaterData rotater_data = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class RemoveRotaterCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 6;</code>
+     * <code>optional .RotaterData rotater_data = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class RemoveRotaterCsReqOuterClass {
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 6;</code>
+     * <code>optional .RotaterData rotater_data = 12;</code>
      * @param value the rotaterData to set
      * @return this
      */
@@ -150,7 +150,7 @@ public final class RemoveRotaterCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 98);
         output.writeMessageNoTag(rotaterData);
       }
     }
@@ -171,7 +171,7 @@ public final class RemoveRotaterCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
+          case 98: {
             // rotaterData
             input.readMessage(rotaterData);
             bitField0_ |= 0x00000001;

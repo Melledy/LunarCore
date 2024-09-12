@@ -20,11 +20,11 @@ public final class PropExtraInfoOuterClass {
 
     /**
      * <pre>
-     *  PropAeonInfo aeon_info = 9;
+     *  PropAeonInfo aeon_info = 7;
      *  PropChessInfo chess_rogue_info = 8;
      * </pre>
      *
-     * <code>optional .PropRogueInfo rogue_info = 11;</code>
+     * <code>optional .PropRogueInfo rogue_info = 10;</code>
      */
     private final PropRogueInfoOuterClass.PropRogueInfo rogueInfo = PropRogueInfoOuterClass.PropRogueInfo.newInstance();
 
@@ -51,11 +51,11 @@ public final class PropExtraInfoOuterClass {
 
     /**
      * <pre>
-     *  PropAeonInfo aeon_info = 9;
+     *  PropAeonInfo aeon_info = 7;
      *  PropChessInfo chess_rogue_info = 8;
      * </pre>
      *
-     * <code>optional .PropRogueInfo rogue_info = 11;</code>
+     * <code>optional .PropRogueInfo rogue_info = 10;</code>
      * @return whether the rogueInfo field is set
      */
     public boolean hasRogueInfo() {
@@ -64,11 +64,11 @@ public final class PropExtraInfoOuterClass {
 
     /**
      * <pre>
-     *  PropAeonInfo aeon_info = 9;
+     *  PropAeonInfo aeon_info = 7;
      *  PropChessInfo chess_rogue_info = 8;
      * </pre>
      *
-     * <code>optional .PropRogueInfo rogue_info = 11;</code>
+     * <code>optional .PropRogueInfo rogue_info = 10;</code>
      * @return this
      */
     public PropExtraInfo clearRogueInfo() {
@@ -79,11 +79,11 @@ public final class PropExtraInfoOuterClass {
 
     /**
      * <pre>
-     *  PropAeonInfo aeon_info = 9;
+     *  PropAeonInfo aeon_info = 7;
      *  PropChessInfo chess_rogue_info = 8;
      * </pre>
      *
-     * <code>optional .PropRogueInfo rogue_info = 11;</code>
+     * <code>optional .PropRogueInfo rogue_info = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -98,11 +98,11 @@ public final class PropExtraInfoOuterClass {
 
     /**
      * <pre>
-     *  PropAeonInfo aeon_info = 9;
+     *  PropAeonInfo aeon_info = 7;
      *  PropChessInfo chess_rogue_info = 8;
      * </pre>
      *
-     * <code>optional .PropRogueInfo rogue_info = 11;</code>
+     * <code>optional .PropRogueInfo rogue_info = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -117,11 +117,11 @@ public final class PropExtraInfoOuterClass {
 
     /**
      * <pre>
-     *  PropAeonInfo aeon_info = 9;
+     *  PropAeonInfo aeon_info = 7;
      *  PropChessInfo chess_rogue_info = 8;
      * </pre>
      *
-     * <code>optional .PropRogueInfo rogue_info = 11;</code>
+     * <code>optional .PropRogueInfo rogue_info = 10;</code>
      * @param value the rogueInfo to set
      * @return this
      */
@@ -191,7 +191,7 @@ public final class PropExtraInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 82);
         output.writeMessageNoTag(rogueInfo);
       }
     }
@@ -212,7 +212,7 @@ public final class PropExtraInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 90: {
+          case 82: {
             // rogueInfo
             input.readMessage(rogueInfo);
             bitField0_ |= 0x00000001;

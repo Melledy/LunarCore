@@ -19,7 +19,7 @@ public final class RogueNpcDisappearCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 disappear_npc_entity_id = 15;</code>
+     * <code>optional uint32 disappear_npc_entity_id = 11;</code>
      */
     private int disappearNpcEntityId;
 
@@ -34,7 +34,7 @@ public final class RogueNpcDisappearCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 disappear_npc_entity_id = 15;</code>
+     * <code>optional uint32 disappear_npc_entity_id = 11;</code>
      * @return whether the disappearNpcEntityId field is set
      */
     public boolean hasDisappearNpcEntityId() {
@@ -42,7 +42,7 @@ public final class RogueNpcDisappearCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 disappear_npc_entity_id = 15;</code>
+     * <code>optional uint32 disappear_npc_entity_id = 11;</code>
      * @return this
      */
     public RogueNpcDisappearCsReq clearDisappearNpcEntityId() {
@@ -52,7 +52,7 @@ public final class RogueNpcDisappearCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 disappear_npc_entity_id = 15;</code>
+     * <code>optional uint32 disappear_npc_entity_id = 11;</code>
      * @return the disappearNpcEntityId
      */
     public int getDisappearNpcEntityId() {
@@ -60,7 +60,7 @@ public final class RogueNpcDisappearCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 disappear_npc_entity_id = 15;</code>
+     * <code>optional uint32 disappear_npc_entity_id = 11;</code>
      * @param value the disappearNpcEntityId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class RogueNpcDisappearCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(disappearNpcEntityId);
       }
     }
@@ -150,7 +150,7 @@ public final class RogueNpcDisappearCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 88: {
             // disappearNpcEntityId
             disappearNpcEntityId = input.readUInt32();
             bitField0_ |= 0x00000001;

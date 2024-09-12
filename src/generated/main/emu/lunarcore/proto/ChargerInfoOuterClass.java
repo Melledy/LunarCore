@@ -19,14 +19,14 @@ public final class ChargerInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 unk_int = 7;</code>
-     */
-    private int unkInt;
-
-    /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 4;</code>
      */
     private int groupId;
+
+    /**
+     * <code>optional uint32 unk_int = 9;</code>
+     */
+    private int unkInt;
 
     private ChargerInfo() {
     }
@@ -39,62 +39,25 @@ public final class ChargerInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 unk_int = 7;</code>
-     * @return whether the unkInt field is set
+     * <code>optional uint32 group_id = 4;</code>
+     * @return whether the groupId field is set
      */
-    public boolean hasUnkInt() {
+    public boolean hasGroupId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 unk_int = 7;</code>
-     * @return this
-     */
-    public ChargerInfo clearUnkInt() {
-      bitField0_ &= ~0x00000001;
-      unkInt = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 unk_int = 7;</code>
-     * @return the unkInt
-     */
-    public int getUnkInt() {
-      return unkInt;
-    }
-
-    /**
-     * <code>optional uint32 unk_int = 7;</code>
-     * @param value the unkInt to set
-     * @return this
-     */
-    public ChargerInfo setUnkInt(final int value) {
-      bitField0_ |= 0x00000001;
-      unkInt = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 15;</code>
-     * @return whether the groupId field is set
-     */
-    public boolean hasGroupId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 4;</code>
      * @return this
      */
     public ChargerInfo clearGroupId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       groupId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 4;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -102,13 +65,50 @@ public final class ChargerInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 15;</code>
+     * <code>optional uint32 group_id = 4;</code>
      * @param value the groupId to set
      * @return this
      */
     public ChargerInfo setGroupId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       groupId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 unk_int = 9;</code>
+     * @return whether the unkInt field is set
+     */
+    public boolean hasUnkInt() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 unk_int = 9;</code>
+     * @return this
+     */
+    public ChargerInfo clearUnkInt() {
+      bitField0_ &= ~0x00000002;
+      unkInt = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 unk_int = 9;</code>
+     * @return the unkInt
+     */
+    public int getUnkInt() {
+      return unkInt;
+    }
+
+    /**
+     * <code>optional uint32 unk_int = 9;</code>
+     * @param value the unkInt to set
+     * @return this
+     */
+    public ChargerInfo setUnkInt(final int value) {
+      bitField0_ |= 0x00000002;
+      unkInt = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class ChargerInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        unkInt = other.unkInt;
         groupId = other.groupId;
+        unkInt = other.unkInt;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class ChargerInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasUnkInt()) {
-        setUnkInt(other.unkInt);
-      }
       if (other.hasGroupId()) {
         setGroupId(other.groupId);
+      }
+      if (other.hasUnkInt()) {
+        setUnkInt(other.unkInt);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class ChargerInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      unkInt = 0;
       groupId = 0;
+      unkInt = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class ChargerInfoOuterClass {
       }
       ChargerInfo other = (ChargerInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasUnkInt() || unkInt == other.unkInt)
-        && (!hasGroupId() || groupId == other.groupId);
+        && (!hasGroupId() || groupId == other.groupId)
+        && (!hasUnkInt() || unkInt == other.unkInt);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(unkInt);
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
-        output.writeUInt32NoTag(groupId);
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(unkInt);
       }
     }
 
@@ -190,10 +190,10 @@ public final class ChargerInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(unkInt);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(unkInt);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class ChargerInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
-            // unkInt
-            unkInt = input.readUInt32();
+          case 32: {
+            // groupId
+            groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 72) {
               break;
             }
           }
-          case 120: {
-            // groupId
-            groupId = input.readUInt32();
+          case 72: {
+            // unkInt
+            unkInt = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class ChargerInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.unkInt, unkInt);
+        output.writeUInt32(FieldNames.groupId, groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.groupId, groupId);
+        output.writeUInt32(FieldNames.unkInt, unkInt);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class ChargerInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -840508003:
-          case -285293790: {
-            if (input.isAtField(FieldNames.unkInt)) {
+          case 293428218:
+          case 506361563: {
+            if (input.isAtField(FieldNames.groupId)) {
               if (!input.trySkipNullValue()) {
-                unkInt = input.readUInt32();
+                groupId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class ChargerInfoOuterClass {
             }
             break;
           }
-          case 293428218:
-          case 506361563: {
-            if (input.isAtField(FieldNames.groupId)) {
+          case -840508003:
+          case -285293790: {
+            if (input.isAtField(FieldNames.unkInt)) {
               if (!input.trySkipNullValue()) {
-                groupId = input.readUInt32();
+                unkInt = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -332,9 +332,9 @@ public final class ChargerInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName unkInt = FieldName.forField("unkInt", "unk_int");
-
       static final FieldName groupId = FieldName.forField("groupId", "group_id");
+
+      static final FieldName unkInt = FieldName.forField("unkInt", "unk_int");
     }
   }
 }

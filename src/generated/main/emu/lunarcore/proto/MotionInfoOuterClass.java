@@ -19,14 +19,14 @@ public final class MotionInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .Vector pos = 5;</code>
-     */
-    private final VectorOuterClass.Vector pos = VectorOuterClass.Vector.newInstance();
-
-    /**
-     * <code>optional .Vector rot = 11;</code>
+     * <code>optional .Vector rot = 13;</code>
      */
     private final VectorOuterClass.Vector rot = VectorOuterClass.Vector.newInstance();
+
+    /**
+     * <code>optional .Vector pos = 14;</code>
+     */
+    private final VectorOuterClass.Vector pos = VectorOuterClass.Vector.newInstance();
 
     private MotionInfo() {
     }
@@ -39,82 +39,25 @@ public final class MotionInfoOuterClass {
     }
 
     /**
-     * <code>optional .Vector pos = 5;</code>
-     * @return whether the pos field is set
+     * <code>optional .Vector rot = 13;</code>
+     * @return whether the rot field is set
      */
-    public boolean hasPos() {
+    public boolean hasRot() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional .Vector pos = 5;</code>
-     * @return this
-     */
-    public MotionInfo clearPos() {
-      bitField0_ &= ~0x00000001;
-      pos.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .Vector pos = 5;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutablePos()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public VectorOuterClass.Vector getPos() {
-      return pos;
-    }
-
-    /**
-     * <code>optional .Vector pos = 5;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public VectorOuterClass.Vector getMutablePos() {
-      bitField0_ |= 0x00000001;
-      return pos;
-    }
-
-    /**
-     * <code>optional .Vector pos = 5;</code>
-     * @param value the pos to set
-     * @return this
-     */
-    public MotionInfo setPos(final VectorOuterClass.Vector value) {
-      bitField0_ |= 0x00000001;
-      pos.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .Vector rot = 11;</code>
-     * @return whether the rot field is set
-     */
-    public boolean hasRot() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional .Vector rot = 11;</code>
+     * <code>optional .Vector rot = 13;</code>
      * @return this
      */
     public MotionInfo clearRot() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       rot.clear();
       return this;
     }
 
     /**
-     * <code>optional .Vector rot = 11;</code>
+     * <code>optional .Vector rot = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -128,7 +71,7 @@ public final class MotionInfoOuterClass {
     }
 
     /**
-     * <code>optional .Vector rot = 11;</code>
+     * <code>optional .Vector rot = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -137,18 +80,75 @@ public final class MotionInfoOuterClass {
      * @return internal storage object for modifications
      */
     public VectorOuterClass.Vector getMutableRot() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       return rot;
     }
 
     /**
-     * <code>optional .Vector rot = 11;</code>
+     * <code>optional .Vector rot = 13;</code>
      * @param value the rot to set
      * @return this
      */
     public MotionInfo setRot(final VectorOuterClass.Vector value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       rot.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .Vector pos = 14;</code>
+     * @return whether the pos field is set
+     */
+    public boolean hasPos() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional .Vector pos = 14;</code>
+     * @return this
+     */
+    public MotionInfo clearPos() {
+      bitField0_ &= ~0x00000002;
+      pos.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .Vector pos = 14;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutablePos()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public VectorOuterClass.Vector getPos() {
+      return pos;
+    }
+
+    /**
+     * <code>optional .Vector pos = 14;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public VectorOuterClass.Vector getMutablePos() {
+      bitField0_ |= 0x00000002;
+      return pos;
+    }
+
+    /**
+     * <code>optional .Vector pos = 14;</code>
+     * @param value the pos to set
+     * @return this
+     */
+    public MotionInfo setPos(final VectorOuterClass.Vector value) {
+      bitField0_ |= 0x00000002;
+      pos.copyFrom(value);
       return this;
     }
 
@@ -157,8 +157,8 @@ public final class MotionInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        pos.copyFrom(other.pos);
         rot.copyFrom(other.rot);
+        pos.copyFrom(other.pos);
       }
       return this;
     }
@@ -169,11 +169,11 @@ public final class MotionInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPos()) {
-        getMutablePos().mergeFrom(other.pos);
-      }
       if (other.hasRot()) {
         getMutableRot().mergeFrom(other.rot);
+      }
+      if (other.hasPos()) {
+        getMutablePos().mergeFrom(other.pos);
       }
       return this;
     }
@@ -185,8 +185,8 @@ public final class MotionInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      pos.clear();
       rot.clear();
+      pos.clear();
       return this;
     }
 
@@ -197,8 +197,8 @@ public final class MotionInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      pos.clearQuick();
       rot.clearQuick();
+      pos.clearQuick();
       return this;
     }
 
@@ -212,19 +212,19 @@ public final class MotionInfoOuterClass {
       }
       MotionInfo other = (MotionInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasPos() || pos.equals(other.pos))
-        && (!hasRot() || rot.equals(other.rot));
+        && (!hasRot() || rot.equals(other.rot))
+        && (!hasPos() || pos.equals(other.pos));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 42);
-        output.writeMessageNoTag(pos);
+        output.writeRawByte((byte) 106);
+        output.writeMessageNoTag(rot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 90);
-        output.writeMessageNoTag(rot);
+        output.writeRawByte((byte) 114);
+        output.writeMessageNoTag(pos);
       }
     }
 
@@ -232,10 +232,10 @@ public final class MotionInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(pos);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rot);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(pos);
       }
       return size;
     }
@@ -247,18 +247,18 @@ public final class MotionInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 42: {
-            // pos
-            input.readMessage(pos);
+          case 106: {
+            // rot
+            input.readMessage(rot);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 114) {
               break;
             }
           }
-          case 90: {
-            // rot
-            input.readMessage(rot);
+          case 114: {
+            // pos
+            input.readMessage(pos);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -283,10 +283,10 @@ public final class MotionInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.pos, pos);
+        output.writeMessage(FieldNames.rot, rot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.rot, rot);
+        output.writeMessage(FieldNames.pos, pos);
       }
       output.endObject();
     }
@@ -298,10 +298,10 @@ public final class MotionInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 111188: {
-            if (input.isAtField(FieldNames.pos)) {
+          case 113111: {
+            if (input.isAtField(FieldNames.rot)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(pos);
+                input.readMessage(rot);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -309,10 +309,10 @@ public final class MotionInfoOuterClass {
             }
             break;
           }
-          case 113111: {
-            if (input.isAtField(FieldNames.rot)) {
+          case 111188: {
+            if (input.isAtField(FieldNames.pos)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rot);
+                input.readMessage(pos);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -372,9 +372,9 @@ public final class MotionInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName pos = FieldName.forField("pos");
-
       static final FieldName rot = FieldName.forField("rot");
+
+      static final FieldName pos = FieldName.forField("pos");
     }
   }
 }

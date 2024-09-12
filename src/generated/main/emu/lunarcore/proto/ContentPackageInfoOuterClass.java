@@ -24,7 +24,7 @@ public final class ContentPackageInfoOuterClass {
     private int contentId;
 
     /**
-     * <code>optional .ContentPackageStatus status = 7;</code>
+     * <code>optional .ContentPackageStatus status = 12;</code>
      */
     private int status;
 
@@ -76,7 +76,7 @@ public final class ContentPackageInfoOuterClass {
     }
 
     /**
-     * <code>optional .ContentPackageStatus status = 7;</code>
+     * <code>optional .ContentPackageStatus status = 12;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -84,7 +84,7 @@ public final class ContentPackageInfoOuterClass {
     }
 
     /**
-     * <code>optional .ContentPackageStatus status = 7;</code>
+     * <code>optional .ContentPackageStatus status = 12;</code>
      * @return this
      */
     public ContentPackageInfo clearStatus() {
@@ -94,7 +94,7 @@ public final class ContentPackageInfoOuterClass {
     }
 
     /**
-     * <code>optional .ContentPackageStatus status = 7;</code>
+     * <code>optional .ContentPackageStatus status = 12;</code>
      * @return the status
      */
     public ContentPackageStatusOuterClass.ContentPackageStatus getStatus() {
@@ -127,7 +127,7 @@ public final class ContentPackageInfoOuterClass {
     }
 
     /**
-     * <code>optional .ContentPackageStatus status = 7;</code>
+     * <code>optional .ContentPackageStatus status = 12;</code>
      * @param value the status to set
      * @return this
      */
@@ -207,7 +207,7 @@ public final class ContentPackageInfoOuterClass {
         output.writeUInt32NoTag(contentId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 96);
         output.writeEnumNoTag(status);
       }
     }
@@ -236,11 +236,11 @@ public final class ContentPackageInfoOuterClass {
             contentId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 96) {
               break;
             }
           }
-          case 56: {
+          case 96: {
             // status
             final int value = input.readInt32();
             if (ContentPackageStatusOuterClass.ContentPackageStatus.forNumber(value) != null) {

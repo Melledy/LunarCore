@@ -24,12 +24,12 @@ public final class RogueMiracleOuterClass {
      *  was set to 3 in pcap
      * </pre>
      *
-     * <code>optional uint32 NKBEHFHLPEF = 1;</code>
+     * <code>optional uint32 NKBEHFHLPEF = 6;</code>
      */
     private int nKBEHFHLPEF;
 
     /**
-     * <code>optional uint32 MMFONFFPNJM = 4;</code>
+     * <code>optional uint32 MMFONFFPNJM = 9;</code>
      */
     private int mMFONFFPNJM;
 
@@ -39,7 +39,7 @@ public final class RogueMiracleOuterClass {
     private int miracleId;
 
     /**
-     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 10;</code>
+     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 3;</code>
      */
     private final RepeatedMessage<KONAGCDHKKHEntry> kONAGCDHKKH = RepeatedMessage.newEmptyInstance(KONAGCDHKKHEntry.getFactory());
 
@@ -58,7 +58,7 @@ public final class RogueMiracleOuterClass {
      *  was set to 3 in pcap
      * </pre>
      *
-     * <code>optional uint32 NKBEHFHLPEF = 1;</code>
+     * <code>optional uint32 NKBEHFHLPEF = 6;</code>
      * @return whether the nKBEHFHLPEF field is set
      */
     public boolean hasNKBEHFHLPEF() {
@@ -70,7 +70,7 @@ public final class RogueMiracleOuterClass {
      *  was set to 3 in pcap
      * </pre>
      *
-     * <code>optional uint32 NKBEHFHLPEF = 1;</code>
+     * <code>optional uint32 NKBEHFHLPEF = 6;</code>
      * @return this
      */
     public RogueMiracle clearNKBEHFHLPEF() {
@@ -84,7 +84,7 @@ public final class RogueMiracleOuterClass {
      *  was set to 3 in pcap
      * </pre>
      *
-     * <code>optional uint32 NKBEHFHLPEF = 1;</code>
+     * <code>optional uint32 NKBEHFHLPEF = 6;</code>
      * @return the nKBEHFHLPEF
      */
     public int getNKBEHFHLPEF() {
@@ -96,7 +96,7 @@ public final class RogueMiracleOuterClass {
      *  was set to 3 in pcap
      * </pre>
      *
-     * <code>optional uint32 NKBEHFHLPEF = 1;</code>
+     * <code>optional uint32 NKBEHFHLPEF = 6;</code>
      * @param value the nKBEHFHLPEF to set
      * @return this
      */
@@ -107,7 +107,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 MMFONFFPNJM = 4;</code>
+     * <code>optional uint32 MMFONFFPNJM = 9;</code>
      * @return whether the mMFONFFPNJM field is set
      */
     public boolean hasMMFONFFPNJM() {
@@ -115,7 +115,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 MMFONFFPNJM = 4;</code>
+     * <code>optional uint32 MMFONFFPNJM = 9;</code>
      * @return this
      */
     public RogueMiracle clearMMFONFFPNJM() {
@@ -125,7 +125,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 MMFONFFPNJM = 4;</code>
+     * <code>optional uint32 MMFONFFPNJM = 9;</code>
      * @return the mMFONFFPNJM
      */
     public int getMMFONFFPNJM() {
@@ -133,7 +133,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>optional uint32 MMFONFFPNJM = 4;</code>
+     * <code>optional uint32 MMFONFFPNJM = 9;</code>
      * @param value the mMFONFFPNJM to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 10;</code>
+     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 3;</code>
      * @return whether the kONAGCDHKKH field is set
      */
     public boolean hasKONAGCDHKKH() {
@@ -189,7 +189,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 10;</code>
+     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 3;</code>
      * @return this
      */
     public RogueMiracle clearKONAGCDHKKH() {
@@ -199,7 +199,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 10;</code>
+     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -213,7 +213,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 10;</code>
+     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -227,7 +227,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 10;</code>
+     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 3;</code>
      * @param value the kONAGCDHKKH to add
      * @return this
      */
@@ -238,7 +238,7 @@ public final class RogueMiracleOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 10;</code>
+     * <code>repeated .RogueMiracle.KONAGCDHKKHEntry KONAGCDHKKH = 3;</code>
      * @param values the kONAGCDHKKH to add
      * @return this
      */
@@ -326,11 +326,11 @@ public final class RogueMiracleOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(nKBEHFHLPEF);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(mMFONFFPNJM);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -339,7 +339,7 @@ public final class RogueMiracleOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < kONAGCDHKKH.length(); i++) {
-          output.writeRawByte((byte) 82);
+          output.writeRawByte((byte) 26);
           output.writeMessageNoTag(kONAGCDHKKH.get(i));
         }
       }
@@ -370,16 +370,16 @@ public final class RogueMiracleOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 48: {
             // nKBEHFHLPEF
             nKBEHFHLPEF = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 72) {
               break;
             }
           }
-          case 32: {
+          case 72: {
             // mMFONFFPNJM
             mMFONFFPNJM = input.readUInt32();
             bitField0_ |= 0x00000002;
@@ -393,11 +393,11 @@ public final class RogueMiracleOuterClass {
             miracleId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 26) {
               break;
             }
           }
-          case 82: {
+          case 26: {
             // kONAGCDHKKH
             tag = input.readRepeatedMessage(kONAGCDHKKH, tag);
             bitField0_ |= 0x00000008;

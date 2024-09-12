@@ -20,17 +20,17 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entry_id = 10;</code>
+     * <code>optional uint32 entry_id = 6;</code>
      */
     private int entryId;
 
     /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 11;</code>
      */
     private int groupId;
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      */
     private final Utf8String groupSaveData = Utf8String.newEmptyInstance();
 
@@ -45,7 +45,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 10;</code>
+     * <code>optional uint32 entry_id = 6;</code>
      * @return whether the entryId field is set
      */
     public boolean hasEntryId() {
@@ -53,7 +53,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 10;</code>
+     * <code>optional uint32 entry_id = 6;</code>
      * @return this
      */
     public SetGroupCustomSaveDataCsReq clearEntryId() {
@@ -63,7 +63,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 10;</code>
+     * <code>optional uint32 entry_id = 6;</code>
      * @return the entryId
      */
     public int getEntryId() {
@@ -71,7 +71,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entry_id = 10;</code>
+     * <code>optional uint32 entry_id = 6;</code>
      * @param value the entryId to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 11;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -90,7 +90,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 11;</code>
      * @return this
      */
     public SetGroupCustomSaveDataCsReq clearGroupId() {
@@ -100,7 +100,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 11;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -108,7 +108,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 11;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      * @return whether the groupSaveData field is set
      */
     public boolean hasGroupSaveData() {
@@ -127,7 +127,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      * @return this
      */
     public SetGroupCustomSaveDataCsReq clearGroupSaveData() {
@@ -137,7 +137,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      * @return the groupSaveData
      */
     public String getGroupSaveData() {
@@ -145,7 +145,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      * @return internal {@code Utf8String} representation of groupSaveData for reading
      */
     public Utf8String getGroupSaveDataBytes() {
@@ -153,7 +153,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      * @return internal {@code Utf8String} representation of groupSaveData for modifications
      */
     public Utf8String getMutableGroupSaveDataBytes() {
@@ -162,7 +162,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      * @param value the groupSaveData to set
      * @return this
      */
@@ -173,7 +173,7 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional string group_save_data = 6;</code>
+     * <code>optional string group_save_data = 1;</code>
      * @param value the groupSaveData to set
      * @return this
      */
@@ -255,15 +255,15 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(entryId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 10);
         output.writeStringNoTag(groupSaveData);
       }
     }
@@ -290,25 +290,25 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 48: {
             // entryId
             entryId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 88) {
               break;
             }
           }
-          case 112: {
+          case 88: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 10) {
               break;
             }
           }
-          case 50: {
+          case 10: {
             // groupSaveData
             input.readString(groupSaveData);
             bitField0_ |= 0x00000004;

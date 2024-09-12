@@ -20,7 +20,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueBuffEnhanceInfo buff_info = 7;</code>
+     * <code>repeated .RogueBuffEnhanceInfo buff_info = 1;</code>
      */
     private final RepeatedMessage<RogueBuffEnhanceInfoOuterClass.RogueBuffEnhanceInfo> buffInfo = RepeatedMessage.newEmptyInstance(RogueBuffEnhanceInfoOuterClass.RogueBuffEnhanceInfo.getFactory());
 
@@ -35,7 +35,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuffEnhanceInfo buff_info = 7;</code>
+     * <code>repeated .RogueBuffEnhanceInfo buff_info = 1;</code>
      * @return whether the buffInfo field is set
      */
     public boolean hasBuffInfo() {
@@ -43,7 +43,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuffEnhanceInfo buff_info = 7;</code>
+     * <code>repeated .RogueBuffEnhanceInfo buff_info = 1;</code>
      * @return this
      */
     public RogueBuffEnhanceShopInfo clearBuffInfo() {
@@ -53,7 +53,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuffEnhanceInfo buff_info = 7;</code>
+     * <code>repeated .RogueBuffEnhanceInfo buff_info = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuffEnhanceInfo buff_info = 7;</code>
+     * <code>repeated .RogueBuffEnhanceInfo buff_info = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -82,7 +82,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuffEnhanceInfo buff_info = 7;</code>
+     * <code>repeated .RogueBuffEnhanceInfo buff_info = 1;</code>
      * @param value the buffInfo to add
      * @return this
      */
@@ -94,7 +94,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueBuffEnhanceInfo buff_info = 7;</code>
+     * <code>repeated .RogueBuffEnhanceInfo buff_info = 1;</code>
      * @param values the buffInfo to add
      * @return this
      */
@@ -166,7 +166,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < buffInfo.length(); i++) {
-          output.writeRawByte((byte) 58);
+          output.writeRawByte((byte) 10);
           output.writeMessageNoTag(buffInfo.get(i));
         }
       }
@@ -188,7 +188,7 @@ public final class RogueBuffEnhanceShopInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 58: {
+          case 10: {
             // buffInfo
             tag = input.readRepeatedMessage(buffInfo, tag);
             bitField0_ |= 0x00000001;

@@ -14,60 +14,68 @@ import us.hebi.quickbuf.RepeatedMessage;
 
 public final class NpcRogueInfoOuterClass {
   /**
+   * <pre>
+   *  HIACMGHPPMI
+   * </pre>
+   *
    * Protobuf type {@code NpcRogueInfo}
    */
   public static final class NpcRogueInfo extends ProtoMessage<NpcRogueInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 OENLKDCLEOA = 2;</code>
-     */
-    private int oENLKDCLEOA;
-
-    /**
-     * <code>optional uint32 event_unique_id = 4;</code>
-     */
-    private int eventUniqueId;
-
-    /**
-     * <code>optional uint32 event_id = 11;</code>
-     */
-    private int eventId;
-
-    /**
-     * <code>optional uint32 dialogue_id = 12;</code>
+     * <code>optional uint32 dialogue_id = 3;</code>
      */
     private int dialogueId;
 
     /**
-     * <code>optional bool JFCBEHNMGNO = 1;</code>
+     * <code>optional uint32 KIAKKDIECME = 5;</code>
      */
-    private boolean jFCBEHNMGNO;
+    private int kIAKKDIECME;
 
     /**
-     * <code>optional bool JOFMIKFBGHP = 9;</code>
+     * <code>optional uint32 event_id = 9;</code>
      */
-    private boolean jOFMIKFBGHP;
+    private int eventId;
 
     /**
-     * <code>optional bool finish_dialogue = 15;</code>
+     * <code>optional uint32 event_unique_id = 10;</code>
+     */
+    private int eventUniqueId;
+
+    /**
+     * <code>optional bool PHDDANOOOJI = 2;</code>
+     */
+    private boolean pHDDANOOOJI;
+
+    /**
+     * <code>optional bool IDOFFGNNGEM = 11;</code>
+     */
+    private boolean iDOFFGNNGEM;
+
+    /**
+     * <code>optional bool finish_dialogue = 12;</code>
      */
     private boolean finishDialogue;
 
     /**
-     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 5;</code>
+     * <code>repeated .NpcRogueInfo.LPFLCICNIOAEntry LPFLCICNIOA = 14;</code>
      */
-    private final RepeatedMessage<NpcDialogueEventParamOuterClass.NpcDialogueEventParam> dialogueEventParamList = RepeatedMessage.newEmptyInstance(NpcDialogueEventParamOuterClass.NpcDialogueEventParam.getFactory());
+    private final RepeatedMessage<LPFLCICNIOAEntry> lPFLCICNIOA = RepeatedMessage.newEmptyInstance(LPFLCICNIOAEntry.getFactory());
 
     /**
-     * <code>repeated .NpcRogueInfo.FKDHDCGOIMFEntry FKDHDCGOIMF = 8;</code>
+     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 15;</code>
      */
-    private final RepeatedMessage<FKDHDCGOIMFEntry> fKDHDCGOIMF = RepeatedMessage.newEmptyInstance(FKDHDCGOIMFEntry.getFactory());
+    private final RepeatedMessage<NpcDialogueEventParamOuterClass.NpcDialogueEventParam> dialogueEventParamList = RepeatedMessage.newEmptyInstance(NpcDialogueEventParamOuterClass.NpcDialogueEventParam.getFactory());
 
     private NpcRogueInfo() {
     }
 
     /**
+     * <pre>
+     *  HIACMGHPPMI
+     * </pre>
+     *
      * @return a new empty instance of {@code NpcRogueInfo}
      */
     public static NpcRogueInfo newInstance() {
@@ -75,81 +83,81 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 OENLKDCLEOA = 2;</code>
-     * @return whether the oENLKDCLEOA field is set
+     * <code>optional uint32 dialogue_id = 3;</code>
+     * @return whether the dialogueId field is set
      */
-    public boolean hasOENLKDCLEOA() {
+    public boolean hasDialogueId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 OENLKDCLEOA = 2;</code>
+     * <code>optional uint32 dialogue_id = 3;</code>
      * @return this
      */
-    public NpcRogueInfo clearOENLKDCLEOA() {
+    public NpcRogueInfo clearDialogueId() {
       bitField0_ &= ~0x00000001;
-      oENLKDCLEOA = 0;
+      dialogueId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 OENLKDCLEOA = 2;</code>
-     * @return the oENLKDCLEOA
+     * <code>optional uint32 dialogue_id = 3;</code>
+     * @return the dialogueId
      */
-    public int getOENLKDCLEOA() {
-      return oENLKDCLEOA;
+    public int getDialogueId() {
+      return dialogueId;
     }
 
     /**
-     * <code>optional uint32 OENLKDCLEOA = 2;</code>
-     * @param value the oENLKDCLEOA to set
+     * <code>optional uint32 dialogue_id = 3;</code>
+     * @param value the dialogueId to set
      * @return this
      */
-    public NpcRogueInfo setOENLKDCLEOA(final int value) {
+    public NpcRogueInfo setDialogueId(final int value) {
       bitField0_ |= 0x00000001;
-      oENLKDCLEOA = value;
+      dialogueId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 4;</code>
-     * @return whether the eventUniqueId field is set
+     * <code>optional uint32 KIAKKDIECME = 5;</code>
+     * @return whether the kIAKKDIECME field is set
      */
-    public boolean hasEventUniqueId() {
+    public boolean hasKIAKKDIECME() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 4;</code>
+     * <code>optional uint32 KIAKKDIECME = 5;</code>
      * @return this
      */
-    public NpcRogueInfo clearEventUniqueId() {
+    public NpcRogueInfo clearKIAKKDIECME() {
       bitField0_ &= ~0x00000002;
-      eventUniqueId = 0;
+      kIAKKDIECME = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 4;</code>
-     * @return the eventUniqueId
+     * <code>optional uint32 KIAKKDIECME = 5;</code>
+     * @return the kIAKKDIECME
      */
-    public int getEventUniqueId() {
-      return eventUniqueId;
+    public int getKIAKKDIECME() {
+      return kIAKKDIECME;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 4;</code>
-     * @param value the eventUniqueId to set
+     * <code>optional uint32 KIAKKDIECME = 5;</code>
+     * @param value the kIAKKDIECME to set
      * @return this
      */
-    public NpcRogueInfo setEventUniqueId(final int value) {
+    public NpcRogueInfo setKIAKKDIECME(final int value) {
       bitField0_ |= 0x00000002;
-      eventUniqueId = value;
+      kIAKKDIECME = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 event_id = 11;</code>
+     * <code>optional uint32 event_id = 9;</code>
      * @return whether the eventId field is set
      */
     public boolean hasEventId() {
@@ -157,7 +165,7 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 11;</code>
+     * <code>optional uint32 event_id = 9;</code>
      * @return this
      */
     public NpcRogueInfo clearEventId() {
@@ -167,7 +175,7 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 11;</code>
+     * <code>optional uint32 event_id = 9;</code>
      * @return the eventId
      */
     public int getEventId() {
@@ -175,7 +183,7 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 11;</code>
+     * <code>optional uint32 event_id = 9;</code>
      * @param value the eventId to set
      * @return this
      */
@@ -186,118 +194,118 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 12;</code>
-     * @return whether the dialogueId field is set
+     * <code>optional uint32 event_unique_id = 10;</code>
+     * @return whether the eventUniqueId field is set
      */
-    public boolean hasDialogueId() {
+    public boolean hasEventUniqueId() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 12;</code>
+     * <code>optional uint32 event_unique_id = 10;</code>
      * @return this
      */
-    public NpcRogueInfo clearDialogueId() {
+    public NpcRogueInfo clearEventUniqueId() {
       bitField0_ &= ~0x00000008;
-      dialogueId = 0;
+      eventUniqueId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 12;</code>
-     * @return the dialogueId
+     * <code>optional uint32 event_unique_id = 10;</code>
+     * @return the eventUniqueId
      */
-    public int getDialogueId() {
-      return dialogueId;
+    public int getEventUniqueId() {
+      return eventUniqueId;
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 12;</code>
-     * @param value the dialogueId to set
+     * <code>optional uint32 event_unique_id = 10;</code>
+     * @param value the eventUniqueId to set
      * @return this
      */
-    public NpcRogueInfo setDialogueId(final int value) {
+    public NpcRogueInfo setEventUniqueId(final int value) {
       bitField0_ |= 0x00000008;
-      dialogueId = value;
+      eventUniqueId = value;
       return this;
     }
 
     /**
-     * <code>optional bool JFCBEHNMGNO = 1;</code>
-     * @return whether the jFCBEHNMGNO field is set
+     * <code>optional bool PHDDANOOOJI = 2;</code>
+     * @return whether the pHDDANOOOJI field is set
      */
-    public boolean hasJFCBEHNMGNO() {
+    public boolean hasPHDDANOOOJI() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional bool JFCBEHNMGNO = 1;</code>
+     * <code>optional bool PHDDANOOOJI = 2;</code>
      * @return this
      */
-    public NpcRogueInfo clearJFCBEHNMGNO() {
+    public NpcRogueInfo clearPHDDANOOOJI() {
       bitField0_ &= ~0x00000010;
-      jFCBEHNMGNO = false;
+      pHDDANOOOJI = false;
       return this;
     }
 
     /**
-     * <code>optional bool JFCBEHNMGNO = 1;</code>
-     * @return the jFCBEHNMGNO
+     * <code>optional bool PHDDANOOOJI = 2;</code>
+     * @return the pHDDANOOOJI
      */
-    public boolean getJFCBEHNMGNO() {
-      return jFCBEHNMGNO;
+    public boolean getPHDDANOOOJI() {
+      return pHDDANOOOJI;
     }
 
     /**
-     * <code>optional bool JFCBEHNMGNO = 1;</code>
-     * @param value the jFCBEHNMGNO to set
+     * <code>optional bool PHDDANOOOJI = 2;</code>
+     * @param value the pHDDANOOOJI to set
      * @return this
      */
-    public NpcRogueInfo setJFCBEHNMGNO(final boolean value) {
+    public NpcRogueInfo setPHDDANOOOJI(final boolean value) {
       bitField0_ |= 0x00000010;
-      jFCBEHNMGNO = value;
+      pHDDANOOOJI = value;
       return this;
     }
 
     /**
-     * <code>optional bool JOFMIKFBGHP = 9;</code>
-     * @return whether the jOFMIKFBGHP field is set
+     * <code>optional bool IDOFFGNNGEM = 11;</code>
+     * @return whether the iDOFFGNNGEM field is set
      */
-    public boolean hasJOFMIKFBGHP() {
+    public boolean hasIDOFFGNNGEM() {
       return (bitField0_ & 0x00000020) != 0;
     }
 
     /**
-     * <code>optional bool JOFMIKFBGHP = 9;</code>
+     * <code>optional bool IDOFFGNNGEM = 11;</code>
      * @return this
      */
-    public NpcRogueInfo clearJOFMIKFBGHP() {
+    public NpcRogueInfo clearIDOFFGNNGEM() {
       bitField0_ &= ~0x00000020;
-      jOFMIKFBGHP = false;
+      iDOFFGNNGEM = false;
       return this;
     }
 
     /**
-     * <code>optional bool JOFMIKFBGHP = 9;</code>
-     * @return the jOFMIKFBGHP
+     * <code>optional bool IDOFFGNNGEM = 11;</code>
+     * @return the iDOFFGNNGEM
      */
-    public boolean getJOFMIKFBGHP() {
-      return jOFMIKFBGHP;
+    public boolean getIDOFFGNNGEM() {
+      return iDOFFGNNGEM;
     }
 
     /**
-     * <code>optional bool JOFMIKFBGHP = 9;</code>
-     * @param value the jOFMIKFBGHP to set
+     * <code>optional bool IDOFFGNNGEM = 11;</code>
+     * @param value the iDOFFGNNGEM to set
      * @return this
      */
-    public NpcRogueInfo setJOFMIKFBGHP(final boolean value) {
+    public NpcRogueInfo setIDOFFGNNGEM(final boolean value) {
       bitField0_ |= 0x00000020;
-      jOFMIKFBGHP = value;
+      iDOFFGNNGEM = value;
       return this;
     }
 
     /**
-     * <code>optional bool finish_dialogue = 15;</code>
+     * <code>optional bool finish_dialogue = 12;</code>
      * @return whether the finishDialogue field is set
      */
     public boolean hasFinishDialogue() {
@@ -305,7 +313,7 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional bool finish_dialogue = 15;</code>
+     * <code>optional bool finish_dialogue = 12;</code>
      * @return this
      */
     public NpcRogueInfo clearFinishDialogue() {
@@ -315,7 +323,7 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional bool finish_dialogue = 15;</code>
+     * <code>optional bool finish_dialogue = 12;</code>
      * @return the finishDialogue
      */
     public boolean getFinishDialogue() {
@@ -323,7 +331,7 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional bool finish_dialogue = 15;</code>
+     * <code>optional bool finish_dialogue = 12;</code>
      * @param value the finishDialogue to set
      * @return this
      */
@@ -334,25 +342,93 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 5;</code>
-     * @return whether the dialogueEventParamList field is set
+     * <code>repeated .NpcRogueInfo.LPFLCICNIOAEntry LPFLCICNIOA = 14;</code>
+     * @return whether the lPFLCICNIOA field is set
      */
-    public boolean hasDialogueEventParamList() {
+    public boolean hasLPFLCICNIOA() {
       return (bitField0_ & 0x00000080) != 0;
     }
 
     /**
-     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 5;</code>
+     * <code>repeated .NpcRogueInfo.LPFLCICNIOAEntry LPFLCICNIOA = 14;</code>
+     * @return this
+     */
+    public NpcRogueInfo clearLPFLCICNIOA() {
+      bitField0_ &= ~0x00000080;
+      lPFLCICNIOA.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .NpcRogueInfo.LPFLCICNIOAEntry LPFLCICNIOA = 14;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableLPFLCICNIOA()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<LPFLCICNIOAEntry> getLPFLCICNIOA() {
+      return lPFLCICNIOA;
+    }
+
+    /**
+     * <code>repeated .NpcRogueInfo.LPFLCICNIOAEntry LPFLCICNIOA = 14;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<LPFLCICNIOAEntry> getMutableLPFLCICNIOA() {
+      bitField0_ |= 0x00000080;
+      return lPFLCICNIOA;
+    }
+
+    /**
+     * <code>repeated .NpcRogueInfo.LPFLCICNIOAEntry LPFLCICNIOA = 14;</code>
+     * @param value the lPFLCICNIOA to add
+     * @return this
+     */
+    public NpcRogueInfo addLPFLCICNIOA(final LPFLCICNIOAEntry value) {
+      bitField0_ |= 0x00000080;
+      lPFLCICNIOA.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .NpcRogueInfo.LPFLCICNIOAEntry LPFLCICNIOA = 14;</code>
+     * @param values the lPFLCICNIOA to add
+     * @return this
+     */
+    public NpcRogueInfo addAllLPFLCICNIOA(final LPFLCICNIOAEntry... values) {
+      bitField0_ |= 0x00000080;
+      lPFLCICNIOA.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 15;</code>
+     * @return whether the dialogueEventParamList field is set
+     */
+    public boolean hasDialogueEventParamList() {
+      return (bitField0_ & 0x00000100) != 0;
+    }
+
+    /**
+     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 15;</code>
      * @return this
      */
     public NpcRogueInfo clearDialogueEventParamList() {
-      bitField0_ &= ~0x00000080;
+      bitField0_ &= ~0x00000100;
       dialogueEventParamList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 5;</code>
+     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -367,7 +443,7 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 5;</code>
+     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -377,99 +453,31 @@ public final class NpcRogueInfoOuterClass {
      */
     public RepeatedMessage<NpcDialogueEventParamOuterClass.NpcDialogueEventParam> getMutableDialogueEventParamList(
         ) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       return dialogueEventParamList;
     }
 
     /**
-     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 5;</code>
+     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 15;</code>
      * @param value the dialogueEventParamList to add
      * @return this
      */
     public NpcRogueInfo addDialogueEventParamList(
         final NpcDialogueEventParamOuterClass.NpcDialogueEventParam value) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       dialogueEventParamList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 5;</code>
+     * <code>repeated .NpcDialogueEventParam dialogue_event_param_list = 15;</code>
      * @param values the dialogueEventParamList to add
      * @return this
      */
     public NpcRogueInfo addAllDialogueEventParamList(
         final NpcDialogueEventParamOuterClass.NpcDialogueEventParam... values) {
-      bitField0_ |= 0x00000080;
+      bitField0_ |= 0x00000100;
       dialogueEventParamList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated .NpcRogueInfo.FKDHDCGOIMFEntry FKDHDCGOIMF = 8;</code>
-     * @return whether the fKDHDCGOIMF field is set
-     */
-    public boolean hasFKDHDCGOIMF() {
-      return (bitField0_ & 0x00000100) != 0;
-    }
-
-    /**
-     * <code>repeated .NpcRogueInfo.FKDHDCGOIMFEntry FKDHDCGOIMF = 8;</code>
-     * @return this
-     */
-    public NpcRogueInfo clearFKDHDCGOIMF() {
-      bitField0_ &= ~0x00000100;
-      fKDHDCGOIMF.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated .NpcRogueInfo.FKDHDCGOIMFEntry FKDHDCGOIMF = 8;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableFKDHDCGOIMF()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedMessage<FKDHDCGOIMFEntry> getFKDHDCGOIMF() {
-      return fKDHDCGOIMF;
-    }
-
-    /**
-     * <code>repeated .NpcRogueInfo.FKDHDCGOIMFEntry FKDHDCGOIMF = 8;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedMessage<FKDHDCGOIMFEntry> getMutableFKDHDCGOIMF() {
-      bitField0_ |= 0x00000100;
-      return fKDHDCGOIMF;
-    }
-
-    /**
-     * <code>repeated .NpcRogueInfo.FKDHDCGOIMFEntry FKDHDCGOIMF = 8;</code>
-     * @param value the fKDHDCGOIMF to add
-     * @return this
-     */
-    public NpcRogueInfo addFKDHDCGOIMF(final FKDHDCGOIMFEntry value) {
-      bitField0_ |= 0x00000100;
-      fKDHDCGOIMF.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated .NpcRogueInfo.FKDHDCGOIMFEntry FKDHDCGOIMF = 8;</code>
-     * @param values the fKDHDCGOIMF to add
-     * @return this
-     */
-    public NpcRogueInfo addAllFKDHDCGOIMF(final FKDHDCGOIMFEntry... values) {
-      bitField0_ |= 0x00000100;
-      fKDHDCGOIMF.addAll(values);
       return this;
     }
 
@@ -478,15 +486,15 @@ public final class NpcRogueInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        oENLKDCLEOA = other.oENLKDCLEOA;
-        eventUniqueId = other.eventUniqueId;
-        eventId = other.eventId;
         dialogueId = other.dialogueId;
-        jFCBEHNMGNO = other.jFCBEHNMGNO;
-        jOFMIKFBGHP = other.jOFMIKFBGHP;
+        kIAKKDIECME = other.kIAKKDIECME;
+        eventId = other.eventId;
+        eventUniqueId = other.eventUniqueId;
+        pHDDANOOOJI = other.pHDDANOOOJI;
+        iDOFFGNNGEM = other.iDOFFGNNGEM;
         finishDialogue = other.finishDialogue;
+        lPFLCICNIOA.copyFrom(other.lPFLCICNIOA);
         dialogueEventParamList.copyFrom(other.dialogueEventParamList);
-        fKDHDCGOIMF.copyFrom(other.fKDHDCGOIMF);
       }
       return this;
     }
@@ -497,32 +505,32 @@ public final class NpcRogueInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasOENLKDCLEOA()) {
-        setOENLKDCLEOA(other.oENLKDCLEOA);
+      if (other.hasDialogueId()) {
+        setDialogueId(other.dialogueId);
       }
-      if (other.hasEventUniqueId()) {
-        setEventUniqueId(other.eventUniqueId);
+      if (other.hasKIAKKDIECME()) {
+        setKIAKKDIECME(other.kIAKKDIECME);
       }
       if (other.hasEventId()) {
         setEventId(other.eventId);
       }
-      if (other.hasDialogueId()) {
-        setDialogueId(other.dialogueId);
+      if (other.hasEventUniqueId()) {
+        setEventUniqueId(other.eventUniqueId);
       }
-      if (other.hasJFCBEHNMGNO()) {
-        setJFCBEHNMGNO(other.jFCBEHNMGNO);
+      if (other.hasPHDDANOOOJI()) {
+        setPHDDANOOOJI(other.pHDDANOOOJI);
       }
-      if (other.hasJOFMIKFBGHP()) {
-        setJOFMIKFBGHP(other.jOFMIKFBGHP);
+      if (other.hasIDOFFGNNGEM()) {
+        setIDOFFGNNGEM(other.iDOFFGNNGEM);
       }
       if (other.hasFinishDialogue()) {
         setFinishDialogue(other.finishDialogue);
       }
+      if (other.hasLPFLCICNIOA()) {
+        getMutableLPFLCICNIOA().addAll(other.lPFLCICNIOA);
+      }
       if (other.hasDialogueEventParamList()) {
         getMutableDialogueEventParamList().addAll(other.dialogueEventParamList);
-      }
-      if (other.hasFKDHDCGOIMF()) {
-        getMutableFKDHDCGOIMF().addAll(other.fKDHDCGOIMF);
       }
       return this;
     }
@@ -534,15 +542,15 @@ public final class NpcRogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      oENLKDCLEOA = 0;
-      eventUniqueId = 0;
-      eventId = 0;
       dialogueId = 0;
-      jFCBEHNMGNO = false;
-      jOFMIKFBGHP = false;
+      kIAKKDIECME = 0;
+      eventId = 0;
+      eventUniqueId = 0;
+      pHDDANOOOJI = false;
+      iDOFFGNNGEM = false;
       finishDialogue = false;
+      lPFLCICNIOA.clear();
       dialogueEventParamList.clear();
-      fKDHDCGOIMF.clear();
       return this;
     }
 
@@ -553,8 +561,8 @@ public final class NpcRogueInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      lPFLCICNIOA.clearQuick();
       dialogueEventParamList.clearQuick();
-      fKDHDCGOIMF.clearQuick();
       return this;
     }
 
@@ -568,57 +576,57 @@ public final class NpcRogueInfoOuterClass {
       }
       NpcRogueInfo other = (NpcRogueInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasOENLKDCLEOA() || oENLKDCLEOA == other.oENLKDCLEOA)
-        && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId)
-        && (!hasEventId() || eventId == other.eventId)
         && (!hasDialogueId() || dialogueId == other.dialogueId)
-        && (!hasJFCBEHNMGNO() || jFCBEHNMGNO == other.jFCBEHNMGNO)
-        && (!hasJOFMIKFBGHP() || jOFMIKFBGHP == other.jOFMIKFBGHP)
+        && (!hasKIAKKDIECME() || kIAKKDIECME == other.kIAKKDIECME)
+        && (!hasEventId() || eventId == other.eventId)
+        && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId)
+        && (!hasPHDDANOOOJI() || pHDDANOOOJI == other.pHDDANOOOJI)
+        && (!hasIDOFFGNNGEM() || iDOFFGNNGEM == other.iDOFFGNNGEM)
         && (!hasFinishDialogue() || finishDialogue == other.finishDialogue)
-        && (!hasDialogueEventParamList() || dialogueEventParamList.equals(other.dialogueEventParamList))
-        && (!hasFKDHDCGOIMF() || fKDHDCGOIMF.equals(other.fKDHDCGOIMF));
+        && (!hasLPFLCICNIOA() || lPFLCICNIOA.equals(other.lPFLCICNIOA))
+        && (!hasDialogueEventParamList() || dialogueEventParamList.equals(other.dialogueEventParamList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(oENLKDCLEOA);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(dialogueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(eventUniqueId);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(kIAKKDIECME);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(eventId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(dialogueId);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(eventUniqueId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeBoolNoTag(jFCBEHNMGNO);
+        output.writeRawByte((byte) 16);
+        output.writeBoolNoTag(pHDDANOOOJI);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeBoolNoTag(jOFMIKFBGHP);
+        output.writeRawByte((byte) 88);
+        output.writeBoolNoTag(iDOFFGNNGEM);
       }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 96);
         output.writeBoolNoTag(finishDialogue);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        for (int i = 0; i < dialogueEventParamList.length(); i++) {
-          output.writeRawByte((byte) 42);
-          output.writeMessageNoTag(dialogueEventParamList.get(i));
+        for (int i = 0; i < lPFLCICNIOA.length(); i++) {
+          output.writeRawByte((byte) 114);
+          output.writeMessageNoTag(lPFLCICNIOA.get(i));
         }
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        for (int i = 0; i < fKDHDCGOIMF.length(); i++) {
-          output.writeRawByte((byte) 66);
-          output.writeMessageNoTag(fKDHDCGOIMF.get(i));
+        for (int i = 0; i < dialogueEventParamList.length(); i++) {
+          output.writeRawByte((byte) 122);
+          output.writeMessageNoTag(dialogueEventParamList.get(i));
         }
       }
     }
@@ -627,16 +635,16 @@ public final class NpcRogueInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(oENLKDCLEOA);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(dialogueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(kIAKKDIECME);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(eventId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(dialogueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += 2;
@@ -648,10 +656,10 @@ public final class NpcRogueInfoOuterClass {
         size += 2;
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        size += (1 * dialogueEventParamList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(dialogueEventParamList);
+        size += (1 * lPFLCICNIOA.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(lPFLCICNIOA);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        size += (1 * fKDHDCGOIMF.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(fKDHDCGOIMF);
+        size += (1 * dialogueEventParamList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(dialogueEventParamList);
       }
       return size;
     }
@@ -663,80 +671,80 @@ public final class NpcRogueInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // oENLKDCLEOA
-            oENLKDCLEOA = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 32) {
-              break;
-            }
-          }
-          case 32: {
-            // eventUniqueId
-            eventUniqueId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 88) {
-              break;
-            }
-          }
-          case 88: {
-            // eventId
-            eventId = input.readUInt32();
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
+          case 24: {
             // dialogueId
             dialogueId = input.readUInt32();
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 8) {
+            if (tag != 40) {
               break;
             }
           }
-          case 8: {
-            // jFCBEHNMGNO
-            jFCBEHNMGNO = input.readBool();
-            bitField0_ |= 0x00000010;
+          case 40: {
+            // kIAKKDIECME
+            kIAKKDIECME = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 72) {
               break;
             }
           }
           case 72: {
-            // jOFMIKFBGHP
-            jOFMIKFBGHP = input.readBool();
-            bitField0_ |= 0x00000020;
+            // eventId
+            eventId = input.readUInt32();
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 80) {
               break;
             }
           }
-          case 120: {
+          case 80: {
+            // eventUniqueId
+            eventUniqueId = input.readUInt32();
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 16) {
+              break;
+            }
+          }
+          case 16: {
+            // pHDDANOOOJI
+            pHDDANOOOJI = input.readBool();
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
+            // iDOFFGNNGEM
+            iDOFFGNNGEM = input.readBool();
+            bitField0_ |= 0x00000020;
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
             // finishDialogue
             finishDialogue = input.readBool();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 114) {
               break;
             }
           }
-          case 42: {
+          case 114: {
+            // lPFLCICNIOA
+            tag = input.readRepeatedMessage(lPFLCICNIOA, tag);
+            bitField0_ |= 0x00000080;
+            if (tag != 122) {
+              break;
+            }
+          }
+          case 122: {
             // dialogueEventParamList
             tag = input.readRepeatedMessage(dialogueEventParamList, tag);
-            bitField0_ |= 0x00000080;
-            if (tag != 66) {
-              break;
-            }
-          }
-          case 66: {
-            // fKDHDCGOIMF
-            tag = input.readRepeatedMessage(fKDHDCGOIMF, tag);
             bitField0_ |= 0x00000100;
             if (tag != 0) {
               break;
@@ -760,31 +768,31 @@ public final class NpcRogueInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.oENLKDCLEOA, oENLKDCLEOA);
+        output.writeUInt32(FieldNames.dialogueId, dialogueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
+        output.writeUInt32(FieldNames.kIAKKDIECME, kIAKKDIECME);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.eventId, eventId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.dialogueId, dialogueId);
+        output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeBool(FieldNames.jFCBEHNMGNO, jFCBEHNMGNO);
+        output.writeBool(FieldNames.pHDDANOOOJI, pHDDANOOOJI);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeBool(FieldNames.jOFMIKFBGHP, jOFMIKFBGHP);
+        output.writeBool(FieldNames.iDOFFGNNGEM, iDOFFGNNGEM);
       }
       if ((bitField0_ & 0x00000040) != 0) {
         output.writeBool(FieldNames.finishDialogue, finishDialogue);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRepeatedMessage(FieldNames.dialogueEventParamList, dialogueEventParamList);
+        output.writeRepeatedMessage(FieldNames.lPFLCICNIOA, lPFLCICNIOA);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeRepeatedMessage(FieldNames.fKDHDCGOIMF, fKDHDCGOIMF);
+        output.writeRepeatedMessage(FieldNames.dialogueEventParamList, dialogueEventParamList);
       }
       output.endObject();
     }
@@ -796,10 +804,11 @@ public final class NpcRogueInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -983404159: {
-            if (input.isAtField(FieldNames.oENLKDCLEOA)) {
+          case -1384067821:
+          case 43591906: {
+            if (input.isAtField(FieldNames.dialogueId)) {
               if (!input.trySkipNullValue()) {
-                oENLKDCLEOA = input.readUInt32();
+                dialogueId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -807,11 +816,10 @@ public final class NpcRogueInfoOuterClass {
             }
             break;
           }
-          case 2091680134:
-          case -157385500: {
-            if (input.isAtField(FieldNames.eventUniqueId)) {
+          case 1407971774: {
+            if (input.isAtField(FieldNames.kIAKKDIECME)) {
               if (!input.trySkipNullValue()) {
-                eventUniqueId = input.readUInt32();
+                kIAKKDIECME = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -831,11 +839,11 @@ public final class NpcRogueInfoOuterClass {
             }
             break;
           }
-          case -1384067821:
-          case 43591906: {
-            if (input.isAtField(FieldNames.dialogueId)) {
+          case 2091680134:
+          case -157385500: {
+            if (input.isAtField(FieldNames.eventUniqueId)) {
               if (!input.trySkipNullValue()) {
-                dialogueId = input.readUInt32();
+                eventUniqueId = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -843,10 +851,10 @@ public final class NpcRogueInfoOuterClass {
             }
             break;
           }
-          case 763452523: {
-            if (input.isAtField(FieldNames.jFCBEHNMGNO)) {
+          case 774536297: {
+            if (input.isAtField(FieldNames.pHDDANOOOJI)) {
               if (!input.trySkipNullValue()) {
-                jFCBEHNMGNO = input.readBool();
+                pHDDANOOOJI = input.readBool();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -854,10 +862,10 @@ public final class NpcRogueInfoOuterClass {
             }
             break;
           }
-          case -808301787: {
-            if (input.isAtField(FieldNames.jOFMIKFBGHP)) {
+          case 1979024604: {
+            if (input.isAtField(FieldNames.iDOFFGNNGEM)) {
               if (!input.trySkipNullValue()) {
-                jOFMIKFBGHP = input.readBool();
+                iDOFFGNNGEM = input.readBool();
                 bitField0_ |= 0x00000020;
               }
             } else {
@@ -877,11 +885,10 @@ public final class NpcRogueInfoOuterClass {
             }
             break;
           }
-          case -340413111:
-          case -612945060: {
-            if (input.isAtField(FieldNames.dialogueEventParamList)) {
+          case 1158682208: {
+            if (input.isAtField(FieldNames.lPFLCICNIOA)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(dialogueEventParamList);
+                input.readRepeatedMessage(lPFLCICNIOA);
                 bitField0_ |= 0x00000080;
               }
             } else {
@@ -889,10 +896,11 @@ public final class NpcRogueInfoOuterClass {
             }
             break;
           }
-          case 1696143474: {
-            if (input.isAtField(FieldNames.fKDHDCGOIMF)) {
+          case -340413111:
+          case -612945060: {
+            if (input.isAtField(FieldNames.dialogueEventParamList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(fKDHDCGOIMF);
+                input.readRepeatedMessage(dialogueEventParamList);
                 bitField0_ |= 0x00000100;
               }
             } else {
@@ -940,9 +948,9 @@ public final class NpcRogueInfoOuterClass {
     }
 
     /**
-     * Protobuf type {@code FKDHDCGOIMFEntry}
+     * Protobuf type {@code LPFLCICNIOAEntry}
      */
-    public static final class FKDHDCGOIMFEntry extends ProtoMessage<FKDHDCGOIMFEntry> implements Cloneable {
+    public static final class LPFLCICNIOAEntry extends ProtoMessage<LPFLCICNIOAEntry> implements Cloneable {
       private static final long serialVersionUID = 0L;
 
       /**
@@ -955,14 +963,14 @@ public final class NpcRogueInfoOuterClass {
        */
       private int value_;
 
-      private FKDHDCGOIMFEntry() {
+      private LPFLCICNIOAEntry() {
       }
 
       /**
-       * @return a new empty instance of {@code FKDHDCGOIMFEntry}
+       * @return a new empty instance of {@code LPFLCICNIOAEntry}
        */
-      public static FKDHDCGOIMFEntry newInstance() {
-        return new FKDHDCGOIMFEntry();
+      public static LPFLCICNIOAEntry newInstance() {
+        return new LPFLCICNIOAEntry();
       }
 
       /**
@@ -977,7 +985,7 @@ public final class NpcRogueInfoOuterClass {
        * <code>optional uint32 key = 1;</code>
        * @return this
        */
-      public FKDHDCGOIMFEntry clearKey() {
+      public LPFLCICNIOAEntry clearKey() {
         bitField0_ &= ~0x00000001;
         key = 0;
         return this;
@@ -996,7 +1004,7 @@ public final class NpcRogueInfoOuterClass {
        * @param value the key to set
        * @return this
        */
-      public FKDHDCGOIMFEntry setKey(final int value) {
+      public LPFLCICNIOAEntry setKey(final int value) {
         bitField0_ |= 0x00000001;
         key = value;
         return this;
@@ -1014,7 +1022,7 @@ public final class NpcRogueInfoOuterClass {
        * <code>optional uint32 value = 2;</code>
        * @return this
        */
-      public FKDHDCGOIMFEntry clearValue() {
+      public LPFLCICNIOAEntry clearValue() {
         bitField0_ &= ~0x00000002;
         value_ = 0;
         return this;
@@ -1033,14 +1041,14 @@ public final class NpcRogueInfoOuterClass {
        * @param value the value_ to set
        * @return this
        */
-      public FKDHDCGOIMFEntry setValue(final int value) {
+      public LPFLCICNIOAEntry setValue(final int value) {
         bitField0_ |= 0x00000002;
         value_ = value;
         return this;
       }
 
       @Override
-      public FKDHDCGOIMFEntry copyFrom(final FKDHDCGOIMFEntry other) {
+      public LPFLCICNIOAEntry copyFrom(final LPFLCICNIOAEntry other) {
         cachedSize = other.cachedSize;
         if ((bitField0_ | other.bitField0_) != 0) {
           bitField0_ = other.bitField0_;
@@ -1051,7 +1059,7 @@ public final class NpcRogueInfoOuterClass {
       }
 
       @Override
-      public FKDHDCGOIMFEntry mergeFrom(final FKDHDCGOIMFEntry other) {
+      public LPFLCICNIOAEntry mergeFrom(final LPFLCICNIOAEntry other) {
         if (other.isEmpty()) {
           return this;
         }
@@ -1066,7 +1074,7 @@ public final class NpcRogueInfoOuterClass {
       }
 
       @Override
-      public FKDHDCGOIMFEntry clear() {
+      public LPFLCICNIOAEntry clear() {
         if (isEmpty()) {
           return this;
         }
@@ -1078,7 +1086,7 @@ public final class NpcRogueInfoOuterClass {
       }
 
       @Override
-      public FKDHDCGOIMFEntry clearQuick() {
+      public LPFLCICNIOAEntry clearQuick() {
         if (isEmpty()) {
           return this;
         }
@@ -1092,10 +1100,10 @@ public final class NpcRogueInfoOuterClass {
         if (o == this) {
           return true;
         }
-        if (!(o instanceof FKDHDCGOIMFEntry)) {
+        if (!(o instanceof LPFLCICNIOAEntry)) {
           return false;
         }
-        FKDHDCGOIMFEntry other = (FKDHDCGOIMFEntry) o;
+        LPFLCICNIOAEntry other = (LPFLCICNIOAEntry) o;
         return bitField0_ == other.bitField0_
           && (!hasKey() || key == other.key)
           && (!hasValue() || value_ == other.value_);
@@ -1127,7 +1135,7 @@ public final class NpcRogueInfoOuterClass {
 
       @Override
       @SuppressWarnings("fallthrough")
-      public FKDHDCGOIMFEntry mergeFrom(final ProtoSource input) throws IOException {
+      public LPFLCICNIOAEntry mergeFrom(final ProtoSource input) throws IOException {
         // Enabled Fall-Through Optimization (QuickBuffers)
         int tag = input.readTag();
         while (true) {
@@ -1177,7 +1185,7 @@ public final class NpcRogueInfoOuterClass {
       }
 
       @Override
-      public FKDHDCGOIMFEntry mergeFrom(final JsonSource input) throws IOException {
+      public LPFLCICNIOAEntry mergeFrom(final JsonSource input) throws IOException {
         if (!input.beginObject()) {
           return this;
         }
@@ -1216,8 +1224,8 @@ public final class NpcRogueInfoOuterClass {
       }
 
       @Override
-      public FKDHDCGOIMFEntry clone() {
-        return new FKDHDCGOIMFEntry().copyFrom(this);
+      public LPFLCICNIOAEntry clone() {
+        return new LPFLCICNIOAEntry().copyFrom(this);
       }
 
       @Override
@@ -1225,32 +1233,32 @@ public final class NpcRogueInfoOuterClass {
         return ((bitField0_) == 0);
       }
 
-      public static FKDHDCGOIMFEntry parseFrom(final byte[] data) throws
+      public static LPFLCICNIOAEntry parseFrom(final byte[] data) throws
           InvalidProtocolBufferException {
-        return ProtoMessage.mergeFrom(new FKDHDCGOIMFEntry(), data).checkInitialized();
+        return ProtoMessage.mergeFrom(new LPFLCICNIOAEntry(), data).checkInitialized();
       }
 
-      public static FKDHDCGOIMFEntry parseFrom(final ProtoSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new FKDHDCGOIMFEntry(), input).checkInitialized();
+      public static LPFLCICNIOAEntry parseFrom(final ProtoSource input) throws IOException {
+        return ProtoMessage.mergeFrom(new LPFLCICNIOAEntry(), input).checkInitialized();
       }
 
-      public static FKDHDCGOIMFEntry parseFrom(final JsonSource input) throws IOException {
-        return ProtoMessage.mergeFrom(new FKDHDCGOIMFEntry(), input).checkInitialized();
+      public static LPFLCICNIOAEntry parseFrom(final JsonSource input) throws IOException {
+        return ProtoMessage.mergeFrom(new LPFLCICNIOAEntry(), input).checkInitialized();
       }
 
       /**
-       * @return factory for creating FKDHDCGOIMFEntry messages
+       * @return factory for creating LPFLCICNIOAEntry messages
        */
-      public static MessageFactory<FKDHDCGOIMFEntry> getFactory() {
-        return FKDHDCGOIMFEntryFactory.INSTANCE;
+      public static MessageFactory<LPFLCICNIOAEntry> getFactory() {
+        return LPFLCICNIOAEntryFactory.INSTANCE;
       }
 
-      private enum FKDHDCGOIMFEntryFactory implements MessageFactory<FKDHDCGOIMFEntry> {
+      private enum LPFLCICNIOAEntryFactory implements MessageFactory<LPFLCICNIOAEntry> {
         INSTANCE;
 
         @Override
-        public FKDHDCGOIMFEntry create() {
-          return FKDHDCGOIMFEntry.newInstance();
+        public LPFLCICNIOAEntry create() {
+          return LPFLCICNIOAEntry.newInstance();
         }
       }
 
@@ -1277,23 +1285,23 @@ public final class NpcRogueInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName oENLKDCLEOA = FieldName.forField("OENLKDCLEOA");
+      static final FieldName dialogueId = FieldName.forField("dialogueId", "dialogue_id");
 
-      static final FieldName eventUniqueId = FieldName.forField("eventUniqueId", "event_unique_id");
+      static final FieldName kIAKKDIECME = FieldName.forField("KIAKKDIECME");
 
       static final FieldName eventId = FieldName.forField("eventId", "event_id");
 
-      static final FieldName dialogueId = FieldName.forField("dialogueId", "dialogue_id");
+      static final FieldName eventUniqueId = FieldName.forField("eventUniqueId", "event_unique_id");
 
-      static final FieldName jFCBEHNMGNO = FieldName.forField("JFCBEHNMGNO");
+      static final FieldName pHDDANOOOJI = FieldName.forField("PHDDANOOOJI");
 
-      static final FieldName jOFMIKFBGHP = FieldName.forField("JOFMIKFBGHP");
+      static final FieldName iDOFFGNNGEM = FieldName.forField("IDOFFGNNGEM");
 
       static final FieldName finishDialogue = FieldName.forField("finishDialogue", "finish_dialogue");
 
-      static final FieldName dialogueEventParamList = FieldName.forField("dialogueEventParamList", "dialogue_event_param_list");
+      static final FieldName lPFLCICNIOA = FieldName.forField("LPFLCICNIOA");
 
-      static final FieldName fKDHDCGOIMF = FieldName.forField("FKDHDCGOIMF");
+      static final FieldName dialogueEventParamList = FieldName.forField("dialogueEventParamList", "dialogue_event_param_list");
     }
   }
 }

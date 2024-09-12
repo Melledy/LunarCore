@@ -19,14 +19,14 @@ public final class MonsterArchiveOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
-     */
-    private int monsterId;
-
-    /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 3;</code>
      */
     private int num;
+
+    /**
+     * <code>optional uint32 monster_id = 9;</code>
+     */
+    private int monsterId;
 
     private MonsterArchive() {
     }
@@ -39,62 +39,25 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
-     * @return whether the monsterId field is set
+     * <code>optional uint32 num = 3;</code>
+     * @return whether the num field is set
      */
-    public boolean hasMonsterId() {
+    public boolean hasNum() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 monster_id = 1;</code>
-     * @return this
-     */
-    public MonsterArchive clearMonsterId() {
-      bitField0_ &= ~0x00000001;
-      monsterId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 monster_id = 1;</code>
-     * @return the monsterId
-     */
-    public int getMonsterId() {
-      return monsterId;
-    }
-
-    /**
-     * <code>optional uint32 monster_id = 1;</code>
-     * @param value the monsterId to set
-     * @return this
-     */
-    public MonsterArchive setMonsterId(final int value) {
-      bitField0_ |= 0x00000001;
-      monsterId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 num = 2;</code>
-     * @return whether the num field is set
-     */
-    public boolean hasNum() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 3;</code>
      * @return this
      */
     public MonsterArchive clearNum() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       num = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 3;</code>
      * @return the num
      */
     public int getNum() {
@@ -102,13 +65,50 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 num = 2;</code>
+     * <code>optional uint32 num = 3;</code>
      * @param value the num to set
      * @return this
      */
     public MonsterArchive setNum(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       num = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 monster_id = 9;</code>
+     * @return whether the monsterId field is set
+     */
+    public boolean hasMonsterId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 monster_id = 9;</code>
+     * @return this
+     */
+    public MonsterArchive clearMonsterId() {
+      bitField0_ &= ~0x00000002;
+      monsterId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 monster_id = 9;</code>
+     * @return the monsterId
+     */
+    public int getMonsterId() {
+      return monsterId;
+    }
+
+    /**
+     * <code>optional uint32 monster_id = 9;</code>
+     * @param value the monsterId to set
+     * @return this
+     */
+    public MonsterArchive setMonsterId(final int value) {
+      bitField0_ |= 0x00000002;
+      monsterId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class MonsterArchiveOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        monsterId = other.monsterId;
         num = other.num;
+        monsterId = other.monsterId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class MonsterArchiveOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasMonsterId()) {
-        setMonsterId(other.monsterId);
-      }
       if (other.hasNum()) {
         setNum(other.num);
+      }
+      if (other.hasMonsterId()) {
+        setMonsterId(other.monsterId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class MonsterArchiveOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      monsterId = 0;
       num = 0;
+      monsterId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class MonsterArchiveOuterClass {
       }
       MonsterArchive other = (MonsterArchive) o;
       return bitField0_ == other.bitField0_
-        && (!hasMonsterId() || monsterId == other.monsterId)
-        && (!hasNum() || num == other.num);
+        && (!hasNum() || num == other.num)
+        && (!hasMonsterId() || monsterId == other.monsterId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(monsterId);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(num);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(num);
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(monsterId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class MonsterArchiveOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(monsterId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(num);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(num);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(monsterId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class MonsterArchiveOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // monsterId
-            monsterId = input.readUInt32();
+          case 24: {
+            // num
+            num = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 72) {
               break;
             }
           }
-          case 16: {
-            // num
-            num = input.readUInt32();
+          case 72: {
+            // monsterId
+            monsterId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class MonsterArchiveOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.monsterId, monsterId);
+        output.writeUInt32(FieldNames.num, num);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.num, num);
+        output.writeUInt32(FieldNames.monsterId, monsterId);
       }
       output.endObject();
     }
@@ -256,11 +256,10 @@ public final class MonsterArchiveOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1316830571:
-          case 2127946656: {
-            if (input.isAtField(FieldNames.monsterId)) {
+          case 109446: {
+            if (input.isAtField(FieldNames.num)) {
               if (!input.trySkipNullValue()) {
-                monsterId = input.readUInt32();
+                num = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,10 +267,11 @@ public final class MonsterArchiveOuterClass {
             }
             break;
           }
-          case 109446: {
-            if (input.isAtField(FieldNames.num)) {
+          case -1316830571:
+          case 2127946656: {
+            if (input.isAtField(FieldNames.monsterId)) {
               if (!input.trySkipNullValue()) {
-                num = input.readUInt32();
+                monsterId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -332,9 +332,9 @@ public final class MonsterArchiveOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName monsterId = FieldName.forField("monsterId", "monster_id");
-
       static final FieldName num = FieldName.forField("num");
+
+      static final FieldName monsterId = FieldName.forField("monsterId", "monster_id");
     }
   }
 }

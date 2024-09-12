@@ -19,17 +19,17 @@ public final class ComposeItemCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 count = 4;</code>
-     */
-    private int count;
-
-    /**
-     * <code>optional uint32 compose_id = 9;</code>
+     * <code>optional uint32 compose_id = 5;</code>
      */
     private int composeId;
 
     /**
-     * <code>optional .ItemCostList compose_item_list = 8;</code>
+     * <code>optional uint32 count = 6;</code>
+     */
+    private int count;
+
+    /**
+     * <code>optional .ItemCostList compose_item_list = 3;</code>
      */
     private final ItemCostListOuterClass.ItemCostList composeItemList = ItemCostListOuterClass.ItemCostList.newInstance();
 
@@ -44,62 +44,25 @@ public final class ComposeItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 count = 4;</code>
-     * @return whether the count field is set
+     * <code>optional uint32 compose_id = 5;</code>
+     * @return whether the composeId field is set
      */
-    public boolean hasCount() {
+    public boolean hasComposeId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 count = 4;</code>
-     * @return this
-     */
-    public ComposeItemCsReq clearCount() {
-      bitField0_ &= ~0x00000001;
-      count = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 count = 4;</code>
-     * @return the count
-     */
-    public int getCount() {
-      return count;
-    }
-
-    /**
-     * <code>optional uint32 count = 4;</code>
-     * @param value the count to set
-     * @return this
-     */
-    public ComposeItemCsReq setCount(final int value) {
-      bitField0_ |= 0x00000001;
-      count = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 compose_id = 9;</code>
-     * @return whether the composeId field is set
-     */
-    public boolean hasComposeId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 compose_id = 9;</code>
+     * <code>optional uint32 compose_id = 5;</code>
      * @return this
      */
     public ComposeItemCsReq clearComposeId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       composeId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 compose_id = 9;</code>
+     * <code>optional uint32 compose_id = 5;</code>
      * @return the composeId
      */
     public int getComposeId() {
@@ -107,18 +70,55 @@ public final class ComposeItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 compose_id = 9;</code>
+     * <code>optional uint32 compose_id = 5;</code>
      * @param value the composeId to set
      * @return this
      */
     public ComposeItemCsReq setComposeId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       composeId = value;
       return this;
     }
 
     /**
-     * <code>optional .ItemCostList compose_item_list = 8;</code>
+     * <code>optional uint32 count = 6;</code>
+     * @return whether the count field is set
+     */
+    public boolean hasCount() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 count = 6;</code>
+     * @return this
+     */
+    public ComposeItemCsReq clearCount() {
+      bitField0_ &= ~0x00000002;
+      count = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 count = 6;</code>
+     * @return the count
+     */
+    public int getCount() {
+      return count;
+    }
+
+    /**
+     * <code>optional uint32 count = 6;</code>
+     * @param value the count to set
+     * @return this
+     */
+    public ComposeItemCsReq setCount(final int value) {
+      bitField0_ |= 0x00000002;
+      count = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .ItemCostList compose_item_list = 3;</code>
      * @return whether the composeItemList field is set
      */
     public boolean hasComposeItemList() {
@@ -126,7 +126,7 @@ public final class ComposeItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList compose_item_list = 8;</code>
+     * <code>optional .ItemCostList compose_item_list = 3;</code>
      * @return this
      */
     public ComposeItemCsReq clearComposeItemList() {
@@ -136,7 +136,7 @@ public final class ComposeItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList compose_item_list = 8;</code>
+     * <code>optional .ItemCostList compose_item_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class ComposeItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList compose_item_list = 8;</code>
+     * <code>optional .ItemCostList compose_item_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class ComposeItemCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList compose_item_list = 8;</code>
+     * <code>optional .ItemCostList compose_item_list = 3;</code>
      * @param value the composeItemList to set
      * @return this
      */
@@ -179,8 +179,8 @@ public final class ComposeItemCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        count = other.count;
         composeId = other.composeId;
+        count = other.count;
         composeItemList.copyFrom(other.composeItemList);
       }
       return this;
@@ -192,11 +192,11 @@ public final class ComposeItemCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasCount()) {
-        setCount(other.count);
-      }
       if (other.hasComposeId()) {
         setComposeId(other.composeId);
+      }
+      if (other.hasCount()) {
+        setCount(other.count);
       }
       if (other.hasComposeItemList()) {
         getMutableComposeItemList().mergeFrom(other.composeItemList);
@@ -211,8 +211,8 @@ public final class ComposeItemCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      count = 0;
       composeId = 0;
+      count = 0;
       composeItemList.clear();
       return this;
     }
@@ -238,23 +238,23 @@ public final class ComposeItemCsReqOuterClass {
       }
       ComposeItemCsReq other = (ComposeItemCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasCount() || count == other.count)
         && (!hasComposeId() || composeId == other.composeId)
+        && (!hasCount() || count == other.count)
         && (!hasComposeItemList() || composeItemList.equals(other.composeItemList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(count);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(composeId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(count);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 66);
+        output.writeRawByte((byte) 26);
         output.writeMessageNoTag(composeItemList);
       }
     }
@@ -263,10 +263,10 @@ public final class ComposeItemCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(count);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(composeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(composeId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(count);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(composeItemList);
@@ -281,25 +281,25 @@ public final class ComposeItemCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // count
-            count = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 72) {
-              break;
-            }
-          }
-          case 72: {
+          case 40: {
             // composeId
             composeId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 48) {
               break;
             }
           }
-          case 66: {
+          case 48: {
+            // count
+            count = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 26) {
+              break;
+            }
+          }
+          case 26: {
             // composeItemList
             input.readMessage(composeItemList);
             bitField0_ |= 0x00000004;
@@ -326,10 +326,10 @@ public final class ComposeItemCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.count, count);
+        output.writeUInt32(FieldNames.composeId, composeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.composeId, composeId);
+        output.writeUInt32(FieldNames.count, count);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.composeItemList, composeItemList);
@@ -344,10 +344,11 @@ public final class ComposeItemCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 94851343: {
-            if (input.isAtField(FieldNames.count)) {
+          case -1399759283:
+          case -442843416: {
+            if (input.isAtField(FieldNames.composeId)) {
               if (!input.trySkipNullValue()) {
-                count = input.readUInt32();
+                composeId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -355,11 +356,10 @@ public final class ComposeItemCsReqOuterClass {
             }
             break;
           }
-          case -1399759283:
-          case -442843416: {
-            if (input.isAtField(FieldNames.composeId)) {
+          case 94851343: {
+            if (input.isAtField(FieldNames.count)) {
               if (!input.trySkipNullValue()) {
-                composeId = input.readUInt32();
+                count = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -432,9 +432,9 @@ public final class ComposeItemCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName count = FieldName.forField("count");
-
       static final FieldName composeId = FieldName.forField("composeId", "compose_id");
+
+      static final FieldName count = FieldName.forField("count");
 
       static final FieldName composeItemList = FieldName.forField("composeItemList", "compose_item_list");
     }

@@ -19,14 +19,14 @@ public final class RogueSyncContextBoardEventOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 modifier_effect_type = 3;</code>
-     */
-    private int modifierEffectType;
-
-    /**
      * <code>optional uint32 board_event_id = 7;</code>
      */
     private int boardEventId;
+
+    /**
+     * <code>optional uint32 modifier_effect_type = 9;</code>
+     */
+    private int modifierEffectType;
 
     private RogueSyncContextBoardEvent() {
     }
@@ -39,48 +39,11 @@ public final class RogueSyncContextBoardEventOuterClass {
     }
 
     /**
-     * <code>optional uint32 modifier_effect_type = 3;</code>
-     * @return whether the modifierEffectType field is set
-     */
-    public boolean hasModifierEffectType() {
-      return (bitField0_ & 0x00000001) != 0;
-    }
-
-    /**
-     * <code>optional uint32 modifier_effect_type = 3;</code>
-     * @return this
-     */
-    public RogueSyncContextBoardEvent clearModifierEffectType() {
-      bitField0_ &= ~0x00000001;
-      modifierEffectType = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 modifier_effect_type = 3;</code>
-     * @return the modifierEffectType
-     */
-    public int getModifierEffectType() {
-      return modifierEffectType;
-    }
-
-    /**
-     * <code>optional uint32 modifier_effect_type = 3;</code>
-     * @param value the modifierEffectType to set
-     * @return this
-     */
-    public RogueSyncContextBoardEvent setModifierEffectType(final int value) {
-      bitField0_ |= 0x00000001;
-      modifierEffectType = value;
-      return this;
-    }
-
-    /**
      * <code>optional uint32 board_event_id = 7;</code>
      * @return whether the boardEventId field is set
      */
     public boolean hasBoardEventId() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
@@ -88,7 +51,7 @@ public final class RogueSyncContextBoardEventOuterClass {
      * @return this
      */
     public RogueSyncContextBoardEvent clearBoardEventId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       boardEventId = 0;
       return this;
     }
@@ -107,8 +70,45 @@ public final class RogueSyncContextBoardEventOuterClass {
      * @return this
      */
     public RogueSyncContextBoardEvent setBoardEventId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       boardEventId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 modifier_effect_type = 9;</code>
+     * @return whether the modifierEffectType field is set
+     */
+    public boolean hasModifierEffectType() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 modifier_effect_type = 9;</code>
+     * @return this
+     */
+    public RogueSyncContextBoardEvent clearModifierEffectType() {
+      bitField0_ &= ~0x00000002;
+      modifierEffectType = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 modifier_effect_type = 9;</code>
+     * @return the modifierEffectType
+     */
+    public int getModifierEffectType() {
+      return modifierEffectType;
+    }
+
+    /**
+     * <code>optional uint32 modifier_effect_type = 9;</code>
+     * @param value the modifierEffectType to set
+     * @return this
+     */
+    public RogueSyncContextBoardEvent setModifierEffectType(final int value) {
+      bitField0_ |= 0x00000002;
+      modifierEffectType = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class RogueSyncContextBoardEventOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        modifierEffectType = other.modifierEffectType;
         boardEventId = other.boardEventId;
+        modifierEffectType = other.modifierEffectType;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class RogueSyncContextBoardEventOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasModifierEffectType()) {
-        setModifierEffectType(other.modifierEffectType);
-      }
       if (other.hasBoardEventId()) {
         setBoardEventId(other.boardEventId);
+      }
+      if (other.hasModifierEffectType()) {
+        setModifierEffectType(other.modifierEffectType);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class RogueSyncContextBoardEventOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      modifierEffectType = 0;
       boardEventId = 0;
+      modifierEffectType = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class RogueSyncContextBoardEventOuterClass {
       }
       RogueSyncContextBoardEvent other = (RogueSyncContextBoardEvent) o;
       return bitField0_ == other.bitField0_
-        && (!hasModifierEffectType() || modifierEffectType == other.modifierEffectType)
-        && (!hasBoardEventId() || boardEventId == other.boardEventId);
+        && (!hasBoardEventId() || boardEventId == other.boardEventId)
+        && (!hasModifierEffectType() || modifierEffectType == other.modifierEffectType);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(modifierEffectType);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(boardEventId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(modifierEffectType);
       }
     }
 
@@ -190,10 +190,10 @@ public final class RogueSyncContextBoardEventOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(modifierEffectType);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(boardEventId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(boardEventId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(modifierEffectType);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class RogueSyncContextBoardEventOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // modifierEffectType
-            modifierEffectType = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
           case 56: {
             // boardEventId
             boardEventId = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
+            // modifierEffectType
+            modifierEffectType = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class RogueSyncContextBoardEventOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.modifierEffectType, modifierEffectType);
+        output.writeUInt32(FieldNames.boardEventId, boardEventId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.boardEventId, boardEventId);
+        output.writeUInt32(FieldNames.modifierEffectType, modifierEffectType);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class RogueSyncContextBoardEventOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1445000542:
-          case -145180736: {
-            if (input.isAtField(FieldNames.modifierEffectType)) {
+          case -1130727537:
+          case -1668848103: {
+            if (input.isAtField(FieldNames.boardEventId)) {
               if (!input.trySkipNullValue()) {
-                modifierEffectType = input.readUInt32();
+                boardEventId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class RogueSyncContextBoardEventOuterClass {
             }
             break;
           }
-          case -1130727537:
-          case -1668848103: {
-            if (input.isAtField(FieldNames.boardEventId)) {
+          case -1445000542:
+          case -145180736: {
+            if (input.isAtField(FieldNames.modifierEffectType)) {
               if (!input.trySkipNullValue()) {
-                boardEventId = input.readUInt32();
+                modifierEffectType = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class RogueSyncContextBoardEventOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName modifierEffectType = FieldName.forField("modifierEffectType", "modifier_effect_type");
-
       static final FieldName boardEventId = FieldName.forField("boardEventId", "board_event_id");
+
+      static final FieldName modifierEffectType = FieldName.forField("modifierEffectType", "modifier_effect_type");
     }
   }
 }

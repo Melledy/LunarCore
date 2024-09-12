@@ -20,7 +20,7 @@ public final class SearchPlayerCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 search_uid_list = 7;</code>
+     * <code>repeated uint32 search_uid_list = 6;</code>
      */
     private final RepeatedInt searchUidList = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class SearchPlayerCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 search_uid_list = 7;</code>
+     * <code>repeated uint32 search_uid_list = 6;</code>
      * @return whether the searchUidList field is set
      */
     public boolean hasSearchUidList() {
@@ -43,7 +43,7 @@ public final class SearchPlayerCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 search_uid_list = 7;</code>
+     * <code>repeated uint32 search_uid_list = 6;</code>
      * @return this
      */
     public SearchPlayerCsReq clearSearchUidList() {
@@ -53,7 +53,7 @@ public final class SearchPlayerCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 search_uid_list = 7;</code>
+     * <code>repeated uint32 search_uid_list = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class SearchPlayerCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 search_uid_list = 7;</code>
+     * <code>repeated uint32 search_uid_list = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class SearchPlayerCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 search_uid_list = 7;</code>
+     * <code>repeated uint32 search_uid_list = 6;</code>
      * @param value the searchUidList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class SearchPlayerCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 search_uid_list = 7;</code>
+     * <code>repeated uint32 search_uid_list = 6;</code>
      * @param values the searchUidList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class SearchPlayerCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < searchUidList.length(); i++) {
-          output.writeRawByte((byte) 56);
+          output.writeRawByte((byte) 48);
           output.writeUInt32NoTag(searchUidList.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class SearchPlayerCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 58: {
+          case 50: {
             // searchUidList [packed=true]
             input.readPackedUInt32(searchUidList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class SearchPlayerCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 56: {
+          case 48: {
             // searchUidList [packed=false]
             tag = input.readRepeatedUInt32(searchUidList, tag);
             bitField0_ |= 0x00000001;

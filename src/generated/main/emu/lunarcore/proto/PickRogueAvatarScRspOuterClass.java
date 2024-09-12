@@ -20,7 +20,7 @@ public final class PickRogueAvatarScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 base_avatar_list = 6;</code>
+     * <code>repeated uint32 base_avatar_list = 7;</code>
      */
     private final RepeatedInt baseAvatarList = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class PickRogueAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_list = 6;</code>
+     * <code>repeated uint32 base_avatar_list = 7;</code>
      * @return whether the baseAvatarList field is set
      */
     public boolean hasBaseAvatarList() {
@@ -43,7 +43,7 @@ public final class PickRogueAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_list = 6;</code>
+     * <code>repeated uint32 base_avatar_list = 7;</code>
      * @return this
      */
     public PickRogueAvatarScRsp clearBaseAvatarList() {
@@ -53,7 +53,7 @@ public final class PickRogueAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_list = 6;</code>
+     * <code>repeated uint32 base_avatar_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class PickRogueAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_list = 6;</code>
+     * <code>repeated uint32 base_avatar_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class PickRogueAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_list = 6;</code>
+     * <code>repeated uint32 base_avatar_list = 7;</code>
      * @param value the baseAvatarList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class PickRogueAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 base_avatar_list = 6;</code>
+     * <code>repeated uint32 base_avatar_list = 7;</code>
      * @param values the baseAvatarList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class PickRogueAvatarScRspOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < baseAvatarList.length(); i++) {
-          output.writeRawByte((byte) 48);
+          output.writeRawByte((byte) 56);
           output.writeUInt32NoTag(baseAvatarList.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class PickRogueAvatarScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
+          case 58: {
             // baseAvatarList [packed=true]
             input.readPackedUInt32(baseAvatarList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class PickRogueAvatarScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 48: {
+          case 56: {
             // baseAvatarList [packed=false]
             tag = input.readRepeatedUInt32(baseAvatarList, tag);
             bitField0_ |= 0x00000001;

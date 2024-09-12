@@ -6,6 +6,7 @@ import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.SceneEntityRefreshInfoOuterClass.SceneEntityRefreshInfo;
 import emu.lunarcore.proto.SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo;
 import emu.lunarcore.proto.SceneGroupRefreshScNotifyOuterClass.SceneGroupRefreshScNotify;
+import emu.lunarcore.proto.SceneGroupRefreshTypeOuterClass.SceneGroupRefreshType;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 
@@ -21,6 +22,7 @@ public class PacketSceneGroupRefreshScNotify extends BasePacket {
             group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setAddEntity(toAdd.toSceneEntityProto()));
         } else if (toRemove != null) {
             group.setGroupId(toRemove.getGroupId());
+            group.setGroupRefreshType(SceneGroupRefreshType.SCENE_GROUP_REFRESH_TYPE_UNLOAD);
             group.addRefreshEntity(SceneEntityRefreshInfo.newInstance().setDelEntity(toRemove.getEntityId()));
         }
 

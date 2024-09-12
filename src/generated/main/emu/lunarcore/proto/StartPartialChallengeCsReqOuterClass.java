@@ -19,17 +19,17 @@ public final class StartPartialChallengeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 buff_id = 9;</code>
-     */
-    private int buffId;
-
-    /**
      * <code>optional uint32 challenge_id = 10;</code>
      */
     private int challengeId;
 
     /**
-     * <code>optional bool is_first_half = 5;</code>
+     * <code>optional uint32 buff_id = 12;</code>
+     */
+    private int buffId;
+
+    /**
+     * <code>optional bool is_first_half = 4;</code>
      */
     private boolean isFirstHalf;
 
@@ -44,48 +44,11 @@ public final class StartPartialChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 9;</code>
-     * @return whether the buffId field is set
-     */
-    public boolean hasBuffId() {
-      return (bitField0_ & 0x00000001) != 0;
-    }
-
-    /**
-     * <code>optional uint32 buff_id = 9;</code>
-     * @return this
-     */
-    public StartPartialChallengeCsReq clearBuffId() {
-      bitField0_ &= ~0x00000001;
-      buffId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 buff_id = 9;</code>
-     * @return the buffId
-     */
-    public int getBuffId() {
-      return buffId;
-    }
-
-    /**
-     * <code>optional uint32 buff_id = 9;</code>
-     * @param value the buffId to set
-     * @return this
-     */
-    public StartPartialChallengeCsReq setBuffId(final int value) {
-      bitField0_ |= 0x00000001;
-      buffId = value;
-      return this;
-    }
-
-    /**
      * <code>optional uint32 challenge_id = 10;</code>
      * @return whether the challengeId field is set
      */
     public boolean hasChallengeId() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
@@ -93,7 +56,7 @@ public final class StartPartialChallengeCsReqOuterClass {
      * @return this
      */
     public StartPartialChallengeCsReq clearChallengeId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       challengeId = 0;
       return this;
     }
@@ -112,13 +75,50 @@ public final class StartPartialChallengeCsReqOuterClass {
      * @return this
      */
     public StartPartialChallengeCsReq setChallengeId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       challengeId = value;
       return this;
     }
 
     /**
-     * <code>optional bool is_first_half = 5;</code>
+     * <code>optional uint32 buff_id = 12;</code>
+     * @return whether the buffId field is set
+     */
+    public boolean hasBuffId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 buff_id = 12;</code>
+     * @return this
+     */
+    public StartPartialChallengeCsReq clearBuffId() {
+      bitField0_ &= ~0x00000002;
+      buffId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 buff_id = 12;</code>
+     * @return the buffId
+     */
+    public int getBuffId() {
+      return buffId;
+    }
+
+    /**
+     * <code>optional uint32 buff_id = 12;</code>
+     * @param value the buffId to set
+     * @return this
+     */
+    public StartPartialChallengeCsReq setBuffId(final int value) {
+      bitField0_ |= 0x00000002;
+      buffId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional bool is_first_half = 4;</code>
      * @return whether the isFirstHalf field is set
      */
     public boolean hasIsFirstHalf() {
@@ -126,7 +126,7 @@ public final class StartPartialChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_first_half = 5;</code>
+     * <code>optional bool is_first_half = 4;</code>
      * @return this
      */
     public StartPartialChallengeCsReq clearIsFirstHalf() {
@@ -136,7 +136,7 @@ public final class StartPartialChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_first_half = 5;</code>
+     * <code>optional bool is_first_half = 4;</code>
      * @return the isFirstHalf
      */
     public boolean getIsFirstHalf() {
@@ -144,7 +144,7 @@ public final class StartPartialChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool is_first_half = 5;</code>
+     * <code>optional bool is_first_half = 4;</code>
      * @param value the isFirstHalf to set
      * @return this
      */
@@ -159,8 +159,8 @@ public final class StartPartialChallengeCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        buffId = other.buffId;
         challengeId = other.challengeId;
+        buffId = other.buffId;
         isFirstHalf = other.isFirstHalf;
       }
       return this;
@@ -172,11 +172,11 @@ public final class StartPartialChallengeCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBuffId()) {
-        setBuffId(other.buffId);
-      }
       if (other.hasChallengeId()) {
         setChallengeId(other.challengeId);
+      }
+      if (other.hasBuffId()) {
+        setBuffId(other.buffId);
       }
       if (other.hasIsFirstHalf()) {
         setIsFirstHalf(other.isFirstHalf);
@@ -191,8 +191,8 @@ public final class StartPartialChallengeCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      buffId = 0;
       challengeId = 0;
+      buffId = 0;
       isFirstHalf = false;
       return this;
     }
@@ -217,23 +217,23 @@ public final class StartPartialChallengeCsReqOuterClass {
       }
       StartPartialChallengeCsReq other = (StartPartialChallengeCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasBuffId() || buffId == other.buffId)
         && (!hasChallengeId() || challengeId == other.challengeId)
+        && (!hasBuffId() || buffId == other.buffId)
         && (!hasIsFirstHalf() || isFirstHalf == other.isFirstHalf);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(buffId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(challengeId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(buffId);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 32);
         output.writeBoolNoTag(isFirstHalf);
       }
     }
@@ -242,10 +242,10 @@ public final class StartPartialChallengeCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(buffId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(challengeId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(buffId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 2;
@@ -260,25 +260,25 @@ public final class StartPartialChallengeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
-            // buffId
-            buffId = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
           case 80: {
             // challengeId
             challengeId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 96) {
               break;
             }
           }
-          case 40: {
+          case 96: {
+            // buffId
+            buffId = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 32) {
+              break;
+            }
+          }
+          case 32: {
             // isFirstHalf
             isFirstHalf = input.readBool();
             bitField0_ |= 0x00000004;
@@ -305,10 +305,10 @@ public final class StartPartialChallengeCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.buffId, buffId);
+        output.writeUInt32(FieldNames.challengeId, challengeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.challengeId, challengeId);
+        output.writeUInt32(FieldNames.buffId, buffId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeBool(FieldNames.isFirstHalf, isFirstHalf);
@@ -323,11 +323,11 @@ public final class StartPartialChallengeCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1378119474:
-          case 227990663: {
-            if (input.isAtField(FieldNames.buffId)) {
+          case -689112866:
+          case 112359031: {
+            if (input.isAtField(FieldNames.challengeId)) {
               if (!input.trySkipNullValue()) {
-                buffId = input.readUInt32();
+                challengeId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -335,11 +335,11 @@ public final class StartPartialChallengeCsReqOuterClass {
             }
             break;
           }
-          case -689112866:
-          case 112359031: {
-            if (input.isAtField(FieldNames.challengeId)) {
+          case -1378119474:
+          case 227990663: {
+            if (input.isAtField(FieldNames.buffId)) {
               if (!input.trySkipNullValue()) {
-                challengeId = input.readUInt32();
+                buffId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -412,9 +412,9 @@ public final class StartPartialChallengeCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName buffId = FieldName.forField("buffId", "buff_id");
-
       static final FieldName challengeId = FieldName.forField("challengeId", "challenge_id");
+
+      static final FieldName buffId = FieldName.forField("buffId", "buff_id");
 
       static final FieldName isFirstHalf = FieldName.forField("isFirstHalf", "is_first_half");
     }

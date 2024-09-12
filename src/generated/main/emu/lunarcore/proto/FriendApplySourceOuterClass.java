@@ -97,7 +97,7 @@ public final class FriendApplySourceOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<FriendApplySource> converter() {
+    public static ProtoEnum.EnumConverter<FriendApplySource> converter() {
       return FriendApplySourceConverter.INSTANCE;
     }
 
@@ -119,7 +119,7 @@ public final class FriendApplySourceOuterClass {
       return value == null ? other : value;
     }
 
-    enum FriendApplySourceConverter implements EnumConverter<FriendApplySource> {
+    enum FriendApplySourceConverter implements ProtoEnum.EnumConverter<FriendApplySource> {
       INSTANCE;
 
       private static final FriendApplySource[] lookup = new FriendApplySource[6];

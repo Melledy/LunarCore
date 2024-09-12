@@ -19,12 +19,12 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 rogue_version_id = 11;</code>
+     * <code>optional uint32 rogue_version_id = 12;</code>
      */
     private int rogueVersionId;
 
     /**
-     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 7;</code>
+     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 15;</code>
      */
     private final RogueCommonPendingActionOuterClass.RogueCommonPendingAction rogueCommonPendingAction = RogueCommonPendingActionOuterClass.RogueCommonPendingAction.newInstance();
 
@@ -39,7 +39,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 11;</code>
+     * <code>optional uint32 rogue_version_id = 12;</code>
      * @return whether the rogueVersionId field is set
      */
     public boolean hasRogueVersionId() {
@@ -47,7 +47,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 11;</code>
+     * <code>optional uint32 rogue_version_id = 12;</code>
      * @return this
      */
     public SyncRogueCommonPendingActionScNotify clearRogueVersionId() {
@@ -57,7 +57,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 11;</code>
+     * <code>optional uint32 rogue_version_id = 12;</code>
      * @return the rogueVersionId
      */
     public int getRogueVersionId() {
@@ -65,7 +65,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 rogue_version_id = 11;</code>
+     * <code>optional uint32 rogue_version_id = 12;</code>
      * @param value the rogueVersionId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 7;</code>
+     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 15;</code>
      * @return whether the rogueCommonPendingAction field is set
      */
     public boolean hasRogueCommonPendingAction() {
@@ -84,7 +84,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 7;</code>
+     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 15;</code>
      * @return this
      */
     public SyncRogueCommonPendingActionScNotify clearRogueCommonPendingAction() {
@@ -94,7 +94,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 7;</code>
+     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 7;</code>
+     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -124,7 +124,7 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 7;</code>
+     * <code>optional .RogueCommonPendingAction rogue_common_pending_action = 15;</code>
      * @param value the rogueCommonPendingAction to set
      * @return this
      */
@@ -203,11 +203,11 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(rogueVersionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 122);
         output.writeMessageNoTag(rogueCommonPendingAction);
       }
     }
@@ -232,16 +232,16 @@ public final class SyncRogueCommonPendingActionScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 96: {
             // rogueVersionId
             rogueVersionId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 122) {
               break;
             }
           }
-          case 58: {
+          case 122: {
             // rogueCommonPendingAction
             input.readMessage(rogueCommonPendingAction);
             bitField0_ |= 0x00000002;

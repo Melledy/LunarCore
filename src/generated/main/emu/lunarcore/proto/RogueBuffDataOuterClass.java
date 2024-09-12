@@ -19,12 +19,12 @@ public final class RogueBuffDataOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 8;</code>
      */
     private int level;
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      */
     private int buffId;
 
@@ -39,7 +39,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -47,7 +47,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return this
      */
     public RogueBuffData clearLevel() {
@@ -57,7 +57,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 8;</code>
      * @return the level
      */
     public int getLevel() {
@@ -65,7 +65,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 3;</code>
+     * <code>optional uint32 level = 8;</code>
      * @param value the level to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -84,7 +84,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @return this
      */
     public RogueBuffData clearBuffId() {
@@ -94,7 +94,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -102,7 +102,7 @@ public final class RogueBuffDataOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RogueBuffDataOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(buffId);
       }
     }
@@ -205,16 +205,16 @@ public final class RogueBuffDataOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 64: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 88) {
               break;
             }
           }
-          case 56: {
+          case 88: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000002;

@@ -20,12 +20,12 @@ public final class SetDisplayAvatarScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 2;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 4;</code>
      */
     private final RepeatedMessage<DisplayAvatarOuterClass.DisplayAvatar> displayAvatarList = RepeatedMessage.newEmptyInstance(DisplayAvatarOuterClass.DisplayAvatar.getFactory());
 
@@ -40,7 +40,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return this
      */
     public SetDisplayAvatarScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 2;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 4;</code>
      * @return whether the displayAvatarList field is set
      */
     public boolean hasDisplayAvatarList() {
@@ -85,7 +85,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 2;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 4;</code>
      * @return this
      */
     public SetDisplayAvatarScRsp clearDisplayAvatarList() {
@@ -95,7 +95,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 2;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 2;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 2;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 4;</code>
      * @param value the displayAvatarList to add
      * @return this
      */
@@ -135,7 +135,7 @@ public final class SetDisplayAvatarScRspOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 2;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 4;</code>
      * @param values the displayAvatarList to add
      * @return this
      */
@@ -212,12 +212,12 @@ public final class SetDisplayAvatarScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < displayAvatarList.length(); i++) {
-          output.writeRawByte((byte) 18);
+          output.writeRawByte((byte) 34);
           output.writeMessageNoTag(displayAvatarList.get(i));
         }
       }
@@ -242,16 +242,16 @@ public final class SetDisplayAvatarScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 40: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 34) {
               break;
             }
           }
-          case 18: {
+          case 34: {
             // displayAvatarList
             tag = input.readRepeatedMessage(displayAvatarList, tag);
             bitField0_ |= 0x00000002;

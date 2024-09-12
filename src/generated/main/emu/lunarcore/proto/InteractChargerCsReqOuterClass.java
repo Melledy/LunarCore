@@ -19,7 +19,7 @@ public final class InteractChargerCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .ChargerInfo charger_info = 2;</code>
+     * <code>optional .ChargerInfo charger_info = 13;</code>
      */
     private final ChargerInfoOuterClass.ChargerInfo chargerInfo = ChargerInfoOuterClass.ChargerInfo.newInstance();
 
@@ -34,7 +34,7 @@ public final class InteractChargerCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChargerInfo charger_info = 2;</code>
+     * <code>optional .ChargerInfo charger_info = 13;</code>
      * @return whether the chargerInfo field is set
      */
     public boolean hasChargerInfo() {
@@ -42,7 +42,7 @@ public final class InteractChargerCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChargerInfo charger_info = 2;</code>
+     * <code>optional .ChargerInfo charger_info = 13;</code>
      * @return this
      */
     public InteractChargerCsReq clearChargerInfo() {
@@ -52,7 +52,7 @@ public final class InteractChargerCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChargerInfo charger_info = 2;</code>
+     * <code>optional .ChargerInfo charger_info = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class InteractChargerCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChargerInfo charger_info = 2;</code>
+     * <code>optional .ChargerInfo charger_info = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class InteractChargerCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ChargerInfo charger_info = 2;</code>
+     * <code>optional .ChargerInfo charger_info = 13;</code>
      * @param value the chargerInfo to set
      * @return this
      */
@@ -150,7 +150,7 @@ public final class InteractChargerCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 106);
         output.writeMessageNoTag(chargerInfo);
       }
     }
@@ -171,7 +171,7 @@ public final class InteractChargerCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 18: {
+          case 106: {
             // chargerInfo
             input.readMessage(chargerInfo);
             bitField0_ |= 0x00000001;

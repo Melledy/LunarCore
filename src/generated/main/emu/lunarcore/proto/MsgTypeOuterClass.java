@@ -67,7 +67,7 @@ public final class MsgTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<MsgType> converter() {
+    public static ProtoEnum.EnumConverter<MsgType> converter() {
       return MsgTypeConverter.INSTANCE;
     }
 
@@ -89,7 +89,7 @@ public final class MsgTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum MsgTypeConverter implements EnumConverter<MsgType> {
+    enum MsgTypeConverter implements ProtoEnum.EnumConverter<MsgType> {
       INSTANCE;
 
       private static final MsgType[] lookup = new MsgType[3];

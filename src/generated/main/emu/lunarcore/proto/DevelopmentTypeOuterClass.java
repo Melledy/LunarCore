@@ -167,7 +167,7 @@ public final class DevelopmentTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<DevelopmentType> converter() {
+    public static ProtoEnum.EnumConverter<DevelopmentType> converter() {
       return DevelopmentTypeConverter.INSTANCE;
     }
 
@@ -189,7 +189,7 @@ public final class DevelopmentTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum DevelopmentTypeConverter implements EnumConverter<DevelopmentType> {
+    enum DevelopmentTypeConverter implements ProtoEnum.EnumConverter<DevelopmentType> {
       INSTANCE;
 
       private static final DevelopmentType[] lookup = new DevelopmentType[13];

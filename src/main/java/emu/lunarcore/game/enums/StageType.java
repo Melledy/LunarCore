@@ -26,7 +26,16 @@ public enum StageType {
     Heliobus (20),
     RogueEndlessActivity (21),
     StrongChallengeActivity (22),
-    Challenge (23);
+    Challenge (23),
+    TelevisionActivity (24),
+    EvolveBuildActivity (25),
+    FeverTimeActivity (26),
+    ClockParkActivity (27),
+    RogueRelic (28),
+    SwordTraining (29),
+    StarFightActivity (30),
+    SummonActivity (31),
+    FightFest (32);
     
     @Getter
     private final int val;

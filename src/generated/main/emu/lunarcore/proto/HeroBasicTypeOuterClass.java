@@ -187,7 +187,7 @@ public final class HeroBasicTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<HeroBasicType> converter() {
+    public static ProtoEnum.EnumConverter<HeroBasicType> converter() {
       return HeroBasicTypeConverter.INSTANCE;
     }
 
@@ -209,7 +209,7 @@ public final class HeroBasicTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum HeroBasicTypeConverter implements EnumConverter<HeroBasicType> {
+    enum HeroBasicTypeConverter implements ProtoEnum.EnumConverter<HeroBasicType> {
       INSTANCE;
 
       @Override

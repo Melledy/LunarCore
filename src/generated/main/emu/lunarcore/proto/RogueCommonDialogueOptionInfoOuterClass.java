@@ -20,12 +20,12 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 arg_id = 6;</code>
+     * <code>optional uint32 arg_id = 1;</code>
      */
     private int argId;
 
     /**
-     * <code>optional uint32 option_id = 9;</code>
+     * <code>optional uint32 option_id = 6;</code>
      */
     private int optionId;
 
@@ -35,17 +35,17 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     private boolean isValid;
 
     /**
-     * <code>optional bool confirm = 13;</code>
+     * <code>optional bool confirm = 7;</code>
      */
     private boolean confirm;
 
     /**
-     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 14;</code>
+     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 11;</code>
      */
     private final RogueCommonDialogueOptionDisplayInfoOuterClass.RogueCommonDialogueOptionDisplayInfo displayValue = RogueCommonDialogueOptionDisplayInfoOuterClass.RogueCommonDialogueOptionDisplayInfo.newInstance();
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 8;</code>
+     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 12;</code>
      */
     private final RepeatedMessage<RogueCommonDialogueOptionResultInfoOuterClass.RogueCommonDialogueOptionResultInfo> optionResultInfo = RepeatedMessage.newEmptyInstance(RogueCommonDialogueOptionResultInfoOuterClass.RogueCommonDialogueOptionResultInfo.getFactory());
 
@@ -60,7 +60,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 arg_id = 6;</code>
+     * <code>optional uint32 arg_id = 1;</code>
      * @return whether the argId field is set
      */
     public boolean hasArgId() {
@@ -68,7 +68,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 arg_id = 6;</code>
+     * <code>optional uint32 arg_id = 1;</code>
      * @return this
      */
     public RogueCommonDialogueOptionInfo clearArgId() {
@@ -78,7 +78,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 arg_id = 6;</code>
+     * <code>optional uint32 arg_id = 1;</code>
      * @return the argId
      */
     public int getArgId() {
@@ -86,7 +86,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 arg_id = 6;</code>
+     * <code>optional uint32 arg_id = 1;</code>
      * @param value the argId to set
      * @return this
      */
@@ -97,7 +97,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 option_id = 9;</code>
+     * <code>optional uint32 option_id = 6;</code>
      * @return whether the optionId field is set
      */
     public boolean hasOptionId() {
@@ -105,7 +105,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 option_id = 9;</code>
+     * <code>optional uint32 option_id = 6;</code>
      * @return this
      */
     public RogueCommonDialogueOptionInfo clearOptionId() {
@@ -115,7 +115,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 option_id = 9;</code>
+     * <code>optional uint32 option_id = 6;</code>
      * @return the optionId
      */
     public int getOptionId() {
@@ -123,7 +123,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 option_id = 9;</code>
+     * <code>optional uint32 option_id = 6;</code>
      * @param value the optionId to set
      * @return this
      */
@@ -171,7 +171,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional bool confirm = 13;</code>
+     * <code>optional bool confirm = 7;</code>
      * @return whether the confirm field is set
      */
     public boolean hasConfirm() {
@@ -179,7 +179,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional bool confirm = 13;</code>
+     * <code>optional bool confirm = 7;</code>
      * @return this
      */
     public RogueCommonDialogueOptionInfo clearConfirm() {
@@ -189,7 +189,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional bool confirm = 13;</code>
+     * <code>optional bool confirm = 7;</code>
      * @return the confirm
      */
     public boolean getConfirm() {
@@ -197,7 +197,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional bool confirm = 13;</code>
+     * <code>optional bool confirm = 7;</code>
      * @param value the confirm to set
      * @return this
      */
@@ -208,7 +208,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 14;</code>
+     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 11;</code>
      * @return whether the displayValue field is set
      */
     public boolean hasDisplayValue() {
@@ -216,7 +216,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 14;</code>
+     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 11;</code>
      * @return this
      */
     public RogueCommonDialogueOptionInfo clearDisplayValue() {
@@ -226,7 +226,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 14;</code>
+     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -241,7 +241,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 14;</code>
+     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -256,7 +256,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 14;</code>
+     * <code>optional .RogueCommonDialogueOptionDisplayInfo display_value = 11;</code>
      * @param value the displayValue to set
      * @return this
      */
@@ -268,7 +268,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 8;</code>
+     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 12;</code>
      * @return whether the optionResultInfo field is set
      */
     public boolean hasOptionResultInfo() {
@@ -276,7 +276,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 8;</code>
+     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 12;</code>
      * @return this
      */
     public RogueCommonDialogueOptionInfo clearOptionResultInfo() {
@@ -286,7 +286,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 8;</code>
+     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -301,7 +301,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 8;</code>
+     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -316,7 +316,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 8;</code>
+     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 12;</code>
      * @param value the optionResultInfo to add
      * @return this
      */
@@ -328,7 +328,7 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 8;</code>
+     * <code>repeated .RogueCommonDialogueOptionResultInfo option_result_info = 12;</code>
      * @param values the optionResultInfo to add
      * @return this
      */
@@ -430,11 +430,11 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(argId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(optionId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -442,16 +442,16 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
         output.writeBoolNoTag(isValid);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 56);
         output.writeBoolNoTag(confirm);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 90);
         output.writeMessageNoTag(displayValue);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         for (int i = 0; i < optionResultInfo.length(); i++) {
-          output.writeRawByte((byte) 66);
+          output.writeRawByte((byte) 98);
           output.writeMessageNoTag(optionResultInfo.get(i));
         }
       }
@@ -488,16 +488,16 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 8: {
             // argId
             argId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 48) {
               break;
             }
           }
-          case 72: {
+          case 48: {
             // optionId
             optionId = input.readUInt32();
             bitField0_ |= 0x00000002;
@@ -511,29 +511,29 @@ public final class RogueCommonDialogueOptionInfoOuterClass {
             isValid = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 56) {
               break;
             }
           }
-          case 104: {
+          case 56: {
             // confirm
             confirm = input.readBool();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 90) {
               break;
             }
           }
-          case 114: {
+          case 90: {
             // displayValue
             input.readMessage(displayValue);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 98) {
               break;
             }
           }
-          case 66: {
+          case 98: {
             // optionResultInfo
             tag = input.readRepeatedMessage(optionResultInfo, tag);
             bitField0_ |= 0x00000020;

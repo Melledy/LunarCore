@@ -20,7 +20,7 @@ public final class SetSignatureCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      */
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class SetSignatureCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      * @return whether the signature field is set
      */
     public boolean hasSignature() {
@@ -43,7 +43,7 @@ public final class SetSignatureCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      * @return this
      */
     public SetSignatureCsReq clearSignature() {
@@ -53,7 +53,7 @@ public final class SetSignatureCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      * @return the signature
      */
     public String getSignature() {
@@ -61,7 +61,7 @@ public final class SetSignatureCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      * @return internal {@code Utf8String} representation of signature for reading
      */
     public Utf8String getSignatureBytes() {
@@ -69,7 +69,7 @@ public final class SetSignatureCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      * @return internal {@code Utf8String} representation of signature for modifications
      */
     public Utf8String getMutableSignatureBytes() {
@@ -78,7 +78,7 @@ public final class SetSignatureCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      * @param value the signature to set
      * @return this
      */
@@ -89,7 +89,7 @@ public final class SetSignatureCsReqOuterClass {
     }
 
     /**
-     * <code>optional string signature = 14;</code>
+     * <code>optional string signature = 13;</code>
      * @param value the signature to set
      * @return this
      */
@@ -159,7 +159,7 @@ public final class SetSignatureCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 106);
         output.writeStringNoTag(signature);
       }
     }
@@ -180,7 +180,7 @@ public final class SetSignatureCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 114: {
+          case 106: {
             // signature
             input.readString(signature);
             bitField0_ |= 0x00000001;

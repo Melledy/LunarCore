@@ -19,7 +19,7 @@ public final class SetGameplayBirthdayCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 birthday = 3;</code>
+     * <code>optional uint32 birthday = 13;</code>
      */
     private int birthday;
 
@@ -34,7 +34,7 @@ public final class SetGameplayBirthdayCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 3;</code>
+     * <code>optional uint32 birthday = 13;</code>
      * @return whether the birthday field is set
      */
     public boolean hasBirthday() {
@@ -42,7 +42,7 @@ public final class SetGameplayBirthdayCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 3;</code>
+     * <code>optional uint32 birthday = 13;</code>
      * @return this
      */
     public SetGameplayBirthdayCsReq clearBirthday() {
@@ -52,7 +52,7 @@ public final class SetGameplayBirthdayCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 3;</code>
+     * <code>optional uint32 birthday = 13;</code>
      * @return the birthday
      */
     public int getBirthday() {
@@ -60,7 +60,7 @@ public final class SetGameplayBirthdayCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 birthday = 3;</code>
+     * <code>optional uint32 birthday = 13;</code>
      * @param value the birthday to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SetGameplayBirthdayCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(birthday);
       }
     }
@@ -150,7 +150,7 @@ public final class SetGameplayBirthdayCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 104: {
             // birthday
             birthday = input.readUInt32();
             bitField0_ |= 0x00000001;

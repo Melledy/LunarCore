@@ -28,6 +28,10 @@ public class SummonUnitInfo {
     }
     
     public void buildMazeSkillActions() {
+        if (TriggerConfig == null) {
+            return;
+        }
+        
         for (var customTrigger : getCustomTriggers()) {
             customTrigger.buildMazeSkillActions();
         }

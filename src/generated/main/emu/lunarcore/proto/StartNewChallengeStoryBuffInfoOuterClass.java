@@ -19,14 +19,14 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 first_half = 12;</code>
-     */
-    private int firstHalf;
-
-    /**
-     * <code>optional uint32 second_half = 13;</code>
+     * <code>optional uint32 second_half = 3;</code>
      */
     private int secondHalf;
+
+    /**
+     * <code>optional uint32 first_half = 10;</code>
+     */
+    private int firstHalf;
 
     private StartNewChallengeStoryBuffInfo() {
     }
@@ -39,62 +39,25 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 first_half = 12;</code>
-     * @return whether the firstHalf field is set
+     * <code>optional uint32 second_half = 3;</code>
+     * @return whether the secondHalf field is set
      */
-    public boolean hasFirstHalf() {
+    public boolean hasSecondHalf() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 first_half = 12;</code>
-     * @return this
-     */
-    public StartNewChallengeStoryBuffInfo clearFirstHalf() {
-      bitField0_ &= ~0x00000001;
-      firstHalf = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 first_half = 12;</code>
-     * @return the firstHalf
-     */
-    public int getFirstHalf() {
-      return firstHalf;
-    }
-
-    /**
-     * <code>optional uint32 first_half = 12;</code>
-     * @param value the firstHalf to set
-     * @return this
-     */
-    public StartNewChallengeStoryBuffInfo setFirstHalf(final int value) {
-      bitField0_ |= 0x00000001;
-      firstHalf = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 second_half = 13;</code>
-     * @return whether the secondHalf field is set
-     */
-    public boolean hasSecondHalf() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 second_half = 13;</code>
+     * <code>optional uint32 second_half = 3;</code>
      * @return this
      */
     public StartNewChallengeStoryBuffInfo clearSecondHalf() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       secondHalf = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 second_half = 13;</code>
+     * <code>optional uint32 second_half = 3;</code>
      * @return the secondHalf
      */
     public int getSecondHalf() {
@@ -102,13 +65,50 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 second_half = 13;</code>
+     * <code>optional uint32 second_half = 3;</code>
      * @param value the secondHalf to set
      * @return this
      */
     public StartNewChallengeStoryBuffInfo setSecondHalf(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       secondHalf = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 first_half = 10;</code>
+     * @return whether the firstHalf field is set
+     */
+    public boolean hasFirstHalf() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 first_half = 10;</code>
+     * @return this
+     */
+    public StartNewChallengeStoryBuffInfo clearFirstHalf() {
+      bitField0_ &= ~0x00000002;
+      firstHalf = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 first_half = 10;</code>
+     * @return the firstHalf
+     */
+    public int getFirstHalf() {
+      return firstHalf;
+    }
+
+    /**
+     * <code>optional uint32 first_half = 10;</code>
+     * @param value the firstHalf to set
+     * @return this
+     */
+    public StartNewChallengeStoryBuffInfo setFirstHalf(final int value) {
+      bitField0_ |= 0x00000002;
+      firstHalf = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        firstHalf = other.firstHalf;
         secondHalf = other.secondHalf;
+        firstHalf = other.firstHalf;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasFirstHalf()) {
-        setFirstHalf(other.firstHalf);
-      }
       if (other.hasSecondHalf()) {
         setSecondHalf(other.secondHalf);
+      }
+      if (other.hasFirstHalf()) {
+        setFirstHalf(other.firstHalf);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      firstHalf = 0;
       secondHalf = 0;
+      firstHalf = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
       }
       StartNewChallengeStoryBuffInfo other = (StartNewChallengeStoryBuffInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasFirstHalf() || firstHalf == other.firstHalf)
-        && (!hasSecondHalf() || secondHalf == other.secondHalf);
+        && (!hasSecondHalf() || secondHalf == other.secondHalf)
+        && (!hasFirstHalf() || firstHalf == other.firstHalf);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(firstHalf);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(secondHalf);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(secondHalf);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(firstHalf);
       }
     }
 
@@ -190,10 +190,10 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(firstHalf);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(secondHalf);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(secondHalf);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(firstHalf);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
-            // firstHalf
-            firstHalf = input.readUInt32();
+          case 24: {
+            // secondHalf
+            secondHalf = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 80) {
               break;
             }
           }
-          case 104: {
-            // secondHalf
-            secondHalf = input.readUInt32();
+          case 80: {
+            // firstHalf
+            firstHalf = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.firstHalf, firstHalf);
+        output.writeUInt32(FieldNames.secondHalf, secondHalf);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.secondHalf, secondHalf);
+        output.writeUInt32(FieldNames.firstHalf, firstHalf);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 132656899:
-          case -161164190: {
-            if (input.isAtField(FieldNames.firstHalf)) {
+          case 423501511:
+          case 265084190: {
+            if (input.isAtField(FieldNames.secondHalf)) {
               if (!input.trySkipNullValue()) {
-                firstHalf = input.readUInt32();
+                secondHalf = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
             }
             break;
           }
-          case 423501511:
-          case 265084190: {
-            if (input.isAtField(FieldNames.secondHalf)) {
+          case 132656899:
+          case -161164190: {
+            if (input.isAtField(FieldNames.firstHalf)) {
               if (!input.trySkipNullValue()) {
-                secondHalf = input.readUInt32();
+                firstHalf = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -335,9 +335,9 @@ public final class StartNewChallengeStoryBuffInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName firstHalf = FieldName.forField("firstHalf", "first_half");
-
       static final FieldName secondHalf = FieldName.forField("secondHalf", "second_half");
+
+      static final FieldName firstHalf = FieldName.forField("firstHalf", "first_half");
     }
   }
 }

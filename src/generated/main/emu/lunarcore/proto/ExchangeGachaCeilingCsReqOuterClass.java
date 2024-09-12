@@ -19,14 +19,14 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 avatar_id = 11;</code>
-     */
-    private int avatarId;
-
-    /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      */
     private int gachaType;
+
+    /**
+     * <code>optional uint32 avatar_id = 13;</code>
+     */
+    private int avatarId;
 
     private ExchangeGachaCeilingCsReq() {
     }
@@ -39,62 +39,25 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 11;</code>
-     * @return whether the avatarId field is set
+     * <code>optional uint32 gacha_type = 3;</code>
+     * @return whether the gachaType field is set
      */
-    public boolean hasAvatarId() {
+    public boolean hasGachaType() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 avatar_id = 11;</code>
-     * @return this
-     */
-    public ExchangeGachaCeilingCsReq clearAvatarId() {
-      bitField0_ &= ~0x00000001;
-      avatarId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 11;</code>
-     * @return the avatarId
-     */
-    public int getAvatarId() {
-      return avatarId;
-    }
-
-    /**
-     * <code>optional uint32 avatar_id = 11;</code>
-     * @param value the avatarId to set
-     * @return this
-     */
-    public ExchangeGachaCeilingCsReq setAvatarId(final int value) {
-      bitField0_ |= 0x00000001;
-      avatarId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 gacha_type = 14;</code>
-     * @return whether the gachaType field is set
-     */
-    public boolean hasGachaType() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      * @return this
      */
     public ExchangeGachaCeilingCsReq clearGachaType() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       gachaType = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      * @return the gachaType
      */
     public int getGachaType() {
@@ -102,13 +65,50 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_type = 14;</code>
+     * <code>optional uint32 gacha_type = 3;</code>
      * @param value the gachaType to set
      * @return this
      */
     public ExchangeGachaCeilingCsReq setGachaType(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       gachaType = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 13;</code>
+     * @return whether the avatarId field is set
+     */
+    public boolean hasAvatarId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 13;</code>
+     * @return this
+     */
+    public ExchangeGachaCeilingCsReq clearAvatarId() {
+      bitField0_ &= ~0x00000002;
+      avatarId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 13;</code>
+     * @return the avatarId
+     */
+    public int getAvatarId() {
+      return avatarId;
+    }
+
+    /**
+     * <code>optional uint32 avatar_id = 13;</code>
+     * @param value the avatarId to set
+     * @return this
+     */
+    public ExchangeGachaCeilingCsReq setAvatarId(final int value) {
+      bitField0_ |= 0x00000002;
+      avatarId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        avatarId = other.avatarId;
         gachaType = other.gachaType;
+        avatarId = other.avatarId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasAvatarId()) {
-        setAvatarId(other.avatarId);
-      }
       if (other.hasGachaType()) {
         setGachaType(other.gachaType);
+      }
+      if (other.hasAvatarId()) {
+        setAvatarId(other.avatarId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      avatarId = 0;
       gachaType = 0;
+      avatarId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
       }
       ExchangeGachaCeilingCsReq other = (ExchangeGachaCeilingCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasAvatarId() || avatarId == other.avatarId)
-        && (!hasGachaType() || gachaType == other.gachaType);
+        && (!hasGachaType() || gachaType == other.gachaType)
+        && (!hasAvatarId() || avatarId == other.avatarId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(avatarId);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(gachaType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(gachaType);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(avatarId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(gachaType);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(avatarId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
-            // avatarId
-            avatarId = input.readUInt32();
+          case 24: {
+            // gachaType
+            gachaType = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 104) {
               break;
             }
           }
-          case 112: {
-            // gachaType
-            gachaType = input.readUInt32();
+          case 104: {
+            // avatarId
+            avatarId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.avatarId, avatarId);
+        output.writeUInt32(FieldNames.gachaType, gachaType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.gachaType, gachaType);
+        output.writeUInt32(FieldNames.avatarId, avatarId);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1787287636:
-          case -428636735: {
-            if (input.isAtField(FieldNames.avatarId)) {
+          case 802848732:
+          case -871474217: {
+            if (input.isAtField(FieldNames.gachaType)) {
               if (!input.trySkipNullValue()) {
-                avatarId = input.readUInt32();
+                gachaType = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
             }
             break;
           }
-          case 802848732:
-          case -871474217: {
-            if (input.isAtField(FieldNames.gachaType)) {
+          case 1787287636:
+          case -428636735: {
+            if (input.isAtField(FieldNames.avatarId)) {
               if (!input.trySkipNullValue()) {
-                gachaType = input.readUInt32();
+                avatarId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class ExchangeGachaCeilingCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
-
       static final FieldName gachaType = FieldName.forField("gachaType", "gacha_type");
+
+      static final FieldName avatarId = FieldName.forField("avatarId", "avatar_id");
     }
   }
 }

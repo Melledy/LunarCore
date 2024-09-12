@@ -19,7 +19,10 @@ public enum ItemUseMethod {
     BPUnlock68 (702),
     BPUnlock128 (703),
     BPUpgradeFrom68To128 (704),
-    AutoConversionItem (801);
+    AutoConversionItem (801),
+    TravelBrochureUse (901),
+    TravelBrochurePasterUse (902),
+    PetSummonRecall (1001);
     
     private int val;
 

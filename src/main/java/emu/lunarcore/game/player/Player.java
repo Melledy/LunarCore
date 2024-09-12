@@ -92,6 +92,7 @@ public class Player implements Tickable, Syncable {
     private int phoneTheme;
     private int chatBubble;
     private int currentBgm;
+    @Setter private int petId;
     private Map<Integer, Integer> curAvatarPaths;
     private PlayerGender gender;
     

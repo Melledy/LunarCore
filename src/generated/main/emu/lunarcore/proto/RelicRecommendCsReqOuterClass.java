@@ -19,7 +19,7 @@ public final class RelicRecommendCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 avatar_id = 2;</code>
+     * <code>optional uint32 avatar_id = 9;</code>
      */
     private int avatarId;
 
@@ -34,7 +34,7 @@ public final class RelicRecommendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 2;</code>
+     * <code>optional uint32 avatar_id = 9;</code>
      * @return whether the avatarId field is set
      */
     public boolean hasAvatarId() {
@@ -42,7 +42,7 @@ public final class RelicRecommendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 2;</code>
+     * <code>optional uint32 avatar_id = 9;</code>
      * @return this
      */
     public RelicRecommendCsReq clearAvatarId() {
@@ -52,7 +52,7 @@ public final class RelicRecommendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 2;</code>
+     * <code>optional uint32 avatar_id = 9;</code>
      * @return the avatarId
      */
     public int getAvatarId() {
@@ -60,7 +60,7 @@ public final class RelicRecommendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 2;</code>
+     * <code>optional uint32 avatar_id = 9;</code>
      * @param value the avatarId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class RelicRecommendCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(avatarId);
       }
     }
@@ -150,7 +150,7 @@ public final class RelicRecommendCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 72: {
             // avatarId
             avatarId = input.readUInt32();
             bitField0_ |= 0x00000001;

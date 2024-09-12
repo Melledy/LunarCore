@@ -19,12 +19,12 @@ public final class GetRogueInitialScoreScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 9;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 7;</code>
      */
     private final RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo rogueScoreInfo = RogueScoreRewardInfoOuterClass.RogueScoreRewardInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return this
      */
     public GetRogueInitialScoreScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 8;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 9;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 7;</code>
      * @return whether the rogueScoreInfo field is set
      */
     public boolean hasRogueScoreInfo() {
@@ -84,7 +84,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 9;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 7;</code>
      * @return this
      */
     public GetRogueInitialScoreScRsp clearRogueScoreInfo() {
@@ -94,7 +94,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 9;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 9;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetRogueInitialScoreScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueScoreRewardInfo rogue_score_info = 9;</code>
+     * <code>optional .RogueScoreRewardInfo rogue_score_info = 7;</code>
      * @param value the rogueScoreInfo to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class GetRogueInitialScoreScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 74);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(rogueScoreInfo);
       }
     }
@@ -227,16 +227,16 @@ public final class GetRogueInitialScoreScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 72: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 58) {
               break;
             }
           }
-          case 74: {
+          case 58: {
             // rogueScoreInfo
             input.readMessage(rogueScoreInfo);
             bitField0_ |= 0x00000002;

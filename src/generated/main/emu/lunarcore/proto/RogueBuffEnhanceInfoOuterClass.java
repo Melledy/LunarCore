@@ -20,17 +20,17 @@ public final class RogueBuffEnhanceInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional float unk_float = 3;</code>
+     * <code>optional float unk_float = 8;</code>
      */
     private float unkFloat;
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      */
     private int buffId;
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 2;</code>
+     * <code>optional .ItemCostList item_cost_list = 7;</code>
      */
     private final ItemCostListOuterClass.ItemCostList itemCostList = ItemCostListOuterClass.ItemCostList.newInstance();
 
@@ -45,7 +45,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional float unk_float = 3;</code>
+     * <code>optional float unk_float = 8;</code>
      * @return whether the unkFloat field is set
      */
     public boolean hasUnkFloat() {
@@ -53,7 +53,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional float unk_float = 3;</code>
+     * <code>optional float unk_float = 8;</code>
      * @return this
      */
     public RogueBuffEnhanceInfo clearUnkFloat() {
@@ -63,7 +63,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional float unk_float = 3;</code>
+     * <code>optional float unk_float = 8;</code>
      * @return the unkFloat
      */
     public float getUnkFloat() {
@@ -71,7 +71,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional float unk_float = 3;</code>
+     * <code>optional float unk_float = 8;</code>
      * @param value the unkFloat to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -90,7 +90,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @return this
      */
     public RogueBuffEnhanceInfo clearBuffId() {
@@ -100,7 +100,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -108,7 +108,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 12;</code>
+     * <code>optional uint32 buff_id = 5;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -119,7 +119,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 2;</code>
+     * <code>optional .ItemCostList item_cost_list = 7;</code>
      * @return whether the itemCostList field is set
      */
     public boolean hasItemCostList() {
@@ -127,7 +127,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 2;</code>
+     * <code>optional .ItemCostList item_cost_list = 7;</code>
      * @return this
      */
     public RogueBuffEnhanceInfo clearItemCostList() {
@@ -137,7 +137,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 2;</code>
+     * <code>optional .ItemCostList item_cost_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +151,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 2;</code>
+     * <code>optional .ItemCostList item_cost_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -165,7 +165,7 @@ public final class RogueBuffEnhanceInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemCostList item_cost_list = 2;</code>
+     * <code>optional .ItemCostList item_cost_list = 7;</code>
      * @param value the itemCostList to set
      * @return this
      */
@@ -247,15 +247,15 @@ public final class RogueBuffEnhanceInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 29);
+        output.writeRawByte((byte) 69);
         output.writeFloatNoTag(unkFloat);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(buffId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(itemCostList);
       }
     }
@@ -282,25 +282,25 @@ public final class RogueBuffEnhanceInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 29: {
+          case 69: {
             // unkFloat
             unkFloat = input.readFloat();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 40) {
               break;
             }
           }
-          case 96: {
+          case 40: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 58) {
               break;
             }
           }
-          case 18: {
+          case 58: {
             // itemCostList
             input.readMessage(itemCostList);
             bitField0_ |= 0x00000004;

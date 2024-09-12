@@ -237,7 +237,7 @@ public final class PlatformTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<PlatformType> converter() {
+    public static ProtoEnum.EnumConverter<PlatformType> converter() {
       return PlatformTypeConverter.INSTANCE;
     }
 
@@ -259,7 +259,7 @@ public final class PlatformTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum PlatformTypeConverter implements EnumConverter<PlatformType> {
+    enum PlatformTypeConverter implements ProtoEnum.EnumConverter<PlatformType> {
       INSTANCE;
 
       private static final PlatformType[] lookup = new PlatformType[26];

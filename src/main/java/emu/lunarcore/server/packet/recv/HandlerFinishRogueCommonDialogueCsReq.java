@@ -1,6 +1,5 @@
 package emu.lunarcore.server.packet.recv;
 
-import emu.lunarcore.game.scene.entity.EntityNpc;
 import emu.lunarcore.proto.FinishRogueCommonDialogueCsReqOuterClass.FinishRogueCommonDialogueCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;

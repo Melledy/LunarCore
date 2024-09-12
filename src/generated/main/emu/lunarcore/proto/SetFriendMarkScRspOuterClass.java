@@ -19,17 +19,17 @@ public final class SetFriendMarkScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 8;</code>
      */
     private int uid;
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 14;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional bool is_set_mark = 8;</code>
+     * <code>optional bool is_set_mark = 10;</code>
      */
     private boolean isSetMark;
 
@@ -44,7 +44,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 8;</code>
      * @return whether the uid field is set
      */
     public boolean hasUid() {
@@ -52,7 +52,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 8;</code>
      * @return this
      */
     public SetFriendMarkScRsp clearUid() {
@@ -62,7 +62,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 8;</code>
      * @return the uid
      */
     public int getUid() {
@@ -70,7 +70,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 2;</code>
+     * <code>optional uint32 uid = 8;</code>
      * @param value the uid to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -89,7 +89,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return this
      */
     public SetFriendMarkScRsp clearRetcode() {
@@ -99,7 +99,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -107,7 +107,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_set_mark = 8;</code>
+     * <code>optional bool is_set_mark = 10;</code>
      * @return whether the isSetMark field is set
      */
     public boolean hasIsSetMark() {
@@ -126,7 +126,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_set_mark = 8;</code>
+     * <code>optional bool is_set_mark = 10;</code>
      * @return this
      */
     public SetFriendMarkScRsp clearIsSetMark() {
@@ -136,7 +136,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_set_mark = 8;</code>
+     * <code>optional bool is_set_mark = 10;</code>
      * @return the isSetMark
      */
     public boolean getIsSetMark() {
@@ -144,7 +144,7 @@ public final class SetFriendMarkScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_set_mark = 8;</code>
+     * <code>optional bool is_set_mark = 10;</code>
      * @param value the isSetMark to set
      * @return this
      */
@@ -225,15 +225,15 @@ public final class SetFriendMarkScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(uid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 80);
         output.writeBoolNoTag(isSetMark);
       }
     }
@@ -260,25 +260,25 @@ public final class SetFriendMarkScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 64: {
             // uid
             uid = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 112) {
               break;
             }
           }
-          case 48: {
+          case 112: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 80) {
               break;
             }
           }
-          case 64: {
+          case 80: {
             // isSetMark
             isSetMark = input.readBool();
             bitField0_ |= 0x00000004;

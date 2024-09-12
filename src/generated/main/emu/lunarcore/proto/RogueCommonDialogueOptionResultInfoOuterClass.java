@@ -20,10 +20,10 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
 
     /**
      * <pre>
-     * OJAHMDLNMAK ACHLGHPPMNO = 3;
+     * ILNKLKJEIKF NJFNJKJPNAP = 2; // 0x18 -> 24 -> RogueOptionEffectNousValueInfo, nous_result_info
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 11;</code>
+     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 14;</code>
      */
     private final RogueCommonDialogueOptionBattleResultInfoOuterClass.RogueCommonDialogueOptionBattleResultInfo battleResultInfo = RogueCommonDialogueOptionBattleResultInfoOuterClass.RogueCommonDialogueOptionBattleResultInfo.newInstance();
 
@@ -50,10 +50,10 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
 
     /**
      * <pre>
-     * OJAHMDLNMAK ACHLGHPPMNO = 3;
+     * ILNKLKJEIKF NJFNJKJPNAP = 2; // 0x18 -> 24 -> RogueOptionEffectNousValueInfo, nous_result_info
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 11;</code>
+     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 14;</code>
      * @return whether the battleResultInfo field is set
      */
     public boolean hasBattleResultInfo() {
@@ -62,10 +62,10 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
 
     /**
      * <pre>
-     * OJAHMDLNMAK ACHLGHPPMNO = 3;
+     * ILNKLKJEIKF NJFNJKJPNAP = 2; // 0x18 -> 24 -> RogueOptionEffectNousValueInfo, nous_result_info
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 11;</code>
+     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 14;</code>
      * @return this
      */
     public RogueCommonDialogueOptionResultInfo clearBattleResultInfo() {
@@ -76,10 +76,10 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
 
     /**
      * <pre>
-     * OJAHMDLNMAK ACHLGHPPMNO = 3;
+     * ILNKLKJEIKF NJFNJKJPNAP = 2; // 0x18 -> 24 -> RogueOptionEffectNousValueInfo, nous_result_info
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 11;</code>
+     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -95,10 +95,10 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
 
     /**
      * <pre>
-     * OJAHMDLNMAK ACHLGHPPMNO = 3;
+     * ILNKLKJEIKF NJFNJKJPNAP = 2; // 0x18 -> 24 -> RogueOptionEffectNousValueInfo, nous_result_info
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 11;</code>
+     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -114,10 +114,10 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
 
     /**
      * <pre>
-     * OJAHMDLNMAK ACHLGHPPMNO = 3;
+     * ILNKLKJEIKF NJFNJKJPNAP = 2; // 0x18 -> 24 -> RogueOptionEffectNousValueInfo, nous_result_info
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 11;</code>
+     * <code>optional .RogueCommonDialogueOptionBattleResultInfo battle_result_info = 14;</code>
      * @param value the battleResultInfo to set
      * @return this
      */
@@ -190,7 +190,7 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 90);
+        output.writeRawByte((byte) 114);
         output.writeMessageNoTag(battleResultInfo);
       }
     }
@@ -212,7 +212,7 @@ public final class RogueCommonDialogueOptionResultInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 90: {
+          case 114: {
             // battleResultInfo
             input.readMessage(battleResultInfo);
             bitField0_ |= 0x00000001;

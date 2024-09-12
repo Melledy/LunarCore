@@ -22,7 +22,7 @@ public final class MissionSyncOuterClass {
 
     /**
      * <pre>
-     *  could be also 10
+     *  could be also 10 or 6
      * </pre>
      *
      * <code>repeated uint32 main_mission_id = 1;</code>
@@ -30,7 +30,7 @@ public final class MissionSyncOuterClass {
     private final RepeatedInt mainMissionId = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .Mission mission_list = 3;</code>
+     * <code>repeated .Mission mission_list = 12;</code>
      */
     private final RepeatedMessage<MissionOuterClass.Mission> missionList = RepeatedMessage.newEmptyInstance(MissionOuterClass.Mission.getFactory());
 
@@ -46,7 +46,7 @@ public final class MissionSyncOuterClass {
 
     /**
      * <pre>
-     *  could be also 10
+     *  could be also 10 or 6
      * </pre>
      *
      * <code>repeated uint32 main_mission_id = 1;</code>
@@ -58,7 +58,7 @@ public final class MissionSyncOuterClass {
 
     /**
      * <pre>
-     *  could be also 10
+     *  could be also 10 or 6
      * </pre>
      *
      * <code>repeated uint32 main_mission_id = 1;</code>
@@ -72,7 +72,7 @@ public final class MissionSyncOuterClass {
 
     /**
      * <pre>
-     *  could be also 10
+     *  could be also 10 or 6
      * </pre>
      *
      * <code>repeated uint32 main_mission_id = 1;</code>
@@ -90,7 +90,7 @@ public final class MissionSyncOuterClass {
 
     /**
      * <pre>
-     *  could be also 10
+     *  could be also 10 or 6
      * </pre>
      *
      * <code>repeated uint32 main_mission_id = 1;</code>
@@ -108,7 +108,7 @@ public final class MissionSyncOuterClass {
 
     /**
      * <pre>
-     *  could be also 10
+     *  could be also 10 or 6
      * </pre>
      *
      * <code>repeated uint32 main_mission_id = 1;</code>
@@ -123,7 +123,7 @@ public final class MissionSyncOuterClass {
 
     /**
      * <pre>
-     *  could be also 10
+     *  could be also 10 or 6
      * </pre>
      *
      * <code>repeated uint32 main_mission_id = 1;</code>
@@ -137,7 +137,7 @@ public final class MissionSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Mission mission_list = 3;</code>
+     * <code>repeated .Mission mission_list = 12;</code>
      * @return whether the missionList field is set
      */
     public boolean hasMissionList() {
@@ -145,7 +145,7 @@ public final class MissionSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Mission mission_list = 3;</code>
+     * <code>repeated .Mission mission_list = 12;</code>
      * @return this
      */
     public MissionSync clearMissionList() {
@@ -155,7 +155,7 @@ public final class MissionSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Mission mission_list = 3;</code>
+     * <code>repeated .Mission mission_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -169,7 +169,7 @@ public final class MissionSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Mission mission_list = 3;</code>
+     * <code>repeated .Mission mission_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -183,7 +183,7 @@ public final class MissionSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Mission mission_list = 3;</code>
+     * <code>repeated .Mission mission_list = 12;</code>
      * @param value the missionList to add
      * @return this
      */
@@ -194,7 +194,7 @@ public final class MissionSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Mission mission_list = 3;</code>
+     * <code>repeated .Mission mission_list = 12;</code>
      * @param values the missionList to add
      * @return this
      */
@@ -278,7 +278,7 @@ public final class MissionSyncOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < missionList.length(); i++) {
-          output.writeRawByte((byte) 26);
+          output.writeRawByte((byte) 98);
           output.writeMessageNoTag(missionList.get(i));
         }
       }
@@ -308,11 +308,11 @@ public final class MissionSyncOuterClass {
             input.readPackedUInt32(mainMissionId, tag);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 98) {
               break;
             }
           }
-          case 26: {
+          case 98: {
             // missionList
             tag = input.readRepeatedMessage(missionList, tag);
             bitField0_ |= 0x00000002;

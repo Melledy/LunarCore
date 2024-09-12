@@ -19,14 +19,14 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 mp = 4;</code>
-     */
-    private int mp;
-
-    /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
+     * <code>optional uint32 attacked_group_id = 10;</code>
      */
     private int attackedGroupId;
+
+    /**
+     * <code>optional uint32 mp = 14;</code>
+     */
+    private int mp;
 
     private SceneCastSkillMpUpdateScNotify() {
     }
@@ -39,62 +39,25 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 mp = 4;</code>
-     * @return whether the mp field is set
+     * <code>optional uint32 attacked_group_id = 10;</code>
+     * @return whether the attackedGroupId field is set
      */
-    public boolean hasMp() {
+    public boolean hasAttackedGroupId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 mp = 4;</code>
-     * @return this
-     */
-    public SceneCastSkillMpUpdateScNotify clearMp() {
-      bitField0_ &= ~0x00000001;
-      mp = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 mp = 4;</code>
-     * @return the mp
-     */
-    public int getMp() {
-      return mp;
-    }
-
-    /**
-     * <code>optional uint32 mp = 4;</code>
-     * @param value the mp to set
-     * @return this
-     */
-    public SceneCastSkillMpUpdateScNotify setMp(final int value) {
-      bitField0_ |= 0x00000001;
-      mp = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
-     * @return whether the attackedGroupId field is set
-     */
-    public boolean hasAttackedGroupId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
+     * <code>optional uint32 attacked_group_id = 10;</code>
      * @return this
      */
     public SceneCastSkillMpUpdateScNotify clearAttackedGroupId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       attackedGroupId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
+     * <code>optional uint32 attacked_group_id = 10;</code>
      * @return the attackedGroupId
      */
     public int getAttackedGroupId() {
@@ -102,13 +65,50 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
+     * <code>optional uint32 attacked_group_id = 10;</code>
      * @param value the attackedGroupId to set
      * @return this
      */
     public SceneCastSkillMpUpdateScNotify setAttackedGroupId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       attackedGroupId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 mp = 14;</code>
+     * @return whether the mp field is set
+     */
+    public boolean hasMp() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 mp = 14;</code>
+     * @return this
+     */
+    public SceneCastSkillMpUpdateScNotify clearMp() {
+      bitField0_ &= ~0x00000002;
+      mp = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 mp = 14;</code>
+     * @return the mp
+     */
+    public int getMp() {
+      return mp;
+    }
+
+    /**
+     * <code>optional uint32 mp = 14;</code>
+     * @param value the mp to set
+     * @return this
+     */
+    public SceneCastSkillMpUpdateScNotify setMp(final int value) {
+      bitField0_ |= 0x00000002;
+      mp = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        mp = other.mp;
         attackedGroupId = other.attackedGroupId;
+        mp = other.mp;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasMp()) {
-        setMp(other.mp);
-      }
       if (other.hasAttackedGroupId()) {
         setAttackedGroupId(other.attackedGroupId);
+      }
+      if (other.hasMp()) {
+        setMp(other.mp);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      mp = 0;
       attackedGroupId = 0;
+      mp = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
       }
       SceneCastSkillMpUpdateScNotify other = (SceneCastSkillMpUpdateScNotify) o;
       return bitField0_ == other.bitField0_
-        && (!hasMp() || mp == other.mp)
-        && (!hasAttackedGroupId() || attackedGroupId == other.attackedGroupId);
+        && (!hasAttackedGroupId() || attackedGroupId == other.attackedGroupId)
+        && (!hasMp() || mp == other.mp);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(mp);
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(attackedGroupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(attackedGroupId);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(mp);
       }
     }
 
@@ -190,10 +190,10 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(mp);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(attackedGroupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(attackedGroupId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(mp);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
-            // mp
-            mp = input.readUInt32();
+          case 80: {
+            // attackedGroupId
+            attackedGroupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 112) {
               break;
             }
           }
-          case 40: {
-            // attackedGroupId
-            attackedGroupId = input.readUInt32();
+          case 112: {
+            // mp
+            mp = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.mp, mp);
+        output.writeUInt32(FieldNames.attackedGroupId, attackedGroupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.attackedGroupId, attackedGroupId);
+        output.writeUInt32(FieldNames.mp, mp);
       }
       output.endObject();
     }
@@ -256,10 +256,11 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 3491: {
-            if (input.isAtField(FieldNames.mp)) {
+          case -1725961965:
+          case -715836621: {
+            if (input.isAtField(FieldNames.attackedGroupId)) {
               if (!input.trySkipNullValue()) {
-                mp = input.readUInt32();
+                attackedGroupId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -267,11 +268,10 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
             }
             break;
           }
-          case -1725961965:
-          case -715836621: {
-            if (input.isAtField(FieldNames.attackedGroupId)) {
+          case 3491: {
+            if (input.isAtField(FieldNames.mp)) {
               if (!input.trySkipNullValue()) {
-                attackedGroupId = input.readUInt32();
+                mp = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -334,9 +334,9 @@ public final class SceneCastSkillMpUpdateScNotifyOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName mp = FieldName.forField("mp");
-
       static final FieldName attackedGroupId = FieldName.forField("attackedGroupId", "attacked_group_id");
+
+      static final FieldName mp = FieldName.forField("mp");
     }
   }
 }

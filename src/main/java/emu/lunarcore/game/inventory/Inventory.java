@@ -270,6 +270,9 @@ public class Inventory extends BasePlayerManager {
             if (subType != ItemSubType.Food) {
                 return null;
             }
+        case Pet:
+            getPlayer().getUnlocks().addPet(item.getItemId());
+            return item;
         default:
             if (tab == null) {
                 return null;

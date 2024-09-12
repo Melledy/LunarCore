@@ -19,12 +19,16 @@ public final class TextJoinInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 text_item_id = 7;</code>
+     * <pre>
+     *  could be 4, TODO: check
+     * </pre>
+     *
+     * <code>optional uint32 text_item_id = 11;</code>
      */
     private int textItemId;
 
     /**
-     * <code>optional uint32 text_item_config_id = 10;</code>
+     * <code>optional uint32 text_item_config_id = 13;</code>
      */
     private int textItemConfigId;
 
@@ -39,7 +43,11 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_id = 7;</code>
+     * <pre>
+     *  could be 4, TODO: check
+     * </pre>
+     *
+     * <code>optional uint32 text_item_id = 11;</code>
      * @return whether the textItemId field is set
      */
     public boolean hasTextItemId() {
@@ -47,7 +55,11 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_id = 7;</code>
+     * <pre>
+     *  could be 4, TODO: check
+     * </pre>
+     *
+     * <code>optional uint32 text_item_id = 11;</code>
      * @return this
      */
     public TextJoinInfo clearTextItemId() {
@@ -57,7 +69,11 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_id = 7;</code>
+     * <pre>
+     *  could be 4, TODO: check
+     * </pre>
+     *
+     * <code>optional uint32 text_item_id = 11;</code>
      * @return the textItemId
      */
     public int getTextItemId() {
@@ -65,7 +81,11 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_id = 7;</code>
+     * <pre>
+     *  could be 4, TODO: check
+     * </pre>
+     *
+     * <code>optional uint32 text_item_id = 11;</code>
      * @param value the textItemId to set
      * @return this
      */
@@ -76,7 +96,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 10;</code>
+     * <code>optional uint32 text_item_config_id = 13;</code>
      * @return whether the textItemConfigId field is set
      */
     public boolean hasTextItemConfigId() {
@@ -84,7 +104,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 10;</code>
+     * <code>optional uint32 text_item_config_id = 13;</code>
      * @return this
      */
     public TextJoinInfo clearTextItemConfigId() {
@@ -94,7 +114,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 10;</code>
+     * <code>optional uint32 text_item_config_id = 13;</code>
      * @return the textItemConfigId
      */
     public int getTextItemConfigId() {
@@ -102,7 +122,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 10;</code>
+     * <code>optional uint32 text_item_config_id = 13;</code>
      * @param value the textItemConfigId to set
      * @return this
      */
@@ -177,11 +197,11 @@ public final class TextJoinInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(textItemId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(textItemConfigId);
       }
     }
@@ -205,16 +225,16 @@ public final class TextJoinInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 88: {
             // textItemId
             textItemId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 104) {
               break;
             }
           }
-          case 80: {
+          case 104: {
             // textItemConfigId
             textItemConfigId = input.readUInt32();
             bitField0_ |= 0x00000002;

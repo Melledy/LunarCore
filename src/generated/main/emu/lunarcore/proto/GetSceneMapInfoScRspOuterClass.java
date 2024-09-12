@@ -20,12 +20,12 @@ public final class GetSceneMapInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .MazeMapData map_list = 1;</code>
+     * <code>repeated .MazeMapData map_list = 5;</code>
      */
     private final RepeatedMessage<MazeMapDataOuterClass.MazeMapData> mapList = RepeatedMessage.newEmptyInstance(MazeMapDataOuterClass.MazeMapData.getFactory());
 
@@ -40,7 +40,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return this
      */
     public GetSceneMapInfoScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 1;</code>
+     * <code>repeated .MazeMapData map_list = 5;</code>
      * @return whether the mapList field is set
      */
     public boolean hasMapList() {
@@ -85,7 +85,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 1;</code>
+     * <code>repeated .MazeMapData map_list = 5;</code>
      * @return this
      */
     public GetSceneMapInfoScRsp clearMapList() {
@@ -95,7 +95,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 1;</code>
+     * <code>repeated .MazeMapData map_list = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 1;</code>
+     * <code>repeated .MazeMapData map_list = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 1;</code>
+     * <code>repeated .MazeMapData map_list = 5;</code>
      * @param value the mapList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 1;</code>
+     * <code>repeated .MazeMapData map_list = 5;</code>
      * @param values the mapList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class GetSceneMapInfoScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < mapList.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 42);
           output.writeMessageNoTag(mapList.get(i));
         }
       }
@@ -240,16 +240,16 @@ public final class GetSceneMapInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 72: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 42) {
               break;
             }
           }
-          case 10: {
+          case 42: {
             // mapList
             tag = input.readRepeatedMessage(mapList, tag);
             bitField0_ |= 0x00000002;

@@ -19,12 +19,12 @@ public final class ActivateFarmElementCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 world_level = 13;</code>
+     * <code>optional uint32 world_level = 9;</code>
      */
     private int worldLevel;
 
     /**
-     * <code>optional uint32 entity_id = 15;</code>
+     * <code>optional uint32 entity_id = 13;</code>
      */
     private int entityId;
 
@@ -39,7 +39,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 13;</code>
+     * <code>optional uint32 world_level = 9;</code>
      * @return whether the worldLevel field is set
      */
     public boolean hasWorldLevel() {
@@ -47,7 +47,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 13;</code>
+     * <code>optional uint32 world_level = 9;</code>
      * @return this
      */
     public ActivateFarmElementCsReq clearWorldLevel() {
@@ -57,7 +57,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 13;</code>
+     * <code>optional uint32 world_level = 9;</code>
      * @return the worldLevel
      */
     public int getWorldLevel() {
@@ -65,7 +65,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 world_level = 13;</code>
+     * <code>optional uint32 world_level = 9;</code>
      * @param value the worldLevel to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 15;</code>
+     * <code>optional uint32 entity_id = 13;</code>
      * @return whether the entityId field is set
      */
     public boolean hasEntityId() {
@@ -84,7 +84,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 15;</code>
+     * <code>optional uint32 entity_id = 13;</code>
      * @return this
      */
     public ActivateFarmElementCsReq clearEntityId() {
@@ -94,7 +94,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 15;</code>
+     * <code>optional uint32 entity_id = 13;</code>
      * @return the entityId
      */
     public int getEntityId() {
@@ -102,7 +102,7 @@ public final class ActivateFarmElementCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 15;</code>
+     * <code>optional uint32 entity_id = 13;</code>
      * @param value the entityId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class ActivateFarmElementCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(worldLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(entityId);
       }
     }
@@ -205,16 +205,16 @@ public final class ActivateFarmElementCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 72: {
             // worldLevel
             worldLevel = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 104) {
               break;
             }
           }
-          case 120: {
+          case 104: {
             // entityId
             entityId = input.readUInt32();
             bitField0_ |= 0x00000002;

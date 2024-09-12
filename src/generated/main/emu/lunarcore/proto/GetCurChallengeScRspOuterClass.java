@@ -19,12 +19,12 @@ public final class GetCurChallengeScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 14;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 5;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      */
     private final ChallengeInfoOuterClass.ChallengeInfo challengeInfo = ChallengeInfoOuterClass.ChallengeInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return this
      */
     public GetCurChallengeScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 5;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      * @return whether the challengeInfo field is set
      */
     public boolean hasChallengeInfo() {
@@ -84,7 +84,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 5;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      * @return this
      */
     public GetCurChallengeScRsp clearChallengeInfo() {
@@ -94,7 +94,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 5;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 5;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GetCurChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 5;</code>
+     * <code>optional .ChallengeInfo challenge_info = 3;</code>
      * @param value the challengeInfo to set
      * @return this
      */
@@ -199,11 +199,11 @@ public final class GetCurChallengeScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 26);
         output.writeMessageNoTag(challengeInfo);
       }
     }
@@ -227,16 +227,16 @@ public final class GetCurChallengeScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 112: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 26) {
               break;
             }
           }
-          case 42: {
+          case 26: {
             // challengeInfo
             input.readMessage(challengeInfo);
             bitField0_ |= 0x00000002;

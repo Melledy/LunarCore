@@ -20,32 +20,32 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 option_id = 10;</code>
+     * <code>optional uint32 option_id = 2;</code>
      */
     private int optionId;
 
     /**
-     * <code>optional uint32 event_unique_id = 12;</code>
+     * <code>optional uint32 retcode = 8;</code>
+     */
+    private int retcode;
+
+    /**
+     * <code>optional uint32 event_unique_id = 9;</code>
      */
     private int eventUniqueId;
 
     /**
-     * <code>optional bool event_has_effect = 8;</code>
+     * <code>optional bool event_has_effect = 6;</code>
      */
     private boolean eventHasEffect;
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 4;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 10;</code>
      */
     private final RogueCommonDialogueDataInfoOuterClass.RogueCommonDialogueDataInfo dialogueData = RogueCommonDialogueDataInfoOuterClass.RogueCommonDialogueDataInfo.newInstance();
 
     /**
-     * <code>repeated uint32 effect_event_id_list = 1;</code>
+     * <code>repeated uint32 effect_event_id_list = 3;</code>
      */
     private final RepeatedInt effectEventIdList = RepeatedInt.newEmptyInstance();
 
@@ -60,62 +60,25 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 option_id = 2;</code>
+     * @return whether the optionId field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasOptionId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
-     * @return this
-     */
-    public SelectRogueCommonDialogueOptionScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 2;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 2;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public SelectRogueCommonDialogueOptionScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 option_id = 10;</code>
-     * @return whether the optionId field is set
-     */
-    public boolean hasOptionId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 option_id = 10;</code>
+     * <code>optional uint32 option_id = 2;</code>
      * @return this
      */
     public SelectRogueCommonDialogueOptionScRsp clearOptionId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       optionId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 option_id = 10;</code>
+     * <code>optional uint32 option_id = 2;</code>
      * @return the optionId
      */
     public int getOptionId() {
@@ -123,18 +86,55 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 option_id = 10;</code>
+     * <code>optional uint32 option_id = 2;</code>
      * @param value the optionId to set
      * @return this
      */
     public SelectRogueCommonDialogueOptionScRsp setOptionId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       optionId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 12;</code>
+     * <code>optional uint32 retcode = 8;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     * @return this
+     */
+    public SelectRogueCommonDialogueOptionScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 8;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public SelectRogueCommonDialogueOptionScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 event_unique_id = 9;</code>
      * @return whether the eventUniqueId field is set
      */
     public boolean hasEventUniqueId() {
@@ -142,7 +142,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 12;</code>
+     * <code>optional uint32 event_unique_id = 9;</code>
      * @return this
      */
     public SelectRogueCommonDialogueOptionScRsp clearEventUniqueId() {
@@ -152,7 +152,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 12;</code>
+     * <code>optional uint32 event_unique_id = 9;</code>
      * @return the eventUniqueId
      */
     public int getEventUniqueId() {
@@ -160,7 +160,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 12;</code>
+     * <code>optional uint32 event_unique_id = 9;</code>
      * @param value the eventUniqueId to set
      * @return this
      */
@@ -171,7 +171,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional bool event_has_effect = 8;</code>
+     * <code>optional bool event_has_effect = 6;</code>
      * @return whether the eventHasEffect field is set
      */
     public boolean hasEventHasEffect() {
@@ -179,7 +179,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional bool event_has_effect = 8;</code>
+     * <code>optional bool event_has_effect = 6;</code>
      * @return this
      */
     public SelectRogueCommonDialogueOptionScRsp clearEventHasEffect() {
@@ -189,7 +189,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional bool event_has_effect = 8;</code>
+     * <code>optional bool event_has_effect = 6;</code>
      * @return the eventHasEffect
      */
     public boolean getEventHasEffect() {
@@ -197,7 +197,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional bool event_has_effect = 8;</code>
+     * <code>optional bool event_has_effect = 6;</code>
      * @param value the eventHasEffect to set
      * @return this
      */
@@ -208,7 +208,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 4;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 10;</code>
      * @return whether the dialogueData field is set
      */
     public boolean hasDialogueData() {
@@ -216,7 +216,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 4;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 10;</code>
      * @return this
      */
     public SelectRogueCommonDialogueOptionScRsp clearDialogueData() {
@@ -226,7 +226,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 4;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -240,7 +240,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 4;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -255,7 +255,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 4;</code>
+     * <code>optional .RogueCommonDialogueDataInfo dialogue_data = 10;</code>
      * @param value the dialogueData to set
      * @return this
      */
@@ -267,7 +267,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 effect_event_id_list = 1;</code>
+     * <code>repeated uint32 effect_event_id_list = 3;</code>
      * @return whether the effectEventIdList field is set
      */
     public boolean hasEffectEventIdList() {
@@ -275,7 +275,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 effect_event_id_list = 1;</code>
+     * <code>repeated uint32 effect_event_id_list = 3;</code>
      * @return this
      */
     public SelectRogueCommonDialogueOptionScRsp clearEffectEventIdList() {
@@ -285,7 +285,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 effect_event_id_list = 1;</code>
+     * <code>repeated uint32 effect_event_id_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -299,7 +299,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 effect_event_id_list = 1;</code>
+     * <code>repeated uint32 effect_event_id_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -313,7 +313,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 effect_event_id_list = 1;</code>
+     * <code>repeated uint32 effect_event_id_list = 3;</code>
      * @param value the effectEventIdList to add
      * @return this
      */
@@ -324,7 +324,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 effect_event_id_list = 1;</code>
+     * <code>repeated uint32 effect_event_id_list = 3;</code>
      * @param values the effectEventIdList to add
      * @return this
      */
@@ -340,8 +340,8 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        retcode = other.retcode;
         optionId = other.optionId;
+        retcode = other.retcode;
         eventUniqueId = other.eventUniqueId;
         eventHasEffect = other.eventHasEffect;
         dialogueData.copyFrom(other.dialogueData);
@@ -357,11 +357,11 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
-      }
       if (other.hasOptionId()) {
         setOptionId(other.optionId);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       if (other.hasEventUniqueId()) {
         setEventUniqueId(other.eventUniqueId);
@@ -385,8 +385,8 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      retcode = 0;
       optionId = 0;
+      retcode = 0;
       eventUniqueId = 0;
       eventHasEffect = false;
       dialogueData.clear();
@@ -416,8 +416,8 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
       }
       SelectRogueCommonDialogueOptionScRsp other = (SelectRogueCommonDialogueOptionScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode)
         && (!hasOptionId() || optionId == other.optionId)
+        && (!hasRetcode() || retcode == other.retcode)
         && (!hasEventUniqueId() || eventUniqueId == other.eventUniqueId)
         && (!hasEventHasEffect() || eventHasEffect == other.eventHasEffect)
         && (!hasDialogueData() || dialogueData.equals(other.dialogueData))
@@ -428,27 +428,27 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(retcode);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(optionId);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(retcode);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(eventUniqueId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 48);
         output.writeBoolNoTag(eventHasEffect);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 82);
         output.writeMessageNoTag(dialogueData);
       }
       if ((bitField0_ & 0x00000020) != 0) {
         for (int i = 0; i < effectEventIdList.length(); i++) {
-          output.writeRawByte((byte) 8);
+          output.writeRawByte((byte) 24);
           output.writeUInt32NoTag(effectEventIdList.array()[i]);
         }
       }
@@ -458,10 +458,10 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(optionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(optionId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(eventUniqueId);
@@ -487,51 +487,51 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
       while (true) {
         switch (tag) {
           case 16: {
-            // retcode
-            retcode = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
             // optionId
             optionId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
-            // eventUniqueId
-            eventUniqueId = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 64) {
               break;
             }
           }
           case 64: {
+            // retcode
+            retcode = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
+            // eventUniqueId
+            eventUniqueId = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
             // eventHasEffect
             eventHasEffect = input.readBool();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 82) {
               break;
             }
           }
-          case 34: {
+          case 82: {
             // dialogueData
             input.readMessage(dialogueData);
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 26) {
               break;
             }
           }
-          case 10: {
+          case 26: {
             // effectEventIdList [packed=true]
             input.readPackedUInt32(effectEventIdList, tag);
             bitField0_ |= 0x00000020;
@@ -550,7 +550,7 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 8: {
+          case 24: {
             // effectEventIdList [packed=false]
             tag = input.readRepeatedUInt32(effectEventIdList, tag);
             bitField0_ |= 0x00000020;
@@ -564,10 +564,10 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.optionId, optionId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.optionId, optionId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.eventUniqueId, eventUniqueId);
@@ -592,10 +592,11 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case -79017872:
+          case 1845434661: {
+            if (input.isAtField(FieldNames.optionId)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                optionId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -603,11 +604,10 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
             }
             break;
           }
-          case -79017872:
-          case 1845434661: {
-            if (input.isAtField(FieldNames.optionId)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                optionId = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -718,9 +718,9 @@ public final class SelectRogueCommonDialogueOptionScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName retcode = FieldName.forField("retcode");
-
       static final FieldName optionId = FieldName.forField("optionId", "option_id");
+
+      static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName eventUniqueId = FieldName.forField("eventUniqueId", "event_unique_id");
 

@@ -19,7 +19,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .ServerPrefs server_prefs = 4;</code>
+     * <code>optional .ServerPrefs server_prefs = 8;</code>
      */
     private final ServerPrefsOuterClass.ServerPrefs serverPrefs = ServerPrefsOuterClass.ServerPrefs.newInstance();
 
@@ -34,7 +34,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ServerPrefs server_prefs = 4;</code>
+     * <code>optional .ServerPrefs server_prefs = 8;</code>
      * @return whether the serverPrefs field is set
      */
     public boolean hasServerPrefs() {
@@ -42,7 +42,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ServerPrefs server_prefs = 4;</code>
+     * <code>optional .ServerPrefs server_prefs = 8;</code>
      * @return this
      */
     public UpdateServerPrefsDataCsReq clearServerPrefs() {
@@ -52,7 +52,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ServerPrefs server_prefs = 4;</code>
+     * <code>optional .ServerPrefs server_prefs = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ServerPrefs server_prefs = 4;</code>
+     * <code>optional .ServerPrefs server_prefs = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
     }
 
     /**
-     * <code>optional .ServerPrefs server_prefs = 4;</code>
+     * <code>optional .ServerPrefs server_prefs = 8;</code>
      * @param value the serverPrefs to set
      * @return this
      */
@@ -151,7 +151,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(serverPrefs);
       }
     }
@@ -172,7 +172,7 @@ public final class UpdateServerPrefsDataCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 34: {
+          case 66: {
             // serverPrefs
             input.readMessage(serverPrefs);
             bitField0_ |= 0x00000001;

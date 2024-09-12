@@ -19,7 +19,7 @@ public final class ChallengeLineupNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 13;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 2;</code>
      */
     private int extraLineupType;
 
@@ -34,7 +34,7 @@ public final class ChallengeLineupNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 13;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 2;</code>
      * @return whether the extraLineupType field is set
      */
     public boolean hasExtraLineupType() {
@@ -42,7 +42,7 @@ public final class ChallengeLineupNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 13;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 2;</code>
      * @return this
      */
     public ChallengeLineupNotify clearExtraLineupType() {
@@ -52,7 +52,7 @@ public final class ChallengeLineupNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 13;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 2;</code>
      * @return the extraLineupType
      */
     public ExtraLineupTypeOuterClass.ExtraLineupType getExtraLineupType() {
@@ -85,7 +85,7 @@ public final class ChallengeLineupNotifyOuterClass {
     }
 
     /**
-     * <code>optional .ExtraLineupType extra_lineup_type = 13;</code>
+     * <code>optional .ExtraLineupType extra_lineup_type = 2;</code>
      * @param value the extraLineupType to set
      * @return this
      */
@@ -155,7 +155,7 @@ public final class ChallengeLineupNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 16);
         output.writeEnumNoTag(extraLineupType);
       }
     }
@@ -176,7 +176,7 @@ public final class ChallengeLineupNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 16: {
             // extraLineupType
             final int value = input.readInt32();
             if (ExtraLineupTypeOuterClass.ExtraLineupType.forNumber(value) != null) {

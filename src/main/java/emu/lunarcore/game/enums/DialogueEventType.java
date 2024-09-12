@@ -48,8 +48,7 @@ public enum DialogueEventType {
     GetDestroyedRogueMiracle(42),
     ChangeDestroyedRogueMiracleToRogueMiracle(43),
     DestroyRogueMiracleThenGetRogueMiracle(44),
-    TriggerDestroyedRogueMiracleSelect(45)
-    ;
+    TriggerDestroyedRogueMiracleSelect(45);
 
     private final int val;
     

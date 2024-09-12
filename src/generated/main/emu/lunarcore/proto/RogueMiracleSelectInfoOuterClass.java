@@ -20,7 +20,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 JDDLGDNOIEC = 10;</code>
+     * <code>optional uint32 JDDLGDNOIEC = 5;</code>
      */
     private int jDDLGDNOIEC;
 
@@ -29,12 +29,12 @@ public final class RogueMiracleSelectInfoOuterClass {
      *  CMHBBMOKJJB EOIFGPMGFGJ = 11;
      * </pre>
      *
-     * <code>repeated uint32 miracle_info_remote = 12;</code>
+     * <code>repeated uint32 miracle_info_remote = 9;</code>
      */
     private final RepeatedInt miracleInfoRemote = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 miracle_info = 15;</code>
+     * <code>repeated uint32 miracle_info = 13;</code>
      */
     private final RepeatedInt miracleInfo = RepeatedInt.newEmptyInstance();
 
@@ -49,7 +49,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 JDDLGDNOIEC = 10;</code>
+     * <code>optional uint32 JDDLGDNOIEC = 5;</code>
      * @return whether the jDDLGDNOIEC field is set
      */
     public boolean hasJDDLGDNOIEC() {
@@ -57,7 +57,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 JDDLGDNOIEC = 10;</code>
+     * <code>optional uint32 JDDLGDNOIEC = 5;</code>
      * @return this
      */
     public RogueMiracleSelectInfo clearJDDLGDNOIEC() {
@@ -67,7 +67,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 JDDLGDNOIEC = 10;</code>
+     * <code>optional uint32 JDDLGDNOIEC = 5;</code>
      * @return the jDDLGDNOIEC
      */
     public int getJDDLGDNOIEC() {
@@ -75,7 +75,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 JDDLGDNOIEC = 10;</code>
+     * <code>optional uint32 JDDLGDNOIEC = 5;</code>
      * @param value the jDDLGDNOIEC to set
      * @return this
      */
@@ -90,7 +90,7 @@ public final class RogueMiracleSelectInfoOuterClass {
      *  CMHBBMOKJJB EOIFGPMGFGJ = 11;
      * </pre>
      *
-     * <code>repeated uint32 miracle_info_remote = 12;</code>
+     * <code>repeated uint32 miracle_info_remote = 9;</code>
      * @return whether the miracleInfoRemote field is set
      */
     public boolean hasMiracleInfoRemote() {
@@ -102,7 +102,7 @@ public final class RogueMiracleSelectInfoOuterClass {
      *  CMHBBMOKJJB EOIFGPMGFGJ = 11;
      * </pre>
      *
-     * <code>repeated uint32 miracle_info_remote = 12;</code>
+     * <code>repeated uint32 miracle_info_remote = 9;</code>
      * @return this
      */
     public RogueMiracleSelectInfo clearMiracleInfoRemote() {
@@ -116,7 +116,7 @@ public final class RogueMiracleSelectInfoOuterClass {
      *  CMHBBMOKJJB EOIFGPMGFGJ = 11;
      * </pre>
      *
-     * <code>repeated uint32 miracle_info_remote = 12;</code>
+     * <code>repeated uint32 miracle_info_remote = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -134,7 +134,7 @@ public final class RogueMiracleSelectInfoOuterClass {
      *  CMHBBMOKJJB EOIFGPMGFGJ = 11;
      * </pre>
      *
-     * <code>repeated uint32 miracle_info_remote = 12;</code>
+     * <code>repeated uint32 miracle_info_remote = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -152,7 +152,7 @@ public final class RogueMiracleSelectInfoOuterClass {
      *  CMHBBMOKJJB EOIFGPMGFGJ = 11;
      * </pre>
      *
-     * <code>repeated uint32 miracle_info_remote = 12;</code>
+     * <code>repeated uint32 miracle_info_remote = 9;</code>
      * @param value the miracleInfoRemote to add
      * @return this
      */
@@ -167,7 +167,7 @@ public final class RogueMiracleSelectInfoOuterClass {
      *  CMHBBMOKJJB EOIFGPMGFGJ = 11;
      * </pre>
      *
-     * <code>repeated uint32 miracle_info_remote = 12;</code>
+     * <code>repeated uint32 miracle_info_remote = 9;</code>
      * @param values the miracleInfoRemote to add
      * @return this
      */
@@ -178,7 +178,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 miracle_info = 15;</code>
+     * <code>repeated uint32 miracle_info = 13;</code>
      * @return whether the miracleInfo field is set
      */
     public boolean hasMiracleInfo() {
@@ -186,7 +186,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 miracle_info = 15;</code>
+     * <code>repeated uint32 miracle_info = 13;</code>
      * @return this
      */
     public RogueMiracleSelectInfo clearMiracleInfo() {
@@ -196,7 +196,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 miracle_info = 15;</code>
+     * <code>repeated uint32 miracle_info = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -210,7 +210,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 miracle_info = 15;</code>
+     * <code>repeated uint32 miracle_info = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -224,7 +224,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 miracle_info = 15;</code>
+     * <code>repeated uint32 miracle_info = 13;</code>
      * @param value the miracleInfo to add
      * @return this
      */
@@ -235,7 +235,7 @@ public final class RogueMiracleSelectInfoOuterClass {
     }
 
     /**
-     * <code>repeated uint32 miracle_info = 15;</code>
+     * <code>repeated uint32 miracle_info = 13;</code>
      * @param values the miracleInfo to add
      * @return this
      */
@@ -318,18 +318,18 @@ public final class RogueMiracleSelectInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(jDDLGDNOIEC);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < miracleInfoRemote.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 72);
           output.writeUInt32NoTag(miracleInfoRemote.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < miracleInfo.length(); i++) {
-          output.writeRawByte((byte) 120);
+          output.writeRawByte((byte) 104);
           output.writeUInt32NoTag(miracleInfo.array()[i]);
         }
       }
@@ -357,25 +357,25 @@ public final class RogueMiracleSelectInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 40: {
             // jDDLGDNOIEC
             jDDLGDNOIEC = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 74) {
               break;
             }
           }
-          case 98: {
+          case 74: {
             // miracleInfoRemote [packed=true]
             input.readPackedUInt32(miracleInfoRemote, tag);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 106) {
               break;
             }
           }
-          case 122: {
+          case 106: {
             // miracleInfo [packed=true]
             input.readPackedUInt32(miracleInfo, tag);
             bitField0_ |= 0x00000004;
@@ -394,13 +394,13 @@ public final class RogueMiracleSelectInfoOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
+          case 72: {
             // miracleInfoRemote [packed=false]
             tag = input.readRepeatedUInt32(miracleInfoRemote, tag);
             bitField0_ |= 0x00000002;
             break;
           }
-          case 120: {
+          case 104: {
             // miracleInfo [packed=false]
             tag = input.readRepeatedUInt32(miracleInfo, tag);
             bitField0_ |= 0x00000004;

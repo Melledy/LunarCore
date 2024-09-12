@@ -4,13 +4,11 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.rogue.event.RogueEventResultInfo;
-import emu.lunarcore.proto.RogueDialogueEventParamOuterClass.RogueDialogueEventParam;
 import emu.lunarcore.server.packet.send.PacketSyncRogueCommonDialogueOptionFinishScNotify;
 import emu.lunarcore.util.Utils;
 import emu.lunarcore.util.WeightedList;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
 import lombok.Getter;
-import lombok.Setter;
 
 @Getter
 public class RogueEventManager {

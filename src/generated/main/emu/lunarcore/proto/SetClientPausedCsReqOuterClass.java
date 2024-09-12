@@ -19,7 +19,7 @@ public final class SetClientPausedCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool paused = 11;</code>
+     * <code>optional bool paused = 2;</code>
      */
     private boolean paused;
 
@@ -34,7 +34,7 @@ public final class SetClientPausedCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 11;</code>
+     * <code>optional bool paused = 2;</code>
      * @return whether the paused field is set
      */
     public boolean hasPaused() {
@@ -42,7 +42,7 @@ public final class SetClientPausedCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 11;</code>
+     * <code>optional bool paused = 2;</code>
      * @return this
      */
     public SetClientPausedCsReq clearPaused() {
@@ -52,7 +52,7 @@ public final class SetClientPausedCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 11;</code>
+     * <code>optional bool paused = 2;</code>
      * @return the paused
      */
     public boolean getPaused() {
@@ -60,7 +60,7 @@ public final class SetClientPausedCsReqOuterClass {
     }
 
     /**
-     * <code>optional bool paused = 11;</code>
+     * <code>optional bool paused = 2;</code>
      * @param value the paused to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SetClientPausedCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 16);
         output.writeBoolNoTag(paused);
       }
     }
@@ -150,7 +150,7 @@ public final class SetClientPausedCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 16: {
             // paused
             paused = input.readBool();
             bitField0_ |= 0x00000001;

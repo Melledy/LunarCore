@@ -117,7 +117,7 @@ public final class PlayingStateOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<PlayingState> converter() {
+    public static ProtoEnum.EnumConverter<PlayingState> converter() {
       return PlayingStateConverter.INSTANCE;
     }
 
@@ -139,7 +139,7 @@ public final class PlayingStateOuterClass {
       return value == null ? other : value;
     }
 
-    enum PlayingStateConverter implements EnumConverter<PlayingState> {
+    enum PlayingStateConverter implements ProtoEnum.EnumConverter<PlayingState> {
       INSTANCE;
 
       private static final PlayingState[] lookup = new PlayingState[8];

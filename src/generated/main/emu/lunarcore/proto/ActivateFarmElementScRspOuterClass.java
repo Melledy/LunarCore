@@ -19,7 +19,7 @@ public final class ActivateFarmElementScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 2;</code>
      */
     private int entityId;
 
@@ -29,7 +29,7 @@ public final class ActivateFarmElementScRspOuterClass {
     private int worldLevel;
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 11;</code>
      */
     private int retcode;
 
@@ -44,7 +44,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 2;</code>
      * @return whether the entityId field is set
      */
     public boolean hasEntityId() {
@@ -52,7 +52,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 2;</code>
      * @return this
      */
     public ActivateFarmElementScRsp clearEntityId() {
@@ -62,7 +62,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 2;</code>
      * @return the entityId
      */
     public int getEntityId() {
@@ -70,7 +70,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 entity_id = 7;</code>
+     * <code>optional uint32 entity_id = 2;</code>
      * @param value the entityId to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -126,7 +126,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return this
      */
     public ActivateFarmElementScRsp clearRetcode() {
@@ -136,7 +136,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -144,7 +144,7 @@ public final class ActivateFarmElementScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 12;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -225,7 +225,7 @@ public final class ActivateFarmElementScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(entityId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -233,7 +233,7 @@ public final class ActivateFarmElementScRspOuterClass {
         output.writeUInt32NoTag(worldLevel);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -260,7 +260,7 @@ public final class ActivateFarmElementScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 16: {
             // entityId
             entityId = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -274,11 +274,11 @@ public final class ActivateFarmElementScRspOuterClass {
             worldLevel = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 88) {
               break;
             }
           }
-          case 96: {
+          case 88: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000004;

@@ -21,12 +21,12 @@ public final class BoardDataSyncOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      */
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 15;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
      */
     private final RepeatedMessage<HeadIconOuterClass.HeadIcon> unlockedHeadIconList = RepeatedMessage.newEmptyInstance(HeadIconOuterClass.HeadIcon.getFactory());
 
@@ -41,7 +41,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      * @return whether the signature field is set
      */
     public boolean hasSignature() {
@@ -49,7 +49,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      * @return this
      */
     public BoardDataSync clearSignature() {
@@ -59,7 +59,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      * @return the signature
      */
     public String getSignature() {
@@ -67,7 +67,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      * @return internal {@code Utf8String} representation of signature for reading
      */
     public Utf8String getSignatureBytes() {
@@ -75,7 +75,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      * @return internal {@code Utf8String} representation of signature for modifications
      */
     public Utf8String getMutableSignatureBytes() {
@@ -84,7 +84,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      * @param value the signature to set
      * @return this
      */
@@ -95,7 +95,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 6;</code>
+     * <code>optional string signature = 13;</code>
      * @param value the signature to set
      * @return this
      */
@@ -106,7 +106,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 15;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
      * @return whether the unlockedHeadIconList field is set
      */
     public boolean hasUnlockedHeadIconList() {
@@ -114,7 +114,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 15;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
      * @return this
      */
     public BoardDataSync clearUnlockedHeadIconList() {
@@ -124,7 +124,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 15;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -138,7 +138,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 15;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -152,7 +152,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 15;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
      * @param value the unlockedHeadIconList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 15;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
      * @param values the unlockedHeadIconList to add
      * @return this
      */
@@ -240,12 +240,12 @@ public final class BoardDataSyncOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 106);
         output.writeStringNoTag(signature);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < unlockedHeadIconList.length(); i++) {
-          output.writeRawByte((byte) 122);
+          output.writeRawByte((byte) 114);
           output.writeMessageNoTag(unlockedHeadIconList.get(i));
         }
       }
@@ -270,16 +270,16 @@ public final class BoardDataSyncOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
+          case 106: {
             // signature
             input.readString(signature);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 114) {
               break;
             }
           }
-          case 122: {
+          case 114: {
             // unlockedHeadIconList
             tag = input.readRepeatedMessage(unlockedHeadIconList, tag);
             bitField0_ |= 0x00000002;

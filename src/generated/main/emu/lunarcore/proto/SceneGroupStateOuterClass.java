@@ -19,17 +19,17 @@ public final class SceneGroupStateOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 state = 6;</code>
+     * <code>optional uint32 state = 2;</code>
      */
     private int state;
 
     /**
-     * <code>optional uint32 group_id = 13;</code>
+     * <code>optional uint32 group_id = 10;</code>
      */
     private int groupId;
 
     /**
-     * <code>optional bool is_default = 2;</code>
+     * <code>optional bool is_default = 5;</code>
      */
     private boolean isDefault;
 
@@ -44,7 +44,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 6;</code>
+     * <code>optional uint32 state = 2;</code>
      * @return whether the state field is set
      */
     public boolean hasState() {
@@ -52,7 +52,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 6;</code>
+     * <code>optional uint32 state = 2;</code>
      * @return this
      */
     public SceneGroupState clearState() {
@@ -62,7 +62,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 6;</code>
+     * <code>optional uint32 state = 2;</code>
      * @return the state
      */
     public int getState() {
@@ -70,7 +70,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 6;</code>
+     * <code>optional uint32 state = 2;</code>
      * @param value the state to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 13;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -89,7 +89,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 13;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @return this
      */
     public SceneGroupState clearGroupId() {
@@ -99,7 +99,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 13;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -107,7 +107,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 13;</code>
+     * <code>optional uint32 group_id = 10;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional bool is_default = 2;</code>
+     * <code>optional bool is_default = 5;</code>
      * @return whether the isDefault field is set
      */
     public boolean hasIsDefault() {
@@ -126,7 +126,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional bool is_default = 2;</code>
+     * <code>optional bool is_default = 5;</code>
      * @return this
      */
     public SceneGroupState clearIsDefault() {
@@ -136,7 +136,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional bool is_default = 2;</code>
+     * <code>optional bool is_default = 5;</code>
      * @return the isDefault
      */
     public boolean getIsDefault() {
@@ -144,7 +144,7 @@ public final class SceneGroupStateOuterClass {
     }
 
     /**
-     * <code>optional bool is_default = 2;</code>
+     * <code>optional bool is_default = 5;</code>
      * @param value the isDefault to set
      * @return this
      */
@@ -225,15 +225,15 @@ public final class SceneGroupStateOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(state);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 40);
         output.writeBoolNoTag(isDefault);
       }
     }
@@ -260,25 +260,25 @@ public final class SceneGroupStateOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 16: {
             // state
             state = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 80) {
               break;
             }
           }
-          case 104: {
+          case 80: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 40) {
               break;
             }
           }
-          case 16: {
+          case 40: {
             // isDefault
             isDefault = input.readBool();
             bitField0_ |= 0x00000004;

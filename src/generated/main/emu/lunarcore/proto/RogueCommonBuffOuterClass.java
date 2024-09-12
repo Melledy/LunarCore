@@ -19,12 +19,12 @@ public final class RogueCommonBuffOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 buff_level = 3;</code>
+     * <code>optional uint32 buff_level = 8;</code>
      */
     private int buffLevel;
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      */
     private int buffId;
 
@@ -39,7 +39,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_level = 3;</code>
+     * <code>optional uint32 buff_level = 8;</code>
      * @return whether the buffLevel field is set
      */
     public boolean hasBuffLevel() {
@@ -47,7 +47,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_level = 3;</code>
+     * <code>optional uint32 buff_level = 8;</code>
      * @return this
      */
     public RogueCommonBuff clearBuffLevel() {
@@ -57,7 +57,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_level = 3;</code>
+     * <code>optional uint32 buff_level = 8;</code>
      * @return the buffLevel
      */
     public int getBuffLevel() {
@@ -65,7 +65,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_level = 3;</code>
+     * <code>optional uint32 buff_level = 8;</code>
      * @param value the buffLevel to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @return whether the buffId field is set
      */
     public boolean hasBuffId() {
@@ -84,7 +84,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @return this
      */
     public RogueCommonBuff clearBuffId() {
@@ -94,7 +94,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @return the buffId
      */
     public int getBuffId() {
@@ -102,7 +102,7 @@ public final class RogueCommonBuffOuterClass {
     }
 
     /**
-     * <code>optional uint32 buff_id = 7;</code>
+     * <code>optional uint32 buff_id = 11;</code>
      * @param value the buffId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RogueCommonBuffOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(buffLevel);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(buffId);
       }
     }
@@ -205,16 +205,16 @@ public final class RogueCommonBuffOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 64: {
             // buffLevel
             buffLevel = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 88) {
               break;
             }
           }
-          case 56: {
+          case 88: {
             // buffId
             buffId = input.readUInt32();
             bitField0_ |= 0x00000002;

@@ -19,17 +19,17 @@ public final class SceneEntityTeleportScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 client_pos_version = 12;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      */
     private int clientPosVersion;
 
     /**
-     * <code>optional .EntityMotion entity_motion = 9;</code>
+     * <code>optional uint32 retcode = 14;</code>
+     */
+    private int retcode;
+
+    /**
+     * <code>optional .EntityMotion entity_motion = 13;</code>
      */
     private final EntityMotionOuterClass.EntityMotion entityMotion = EntityMotionOuterClass.EntityMotion.newInstance();
 
@@ -44,62 +44,25 @@ public final class SceneEntityTeleportScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 client_pos_version = 7;</code>
+     * @return whether the clientPosVersion field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasClientPosVersion() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @return this
-     */
-    public SceneEntityTeleportScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 6;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public SceneEntityTeleportScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 client_pos_version = 12;</code>
-     * @return whether the clientPosVersion field is set
-     */
-    public boolean hasClientPosVersion() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 client_pos_version = 12;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      * @return this
      */
     public SceneEntityTeleportScRsp clearClientPosVersion() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       clientPosVersion = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 12;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      * @return the clientPosVersion
      */
     public int getClientPosVersion() {
@@ -107,18 +70,55 @@ public final class SceneEntityTeleportScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 12;</code>
+     * <code>optional uint32 client_pos_version = 7;</code>
      * @param value the clientPosVersion to set
      * @return this
      */
     public SceneEntityTeleportScRsp setClientPosVersion(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       clientPosVersion = value;
       return this;
     }
 
     /**
-     * <code>optional .EntityMotion entity_motion = 9;</code>
+     * <code>optional uint32 retcode = 14;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     * @return this
+     */
+    public SceneEntityTeleportScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public SceneEntityTeleportScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .EntityMotion entity_motion = 13;</code>
      * @return whether the entityMotion field is set
      */
     public boolean hasEntityMotion() {
@@ -126,7 +126,7 @@ public final class SceneEntityTeleportScRspOuterClass {
     }
 
     /**
-     * <code>optional .EntityMotion entity_motion = 9;</code>
+     * <code>optional .EntityMotion entity_motion = 13;</code>
      * @return this
      */
     public SceneEntityTeleportScRsp clearEntityMotion() {
@@ -136,7 +136,7 @@ public final class SceneEntityTeleportScRspOuterClass {
     }
 
     /**
-     * <code>optional .EntityMotion entity_motion = 9;</code>
+     * <code>optional .EntityMotion entity_motion = 13;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class SceneEntityTeleportScRspOuterClass {
     }
 
     /**
-     * <code>optional .EntityMotion entity_motion = 9;</code>
+     * <code>optional .EntityMotion entity_motion = 13;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class SceneEntityTeleportScRspOuterClass {
     }
 
     /**
-     * <code>optional .EntityMotion entity_motion = 9;</code>
+     * <code>optional .EntityMotion entity_motion = 13;</code>
      * @param value the entityMotion to set
      * @return this
      */
@@ -180,8 +180,8 @@ public final class SceneEntityTeleportScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        retcode = other.retcode;
         clientPosVersion = other.clientPosVersion;
+        retcode = other.retcode;
         entityMotion.copyFrom(other.entityMotion);
       }
       return this;
@@ -193,11 +193,11 @@ public final class SceneEntityTeleportScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
-      }
       if (other.hasClientPosVersion()) {
         setClientPosVersion(other.clientPosVersion);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       if (other.hasEntityMotion()) {
         getMutableEntityMotion().mergeFrom(other.entityMotion);
@@ -212,8 +212,8 @@ public final class SceneEntityTeleportScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      retcode = 0;
       clientPosVersion = 0;
+      retcode = 0;
       entityMotion.clear();
       return this;
     }
@@ -239,23 +239,23 @@ public final class SceneEntityTeleportScRspOuterClass {
       }
       SceneEntityTeleportScRsp other = (SceneEntityTeleportScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode)
         && (!hasClientPosVersion() || clientPosVersion == other.clientPosVersion)
+        && (!hasRetcode() || retcode == other.retcode)
         && (!hasEntityMotion() || entityMotion.equals(other.entityMotion));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(retcode);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(clientPosVersion);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(retcode);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 74);
+        output.writeRawByte((byte) 106);
         output.writeMessageNoTag(entityMotion);
       }
     }
@@ -264,10 +264,10 @@ public final class SceneEntityTeleportScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(clientPosVersion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(clientPosVersion);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(entityMotion);
@@ -282,25 +282,25 @@ public final class SceneEntityTeleportScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
-            // retcode
-            retcode = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 96) {
-              break;
-            }
-          }
-          case 96: {
+          case 56: {
             // clientPosVersion
             clientPosVersion = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 112) {
               break;
             }
           }
-          case 74: {
+          case 112: {
+            // retcode
+            retcode = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 106) {
+              break;
+            }
+          }
+          case 106: {
             // entityMotion
             input.readMessage(entityMotion);
             bitField0_ |= 0x00000004;
@@ -327,10 +327,10 @@ public final class SceneEntityTeleportScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.clientPosVersion, clientPosVersion);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.clientPosVersion, clientPosVersion);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.entityMotion, entityMotion);
@@ -345,10 +345,11 @@ public final class SceneEntityTeleportScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 1787644431:
+          case 1278860153: {
+            if (input.isAtField(FieldNames.clientPosVersion)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                clientPosVersion = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -356,11 +357,10 @@ public final class SceneEntityTeleportScRspOuterClass {
             }
             break;
           }
-          case 1787644431:
-          case 1278860153: {
-            if (input.isAtField(FieldNames.clientPosVersion)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                clientPosVersion = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -433,9 +433,9 @@ public final class SceneEntityTeleportScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName retcode = FieldName.forField("retcode");
-
       static final FieldName clientPosVersion = FieldName.forField("clientPosVersion", "client_pos_version");
+
+      static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName entityMotion = FieldName.forField("entityMotion", "entity_motion");
     }

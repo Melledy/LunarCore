@@ -77,7 +77,7 @@ public final class MissionStatusOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<MissionStatus> converter() {
+    public static ProtoEnum.EnumConverter<MissionStatus> converter() {
       return MissionStatusConverter.INSTANCE;
     }
 
@@ -99,7 +99,7 @@ public final class MissionStatusOuterClass {
       return value == null ? other : value;
     }
 
-    enum MissionStatusConverter implements EnumConverter<MissionStatus> {
+    enum MissionStatusConverter implements ProtoEnum.EnumConverter<MissionStatus> {
       INSTANCE;
 
       private static final MissionStatus[] lookup = new MissionStatus[4];

@@ -87,7 +87,7 @@ public final class QuestStatusOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<QuestStatus> converter() {
+    public static ProtoEnum.EnumConverter<QuestStatus> converter() {
       return QuestStatusConverter.INSTANCE;
     }
 
@@ -109,7 +109,7 @@ public final class QuestStatusOuterClass {
       return value == null ? other : value;
     }
 
-    enum QuestStatusConverter implements EnumConverter<QuestStatus> {
+    enum QuestStatusConverter implements ProtoEnum.EnumConverter<QuestStatus> {
       INSTANCE;
 
       private static final QuestStatus[] lookup = new QuestStatus[5];

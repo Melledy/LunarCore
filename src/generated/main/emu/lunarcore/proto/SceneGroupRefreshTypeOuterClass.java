@@ -67,7 +67,7 @@ public final class SceneGroupRefreshTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<SceneGroupRefreshType> converter() {
+    public static ProtoEnum.EnumConverter<SceneGroupRefreshType> converter() {
       return SceneGroupRefreshTypeConverter.INSTANCE;
     }
 
@@ -89,7 +89,7 @@ public final class SceneGroupRefreshTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum SceneGroupRefreshTypeConverter implements EnumConverter<SceneGroupRefreshType> {
+    enum SceneGroupRefreshTypeConverter implements ProtoEnum.EnumConverter<SceneGroupRefreshType> {
       INSTANCE;
 
       private static final SceneGroupRefreshType[] lookup = new SceneGroupRefreshType[3];

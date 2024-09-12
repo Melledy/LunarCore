@@ -57,7 +57,7 @@ public final class MailTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<MailType> converter() {
+    public static ProtoEnum.EnumConverter<MailType> converter() {
       return MailTypeConverter.INSTANCE;
     }
 
@@ -79,7 +79,7 @@ public final class MailTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum MailTypeConverter implements EnumConverter<MailType> {
+    enum MailTypeConverter implements ProtoEnum.EnumConverter<MailType> {
       INSTANCE;
 
       private static final MailType[] lookup = new MailType[2];

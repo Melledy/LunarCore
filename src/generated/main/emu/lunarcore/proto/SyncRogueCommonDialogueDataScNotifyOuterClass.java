@@ -20,7 +20,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 10;</code>
+     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 11;</code>
      */
     private final RepeatedMessage<RogueCommonDialogueDataInfoOuterClass.RogueCommonDialogueDataInfo> dialogueDataList = RepeatedMessage.newEmptyInstance(RogueCommonDialogueDataInfoOuterClass.RogueCommonDialogueDataInfo.getFactory());
 
@@ -35,7 +35,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 10;</code>
+     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 11;</code>
      * @return whether the dialogueDataList field is set
      */
     public boolean hasDialogueDataList() {
@@ -43,7 +43,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 10;</code>
+     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 11;</code>
      * @return this
      */
     public SyncRogueCommonDialogueDataScNotify clearDialogueDataList() {
@@ -53,7 +53,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 10;</code>
+     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -68,7 +68,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 10;</code>
+     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -83,7 +83,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 10;</code>
+     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 11;</code>
      * @param value the dialogueDataList to add
      * @return this
      */
@@ -95,7 +95,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 10;</code>
+     * <code>repeated .RogueCommonDialogueDataInfo dialogue_data_list = 11;</code>
      * @param values the dialogueDataList to add
      * @return this
      */
@@ -169,7 +169,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < dialogueDataList.length(); i++) {
-          output.writeRawByte((byte) 82);
+          output.writeRawByte((byte) 90);
           output.writeMessageNoTag(dialogueDataList.get(i));
         }
       }
@@ -192,7 +192,7 @@ public final class SyncRogueCommonDialogueDataScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 82: {
+          case 90: {
             // dialogueDataList
             tag = input.readRepeatedMessage(dialogueDataList, tag);
             bitField0_ |= 0x00000001;

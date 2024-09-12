@@ -19,19 +19,19 @@ public final class PropAeonInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 add_exp = 1;</code>
+     * <code>optional uint32 aeon_id = 3;</code>
      */
-    private int addExp;
+    private int aeonId;
 
     /**
-     * <code>optional uint32 dialogue_group_id = 5;</code>
+     * <code>optional uint32 dialogue_group_id = 10;</code>
      */
     private int dialogueGroupId;
 
     /**
-     * <code>optional uint32 aeon_id = 13;</code>
+     * <code>optional uint32 add_exp = 14;</code>
      */
-    private int aeonId;
+    private int addExp;
 
     private PropAeonInfo() {
     }
@@ -44,44 +44,44 @@ public final class PropAeonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 add_exp = 1;</code>
-     * @return whether the addExp field is set
+     * <code>optional uint32 aeon_id = 3;</code>
+     * @return whether the aeonId field is set
      */
-    public boolean hasAddExp() {
+    public boolean hasAeonId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 add_exp = 1;</code>
+     * <code>optional uint32 aeon_id = 3;</code>
      * @return this
      */
-    public PropAeonInfo clearAddExp() {
+    public PropAeonInfo clearAeonId() {
       bitField0_ &= ~0x00000001;
-      addExp = 0;
+      aeonId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 add_exp = 1;</code>
-     * @return the addExp
+     * <code>optional uint32 aeon_id = 3;</code>
+     * @return the aeonId
      */
-    public int getAddExp() {
-      return addExp;
+    public int getAeonId() {
+      return aeonId;
     }
 
     /**
-     * <code>optional uint32 add_exp = 1;</code>
-     * @param value the addExp to set
+     * <code>optional uint32 aeon_id = 3;</code>
+     * @param value the aeonId to set
      * @return this
      */
-    public PropAeonInfo setAddExp(final int value) {
+    public PropAeonInfo setAeonId(final int value) {
       bitField0_ |= 0x00000001;
-      addExp = value;
+      aeonId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 dialogue_group_id = 5;</code>
+     * <code>optional uint32 dialogue_group_id = 10;</code>
      * @return whether the dialogueGroupId field is set
      */
     public boolean hasDialogueGroupId() {
@@ -89,7 +89,7 @@ public final class PropAeonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_group_id = 5;</code>
+     * <code>optional uint32 dialogue_group_id = 10;</code>
      * @return this
      */
     public PropAeonInfo clearDialogueGroupId() {
@@ -99,7 +99,7 @@ public final class PropAeonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_group_id = 5;</code>
+     * <code>optional uint32 dialogue_group_id = 10;</code>
      * @return the dialogueGroupId
      */
     public int getDialogueGroupId() {
@@ -107,7 +107,7 @@ public final class PropAeonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_group_id = 5;</code>
+     * <code>optional uint32 dialogue_group_id = 10;</code>
      * @param value the dialogueGroupId to set
      * @return this
      */
@@ -118,39 +118,39 @@ public final class PropAeonInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 aeon_id = 13;</code>
-     * @return whether the aeonId field is set
+     * <code>optional uint32 add_exp = 14;</code>
+     * @return whether the addExp field is set
      */
-    public boolean hasAeonId() {
+    public boolean hasAddExp() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 aeon_id = 13;</code>
+     * <code>optional uint32 add_exp = 14;</code>
      * @return this
      */
-    public PropAeonInfo clearAeonId() {
+    public PropAeonInfo clearAddExp() {
       bitField0_ &= ~0x00000004;
-      aeonId = 0;
+      addExp = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 aeon_id = 13;</code>
-     * @return the aeonId
+     * <code>optional uint32 add_exp = 14;</code>
+     * @return the addExp
      */
-    public int getAeonId() {
-      return aeonId;
+    public int getAddExp() {
+      return addExp;
     }
 
     /**
-     * <code>optional uint32 aeon_id = 13;</code>
-     * @param value the aeonId to set
+     * <code>optional uint32 add_exp = 14;</code>
+     * @param value the addExp to set
      * @return this
      */
-    public PropAeonInfo setAeonId(final int value) {
+    public PropAeonInfo setAddExp(final int value) {
       bitField0_ |= 0x00000004;
-      aeonId = value;
+      addExp = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class PropAeonInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        addExp = other.addExp;
-        dialogueGroupId = other.dialogueGroupId;
         aeonId = other.aeonId;
+        dialogueGroupId = other.dialogueGroupId;
+        addExp = other.addExp;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class PropAeonInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasAddExp()) {
-        setAddExp(other.addExp);
+      if (other.hasAeonId()) {
+        setAeonId(other.aeonId);
       }
       if (other.hasDialogueGroupId()) {
         setDialogueGroupId(other.dialogueGroupId);
       }
-      if (other.hasAeonId()) {
-        setAeonId(other.aeonId);
+      if (other.hasAddExp()) {
+        setAddExp(other.addExp);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class PropAeonInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      addExp = 0;
-      dialogueGroupId = 0;
       aeonId = 0;
+      dialogueGroupId = 0;
+      addExp = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class PropAeonInfoOuterClass {
       }
       PropAeonInfo other = (PropAeonInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasAddExp() || addExp == other.addExp)
+        && (!hasAeonId() || aeonId == other.aeonId)
         && (!hasDialogueGroupId() || dialogueGroupId == other.dialogueGroupId)
-        && (!hasAeonId() || aeonId == other.aeonId);
+        && (!hasAddExp() || addExp == other.addExp);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(addExp);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(dialogueGroupId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(aeonId);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(addExp);
       }
     }
 
@@ -242,13 +242,13 @@ public final class PropAeonInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(addExp);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(dialogueGroupId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(aeonId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(addExp);
       }
       return size;
     }
@@ -260,27 +260,27 @@ public final class PropAeonInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // addExp
-            addExp = input.readUInt32();
+          case 24: {
+            // aeonId
+            aeonId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 80) {
               break;
             }
           }
-          case 40: {
+          case 80: {
             // dialogueGroupId
             dialogueGroupId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 112) {
               break;
             }
           }
-          case 104: {
-            // aeonId
-            aeonId = input.readUInt32();
+          case 112: {
+            // addExp
+            addExp = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class PropAeonInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.addExp, addExp);
+        output.writeUInt32(FieldNames.aeonId, aeonId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.dialogueGroupId, dialogueGroupId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.aeonId, aeonId);
+        output.writeUInt32(FieldNames.addExp, addExp);
       }
       output.endObject();
     }
@@ -323,11 +323,11 @@ public final class PropAeonInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1422538308:
-          case -1148257921: {
-            if (input.isAtField(FieldNames.addExp)) {
+          case -1421249154:
+          case -1109029417: {
+            if (input.isAtField(FieldNames.aeonId)) {
               if (!input.trySkipNullValue()) {
-                addExp = input.readUInt32();
+                aeonId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -347,11 +347,11 @@ public final class PropAeonInfoOuterClass {
             }
             break;
           }
-          case -1421249154:
-          case -1109029417: {
-            if (input.isAtField(FieldNames.aeonId)) {
+          case -1422538308:
+          case -1148257921: {
+            if (input.isAtField(FieldNames.addExp)) {
               if (!input.trySkipNullValue()) {
-                aeonId = input.readUInt32();
+                addExp = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -411,11 +411,11 @@ public final class PropAeonInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName addExp = FieldName.forField("addExp", "add_exp");
+      static final FieldName aeonId = FieldName.forField("aeonId", "aeon_id");
 
       static final FieldName dialogueGroupId = FieldName.forField("dialogueGroupId", "dialogue_group_id");
 
-      static final FieldName aeonId = FieldName.forField("aeonId", "aeon_id");
+      static final FieldName addExp = FieldName.forField("addExp", "add_exp");
     }
   }
 }

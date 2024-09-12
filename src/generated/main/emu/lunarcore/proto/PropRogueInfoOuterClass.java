@@ -19,12 +19,12 @@ public final class PropRogueInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 site_id = 6;</code>
+     * <code>optional uint32 site_id = 4;</code>
      */
     private int siteId;
 
     /**
-     * <code>optional uint32 room_id = 8;</code>
+     * <code>optional uint32 room_id = 7;</code>
      */
     private int roomId;
 
@@ -39,7 +39,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 6;</code>
+     * <code>optional uint32 site_id = 4;</code>
      * @return whether the siteId field is set
      */
     public boolean hasSiteId() {
@@ -47,7 +47,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 6;</code>
+     * <code>optional uint32 site_id = 4;</code>
      * @return this
      */
     public PropRogueInfo clearSiteId() {
@@ -57,7 +57,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 6;</code>
+     * <code>optional uint32 site_id = 4;</code>
      * @return the siteId
      */
     public int getSiteId() {
@@ -65,7 +65,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 site_id = 6;</code>
+     * <code>optional uint32 site_id = 4;</code>
      * @param value the siteId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 8;</code>
+     * <code>optional uint32 room_id = 7;</code>
      * @return whether the roomId field is set
      */
     public boolean hasRoomId() {
@@ -84,7 +84,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 8;</code>
+     * <code>optional uint32 room_id = 7;</code>
      * @return this
      */
     public PropRogueInfo clearRoomId() {
@@ -94,7 +94,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 8;</code>
+     * <code>optional uint32 room_id = 7;</code>
      * @return the roomId
      */
     public int getRoomId() {
@@ -102,7 +102,7 @@ public final class PropRogueInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 room_id = 8;</code>
+     * <code>optional uint32 room_id = 7;</code>
      * @param value the roomId to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class PropRogueInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(siteId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(roomId);
       }
     }
@@ -205,16 +205,16 @@ public final class PropRogueInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 32: {
             // siteId
             siteId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 56) {
               break;
             }
           }
-          case 64: {
+          case 56: {
             // roomId
             roomId = input.readUInt32();
             bitField0_ |= 0x00000002;

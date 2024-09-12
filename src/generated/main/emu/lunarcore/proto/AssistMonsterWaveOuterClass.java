@@ -20,7 +20,7 @@ public final class AssistMonsterWaveOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 entity_id_list = 9;</code>
+     * <code>repeated uint32 entity_id_list = 4;</code>
      */
     private final RepeatedInt entityIdList = RepeatedInt.newEmptyInstance();
 
@@ -35,7 +35,7 @@ public final class AssistMonsterWaveOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entity_id_list = 9;</code>
+     * <code>repeated uint32 entity_id_list = 4;</code>
      * @return whether the entityIdList field is set
      */
     public boolean hasEntityIdList() {
@@ -43,7 +43,7 @@ public final class AssistMonsterWaveOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entity_id_list = 9;</code>
+     * <code>repeated uint32 entity_id_list = 4;</code>
      * @return this
      */
     public AssistMonsterWave clearEntityIdList() {
@@ -53,7 +53,7 @@ public final class AssistMonsterWaveOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entity_id_list = 9;</code>
+     * <code>repeated uint32 entity_id_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +67,7 @@ public final class AssistMonsterWaveOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entity_id_list = 9;</code>
+     * <code>repeated uint32 entity_id_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class AssistMonsterWaveOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entity_id_list = 9;</code>
+     * <code>repeated uint32 entity_id_list = 4;</code>
      * @param value the entityIdList to add
      * @return this
      */
@@ -92,7 +92,7 @@ public final class AssistMonsterWaveOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entity_id_list = 9;</code>
+     * <code>repeated uint32 entity_id_list = 4;</code>
      * @param values the entityIdList to add
      * @return this
      */
@@ -163,7 +163,7 @@ public final class AssistMonsterWaveOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < entityIdList.length(); i++) {
-          output.writeRawByte((byte) 72);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(entityIdList.array()[i]);
         }
       }
@@ -185,7 +185,7 @@ public final class AssistMonsterWaveOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 74: {
+          case 34: {
             // entityIdList [packed=true]
             input.readPackedUInt32(entityIdList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +204,7 @@ public final class AssistMonsterWaveOuterClass {
             tag = input.readTag();
             break;
           }
-          case 72: {
+          case 32: {
             // entityIdList [packed=false]
             tag = input.readRepeatedUInt32(entityIdList, tag);
             bitField0_ |= 0x00000001;

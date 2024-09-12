@@ -19,19 +19,19 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 group_id = 7;</code>
+     */
+    private int groupId;
+
+    /**
+     * <code>optional uint32 retcode = 9;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 entry_id = 7;</code>
+     * <code>optional uint32 entry_id = 12;</code>
      */
     private int entryId;
-
-    /**
-     * <code>optional uint32 group_id = 14;</code>
-     */
-    private int groupId;
 
     private SetGroupCustomSaveDataScRsp() {
     }
@@ -44,99 +44,25 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 group_id = 7;</code>
+     * @return whether the groupId field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasGroupId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @return this
-     */
-    public SetGroupCustomSaveDataScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 3;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public SetGroupCustomSaveDataScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 7;</code>
-     * @return whether the entryId field is set
-     */
-    public boolean hasEntryId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 7;</code>
-     * @return this
-     */
-    public SetGroupCustomSaveDataScRsp clearEntryId() {
-      bitField0_ &= ~0x00000002;
-      entryId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 7;</code>
-     * @return the entryId
-     */
-    public int getEntryId() {
-      return entryId;
-    }
-
-    /**
-     * <code>optional uint32 entry_id = 7;</code>
-     * @param value the entryId to set
-     * @return this
-     */
-    public SetGroupCustomSaveDataScRsp setEntryId(final int value) {
-      bitField0_ |= 0x00000002;
-      entryId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 14;</code>
-     * @return whether the groupId field is set
-     */
-    public boolean hasGroupId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 7;</code>
      * @return this
      */
     public SetGroupCustomSaveDataScRsp clearGroupId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       groupId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 7;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -144,13 +70,87 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 14;</code>
+     * <code>optional uint32 group_id = 7;</code>
      * @param value the groupId to set
      * @return this
      */
     public SetGroupCustomSaveDataScRsp setGroupId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       groupId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 9;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 9;</code>
+     * @return this
+     */
+    public SetGroupCustomSaveDataScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 9;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 9;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public SetGroupCustomSaveDataScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entry_id = 12;</code>
+     * @return whether the entryId field is set
+     */
+    public boolean hasEntryId() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 entry_id = 12;</code>
+     * @return this
+     */
+    public SetGroupCustomSaveDataScRsp clearEntryId() {
+      bitField0_ &= ~0x00000004;
+      entryId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 entry_id = 12;</code>
+     * @return the entryId
+     */
+    public int getEntryId() {
+      return entryId;
+    }
+
+    /**
+     * <code>optional uint32 entry_id = 12;</code>
+     * @param value the entryId to set
+     * @return this
+     */
+    public SetGroupCustomSaveDataScRsp setEntryId(final int value) {
+      bitField0_ |= 0x00000004;
+      entryId = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        groupId = other.groupId;
         retcode = other.retcode;
         entryId = other.entryId;
-        groupId = other.groupId;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasGroupId()) {
+        setGroupId(other.groupId);
+      }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
       if (other.hasEntryId()) {
         setEntryId(other.entryId);
-      }
-      if (other.hasGroupId()) {
-        setGroupId(other.groupId);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      groupId = 0;
       retcode = 0;
       entryId = 0;
-      groupId = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
       }
       SetGroupCustomSaveDataScRsp other = (SetGroupCustomSaveDataScRsp) o;
       return bitField0_ == other.bitField0_
+        && (!hasGroupId() || groupId == other.groupId)
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasEntryId() || entryId == other.entryId)
-        && (!hasGroupId() || groupId == other.groupId);
+        && (!hasEntryId() || entryId == other.entryId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(retcode);
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(entryId);
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(groupId);
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(entryId);
       }
     }
 
@@ -242,13 +242,13 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(groupId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(entryId);
       }
       return size;
     }
@@ -260,27 +260,27 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // retcode
-            retcode = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
           case 56: {
-            // entryId
-            entryId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
             // groupId
             groupId = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
+            // retcode
+            retcode = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 96) {
+              break;
+            }
+          }
+          case 96: {
+            // entryId
+            entryId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.groupId, groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.entryId, entryId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.groupId, groupId);
+        output.writeUInt32(FieldNames.entryId, entryId);
       }
       output.endObject();
     }
@@ -323,11 +323,23 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 293428218:
+          case 506361563: {
+            if (input.isAtField(FieldNames.groupId)) {
+              if (!input.trySkipNullValue()) {
+                groupId = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 1097936398: {
             if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -339,18 +351,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
             if (input.isAtField(FieldNames.entryId)) {
               if (!input.trySkipNullValue()) {
                 entryId = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 293428218:
-          case 506361563: {
-            if (input.isAtField(FieldNames.groupId)) {
-              if (!input.trySkipNullValue()) {
-                groupId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -412,11 +412,11 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName groupId = FieldName.forField("groupId", "group_id");
+
       static final FieldName retcode = FieldName.forField("retcode");
 
       static final FieldName entryId = FieldName.forField("entryId", "entry_id");
-
-      static final FieldName groupId = FieldName.forField("groupId", "group_id");
     }
   }
 }

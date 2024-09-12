@@ -19,7 +19,7 @@ public final class RogueRerollBuffOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 7;</code>
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 9;</code>
      */
     private final RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo buffSelectInfo = RogueCommonBuffSelectInfoOuterClass.RogueCommonBuffSelectInfo.newInstance();
 
@@ -34,7 +34,7 @@ public final class RogueRerollBuffOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 7;</code>
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 9;</code>
      * @return whether the buffSelectInfo field is set
      */
     public boolean hasBuffSelectInfo() {
@@ -42,7 +42,7 @@ public final class RogueRerollBuffOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 7;</code>
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 9;</code>
      * @return this
      */
     public RogueRerollBuff clearBuffSelectInfo() {
@@ -52,7 +52,7 @@ public final class RogueRerollBuffOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 7;</code>
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class RogueRerollBuffOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 7;</code>
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +81,7 @@ public final class RogueRerollBuffOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 7;</code>
+     * <code>optional .RogueCommonBuffSelectInfo buff_select_info = 9;</code>
      * @param value the buffSelectInfo to set
      * @return this
      */
@@ -152,7 +152,7 @@ public final class RogueRerollBuffOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 74);
         output.writeMessageNoTag(buffSelectInfo);
       }
     }
@@ -173,7 +173,7 @@ public final class RogueRerollBuffOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 58: {
+          case 74: {
             // buffSelectInfo
             input.readMessage(buffSelectInfo);
             bitField0_ |= 0x00000001;

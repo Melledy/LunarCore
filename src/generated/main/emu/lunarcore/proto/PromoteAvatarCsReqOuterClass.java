@@ -20,12 +20,12 @@ public final class PromoteAvatarCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 base_avatar_id = 11;</code>
+     * <code>optional uint32 base_avatar_id = 1;</code>
      */
     private int baseAvatarId;
 
     /**
-     * <code>repeated .ItemCost item_list = 4;</code>
+     * <code>repeated .ItemCost item_list = 6;</code>
      */
     private final RepeatedMessage<ItemCostOuterClass.ItemCost> itemList = RepeatedMessage.newEmptyInstance(ItemCostOuterClass.ItemCost.getFactory());
 
@@ -40,7 +40,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 11;</code>
+     * <code>optional uint32 base_avatar_id = 1;</code>
      * @return whether the baseAvatarId field is set
      */
     public boolean hasBaseAvatarId() {
@@ -48,7 +48,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 11;</code>
+     * <code>optional uint32 base_avatar_id = 1;</code>
      * @return this
      */
     public PromoteAvatarCsReq clearBaseAvatarId() {
@@ -58,7 +58,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 11;</code>
+     * <code>optional uint32 base_avatar_id = 1;</code>
      * @return the baseAvatarId
      */
     public int getBaseAvatarId() {
@@ -66,7 +66,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 base_avatar_id = 11;</code>
+     * <code>optional uint32 base_avatar_id = 1;</code>
      * @param value the baseAvatarId to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 4;</code>
+     * <code>repeated .ItemCost item_list = 6;</code>
      * @return whether the itemList field is set
      */
     public boolean hasItemList() {
@@ -85,7 +85,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 4;</code>
+     * <code>repeated .ItemCost item_list = 6;</code>
      * @return this
      */
     public PromoteAvatarCsReq clearItemList() {
@@ -95,7 +95,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 4;</code>
+     * <code>repeated .ItemCost item_list = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 4;</code>
+     * <code>repeated .ItemCost item_list = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 4;</code>
+     * <code>repeated .ItemCost item_list = 6;</code>
      * @param value the itemList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class PromoteAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated .ItemCost item_list = 4;</code>
+     * <code>repeated .ItemCost item_list = 6;</code>
      * @param values the itemList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class PromoteAvatarCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < itemList.length(); i++) {
-          output.writeRawByte((byte) 34);
+          output.writeRawByte((byte) 50);
           output.writeMessageNoTag(itemList.get(i));
         }
       }
@@ -240,16 +240,16 @@ public final class PromoteAvatarCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 8: {
             // baseAvatarId
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 50) {
               break;
             }
           }
-          case 34: {
+          case 50: {
             // itemList
             tag = input.readRepeatedMessage(itemList, tag);
             bitField0_ |= 0x00000002;

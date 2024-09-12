@@ -19,9 +19,14 @@ public final class LockRelicScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 13;</code>
      */
     private int retcode;
+
+    /**
+     * <code>optional uint32 relic_unique_id = 15;</code>
+     */
+    private int relicUniqueId;
 
     private LockRelicScRsp() {
     }
@@ -34,7 +39,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -42,7 +47,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @return this
      */
     public LockRelicScRsp clearRetcode() {
@@ -52,7 +57,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -60,7 +65,7 @@ public final class LockRelicScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 13;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -70,12 +75,50 @@ public final class LockRelicScRspOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional uint32 relic_unique_id = 15;</code>
+     * @return whether the relicUniqueId field is set
+     */
+    public boolean hasRelicUniqueId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 relic_unique_id = 15;</code>
+     * @return this
+     */
+    public LockRelicScRsp clearRelicUniqueId() {
+      bitField0_ &= ~0x00000002;
+      relicUniqueId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 relic_unique_id = 15;</code>
+     * @return the relicUniqueId
+     */
+    public int getRelicUniqueId() {
+      return relicUniqueId;
+    }
+
+    /**
+     * <code>optional uint32 relic_unique_id = 15;</code>
+     * @param value the relicUniqueId to set
+     * @return this
+     */
+    public LockRelicScRsp setRelicUniqueId(final int value) {
+      bitField0_ |= 0x00000002;
+      relicUniqueId = value;
+      return this;
+    }
+
     @Override
     public LockRelicScRsp copyFrom(final LockRelicScRsp other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
+        relicUniqueId = other.relicUniqueId;
       }
       return this;
     }
@@ -89,6 +132,9 @@ public final class LockRelicScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
+      if (other.hasRelicUniqueId()) {
+        setRelicUniqueId(other.relicUniqueId);
+      }
       return this;
     }
 
@@ -100,6 +146,7 @@ public final class LockRelicScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
+      relicUniqueId = 0;
       return this;
     }
 
@@ -123,14 +170,19 @@ public final class LockRelicScRspOuterClass {
       }
       LockRelicScRsp other = (LockRelicScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode);
+        && (!hasRetcode() || retcode == other.retcode)
+        && (!hasRelicUniqueId() || relicUniqueId == other.relicUniqueId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(relicUniqueId);
       }
     }
 
@@ -139,6 +191,9 @@ public final class LockRelicScRspOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(relicUniqueId);
       }
       return size;
     }
@@ -150,10 +205,19 @@ public final class LockRelicScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 104: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // relicUniqueId
+            relicUniqueId = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -179,6 +243,9 @@ public final class LockRelicScRspOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeUInt32(FieldNames.relicUniqueId, relicUniqueId);
+      }
       output.endObject();
     }
 
@@ -194,6 +261,18 @@ public final class LockRelicScRspOuterClass {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
                 bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1966200481:
+          case 49648253: {
+            if (input.isAtField(FieldNames.relicUniqueId)) {
+              if (!input.trySkipNullValue()) {
+                relicUniqueId = input.readUInt32();
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -254,6 +333,8 @@ public final class LockRelicScRspOuterClass {
      */
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName relicUniqueId = FieldName.forField("relicUniqueId", "relic_unique_id");
     }
   }
 }

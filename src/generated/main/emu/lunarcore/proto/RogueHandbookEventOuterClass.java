@@ -19,12 +19,12 @@ public final class RogueHandbookEventOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 event_id = 15;</code>
+     * <code>optional uint32 event_id = 14;</code>
      */
     private int eventId;
 
     /**
-     * <code>optional bool is_unlocked = 1;</code>
+     * <code>optional bool is_unlocked = 6;</code>
      */
     private boolean isUnlocked;
 
@@ -39,7 +39,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 15;</code>
+     * <code>optional uint32 event_id = 14;</code>
      * @return whether the eventId field is set
      */
     public boolean hasEventId() {
@@ -47,7 +47,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 15;</code>
+     * <code>optional uint32 event_id = 14;</code>
      * @return this
      */
     public RogueHandbookEvent clearEventId() {
@@ -57,7 +57,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 15;</code>
+     * <code>optional uint32 event_id = 14;</code>
      * @return the eventId
      */
     public int getEventId() {
@@ -65,7 +65,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_id = 15;</code>
+     * <code>optional uint32 event_id = 14;</code>
      * @param value the eventId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 1;</code>
+     * <code>optional bool is_unlocked = 6;</code>
      * @return whether the isUnlocked field is set
      */
     public boolean hasIsUnlocked() {
@@ -84,7 +84,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 1;</code>
+     * <code>optional bool is_unlocked = 6;</code>
      * @return this
      */
     public RogueHandbookEvent clearIsUnlocked() {
@@ -94,7 +94,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 1;</code>
+     * <code>optional bool is_unlocked = 6;</code>
      * @return the isUnlocked
      */
     public boolean getIsUnlocked() {
@@ -102,7 +102,7 @@ public final class RogueHandbookEventOuterClass {
     }
 
     /**
-     * <code>optional bool is_unlocked = 1;</code>
+     * <code>optional bool is_unlocked = 6;</code>
      * @param value the isUnlocked to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RogueHandbookEventOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(eventId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 48);
         output.writeBoolNoTag(isUnlocked);
       }
     }
@@ -205,16 +205,16 @@ public final class RogueHandbookEventOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 112: {
             // eventId
             eventId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 8) {
+            if (tag != 48) {
               break;
             }
           }
-          case 8: {
+          case 48: {
             // isUnlocked
             isUnlocked = input.readBool();
             bitField0_ |= 0x00000002;

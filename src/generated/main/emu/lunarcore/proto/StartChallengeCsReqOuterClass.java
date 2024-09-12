@@ -20,7 +20,7 @@ public final class StartChallengeCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 challenge_id = 3;</code>
+     * <code>optional uint32 challenge_id = 12;</code>
      */
     private int challengeId;
 
@@ -30,12 +30,12 @@ public final class StartChallengeCsReqOuterClass {
     private final StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo extInfo = StartChallengeStoryInfoOuterClass.StartChallengeStoryInfo.newInstance();
 
     /**
-     * <code>repeated uint32 first_half_lineup = 5;</code>
+     * <code>repeated uint32 first_half_lineup = 6;</code>
      */
     private final RepeatedInt firstHalfLineup = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 second_half_lineup = 12;</code>
+     * <code>repeated uint32 second_half_lineup = 14;</code>
      */
     private final RepeatedInt secondHalfLineup = RepeatedInt.newEmptyInstance();
 
@@ -50,7 +50,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 3;</code>
+     * <code>optional uint32 challenge_id = 12;</code>
      * @return whether the challengeId field is set
      */
     public boolean hasChallengeId() {
@@ -58,7 +58,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 3;</code>
+     * <code>optional uint32 challenge_id = 12;</code>
      * @return this
      */
     public StartChallengeCsReq clearChallengeId() {
@@ -68,7 +68,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 3;</code>
+     * <code>optional uint32 challenge_id = 12;</code>
      * @return the challengeId
      */
     public int getChallengeId() {
@@ -76,7 +76,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 3;</code>
+     * <code>optional uint32 challenge_id = 12;</code>
      * @param value the challengeId to set
      * @return this
      */
@@ -145,7 +145,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_half_lineup = 5;</code>
+     * <code>repeated uint32 first_half_lineup = 6;</code>
      * @return whether the firstHalfLineup field is set
      */
     public boolean hasFirstHalfLineup() {
@@ -153,7 +153,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_half_lineup = 5;</code>
+     * <code>repeated uint32 first_half_lineup = 6;</code>
      * @return this
      */
     public StartChallengeCsReq clearFirstHalfLineup() {
@@ -163,7 +163,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_half_lineup = 5;</code>
+     * <code>repeated uint32 first_half_lineup = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -177,7 +177,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_half_lineup = 5;</code>
+     * <code>repeated uint32 first_half_lineup = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -191,7 +191,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_half_lineup = 5;</code>
+     * <code>repeated uint32 first_half_lineup = 6;</code>
      * @param value the firstHalfLineup to add
      * @return this
      */
@@ -202,7 +202,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 first_half_lineup = 5;</code>
+     * <code>repeated uint32 first_half_lineup = 6;</code>
      * @param values the firstHalfLineup to add
      * @return this
      */
@@ -213,7 +213,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 second_half_lineup = 12;</code>
+     * <code>repeated uint32 second_half_lineup = 14;</code>
      * @return whether the secondHalfLineup field is set
      */
     public boolean hasSecondHalfLineup() {
@@ -221,7 +221,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 second_half_lineup = 12;</code>
+     * <code>repeated uint32 second_half_lineup = 14;</code>
      * @return this
      */
     public StartChallengeCsReq clearSecondHalfLineup() {
@@ -231,7 +231,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 second_half_lineup = 12;</code>
+     * <code>repeated uint32 second_half_lineup = 14;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -245,7 +245,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 second_half_lineup = 12;</code>
+     * <code>repeated uint32 second_half_lineup = 14;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -259,7 +259,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 second_half_lineup = 12;</code>
+     * <code>repeated uint32 second_half_lineup = 14;</code>
      * @param value the secondHalfLineup to add
      * @return this
      */
@@ -270,7 +270,7 @@ public final class StartChallengeCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 second_half_lineup = 12;</code>
+     * <code>repeated uint32 second_half_lineup = 14;</code>
      * @param values the secondHalfLineup to add
      * @return this
      */
@@ -360,7 +360,7 @@ public final class StartChallengeCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(challengeId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -369,13 +369,13 @@ public final class StartChallengeCsReqOuterClass {
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < firstHalfLineup.length(); i++) {
-          output.writeRawByte((byte) 40);
+          output.writeRawByte((byte) 48);
           output.writeUInt32NoTag(firstHalfLineup.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < secondHalfLineup.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 112);
           output.writeUInt32NoTag(secondHalfLineup.array()[i]);
         }
       }
@@ -406,7 +406,7 @@ public final class StartChallengeCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 96: {
             // challengeId
             challengeId = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -420,20 +420,20 @@ public final class StartChallengeCsReqOuterClass {
             input.readMessage(extInfo);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 50) {
               break;
             }
           }
-          case 42: {
+          case 50: {
             // firstHalfLineup [packed=true]
             input.readPackedUInt32(firstHalfLineup, tag);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 114) {
               break;
             }
           }
-          case 98: {
+          case 114: {
             // secondHalfLineup [packed=true]
             input.readPackedUInt32(secondHalfLineup, tag);
             bitField0_ |= 0x00000008;
@@ -452,13 +452,13 @@ public final class StartChallengeCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 40: {
+          case 48: {
             // firstHalfLineup [packed=false]
             tag = input.readRepeatedUInt32(firstHalfLineup, tag);
             bitField0_ |= 0x00000004;
             break;
           }
-          case 96: {
+          case 112: {
             // secondHalfLineup [packed=false]
             tag = input.readRepeatedUInt32(secondHalfLineup, tag);
             bitField0_ |= 0x00000008;

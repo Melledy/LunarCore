@@ -19,7 +19,7 @@ public final class FinishRogueCommonDialogueCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 event_unique_id = 9;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      */
     private int eventUniqueId;
 
@@ -34,7 +34,7 @@ public final class FinishRogueCommonDialogueCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 9;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      * @return whether the eventUniqueId field is set
      */
     public boolean hasEventUniqueId() {
@@ -42,7 +42,7 @@ public final class FinishRogueCommonDialogueCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 9;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      * @return this
      */
     public FinishRogueCommonDialogueCsReq clearEventUniqueId() {
@@ -52,7 +52,7 @@ public final class FinishRogueCommonDialogueCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 9;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      * @return the eventUniqueId
      */
     public int getEventUniqueId() {
@@ -60,7 +60,7 @@ public final class FinishRogueCommonDialogueCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 9;</code>
+     * <code>optional uint32 event_unique_id = 3;</code>
      * @param value the eventUniqueId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class FinishRogueCommonDialogueCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(eventUniqueId);
       }
     }
@@ -150,7 +150,7 @@ public final class FinishRogueCommonDialogueCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 24: {
             // eventUniqueId
             eventUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;

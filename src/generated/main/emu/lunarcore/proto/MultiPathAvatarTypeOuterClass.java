@@ -127,7 +127,7 @@ public final class MultiPathAvatarTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<MultiPathAvatarType> converter() {
+    public static ProtoEnum.EnumConverter<MultiPathAvatarType> converter() {
       return MultiPathAvatarTypeConverter.INSTANCE;
     }
 
@@ -149,7 +149,7 @@ public final class MultiPathAvatarTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum MultiPathAvatarTypeConverter implements EnumConverter<MultiPathAvatarType> {
+    enum MultiPathAvatarTypeConverter implements ProtoEnum.EnumConverter<MultiPathAvatarType> {
       INSTANCE;
 
       @Override

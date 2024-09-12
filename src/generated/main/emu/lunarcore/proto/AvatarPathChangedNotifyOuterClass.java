@@ -24,7 +24,7 @@ public final class AvatarPathChangedNotifyOuterClass {
     private int baseAvatarId;
 
     /**
-     * <code>optional .MultiPathAvatarType changed_avatar_type = 9;</code>
+     * <code>optional .MultiPathAvatarType changed_avatar_type = 8;</code>
      */
     private int changedAvatarType;
 
@@ -76,7 +76,7 @@ public final class AvatarPathChangedNotifyOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType changed_avatar_type = 9;</code>
+     * <code>optional .MultiPathAvatarType changed_avatar_type = 8;</code>
      * @return whether the changedAvatarType field is set
      */
     public boolean hasChangedAvatarType() {
@@ -84,7 +84,7 @@ public final class AvatarPathChangedNotifyOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType changed_avatar_type = 9;</code>
+     * <code>optional .MultiPathAvatarType changed_avatar_type = 8;</code>
      * @return this
      */
     public AvatarPathChangedNotify clearChangedAvatarType() {
@@ -94,7 +94,7 @@ public final class AvatarPathChangedNotifyOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType changed_avatar_type = 9;</code>
+     * <code>optional .MultiPathAvatarType changed_avatar_type = 8;</code>
      * @return the changedAvatarType
      */
     public MultiPathAvatarTypeOuterClass.MultiPathAvatarType getChangedAvatarType() {
@@ -127,7 +127,7 @@ public final class AvatarPathChangedNotifyOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType changed_avatar_type = 9;</code>
+     * <code>optional .MultiPathAvatarType changed_avatar_type = 8;</code>
      * @param value the changedAvatarType to set
      * @return this
      */
@@ -207,7 +207,7 @@ public final class AvatarPathChangedNotifyOuterClass {
         output.writeUInt32NoTag(baseAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 64);
         output.writeEnumNoTag(changedAvatarType);
       }
     }
@@ -236,11 +236,11 @@ public final class AvatarPathChangedNotifyOuterClass {
             baseAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 64) {
               break;
             }
           }
-          case 72: {
+          case 64: {
             // changedAvatarType
             final int value = input.readInt32();
             if (MultiPathAvatarTypeOuterClass.MultiPathAvatarType.forNumber(value) != null) {

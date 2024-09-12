@@ -20,7 +20,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 optional_reward_id = 12;</code>
+     * <code>optional uint32 optional_reward_id = 5;</code>
      */
     private int optionalRewardId;
 
@@ -40,7 +40,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 optional_reward_id = 12;</code>
+     * <code>optional uint32 optional_reward_id = 5;</code>
      * @return whether the optionalRewardId field is set
      */
     public boolean hasOptionalRewardId() {
@@ -48,7 +48,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 optional_reward_id = 12;</code>
+     * <code>optional uint32 optional_reward_id = 5;</code>
      * @return this
      */
     public TakeMailAttachmentCsReq clearOptionalRewardId() {
@@ -58,7 +58,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 optional_reward_id = 12;</code>
+     * <code>optional uint32 optional_reward_id = 5;</code>
      * @return the optionalRewardId
      */
     public int getOptionalRewardId() {
@@ -66,7 +66,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 optional_reward_id = 12;</code>
+     * <code>optional uint32 optional_reward_id = 5;</code>
      * @param value the optionalRewardId to set
      * @return this
      */
@@ -210,7 +210,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(optionalRewardId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -240,7 +240,7 @@ public final class TakeMailAttachmentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 40: {
             // optionalRewardId
             optionalRewardId = input.readUInt32();
             bitField0_ |= 0x00000001;

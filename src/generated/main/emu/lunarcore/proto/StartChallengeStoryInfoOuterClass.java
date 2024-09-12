@@ -19,12 +19,12 @@ public final class StartChallengeStoryInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 6;</code>
+     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 7;</code>
      */
     private final StartChallengeStoryBuffInfoOuterClass.StartChallengeStoryBuffInfo storyBuffInfo = StartChallengeStoryBuffInfoOuterClass.StartChallengeStoryBuffInfo.newInstance();
 
     /**
-     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 13;</code>
+     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 8;</code>
      */
     private final StartNewChallengeStoryBuffInfoOuterClass.StartNewChallengeStoryBuffInfo newStoryBuffInfo = StartNewChallengeStoryBuffInfoOuterClass.StartNewChallengeStoryBuffInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 6;</code>
+     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 7;</code>
      * @return whether the storyBuffInfo field is set
      */
     public boolean hasStoryBuffInfo() {
@@ -47,7 +47,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 6;</code>
+     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 7;</code>
      * @return this
      */
     public StartChallengeStoryInfo clearStoryBuffInfo() {
@@ -57,7 +57,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 6;</code>
+     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -71,7 +71,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 6;</code>
+     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -86,7 +86,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 6;</code>
+     * <code>optional .StartChallengeStoryBuffInfo story_buff_info = 7;</code>
      * @param value the storyBuffInfo to set
      * @return this
      */
@@ -98,7 +98,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 13;</code>
+     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 8;</code>
      * @return whether the newStoryBuffInfo field is set
      */
     public boolean hasNewStoryBuffInfo() {
@@ -106,7 +106,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 13;</code>
+     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 8;</code>
      * @return this
      */
     public StartChallengeStoryInfo clearNewStoryBuffInfo() {
@@ -116,7 +116,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 13;</code>
+     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -131,7 +131,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 13;</code>
+     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -146,7 +146,7 @@ public final class StartChallengeStoryInfoOuterClass {
     }
 
     /**
-     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 13;</code>
+     * <code>optional .StartNewChallengeStoryBuffInfo new_story_buff_info = 8;</code>
      * @param value the newStoryBuffInfo to set
      * @return this
      */
@@ -224,11 +224,11 @@ public final class StartChallengeStoryInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(storyBuffInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(newStoryBuffInfo);
       }
     }
@@ -252,16 +252,16 @@ public final class StartChallengeStoryInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 50: {
+          case 58: {
             // storyBuffInfo
             input.readMessage(storyBuffInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 66) {
               break;
             }
           }
-          case 106: {
+          case 66: {
             // newStoryBuffInfo
             input.readMessage(newStoryBuffInfo);
             bitField0_ |= 0x00000002;

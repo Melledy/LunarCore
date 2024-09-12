@@ -42,6 +42,7 @@ public class GameData {
     @Getter private static Int2ObjectMap<TextJoinExcel> textJoinExcelMap = new Int2ObjectLinkedOpenHashMap<>();
     @Getter private static Int2ObjectMap<ChatBubbleExcel> chatBubbleExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<PhoneThemeExcel> phoneThemeExcelMap = new Int2ObjectOpenHashMap<>();
+    @Getter private static Int2ObjectMap<PetExcel> petExcelMap = new Int2ObjectOpenHashMap<>();
     @Getter private static Int2ObjectMap<ContentPackageExcel> contentPackageExcelMap = new Int2ObjectOpenHashMap<>();
 
     @Getter private static Int2ObjectMap<ChallengeGroupExcel> challengeGroupExcelMap = new Int2ObjectOpenHashMap<>();

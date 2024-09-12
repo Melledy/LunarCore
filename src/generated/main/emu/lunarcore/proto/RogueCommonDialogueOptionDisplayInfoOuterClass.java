@@ -20,12 +20,12 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional float display_float_value = 10;</code>
+     * <code>optional float display_float_value = 7;</code>
      */
     private float displayFloatValue;
 
     /**
-     * <code>optional int32 display_int_value = 6;</code>
+     * <code>optional int32 display_int_value = 3;</code>
      */
     private int displayIntValue;
 
@@ -40,7 +40,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional float display_float_value = 10;</code>
+     * <code>optional float display_float_value = 7;</code>
      * @return whether the displayFloatValue field is set
      */
     public boolean hasDisplayFloatValue() {
@@ -48,7 +48,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional float display_float_value = 10;</code>
+     * <code>optional float display_float_value = 7;</code>
      * @return this
      */
     public RogueCommonDialogueOptionDisplayInfo clearDisplayFloatValue() {
@@ -58,7 +58,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional float display_float_value = 10;</code>
+     * <code>optional float display_float_value = 7;</code>
      * @return the displayFloatValue
      */
     public float getDisplayFloatValue() {
@@ -66,7 +66,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional float display_float_value = 10;</code>
+     * <code>optional float display_float_value = 7;</code>
      * @param value the displayFloatValue to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional int32 display_int_value = 6;</code>
+     * <code>optional int32 display_int_value = 3;</code>
      * @return whether the displayIntValue field is set
      */
     public boolean hasDisplayIntValue() {
@@ -85,7 +85,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional int32 display_int_value = 6;</code>
+     * <code>optional int32 display_int_value = 3;</code>
      * @return this
      */
     public RogueCommonDialogueOptionDisplayInfo clearDisplayIntValue() {
@@ -95,7 +95,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional int32 display_int_value = 6;</code>
+     * <code>optional int32 display_int_value = 3;</code>
      * @return the displayIntValue
      */
     public int getDisplayIntValue() {
@@ -103,7 +103,7 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     }
 
     /**
-     * <code>optional int32 display_int_value = 6;</code>
+     * <code>optional int32 display_int_value = 3;</code>
      * @param value the displayIntValue to set
      * @return this
      */
@@ -180,11 +180,11 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 85);
+        output.writeRawByte((byte) 61);
         output.writeFloatNoTag(displayFloatValue);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 24);
         output.writeInt32NoTag(displayIntValue);
       }
     }
@@ -209,16 +209,16 @@ public final class RogueCommonDialogueOptionDisplayInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 85: {
+          case 61: {
             // displayFloatValue
             displayFloatValue = input.readFloat();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 24) {
               break;
             }
           }
-          case 48: {
+          case 24: {
             // displayIntValue
             displayIntValue = input.readInt32();
             bitField0_ |= 0x00000002;

@@ -19,14 +19,14 @@ public final class UpdateServerPrefsDataScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
-     */
-    private int retcode;
-
-    /**
-     * <code>optional uint32 server_prefs_id = 7;</code>
+     * <code>optional uint32 server_prefs_id = 5;</code>
      */
     private int serverPrefsId;
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     */
+    private int retcode;
 
     private UpdateServerPrefsDataScRsp() {
     }
@@ -39,62 +39,25 @@ public final class UpdateServerPrefsDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return whether the retcode field is set
+     * <code>optional uint32 server_prefs_id = 5;</code>
+     * @return whether the serverPrefsId field is set
      */
-    public boolean hasRetcode() {
+    public boolean hasServerPrefsId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return this
-     */
-    public UpdateServerPrefsDataScRsp clearRetcode() {
-      bitField0_ &= ~0x00000001;
-      retcode = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @return the retcode
-     */
-    public int getRetcode() {
-      return retcode;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 5;</code>
-     * @param value the retcode to set
-     * @return this
-     */
-    public UpdateServerPrefsDataScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000001;
-      retcode = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 server_prefs_id = 7;</code>
-     * @return whether the serverPrefsId field is set
-     */
-    public boolean hasServerPrefsId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 server_prefs_id = 7;</code>
+     * <code>optional uint32 server_prefs_id = 5;</code>
      * @return this
      */
     public UpdateServerPrefsDataScRsp clearServerPrefsId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       serverPrefsId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 server_prefs_id = 7;</code>
+     * <code>optional uint32 server_prefs_id = 5;</code>
      * @return the serverPrefsId
      */
     public int getServerPrefsId() {
@@ -102,13 +65,50 @@ public final class UpdateServerPrefsDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 server_prefs_id = 7;</code>
+     * <code>optional uint32 server_prefs_id = 5;</code>
      * @param value the serverPrefsId to set
      * @return this
      */
     public UpdateServerPrefsDataScRsp setServerPrefsId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       serverPrefsId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     * @return whether the retcode field is set
+     */
+    public boolean hasRetcode() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     * @return this
+     */
+    public UpdateServerPrefsDataScRsp clearRetcode() {
+      bitField0_ &= ~0x00000002;
+      retcode = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     * @return the retcode
+     */
+    public int getRetcode() {
+      return retcode;
+    }
+
+    /**
+     * <code>optional uint32 retcode = 14;</code>
+     * @param value the retcode to set
+     * @return this
+     */
+    public UpdateServerPrefsDataScRsp setRetcode(final int value) {
+      bitField0_ |= 0x00000002;
+      retcode = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class UpdateServerPrefsDataScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        retcode = other.retcode;
         serverPrefsId = other.serverPrefsId;
+        retcode = other.retcode;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class UpdateServerPrefsDataScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRetcode()) {
-        setRetcode(other.retcode);
-      }
       if (other.hasServerPrefsId()) {
         setServerPrefsId(other.serverPrefsId);
+      }
+      if (other.hasRetcode()) {
+        setRetcode(other.retcode);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class UpdateServerPrefsDataScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      retcode = 0;
       serverPrefsId = 0;
+      retcode = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class UpdateServerPrefsDataScRspOuterClass {
       }
       UpdateServerPrefsDataScRsp other = (UpdateServerPrefsDataScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasRetcode() || retcode == other.retcode)
-        && (!hasServerPrefsId() || serverPrefsId == other.serverPrefsId);
+        && (!hasServerPrefsId() || serverPrefsId == other.serverPrefsId)
+        && (!hasRetcode() || retcode == other.retcode);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(retcode);
+        output.writeUInt32NoTag(serverPrefsId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(serverPrefsId);
+        output.writeRawByte((byte) 112);
+        output.writeUInt32NoTag(retcode);
       }
     }
 
@@ -190,10 +190,10 @@ public final class UpdateServerPrefsDataScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(serverPrefsId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(serverPrefsId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       return size;
     }
@@ -206,17 +206,17 @@ public final class UpdateServerPrefsDataScRspOuterClass {
       while (true) {
         switch (tag) {
           case 40: {
-            // retcode
-            retcode = input.readUInt32();
+            // serverPrefsId
+            serverPrefsId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 112) {
               break;
             }
           }
-          case 56: {
-            // serverPrefsId
-            serverPrefsId = input.readUInt32();
+          case 112: {
+            // retcode
+            retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class UpdateServerPrefsDataScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.serverPrefsId, serverPrefsId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.serverPrefsId, serverPrefsId);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       output.endObject();
     }
@@ -256,10 +256,11 @@ public final class UpdateServerPrefsDataScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 656672552:
+          case 2077691526: {
+            if (input.isAtField(FieldNames.serverPrefsId)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                serverPrefsId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -267,11 +268,10 @@ public final class UpdateServerPrefsDataScRspOuterClass {
             }
             break;
           }
-          case 656672552:
-          case 2077691526: {
-            if (input.isAtField(FieldNames.serverPrefsId)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                serverPrefsId = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -332,9 +332,9 @@ public final class UpdateServerPrefsDataScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName retcode = FieldName.forField("retcode");
-
       static final FieldName serverPrefsId = FieldName.forField("serverPrefsId", "server_prefs_id");
+
+      static final FieldName retcode = FieldName.forField("retcode");
     }
   }
 }

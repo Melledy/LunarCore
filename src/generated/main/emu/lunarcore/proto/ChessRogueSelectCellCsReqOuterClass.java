@@ -19,7 +19,7 @@ public final class ChessRogueSelectCellCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 cell_id = 2;</code>
+     * <code>optional uint32 cell_id = 15;</code>
      */
     private int cellId;
 
@@ -34,7 +34,7 @@ public final class ChessRogueSelectCellCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 cell_id = 2;</code>
+     * <code>optional uint32 cell_id = 15;</code>
      * @return whether the cellId field is set
      */
     public boolean hasCellId() {
@@ -42,7 +42,7 @@ public final class ChessRogueSelectCellCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 cell_id = 2;</code>
+     * <code>optional uint32 cell_id = 15;</code>
      * @return this
      */
     public ChessRogueSelectCellCsReq clearCellId() {
@@ -52,7 +52,7 @@ public final class ChessRogueSelectCellCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 cell_id = 2;</code>
+     * <code>optional uint32 cell_id = 15;</code>
      * @return the cellId
      */
     public int getCellId() {
@@ -60,7 +60,7 @@ public final class ChessRogueSelectCellCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 cell_id = 2;</code>
+     * <code>optional uint32 cell_id = 15;</code>
      * @param value the cellId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class ChessRogueSelectCellCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(cellId);
       }
     }
@@ -150,7 +150,7 @@ public final class ChessRogueSelectCellCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 120: {
             // cellId
             cellId = input.readUInt32();
             bitField0_ |= 0x00000001;

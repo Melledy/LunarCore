@@ -16,10 +16,10 @@ import com.google.gson.annotations.SerializedName;
 @Getter
 @ResourceType(name = {"RogueBuffGroup.json"}, loadPriority = LoadPriority.LOW)
 public class RogueBuffGroupExcel extends GameResource {
-    @SerializedName(value = "MNNPAFJEGJC")
+    @SerializedName(value = "IOMDAGGIAME")
     private int RogueBuffGroupID;  // RogueBuffGroupID
     
-    @SerializedName(value = "KCFPNHGBGIA")
+    @SerializedName(value = "HLKMFHBOAIA")
     private IntArrayList RogueBuffTagList;  // RogueBuffTagList or RogueBuffGroupList
     
     private transient Set<RogueBuffData> rogueBuffList = new HashSet<>();

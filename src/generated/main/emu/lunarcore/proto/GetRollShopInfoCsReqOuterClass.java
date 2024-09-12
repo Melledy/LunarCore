@@ -19,7 +19,7 @@ public final class GetRollShopInfoCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 roll_shop_id = 12;</code>
+     * <code>optional uint32 roll_shop_id = 7;</code>
      */
     private int rollShopId;
 
@@ -34,7 +34,7 @@ public final class GetRollShopInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 roll_shop_id = 12;</code>
+     * <code>optional uint32 roll_shop_id = 7;</code>
      * @return whether the rollShopId field is set
      */
     public boolean hasRollShopId() {
@@ -42,7 +42,7 @@ public final class GetRollShopInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 roll_shop_id = 12;</code>
+     * <code>optional uint32 roll_shop_id = 7;</code>
      * @return this
      */
     public GetRollShopInfoCsReq clearRollShopId() {
@@ -52,7 +52,7 @@ public final class GetRollShopInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 roll_shop_id = 12;</code>
+     * <code>optional uint32 roll_shop_id = 7;</code>
      * @return the rollShopId
      */
     public int getRollShopId() {
@@ -60,7 +60,7 @@ public final class GetRollShopInfoCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 roll_shop_id = 12;</code>
+     * <code>optional uint32 roll_shop_id = 7;</code>
      * @param value the rollShopId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class GetRollShopInfoCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(rollShopId);
       }
     }
@@ -150,7 +150,7 @@ public final class GetRollShopInfoCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 56: {
             // rollShopId
             rollShopId = input.readUInt32();
             bitField0_ |= 0x00000001;

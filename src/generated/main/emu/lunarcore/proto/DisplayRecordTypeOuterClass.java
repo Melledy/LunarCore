@@ -67,7 +67,7 @@ public final class DisplayRecordTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<DisplayRecordType> converter() {
+    public static ProtoEnum.EnumConverter<DisplayRecordType> converter() {
       return DisplayRecordTypeConverter.INSTANCE;
     }
 
@@ -89,7 +89,7 @@ public final class DisplayRecordTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum DisplayRecordTypeConverter implements EnumConverter<DisplayRecordType> {
+    enum DisplayRecordTypeConverter implements ProtoEnum.EnumConverter<DisplayRecordType> {
       INSTANCE;
 
       private static final DisplayRecordType[] lookup = new DisplayRecordType[3];

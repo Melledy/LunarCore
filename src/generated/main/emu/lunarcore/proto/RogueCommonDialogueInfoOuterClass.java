@@ -20,11 +20,12 @@ public final class RogueCommonDialogueInfoOuterClass {
 
     /**
      * <pre>
-     * DIACKBJMGOM IECFCBIHCKG = 6;
-     * CBEPEJDDBHK HCNKEAOPIGF = 4;
+     *  JHFNBCAKNAP KNHAHDLIAPF = 5;
+     *  AGICBCNPMBF AOLAFEPHJFE = 12;
+     *  LMFCCGILDOH CJFHHFCGDDA = 15;
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 13;</code>
+     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 4;</code>
      */
     private final RogueCommonDialogueBasicInfoOuterClass.RogueCommonDialogueBasicInfo dialogueBasicInfo = RogueCommonDialogueBasicInfoOuterClass.RogueCommonDialogueBasicInfo.newInstance();
 
@@ -38,12 +39,12 @@ public final class RogueCommonDialogueInfoOuterClass {
       return new RogueCommonDialogueInfo();
     }
 
-    public boolean hasOBCDHEEJEFH() {
+    public boolean hasDialogueInfo() {
       return (((bitField0_ & 0x00000001)) != 0);
     }
 
-    public RogueCommonDialogueInfo clearOBCDHEEJEFH() {
-      if (hasOBCDHEEJEFH()) {
+    public RogueCommonDialogueInfo clearDialogueInfo() {
+      if (hasDialogueInfo()) {
         clearDialogueBasicInfo();
       }
       return this;
@@ -51,11 +52,12 @@ public final class RogueCommonDialogueInfoOuterClass {
 
     /**
      * <pre>
-     * DIACKBJMGOM IECFCBIHCKG = 6;
-     * CBEPEJDDBHK HCNKEAOPIGF = 4;
+     *  JHFNBCAKNAP KNHAHDLIAPF = 5;
+     *  AGICBCNPMBF AOLAFEPHJFE = 12;
+     *  LMFCCGILDOH CJFHHFCGDDA = 15;
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 13;</code>
+     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 4;</code>
      * @return whether the dialogueBasicInfo field is set
      */
     public boolean hasDialogueBasicInfo() {
@@ -64,11 +66,12 @@ public final class RogueCommonDialogueInfoOuterClass {
 
     /**
      * <pre>
-     * DIACKBJMGOM IECFCBIHCKG = 6;
-     * CBEPEJDDBHK HCNKEAOPIGF = 4;
+     *  JHFNBCAKNAP KNHAHDLIAPF = 5;
+     *  AGICBCNPMBF AOLAFEPHJFE = 12;
+     *  LMFCCGILDOH CJFHHFCGDDA = 15;
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 13;</code>
+     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 4;</code>
      * @return this
      */
     public RogueCommonDialogueInfo clearDialogueBasicInfo() {
@@ -79,11 +82,12 @@ public final class RogueCommonDialogueInfoOuterClass {
 
     /**
      * <pre>
-     * DIACKBJMGOM IECFCBIHCKG = 6;
-     * CBEPEJDDBHK HCNKEAOPIGF = 4;
+     *  JHFNBCAKNAP KNHAHDLIAPF = 5;
+     *  AGICBCNPMBF AOLAFEPHJFE = 12;
+     *  LMFCCGILDOH CJFHHFCGDDA = 15;
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 13;</code>
+     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -99,11 +103,12 @@ public final class RogueCommonDialogueInfoOuterClass {
 
     /**
      * <pre>
-     * DIACKBJMGOM IECFCBIHCKG = 6;
-     * CBEPEJDDBHK HCNKEAOPIGF = 4;
+     *  JHFNBCAKNAP KNHAHDLIAPF = 5;
+     *  AGICBCNPMBF AOLAFEPHJFE = 12;
+     *  LMFCCGILDOH CJFHHFCGDDA = 15;
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 13;</code>
+     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -119,11 +124,12 @@ public final class RogueCommonDialogueInfoOuterClass {
 
     /**
      * <pre>
-     * DIACKBJMGOM IECFCBIHCKG = 6;
-     * CBEPEJDDBHK HCNKEAOPIGF = 4;
+     *  JHFNBCAKNAP KNHAHDLIAPF = 5;
+     *  AGICBCNPMBF AOLAFEPHJFE = 12;
+     *  LMFCCGILDOH CJFHHFCGDDA = 15;
      * </pre>
      *
-     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 13;</code>
+     * <code>optional .RogueCommonDialogueBasicInfo dialogue_basic_info = 4;</code>
      * @param value the dialogueBasicInfo to set
      * @return this
      */
@@ -194,7 +200,7 @@ public final class RogueCommonDialogueInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 34);
         output.writeMessageNoTag(dialogueBasicInfo);
       }
     }
@@ -215,7 +221,7 @@ public final class RogueCommonDialogueInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 106: {
+          case 34: {
             // dialogueBasicInfo
             input.readMessage(dialogueBasicInfo);
             bitField0_ |= 0x00000001;

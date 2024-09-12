@@ -21,24 +21,24 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 3;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated uint32 basic_type_id_list = 15;</code>
+     * <code>repeated uint32 basic_type_id_list = 4;</code>
      */
     private final RepeatedInt basicTypeIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 4;</code>
-     */
-    private final RepeatedMessage<CurAvatarPathEntry> curAvatarPath = RepeatedMessage.newEmptyInstance(CurAvatarPathEntry.getFactory());
-
-    /**
-     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 13;</code>
+     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 2;</code>
      */
     private final RepeatedMessage<MultiPathAvatarInfoOuterClass.MultiPathAvatarInfo> multiPathAvatarInfoList = RepeatedMessage.newEmptyInstance(MultiPathAvatarInfoOuterClass.MultiPathAvatarInfo.getFactory());
+
+    /**
+     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 13;</code>
+     */
+    private final RepeatedMessage<CurAvatarPathEntry> curAvatarPath = RepeatedMessage.newEmptyInstance(CurAvatarPathEntry.getFactory());
 
     private GetMultiPathAvatarInfoScRsp() {
     }
@@ -51,7 +51,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -59,7 +59,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return this
      */
     public GetMultiPathAvatarInfoScRsp clearRetcode() {
@@ -69,7 +69,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -77,7 +77,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -88,7 +88,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 basic_type_id_list = 15;</code>
+     * <code>repeated uint32 basic_type_id_list = 4;</code>
      * @return whether the basicTypeIdList field is set
      */
     public boolean hasBasicTypeIdList() {
@@ -96,7 +96,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 basic_type_id_list = 15;</code>
+     * <code>repeated uint32 basic_type_id_list = 4;</code>
      * @return this
      */
     public GetMultiPathAvatarInfoScRsp clearBasicTypeIdList() {
@@ -106,7 +106,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 basic_type_id_list = 15;</code>
+     * <code>repeated uint32 basic_type_id_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -120,7 +120,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 basic_type_id_list = 15;</code>
+     * <code>repeated uint32 basic_type_id_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -134,7 +134,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 basic_type_id_list = 15;</code>
+     * <code>repeated uint32 basic_type_id_list = 4;</code>
      * @param value the basicTypeIdList to add
      * @return this
      */
@@ -145,7 +145,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 basic_type_id_list = 15;</code>
+     * <code>repeated uint32 basic_type_id_list = 4;</code>
      * @param values the basicTypeIdList to add
      * @return this
      */
@@ -156,93 +156,25 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 4;</code>
-     * @return whether the curAvatarPath field is set
+     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 2;</code>
+     * @return whether the multiPathAvatarInfoList field is set
      */
-    public boolean hasCurAvatarPath() {
+    public boolean hasMultiPathAvatarInfoList() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 4;</code>
-     * @return this
-     */
-    public GetMultiPathAvatarInfoScRsp clearCurAvatarPath() {
-      bitField0_ &= ~0x00000004;
-      curAvatarPath.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 4;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableCurAvatarPath()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedMessage<CurAvatarPathEntry> getCurAvatarPath() {
-      return curAvatarPath;
-    }
-
-    /**
-     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 4;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedMessage<CurAvatarPathEntry> getMutableCurAvatarPath() {
-      bitField0_ |= 0x00000004;
-      return curAvatarPath;
-    }
-
-    /**
-     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 4;</code>
-     * @param value the curAvatarPath to add
-     * @return this
-     */
-    public GetMultiPathAvatarInfoScRsp addCurAvatarPath(final CurAvatarPathEntry value) {
-      bitField0_ |= 0x00000004;
-      curAvatarPath.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 4;</code>
-     * @param values the curAvatarPath to add
-     * @return this
-     */
-    public GetMultiPathAvatarInfoScRsp addAllCurAvatarPath(final CurAvatarPathEntry... values) {
-      bitField0_ |= 0x00000004;
-      curAvatarPath.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 13;</code>
-     * @return whether the multiPathAvatarInfoList field is set
-     */
-    public boolean hasMultiPathAvatarInfoList() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 13;</code>
+     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 2;</code>
      * @return this
      */
     public GetMultiPathAvatarInfoScRsp clearMultiPathAvatarInfoList() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000004;
       multiPathAvatarInfoList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 13;</code>
+     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -257,7 +189,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 13;</code>
+     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -267,31 +199,99 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
      */
     public RepeatedMessage<MultiPathAvatarInfoOuterClass.MultiPathAvatarInfo> getMutableMultiPathAvatarInfoList(
         ) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       return multiPathAvatarInfoList;
     }
 
     /**
-     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 13;</code>
+     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 2;</code>
      * @param value the multiPathAvatarInfoList to add
      * @return this
      */
     public GetMultiPathAvatarInfoScRsp addMultiPathAvatarInfoList(
         final MultiPathAvatarInfoOuterClass.MultiPathAvatarInfo value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       multiPathAvatarInfoList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 13;</code>
+     * <code>repeated .MultiPathAvatarInfo multi_path_avatar_info_list = 2;</code>
      * @param values the multiPathAvatarInfoList to add
      * @return this
      */
     public GetMultiPathAvatarInfoScRsp addAllMultiPathAvatarInfoList(
         final MultiPathAvatarInfoOuterClass.MultiPathAvatarInfo... values) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       multiPathAvatarInfoList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 13;</code>
+     * @return whether the curAvatarPath field is set
+     */
+    public boolean hasCurAvatarPath() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 13;</code>
+     * @return this
+     */
+    public GetMultiPathAvatarInfoScRsp clearCurAvatarPath() {
+      bitField0_ &= ~0x00000008;
+      curAvatarPath.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 13;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableCurAvatarPath()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<CurAvatarPathEntry> getCurAvatarPath() {
+      return curAvatarPath;
+    }
+
+    /**
+     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 13;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<CurAvatarPathEntry> getMutableCurAvatarPath() {
+      bitField0_ |= 0x00000008;
+      return curAvatarPath;
+    }
+
+    /**
+     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 13;</code>
+     * @param value the curAvatarPath to add
+     * @return this
+     */
+    public GetMultiPathAvatarInfoScRsp addCurAvatarPath(final CurAvatarPathEntry value) {
+      bitField0_ |= 0x00000008;
+      curAvatarPath.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .GetMultiPathAvatarInfoScRsp.CurAvatarPathEntry cur_avatar_path = 13;</code>
+     * @param values the curAvatarPath to add
+     * @return this
+     */
+    public GetMultiPathAvatarInfoScRsp addAllCurAvatarPath(final CurAvatarPathEntry... values) {
+      bitField0_ |= 0x00000008;
+      curAvatarPath.addAll(values);
       return this;
     }
 
@@ -302,8 +302,8 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
         basicTypeIdList.copyFrom(other.basicTypeIdList);
-        curAvatarPath.copyFrom(other.curAvatarPath);
         multiPathAvatarInfoList.copyFrom(other.multiPathAvatarInfoList);
+        curAvatarPath.copyFrom(other.curAvatarPath);
       }
       return this;
     }
@@ -320,11 +320,11 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
       if (other.hasBasicTypeIdList()) {
         getMutableBasicTypeIdList().addAll(other.basicTypeIdList);
       }
-      if (other.hasCurAvatarPath()) {
-        getMutableCurAvatarPath().addAll(other.curAvatarPath);
-      }
       if (other.hasMultiPathAvatarInfoList()) {
         getMutableMultiPathAvatarInfoList().addAll(other.multiPathAvatarInfoList);
+      }
+      if (other.hasCurAvatarPath()) {
+        getMutableCurAvatarPath().addAll(other.curAvatarPath);
       }
       return this;
     }
@@ -338,8 +338,8 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
       bitField0_ = 0;
       retcode = 0;
       basicTypeIdList.clear();
-      curAvatarPath.clear();
       multiPathAvatarInfoList.clear();
+      curAvatarPath.clear();
       return this;
     }
 
@@ -351,8 +351,8 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       basicTypeIdList.clear();
-      curAvatarPath.clearQuick();
       multiPathAvatarInfoList.clearQuick();
+      curAvatarPath.clearQuick();
       return this;
     }
 
@@ -368,32 +368,32 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
         && (!hasBasicTypeIdList() || basicTypeIdList.equals(other.basicTypeIdList))
-        && (!hasCurAvatarPath() || curAvatarPath.equals(other.curAvatarPath))
-        && (!hasMultiPathAvatarInfoList() || multiPathAvatarInfoList.equals(other.multiPathAvatarInfoList));
+        && (!hasMultiPathAvatarInfoList() || multiPathAvatarInfoList.equals(other.multiPathAvatarInfoList))
+        && (!hasCurAvatarPath() || curAvatarPath.equals(other.curAvatarPath));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < basicTypeIdList.length(); i++) {
-          output.writeRawByte((byte) 120);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(basicTypeIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < curAvatarPath.length(); i++) {
-          output.writeRawByte((byte) 34);
-          output.writeMessageNoTag(curAvatarPath.get(i));
+        for (int i = 0; i < multiPathAvatarInfoList.length(); i++) {
+          output.writeRawByte((byte) 18);
+          output.writeMessageNoTag(multiPathAvatarInfoList.get(i));
         }
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        for (int i = 0; i < multiPathAvatarInfoList.length(); i++) {
+        for (int i = 0; i < curAvatarPath.length(); i++) {
           output.writeRawByte((byte) 106);
-          output.writeMessageNoTag(multiPathAvatarInfoList.get(i));
+          output.writeMessageNoTag(curAvatarPath.get(i));
         }
       }
     }
@@ -408,10 +408,10 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
         size += (1 * basicTypeIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(basicTypeIdList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * curAvatarPath.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(curAvatarPath);
+        size += (1 * multiPathAvatarInfoList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(multiPathAvatarInfoList);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += (1 * multiPathAvatarInfoList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(multiPathAvatarInfoList);
+        size += (1 * curAvatarPath.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(curAvatarPath);
       }
       return size;
     }
@@ -423,35 +423,35 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 24: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 122) {
-              break;
-            }
-          }
-          case 122: {
-            // basicTypeIdList [packed=true]
-            input.readPackedUInt32(basicTypeIdList, tag);
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 34) {
               break;
             }
           }
           case 34: {
-            // curAvatarPath
-            tag = input.readRepeatedMessage(curAvatarPath, tag);
+            // basicTypeIdList [packed=true]
+            input.readPackedUInt32(basicTypeIdList, tag);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 18) {
+              break;
+            }
+          }
+          case 18: {
+            // multiPathAvatarInfoList
+            tag = input.readRepeatedMessage(multiPathAvatarInfoList, tag);
             bitField0_ |= 0x00000004;
             if (tag != 106) {
               break;
             }
           }
           case 106: {
-            // multiPathAvatarInfoList
-            tag = input.readRepeatedMessage(multiPathAvatarInfoList, tag);
+            // curAvatarPath
+            tag = input.readRepeatedMessage(curAvatarPath, tag);
             bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
@@ -467,7 +467,7 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 120: {
+          case 32: {
             // basicTypeIdList [packed=false]
             tag = input.readRepeatedUInt32(basicTypeIdList, tag);
             bitField0_ |= 0x00000002;
@@ -487,10 +487,10 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
         output.writeRepeatedUInt32(FieldNames.basicTypeIdList, basicTypeIdList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedMessage(FieldNames.curAvatarPath, curAvatarPath);
+        output.writeRepeatedMessage(FieldNames.multiPathAvatarInfoList, multiPathAvatarInfoList);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRepeatedMessage(FieldNames.multiPathAvatarInfoList, multiPathAvatarInfoList);
+        output.writeRepeatedMessage(FieldNames.curAvatarPath, curAvatarPath);
       }
       output.endObject();
     }
@@ -525,11 +525,11 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
             }
             break;
           }
-          case 1836831614:
-          case 589876172: {
-            if (input.isAtField(FieldNames.curAvatarPath)) {
+          case -1198530685:
+          case -2042493827: {
+            if (input.isAtField(FieldNames.multiPathAvatarInfoList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(curAvatarPath);
+                input.readRepeatedMessage(multiPathAvatarInfoList);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -537,11 +537,11 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
             }
             break;
           }
-          case -1198530685:
-          case -2042493827: {
-            if (input.isAtField(FieldNames.multiPathAvatarInfoList)) {
+          case 1836831614:
+          case 589876172: {
+            if (input.isAtField(FieldNames.curAvatarPath)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(multiPathAvatarInfoList);
+                input.readRepeatedMessage(curAvatarPath);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -966,9 +966,9 @@ public final class GetMultiPathAvatarInfoScRspOuterClass {
 
       static final FieldName basicTypeIdList = FieldName.forField("basicTypeIdList", "basic_type_id_list");
 
-      static final FieldName curAvatarPath = FieldName.forField("curAvatarPath", "cur_avatar_path");
-
       static final FieldName multiPathAvatarInfoList = FieldName.forField("multiPathAvatarInfoList", "multi_path_avatar_info_list");
+
+      static final FieldName curAvatarPath = FieldName.forField("curAvatarPath", "cur_avatar_path");
     }
   }
 }

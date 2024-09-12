@@ -19,12 +19,12 @@ public final class GroupStateChangeScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 6;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .GroupStateInfo group_info = 3;</code>
+     * <code>optional .GroupStateInfo group_info = 11;</code>
      */
     private final GroupStateInfoOuterClass.GroupStateInfo groupInfo = GroupStateInfoOuterClass.GroupStateInfo.newInstance();
 
@@ -39,7 +39,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -47,7 +47,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return this
      */
     public GroupStateChangeScRsp clearRetcode() {
@@ -57,7 +57,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -65,7 +65,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 6;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 3;</code>
+     * <code>optional .GroupStateInfo group_info = 11;</code>
      * @return whether the groupInfo field is set
      */
     public boolean hasGroupInfo() {
@@ -84,7 +84,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 3;</code>
+     * <code>optional .GroupStateInfo group_info = 11;</code>
      * @return this
      */
     public GroupStateChangeScRsp clearGroupInfo() {
@@ -94,7 +94,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 3;</code>
+     * <code>optional .GroupStateInfo group_info = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 3;</code>
+     * <code>optional .GroupStateInfo group_info = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class GroupStateChangeScRspOuterClass {
     }
 
     /**
-     * <code>optional .GroupStateInfo group_info = 3;</code>
+     * <code>optional .GroupStateInfo group_info = 11;</code>
      * @param value the groupInfo to set
      * @return this
      */
@@ -198,11 +198,11 @@ public final class GroupStateChangeScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 48);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 26);
+        output.writeRawByte((byte) 90);
         output.writeMessageNoTag(groupInfo);
       }
     }
@@ -226,16 +226,16 @@ public final class GroupStateChangeScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 48: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 90) {
               break;
             }
           }
-          case 26: {
+          case 90: {
             // groupInfo
             input.readMessage(groupInfo);
             bitField0_ |= 0x00000002;

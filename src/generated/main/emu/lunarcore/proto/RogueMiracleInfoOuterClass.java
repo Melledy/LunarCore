@@ -19,7 +19,7 @@ public final class RogueMiracleInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 14;</code>
+     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 11;</code>
      */
     private final RogueMiracleInfoDataOuterClass.RogueMiracleInfoData rogueMiracleInfo = RogueMiracleInfoDataOuterClass.RogueMiracleInfoData.newInstance();
 
@@ -34,7 +34,7 @@ public final class RogueMiracleInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 14;</code>
+     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 11;</code>
      * @return whether the rogueMiracleInfo field is set
      */
     public boolean hasRogueMiracleInfo() {
@@ -42,7 +42,7 @@ public final class RogueMiracleInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 14;</code>
+     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 11;</code>
      * @return this
      */
     public RogueMiracleInfo clearRogueMiracleInfo() {
@@ -52,7 +52,7 @@ public final class RogueMiracleInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 14;</code>
+     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class RogueMiracleInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 14;</code>
+     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class RogueMiracleInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 14;</code>
+     * <code>optional .RogueMiracleInfoData rogue_miracle_info = 11;</code>
      * @param value the rogueMiracleInfo to set
      * @return this
      */
@@ -151,7 +151,7 @@ public final class RogueMiracleInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 90);
         output.writeMessageNoTag(rogueMiracleInfo);
       }
     }
@@ -172,7 +172,7 @@ public final class RogueMiracleInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 114: {
+          case 90: {
             // rogueMiracleInfo
             input.readMessage(rogueMiracleInfo);
             bitField0_ |= 0x00000001;

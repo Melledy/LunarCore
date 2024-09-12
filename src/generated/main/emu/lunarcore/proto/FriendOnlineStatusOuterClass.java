@@ -57,7 +57,7 @@ public final class FriendOnlineStatusOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<FriendOnlineStatus> converter() {
+    public static ProtoEnum.EnumConverter<FriendOnlineStatus> converter() {
       return FriendOnlineStatusConverter.INSTANCE;
     }
 
@@ -79,7 +79,7 @@ public final class FriendOnlineStatusOuterClass {
       return value == null ? other : value;
     }
 
-    enum FriendOnlineStatusConverter implements EnumConverter<FriendOnlineStatus> {
+    enum FriendOnlineStatusConverter implements ProtoEnum.EnumConverter<FriendOnlineStatus> {
       INSTANCE;
 
       private static final FriendOnlineStatus[] lookup = new FriendOnlineStatus[2];

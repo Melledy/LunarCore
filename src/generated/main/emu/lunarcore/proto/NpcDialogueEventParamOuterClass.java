@@ -19,14 +19,14 @@ public final class NpcDialogueEventParamOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
+     * <code>optional uint32 arg_id = 3;</code>
+     */
+    private int argId;
+
+    /**
      * <code>optional uint32 rogue_dialogue_event_id = 12;</code>
      */
     private int rogueDialogueEventId;
-
-    /**
-     * <code>optional uint32 arg_id = 13;</code>
-     */
-    private int argId;
 
     private NpcDialogueEventParam() {
     }
@@ -39,11 +39,48 @@ public final class NpcDialogueEventParamOuterClass {
     }
 
     /**
+     * <code>optional uint32 arg_id = 3;</code>
+     * @return whether the argId field is set
+     */
+    public boolean hasArgId() {
+      return (bitField0_ & 0x00000001) != 0;
+    }
+
+    /**
+     * <code>optional uint32 arg_id = 3;</code>
+     * @return this
+     */
+    public NpcDialogueEventParam clearArgId() {
+      bitField0_ &= ~0x00000001;
+      argId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 arg_id = 3;</code>
+     * @return the argId
+     */
+    public int getArgId() {
+      return argId;
+    }
+
+    /**
+     * <code>optional uint32 arg_id = 3;</code>
+     * @param value the argId to set
+     * @return this
+     */
+    public NpcDialogueEventParam setArgId(final int value) {
+      bitField0_ |= 0x00000001;
+      argId = value;
+      return this;
+    }
+
+    /**
      * <code>optional uint32 rogue_dialogue_event_id = 12;</code>
      * @return whether the rogueDialogueEventId field is set
      */
     public boolean hasRogueDialogueEventId() {
-      return (bitField0_ & 0x00000001) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -51,7 +88,7 @@ public final class NpcDialogueEventParamOuterClass {
      * @return this
      */
     public NpcDialogueEventParam clearRogueDialogueEventId() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       rogueDialogueEventId = 0;
       return this;
     }
@@ -70,45 +107,8 @@ public final class NpcDialogueEventParamOuterClass {
      * @return this
      */
     public NpcDialogueEventParam setRogueDialogueEventId(final int value) {
-      bitField0_ |= 0x00000001;
-      rogueDialogueEventId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 arg_id = 13;</code>
-     * @return whether the argId field is set
-     */
-    public boolean hasArgId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 arg_id = 13;</code>
-     * @return this
-     */
-    public NpcDialogueEventParam clearArgId() {
-      bitField0_ &= ~0x00000002;
-      argId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 arg_id = 13;</code>
-     * @return the argId
-     */
-    public int getArgId() {
-      return argId;
-    }
-
-    /**
-     * <code>optional uint32 arg_id = 13;</code>
-     * @param value the argId to set
-     * @return this
-     */
-    public NpcDialogueEventParam setArgId(final int value) {
       bitField0_ |= 0x00000002;
-      argId = value;
+      rogueDialogueEventId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class NpcDialogueEventParamOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        rogueDialogueEventId = other.rogueDialogueEventId;
         argId = other.argId;
+        rogueDialogueEventId = other.rogueDialogueEventId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class NpcDialogueEventParamOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRogueDialogueEventId()) {
-        setRogueDialogueEventId(other.rogueDialogueEventId);
-      }
       if (other.hasArgId()) {
         setArgId(other.argId);
+      }
+      if (other.hasRogueDialogueEventId()) {
+        setRogueDialogueEventId(other.rogueDialogueEventId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class NpcDialogueEventParamOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueDialogueEventId = 0;
       argId = 0;
+      rogueDialogueEventId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class NpcDialogueEventParamOuterClass {
       }
       NpcDialogueEventParam other = (NpcDialogueEventParam) o;
       return bitField0_ == other.bitField0_
-        && (!hasRogueDialogueEventId() || rogueDialogueEventId == other.rogueDialogueEventId)
-        && (!hasArgId() || argId == other.argId);
+        && (!hasArgId() || argId == other.argId)
+        && (!hasRogueDialogueEventId() || rogueDialogueEventId == other.rogueDialogueEventId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(rogueDialogueEventId);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(argId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(argId);
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(rogueDialogueEventId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class NpcDialogueEventParamOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueDialogueEventId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(argId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(argId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueDialogueEventId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class NpcDialogueEventParamOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
-            // rogueDialogueEventId
-            rogueDialogueEventId = input.readUInt32();
+          case 24: {
+            // argId
+            argId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 96) {
               break;
             }
           }
-          case 104: {
-            // argId
-            argId = input.readUInt32();
+          case 96: {
+            // rogueDialogueEventId
+            rogueDialogueEventId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class NpcDialogueEventParamOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.rogueDialogueEventId, rogueDialogueEventId);
+        output.writeUInt32(FieldNames.argId, argId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.argId, argId);
+        output.writeUInt32(FieldNames.rogueDialogueEventId, rogueDialogueEventId);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class NpcDialogueEventParamOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 262816547:
-          case -963375038: {
-            if (input.isAtField(FieldNames.rogueDialogueEventId)) {
+          case 93079057:
+          case -1409495132: {
+            if (input.isAtField(FieldNames.argId)) {
               if (!input.trySkipNullValue()) {
-                rogueDialogueEventId = input.readUInt32();
+                argId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class NpcDialogueEventParamOuterClass {
             }
             break;
           }
-          case 93079057:
-          case -1409495132: {
-            if (input.isAtField(FieldNames.argId)) {
+          case 262816547:
+          case -963375038: {
+            if (input.isAtField(FieldNames.rogueDialogueEventId)) {
               if (!input.trySkipNullValue()) {
-                argId = input.readUInt32();
+                rogueDialogueEventId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class NpcDialogueEventParamOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName rogueDialogueEventId = FieldName.forField("rogueDialogueEventId", "rogue_dialogue_event_id");
-
       static final FieldName argId = FieldName.forField("argId", "arg_id");
+
+      static final FieldName rogueDialogueEventId = FieldName.forField("rogueDialogueEventId", "rogue_dialogue_event_id");
     }
   }
 }

@@ -67,7 +67,7 @@ public final class GenderOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<Gender> converter() {
+    public static ProtoEnum.EnumConverter<Gender> converter() {
       return GenderConverter.INSTANCE;
     }
 
@@ -89,7 +89,7 @@ public final class GenderOuterClass {
       return value == null ? other : value;
     }
 
-    enum GenderConverter implements EnumConverter<Gender> {
+    enum GenderConverter implements ProtoEnum.EnumConverter<Gender> {
       INSTANCE;
 
       private static final Gender[] lookup = new Gender[3];

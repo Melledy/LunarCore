@@ -19,12 +19,12 @@ public final class TakenChallengeRewardInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 star_count = 11;</code>
+     * <code>optional uint32 star_count = 13;</code>
      */
     private int starCount;
 
     /**
-     * <code>optional .ItemList reward = 1;</code>
+     * <code>optional .ItemList reward = 2;</code>
      */
     private final ItemListOuterClass.ItemList reward = ItemListOuterClass.ItemList.newInstance();
 
@@ -39,7 +39,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 11;</code>
+     * <code>optional uint32 star_count = 13;</code>
      * @return whether the starCount field is set
      */
     public boolean hasStarCount() {
@@ -47,7 +47,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 11;</code>
+     * <code>optional uint32 star_count = 13;</code>
      * @return this
      */
     public TakenChallengeRewardInfo clearStarCount() {
@@ -57,7 +57,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 11;</code>
+     * <code>optional uint32 star_count = 13;</code>
      * @return the starCount
      */
     public int getStarCount() {
@@ -65,7 +65,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 11;</code>
+     * <code>optional uint32 star_count = 13;</code>
      * @param value the starCount to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 1;</code>
+     * <code>optional .ItemList reward = 2;</code>
      * @return whether the reward field is set
      */
     public boolean hasReward() {
@@ -84,7 +84,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 1;</code>
+     * <code>optional .ItemList reward = 2;</code>
      * @return this
      */
     public TakenChallengeRewardInfo clearReward() {
@@ -94,7 +94,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 1;</code>
+     * <code>optional .ItemList reward = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 1;</code>
+     * <code>optional .ItemList reward = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 1;</code>
+     * <code>optional .ItemList reward = 2;</code>
      * @param value the reward to set
      * @return this
      */
@@ -198,11 +198,11 @@ public final class TakenChallengeRewardInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 10);
+        output.writeRawByte((byte) 18);
         output.writeMessageNoTag(reward);
       }
     }
@@ -226,16 +226,16 @@ public final class TakenChallengeRewardInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 104: {
             // starCount
             starCount = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 18) {
               break;
             }
           }
-          case 10: {
+          case 18: {
             // reward
             input.readMessage(reward);
             bitField0_ |= 0x00000002;

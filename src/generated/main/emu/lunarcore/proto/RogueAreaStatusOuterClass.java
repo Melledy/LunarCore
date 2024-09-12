@@ -77,7 +77,7 @@ public final class RogueAreaStatusOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<RogueAreaStatus> converter() {
+    public static ProtoEnum.EnumConverter<RogueAreaStatus> converter() {
       return RogueAreaStatusConverter.INSTANCE;
     }
 
@@ -99,7 +99,7 @@ public final class RogueAreaStatusOuterClass {
       return value == null ? other : value;
     }
 
-    enum RogueAreaStatusConverter implements EnumConverter<RogueAreaStatus> {
+    enum RogueAreaStatusConverter implements ProtoEnum.EnumConverter<RogueAreaStatus> {
       INSTANCE;
 
       private static final RogueAreaStatus[] lookup = new RogueAreaStatus[4];

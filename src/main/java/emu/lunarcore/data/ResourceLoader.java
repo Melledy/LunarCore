@@ -10,7 +10,6 @@ import java.util.stream.Stream;
 import emu.lunarcore.data.config.*;
 
 import emu.lunarcore.data.config.rogue.RogueDialogueEventConfigInfo;
-import emu.lunarcore.data.config.rogue.RogueDialogueEventOptionConfigInfo;
 import emu.lunarcore.data.config.rogue.RogueNPCConfigInfo;
 import org.reflections.Reflections;
 

@@ -167,7 +167,7 @@ public final class RogueMiracleSourceOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<RogueMiracleSource> converter() {
+    public static ProtoEnum.EnumConverter<RogueMiracleSource> converter() {
       return RogueMiracleSourceConverter.INSTANCE;
     }
 
@@ -189,7 +189,7 @@ public final class RogueMiracleSourceOuterClass {
       return value == null ? other : value;
     }
 
-    enum RogueMiracleSourceConverter implements EnumConverter<RogueMiracleSource> {
+    enum RogueMiracleSourceConverter implements ProtoEnum.EnumConverter<RogueMiracleSource> {
       INSTANCE;
 
       private static final RogueMiracleSource[] lookup = new RogueMiracleSource[13];

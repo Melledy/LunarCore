@@ -177,7 +177,7 @@ public final class LanguageTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<LanguageType> converter() {
+    public static ProtoEnum.EnumConverter<LanguageType> converter() {
       return LanguageTypeConverter.INSTANCE;
     }
 
@@ -199,7 +199,7 @@ public final class LanguageTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum LanguageTypeConverter implements EnumConverter<LanguageType> {
+    enum LanguageTypeConverter implements ProtoEnum.EnumConverter<LanguageType> {
       INSTANCE;
 
       private static final LanguageType[] lookup = new LanguageType[14];

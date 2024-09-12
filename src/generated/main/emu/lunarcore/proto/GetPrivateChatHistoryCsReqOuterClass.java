@@ -19,12 +19,12 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 1;</code>
      */
     private int senderUid;
 
     /**
-     * <code>optional uint32 to_uid = 7;</code>
+     * <code>optional uint32 to_uid = 2;</code>
      */
     private int toUid;
 
@@ -39,7 +39,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 1;</code>
      * @return whether the senderUid field is set
      */
     public boolean hasSenderUid() {
@@ -47,7 +47,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 1;</code>
      * @return this
      */
     public GetPrivateChatHistoryCsReq clearSenderUid() {
@@ -57,7 +57,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 1;</code>
      * @return the senderUid
      */
     public int getSenderUid() {
@@ -65,7 +65,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 sender_uid = 5;</code>
+     * <code>optional uint32 sender_uid = 1;</code>
      * @param value the senderUid to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 to_uid = 7;</code>
+     * <code>optional uint32 to_uid = 2;</code>
      * @return whether the toUid field is set
      */
     public boolean hasToUid() {
@@ -84,7 +84,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 to_uid = 7;</code>
+     * <code>optional uint32 to_uid = 2;</code>
      * @return this
      */
     public GetPrivateChatHistoryCsReq clearToUid() {
@@ -94,7 +94,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 to_uid = 7;</code>
+     * <code>optional uint32 to_uid = 2;</code>
      * @return the toUid
      */
     public int getToUid() {
@@ -102,7 +102,7 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 to_uid = 7;</code>
+     * <code>optional uint32 to_uid = 2;</code>
      * @param value the toUid to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(senderUid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(toUid);
       }
     }
@@ -205,16 +205,16 @@ public final class GetPrivateChatHistoryCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 8: {
             // senderUid
             senderUid = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 16) {
               break;
             }
           }
-          case 56: {
+          case 16: {
             // toUid
             toUid = input.readUInt32();
             bitField0_ |= 0x00000002;

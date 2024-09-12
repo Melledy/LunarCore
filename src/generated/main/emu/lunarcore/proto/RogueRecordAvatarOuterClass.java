@@ -19,22 +19,22 @@ public final class RogueRecordAvatarOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 level = 13;</code>
-     */
-    private int level;
-
-    /**
-     * <code>optional uint32 slot = 14;</code>
-     */
-    private int slot;
-
-    /**
-     * <code>optional uint32 id = 15;</code>
+     * <code>optional uint32 id = 1;</code>
      */
     private int id;
 
     /**
-     * <code>optional .AvatarType avatar_type = 9;</code>
+     * <code>optional uint32 level = 4;</code>
+     */
+    private int level;
+
+    /**
+     * <code>optional uint32 slot = 13;</code>
+     */
+    private int slot;
+
+    /**
+     * <code>optional .AvatarType avatar_type = 11;</code>
      */
     private int avatarType;
 
@@ -49,99 +49,25 @@ public final class RogueRecordAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 13;</code>
-     * @return whether the level field is set
+     * <code>optional uint32 id = 1;</code>
+     * @return whether the id field is set
      */
-    public boolean hasLevel() {
+    public boolean hasId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 level = 13;</code>
-     * @return this
-     */
-    public RogueRecordAvatar clearLevel() {
-      bitField0_ &= ~0x00000001;
-      level = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 level = 13;</code>
-     * @return the level
-     */
-    public int getLevel() {
-      return level;
-    }
-
-    /**
-     * <code>optional uint32 level = 13;</code>
-     * @param value the level to set
-     * @return this
-     */
-    public RogueRecordAvatar setLevel(final int value) {
-      bitField0_ |= 0x00000001;
-      level = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 slot = 14;</code>
-     * @return whether the slot field is set
-     */
-    public boolean hasSlot() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 slot = 14;</code>
-     * @return this
-     */
-    public RogueRecordAvatar clearSlot() {
-      bitField0_ &= ~0x00000002;
-      slot = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 slot = 14;</code>
-     * @return the slot
-     */
-    public int getSlot() {
-      return slot;
-    }
-
-    /**
-     * <code>optional uint32 slot = 14;</code>
-     * @param value the slot to set
-     * @return this
-     */
-    public RogueRecordAvatar setSlot(final int value) {
-      bitField0_ |= 0x00000002;
-      slot = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 id = 15;</code>
-     * @return whether the id field is set
-     */
-    public boolean hasId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 id = 15;</code>
+     * <code>optional uint32 id = 1;</code>
      * @return this
      */
     public RogueRecordAvatar clearId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000001;
       id = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 id = 15;</code>
+     * <code>optional uint32 id = 1;</code>
      * @return the id
      */
     public int getId() {
@@ -149,18 +75,92 @@ public final class RogueRecordAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 15;</code>
+     * <code>optional uint32 id = 1;</code>
      * @param value the id to set
      * @return this
      */
     public RogueRecordAvatar setId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000001;
       id = value;
       return this;
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 9;</code>
+     * <code>optional uint32 level = 4;</code>
+     * @return whether the level field is set
+     */
+    public boolean hasLevel() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 level = 4;</code>
+     * @return this
+     */
+    public RogueRecordAvatar clearLevel() {
+      bitField0_ &= ~0x00000002;
+      level = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 level = 4;</code>
+     * @return the level
+     */
+    public int getLevel() {
+      return level;
+    }
+
+    /**
+     * <code>optional uint32 level = 4;</code>
+     * @param value the level to set
+     * @return this
+     */
+    public RogueRecordAvatar setLevel(final int value) {
+      bitField0_ |= 0x00000002;
+      level = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 slot = 13;</code>
+     * @return whether the slot field is set
+     */
+    public boolean hasSlot() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 slot = 13;</code>
+     * @return this
+     */
+    public RogueRecordAvatar clearSlot() {
+      bitField0_ &= ~0x00000004;
+      slot = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 slot = 13;</code>
+     * @return the slot
+     */
+    public int getSlot() {
+      return slot;
+    }
+
+    /**
+     * <code>optional uint32 slot = 13;</code>
+     * @param value the slot to set
+     * @return this
+     */
+    public RogueRecordAvatar setSlot(final int value) {
+      bitField0_ |= 0x00000004;
+      slot = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .AvatarType avatar_type = 11;</code>
      * @return whether the avatarType field is set
      */
     public boolean hasAvatarType() {
@@ -168,7 +168,7 @@ public final class RogueRecordAvatarOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 9;</code>
+     * <code>optional .AvatarType avatar_type = 11;</code>
      * @return this
      */
     public RogueRecordAvatar clearAvatarType() {
@@ -178,7 +178,7 @@ public final class RogueRecordAvatarOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 9;</code>
+     * <code>optional .AvatarType avatar_type = 11;</code>
      * @return the avatarType
      */
     public AvatarTypeOuterClass.AvatarType getAvatarType() {
@@ -211,7 +211,7 @@ public final class RogueRecordAvatarOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 9;</code>
+     * <code>optional .AvatarType avatar_type = 11;</code>
      * @param value the avatarType to set
      * @return this
      */
@@ -226,9 +226,9 @@ public final class RogueRecordAvatarOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        id = other.id;
         level = other.level;
         slot = other.slot;
-        id = other.id;
         avatarType = other.avatarType;
       }
       return this;
@@ -240,14 +240,14 @@ public final class RogueRecordAvatarOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasId()) {
+        setId(other.id);
+      }
       if (other.hasLevel()) {
         setLevel(other.level);
       }
       if (other.hasSlot()) {
         setSlot(other.slot);
-      }
-      if (other.hasId()) {
-        setId(other.id);
       }
       if (other.hasAvatarType()) {
         setAvatarTypeValue(other.avatarType);
@@ -262,9 +262,9 @@ public final class RogueRecordAvatarOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      id = 0;
       level = 0;
       slot = 0;
-      id = 0;
       avatarType = 0;
       return this;
     }
@@ -289,28 +289,28 @@ public final class RogueRecordAvatarOuterClass {
       }
       RogueRecordAvatar other = (RogueRecordAvatar) o;
       return bitField0_ == other.bitField0_
+        && (!hasId() || id == other.id)
         && (!hasLevel() || level == other.level)
         && (!hasSlot() || slot == other.slot)
-        && (!hasId() || id == other.id)
         && (!hasAvatarType() || avatarType == other.avatarType);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(level);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
-        output.writeUInt32NoTag(slot);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(id);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(level);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(slot);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 88);
         output.writeEnumNoTag(avatarType);
       }
     }
@@ -319,13 +319,13 @@ public final class RogueRecordAvatarOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(avatarType);
@@ -340,34 +340,34 @@ public final class RogueRecordAvatarOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
-            // level
-            level = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 112) {
-              break;
-            }
-          }
-          case 112: {
-            // slot
-            slot = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
+          case 8: {
             // id
             id = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 32) {
               break;
             }
           }
-          case 72: {
+          case 32: {
+            // level
+            level = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 104) {
+              break;
+            }
+          }
+          case 104: {
+            // slot
+            slot = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
             // avatarType
             final int value = input.readInt32();
             if (AvatarTypeOuterClass.AvatarType.forNumber(value) != null) {
@@ -397,13 +397,13 @@ public final class RogueRecordAvatarOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.level, level);
+        output.writeUInt32(FieldNames.id, id);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.slot, slot);
+        output.writeUInt32(FieldNames.level, level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.id, id);
+        output.writeUInt32(FieldNames.slot, slot);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeEnum(FieldNames.avatarType, avatarType, AvatarTypeOuterClass.AvatarType.converter());
@@ -418,11 +418,22 @@ public final class RogueRecordAvatarOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 3355: {
+            if (input.isAtField(FieldNames.id)) {
+              if (!input.trySkipNullValue()) {
+                id = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 102865796: {
             if (input.isAtField(FieldNames.level)) {
               if (!input.trySkipNullValue()) {
                 level = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -433,17 +444,6 @@ public final class RogueRecordAvatarOuterClass {
             if (input.isAtField(FieldNames.slot)) {
               if (!input.trySkipNullValue()) {
                 slot = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 3355: {
-            if (input.isAtField(FieldNames.id)) {
-              if (!input.trySkipNullValue()) {
-                id = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -521,11 +521,11 @@ public final class RogueRecordAvatarOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName id = FieldName.forField("id");
+
       static final FieldName level = FieldName.forField("level");
 
       static final FieldName slot = FieldName.forField("slot");
-
-      static final FieldName id = FieldName.forField("id");
 
       static final FieldName avatarType = FieldName.forField("avatarType", "avatar_type");
     }

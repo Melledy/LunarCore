@@ -19,9 +19,9 @@ public final class SelectPhoneThemeScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 NNKFBKLCDDF = 3;</code>
+     * <code>optional uint32 cur_phone_theme = 5;</code>
      */
-    private int nNKFBKLCDDF;
+    private int curPhoneTheme;
 
     /**
      * <code>optional uint32 retcode = 7;</code>
@@ -29,9 +29,9 @@ public final class SelectPhoneThemeScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional uint32 cur_phone_theme = 9;</code>
+     * <code>optional uint32 NNKFBKLCDDF = 11;</code>
      */
-    private int curPhoneTheme;
+    private int nNKFBKLCDDF;
 
     private SelectPhoneThemeScRsp() {
     }
@@ -44,39 +44,39 @@ public final class SelectPhoneThemeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 NNKFBKLCDDF = 3;</code>
-     * @return whether the nNKFBKLCDDF field is set
+     * <code>optional uint32 cur_phone_theme = 5;</code>
+     * @return whether the curPhoneTheme field is set
      */
-    public boolean hasNNKFBKLCDDF() {
+    public boolean hasCurPhoneTheme() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 NNKFBKLCDDF = 3;</code>
+     * <code>optional uint32 cur_phone_theme = 5;</code>
      * @return this
      */
-    public SelectPhoneThemeScRsp clearNNKFBKLCDDF() {
+    public SelectPhoneThemeScRsp clearCurPhoneTheme() {
       bitField0_ &= ~0x00000001;
-      nNKFBKLCDDF = 0;
+      curPhoneTheme = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 NNKFBKLCDDF = 3;</code>
-     * @return the nNKFBKLCDDF
+     * <code>optional uint32 cur_phone_theme = 5;</code>
+     * @return the curPhoneTheme
      */
-    public int getNNKFBKLCDDF() {
-      return nNKFBKLCDDF;
+    public int getCurPhoneTheme() {
+      return curPhoneTheme;
     }
 
     /**
-     * <code>optional uint32 NNKFBKLCDDF = 3;</code>
-     * @param value the nNKFBKLCDDF to set
+     * <code>optional uint32 cur_phone_theme = 5;</code>
+     * @param value the curPhoneTheme to set
      * @return this
      */
-    public SelectPhoneThemeScRsp setNNKFBKLCDDF(final int value) {
+    public SelectPhoneThemeScRsp setCurPhoneTheme(final int value) {
       bitField0_ |= 0x00000001;
-      nNKFBKLCDDF = value;
+      curPhoneTheme = value;
       return this;
     }
 
@@ -118,39 +118,39 @@ public final class SelectPhoneThemeScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 9;</code>
-     * @return whether the curPhoneTheme field is set
+     * <code>optional uint32 NNKFBKLCDDF = 11;</code>
+     * @return whether the nNKFBKLCDDF field is set
      */
-    public boolean hasCurPhoneTheme() {
+    public boolean hasNNKFBKLCDDF() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 9;</code>
+     * <code>optional uint32 NNKFBKLCDDF = 11;</code>
      * @return this
      */
-    public SelectPhoneThemeScRsp clearCurPhoneTheme() {
+    public SelectPhoneThemeScRsp clearNNKFBKLCDDF() {
       bitField0_ &= ~0x00000004;
-      curPhoneTheme = 0;
+      nNKFBKLCDDF = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 9;</code>
-     * @return the curPhoneTheme
+     * <code>optional uint32 NNKFBKLCDDF = 11;</code>
+     * @return the nNKFBKLCDDF
      */
-    public int getCurPhoneTheme() {
-      return curPhoneTheme;
+    public int getNNKFBKLCDDF() {
+      return nNKFBKLCDDF;
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 9;</code>
-     * @param value the curPhoneTheme to set
+     * <code>optional uint32 NNKFBKLCDDF = 11;</code>
+     * @param value the nNKFBKLCDDF to set
      * @return this
      */
-    public SelectPhoneThemeScRsp setCurPhoneTheme(final int value) {
+    public SelectPhoneThemeScRsp setNNKFBKLCDDF(final int value) {
       bitField0_ |= 0x00000004;
-      curPhoneTheme = value;
+      nNKFBKLCDDF = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class SelectPhoneThemeScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        nNKFBKLCDDF = other.nNKFBKLCDDF;
-        retcode = other.retcode;
         curPhoneTheme = other.curPhoneTheme;
+        retcode = other.retcode;
+        nNKFBKLCDDF = other.nNKFBKLCDDF;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class SelectPhoneThemeScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasNNKFBKLCDDF()) {
-        setNNKFBKLCDDF(other.nNKFBKLCDDF);
+      if (other.hasCurPhoneTheme()) {
+        setCurPhoneTheme(other.curPhoneTheme);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasCurPhoneTheme()) {
-        setCurPhoneTheme(other.curPhoneTheme);
+      if (other.hasNNKFBKLCDDF()) {
+        setNNKFBKLCDDF(other.nNKFBKLCDDF);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class SelectPhoneThemeScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      nNKFBKLCDDF = 0;
-      retcode = 0;
       curPhoneTheme = 0;
+      retcode = 0;
+      nNKFBKLCDDF = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class SelectPhoneThemeScRspOuterClass {
       }
       SelectPhoneThemeScRsp other = (SelectPhoneThemeScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasNNKFBKLCDDF() || nNKFBKLCDDF == other.nNKFBKLCDDF)
+        && (!hasCurPhoneTheme() || curPhoneTheme == other.curPhoneTheme)
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasCurPhoneTheme() || curPhoneTheme == other.curPhoneTheme);
+        && (!hasNNKFBKLCDDF() || nNKFBKLCDDF == other.nNKFBKLCDDF);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(nNKFBKLCDDF);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(curPhoneTheme);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 72);
-        output.writeUInt32NoTag(curPhoneTheme);
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(nNKFBKLCDDF);
       }
     }
 
@@ -242,13 +242,13 @@ public final class SelectPhoneThemeScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(nNKFBKLCDDF);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(curPhoneTheme);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(curPhoneTheme);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(nNKFBKLCDDF);
       }
       return size;
     }
@@ -260,9 +260,9 @@ public final class SelectPhoneThemeScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
-            // nNKFBKLCDDF
-            nNKFBKLCDDF = input.readUInt32();
+          case 40: {
+            // curPhoneTheme
+            curPhoneTheme = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 56) {
@@ -274,13 +274,13 @@ public final class SelectPhoneThemeScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 88) {
               break;
             }
           }
-          case 72: {
-            // curPhoneTheme
-            curPhoneTheme = input.readUInt32();
+          case 88: {
+            // nNKFBKLCDDF
+            nNKFBKLCDDF = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class SelectPhoneThemeScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.nNKFBKLCDDF, nNKFBKLCDDF);
+        output.writeUInt32(FieldNames.curPhoneTheme, curPhoneTheme);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.curPhoneTheme, curPhoneTheme);
+        output.writeUInt32(FieldNames.nNKFBKLCDDF, nNKFBKLCDDF);
       }
       output.endObject();
     }
@@ -323,10 +323,11 @@ public final class SelectPhoneThemeScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -883757877: {
-            if (input.isAtField(FieldNames.nNKFBKLCDDF)) {
+          case 405670747:
+          case -514634695: {
+            if (input.isAtField(FieldNames.curPhoneTheme)) {
               if (!input.trySkipNullValue()) {
-                nNKFBKLCDDF = input.readUInt32();
+                curPhoneTheme = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -345,11 +346,10 @@ public final class SelectPhoneThemeScRspOuterClass {
             }
             break;
           }
-          case 405670747:
-          case -514634695: {
-            if (input.isAtField(FieldNames.curPhoneTheme)) {
+          case -883757877: {
+            if (input.isAtField(FieldNames.nNKFBKLCDDF)) {
               if (!input.trySkipNullValue()) {
-                curPhoneTheme = input.readUInt32();
+                nNKFBKLCDDF = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -410,11 +410,11 @@ public final class SelectPhoneThemeScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName nNKFBKLCDDF = FieldName.forField("NNKFBKLCDDF");
+      static final FieldName curPhoneTheme = FieldName.forField("curPhoneTheme", "cur_phone_theme");
 
       static final FieldName retcode = FieldName.forField("retcode");
 
-      static final FieldName curPhoneTheme = FieldName.forField("curPhoneTheme", "cur_phone_theme");
+      static final FieldName nNKFBKLCDDF = FieldName.forField("NNKFBKLCDDF");
     }
   }
 }

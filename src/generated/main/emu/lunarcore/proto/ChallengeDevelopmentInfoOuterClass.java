@@ -19,7 +19,7 @@ public final class ChallengeDevelopmentInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 challenge_id = 1;</code>
+     * <code>optional uint32 challenge_id = 14;</code>
      */
     private int challengeId;
 
@@ -34,7 +34,7 @@ public final class ChallengeDevelopmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 1;</code>
+     * <code>optional uint32 challenge_id = 14;</code>
      * @return whether the challengeId field is set
      */
     public boolean hasChallengeId() {
@@ -42,7 +42,7 @@ public final class ChallengeDevelopmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 1;</code>
+     * <code>optional uint32 challenge_id = 14;</code>
      * @return this
      */
     public ChallengeDevelopmentInfo clearChallengeId() {
@@ -52,7 +52,7 @@ public final class ChallengeDevelopmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 1;</code>
+     * <code>optional uint32 challenge_id = 14;</code>
      * @return the challengeId
      */
     public int getChallengeId() {
@@ -60,7 +60,7 @@ public final class ChallengeDevelopmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 challenge_id = 1;</code>
+     * <code>optional uint32 challenge_id = 14;</code>
      * @param value the challengeId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class ChallengeDevelopmentInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(challengeId);
       }
     }
@@ -150,7 +150,7 @@ public final class ChallengeDevelopmentInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 112: {
             // challengeId
             challengeId = input.readUInt32();
             bitField0_ |= 0x00000001;

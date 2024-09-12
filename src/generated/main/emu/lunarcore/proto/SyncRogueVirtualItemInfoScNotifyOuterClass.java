@@ -19,7 +19,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 3;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 8;</code>
      */
     private final RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo rogueVirtualItemInfo = RogueVirtualItemInfoOuterClass.RogueVirtualItemInfo.newInstance();
 
@@ -34,7 +34,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 3;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 8;</code>
      * @return whether the rogueVirtualItemInfo field is set
      */
     public boolean hasRogueVirtualItemInfo() {
@@ -42,7 +42,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 3;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 8;</code>
      * @return this
      */
     public SyncRogueVirtualItemInfoScNotify clearRogueVirtualItemInfo() {
@@ -52,7 +52,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 3;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 8;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 3;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 8;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
     }
 
     /**
-     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 3;</code>
+     * <code>optional .RogueVirtualItemInfo rogue_virtual_item_info = 8;</code>
      * @param value the rogueVirtualItemInfo to set
      * @return this
      */
@@ -152,7 +152,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 26);
+        output.writeRawByte((byte) 66);
         output.writeMessageNoTag(rogueVirtualItemInfo);
       }
     }
@@ -173,7 +173,7 @@ public final class SyncRogueVirtualItemInfoScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 26: {
+          case 66: {
             // rogueVirtualItemInfo
             input.readMessage(rogueVirtualItemInfo);
             bitField0_ |= 0x00000001;

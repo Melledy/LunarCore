@@ -1,7 +1,5 @@
 package emu.lunarcore.data.excel;
 
-import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.GameDepot;
 import emu.lunarcore.data.GameResource;
 import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.config.rogue.RogueNPCConfigInfo;

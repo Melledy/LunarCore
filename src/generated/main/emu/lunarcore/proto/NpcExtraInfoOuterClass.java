@@ -19,7 +19,7 @@ public final class NpcExtraInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .NpcRogueInfo rogue_info = 7;</code>
+     * <code>optional .NpcRogueInfo rogue_info = 6;</code>
      */
     private final NpcRogueInfoOuterClass.NpcRogueInfo rogueInfo = NpcRogueInfoOuterClass.NpcRogueInfo.newInstance();
 
@@ -34,7 +34,7 @@ public final class NpcExtraInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcRogueInfo rogue_info = 7;</code>
+     * <code>optional .NpcRogueInfo rogue_info = 6;</code>
      * @return whether the rogueInfo field is set
      */
     public boolean hasRogueInfo() {
@@ -42,7 +42,7 @@ public final class NpcExtraInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcRogueInfo rogue_info = 7;</code>
+     * <code>optional .NpcRogueInfo rogue_info = 6;</code>
      * @return this
      */
     public NpcExtraInfo clearRogueInfo() {
@@ -52,7 +52,7 @@ public final class NpcExtraInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcRogueInfo rogue_info = 7;</code>
+     * <code>optional .NpcRogueInfo rogue_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -66,7 +66,7 @@ public final class NpcExtraInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcRogueInfo rogue_info = 7;</code>
+     * <code>optional .NpcRogueInfo rogue_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -80,7 +80,7 @@ public final class NpcExtraInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcRogueInfo rogue_info = 7;</code>
+     * <code>optional .NpcRogueInfo rogue_info = 6;</code>
      * @param value the rogueInfo to set
      * @return this
      */
@@ -150,7 +150,7 @@ public final class NpcExtraInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 58);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(rogueInfo);
       }
     }
@@ -171,7 +171,7 @@ public final class NpcExtraInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 58: {
+          case 50: {
             // rogueInfo
             input.readMessage(rogueInfo);
             bitField0_ |= 0x00000001;

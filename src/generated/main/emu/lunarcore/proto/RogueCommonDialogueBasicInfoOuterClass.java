@@ -19,14 +19,14 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 dialogue_id = 4;</code>
+     * <code>optional uint32 dialogue_id = 5;</code>
      */
     private int dialogueId;
 
     /**
-     * <code>optional uint32 sus = 5;</code>
+     * <code>optional uint32 rogue_npc_id = 7;</code>
      */
-    private int sus;
+    private int rogueNpcId;
 
     private RogueCommonDialogueBasicInfo() {
     }
@@ -39,7 +39,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 4;</code>
+     * <code>optional uint32 dialogue_id = 5;</code>
      * @return whether the dialogueId field is set
      */
     public boolean hasDialogueId() {
@@ -47,7 +47,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 4;</code>
+     * <code>optional uint32 dialogue_id = 5;</code>
      * @return this
      */
     public RogueCommonDialogueBasicInfo clearDialogueId() {
@@ -57,7 +57,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 4;</code>
+     * <code>optional uint32 dialogue_id = 5;</code>
      * @return the dialogueId
      */
     public int getDialogueId() {
@@ -65,7 +65,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 dialogue_id = 4;</code>
+     * <code>optional uint32 dialogue_id = 5;</code>
      * @param value the dialogueId to set
      * @return this
      */
@@ -76,39 +76,39 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 sus = 5;</code>
-     * @return whether the sus field is set
+     * <code>optional uint32 rogue_npc_id = 7;</code>
+     * @return whether the rogueNpcId field is set
      */
-    public boolean hasSus() {
+    public boolean hasRogueNpcId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 sus = 5;</code>
+     * <code>optional uint32 rogue_npc_id = 7;</code>
      * @return this
      */
-    public RogueCommonDialogueBasicInfo clearSus() {
+    public RogueCommonDialogueBasicInfo clearRogueNpcId() {
       bitField0_ &= ~0x00000002;
-      sus = 0;
+      rogueNpcId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 sus = 5;</code>
-     * @return the sus
+     * <code>optional uint32 rogue_npc_id = 7;</code>
+     * @return the rogueNpcId
      */
-    public int getSus() {
-      return sus;
+    public int getRogueNpcId() {
+      return rogueNpcId;
     }
 
     /**
-     * <code>optional uint32 sus = 5;</code>
-     * @param value the sus to set
+     * <code>optional uint32 rogue_npc_id = 7;</code>
+     * @param value the rogueNpcId to set
      * @return this
      */
-    public RogueCommonDialogueBasicInfo setSus(final int value) {
+    public RogueCommonDialogueBasicInfo setRogueNpcId(final int value) {
       bitField0_ |= 0x00000002;
-      sus = value;
+      rogueNpcId = value;
       return this;
     }
 
@@ -118,7 +118,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         dialogueId = other.dialogueId;
-        sus = other.sus;
+        rogueNpcId = other.rogueNpcId;
       }
       return this;
     }
@@ -132,8 +132,8 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
       if (other.hasDialogueId()) {
         setDialogueId(other.dialogueId);
       }
-      if (other.hasSus()) {
-        setSus(other.sus);
+      if (other.hasRogueNpcId()) {
+        setRogueNpcId(other.rogueNpcId);
       }
       return this;
     }
@@ -146,7 +146,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       dialogueId = 0;
-      sus = 0;
+      rogueNpcId = 0;
       return this;
     }
 
@@ -171,18 +171,18 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
       RogueCommonDialogueBasicInfo other = (RogueCommonDialogueBasicInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasDialogueId() || dialogueId == other.dialogueId)
-        && (!hasSus() || sus == other.sus);
+        && (!hasRogueNpcId() || rogueNpcId == other.rogueNpcId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(dialogueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(sus);
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(rogueNpcId);
       }
     }
 
@@ -193,7 +193,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(dialogueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(sus);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(rogueNpcId);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 40: {
             // dialogueId
             dialogueId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 56) {
               break;
             }
           }
-          case 40: {
-            // sus
-            sus = input.readUInt32();
+          case 56: {
+            // rogueNpcId
+            rogueNpcId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -244,7 +244,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
         output.writeUInt32(FieldNames.dialogueId, dialogueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.sus, sus);
+        output.writeUInt32(FieldNames.rogueNpcId, rogueNpcId);
       }
       output.endObject();
     }
@@ -268,10 +268,11 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
             }
             break;
           }
-          case 114257: {
-            if (input.isAtField(FieldNames.sus)) {
+          case -1140086238:
+          case 1751967038: {
+            if (input.isAtField(FieldNames.rogueNpcId)) {
               if (!input.trySkipNullValue()) {
-                sus = input.readUInt32();
+                rogueNpcId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -336,7 +337,7 @@ public final class RogueCommonDialogueBasicInfoOuterClass {
     static class FieldNames {
       static final FieldName dialogueId = FieldName.forField("dialogueId", "dialogue_id");
 
-      static final FieldName sus = FieldName.forField("sus");
+      static final FieldName rogueNpcId = FieldName.forField("rogueNpcId", "rogue_npc_id");
     }
   }
 }

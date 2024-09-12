@@ -19,7 +19,7 @@ public final class SyncDeleteFriendScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 uid = 12;</code>
+     * <code>optional uint32 uid = 1;</code>
      */
     private int uid;
 
@@ -34,7 +34,7 @@ public final class SyncDeleteFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 12;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @return whether the uid field is set
      */
     public boolean hasUid() {
@@ -42,7 +42,7 @@ public final class SyncDeleteFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 12;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @return this
      */
     public SyncDeleteFriendScNotify clearUid() {
@@ -52,7 +52,7 @@ public final class SyncDeleteFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 12;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @return the uid
      */
     public int getUid() {
@@ -60,7 +60,7 @@ public final class SyncDeleteFriendScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 12;</code>
+     * <code>optional uint32 uid = 1;</code>
      * @param value the uid to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SyncDeleteFriendScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(uid);
       }
     }
@@ -150,7 +150,7 @@ public final class SyncDeleteFriendScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 8: {
             // uid
             uid = input.readUInt32();
             bitField0_ |= 0x00000001;

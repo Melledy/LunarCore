@@ -19,14 +19,14 @@ public final class RelicArchiveOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 slot = 5;</code>
-     */
-    private int slot;
-
-    /**
-     * <code>optional uint32 relic_id = 13;</code>
+     * <code>optional uint32 relic_id = 3;</code>
      */
     private int relicId;
+
+    /**
+     * <code>optional uint32 slot = 8;</code>
+     */
+    private int slot;
 
     private RelicArchive() {
     }
@@ -39,62 +39,25 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 5;</code>
-     * @return whether the slot field is set
+     * <code>optional uint32 relic_id = 3;</code>
+     * @return whether the relicId field is set
      */
-    public boolean hasSlot() {
+    public boolean hasRelicId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 slot = 5;</code>
-     * @return this
-     */
-    public RelicArchive clearSlot() {
-      bitField0_ &= ~0x00000001;
-      slot = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 slot = 5;</code>
-     * @return the slot
-     */
-    public int getSlot() {
-      return slot;
-    }
-
-    /**
-     * <code>optional uint32 slot = 5;</code>
-     * @param value the slot to set
-     * @return this
-     */
-    public RelicArchive setSlot(final int value) {
-      bitField0_ |= 0x00000001;
-      slot = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 relic_id = 13;</code>
-     * @return whether the relicId field is set
-     */
-    public boolean hasRelicId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 relic_id = 13;</code>
+     * <code>optional uint32 relic_id = 3;</code>
      * @return this
      */
     public RelicArchive clearRelicId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       relicId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 relic_id = 13;</code>
+     * <code>optional uint32 relic_id = 3;</code>
      * @return the relicId
      */
     public int getRelicId() {
@@ -102,13 +65,50 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 13;</code>
+     * <code>optional uint32 relic_id = 3;</code>
      * @param value the relicId to set
      * @return this
      */
     public RelicArchive setRelicId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       relicId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 slot = 8;</code>
+     * @return whether the slot field is set
+     */
+    public boolean hasSlot() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 slot = 8;</code>
+     * @return this
+     */
+    public RelicArchive clearSlot() {
+      bitField0_ &= ~0x00000002;
+      slot = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 slot = 8;</code>
+     * @return the slot
+     */
+    public int getSlot() {
+      return slot;
+    }
+
+    /**
+     * <code>optional uint32 slot = 8;</code>
+     * @param value the slot to set
+     * @return this
+     */
+    public RelicArchive setSlot(final int value) {
+      bitField0_ |= 0x00000002;
+      slot = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class RelicArchiveOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        slot = other.slot;
         relicId = other.relicId;
+        slot = other.slot;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class RelicArchiveOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasSlot()) {
-        setSlot(other.slot);
-      }
       if (other.hasRelicId()) {
         setRelicId(other.relicId);
+      }
+      if (other.hasSlot()) {
+        setSlot(other.slot);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class RelicArchiveOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      slot = 0;
       relicId = 0;
+      slot = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class RelicArchiveOuterClass {
       }
       RelicArchive other = (RelicArchive) o;
       return bitField0_ == other.bitField0_
-        && (!hasSlot() || slot == other.slot)
-        && (!hasRelicId() || relicId == other.relicId);
+        && (!hasRelicId() || relicId == other.relicId)
+        && (!hasSlot() || slot == other.slot);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(slot);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(relicId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
-        output.writeUInt32NoTag(relicId);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(slot);
       }
     }
 
@@ -190,10 +190,10 @@ public final class RelicArchiveOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(relicId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(relicId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
       }
       return size;
     }
@@ -205,18 +205,18 @@ public final class RelicArchiveOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // slot
-            slot = input.readUInt32();
+          case 24: {
+            // relicId
+            relicId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 64) {
               break;
             }
           }
-          case 104: {
-            // relicId
-            relicId = input.readUInt32();
+          case 64: {
+            // slot
+            slot = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class RelicArchiveOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.slot, slot);
+        output.writeUInt32(FieldNames.relicId, relicId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.relicId, relicId);
+        output.writeUInt32(FieldNames.slot, slot);
       }
       output.endObject();
     }
@@ -256,10 +256,11 @@ public final class RelicArchiveOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 3533310: {
-            if (input.isAtField(FieldNames.slot)) {
+          case 1090714606:
+          case -547564185: {
+            if (input.isAtField(FieldNames.relicId)) {
               if (!input.trySkipNullValue()) {
-                slot = input.readUInt32();
+                relicId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -267,11 +268,10 @@ public final class RelicArchiveOuterClass {
             }
             break;
           }
-          case 1090714606:
-          case -547564185: {
-            if (input.isAtField(FieldNames.relicId)) {
+          case 3533310: {
+            if (input.isAtField(FieldNames.slot)) {
               if (!input.trySkipNullValue()) {
-                relicId = input.readUInt32();
+                slot = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -331,9 +331,9 @@ public final class RelicArchiveOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName slot = FieldName.forField("slot");
-
       static final FieldName relicId = FieldName.forField("relicId", "relic_id");
+
+      static final FieldName slot = FieldName.forField("slot");
     }
   }
 }

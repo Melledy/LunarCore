@@ -19,17 +19,17 @@ public final class MarkAvatarScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      */
     private int avatarId;
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional bool is_marked = 3;</code>
+     * <code>optional bool is_marked = 10;</code>
      */
     private boolean isMarked;
 
@@ -44,7 +44,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      * @return whether the avatarId field is set
      */
     public boolean hasAvatarId() {
@@ -52,7 +52,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      * @return this
      */
     public MarkAvatarScRsp clearAvatarId() {
@@ -62,7 +62,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      * @return the avatarId
      */
     public int getAvatarId() {
@@ -70,7 +70,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 6;</code>
+     * <code>optional uint32 avatar_id = 5;</code>
      * @param value the avatarId to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -89,7 +89,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return this
      */
     public MarkAvatarScRsp clearRetcode() {
@@ -99,7 +99,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -107,7 +107,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 15;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 3;</code>
+     * <code>optional bool is_marked = 10;</code>
      * @return whether the isMarked field is set
      */
     public boolean hasIsMarked() {
@@ -126,7 +126,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 3;</code>
+     * <code>optional bool is_marked = 10;</code>
      * @return this
      */
     public MarkAvatarScRsp clearIsMarked() {
@@ -136,7 +136,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 3;</code>
+     * <code>optional bool is_marked = 10;</code>
      * @return the isMarked
      */
     public boolean getIsMarked() {
@@ -144,7 +144,7 @@ public final class MarkAvatarScRspOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 3;</code>
+     * <code>optional bool is_marked = 10;</code>
      * @param value the isMarked to set
      * @return this
      */
@@ -225,15 +225,15 @@ public final class MarkAvatarScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(avatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 80);
         output.writeBoolNoTag(isMarked);
       }
     }
@@ -260,25 +260,25 @@ public final class MarkAvatarScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 48: {
+          case 40: {
             // avatarId
             avatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 120) {
+              break;
+            }
+          }
+          case 120: {
+            // retcode
+            retcode = input.readUInt32();
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 80) {
               break;
             }
           }
           case 80: {
-            // retcode
-            retcode = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 24) {
-              break;
-            }
-          }
-          case 24: {
             // isMarked
             isMarked = input.readBool();
             bitField0_ |= 0x00000004;

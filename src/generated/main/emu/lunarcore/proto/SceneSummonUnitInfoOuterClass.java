@@ -20,39 +20,39 @@ public final class SceneSummonUnitInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 create_time_ms = 12;</code>
+     * <code>optional uint64 create_time_ms = 11;</code>
      */
     private long createTimeMs;
 
     /**
      * <pre>
-     *  KADBHDIAEOE
+     *  DPAPIBILMKB
      * </pre>
      *
-     * <code>optional uint32 caster_entity_id = 4;</code>
-     */
-    private int casterEntityId;
-
-    /**
-     * <pre>
-     *  GEOEIBPBPLA
-     * </pre>
-     *
-     * <code>optional uint32 attach_entity_id = 10;</code>
+     * <code>optional uint32 attach_entity_id = 4;</code>
      */
     private int attachEntityId;
 
     /**
      * <pre>
-     *  GEEKOBFDDCK summon_unit_id
+     *  KGGENGIBIAJ
      * </pre>
      *
-     * <code>optional uint32 summon_unit_id = 14;</code>
+     * <code>optional uint32 caster_entity_id = 7;</code>
+     */
+    private int casterEntityId;
+
+    /**
+     * <pre>
+     *  ILNGLEEMFCF
+     * </pre>
+     *
+     * <code>optional uint32 summon_unit_id = 9;</code>
      */
     private int summonUnitId;
 
     /**
-     * <code>optional sint32 life_time_ms = 15;</code>
+     * <code>optional sint32 life_time_ms = 5;</code>
      */
     private int lifeTimeMs;
 
@@ -72,7 +72,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional uint64 create_time_ms = 12;</code>
+     * <code>optional uint64 create_time_ms = 11;</code>
      * @return whether the createTimeMs field is set
      */
     public boolean hasCreateTimeMs() {
@@ -80,7 +80,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional uint64 create_time_ms = 12;</code>
+     * <code>optional uint64 create_time_ms = 11;</code>
      * @return this
      */
     public SceneSummonUnitInfo clearCreateTimeMs() {
@@ -90,7 +90,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional uint64 create_time_ms = 12;</code>
+     * <code>optional uint64 create_time_ms = 11;</code>
      * @return the createTimeMs
      */
     public long getCreateTimeMs() {
@@ -98,7 +98,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional uint64 create_time_ms = 12;</code>
+     * <code>optional uint64 create_time_ms = 11;</code>
      * @param value the createTimeMs to set
      * @return this
      */
@@ -110,89 +110,36 @@ public final class SceneSummonUnitInfoOuterClass {
 
     /**
      * <pre>
-     *  KADBHDIAEOE
+     *  DPAPIBILMKB
      * </pre>
      *
-     * <code>optional uint32 caster_entity_id = 4;</code>
-     * @return whether the casterEntityId field is set
+     * <code>optional uint32 attach_entity_id = 4;</code>
+     * @return whether the attachEntityId field is set
      */
-    public boolean hasCasterEntityId() {
+    public boolean hasAttachEntityId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
      * <pre>
-     *  KADBHDIAEOE
+     *  DPAPIBILMKB
      * </pre>
      *
-     * <code>optional uint32 caster_entity_id = 4;</code>
-     * @return this
-     */
-    public SceneSummonUnitInfo clearCasterEntityId() {
-      bitField0_ &= ~0x00000002;
-      casterEntityId = 0;
-      return this;
-    }
-
-    /**
-     * <pre>
-     *  KADBHDIAEOE
-     * </pre>
-     *
-     * <code>optional uint32 caster_entity_id = 4;</code>
-     * @return the casterEntityId
-     */
-    public int getCasterEntityId() {
-      return casterEntityId;
-    }
-
-    /**
-     * <pre>
-     *  KADBHDIAEOE
-     * </pre>
-     *
-     * <code>optional uint32 caster_entity_id = 4;</code>
-     * @param value the casterEntityId to set
-     * @return this
-     */
-    public SceneSummonUnitInfo setCasterEntityId(final int value) {
-      bitField0_ |= 0x00000002;
-      casterEntityId = value;
-      return this;
-    }
-
-    /**
-     * <pre>
-     *  GEOEIBPBPLA
-     * </pre>
-     *
-     * <code>optional uint32 attach_entity_id = 10;</code>
-     * @return whether the attachEntityId field is set
-     */
-    public boolean hasAttachEntityId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <pre>
-     *  GEOEIBPBPLA
-     * </pre>
-     *
-     * <code>optional uint32 attach_entity_id = 10;</code>
+     * <code>optional uint32 attach_entity_id = 4;</code>
      * @return this
      */
     public SceneSummonUnitInfo clearAttachEntityId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       attachEntityId = 0;
       return this;
     }
 
     /**
      * <pre>
-     *  GEOEIBPBPLA
+     *  DPAPIBILMKB
      * </pre>
      *
-     * <code>optional uint32 attach_entity_id = 10;</code>
+     * <code>optional uint32 attach_entity_id = 4;</code>
      * @return the attachEntityId
      */
     public int getAttachEntityId() {
@@ -201,25 +148,78 @@ public final class SceneSummonUnitInfoOuterClass {
 
     /**
      * <pre>
-     *  GEOEIBPBPLA
+     *  DPAPIBILMKB
      * </pre>
      *
-     * <code>optional uint32 attach_entity_id = 10;</code>
+     * <code>optional uint32 attach_entity_id = 4;</code>
      * @param value the attachEntityId to set
      * @return this
      */
     public SceneSummonUnitInfo setAttachEntityId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       attachEntityId = value;
       return this;
     }
 
     /**
      * <pre>
-     *  GEEKOBFDDCK summon_unit_id
+     *  KGGENGIBIAJ
      * </pre>
      *
-     * <code>optional uint32 summon_unit_id = 14;</code>
+     * <code>optional uint32 caster_entity_id = 7;</code>
+     * @return whether the casterEntityId field is set
+     */
+    public boolean hasCasterEntityId() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <pre>
+     *  KGGENGIBIAJ
+     * </pre>
+     *
+     * <code>optional uint32 caster_entity_id = 7;</code>
+     * @return this
+     */
+    public SceneSummonUnitInfo clearCasterEntityId() {
+      bitField0_ &= ~0x00000004;
+      casterEntityId = 0;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  KGGENGIBIAJ
+     * </pre>
+     *
+     * <code>optional uint32 caster_entity_id = 7;</code>
+     * @return the casterEntityId
+     */
+    public int getCasterEntityId() {
+      return casterEntityId;
+    }
+
+    /**
+     * <pre>
+     *  KGGENGIBIAJ
+     * </pre>
+     *
+     * <code>optional uint32 caster_entity_id = 7;</code>
+     * @param value the casterEntityId to set
+     * @return this
+     */
+    public SceneSummonUnitInfo setCasterEntityId(final int value) {
+      bitField0_ |= 0x00000004;
+      casterEntityId = value;
+      return this;
+    }
+
+    /**
+     * <pre>
+     *  ILNGLEEMFCF
+     * </pre>
+     *
+     * <code>optional uint32 summon_unit_id = 9;</code>
      * @return whether the summonUnitId field is set
      */
     public boolean hasSummonUnitId() {
@@ -228,10 +228,10 @@ public final class SceneSummonUnitInfoOuterClass {
 
     /**
      * <pre>
-     *  GEEKOBFDDCK summon_unit_id
+     *  ILNGLEEMFCF
      * </pre>
      *
-     * <code>optional uint32 summon_unit_id = 14;</code>
+     * <code>optional uint32 summon_unit_id = 9;</code>
      * @return this
      */
     public SceneSummonUnitInfo clearSummonUnitId() {
@@ -242,10 +242,10 @@ public final class SceneSummonUnitInfoOuterClass {
 
     /**
      * <pre>
-     *  GEEKOBFDDCK summon_unit_id
+     *  ILNGLEEMFCF
      * </pre>
      *
-     * <code>optional uint32 summon_unit_id = 14;</code>
+     * <code>optional uint32 summon_unit_id = 9;</code>
      * @return the summonUnitId
      */
     public int getSummonUnitId() {
@@ -254,10 +254,10 @@ public final class SceneSummonUnitInfoOuterClass {
 
     /**
      * <pre>
-     *  GEEKOBFDDCK summon_unit_id
+     *  ILNGLEEMFCF
      * </pre>
      *
-     * <code>optional uint32 summon_unit_id = 14;</code>
+     * <code>optional uint32 summon_unit_id = 9;</code>
      * @param value the summonUnitId to set
      * @return this
      */
@@ -268,7 +268,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional sint32 life_time_ms = 15;</code>
+     * <code>optional sint32 life_time_ms = 5;</code>
      * @return whether the lifeTimeMs field is set
      */
     public boolean hasLifeTimeMs() {
@@ -276,7 +276,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional sint32 life_time_ms = 15;</code>
+     * <code>optional sint32 life_time_ms = 5;</code>
      * @return this
      */
     public SceneSummonUnitInfo clearLifeTimeMs() {
@@ -286,7 +286,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional sint32 life_time_ms = 15;</code>
+     * <code>optional sint32 life_time_ms = 5;</code>
      * @return the lifeTimeMs
      */
     public int getLifeTimeMs() {
@@ -294,7 +294,7 @@ public final class SceneSummonUnitInfoOuterClass {
     }
 
     /**
-     * <code>optional sint32 life_time_ms = 15;</code>
+     * <code>optional sint32 life_time_ms = 5;</code>
      * @param value the lifeTimeMs to set
      * @return this
      */
@@ -378,8 +378,8 @@ public final class SceneSummonUnitInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         createTimeMs = other.createTimeMs;
-        casterEntityId = other.casterEntityId;
         attachEntityId = other.attachEntityId;
+        casterEntityId = other.casterEntityId;
         summonUnitId = other.summonUnitId;
         lifeTimeMs = other.lifeTimeMs;
         triggerNameList.copyFrom(other.triggerNameList);
@@ -396,11 +396,11 @@ public final class SceneSummonUnitInfoOuterClass {
       if (other.hasCreateTimeMs()) {
         setCreateTimeMs(other.createTimeMs);
       }
-      if (other.hasCasterEntityId()) {
-        setCasterEntityId(other.casterEntityId);
-      }
       if (other.hasAttachEntityId()) {
         setAttachEntityId(other.attachEntityId);
+      }
+      if (other.hasCasterEntityId()) {
+        setCasterEntityId(other.casterEntityId);
       }
       if (other.hasSummonUnitId()) {
         setSummonUnitId(other.summonUnitId);
@@ -422,8 +422,8 @@ public final class SceneSummonUnitInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       createTimeMs = 0L;
-      casterEntityId = 0;
       attachEntityId = 0;
+      casterEntityId = 0;
       summonUnitId = 0;
       lifeTimeMs = 0;
       triggerNameList.clear();
@@ -452,8 +452,8 @@ public final class SceneSummonUnitInfoOuterClass {
       SceneSummonUnitInfo other = (SceneSummonUnitInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasCreateTimeMs() || createTimeMs == other.createTimeMs)
-        && (!hasCasterEntityId() || casterEntityId == other.casterEntityId)
         && (!hasAttachEntityId() || attachEntityId == other.attachEntityId)
+        && (!hasCasterEntityId() || casterEntityId == other.casterEntityId)
         && (!hasSummonUnitId() || summonUnitId == other.summonUnitId)
         && (!hasLifeTimeMs() || lifeTimeMs == other.lifeTimeMs)
         && (!hasTriggerNameList() || triggerNameList.equals(other.triggerNameList));
@@ -462,23 +462,23 @@ public final class SceneSummonUnitInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 88);
         output.writeUInt64NoTag(createTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 32);
-        output.writeUInt32NoTag(casterEntityId);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(attachEntityId);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 56);
+        output.writeUInt32NoTag(casterEntityId);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(summonUnitId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 40);
         output.writeSInt32NoTag(lifeTimeMs);
       }
       if ((bitField0_ & 0x00000020) != 0) {
@@ -496,10 +496,10 @@ public final class SceneSummonUnitInfoOuterClass {
         size += 1 + ProtoSink.computeUInt64SizeNoTag(createTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(casterEntityId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(attachEntityId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(attachEntityId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(casterEntityId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(summonUnitId);
@@ -520,7 +520,7 @@ public final class SceneSummonUnitInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 88: {
             // createTimeMs
             createTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;
@@ -530,33 +530,33 @@ public final class SceneSummonUnitInfoOuterClass {
             }
           }
           case 32: {
-            // casterEntityId
-            casterEntityId = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
             // attachEntityId
             attachEntityId = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 56) {
               break;
             }
           }
-          case 112: {
+          case 56: {
+            // casterEntityId
+            casterEntityId = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
             // summonUnitId
             summonUnitId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 40) {
               break;
             }
           }
-          case 120: {
+          case 40: {
             // lifeTimeMs
             lifeTimeMs = input.readSInt32();
             bitField0_ |= 0x00000010;
@@ -594,10 +594,10 @@ public final class SceneSummonUnitInfoOuterClass {
         output.writeUInt64(FieldNames.createTimeMs, createTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.casterEntityId, casterEntityId);
+        output.writeUInt32(FieldNames.attachEntityId, attachEntityId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.attachEntityId, attachEntityId);
+        output.writeUInt32(FieldNames.casterEntityId, casterEntityId);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.summonUnitId, summonUnitId);
@@ -630,11 +630,11 @@ public final class SceneSummonUnitInfoOuterClass {
             }
             break;
           }
-          case -1831162710:
-          case -1550367068: {
-            if (input.isAtField(FieldNames.casterEntityId)) {
+          case -900612669:
+          case -644975235: {
+            if (input.isAtField(FieldNames.attachEntityId)) {
               if (!input.trySkipNullValue()) {
-                casterEntityId = input.readUInt32();
+                attachEntityId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -642,11 +642,11 @@ public final class SceneSummonUnitInfoOuterClass {
             }
             break;
           }
-          case -900612669:
-          case -644975235: {
-            if (input.isAtField(FieldNames.attachEntityId)) {
+          case -1831162710:
+          case -1550367068: {
+            if (input.isAtField(FieldNames.casterEntityId)) {
               if (!input.trySkipNullValue()) {
-                attachEntityId = input.readUInt32();
+                casterEntityId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -745,9 +745,9 @@ public final class SceneSummonUnitInfoOuterClass {
     static class FieldNames {
       static final FieldName createTimeMs = FieldName.forField("createTimeMs", "create_time_ms");
 
-      static final FieldName casterEntityId = FieldName.forField("casterEntityId", "caster_entity_id");
-
       static final FieldName attachEntityId = FieldName.forField("attachEntityId", "attach_entity_id");
+
+      static final FieldName casterEntityId = FieldName.forField("casterEntityId", "caster_entity_id");
 
       static final FieldName summonUnitId = FieldName.forField("summonUnitId", "summon_unit_id");
 

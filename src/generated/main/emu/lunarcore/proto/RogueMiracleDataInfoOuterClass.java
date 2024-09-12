@@ -20,7 +20,12 @@ public final class RogueMiracleDataInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 KABNOGFDKFI = 2;</code>
+     * <code>optional uint32 NFNNOMAMNAA = 4;</code>
+     */
+    private int nFNNOMAMNAA;
+
+    /**
+     * <code>optional uint32 KABNOGFDKFI = 6;</code>
      */
     private int kABNOGFDKFI;
 
@@ -30,17 +35,12 @@ public final class RogueMiracleDataInfoOuterClass {
     private int nDPAMBJKKFD;
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 13;</code>
      */
     private int miracleId;
 
     /**
-     * <code>optional uint32 NFNNOMAMNAA = 12;</code>
-     */
-    private int nFNNOMAMNAA;
-
-    /**
-     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 6;</code>
+     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 12;</code>
      */
     private final RepeatedMessage<JBFJGEIGGBAEntry> jBFJGEIGGBA = RepeatedMessage.newEmptyInstance(JBFJGEIGGBAEntry.getFactory());
 
@@ -55,25 +55,62 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 KABNOGFDKFI = 2;</code>
-     * @return whether the kABNOGFDKFI field is set
+     * <code>optional uint32 NFNNOMAMNAA = 4;</code>
+     * @return whether the nFNNOMAMNAA field is set
      */
-    public boolean hasKABNOGFDKFI() {
+    public boolean hasNFNNOMAMNAA() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 KABNOGFDKFI = 2;</code>
+     * <code>optional uint32 NFNNOMAMNAA = 4;</code>
+     * @return this
+     */
+    public RogueMiracleDataInfo clearNFNNOMAMNAA() {
+      bitField0_ &= ~0x00000001;
+      nFNNOMAMNAA = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 NFNNOMAMNAA = 4;</code>
+     * @return the nFNNOMAMNAA
+     */
+    public int getNFNNOMAMNAA() {
+      return nFNNOMAMNAA;
+    }
+
+    /**
+     * <code>optional uint32 NFNNOMAMNAA = 4;</code>
+     * @param value the nFNNOMAMNAA to set
+     * @return this
+     */
+    public RogueMiracleDataInfo setNFNNOMAMNAA(final int value) {
+      bitField0_ |= 0x00000001;
+      nFNNOMAMNAA = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 KABNOGFDKFI = 6;</code>
+     * @return whether the kABNOGFDKFI field is set
+     */
+    public boolean hasKABNOGFDKFI() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 KABNOGFDKFI = 6;</code>
      * @return this
      */
     public RogueMiracleDataInfo clearKABNOGFDKFI() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       kABNOGFDKFI = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 KABNOGFDKFI = 2;</code>
+     * <code>optional uint32 KABNOGFDKFI = 6;</code>
      * @return the kABNOGFDKFI
      */
     public int getKABNOGFDKFI() {
@@ -81,12 +118,12 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 KABNOGFDKFI = 2;</code>
+     * <code>optional uint32 KABNOGFDKFI = 6;</code>
      * @param value the kABNOGFDKFI to set
      * @return this
      */
     public RogueMiracleDataInfo setKABNOGFDKFI(final int value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       kABNOGFDKFI = value;
       return this;
     }
@@ -96,7 +133,7 @@ public final class RogueMiracleDataInfoOuterClass {
      * @return whether the nDPAMBJKKFD field is set
      */
     public boolean hasNDPAMBJKKFD() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
@@ -104,7 +141,7 @@ public final class RogueMiracleDataInfoOuterClass {
      * @return this
      */
     public RogueMiracleDataInfo clearNDPAMBJKKFD() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000004;
       nDPAMBJKKFD = 0;
       return this;
     }
@@ -123,31 +160,31 @@ public final class RogueMiracleDataInfoOuterClass {
      * @return this
      */
     public RogueMiracleDataInfo setNDPAMBJKKFD(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       nDPAMBJKKFD = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 13;</code>
      * @return whether the miracleId field is set
      */
     public boolean hasMiracleId() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 13;</code>
      * @return this
      */
     public RogueMiracleDataInfo clearMiracleId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000008;
       miracleId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 13;</code>
      * @return the miracleId
      */
     public int getMiracleId() {
@@ -155,55 +192,18 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 miracle_id = 10;</code>
+     * <code>optional uint32 miracle_id = 13;</code>
      * @param value the miracleId to set
      * @return this
      */
     public RogueMiracleDataInfo setMiracleId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       miracleId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 NFNNOMAMNAA = 12;</code>
-     * @return whether the nFNNOMAMNAA field is set
-     */
-    public boolean hasNFNNOMAMNAA() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 NFNNOMAMNAA = 12;</code>
-     * @return this
-     */
-    public RogueMiracleDataInfo clearNFNNOMAMNAA() {
-      bitField0_ &= ~0x00000008;
-      nFNNOMAMNAA = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 NFNNOMAMNAA = 12;</code>
-     * @return the nFNNOMAMNAA
-     */
-    public int getNFNNOMAMNAA() {
-      return nFNNOMAMNAA;
-    }
-
-    /**
-     * <code>optional uint32 NFNNOMAMNAA = 12;</code>
-     * @param value the nFNNOMAMNAA to set
-     * @return this
-     */
-    public RogueMiracleDataInfo setNFNNOMAMNAA(final int value) {
-      bitField0_ |= 0x00000008;
-      nFNNOMAMNAA = value;
-      return this;
-    }
-
-    /**
-     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 6;</code>
+     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 12;</code>
      * @return whether the jBFJGEIGGBA field is set
      */
     public boolean hasJBFJGEIGGBA() {
@@ -211,7 +211,7 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 6;</code>
+     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 12;</code>
      * @return this
      */
     public RogueMiracleDataInfo clearJBFJGEIGGBA() {
@@ -221,7 +221,7 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 6;</code>
+     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -235,7 +235,7 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 6;</code>
+     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -249,7 +249,7 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 6;</code>
+     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 12;</code>
      * @param value the jBFJGEIGGBA to add
      * @return this
      */
@@ -260,7 +260,7 @@ public final class RogueMiracleDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 6;</code>
+     * <code>repeated .RogueMiracleDataInfo.JBFJGEIGGBAEntry JBFJGEIGGBA = 12;</code>
      * @param values the jBFJGEIGGBA to add
      * @return this
      */
@@ -275,10 +275,10 @@ public final class RogueMiracleDataInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        nFNNOMAMNAA = other.nFNNOMAMNAA;
         kABNOGFDKFI = other.kABNOGFDKFI;
         nDPAMBJKKFD = other.nDPAMBJKKFD;
         miracleId = other.miracleId;
-        nFNNOMAMNAA = other.nFNNOMAMNAA;
         jBFJGEIGGBA.copyFrom(other.jBFJGEIGGBA);
       }
       return this;
@@ -290,6 +290,9 @@ public final class RogueMiracleDataInfoOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasNFNNOMAMNAA()) {
+        setNFNNOMAMNAA(other.nFNNOMAMNAA);
+      }
       if (other.hasKABNOGFDKFI()) {
         setKABNOGFDKFI(other.kABNOGFDKFI);
       }
@@ -298,9 +301,6 @@ public final class RogueMiracleDataInfoOuterClass {
       }
       if (other.hasMiracleId()) {
         setMiracleId(other.miracleId);
-      }
-      if (other.hasNFNNOMAMNAA()) {
-        setNFNNOMAMNAA(other.nFNNOMAMNAA);
       }
       if (other.hasJBFJGEIGGBA()) {
         getMutableJBFJGEIGGBA().addAll(other.jBFJGEIGGBA);
@@ -315,10 +315,10 @@ public final class RogueMiracleDataInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      nFNNOMAMNAA = 0;
       kABNOGFDKFI = 0;
       nDPAMBJKKFD = 0;
       miracleId = 0;
-      nFNNOMAMNAA = 0;
       jBFJGEIGGBA.clear();
       return this;
     }
@@ -344,34 +344,34 @@ public final class RogueMiracleDataInfoOuterClass {
       }
       RogueMiracleDataInfo other = (RogueMiracleDataInfo) o;
       return bitField0_ == other.bitField0_
+        && (!hasNFNNOMAMNAA() || nFNNOMAMNAA == other.nFNNOMAMNAA)
         && (!hasKABNOGFDKFI() || kABNOGFDKFI == other.kABNOGFDKFI)
         && (!hasNDPAMBJKKFD() || nDPAMBJKKFD == other.nDPAMBJKKFD)
         && (!hasMiracleId() || miracleId == other.miracleId)
-        && (!hasNFNNOMAMNAA() || nFNNOMAMNAA == other.nFNNOMAMNAA)
         && (!hasJBFJGEIGGBA() || jBFJGEIGGBA.equals(other.jBFJGEIGGBA));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(kABNOGFDKFI);
+        output.writeRawByte((byte) 32);
+        output.writeUInt32NoTag(nFNNOMAMNAA);
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeUInt32NoTag(kABNOGFDKFI);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(nDPAMBJKKFD);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
-        output.writeUInt32NoTag(miracleId);
-      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 96);
-        output.writeUInt32NoTag(nFNNOMAMNAA);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(miracleId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         for (int i = 0; i < jBFJGEIGGBA.length(); i++) {
-          output.writeRawByte((byte) 50);
+          output.writeRawByte((byte) 98);
           output.writeMessageNoTag(jBFJGEIGGBA.get(i));
         }
       }
@@ -381,16 +381,16 @@ public final class RogueMiracleDataInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(kABNOGFDKFI);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(nFNNOMAMNAA);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(nDPAMBJKKFD);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(kABNOGFDKFI);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(miracleId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(nDPAMBJKKFD);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(nFNNOMAMNAA);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(miracleId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += (1 * jBFJGEIGGBA.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(jBFJGEIGGBA);
@@ -405,10 +405,19 @@ public final class RogueMiracleDataInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 32: {
+            // nFNNOMAMNAA
+            nFNNOMAMNAA = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 48) {
+              break;
+            }
+          }
+          case 48: {
             // kABNOGFDKFI
             kABNOGFDKFI = input.readUInt32();
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 72) {
               break;
@@ -417,31 +426,22 @@ public final class RogueMiracleDataInfoOuterClass {
           case 72: {
             // nDPAMBJKKFD
             nDPAMBJKKFD = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 80) {
-              break;
-            }
-          }
-          case 80: {
-            // miracleId
-            miracleId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 104) {
               break;
             }
           }
-          case 96: {
-            // nFNNOMAMNAA
-            nFNNOMAMNAA = input.readUInt32();
+          case 104: {
+            // miracleId
+            miracleId = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 98) {
               break;
             }
           }
-          case 50: {
+          case 98: {
             // jBFJGEIGGBA
             tag = input.readRepeatedMessage(jBFJGEIGGBA, tag);
             bitField0_ |= 0x00000010;
@@ -467,16 +467,16 @@ public final class RogueMiracleDataInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.kABNOGFDKFI, kABNOGFDKFI);
+        output.writeUInt32(FieldNames.nFNNOMAMNAA, nFNNOMAMNAA);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.nDPAMBJKKFD, nDPAMBJKKFD);
+        output.writeUInt32(FieldNames.kABNOGFDKFI, kABNOGFDKFI);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.miracleId, miracleId);
+        output.writeUInt32(FieldNames.nDPAMBJKKFD, nDPAMBJKKFD);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.nFNNOMAMNAA, nFNNOMAMNAA);
+        output.writeUInt32(FieldNames.miracleId, miracleId);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRepeatedMessage(FieldNames.jBFJGEIGGBA, jBFJGEIGGBA);
@@ -491,11 +491,22 @@ public final class RogueMiracleDataInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case -681412180: {
+            if (input.isAtField(FieldNames.nFNNOMAMNAA)) {
+              if (!input.trySkipNullValue()) {
+                nFNNOMAMNAA = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 1444231062: {
             if (input.isAtField(FieldNames.kABNOGFDKFI)) {
               if (!input.trySkipNullValue()) {
                 kABNOGFDKFI = input.readUInt32();
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -506,7 +517,7 @@ public final class RogueMiracleDataInfoOuterClass {
             if (input.isAtField(FieldNames.nDPAMBJKKFD)) {
               if (!input.trySkipNullValue()) {
                 nDPAMBJKKFD = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -518,17 +529,6 @@ public final class RogueMiracleDataInfoOuterClass {
             if (input.isAtField(FieldNames.miracleId)) {
               if (!input.trySkipNullValue()) {
                 miracleId = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -681412180: {
-            if (input.isAtField(FieldNames.nFNNOMAMNAA)) {
-              if (!input.trySkipNullValue()) {
-                nFNNOMAMNAA = input.readUInt32();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -925,13 +925,13 @@ public final class RogueMiracleDataInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName nFNNOMAMNAA = FieldName.forField("NFNNOMAMNAA");
+
       static final FieldName kABNOGFDKFI = FieldName.forField("KABNOGFDKFI");
 
       static final FieldName nDPAMBJKKFD = FieldName.forField("NDPAMBJKKFD");
 
       static final FieldName miracleId = FieldName.forField("miracleId", "miracle_id");
-
-      static final FieldName nFNNOMAMNAA = FieldName.forField("NFNNOMAMNAA");
 
       static final FieldName jBFJGEIGGBA = FieldName.forField("JBFJGEIGGBA");
     }

@@ -20,17 +20,17 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 event_unique_id = 15;</code>
+     * <code>optional uint32 event_unique_id = 8;</code>
      */
     private int eventUniqueId;
 
     /**
-     * <code>optional .RogueCommonDialogueInfo dialogue_info = 4;</code>
+     * <code>optional .RogueCommonDialogueInfo dialogue_info = 1;</code>
      */
     private final RogueCommonDialogueInfoOuterClass.RogueCommonDialogueInfo dialogueInfo = RogueCommonDialogueInfoOuterClass.RogueCommonDialogueInfo.newInstance();
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 1;</code>
+     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 2;</code>
      */
     private final RepeatedMessage<RogueCommonDialogueOptionInfoOuterClass.RogueCommonDialogueOptionInfo> optionList = RepeatedMessage.newEmptyInstance(RogueCommonDialogueOptionInfoOuterClass.RogueCommonDialogueOptionInfo.getFactory());
 
@@ -45,7 +45,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 15;</code>
+     * <code>optional uint32 event_unique_id = 8;</code>
      * @return whether the eventUniqueId field is set
      */
     public boolean hasEventUniqueId() {
@@ -53,7 +53,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 15;</code>
+     * <code>optional uint32 event_unique_id = 8;</code>
      * @return this
      */
     public RogueCommonDialogueDataInfo clearEventUniqueId() {
@@ -63,7 +63,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 15;</code>
+     * <code>optional uint32 event_unique_id = 8;</code>
      * @return the eventUniqueId
      */
     public int getEventUniqueId() {
@@ -71,7 +71,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 event_unique_id = 15;</code>
+     * <code>optional uint32 event_unique_id = 8;</code>
      * @param value the eventUniqueId to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueInfo dialogue_info = 4;</code>
+     * <code>optional .RogueCommonDialogueInfo dialogue_info = 1;</code>
      * @return whether the dialogueInfo field is set
      */
     public boolean hasDialogueInfo() {
@@ -90,7 +90,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueInfo dialogue_info = 4;</code>
+     * <code>optional .RogueCommonDialogueInfo dialogue_info = 1;</code>
      * @return this
      */
     public RogueCommonDialogueDataInfo clearDialogueInfo() {
@@ -100,7 +100,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueInfo dialogue_info = 4;</code>
+     * <code>optional .RogueCommonDialogueInfo dialogue_info = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -114,7 +114,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueInfo dialogue_info = 4;</code>
+     * <code>optional .RogueCommonDialogueInfo dialogue_info = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -128,7 +128,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>optional .RogueCommonDialogueInfo dialogue_info = 4;</code>
+     * <code>optional .RogueCommonDialogueInfo dialogue_info = 1;</code>
      * @param value the dialogueInfo to set
      * @return this
      */
@@ -140,7 +140,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 1;</code>
+     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 2;</code>
      * @return whether the optionList field is set
      */
     public boolean hasOptionList() {
@@ -148,7 +148,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 1;</code>
+     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 2;</code>
      * @return this
      */
     public RogueCommonDialogueDataInfo clearOptionList() {
@@ -158,7 +158,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 1;</code>
+     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -173,7 +173,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 1;</code>
+     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -188,7 +188,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 1;</code>
+     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 2;</code>
      * @param value the optionList to add
      * @return this
      */
@@ -200,7 +200,7 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     }
 
     /**
-     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 1;</code>
+     * <code>repeated .RogueCommonDialogueOptionInfo option_list = 2;</code>
      * @param values the optionList to add
      * @return this
      */
@@ -284,16 +284,16 @@ public final class RogueCommonDialogueDataInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(eventUniqueId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(dialogueInfo);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < optionList.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 18);
           output.writeMessageNoTag(optionList.get(i));
         }
       }
@@ -321,25 +321,25 @@ public final class RogueCommonDialogueDataInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 64: {
             // eventUniqueId
             eventUniqueId = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 34) {
-              break;
-            }
-          }
-          case 34: {
-            // dialogueInfo
-            input.readMessage(dialogueInfo);
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 10) {
               break;
             }
           }
           case 10: {
+            // dialogueInfo
+            input.readMessage(dialogueInfo);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 18) {
+              break;
+            }
+          }
+          case 18: {
             // optionList
             tag = input.readRepeatedMessage(optionList, tag);
             bitField0_ |= 0x00000004;

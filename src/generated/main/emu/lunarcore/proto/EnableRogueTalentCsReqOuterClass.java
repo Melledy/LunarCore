@@ -19,7 +19,7 @@ public final class EnableRogueTalentCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 talent_id = 8;</code>
+     * <code>optional uint32 talent_id = 2;</code>
      */
     private int talentId;
 
@@ -34,7 +34,7 @@ public final class EnableRogueTalentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 8;</code>
+     * <code>optional uint32 talent_id = 2;</code>
      * @return whether the talentId field is set
      */
     public boolean hasTalentId() {
@@ -42,7 +42,7 @@ public final class EnableRogueTalentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 8;</code>
+     * <code>optional uint32 talent_id = 2;</code>
      * @return this
      */
     public EnableRogueTalentCsReq clearTalentId() {
@@ -52,7 +52,7 @@ public final class EnableRogueTalentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 8;</code>
+     * <code>optional uint32 talent_id = 2;</code>
      * @return the talentId
      */
     public int getTalentId() {
@@ -60,7 +60,7 @@ public final class EnableRogueTalentCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 talent_id = 8;</code>
+     * <code>optional uint32 talent_id = 2;</code>
      * @param value the talentId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class EnableRogueTalentCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(talentId);
       }
     }
@@ -150,7 +150,7 @@ public final class EnableRogueTalentCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 16: {
             // talentId
             talentId = input.readUInt32();
             bitField0_ |= 0x00000001;

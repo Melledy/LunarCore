@@ -67,7 +67,7 @@ public final class ChatTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<ChatType> converter() {
+    public static ProtoEnum.EnumConverter<ChatType> converter() {
       return ChatTypeConverter.INSTANCE;
     }
 
@@ -89,7 +89,7 @@ public final class ChatTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum ChatTypeConverter implements EnumConverter<ChatType> {
+    enum ChatTypeConverter implements ProtoEnum.EnumConverter<ChatType> {
       INSTANCE;
 
       private static final ChatType[] lookup = new ChatType[3];

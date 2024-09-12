@@ -87,7 +87,7 @@ public final class RogueCommonBuffSelectSourceOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<RogueCommonBuffSelectSource> converter() {
+    public static ProtoEnum.EnumConverter<RogueCommonBuffSelectSource> converter() {
       return RogueCommonBuffSelectSourceConverter.INSTANCE;
     }
 
@@ -110,7 +110,7 @@ public final class RogueCommonBuffSelectSourceOuterClass {
       return value == null ? other : value;
     }
 
-    enum RogueCommonBuffSelectSourceConverter implements EnumConverter<RogueCommonBuffSelectSource> {
+    enum RogueCommonBuffSelectSourceConverter implements ProtoEnum.EnumConverter<RogueCommonBuffSelectSource> {
       INSTANCE;
 
       private static final RogueCommonBuffSelectSource[] lookup = new RogueCommonBuffSelectSource[5];

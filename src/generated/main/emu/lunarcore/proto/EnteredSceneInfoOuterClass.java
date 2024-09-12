@@ -19,14 +19,14 @@ public final class EnteredSceneInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 plane_id = 6;</code>
-     */
-    private int planeId;
-
-    /**
-     * <code>optional uint32 floor_id = 11;</code>
+     * <code>optional uint32 floor_id = 6;</code>
      */
     private int floorId;
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     */
+    private int planeId;
 
     private EnteredSceneInfo() {
     }
@@ -39,62 +39,25 @@ public final class EnteredSceneInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 plane_id = 6;</code>
-     * @return whether the planeId field is set
+     * <code>optional uint32 floor_id = 6;</code>
+     * @return whether the floorId field is set
      */
-    public boolean hasPlaneId() {
+    public boolean hasFloorId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 plane_id = 6;</code>
-     * @return this
-     */
-    public EnteredSceneInfo clearPlaneId() {
-      bitField0_ &= ~0x00000001;
-      planeId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 6;</code>
-     * @return the planeId
-     */
-    public int getPlaneId() {
-      return planeId;
-    }
-
-    /**
-     * <code>optional uint32 plane_id = 6;</code>
-     * @param value the planeId to set
-     * @return this
-     */
-    public EnteredSceneInfo setPlaneId(final int value) {
-      bitField0_ |= 0x00000001;
-      planeId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 floor_id = 11;</code>
-     * @return whether the floorId field is set
-     */
-    public boolean hasFloorId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 floor_id = 11;</code>
+     * <code>optional uint32 floor_id = 6;</code>
      * @return this
      */
     public EnteredSceneInfo clearFloorId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       floorId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 floor_id = 11;</code>
+     * <code>optional uint32 floor_id = 6;</code>
      * @return the floorId
      */
     public int getFloorId() {
@@ -102,13 +65,50 @@ public final class EnteredSceneInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 floor_id = 11;</code>
+     * <code>optional uint32 floor_id = 6;</code>
      * @param value the floorId to set
      * @return this
      */
     public EnteredSceneInfo setFloorId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       floorId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     * @return whether the planeId field is set
+     */
+    public boolean hasPlaneId() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     * @return this
+     */
+    public EnteredSceneInfo clearPlaneId() {
+      bitField0_ &= ~0x00000002;
+      planeId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     * @return the planeId
+     */
+    public int getPlaneId() {
+      return planeId;
+    }
+
+    /**
+     * <code>optional uint32 plane_id = 12;</code>
+     * @param value the planeId to set
+     * @return this
+     */
+    public EnteredSceneInfo setPlaneId(final int value) {
+      bitField0_ |= 0x00000002;
+      planeId = value;
       return this;
     }
 
@@ -117,8 +117,8 @@ public final class EnteredSceneInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        planeId = other.planeId;
         floorId = other.floorId;
+        planeId = other.planeId;
       }
       return this;
     }
@@ -129,11 +129,11 @@ public final class EnteredSceneInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasPlaneId()) {
-        setPlaneId(other.planeId);
-      }
       if (other.hasFloorId()) {
         setFloorId(other.floorId);
+      }
+      if (other.hasPlaneId()) {
+        setPlaneId(other.planeId);
       }
       return this;
     }
@@ -145,8 +145,8 @@ public final class EnteredSceneInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      planeId = 0;
       floorId = 0;
+      planeId = 0;
       return this;
     }
 
@@ -170,19 +170,19 @@ public final class EnteredSceneInfoOuterClass {
       }
       EnteredSceneInfo other = (EnteredSceneInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasPlaneId() || planeId == other.planeId)
-        && (!hasFloorId() || floorId == other.floorId);
+        && (!hasFloorId() || floorId == other.floorId)
+        && (!hasPlaneId() || planeId == other.planeId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(planeId);
+        output.writeUInt32NoTag(floorId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(floorId);
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(planeId);
       }
     }
 
@@ -190,10 +190,10 @@ public final class EnteredSceneInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(floorId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(floorId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(planeId);
       }
       return size;
     }
@@ -206,17 +206,17 @@ public final class EnteredSceneInfoOuterClass {
       while (true) {
         switch (tag) {
           case 48: {
-            // planeId
-            planeId = input.readUInt32();
+            // floorId
+            floorId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 96) {
               break;
             }
           }
-          case 88: {
-            // floorId
-            floorId = input.readUInt32();
+          case 96: {
+            // planeId
+            planeId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -241,10 +241,10 @@ public final class EnteredSceneInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.planeId, planeId);
+        output.writeUInt32(FieldNames.floorId, floorId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.floorId, floorId);
+        output.writeUInt32(FieldNames.planeId, planeId);
       }
       output.endObject();
     }
@@ -256,11 +256,11 @@ public final class EnteredSceneInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -493896553:
-          case 1869097438: {
-            if (input.isAtField(FieldNames.planeId)) {
+          case -766027193:
+          case 2022982190: {
+            if (input.isAtField(FieldNames.floorId)) {
               if (!input.trySkipNullValue()) {
-                planeId = input.readUInt32();
+                floorId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -268,11 +268,11 @@ public final class EnteredSceneInfoOuterClass {
             }
             break;
           }
-          case -766027193:
-          case 2022982190: {
-            if (input.isAtField(FieldNames.floorId)) {
+          case -493896553:
+          case 1869097438: {
+            if (input.isAtField(FieldNames.planeId)) {
               if (!input.trySkipNullValue()) {
-                floorId = input.readUInt32();
+                planeId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -333,9 +333,9 @@ public final class EnteredSceneInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName planeId = FieldName.forField("planeId", "plane_id");
-
       static final FieldName floorId = FieldName.forField("floorId", "floor_id");
+
+      static final FieldName planeId = FieldName.forField("planeId", "plane_id");
     }
   }
 }

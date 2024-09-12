@@ -19,7 +19,7 @@ public final class SwitchLineupIndexCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 13;</code>
      */
     private int index;
 
@@ -34,7 +34,7 @@ public final class SwitchLineupIndexCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 13;</code>
      * @return whether the index field is set
      */
     public boolean hasIndex() {
@@ -42,7 +42,7 @@ public final class SwitchLineupIndexCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 13;</code>
      * @return this
      */
     public SwitchLineupIndexCsReq clearIndex() {
@@ -52,7 +52,7 @@ public final class SwitchLineupIndexCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 13;</code>
      * @return the index
      */
     public int getIndex() {
@@ -60,7 +60,7 @@ public final class SwitchLineupIndexCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 8;</code>
+     * <code>optional uint32 index = 13;</code>
      * @param value the index to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SwitchLineupIndexCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(index);
       }
     }
@@ -150,7 +150,7 @@ public final class SwitchLineupIndexCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 104: {
             // index
             index = input.readUInt32();
             bitField0_ |= 0x00000001;

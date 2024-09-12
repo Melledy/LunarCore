@@ -167,7 +167,7 @@ public final class ExtraLineupTypeOuterClass {
     /**
      * @return a converter that maps between this enum's numeric and text representations
      */
-    public static EnumConverter<ExtraLineupType> converter() {
+    public static ProtoEnum.EnumConverter<ExtraLineupType> converter() {
       return ExtraLineupTypeConverter.INSTANCE;
     }
 
@@ -189,7 +189,7 @@ public final class ExtraLineupTypeOuterClass {
       return value == null ? other : value;
     }
 
-    enum ExtraLineupTypeConverter implements EnumConverter<ExtraLineupType> {
+    enum ExtraLineupTypeConverter implements ProtoEnum.EnumConverter<ExtraLineupType> {
       INSTANCE;
 
       private static final ExtraLineupType[] lookup = new ExtraLineupType[14];
