@@ -14,7 +14,7 @@ public enum ItemMainType {
     Material    (6, InventoryTabType.MATERIAL),
     Mission     (7, InventoryTabType.MATERIAL),
     Display     (8),
-    Pet         (9);
+    Pet         (9, InventoryTabType.MATERIAL);
 
     private int val;
     private InventoryTabType tabType;

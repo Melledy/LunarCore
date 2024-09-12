@@ -7,12 +7,22 @@ import emu.lunarcore.server.packet.CmdId;
 
 public class PacketCurPetChangedScNotify extends BasePacket {
 
-    public PacketCurPetChangedScNotify(Player player) {
+    public PacketCurPetChangedScNotify(int newPetId) {
         super(CmdId.CurPetChangedScNotify);
-        
+
         var data = CurPetChangedScNotify.newInstance()
-                .setCurPetId(player.getPetId());
-        
+                .setCurPetId(newPetId);
+
         this.setData(data);
     }
+
+    public PacketCurPetChangedScNotify(Player player) {
+        super(CmdId.CurPetChangedScNotify);
+
+        var data = CurPetChangedScNotify.newInstance()
+                .setCurPetId(player.getPetId());
+
+        this.setData(data);
+    }
+
 }
