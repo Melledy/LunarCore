@@ -6,12 +6,13 @@ import emu.lunarcore.server.packet.CmdId;
 
 public class PacketRecallPetScRsp extends BasePacket {
 
-    public PacketRecallPetScRsp() {
+    public PacketRecallPetScRsp(int petId) {
         super(CmdId.RecallPetScRsp);
-        
+
         var data = RecallPetScRsp.newInstance()
-                .setCurPetId(0);
-        
+                .setCurPetId(petId)
+                .setNewPetId(0);
+
         this.setData(data);
     }
 }

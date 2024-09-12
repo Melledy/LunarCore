@@ -45,6 +45,9 @@ public class GiveAllCommand implements CommandHandler {
                 // Credits
                 items.add(new GameItem(2, 100_000_000));
 
+                // Pet
+                items.add(new GameItem(251001, 1));
+
                 // Add to target's inventory
                 target.getInventory().addItems(items, true);
 

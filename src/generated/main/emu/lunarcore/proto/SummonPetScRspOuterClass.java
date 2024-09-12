@@ -24,9 +24,9 @@ public final class SummonPetScRspOuterClass {
     private int curPetId;
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 6;</code>
+     * <code>optional uint32 new_pet_id = 6;</code>
      */
-    private int bMCOIJCMNNC;
+    private int newPetId;
 
     /**
      * <code>optional uint32 retcode = 11;</code>
@@ -81,39 +81,39 @@ public final class SummonPetScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 6;</code>
-     * @return whether the bMCOIJCMNNC field is set
+     * <code>optional uint32 new_pet_id = 6;</code>
+     * @return whether the newPetId field is set
      */
-    public boolean hasBMCOIJCMNNC() {
+    public boolean hasNewPetId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 6;</code>
+     * <code>optional uint32 new_pet_id = 6;</code>
      * @return this
      */
-    public SummonPetScRsp clearBMCOIJCMNNC() {
+    public SummonPetScRsp clearNewPetId() {
       bitField0_ &= ~0x00000002;
-      bMCOIJCMNNC = 0;
+      newPetId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 6;</code>
-     * @return the bMCOIJCMNNC
+     * <code>optional uint32 new_pet_id = 6;</code>
+     * @return the newPetId
      */
-    public int getBMCOIJCMNNC() {
-      return bMCOIJCMNNC;
+    public int getNewPetId() {
+      return newPetId;
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 6;</code>
-     * @param value the bMCOIJCMNNC to set
+     * <code>optional uint32 new_pet_id = 6;</code>
+     * @param value the newPetId to set
      * @return this
      */
-    public SummonPetScRsp setBMCOIJCMNNC(final int value) {
+    public SummonPetScRsp setNewPetId(final int value) {
       bitField0_ |= 0x00000002;
-      bMCOIJCMNNC = value;
+      newPetId = value;
       return this;
     }
 
@@ -160,7 +160,7 @@ public final class SummonPetScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         curPetId = other.curPetId;
-        bMCOIJCMNNC = other.bMCOIJCMNNC;
+        newPetId = other.newPetId;
         retcode = other.retcode;
       }
       return this;
@@ -175,8 +175,8 @@ public final class SummonPetScRspOuterClass {
       if (other.hasCurPetId()) {
         setCurPetId(other.curPetId);
       }
-      if (other.hasBMCOIJCMNNC()) {
-        setBMCOIJCMNNC(other.bMCOIJCMNNC);
+      if (other.hasNewPetId()) {
+        setNewPetId(other.newPetId);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
@@ -192,7 +192,7 @@ public final class SummonPetScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       curPetId = 0;
-      bMCOIJCMNNC = 0;
+      newPetId = 0;
       retcode = 0;
       return this;
     }
@@ -218,7 +218,7 @@ public final class SummonPetScRspOuterClass {
       SummonPetScRsp other = (SummonPetScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasCurPetId() || curPetId == other.curPetId)
-        && (!hasBMCOIJCMNNC() || bMCOIJCMNNC == other.bMCOIJCMNNC)
+        && (!hasNewPetId() || newPetId == other.newPetId)
         && (!hasRetcode() || retcode == other.retcode);
     }
 
@@ -230,7 +230,7 @@ public final class SummonPetScRspOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(bMCOIJCMNNC);
+        output.writeUInt32NoTag(newPetId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 88);
@@ -245,7 +245,7 @@ public final class SummonPetScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(curPetId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(bMCOIJCMNNC);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(newPetId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
@@ -270,8 +270,8 @@ public final class SummonPetScRspOuterClass {
             }
           }
           case 48: {
-            // bMCOIJCMNNC
-            bMCOIJCMNNC = input.readUInt32();
+            // newPetId
+            newPetId = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 88) {
@@ -308,7 +308,7 @@ public final class SummonPetScRspOuterClass {
         output.writeUInt32(FieldNames.curPetId, curPetId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.bMCOIJCMNNC, bMCOIJCMNNC);
+        output.writeUInt32(FieldNames.newPetId, newPetId);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
@@ -335,10 +335,11 @@ public final class SummonPetScRspOuterClass {
             }
             break;
           }
-          case 1362418561: {
-            if (input.isAtField(FieldNames.bMCOIJCMNNC)) {
+          case 1363040474:
+          case 646870970: {
+            if (input.isAtField(FieldNames.newPetId)) {
               if (!input.trySkipNullValue()) {
-                bMCOIJCMNNC = input.readUInt32();
+                newPetId = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -412,7 +413,7 @@ public final class SummonPetScRspOuterClass {
     static class FieldNames {
       static final FieldName curPetId = FieldName.forField("curPetId", "cur_pet_id");
 
-      static final FieldName bMCOIJCMNNC = FieldName.forField("BMCOIJCMNNC");
+      static final FieldName newPetId = FieldName.forField("newPetId", "new_pet_id");
 
       static final FieldName retcode = FieldName.forField("retcode");
     }
