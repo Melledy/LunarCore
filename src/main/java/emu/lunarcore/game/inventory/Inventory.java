@@ -272,9 +272,6 @@ public class Inventory extends BasePlayerManager {
             }
         case Pet:
             // Add pet
-            getPlayer().getUnlocks().addPet(item.getItemId());
-
-            // Add item
             if (tab.getSize() >= tab.getMaxCapacity()) {
                 return null;
             }
