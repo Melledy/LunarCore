@@ -19,9 +19,9 @@ public final class RecallPetScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
+     * <code>optional uint32 new_pet_id = 7;</code>
      */
-    private int bMCOIJCMNNC;
+    private int newPetId;
 
     /**
      * <code>optional uint32 cur_pet_id = 13;</code>
@@ -44,39 +44,39 @@ public final class RecallPetScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     * @return whether the bMCOIJCMNNC field is set
+     * <code>optional uint32 new_pet_id = 7;</code>
+     * @return whether the newPetId field is set
      */
-    public boolean hasBMCOIJCMNNC() {
+    public boolean hasNewPetId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
+     * <code>optional uint32 new_pet_id = 7;</code>
      * @return this
      */
-    public RecallPetScRsp clearBMCOIJCMNNC() {
+    public RecallPetScRsp clearNewPetId() {
       bitField0_ &= ~0x00000001;
-      bMCOIJCMNNC = 0;
+      newPetId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     * @return the bMCOIJCMNNC
+     * <code>optional uint32 new_pet_id = 7;</code>
+     * @return the newPetId
      */
-    public int getBMCOIJCMNNC() {
-      return bMCOIJCMNNC;
+    public int getNewPetId() {
+      return newPetId;
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     * @param value the bMCOIJCMNNC to set
+     * <code>optional uint32 new_pet_id = 7;</code>
+     * @param value the newPetId to set
      * @return this
      */
-    public RecallPetScRsp setBMCOIJCMNNC(final int value) {
+    public RecallPetScRsp setNewPetId(final int value) {
       bitField0_ |= 0x00000001;
-      bMCOIJCMNNC = value;
+      newPetId = value;
       return this;
     }
 
@@ -159,7 +159,7 @@ public final class RecallPetScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        bMCOIJCMNNC = other.bMCOIJCMNNC;
+        newPetId = other.newPetId;
         curPetId = other.curPetId;
         retcode = other.retcode;
       }
@@ -172,8 +172,8 @@ public final class RecallPetScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBMCOIJCMNNC()) {
-        setBMCOIJCMNNC(other.bMCOIJCMNNC);
+      if (other.hasNewPetId()) {
+        setNewPetId(other.newPetId);
       }
       if (other.hasCurPetId()) {
         setCurPetId(other.curPetId);
@@ -191,7 +191,7 @@ public final class RecallPetScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      bMCOIJCMNNC = 0;
+      newPetId = 0;
       curPetId = 0;
       retcode = 0;
       return this;
@@ -217,7 +217,7 @@ public final class RecallPetScRspOuterClass {
       }
       RecallPetScRsp other = (RecallPetScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasBMCOIJCMNNC() || bMCOIJCMNNC == other.bMCOIJCMNNC)
+        && (!hasNewPetId() || newPetId == other.newPetId)
         && (!hasCurPetId() || curPetId == other.curPetId)
         && (!hasRetcode() || retcode == other.retcode);
     }
@@ -226,7 +226,7 @@ public final class RecallPetScRspOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(bMCOIJCMNNC);
+        output.writeUInt32NoTag(newPetId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 104);
@@ -242,7 +242,7 @@ public final class RecallPetScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(bMCOIJCMNNC);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(newPetId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(curPetId);
@@ -261,8 +261,8 @@ public final class RecallPetScRspOuterClass {
       while (true) {
         switch (tag) {
           case 56: {
-            // bMCOIJCMNNC
-            bMCOIJCMNNC = input.readUInt32();
+            // newPetId
+            newPetId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 104) {
@@ -305,7 +305,7 @@ public final class RecallPetScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.bMCOIJCMNNC, bMCOIJCMNNC);
+        output.writeUInt32(FieldNames.newPetId, newPetId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.curPetId, curPetId);
@@ -323,10 +323,11 @@ public final class RecallPetScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1362418561: {
-            if (input.isAtField(FieldNames.bMCOIJCMNNC)) {
+          case 1363040474:
+          case 646870970: {
+            if (input.isAtField(FieldNames.newPetId)) {
               if (!input.trySkipNullValue()) {
-                bMCOIJCMNNC = input.readUInt32();
+                newPetId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -410,7 +411,7 @@ public final class RecallPetScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName bMCOIJCMNNC = FieldName.forField("BMCOIJCMNNC");
+      static final FieldName newPetId = FieldName.forField("newPetId", "new_pet_id");
 
       static final FieldName curPetId = FieldName.forField("curPetId", "cur_pet_id");
 

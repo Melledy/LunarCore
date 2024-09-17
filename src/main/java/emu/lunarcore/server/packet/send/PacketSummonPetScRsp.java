@@ -5,22 +5,14 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 
 public class PacketSummonPetScRsp extends BasePacket {
-    
-    public PacketSummonPetScRsp() {
-        super(CmdId.SummonPetScRsp);
-        
-        var data = SummonPetScRsp.newInstance()
-                .setRetcode(1);
-        
-        this.setData(data);
-    }
 
-    public PacketSummonPetScRsp(int petId) {
+    public PacketSummonPetScRsp(int curPetId, int newPetId) {
         super(CmdId.SummonPetScRsp);
-        
+
         var data = SummonPetScRsp.newInstance()
-                .setCurPetId(petId);
-        
+                .setCurPetId(curPetId)
+                .setNewPetId(newPetId);
+
         this.setData(data);
     }
 }
