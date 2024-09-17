@@ -49,7 +49,7 @@ public class ClearCommand implements CommandHandler {
                 }
             }
             case "pets", "pet", "p" -> {
-                for (GameItem item : args.getOnlineTarget().getInventory().getItems().values()) {
+                for (GameItem item : args.getTarget().getInventory().getItems().values()) {
                     if (item.getItemMainType() == ItemMainType.Pet) {
                         toRemove.add(item);
                     }
