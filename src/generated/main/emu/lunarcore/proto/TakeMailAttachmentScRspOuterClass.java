@@ -20,17 +20,17 @@ public final class TakeMailAttachmentScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .ItemList attachment = 14;</code>
+     * <code>optional .ItemList attachment = 7;</code>
      */
     private final ItemListOuterClass.ItemList attachment = ItemListOuterClass.ItemList.newInstance();
 
     /**
-     * <code>repeated uint32 succ_mail_id_list = 12;</code>
+     * <code>repeated uint32 succ_mail_id_list = 10;</code>
      */
     private final RepeatedInt succMailIdList = RepeatedInt.newEmptyInstance();
 
@@ -45,7 +45,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -53,7 +53,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return this
      */
     public TakeMailAttachmentScRsp clearRetcode() {
@@ -63,7 +63,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -71,7 +71,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList attachment = 14;</code>
+     * <code>optional .ItemList attachment = 7;</code>
      * @return whether the attachment field is set
      */
     public boolean hasAttachment() {
@@ -90,7 +90,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList attachment = 14;</code>
+     * <code>optional .ItemList attachment = 7;</code>
      * @return this
      */
     public TakeMailAttachmentScRsp clearAttachment() {
@@ -100,7 +100,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList attachment = 14;</code>
+     * <code>optional .ItemList attachment = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -114,7 +114,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList attachment = 14;</code>
+     * <code>optional .ItemList attachment = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -128,7 +128,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>optional .ItemList attachment = 14;</code>
+     * <code>optional .ItemList attachment = 7;</code>
      * @param value the attachment to set
      * @return this
      */
@@ -139,7 +139,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 succ_mail_id_list = 12;</code>
+     * <code>repeated uint32 succ_mail_id_list = 10;</code>
      * @return whether the succMailIdList field is set
      */
     public boolean hasSuccMailIdList() {
@@ -147,7 +147,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 succ_mail_id_list = 12;</code>
+     * <code>repeated uint32 succ_mail_id_list = 10;</code>
      * @return this
      */
     public TakeMailAttachmentScRsp clearSuccMailIdList() {
@@ -157,7 +157,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 succ_mail_id_list = 12;</code>
+     * <code>repeated uint32 succ_mail_id_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -171,7 +171,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 succ_mail_id_list = 12;</code>
+     * <code>repeated uint32 succ_mail_id_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -185,7 +185,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 succ_mail_id_list = 12;</code>
+     * <code>repeated uint32 succ_mail_id_list = 10;</code>
      * @param value the succMailIdList to add
      * @return this
      */
@@ -196,7 +196,7 @@ public final class TakeMailAttachmentScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 succ_mail_id_list = 12;</code>
+     * <code>repeated uint32 succ_mail_id_list = 10;</code>
      * @param values the succMailIdList to add
      * @return this
      */
@@ -279,16 +279,16 @@ public final class TakeMailAttachmentScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 58);
         output.writeMessageNoTag(attachment);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         for (int i = 0; i < succMailIdList.length(); i++) {
-          output.writeRawByte((byte) 96);
+          output.writeRawByte((byte) 80);
           output.writeUInt32NoTag(succMailIdList.array()[i]);
         }
       }
@@ -316,25 +316,25 @@ public final class TakeMailAttachmentScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 8: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 58) {
               break;
             }
           }
-          case 114: {
+          case 58: {
             // attachment
             input.readMessage(attachment);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 98) {
+            if (tag != 82) {
               break;
             }
           }
-          case 98: {
+          case 82: {
             // succMailIdList [packed=true]
             input.readPackedUInt32(succMailIdList, tag);
             bitField0_ |= 0x00000004;
@@ -353,7 +353,7 @@ public final class TakeMailAttachmentScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 96: {
+          case 80: {
             // succMailIdList [packed=false]
             tag = input.readRepeatedUInt32(succMailIdList, tag);
             bitField0_ |= 0x00000004;

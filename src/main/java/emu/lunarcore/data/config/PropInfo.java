@@ -25,11 +25,13 @@ public class PropInfo extends ObjectInfo {
     private int CocoonID;
     private int FarmElementID;
     private boolean IsClientOnly;
+    private boolean LoadOnInitial = true;
     
     @Setter private PropValueSource ValueSource;
     @Setter private String InitLevelGraph;
     @Setter private PropState State = PropState.Closed;
     
+    @Setter private transient GroupInfo group;
     @Setter private transient PropTrigger trigger;
     @Setter private transient boolean isCommonConsole;
     

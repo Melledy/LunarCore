@@ -20,49 +20,64 @@ public final class RelicOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 unique_id = 1;</code>
-     */
-    private int uniqueId;
-
-    /**
-     * <code>optional uint32 level = 2;</code>
-     */
-    private int level;
-
-    /**
-     * <code>optional uint32 exp = 6;</code>
-     */
-    private int exp;
-
-    /**
-     * <code>optional uint32 equip_avatar_id = 8;</code>
+     * <code>optional uint32 equip_avatar_id = 5;</code>
      */
     private int equipAvatarId;
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 level = 7;</code>
+     */
+    private int level;
+
+    /**
+     * <code>optional uint32 tid = 8;</code>
      */
     private int tid;
 
     /**
-     * <code>optional uint32 main_affix_id = 15;</code>
+     * <code>optional uint32 main_affix_id = 9;</code>
      */
     private int mainAffixId;
 
     /**
-     * <code>optional bool is_protected = 4;</code>
+     * <code>optional uint32 unique_id = 10;</code>
      */
-    private boolean isProtected;
+    private int uniqueId;
 
     /**
-     * <code>optional bool is_discarded = 11;</code>
+     * <code>optional uint32 reforge_block_sub_affix_id = 12;</code>
+     */
+    private int reforgeBlockSubAffixId;
+
+    /**
+     * <code>optional uint32 exp = 13;</code>
+     */
+    private int exp;
+
+    /**
+     * <code>optional bool is_discarded = 2;</code>
      */
     private boolean isDiscarded;
 
     /**
-     * <code>repeated .RelicAffix sub_affix_list = 10;</code>
+     * <code>optional bool is_protected = 6;</code>
+     */
+    private boolean isProtected;
+
+    /**
+     * <code>repeated .RelicAffix reforge_sub_affix_list = 1;</code>
+     */
+    private final RepeatedMessage<RelicAffixOuterClass.RelicAffix> reforgeSubAffixList = RepeatedMessage.newEmptyInstance(RelicAffixOuterClass.RelicAffix.getFactory());
+
+    /**
+     * <code>repeated .RelicAffix sub_affix_list = 3;</code>
      */
     private final RepeatedMessage<RelicAffixOuterClass.RelicAffix> subAffixList = RepeatedMessage.newEmptyInstance(RelicAffixOuterClass.RelicAffix.getFactory());
+
+    /**
+     * <code>repeated .RelicAffix preview_sub_affix_list = 4;</code>
+     */
+    private final RepeatedMessage<RelicAffixOuterClass.RelicAffix> previewSubAffixList = RepeatedMessage.newEmptyInstance(RelicAffixOuterClass.RelicAffix.getFactory());
 
     private Relic() {
     }
@@ -75,44 +90,44 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 unique_id = 1;</code>
-     * @return whether the uniqueId field is set
+     * <code>optional uint32 equip_avatar_id = 5;</code>
+     * @return whether the equipAvatarId field is set
      */
-    public boolean hasUniqueId() {
+    public boolean hasEquipAvatarId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 unique_id = 1;</code>
+     * <code>optional uint32 equip_avatar_id = 5;</code>
      * @return this
      */
-    public Relic clearUniqueId() {
+    public Relic clearEquipAvatarId() {
       bitField0_ &= ~0x00000001;
-      uniqueId = 0;
+      equipAvatarId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 unique_id = 1;</code>
-     * @return the uniqueId
+     * <code>optional uint32 equip_avatar_id = 5;</code>
+     * @return the equipAvatarId
      */
-    public int getUniqueId() {
-      return uniqueId;
+    public int getEquipAvatarId() {
+      return equipAvatarId;
     }
 
     /**
-     * <code>optional uint32 unique_id = 1;</code>
-     * @param value the uniqueId to set
+     * <code>optional uint32 equip_avatar_id = 5;</code>
+     * @param value the equipAvatarId to set
      * @return this
      */
-    public Relic setUniqueId(final int value) {
+    public Relic setEquipAvatarId(final int value) {
       bitField0_ |= 0x00000001;
-      uniqueId = value;
+      equipAvatarId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 level = 2;</code>
+     * <code>optional uint32 level = 7;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -120,7 +135,7 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 2;</code>
+     * <code>optional uint32 level = 7;</code>
      * @return this
      */
     public Relic clearLevel() {
@@ -130,7 +145,7 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 2;</code>
+     * <code>optional uint32 level = 7;</code>
      * @return the level
      */
     public int getLevel() {
@@ -138,7 +153,7 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 2;</code>
+     * <code>optional uint32 level = 7;</code>
      * @param value the level to set
      * @return this
      */
@@ -149,99 +164,25 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 exp = 6;</code>
-     * @return whether the exp field is set
+     * <code>optional uint32 tid = 8;</code>
+     * @return whether the tid field is set
      */
-    public boolean hasExp() {
+    public boolean hasTid() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 exp = 6;</code>
-     * @return this
-     */
-    public Relic clearExp() {
-      bitField0_ &= ~0x00000004;
-      exp = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 exp = 6;</code>
-     * @return the exp
-     */
-    public int getExp() {
-      return exp;
-    }
-
-    /**
-     * <code>optional uint32 exp = 6;</code>
-     * @param value the exp to set
-     * @return this
-     */
-    public Relic setExp(final int value) {
-      bitField0_ |= 0x00000004;
-      exp = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equip_avatar_id = 8;</code>
-     * @return whether the equipAvatarId field is set
-     */
-    public boolean hasEquipAvatarId() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional uint32 equip_avatar_id = 8;</code>
-     * @return this
-     */
-    public Relic clearEquipAvatarId() {
-      bitField0_ &= ~0x00000008;
-      equipAvatarId = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 equip_avatar_id = 8;</code>
-     * @return the equipAvatarId
-     */
-    public int getEquipAvatarId() {
-      return equipAvatarId;
-    }
-
-    /**
-     * <code>optional uint32 equip_avatar_id = 8;</code>
-     * @param value the equipAvatarId to set
-     * @return this
-     */
-    public Relic setEquipAvatarId(final int value) {
-      bitField0_ |= 0x00000008;
-      equipAvatarId = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 tid = 12;</code>
-     * @return whether the tid field is set
-     */
-    public boolean hasTid() {
-      return (bitField0_ & 0x00000010) != 0;
-    }
-
-    /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 8;</code>
      * @return this
      */
     public Relic clearTid() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000004;
       tid = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 8;</code>
      * @return the tid
      */
     public int getTid() {
@@ -249,36 +190,36 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 8;</code>
      * @param value the tid to set
      * @return this
      */
     public Relic setTid(final int value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000004;
       tid = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 15;</code>
+     * <code>optional uint32 main_affix_id = 9;</code>
      * @return whether the mainAffixId field is set
      */
     public boolean hasMainAffixId() {
-      return (bitField0_ & 0x00000020) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 15;</code>
+     * <code>optional uint32 main_affix_id = 9;</code>
      * @return this
      */
     public Relic clearMainAffixId() {
-      bitField0_ &= ~0x00000020;
+      bitField0_ &= ~0x00000008;
       mainAffixId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 15;</code>
+     * <code>optional uint32 main_affix_id = 9;</code>
      * @return the mainAffixId
      */
     public int getMainAffixId() {
@@ -286,55 +227,129 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional uint32 main_affix_id = 15;</code>
+     * <code>optional uint32 main_affix_id = 9;</code>
      * @param value the mainAffixId to set
      * @return this
      */
     public Relic setMainAffixId(final int value) {
-      bitField0_ |= 0x00000020;
+      bitField0_ |= 0x00000008;
       mainAffixId = value;
       return this;
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
-     * @return whether the isProtected field is set
+     * <code>optional uint32 unique_id = 10;</code>
+     * @return whether the uniqueId field is set
      */
-    public boolean hasIsProtected() {
+    public boolean hasUniqueId() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>optional uint32 unique_id = 10;</code>
+     * @return this
+     */
+    public Relic clearUniqueId() {
+      bitField0_ &= ~0x00000010;
+      uniqueId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 unique_id = 10;</code>
+     * @return the uniqueId
+     */
+    public int getUniqueId() {
+      return uniqueId;
+    }
+
+    /**
+     * <code>optional uint32 unique_id = 10;</code>
+     * @param value the uniqueId to set
+     * @return this
+     */
+    public Relic setUniqueId(final int value) {
+      bitField0_ |= 0x00000010;
+      uniqueId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 reforge_block_sub_affix_id = 12;</code>
+     * @return whether the reforgeBlockSubAffixId field is set
+     */
+    public boolean hasReforgeBlockSubAffixId() {
+      return (bitField0_ & 0x00000020) != 0;
+    }
+
+    /**
+     * <code>optional uint32 reforge_block_sub_affix_id = 12;</code>
+     * @return this
+     */
+    public Relic clearReforgeBlockSubAffixId() {
+      bitField0_ &= ~0x00000020;
+      reforgeBlockSubAffixId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 reforge_block_sub_affix_id = 12;</code>
+     * @return the reforgeBlockSubAffixId
+     */
+    public int getReforgeBlockSubAffixId() {
+      return reforgeBlockSubAffixId;
+    }
+
+    /**
+     * <code>optional uint32 reforge_block_sub_affix_id = 12;</code>
+     * @param value the reforgeBlockSubAffixId to set
+     * @return this
+     */
+    public Relic setReforgeBlockSubAffixId(final int value) {
+      bitField0_ |= 0x00000020;
+      reforgeBlockSubAffixId = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 exp = 13;</code>
+     * @return whether the exp field is set
+     */
+    public boolean hasExp() {
       return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
+     * <code>optional uint32 exp = 13;</code>
      * @return this
      */
-    public Relic clearIsProtected() {
+    public Relic clearExp() {
       bitField0_ &= ~0x00000040;
-      isProtected = false;
+      exp = 0;
       return this;
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
-     * @return the isProtected
+     * <code>optional uint32 exp = 13;</code>
+     * @return the exp
      */
-    public boolean getIsProtected() {
-      return isProtected;
+    public int getExp() {
+      return exp;
     }
 
     /**
-     * <code>optional bool is_protected = 4;</code>
-     * @param value the isProtected to set
+     * <code>optional uint32 exp = 13;</code>
+     * @param value the exp to set
      * @return this
      */
-    public Relic setIsProtected(final boolean value) {
+    public Relic setExp(final int value) {
       bitField0_ |= 0x00000040;
-      isProtected = value;
+      exp = value;
       return this;
     }
 
     /**
-     * <code>optional bool is_discarded = 11;</code>
+     * <code>optional bool is_discarded = 2;</code>
      * @return whether the isDiscarded field is set
      */
     public boolean hasIsDiscarded() {
@@ -342,7 +357,7 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional bool is_discarded = 11;</code>
+     * <code>optional bool is_discarded = 2;</code>
      * @return this
      */
     public Relic clearIsDiscarded() {
@@ -352,7 +367,7 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional bool is_discarded = 11;</code>
+     * <code>optional bool is_discarded = 2;</code>
      * @return the isDiscarded
      */
     public boolean getIsDiscarded() {
@@ -360,7 +375,7 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>optional bool is_discarded = 11;</code>
+     * <code>optional bool is_discarded = 2;</code>
      * @param value the isDiscarded to set
      * @return this
      */
@@ -371,25 +386,130 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>repeated .RelicAffix sub_affix_list = 10;</code>
-     * @return whether the subAffixList field is set
+     * <code>optional bool is_protected = 6;</code>
+     * @return whether the isProtected field is set
      */
-    public boolean hasSubAffixList() {
+    public boolean hasIsProtected() {
       return (bitField0_ & 0x00000100) != 0;
     }
 
     /**
-     * <code>repeated .RelicAffix sub_affix_list = 10;</code>
+     * <code>optional bool is_protected = 6;</code>
+     * @return this
+     */
+    public Relic clearIsProtected() {
+      bitField0_ &= ~0x00000100;
+      isProtected = false;
+      return this;
+    }
+
+    /**
+     * <code>optional bool is_protected = 6;</code>
+     * @return the isProtected
+     */
+    public boolean getIsProtected() {
+      return isProtected;
+    }
+
+    /**
+     * <code>optional bool is_protected = 6;</code>
+     * @param value the isProtected to set
+     * @return this
+     */
+    public Relic setIsProtected(final boolean value) {
+      bitField0_ |= 0x00000100;
+      isProtected = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicAffix reforge_sub_affix_list = 1;</code>
+     * @return whether the reforgeSubAffixList field is set
+     */
+    public boolean hasReforgeSubAffixList() {
+      return (bitField0_ & 0x00000200) != 0;
+    }
+
+    /**
+     * <code>repeated .RelicAffix reforge_sub_affix_list = 1;</code>
+     * @return this
+     */
+    public Relic clearReforgeSubAffixList() {
+      bitField0_ &= ~0x00000200;
+      reforgeSubAffixList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicAffix reforge_sub_affix_list = 1;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableReforgeSubAffixList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<RelicAffixOuterClass.RelicAffix> getReforgeSubAffixList() {
+      return reforgeSubAffixList;
+    }
+
+    /**
+     * <code>repeated .RelicAffix reforge_sub_affix_list = 1;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<RelicAffixOuterClass.RelicAffix> getMutableReforgeSubAffixList() {
+      bitField0_ |= 0x00000200;
+      return reforgeSubAffixList;
+    }
+
+    /**
+     * <code>repeated .RelicAffix reforge_sub_affix_list = 1;</code>
+     * @param value the reforgeSubAffixList to add
+     * @return this
+     */
+    public Relic addReforgeSubAffixList(final RelicAffixOuterClass.RelicAffix value) {
+      bitField0_ |= 0x00000200;
+      reforgeSubAffixList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicAffix reforge_sub_affix_list = 1;</code>
+     * @param values the reforgeSubAffixList to add
+     * @return this
+     */
+    public Relic addAllReforgeSubAffixList(final RelicAffixOuterClass.RelicAffix... values) {
+      bitField0_ |= 0x00000200;
+      reforgeSubAffixList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicAffix sub_affix_list = 3;</code>
+     * @return whether the subAffixList field is set
+     */
+    public boolean hasSubAffixList() {
+      return (bitField0_ & 0x00000400) != 0;
+    }
+
+    /**
+     * <code>repeated .RelicAffix sub_affix_list = 3;</code>
      * @return this
      */
     public Relic clearSubAffixList() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000400;
       subAffixList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .RelicAffix sub_affix_list = 10;</code>
+     * <code>repeated .RelicAffix sub_affix_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -403,7 +523,7 @@ public final class RelicOuterClass {
     }
 
     /**
-     * <code>repeated .RelicAffix sub_affix_list = 10;</code>
+     * <code>repeated .RelicAffix sub_affix_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -412,29 +532,97 @@ public final class RelicOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<RelicAffixOuterClass.RelicAffix> getMutableSubAffixList() {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       return subAffixList;
     }
 
     /**
-     * <code>repeated .RelicAffix sub_affix_list = 10;</code>
+     * <code>repeated .RelicAffix sub_affix_list = 3;</code>
      * @param value the subAffixList to add
      * @return this
      */
     public Relic addSubAffixList(final RelicAffixOuterClass.RelicAffix value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       subAffixList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .RelicAffix sub_affix_list = 10;</code>
+     * <code>repeated .RelicAffix sub_affix_list = 3;</code>
      * @param values the subAffixList to add
      * @return this
      */
     public Relic addAllSubAffixList(final RelicAffixOuterClass.RelicAffix... values) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000400;
       subAffixList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicAffix preview_sub_affix_list = 4;</code>
+     * @return whether the previewSubAffixList field is set
+     */
+    public boolean hasPreviewSubAffixList() {
+      return (bitField0_ & 0x00000800) != 0;
+    }
+
+    /**
+     * <code>repeated .RelicAffix preview_sub_affix_list = 4;</code>
+     * @return this
+     */
+    public Relic clearPreviewSubAffixList() {
+      bitField0_ &= ~0x00000800;
+      previewSubAffixList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicAffix preview_sub_affix_list = 4;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutablePreviewSubAffixList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<RelicAffixOuterClass.RelicAffix> getPreviewSubAffixList() {
+      return previewSubAffixList;
+    }
+
+    /**
+     * <code>repeated .RelicAffix preview_sub_affix_list = 4;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<RelicAffixOuterClass.RelicAffix> getMutablePreviewSubAffixList() {
+      bitField0_ |= 0x00000800;
+      return previewSubAffixList;
+    }
+
+    /**
+     * <code>repeated .RelicAffix preview_sub_affix_list = 4;</code>
+     * @param value the previewSubAffixList to add
+     * @return this
+     */
+    public Relic addPreviewSubAffixList(final RelicAffixOuterClass.RelicAffix value) {
+      bitField0_ |= 0x00000800;
+      previewSubAffixList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .RelicAffix preview_sub_affix_list = 4;</code>
+     * @param values the previewSubAffixList to add
+     * @return this
+     */
+    public Relic addAllPreviewSubAffixList(final RelicAffixOuterClass.RelicAffix... values) {
+      bitField0_ |= 0x00000800;
+      previewSubAffixList.addAll(values);
       return this;
     }
 
@@ -443,15 +631,18 @@ public final class RelicOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        uniqueId = other.uniqueId;
-        level = other.level;
-        exp = other.exp;
         equipAvatarId = other.equipAvatarId;
+        level = other.level;
         tid = other.tid;
         mainAffixId = other.mainAffixId;
-        isProtected = other.isProtected;
+        uniqueId = other.uniqueId;
+        reforgeBlockSubAffixId = other.reforgeBlockSubAffixId;
+        exp = other.exp;
         isDiscarded = other.isDiscarded;
+        isProtected = other.isProtected;
+        reforgeSubAffixList.copyFrom(other.reforgeSubAffixList);
         subAffixList.copyFrom(other.subAffixList);
+        previewSubAffixList.copyFrom(other.previewSubAffixList);
       }
       return this;
     }
@@ -462,17 +653,11 @@ public final class RelicOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasUniqueId()) {
-        setUniqueId(other.uniqueId);
+      if (other.hasEquipAvatarId()) {
+        setEquipAvatarId(other.equipAvatarId);
       }
       if (other.hasLevel()) {
         setLevel(other.level);
-      }
-      if (other.hasExp()) {
-        setExp(other.exp);
-      }
-      if (other.hasEquipAvatarId()) {
-        setEquipAvatarId(other.equipAvatarId);
       }
       if (other.hasTid()) {
         setTid(other.tid);
@@ -480,14 +665,29 @@ public final class RelicOuterClass {
       if (other.hasMainAffixId()) {
         setMainAffixId(other.mainAffixId);
       }
-      if (other.hasIsProtected()) {
-        setIsProtected(other.isProtected);
+      if (other.hasUniqueId()) {
+        setUniqueId(other.uniqueId);
+      }
+      if (other.hasReforgeBlockSubAffixId()) {
+        setReforgeBlockSubAffixId(other.reforgeBlockSubAffixId);
+      }
+      if (other.hasExp()) {
+        setExp(other.exp);
       }
       if (other.hasIsDiscarded()) {
         setIsDiscarded(other.isDiscarded);
       }
+      if (other.hasIsProtected()) {
+        setIsProtected(other.isProtected);
+      }
+      if (other.hasReforgeSubAffixList()) {
+        getMutableReforgeSubAffixList().addAll(other.reforgeSubAffixList);
+      }
       if (other.hasSubAffixList()) {
         getMutableSubAffixList().addAll(other.subAffixList);
+      }
+      if (other.hasPreviewSubAffixList()) {
+        getMutablePreviewSubAffixList().addAll(other.previewSubAffixList);
       }
       return this;
     }
@@ -499,15 +699,18 @@ public final class RelicOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      uniqueId = 0;
-      level = 0;
-      exp = 0;
       equipAvatarId = 0;
+      level = 0;
       tid = 0;
       mainAffixId = 0;
-      isProtected = false;
+      uniqueId = 0;
+      reforgeBlockSubAffixId = 0;
+      exp = 0;
       isDiscarded = false;
+      isProtected = false;
+      reforgeSubAffixList.clear();
       subAffixList.clear();
+      previewSubAffixList.clear();
       return this;
     }
 
@@ -518,7 +721,9 @@ public final class RelicOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      reforgeSubAffixList.clearQuick();
       subAffixList.clearQuick();
+      previewSubAffixList.clearQuick();
       return this;
     }
 
@@ -532,55 +737,74 @@ public final class RelicOuterClass {
       }
       Relic other = (Relic) o;
       return bitField0_ == other.bitField0_
-        && (!hasUniqueId() || uniqueId == other.uniqueId)
-        && (!hasLevel() || level == other.level)
-        && (!hasExp() || exp == other.exp)
         && (!hasEquipAvatarId() || equipAvatarId == other.equipAvatarId)
+        && (!hasLevel() || level == other.level)
         && (!hasTid() || tid == other.tid)
         && (!hasMainAffixId() || mainAffixId == other.mainAffixId)
-        && (!hasIsProtected() || isProtected == other.isProtected)
+        && (!hasUniqueId() || uniqueId == other.uniqueId)
+        && (!hasReforgeBlockSubAffixId() || reforgeBlockSubAffixId == other.reforgeBlockSubAffixId)
+        && (!hasExp() || exp == other.exp)
         && (!hasIsDiscarded() || isDiscarded == other.isDiscarded)
-        && (!hasSubAffixList() || subAffixList.equals(other.subAffixList));
+        && (!hasIsProtected() || isProtected == other.isProtected)
+        && (!hasReforgeSubAffixList() || reforgeSubAffixList.equals(other.reforgeSubAffixList))
+        && (!hasSubAffixList() || subAffixList.equals(other.subAffixList))
+        && (!hasPreviewSubAffixList() || previewSubAffixList.equals(other.previewSubAffixList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeUInt32NoTag(uniqueId);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(equipAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(exp);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 64);
-        output.writeUInt32NoTag(equipAvatarId);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(tid);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 120);
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(mainAffixId);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(uniqueId);
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        output.writeRawByte((byte) 96);
+        output.writeUInt32NoTag(reforgeBlockSubAffixId);
+      }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeRawByte((byte) 32);
-        output.writeBoolNoTag(isProtected);
+        output.writeRawByte((byte) 104);
+        output.writeUInt32NoTag(exp);
       }
       if ((bitField0_ & 0x00000080) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 16);
         output.writeBoolNoTag(isDiscarded);
       }
       if ((bitField0_ & 0x00000100) != 0) {
+        output.writeRawByte((byte) 48);
+        output.writeBoolNoTag(isProtected);
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
+        for (int i = 0; i < reforgeSubAffixList.length(); i++) {
+          output.writeRawByte((byte) 10);
+          output.writeMessageNoTag(reforgeSubAffixList.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000400) != 0) {
         for (int i = 0; i < subAffixList.length(); i++) {
-          output.writeRawByte((byte) 82);
+          output.writeRawByte((byte) 26);
           output.writeMessageNoTag(subAffixList.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000800) != 0) {
+        for (int i = 0; i < previewSubAffixList.length(); i++) {
+          output.writeRawByte((byte) 34);
+          output.writeMessageNoTag(previewSubAffixList.get(i));
         }
       }
     }
@@ -589,31 +813,40 @@ public final class RelicOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(uniqueId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(exp);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(equipAvatarId);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(tid);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(mainAffixId);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(uniqueId);
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(reforgeBlockSubAffixId);
+      }
       if ((bitField0_ & 0x00000040) != 0) {
-        size += 2;
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(exp);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         size += 2;
       }
       if ((bitField0_ & 0x00000100) != 0) {
+        size += 2;
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
+        size += (1 * reforgeSubAffixList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(reforgeSubAffixList);
+      }
+      if ((bitField0_ & 0x00000400) != 0) {
         size += (1 * subAffixList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(subAffixList);
+      }
+      if ((bitField0_ & 0x00000800) != 0) {
+        size += (1 * previewSubAffixList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(previewSubAffixList);
       }
       return size;
     }
@@ -625,82 +858,107 @@ public final class RelicOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
-            // uniqueId
-            uniqueId = input.readUInt32();
+          case 40: {
+            // equipAvatarId
+            equipAvatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
+            if (tag != 56) {
               break;
             }
           }
-          case 16: {
+          case 56: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 48) {
-              break;
-            }
-          }
-          case 48: {
-            // exp
-            exp = input.readUInt32();
-            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 64) {
               break;
             }
           }
           case 64: {
-            // equipAvatarId
-            equipAvatarId = input.readUInt32();
+            // tid
+            tid = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
+            // mainAffixId
+            mainAffixId = input.readUInt32();
             bitField0_ |= 0x00000008;
+            tag = input.readTag();
+            if (tag != 80) {
+              break;
+            }
+          }
+          case 80: {
+            // uniqueId
+            uniqueId = input.readUInt32();
+            bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 96) {
               break;
             }
           }
           case 96: {
-            // tid
-            tid = input.readUInt32();
-            bitField0_ |= 0x00000010;
-            tag = input.readTag();
-            if (tag != 120) {
-              break;
-            }
-          }
-          case 120: {
-            // mainAffixId
-            mainAffixId = input.readUInt32();
+            // reforgeBlockSubAffixId
+            reforgeBlockSubAffixId = input.readUInt32();
             bitField0_ |= 0x00000020;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 104) {
               break;
             }
           }
-          case 32: {
-            // isProtected
-            isProtected = input.readBool();
+          case 104: {
+            // exp
+            exp = input.readUInt32();
             bitField0_ |= 0x00000040;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 16) {
               break;
             }
           }
-          case 88: {
+          case 16: {
             // isDiscarded
             isDiscarded = input.readBool();
             bitField0_ |= 0x00000080;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 48) {
               break;
             }
           }
-          case 82: {
+          case 48: {
+            // isProtected
+            isProtected = input.readBool();
+            bitField0_ |= 0x00000100;
+            tag = input.readTag();
+            if (tag != 10) {
+              break;
+            }
+          }
+          case 10: {
+            // reforgeSubAffixList
+            tag = input.readRepeatedMessage(reforgeSubAffixList, tag);
+            bitField0_ |= 0x00000200;
+            if (tag != 26) {
+              break;
+            }
+          }
+          case 26: {
             // subAffixList
             tag = input.readRepeatedMessage(subAffixList, tag);
-            bitField0_ |= 0x00000100;
+            bitField0_ |= 0x00000400;
+            if (tag != 34) {
+              break;
+            }
+          }
+          case 34: {
+            // previewSubAffixList
+            tag = input.readRepeatedMessage(previewSubAffixList, tag);
+            bitField0_ |= 0x00000800;
             if (tag != 0) {
               break;
             }
@@ -723,31 +981,40 @@ public final class RelicOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.uniqueId, uniqueId);
+        output.writeUInt32(FieldNames.equipAvatarId, equipAvatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.level, level);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.exp, exp);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
-        output.writeUInt32(FieldNames.equipAvatarId, equipAvatarId);
-      }
-      if ((bitField0_ & 0x00000010) != 0) {
         output.writeUInt32(FieldNames.tid, tid);
       }
-      if ((bitField0_ & 0x00000020) != 0) {
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.mainAffixId, mainAffixId);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeUInt32(FieldNames.uniqueId, uniqueId);
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        output.writeUInt32(FieldNames.reforgeBlockSubAffixId, reforgeBlockSubAffixId);
+      }
       if ((bitField0_ & 0x00000040) != 0) {
-        output.writeBool(FieldNames.isProtected, isProtected);
+        output.writeUInt32(FieldNames.exp, exp);
       }
       if ((bitField0_ & 0x00000080) != 0) {
         output.writeBool(FieldNames.isDiscarded, isDiscarded);
       }
       if ((bitField0_ & 0x00000100) != 0) {
+        output.writeBool(FieldNames.isProtected, isProtected);
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
+        output.writeRepeatedMessage(FieldNames.reforgeSubAffixList, reforgeSubAffixList);
+      }
+      if ((bitField0_ & 0x00000400) != 0) {
         output.writeRepeatedMessage(FieldNames.subAffixList, subAffixList);
+      }
+      if ((bitField0_ & 0x00000800) != 0) {
+        output.writeRepeatedMessage(FieldNames.previewSubAffixList, previewSubAffixList);
       }
       output.endObject();
     }
@@ -759,11 +1026,11 @@ public final class RelicOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -294460212:
-          case -538310583: {
-            if (input.isAtField(FieldNames.uniqueId)) {
+          case 169047204:
+          case 33057906: {
+            if (input.isAtField(FieldNames.equipAvatarId)) {
               if (!input.trySkipNullValue()) {
-                uniqueId = input.readUInt32();
+                equipAvatarId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -782,34 +1049,11 @@ public final class RelicOuterClass {
             }
             break;
           }
-          case 100893: {
-            if (input.isAtField(FieldNames.exp)) {
-              if (!input.trySkipNullValue()) {
-                exp = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 169047204:
-          case 33057906: {
-            if (input.isAtField(FieldNames.equipAvatarId)) {
-              if (!input.trySkipNullValue()) {
-                equipAvatarId = input.readUInt32();
-                bitField0_ |= 0x00000008;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 114831: {
             if (input.isAtField(FieldNames.tid)) {
               if (!input.trySkipNullValue()) {
                 tid = input.readUInt32();
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -821,6 +1065,30 @@ public final class RelicOuterClass {
             if (input.isAtField(FieldNames.mainAffixId)) {
               if (!input.trySkipNullValue()) {
                 mainAffixId = input.readUInt32();
+                bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -294460212:
+          case -538310583: {
+            if (input.isAtField(FieldNames.uniqueId)) {
+              if (!input.trySkipNullValue()) {
+                uniqueId = input.readUInt32();
+                bitField0_ |= 0x00000010;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1156912484:
+          case 721468550: {
+            if (input.isAtField(FieldNames.reforgeBlockSubAffixId)) {
+              if (!input.trySkipNullValue()) {
+                reforgeBlockSubAffixId = input.readUInt32();
                 bitField0_ |= 0x00000020;
               }
             } else {
@@ -828,11 +1096,10 @@ public final class RelicOuterClass {
             }
             break;
           }
-          case 569879972:
-          case -1919645991: {
-            if (input.isAtField(FieldNames.isProtected)) {
+          case 100893: {
+            if (input.isAtField(FieldNames.exp)) {
               if (!input.trySkipNullValue()) {
-                isProtected = input.readBool();
+                exp = input.readUInt32();
                 bitField0_ |= 0x00000040;
               }
             } else {
@@ -852,12 +1119,48 @@ public final class RelicOuterClass {
             }
             break;
           }
+          case 569879972:
+          case -1919645991: {
+            if (input.isAtField(FieldNames.isProtected)) {
+              if (!input.trySkipNullValue()) {
+                isProtected = input.readBool();
+                bitField0_ |= 0x00000100;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -117853342:
+          case -497145961: {
+            if (input.isAtField(FieldNames.reforgeSubAffixList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(reforgeSubAffixList);
+                bitField0_ |= 0x00000200;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -600836050:
           case 919890188: {
             if (input.isAtField(FieldNames.subAffixList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(subAffixList);
-                bitField0_ |= 0x00000100;
+                bitField0_ |= 0x00000400;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 203736086:
+          case -2098533789: {
+            if (input.isAtField(FieldNames.previewSubAffixList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(previewSubAffixList);
+                bitField0_ |= 0x00000800;
               }
             } else {
               input.skipUnknownField();
@@ -916,23 +1219,29 @@ public final class RelicOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName uniqueId = FieldName.forField("uniqueId", "unique_id");
+      static final FieldName equipAvatarId = FieldName.forField("equipAvatarId", "equip_avatar_id");
 
       static final FieldName level = FieldName.forField("level");
-
-      static final FieldName exp = FieldName.forField("exp");
-
-      static final FieldName equipAvatarId = FieldName.forField("equipAvatarId", "equip_avatar_id");
 
       static final FieldName tid = FieldName.forField("tid");
 
       static final FieldName mainAffixId = FieldName.forField("mainAffixId", "main_affix_id");
 
-      static final FieldName isProtected = FieldName.forField("isProtected", "is_protected");
+      static final FieldName uniqueId = FieldName.forField("uniqueId", "unique_id");
+
+      static final FieldName reforgeBlockSubAffixId = FieldName.forField("reforgeBlockSubAffixId", "reforge_block_sub_affix_id");
+
+      static final FieldName exp = FieldName.forField("exp");
 
       static final FieldName isDiscarded = FieldName.forField("isDiscarded", "is_discarded");
 
+      static final FieldName isProtected = FieldName.forField("isProtected", "is_protected");
+
+      static final FieldName reforgeSubAffixList = FieldName.forField("reforgeSubAffixList", "reforge_sub_affix_list");
+
       static final FieldName subAffixList = FieldName.forField("subAffixList", "sub_affix_list");
+
+      static final FieldName previewSubAffixList = FieldName.forField("previewSubAffixList", "preview_sub_affix_list");
     }
   }
 }

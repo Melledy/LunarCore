@@ -13,16 +13,16 @@ public class HandlerRefreshTriggerByClientCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = RefreshTriggerByClientCsReq.parseFrom(data);
-        
+
         if (session.getPlayer().getScene() != null) {
             session.getPlayer().getScene().handleSummonUnitTriggers(
                     req.getTriggerEntityId(),
                     req.getTriggerName(),
                     req.getTriggerMotion(),
                     req.getTriggerTargetIdList()
-            );
+                    );
         }
-        
+
         session.send(new PacketRefreshTriggerByClientScRsp(req));
     }
 

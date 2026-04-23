@@ -25,7 +25,7 @@ public final class DiscardRelicCsReqOuterClass {
     private boolean isDiscard;
 
     /**
-     * <code>repeated uint32 relic_id_list = 3;</code>
+     * <code>repeated uint32 relic_id_list = 7;</code>
      */
     private final RepeatedInt relicIdList = RepeatedInt.newEmptyInstance();
 
@@ -77,7 +77,7 @@ public final class DiscardRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 3;</code>
+     * <code>repeated uint32 relic_id_list = 7;</code>
      * @return whether the relicIdList field is set
      */
     public boolean hasRelicIdList() {
@@ -85,7 +85,7 @@ public final class DiscardRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 3;</code>
+     * <code>repeated uint32 relic_id_list = 7;</code>
      * @return this
      */
     public DiscardRelicCsReq clearRelicIdList() {
@@ -95,7 +95,7 @@ public final class DiscardRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 3;</code>
+     * <code>repeated uint32 relic_id_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class DiscardRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 3;</code>
+     * <code>repeated uint32 relic_id_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class DiscardRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 3;</code>
+     * <code>repeated uint32 relic_id_list = 7;</code>
      * @param value the relicIdList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class DiscardRelicCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 relic_id_list = 3;</code>
+     * <code>repeated uint32 relic_id_list = 7;</code>
      * @param values the relicIdList to add
      * @return this
      */
@@ -215,7 +215,7 @@ public final class DiscardRelicCsReqOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < relicIdList.length(); i++) {
-          output.writeRawByte((byte) 24);
+          output.writeRawByte((byte) 56);
           output.writeUInt32NoTag(relicIdList.array()[i]);
         }
       }
@@ -245,11 +245,11 @@ public final class DiscardRelicCsReqOuterClass {
             isDiscard = input.readBool();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 26) {
+            if (tag != 58) {
               break;
             }
           }
-          case 26: {
+          case 58: {
             // relicIdList [packed=true]
             input.readPackedUInt32(relicIdList, tag);
             bitField0_ |= 0x00000002;
@@ -268,7 +268,7 @@ public final class DiscardRelicCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 24: {
+          case 56: {
             // relicIdList [packed=false]
             tag = input.readRepeatedUInt32(relicIdList, tag);
             bitField0_ |= 0x00000002;

@@ -32,7 +32,27 @@ public final class AvatarTypeOuterClass {
     /**
      * <code>AVATAR_ASSIST_TYPE = 4;</code>
      */
-    AVATAR_ASSIST_TYPE("AVATAR_ASSIST_TYPE", 4);
+    AVATAR_ASSIST_TYPE("AVATAR_ASSIST_TYPE", 4),
+
+    /**
+     * <code>AVATAR_AETHER_DIVIDE_TYPE = 5;</code>
+     */
+    AVATAR_AETHER_DIVIDE_TYPE("AVATAR_AETHER_DIVIDE_TYPE", 5),
+
+    /**
+     * <code>AVATAR_UPGRADE_AVAILABLE_TYPE = 6;</code>
+     */
+    AVATAR_UPGRADE_AVAILABLE_TYPE("AVATAR_UPGRADE_AVAILABLE_TYPE", 6),
+
+    /**
+     * <code>AVATAR_GRID_FIGHT_TYPE = 7;</code>
+     */
+    AVATAR_GRID_FIGHT_TYPE("AVATAR_GRID_FIGHT_TYPE", 7),
+
+    /**
+     * <code>AVATAR_UNKNOWN_TYPE_1 = 8;</code>
+     */
+    AVATAR_UNKNOWN_TYPE_1("AVATAR_UNKNOWN_TYPE_1", 8);
 
     /**
      * <code>AVATAR_TYPE_NONE = 0;</code>
@@ -58,6 +78,26 @@ public final class AvatarTypeOuterClass {
      * <code>AVATAR_ASSIST_TYPE = 4;</code>
      */
     public static final int AVATAR_ASSIST_TYPE_VALUE = 4;
+
+    /**
+     * <code>AVATAR_AETHER_DIVIDE_TYPE = 5;</code>
+     */
+    public static final int AVATAR_AETHER_DIVIDE_TYPE_VALUE = 5;
+
+    /**
+     * <code>AVATAR_UPGRADE_AVAILABLE_TYPE = 6;</code>
+     */
+    public static final int AVATAR_UPGRADE_AVAILABLE_TYPE_VALUE = 6;
+
+    /**
+     * <code>AVATAR_GRID_FIGHT_TYPE = 7;</code>
+     */
+    public static final int AVATAR_GRID_FIGHT_TYPE_VALUE = 7;
+
+    /**
+     * <code>AVATAR_UNKNOWN_TYPE_1 = 8;</code>
+     */
+    public static final int AVATAR_UNKNOWN_TYPE_1_VALUE = 8;
 
     private final String name;
 
@@ -112,7 +152,7 @@ public final class AvatarTypeOuterClass {
     enum AvatarTypeConverter implements ProtoEnum.EnumConverter<AvatarType> {
       INSTANCE;
 
-      private static final AvatarType[] lookup = new AvatarType[5];
+      private static final AvatarType[] lookup = new AvatarType[9];
 
       static {
         lookup[0] = AVATAR_TYPE_NONE;
@@ -120,6 +160,10 @@ public final class AvatarTypeOuterClass {
         lookup[2] = AVATAR_LIMIT_TYPE;
         lookup[3] = AVATAR_FORMAL_TYPE;
         lookup[4] = AVATAR_ASSIST_TYPE;
+        lookup[5] = AVATAR_AETHER_DIVIDE_TYPE;
+        lookup[6] = AVATAR_UPGRADE_AVAILABLE_TYPE;
+        lookup[7] = AVATAR_GRID_FIGHT_TYPE;
+        lookup[8] = AVATAR_UNKNOWN_TYPE_1;
       }
 
       @Override
@@ -132,25 +176,54 @@ public final class AvatarTypeOuterClass {
 
       @Override
       public final AvatarType forName(final CharSequence value) {
-        if (value.length() == 16) {
-          if (ProtoUtil.isEqual("AVATAR_TYPE_NONE", value)) {
-            return AVATAR_TYPE_NONE;
+        switch (value.length()) {
+          case 16: {
+            if (ProtoUtil.isEqual("AVATAR_TYPE_NONE", value)) {
+              return AVATAR_TYPE_NONE;
+            }
+            break;
           }
-        }
-        if (value.length() == 17) {
-          if (ProtoUtil.isEqual("AVATAR_TRIAL_TYPE", value)) {
-            return AVATAR_TRIAL_TYPE;
+          case 17: {
+            if (ProtoUtil.isEqual("AVATAR_TRIAL_TYPE", value)) {
+              return AVATAR_TRIAL_TYPE;
+            }
+            if (ProtoUtil.isEqual("AVATAR_LIMIT_TYPE", value)) {
+              return AVATAR_LIMIT_TYPE;
+            }
+            break;
           }
-          if (ProtoUtil.isEqual("AVATAR_LIMIT_TYPE", value)) {
-            return AVATAR_LIMIT_TYPE;
+          case 18: {
+            if (ProtoUtil.isEqual("AVATAR_FORMAL_TYPE", value)) {
+              return AVATAR_FORMAL_TYPE;
+            }
+            if (ProtoUtil.isEqual("AVATAR_ASSIST_TYPE", value)) {
+              return AVATAR_ASSIST_TYPE;
+            }
+            break;
           }
-        }
-        if (value.length() == 18) {
-          if (ProtoUtil.isEqual("AVATAR_FORMAL_TYPE", value)) {
-            return AVATAR_FORMAL_TYPE;
+          case 21: {
+            if (ProtoUtil.isEqual("AVATAR_UNKNOWN_TYPE_1", value)) {
+              return AVATAR_UNKNOWN_TYPE_1;
+            }
+            break;
           }
-          if (ProtoUtil.isEqual("AVATAR_ASSIST_TYPE", value)) {
-            return AVATAR_ASSIST_TYPE;
+          case 22: {
+            if (ProtoUtil.isEqual("AVATAR_GRID_FIGHT_TYPE", value)) {
+              return AVATAR_GRID_FIGHT_TYPE;
+            }
+            break;
+          }
+          case 25: {
+            if (ProtoUtil.isEqual("AVATAR_AETHER_DIVIDE_TYPE", value)) {
+              return AVATAR_AETHER_DIVIDE_TYPE;
+            }
+            break;
+          }
+          case 29: {
+            if (ProtoUtil.isEqual("AVATAR_UPGRADE_AVAILABLE_TYPE", value)) {
+              return AVATAR_UPGRADE_AVAILABLE_TYPE;
+            }
+            break;
           }
         }
         return null;

@@ -5,8 +5,10 @@ import java.io.IOException;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.nio.charset.StandardCharsets;
-import java.time.LocalDateTime;
+import java.time.Instant;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -20,18 +22,18 @@ public class Handbook {
 
     public static void generate() {
         // Load text map
-        Map<Long, String> textMap = null;
+        Map<Long, String> textMap = new HashMap<>();
         List<Integer> list = null;
         String language = LunarCore.getConfig().getServerOptions().language;
 
         try {
-            textMap = JsonUtils.loadToMap(LunarCore.getConfig().getResourceDir() + "/TextMap/TextMap" + language + ".json", Long.class, String.class);
+            var rawMap = JsonUtils.loadToMap(LunarCore.getConfig().getResourceDir() + "/TextMap/TextMap" + language + ".json", String.class, String.class);
+            
+            for (var entry : rawMap.entrySet()) {
+                textMap.put(Long.parseUnsignedLong(entry.getKey()), entry.getValue());
+            }
         } catch (Exception e) {
             LunarCore.getLogger().error("Error loading text map: " + language, e);
-            return;
-        }
-
-        if (textMap == null) {
             return;
         }
 
@@ -41,11 +43,11 @@ public class Handbook {
         try (PrintWriter writer = new PrintWriter(new OutputStreamWriter(new FileOutputStream(file), StandardCharsets.UTF_8), true)) {
             // Format date for header
             DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");
-            LocalDateTime now = LocalDateTime.now();
-
+            var time = Instant.ofEpochMilli(System.currentTimeMillis()).atZone(ZoneId.systemDefault()).format(dtf);
+            
             // Header
             writer.println("# Lunar Core " + GameConstants.VERSION + " Handbook");
-            writer.println("# Created " + dtf.format(now));
+            writer.println("# Created " + time);
 
             // Dump commands
             writer.println(System.lineSeparator());

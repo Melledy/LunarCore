@@ -19,7 +19,7 @@ public final class ApplyFriendCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 uid = 7;</code>
+     * <code>optional uint32 uid = 15;</code>
      */
     private int uid;
 
@@ -39,7 +39,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 7;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @return whether the uid field is set
      */
     public boolean hasUid() {
@@ -47,7 +47,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 7;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @return this
      */
     public ApplyFriendCsReq clearUid() {
@@ -57,7 +57,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 7;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @return the uid
      */
     public int getUid() {
@@ -65,7 +65,7 @@ public final class ApplyFriendCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 uid = 7;</code>
+     * <code>optional uint32 uid = 15;</code>
      * @param value the uid to set
      * @return this
      */
@@ -202,7 +202,7 @@ public final class ApplyFriendCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(uid);
       }
       if ((bitField0_ & 0x00000002) != 0) {
@@ -230,7 +230,7 @@ public final class ApplyFriendCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
+          case 120: {
             // uid
             uid = input.readUInt32();
             bitField0_ |= 0x00000001;

@@ -11,6 +11,7 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 import us.hebi.quickbuf.RepeatedMessage;
+import us.hebi.quickbuf.Utf8String;
 
 public final class SceneEntityGroupInfoOuterClass {
   /**
@@ -20,17 +21,22 @@ public final class SceneEntityGroupInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 group_id = 3;</code>
+     * <code>optional uint32 group_id = 2;</code>
      */
     private int groupId;
 
     /**
-     * <code>optional uint32 state = 4;</code>
+     * <code>optional uint32 state = 15;</code>
      */
     private int state;
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 8;</code>
+     * <code>repeated .SceneEntityGroupInfo.GroupPropertyMapEntry group_property_map = 8;</code>
+     */
+    private final RepeatedMessage<GroupPropertyMapEntry> groupPropertyMap = RepeatedMessage.newEmptyInstance(GroupPropertyMapEntry.getFactory());
+
+    /**
+     * <code>repeated .SceneEntityInfo entity_list = 12;</code>
      */
     private final RepeatedMessage<SceneEntityInfoOuterClass.SceneEntityInfo> entityList = RepeatedMessage.newEmptyInstance(SceneEntityInfoOuterClass.SceneEntityInfo.getFactory());
 
@@ -45,7 +51,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 3;</code>
+     * <code>optional uint32 group_id = 2;</code>
      * @return whether the groupId field is set
      */
     public boolean hasGroupId() {
@@ -53,7 +59,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 3;</code>
+     * <code>optional uint32 group_id = 2;</code>
      * @return this
      */
     public SceneEntityGroupInfo clearGroupId() {
@@ -63,7 +69,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 3;</code>
+     * <code>optional uint32 group_id = 2;</code>
      * @return the groupId
      */
     public int getGroupId() {
@@ -71,7 +77,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 group_id = 3;</code>
+     * <code>optional uint32 group_id = 2;</code>
      * @param value the groupId to set
      * @return this
      */
@@ -82,7 +88,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 4;</code>
+     * <code>optional uint32 state = 15;</code>
      * @return whether the state field is set
      */
     public boolean hasState() {
@@ -90,7 +96,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 4;</code>
+     * <code>optional uint32 state = 15;</code>
      * @return this
      */
     public SceneEntityGroupInfo clearState() {
@@ -100,7 +106,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 4;</code>
+     * <code>optional uint32 state = 15;</code>
      * @return the state
      */
     public int getState() {
@@ -108,7 +114,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 state = 4;</code>
+     * <code>optional uint32 state = 15;</code>
      * @param value the state to set
      * @return this
      */
@@ -119,25 +125,93 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 8;</code>
-     * @return whether the entityList field is set
+     * <code>repeated .SceneEntityGroupInfo.GroupPropertyMapEntry group_property_map = 8;</code>
+     * @return whether the groupPropertyMap field is set
      */
-    public boolean hasEntityList() {
+    public boolean hasGroupPropertyMap() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 8;</code>
+     * <code>repeated .SceneEntityGroupInfo.GroupPropertyMapEntry group_property_map = 8;</code>
+     * @return this
+     */
+    public SceneEntityGroupInfo clearGroupPropertyMap() {
+      bitField0_ &= ~0x00000004;
+      groupPropertyMap.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .SceneEntityGroupInfo.GroupPropertyMapEntry group_property_map = 8;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableGroupPropertyMap()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<GroupPropertyMapEntry> getGroupPropertyMap() {
+      return groupPropertyMap;
+    }
+
+    /**
+     * <code>repeated .SceneEntityGroupInfo.GroupPropertyMapEntry group_property_map = 8;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<GroupPropertyMapEntry> getMutableGroupPropertyMap() {
+      bitField0_ |= 0x00000004;
+      return groupPropertyMap;
+    }
+
+    /**
+     * <code>repeated .SceneEntityGroupInfo.GroupPropertyMapEntry group_property_map = 8;</code>
+     * @param value the groupPropertyMap to add
+     * @return this
+     */
+    public SceneEntityGroupInfo addGroupPropertyMap(final GroupPropertyMapEntry value) {
+      bitField0_ |= 0x00000004;
+      groupPropertyMap.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .SceneEntityGroupInfo.GroupPropertyMapEntry group_property_map = 8;</code>
+     * @param values the groupPropertyMap to add
+     * @return this
+     */
+    public SceneEntityGroupInfo addAllGroupPropertyMap(final GroupPropertyMapEntry... values) {
+      bitField0_ |= 0x00000004;
+      groupPropertyMap.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .SceneEntityInfo entity_list = 12;</code>
+     * @return whether the entityList field is set
+     */
+    public boolean hasEntityList() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated .SceneEntityInfo entity_list = 12;</code>
      * @return this
      */
     public SceneEntityGroupInfo clearEntityList() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000008;
       entityList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 8;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -151,7 +225,7 @@ public final class SceneEntityGroupInfoOuterClass {
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 8;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -160,30 +234,30 @@ public final class SceneEntityGroupInfoOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<SceneEntityInfoOuterClass.SceneEntityInfo> getMutableEntityList() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       return entityList;
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 8;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 12;</code>
      * @param value the entityList to add
      * @return this
      */
     public SceneEntityGroupInfo addEntityList(
         final SceneEntityInfoOuterClass.SceneEntityInfo value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       entityList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .SceneEntityInfo entity_list = 8;</code>
+     * <code>repeated .SceneEntityInfo entity_list = 12;</code>
      * @param values the entityList to add
      * @return this
      */
     public SceneEntityGroupInfo addAllEntityList(
         final SceneEntityInfoOuterClass.SceneEntityInfo... values) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       entityList.addAll(values);
       return this;
     }
@@ -195,6 +269,7 @@ public final class SceneEntityGroupInfoOuterClass {
         bitField0_ = other.bitField0_;
         groupId = other.groupId;
         state = other.state;
+        groupPropertyMap.copyFrom(other.groupPropertyMap);
         entityList.copyFrom(other.entityList);
       }
       return this;
@@ -212,6 +287,9 @@ public final class SceneEntityGroupInfoOuterClass {
       if (other.hasState()) {
         setState(other.state);
       }
+      if (other.hasGroupPropertyMap()) {
+        getMutableGroupPropertyMap().addAll(other.groupPropertyMap);
+      }
       if (other.hasEntityList()) {
         getMutableEntityList().addAll(other.entityList);
       }
@@ -227,6 +305,7 @@ public final class SceneEntityGroupInfoOuterClass {
       bitField0_ = 0;
       groupId = 0;
       state = 0;
+      groupPropertyMap.clear();
       entityList.clear();
       return this;
     }
@@ -238,6 +317,7 @@ public final class SceneEntityGroupInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      groupPropertyMap.clearQuick();
       entityList.clearQuick();
       return this;
     }
@@ -254,22 +334,29 @@ public final class SceneEntityGroupInfoOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasGroupId() || groupId == other.groupId)
         && (!hasState() || state == other.state)
+        && (!hasGroupPropertyMap() || groupPropertyMap.equals(other.groupPropertyMap))
         && (!hasEntityList() || entityList.equals(other.entityList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(groupId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(state);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < entityList.length(); i++) {
+        for (int i = 0; i < groupPropertyMap.length(); i++) {
           output.writeRawByte((byte) 66);
+          output.writeMessageNoTag(groupPropertyMap.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        for (int i = 0; i < entityList.length(); i++) {
+          output.writeRawByte((byte) 98);
           output.writeMessageNoTag(entityList.get(i));
         }
       }
@@ -285,6 +372,9 @@ public final class SceneEntityGroupInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(state);
       }
       if ((bitField0_ & 0x00000004) != 0) {
+        size += (1 * groupPropertyMap.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(groupPropertyMap);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         size += (1 * entityList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(entityList);
       }
       return size;
@@ -297,16 +387,16 @@ public final class SceneEntityGroupInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 16: {
             // groupId
             groupId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 120) {
               break;
             }
           }
-          case 32: {
+          case 120: {
             // state
             state = input.readUInt32();
             bitField0_ |= 0x00000002;
@@ -316,9 +406,17 @@ public final class SceneEntityGroupInfoOuterClass {
             }
           }
           case 66: {
+            // groupPropertyMap
+            tag = input.readRepeatedMessage(groupPropertyMap, tag);
+            bitField0_ |= 0x00000004;
+            if (tag != 98) {
+              break;
+            }
+          }
+          case 98: {
             // entityList
             tag = input.readRepeatedMessage(entityList, tag);
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
             }
@@ -347,6 +445,9 @@ public final class SceneEntityGroupInfoOuterClass {
         output.writeUInt32(FieldNames.state, state);
       }
       if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRepeatedMessage(FieldNames.groupPropertyMap, groupPropertyMap);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRepeatedMessage(FieldNames.entityList, entityList);
       }
       output.endObject();
@@ -382,12 +483,24 @@ public final class SceneEntityGroupInfoOuterClass {
             }
             break;
           }
+          case -931201208:
+          case 33749426: {
+            if (input.isAtField(FieldNames.groupPropertyMap)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(groupPropertyMap);
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -1483251935:
           case 1281457018: {
             if (input.isAtField(FieldNames.entityList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(entityList);
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -434,6 +547,360 @@ public final class SceneEntityGroupInfoOuterClass {
       return SceneEntityGroupInfoFactory.INSTANCE;
     }
 
+    /**
+     * Protobuf type {@code GroupPropertyMapEntry}
+     */
+    public static final class GroupPropertyMapEntry extends ProtoMessage<GroupPropertyMapEntry> implements Cloneable {
+      private static final long serialVersionUID = 0L;
+
+      /**
+       * <code>optional sint32 value = 2;</code>
+       */
+      private int value_;
+
+      /**
+       * <code>optional string key = 1;</code>
+       */
+      private final Utf8String key = Utf8String.newEmptyInstance();
+
+      private GroupPropertyMapEntry() {
+      }
+
+      /**
+       * @return a new empty instance of {@code GroupPropertyMapEntry}
+       */
+      public static GroupPropertyMapEntry newInstance() {
+        return new GroupPropertyMapEntry();
+      }
+
+      /**
+       * <code>optional sint32 value = 2;</code>
+       * @return whether the value_ field is set
+       */
+      public boolean hasValue() {
+        return (bitField0_ & 0x00000001) != 0;
+      }
+
+      /**
+       * <code>optional sint32 value = 2;</code>
+       * @return this
+       */
+      public GroupPropertyMapEntry clearValue() {
+        bitField0_ &= ~0x00000001;
+        value_ = 0;
+        return this;
+      }
+
+      /**
+       * <code>optional sint32 value = 2;</code>
+       * @return the value_
+       */
+      public int getValue() {
+        return value_;
+      }
+
+      /**
+       * <code>optional sint32 value = 2;</code>
+       * @param value the value_ to set
+       * @return this
+       */
+      public GroupPropertyMapEntry setValue(final int value) {
+        bitField0_ |= 0x00000001;
+        value_ = value;
+        return this;
+      }
+
+      /**
+       * <code>optional string key = 1;</code>
+       * @return whether the key field is set
+       */
+      public boolean hasKey() {
+        return (bitField0_ & 0x00000002) != 0;
+      }
+
+      /**
+       * <code>optional string key = 1;</code>
+       * @return this
+       */
+      public GroupPropertyMapEntry clearKey() {
+        bitField0_ &= ~0x00000002;
+        key.clear();
+        return this;
+      }
+
+      /**
+       * <code>optional string key = 1;</code>
+       * @return the key
+       */
+      public String getKey() {
+        return key.getString();
+      }
+
+      /**
+       * <code>optional string key = 1;</code>
+       * @return internal {@code Utf8String} representation of key for reading
+       */
+      public Utf8String getKeyBytes() {
+        return this.key;
+      }
+
+      /**
+       * <code>optional string key = 1;</code>
+       * @return internal {@code Utf8String} representation of key for modifications
+       */
+      public Utf8String getMutableKeyBytes() {
+        bitField0_ |= 0x00000002;
+        return this.key;
+      }
+
+      /**
+       * <code>optional string key = 1;</code>
+       * @param value the key to set
+       * @return this
+       */
+      public GroupPropertyMapEntry setKey(final CharSequence value) {
+        bitField0_ |= 0x00000002;
+        key.copyFrom(value);
+        return this;
+      }
+
+      /**
+       * <code>optional string key = 1;</code>
+       * @param value the key to set
+       * @return this
+       */
+      public GroupPropertyMapEntry setKey(final Utf8String value) {
+        bitField0_ |= 0x00000002;
+        key.copyFrom(value);
+        return this;
+      }
+
+      @Override
+      public GroupPropertyMapEntry copyFrom(final GroupPropertyMapEntry other) {
+        cachedSize = other.cachedSize;
+        if ((bitField0_ | other.bitField0_) != 0) {
+          bitField0_ = other.bitField0_;
+          value_ = other.value_;
+          key.copyFrom(other.key);
+        }
+        return this;
+      }
+
+      @Override
+      public GroupPropertyMapEntry mergeFrom(final GroupPropertyMapEntry other) {
+        if (other.isEmpty()) {
+          return this;
+        }
+        cachedSize = -1;
+        if (other.hasValue()) {
+          setValue(other.value_);
+        }
+        if (other.hasKey()) {
+          getMutableKeyBytes().copyFrom(other.key);
+        }
+        return this;
+      }
+
+      @Override
+      public GroupPropertyMapEntry clear() {
+        if (isEmpty()) {
+          return this;
+        }
+        cachedSize = -1;
+        bitField0_ = 0;
+        value_ = 0;
+        key.clear();
+        return this;
+      }
+
+      @Override
+      public GroupPropertyMapEntry clearQuick() {
+        if (isEmpty()) {
+          return this;
+        }
+        cachedSize = -1;
+        bitField0_ = 0;
+        key.clear();
+        return this;
+      }
+
+      @Override
+      public boolean equals(Object o) {
+        if (o == this) {
+          return true;
+        }
+        if (!(o instanceof GroupPropertyMapEntry)) {
+          return false;
+        }
+        GroupPropertyMapEntry other = (GroupPropertyMapEntry) o;
+        return bitField0_ == other.bitField0_
+          && (!hasValue() || value_ == other.value_)
+          && (!hasKey() || key.equals(other.key));
+      }
+
+      @Override
+      public void writeTo(final ProtoSink output) throws IOException {
+        if ((bitField0_ & 0x00000001) != 0) {
+          output.writeRawByte((byte) 16);
+          output.writeSInt32NoTag(value_);
+        }
+        if ((bitField0_ & 0x00000002) != 0) {
+          output.writeRawByte((byte) 10);
+          output.writeStringNoTag(key);
+        }
+      }
+
+      @Override
+      protected int computeSerializedSize() {
+        int size = 0;
+        if ((bitField0_ & 0x00000001) != 0) {
+          size += 1 + ProtoSink.computeSInt32SizeNoTag(value_);
+        }
+        if ((bitField0_ & 0x00000002) != 0) {
+          size += 1 + ProtoSink.computeStringSizeNoTag(key);
+        }
+        return size;
+      }
+
+      @Override
+      @SuppressWarnings("fallthrough")
+      public GroupPropertyMapEntry mergeFrom(final ProtoSource input) throws IOException {
+        // Enabled Fall-Through Optimization (QuickBuffers)
+        int tag = input.readTag();
+        while (true) {
+          switch (tag) {
+            case 16: {
+              // value_
+              value_ = input.readSInt32();
+              bitField0_ |= 0x00000001;
+              tag = input.readTag();
+              if (tag != 10) {
+                break;
+              }
+            }
+            case 10: {
+              // key
+              input.readString(key);
+              bitField0_ |= 0x00000002;
+              tag = input.readTag();
+              if (tag != 0) {
+                break;
+              }
+            }
+            case 0: {
+              return this;
+            }
+            default: {
+              if (!input.skipField(tag)) {
+                return this;
+              }
+              tag = input.readTag();
+              break;
+            }
+          }
+        }
+      }
+
+      @Override
+      public void writeTo(final JsonSink output) throws IOException {
+        output.beginObject();
+        if ((bitField0_ & 0x00000001) != 0) {
+          output.writeSInt32(FieldNames.value_, value_);
+        }
+        if ((bitField0_ & 0x00000002) != 0) {
+          output.writeString(FieldNames.key, key);
+        }
+        output.endObject();
+      }
+
+      @Override
+      public GroupPropertyMapEntry mergeFrom(final JsonSource input) throws IOException {
+        if (!input.beginObject()) {
+          return this;
+        }
+        while (!input.isAtEnd()) {
+          switch (input.readFieldHash()) {
+            case 111972721: {
+              if (input.isAtField(FieldNames.value_)) {
+                if (!input.trySkipNullValue()) {
+                  value_ = input.readSInt32();
+                  bitField0_ |= 0x00000001;
+                }
+              } else {
+                input.skipUnknownField();
+              }
+              break;
+            }
+            case 106079: {
+              if (input.isAtField(FieldNames.key)) {
+                if (!input.trySkipNullValue()) {
+                  input.readString(key);
+                  bitField0_ |= 0x00000002;
+                }
+              } else {
+                input.skipUnknownField();
+              }
+              break;
+            }
+            default: {
+              input.skipUnknownField();
+              break;
+            }
+          }
+        }
+        input.endObject();
+        return this;
+      }
+
+      @Override
+      public GroupPropertyMapEntry clone() {
+        return new GroupPropertyMapEntry().copyFrom(this);
+      }
+
+      @Override
+      public boolean isEmpty() {
+        return ((bitField0_) == 0);
+      }
+
+      public static GroupPropertyMapEntry parseFrom(final byte[] data) throws
+          InvalidProtocolBufferException {
+        return ProtoMessage.mergeFrom(new GroupPropertyMapEntry(), data).checkInitialized();
+      }
+
+      public static GroupPropertyMapEntry parseFrom(final ProtoSource input) throws IOException {
+        return ProtoMessage.mergeFrom(new GroupPropertyMapEntry(), input).checkInitialized();
+      }
+
+      public static GroupPropertyMapEntry parseFrom(final JsonSource input) throws IOException {
+        return ProtoMessage.mergeFrom(new GroupPropertyMapEntry(), input).checkInitialized();
+      }
+
+      /**
+       * @return factory for creating GroupPropertyMapEntry messages
+       */
+      public static MessageFactory<GroupPropertyMapEntry> getFactory() {
+        return GroupPropertyMapEntryFactory.INSTANCE;
+      }
+
+      private enum GroupPropertyMapEntryFactory implements MessageFactory<GroupPropertyMapEntry> {
+        INSTANCE;
+
+        @Override
+        public GroupPropertyMapEntry create() {
+          return GroupPropertyMapEntry.newInstance();
+        }
+      }
+
+      /**
+       * Contains name constants used for serializing JSON
+       */
+      static class FieldNames {
+        static final FieldName value_ = FieldName.forField("value");
+
+        static final FieldName key = FieldName.forField("key");
+      }
+    }
+
     private enum SceneEntityGroupInfoFactory implements MessageFactory<SceneEntityGroupInfo> {
       INSTANCE;
 
@@ -450,6 +917,8 @@ public final class SceneEntityGroupInfoOuterClass {
       static final FieldName groupId = FieldName.forField("groupId", "group_id");
 
       static final FieldName state = FieldName.forField("state");
+
+      static final FieldName groupPropertyMap = FieldName.forField("groupPropertyMap", "group_property_map");
 
       static final FieldName entityList = FieldName.forField("entityList", "entity_list");
     }

@@ -1,7 +1,7 @@
 package emu.lunarcore.server.packet.send;
 
-import emu.lunarcore.game.player.Player;
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.GetJukeboxDataScRspOuterClass.GetJukeboxDataScRsp;
 import emu.lunarcore.proto.UnlockedMusicOuterClass.UnlockedMusic;
 import emu.lunarcore.server.packet.BasePacket;
@@ -15,13 +15,13 @@ public class PacketGetJukeboxDataScRsp extends BasePacket {
         var allmusicids = GameData.getAllMusicIds();
 
         var data = GetJukeboxDataScRsp.newInstance()
-            .setPlayingId(player.getCurrentBgm());
+                .setPlayingId(player.getCurrentBgm());
 
         for (int musicId : allmusicids) {
             UnlockedMusic musicListEntry = UnlockedMusic.newInstance()
-                .setId(musicId)
-                .setUnkbool(true)
-                .setGroupId(GameData.getMusicGroupId(musicId));
+                    .setId(musicId)
+                    .setUnkbool(true)
+                    .setGroupId(GameData.getMusicGroupId(musicId));
 
             data.addMusicList(musicListEntry);
         }

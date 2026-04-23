@@ -10,10 +10,10 @@ public class PacketSyncApplyFriendScNotify extends BasePacket {
 
     public PacketSyncApplyFriendScNotify(Player friend) {
         super(CmdId.SyncApplyFriendScNotify);
-        
+
         var data = SyncApplyFriendScNotify.newInstance()
                 .setFriendApplyInfo(FriendApplyInfo.newInstance().setSimpleInfo(friend.toSimpleInfo()));
-        
+
         this.setData(data);
     }
 }

@@ -14,7 +14,7 @@ public class HandlerGetPlayerDetailInfoCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetPlayerDetailInfoCsReq.parseFrom(data);
-        
+
         Player player = session.getServer().getPlayerByUid(req.getUid(), true);
         session.send(new PacketGetPlayerDetailInfoScRsp(player));
     }

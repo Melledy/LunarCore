@@ -13,7 +13,7 @@ public class PacketTakePromotionRewardScRsp extends BasePacket {
         super(CmdId.TakePromotionRewardScRsp);
 
         var data = TakePromotionRewardScRsp.newInstance();
-        
+
         if (rewards != null) {
             for (GameItem item : rewards) {
                 data.getMutableRewardList().addItemList(item.toProto());
@@ -21,7 +21,7 @@ public class PacketTakePromotionRewardScRsp extends BasePacket {
         } else {
             data.setRetcode(1);
         }
-        
+
         this.setData(data);
     }
 

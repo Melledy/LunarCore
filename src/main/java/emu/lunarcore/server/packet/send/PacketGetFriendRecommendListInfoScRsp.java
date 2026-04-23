@@ -12,16 +12,16 @@ public class PacketGetFriendRecommendListInfoScRsp extends BasePacket {
 
     public PacketGetFriendRecommendListInfoScRsp(Collection<Player> list) {
         super(CmdId.GetFriendRecommendListInfoScRsp);
-        
+
         var data = GetFriendRecommendListInfoScRsp.newInstance();
-        
+
         for (Player player : list) {
             var info = FriendRecommendInfo.newInstance()
                     .setSimpleInfo(player.toSimpleInfo());
-            
+
             data.addFriendRecommendList(info);
         }
-        
+
         this.setData(data);
     }
 }

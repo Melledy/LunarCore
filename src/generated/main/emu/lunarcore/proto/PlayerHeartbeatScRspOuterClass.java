@@ -11,40 +11,40 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class PlayerHeartbeatScRspOuterClass {
+public final class PlayerHeartBeatScRspOuterClass {
   /**
-   * Protobuf type {@code PlayerHeartbeatScRsp}
+   * Protobuf type {@code PlayerHeartBeatScRsp}
    */
-  public static final class PlayerHeartbeatScRsp extends ProtoMessage<PlayerHeartbeatScRsp> implements Cloneable {
+  public static final class PlayerHeartBeatScRsp extends ProtoMessage<PlayerHeartBeatScRsp> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 9;</code>
      */
     private long clientTimeMs;
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 14;</code>
      */
     private long serverTimeMs;
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      */
     private int retcode;
 
-    private PlayerHeartbeatScRsp() {
+    private PlayerHeartBeatScRsp() {
     }
 
     /**
-     * @return a new empty instance of {@code PlayerHeartbeatScRsp}
+     * @return a new empty instance of {@code PlayerHeartBeatScRsp}
      */
-    public static PlayerHeartbeatScRsp newInstance() {
-      return new PlayerHeartbeatScRsp();
+    public static PlayerHeartBeatScRsp newInstance() {
+      return new PlayerHeartBeatScRsp();
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 9;</code>
      * @return whether the clientTimeMs field is set
      */
     public boolean hasClientTimeMs() {
@@ -52,17 +52,17 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 9;</code>
      * @return this
      */
-    public PlayerHeartbeatScRsp clearClientTimeMs() {
+    public PlayerHeartBeatScRsp clearClientTimeMs() {
       bitField0_ &= ~0x00000001;
       clientTimeMs = 0L;
       return this;
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 9;</code>
      * @return the clientTimeMs
      */
     public long getClientTimeMs() {
@@ -70,18 +70,18 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 9;</code>
      * @param value the clientTimeMs to set
      * @return this
      */
-    public PlayerHeartbeatScRsp setClientTimeMs(final long value) {
+    public PlayerHeartBeatScRsp setClientTimeMs(final long value) {
       bitField0_ |= 0x00000001;
       clientTimeMs = value;
       return this;
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 14;</code>
      * @return whether the serverTimeMs field is set
      */
     public boolean hasServerTimeMs() {
@@ -89,17 +89,17 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 14;</code>
      * @return this
      */
-    public PlayerHeartbeatScRsp clearServerTimeMs() {
+    public PlayerHeartBeatScRsp clearServerTimeMs() {
       bitField0_ &= ~0x00000002;
       serverTimeMs = 0L;
       return this;
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 14;</code>
      * @return the serverTimeMs
      */
     public long getServerTimeMs() {
@@ -107,18 +107,18 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_time_ms = 12;</code>
+     * <code>optional uint64 server_time_ms = 14;</code>
      * @param value the serverTimeMs to set
      * @return this
      */
-    public PlayerHeartbeatScRsp setServerTimeMs(final long value) {
+    public PlayerHeartBeatScRsp setServerTimeMs(final long value) {
       bitField0_ |= 0x00000002;
       serverTimeMs = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -126,17 +126,17 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return this
      */
-    public PlayerHeartbeatScRsp clearRetcode() {
+    public PlayerHeartBeatScRsp clearRetcode() {
       bitField0_ &= ~0x00000004;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -144,18 +144,18 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 13;</code>
+     * <code>optional uint32 retcode = 8;</code>
      * @param value the retcode to set
      * @return this
      */
-    public PlayerHeartbeatScRsp setRetcode(final int value) {
+    public PlayerHeartBeatScRsp setRetcode(final int value) {
       bitField0_ |= 0x00000004;
       retcode = value;
       return this;
     }
 
     @Override
-    public PlayerHeartbeatScRsp copyFrom(final PlayerHeartbeatScRsp other) {
+    public PlayerHeartBeatScRsp copyFrom(final PlayerHeartBeatScRsp other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
@@ -167,7 +167,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatScRsp mergeFrom(final PlayerHeartbeatScRsp other) {
+    public PlayerHeartBeatScRsp mergeFrom(final PlayerHeartBeatScRsp other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -185,7 +185,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatScRsp clear() {
+    public PlayerHeartBeatScRsp clear() {
       if (isEmpty()) {
         return this;
       }
@@ -198,7 +198,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatScRsp clearQuick() {
+    public PlayerHeartBeatScRsp clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -212,10 +212,10 @@ public final class PlayerHeartbeatScRspOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof PlayerHeartbeatScRsp)) {
+      if (!(o instanceof PlayerHeartBeatScRsp)) {
         return false;
       }
-      PlayerHeartbeatScRsp other = (PlayerHeartbeatScRsp) o;
+      PlayerHeartBeatScRsp other = (PlayerHeartBeatScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs)
         && (!hasServerTimeMs() || serverTimeMs == other.serverTimeMs)
@@ -225,15 +225,15 @@ public final class PlayerHeartbeatScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 72);
         output.writeUInt64NoTag(clientTimeMs);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 112);
         output.writeUInt64NoTag(serverTimeMs);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(retcode);
       }
     }
@@ -255,30 +255,30 @@ public final class PlayerHeartbeatScRspOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public PlayerHeartbeatScRsp mergeFrom(final ProtoSource input) throws IOException {
+    public PlayerHeartBeatScRsp mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 72: {
             // clientTimeMs
             clientTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 112) {
               break;
             }
           }
-          case 96: {
+          case 112: {
             // serverTimeMs
             serverTimeMs = input.readUInt64();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 64) {
               break;
             }
           }
-          case 104: {
+          case 64: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000004;
@@ -317,7 +317,7 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatScRsp mergeFrom(final JsonSource input) throws IOException {
+    public PlayerHeartBeatScRsp mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -369,8 +369,8 @@ public final class PlayerHeartbeatScRspOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatScRsp clone() {
-      return new PlayerHeartbeatScRsp().copyFrom(this);
+    public PlayerHeartBeatScRsp clone() {
+      return new PlayerHeartBeatScRsp().copyFrom(this);
     }
 
     @Override
@@ -378,32 +378,32 @@ public final class PlayerHeartbeatScRspOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static PlayerHeartbeatScRsp parseFrom(final byte[] data) throws
+    public static PlayerHeartBeatScRsp parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new PlayerHeartbeatScRsp(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new PlayerHeartBeatScRsp(), data).checkInitialized();
     }
 
-    public static PlayerHeartbeatScRsp parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new PlayerHeartbeatScRsp(), input).checkInitialized();
+    public static PlayerHeartBeatScRsp parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new PlayerHeartBeatScRsp(), input).checkInitialized();
     }
 
-    public static PlayerHeartbeatScRsp parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new PlayerHeartbeatScRsp(), input).checkInitialized();
+    public static PlayerHeartBeatScRsp parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new PlayerHeartBeatScRsp(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating PlayerHeartbeatScRsp messages
+     * @return factory for creating PlayerHeartBeatScRsp messages
      */
-    public static MessageFactory<PlayerHeartbeatScRsp> getFactory() {
-      return PlayerHeartbeatScRspFactory.INSTANCE;
+    public static MessageFactory<PlayerHeartBeatScRsp> getFactory() {
+      return PlayerHeartBeatScRspFactory.INSTANCE;
     }
 
-    private enum PlayerHeartbeatScRspFactory implements MessageFactory<PlayerHeartbeatScRsp> {
+    private enum PlayerHeartBeatScRspFactory implements MessageFactory<PlayerHeartBeatScRsp> {
       INSTANCE;
 
       @Override
-      public PlayerHeartbeatScRsp create() {
-        return PlayerHeartbeatScRsp.newInstance();
+      public PlayerHeartBeatScRsp create() {
+        return PlayerHeartBeatScRsp.newInstance();
       }
     }
 

@@ -10,7 +10,7 @@ public class Handler extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
-        // Template - Do not delete!
+        // Template
     }
 
 }

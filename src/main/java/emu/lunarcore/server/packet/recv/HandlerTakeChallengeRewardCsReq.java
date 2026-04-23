@@ -16,7 +16,7 @@ public class HandlerTakeChallengeRewardCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = TakeChallengeRewardCsReq.parseFrom(data);
-        
+
         List<TakenChallengeRewardInfo> rewardInfos = session.getPlayer().getChallengeManager().takeRewards(req.getGroupId());
         session.send(new PacketTakeChallengeRewardScRsp(req.getGroupId(), rewardInfos));
     }

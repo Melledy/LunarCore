@@ -24,7 +24,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional uint32 index = 7;</code>
+     * <code>optional uint32 index = 10;</code>
      */
     private int index;
 
@@ -76,7 +76,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 7;</code>
+     * <code>optional uint32 index = 10;</code>
      * @return whether the index field is set
      */
     public boolean hasIndex() {
@@ -84,7 +84,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 7;</code>
+     * <code>optional uint32 index = 10;</code>
      * @return this
      */
     public SwitchLineupIndexScRsp clearIndex() {
@@ -94,7 +94,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 7;</code>
+     * <code>optional uint32 index = 10;</code>
      * @return the index
      */
     public int getIndex() {
@@ -102,7 +102,7 @@ public final class SwitchLineupIndexScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 index = 7;</code>
+     * <code>optional uint32 index = 10;</code>
      * @param value the index to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class SwitchLineupIndexScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(index);
       }
     }
@@ -210,11 +210,11 @@ public final class SwitchLineupIndexScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 80) {
               break;
             }
           }
-          case 56: {
+          case 80: {
             // index
             index = input.readUInt32();
             bitField0_ |= 0x00000002;

@@ -5,7 +5,7 @@ import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.proto.SimpleInfoOuterClass.SimpleInfo;
+import emu.lunarcore.proto.PlayerSimpleInfoOuterClass.PlayerSimpleInfo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,7 +21,7 @@ public class Friendship {
     private int askerUid;
     
     @Setter private transient Player owner;
-    @Setter private transient SimpleInfo simpleInfo;
+    @Setter private transient PlayerSimpleInfo simpleInfo;
     
     @Deprecated // Morphia use only
     public Friendship() { }

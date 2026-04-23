@@ -13,7 +13,7 @@ public class HandlerUpdateServerPrefsDataCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = UpdateServerPrefsDataCsReq.parseFrom(data);
-        
+
         if (req.hasServerPrefs()) {
             session.send(new PacketUpdateServerPrefsDataScRsp(req.getServerPrefs().getServerPrefsId()));
         } else {

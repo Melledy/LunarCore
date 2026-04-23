@@ -35,7 +35,8 @@ public enum StageType {
     SwordTraining (29),
     StarFightActivity (30),
     SummonActivity (31),
-    FightFest (32);
+    FightFest (32),
+    GridFightActivity (33);
     
     @Getter
     private final int val;

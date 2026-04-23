@@ -9,10 +9,10 @@ public class PacketRotateMapScRsp extends BasePacket {
 
     public PacketRotateMapScRsp(MotionInfo motion) {
         super(CmdId.RotateMapScRsp);
-        
+
         var data = RotateMapScRsp.newInstance()
-            .setMotion(motion);
-    
+                .setMotion(motion);
+
         this.setData(data);
     }
 }

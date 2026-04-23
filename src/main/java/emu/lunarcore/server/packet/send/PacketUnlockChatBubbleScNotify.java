@@ -8,10 +8,10 @@ public class PacketUnlockChatBubbleScNotify extends BasePacket {
 
     public PacketUnlockChatBubbleScNotify(int id) {
         super(CmdId.UnlockChatBubbleScNotify);
-        
+
         var data = UnlockChatBubbleScNotify.newInstance()
                 .setBubbleId(id);
-        
+
         this.setData(data);
     }
 }

@@ -2,9 +2,9 @@ package emu.lunarcore.data.excel;
 
 import java.util.List;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.common.ItemParam;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import lombok.Getter;
 

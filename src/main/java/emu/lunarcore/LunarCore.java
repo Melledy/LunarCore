@@ -1,8 +1,8 @@
 package emu.lunarcore;
 
 import java.io.*;
+import java.util.*;
 import java.text.SimpleDateFormat;
-import java.util.Date;
 
 import emu.lunarcore.plugin.PluginManager;
 import org.jline.reader.EndOfFileException;
@@ -36,7 +36,7 @@ public class LunarCore {
 
     @Getter private static DatabaseManager accountDatabase;
     @Getter private static DatabaseManager gameDatabase;
-
+    
     @Getter private static HttpServer httpServer;
     @Getter private static GameServer gameServer;
 
@@ -48,7 +48,7 @@ public class LunarCore {
     @Getter private static boolean usingDumbTerminal;
     
     private static long timeOffset = 0;
-
+    
     static {
         // Setup console reader
         try {

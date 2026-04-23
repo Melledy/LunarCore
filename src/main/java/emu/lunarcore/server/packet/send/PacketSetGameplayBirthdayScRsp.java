@@ -11,16 +11,16 @@ public class PacketSetGameplayBirthdayScRsp extends BasePacket {
 
         var data = SetGameplayBirthdayScRsp.newInstance()
                 .setRetcode(1);
-        
+
         this.setData(data);
     }
-    
+
     public PacketSetGameplayBirthdayScRsp(int birthday) {
         super(CmdId.SetGameplayBirthdayScRsp);
 
         var data = SetGameplayBirthdayScRsp.newInstance()
                 .setBirthday(birthday);
-        
+
         this.setData(data);
     }
 }

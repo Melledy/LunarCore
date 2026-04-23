@@ -12,7 +12,7 @@ public class HandlerDiscardRelicCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = DiscardRelicCsReq.parseFrom(data);
-        
+
         session.getServer().getInventoryService().discardRelics(session.getPlayer(), req.getRelicIdList(), req.getIsDiscard());
         session.send(CmdId.DiscardRelicScRsp);
     }

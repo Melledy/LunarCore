@@ -1,7 +1,7 @@
 package emu.lunarcore.data.excel;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import lombok.Getter;
 
 @Getter
@@ -10,7 +10,7 @@ public class PetExcel extends GameResource {
     private int PetID;
     private int PetItemID;
     private int SummonUnitID;
-    
+
     @Override
     public int getId() {
         return PetID;

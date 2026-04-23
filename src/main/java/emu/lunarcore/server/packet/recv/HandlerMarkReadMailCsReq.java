@@ -12,7 +12,7 @@ public class HandlerMarkReadMailCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = MarkReadMailCsReq.parseFrom(data);
-        
+
         session.getPlayer().getMailbox().readMail(req.getId());
         session.send(CmdId.MarkReadMailScRsp);
     }

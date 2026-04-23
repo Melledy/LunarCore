@@ -20,14 +20,14 @@ public final class GetSceneMapInfoScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 11;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .MazeMapData map_list = 5;</code>
+     * <code>repeated .SceneMapInfo scene_map_info_list = 7;</code>
      */
-    private final RepeatedMessage<MazeMapDataOuterClass.MazeMapData> mapList = RepeatedMessage.newEmptyInstance(MazeMapDataOuterClass.MazeMapData.getFactory());
+    private final RepeatedMessage<SceneMapInfoOuterClass.SceneMapInfo> sceneMapInfoList = RepeatedMessage.newEmptyInstance(SceneMapInfoOuterClass.SceneMapInfo.getFactory());
 
     private GetSceneMapInfoScRsp() {
     }
@@ -40,7 +40,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return this
      */
     public GetSceneMapInfoScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 11;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,39 +77,39 @@ public final class GetSceneMapInfoScRspOuterClass {
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 5;</code>
-     * @return whether the mapList field is set
+     * <code>repeated .SceneMapInfo scene_map_info_list = 7;</code>
+     * @return whether the sceneMapInfoList field is set
      */
-    public boolean hasMapList() {
+    public boolean hasSceneMapInfoList() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 5;</code>
+     * <code>repeated .SceneMapInfo scene_map_info_list = 7;</code>
      * @return this
      */
-    public GetSceneMapInfoScRsp clearMapList() {
+    public GetSceneMapInfoScRsp clearSceneMapInfoList() {
       bitField0_ &= ~0x00000002;
-      mapList.clear();
+      sceneMapInfoList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 5;</code>
+     * <code>repeated .SceneMapInfo scene_map_info_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableMapList()} if you want to modify it.
+     * Use {@link #getMutableSceneMapInfoList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedMessage<MazeMapDataOuterClass.MazeMapData> getMapList() {
-      return mapList;
+    public RepeatedMessage<SceneMapInfoOuterClass.SceneMapInfo> getSceneMapInfoList() {
+      return sceneMapInfoList;
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 5;</code>
+     * <code>repeated .SceneMapInfo scene_map_info_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -117,30 +117,32 @@ public final class GetSceneMapInfoScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedMessage<MazeMapDataOuterClass.MazeMapData> getMutableMapList() {
+    public RepeatedMessage<SceneMapInfoOuterClass.SceneMapInfo> getMutableSceneMapInfoList() {
       bitField0_ |= 0x00000002;
-      return mapList;
+      return sceneMapInfoList;
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 5;</code>
-     * @param value the mapList to add
+     * <code>repeated .SceneMapInfo scene_map_info_list = 7;</code>
+     * @param value the sceneMapInfoList to add
      * @return this
      */
-    public GetSceneMapInfoScRsp addMapList(final MazeMapDataOuterClass.MazeMapData value) {
+    public GetSceneMapInfoScRsp addSceneMapInfoList(
+        final SceneMapInfoOuterClass.SceneMapInfo value) {
       bitField0_ |= 0x00000002;
-      mapList.add(value);
+      sceneMapInfoList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .MazeMapData map_list = 5;</code>
-     * @param values the mapList to add
+     * <code>repeated .SceneMapInfo scene_map_info_list = 7;</code>
+     * @param values the sceneMapInfoList to add
      * @return this
      */
-    public GetSceneMapInfoScRsp addAllMapList(final MazeMapDataOuterClass.MazeMapData... values) {
+    public GetSceneMapInfoScRsp addAllSceneMapInfoList(
+        final SceneMapInfoOuterClass.SceneMapInfo... values) {
       bitField0_ |= 0x00000002;
-      mapList.addAll(values);
+      sceneMapInfoList.addAll(values);
       return this;
     }
 
@@ -150,7 +152,7 @@ public final class GetSceneMapInfoScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        mapList.copyFrom(other.mapList);
+        sceneMapInfoList.copyFrom(other.sceneMapInfoList);
       }
       return this;
     }
@@ -164,8 +166,8 @@ public final class GetSceneMapInfoScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasMapList()) {
-        getMutableMapList().addAll(other.mapList);
+      if (other.hasSceneMapInfoList()) {
+        getMutableSceneMapInfoList().addAll(other.sceneMapInfoList);
       }
       return this;
     }
@@ -178,7 +180,7 @@ public final class GetSceneMapInfoScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      mapList.clear();
+      sceneMapInfoList.clear();
       return this;
     }
 
@@ -189,7 +191,7 @@ public final class GetSceneMapInfoScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      mapList.clearQuick();
+      sceneMapInfoList.clearQuick();
       return this;
     }
 
@@ -204,19 +206,19 @@ public final class GetSceneMapInfoScRspOuterClass {
       GetSceneMapInfoScRsp other = (GetSceneMapInfoScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasMapList() || mapList.equals(other.mapList));
+        && (!hasSceneMapInfoList() || sceneMapInfoList.equals(other.sceneMapInfoList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        for (int i = 0; i < mapList.length(); i++) {
-          output.writeRawByte((byte) 42);
-          output.writeMessageNoTag(mapList.get(i));
+        for (int i = 0; i < sceneMapInfoList.length(); i++) {
+          output.writeRawByte((byte) 58);
+          output.writeMessageNoTag(sceneMapInfoList.get(i));
         }
       }
     }
@@ -228,7 +230,7 @@ public final class GetSceneMapInfoScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += (1 * mapList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(mapList);
+        size += (1 * sceneMapInfoList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(sceneMapInfoList);
       }
       return size;
     }
@@ -240,18 +242,18 @@ public final class GetSceneMapInfoScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 88: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 58) {
               break;
             }
           }
-          case 42: {
-            // mapList
-            tag = input.readRepeatedMessage(mapList, tag);
+          case 58: {
+            // sceneMapInfoList
+            tag = input.readRepeatedMessage(sceneMapInfoList, tag);
             bitField0_ |= 0x00000002;
             if (tag != 0) {
               break;
@@ -278,7 +280,7 @@ public final class GetSceneMapInfoScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRepeatedMessage(FieldNames.mapList, mapList);
+        output.writeRepeatedMessage(FieldNames.sceneMapInfoList, sceneMapInfoList);
       }
       output.endObject();
     }
@@ -301,11 +303,11 @@ public final class GetSceneMapInfoScRspOuterClass {
             }
             break;
           }
-          case 836484122:
-          case 178830753: {
-            if (input.isAtField(FieldNames.mapList)) {
+          case -79401028:
+          case -111975431: {
+            if (input.isAtField(FieldNames.sceneMapInfoList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(mapList);
+                input.readRepeatedMessage(sceneMapInfoList);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -368,7 +370,7 @@ public final class GetSceneMapInfoScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
-      static final FieldName mapList = FieldName.forField("mapList", "map_list");
+      static final FieldName sceneMapInfoList = FieldName.forField("sceneMapInfoList", "scene_map_info_list");
     }
   }
 }

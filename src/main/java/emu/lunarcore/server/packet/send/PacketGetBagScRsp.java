@@ -30,6 +30,13 @@ public class PacketGetBagScRsp extends BasePacket {
             data.addEquipmentList(item.toEquipmentProto());
         }
 
+        /*
+        for (int item : session.getPlayer().getUnlocks().getPets()) {
+            int petId = GameData.getPetItemId(item);
+            data.addPetList(petId);
+        }
+        */
+
         this.setData(data);
     }
 }

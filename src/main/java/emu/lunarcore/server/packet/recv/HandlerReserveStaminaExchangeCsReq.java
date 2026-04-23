@@ -13,7 +13,7 @@ public class HandlerReserveStaminaExchangeCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ReserveStaminaExchangeCsReq.parseFrom(data);
-        
+
         int exchangedAmount = session.getPlayer().exchangeReserveStamina(req.getNum());
         session.send(new PacketReserveStaminaExchangeScRsp(exchangedAmount));
     }

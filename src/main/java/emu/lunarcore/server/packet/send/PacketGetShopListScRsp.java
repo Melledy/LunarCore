@@ -11,15 +11,22 @@ public class PacketGetShopListScRsp extends BasePacket {
 
     public PacketGetShopListScRsp(int shopType) {
         super(CmdId.GetShopListScRsp);
-        
+
         var data = GetShopListScRsp.newInstance()
                 .setShopType(shopType);
-        
+
+        Shop shopRecharge = Shop.newInstance()
+                .setShopId(988)
+                .setCityLevel(1)
+                .setEndTime(Integer.MAX_VALUE);
+
+        data.addShopList(shopRecharge);
+
         for (ShopExcel shopExcel : GameData.getShopExcelMap().values()) {
             if (shopExcel.getShopType() != shopType || shopExcel.getGoods().size() == 0) {
                 continue;
             }
-            
+
             Shop shop = Shop.newInstance()
                     .setShopId(shopExcel.getId())
                     .setCityLevel(1)
@@ -28,10 +35,10 @@ public class PacketGetShopListScRsp extends BasePacket {
             for (var goodsExcel : shopExcel.getGoods().values()) {
                 shop.addGoodsList(goodsExcel.toProto());
             }
-            
+
             data.addShopList(shop);
         }
-        
+
         this.setData(data);
     }
 }

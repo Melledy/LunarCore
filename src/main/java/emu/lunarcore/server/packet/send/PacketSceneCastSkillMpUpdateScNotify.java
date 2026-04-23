@@ -8,11 +8,11 @@ public class PacketSceneCastSkillMpUpdateScNotify extends BasePacket {
 
     public PacketSceneCastSkillMpUpdateScNotify(int attackedGroupId, int mp) {
         super(CmdId.SceneCastSkillMpUpdateScNotify);
-        
+
         var data = SceneCastSkillMpUpdateScNotify.newInstance()
                 .setAttackedGroupId(attackedGroupId)
                 .setMp(mp);
-        
+
         this.setData(data);
     }
 }

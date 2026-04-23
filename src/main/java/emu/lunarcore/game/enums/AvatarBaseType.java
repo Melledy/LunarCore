@@ -11,7 +11,8 @@ public enum AvatarBaseType {
     Shaman (4),
     Warlock (5),
     Knight (6),
-    Priest (7);
+    Priest (7),
+    Memory (8);
 
     private final int val;
 

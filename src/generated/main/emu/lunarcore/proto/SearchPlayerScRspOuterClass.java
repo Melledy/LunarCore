@@ -20,14 +20,14 @@ public final class SearchPlayerScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .SimpleInfo search_result_list = 11;</code>
+     * <code>repeated .PlayerSimpleInfo search_result_list = 7;</code>
      */
-    private final RepeatedMessage<SimpleInfoOuterClass.SimpleInfo> searchResultList = RepeatedMessage.newEmptyInstance(SimpleInfoOuterClass.SimpleInfo.getFactory());
+    private final RepeatedMessage<PlayerSimpleInfoOuterClass.PlayerSimpleInfo> searchResultList = RepeatedMessage.newEmptyInstance(PlayerSimpleInfoOuterClass.PlayerSimpleInfo.getFactory());
 
     private SearchPlayerScRsp() {
     }
@@ -40,7 +40,7 @@ public final class SearchPlayerScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class SearchPlayerScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public SearchPlayerScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class SearchPlayerScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class SearchPlayerScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 9;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class SearchPlayerScRspOuterClass {
     }
 
     /**
-     * <code>repeated .SimpleInfo search_result_list = 11;</code>
+     * <code>repeated .PlayerSimpleInfo search_result_list = 7;</code>
      * @return whether the searchResultList field is set
      */
     public boolean hasSearchResultList() {
@@ -85,7 +85,7 @@ public final class SearchPlayerScRspOuterClass {
     }
 
     /**
-     * <code>repeated .SimpleInfo search_result_list = 11;</code>
+     * <code>repeated .PlayerSimpleInfo search_result_list = 7;</code>
      * @return this
      */
     public SearchPlayerScRsp clearSearchResultList() {
@@ -95,7 +95,7 @@ public final class SearchPlayerScRspOuterClass {
     }
 
     /**
-     * <code>repeated .SimpleInfo search_result_list = 11;</code>
+     * <code>repeated .PlayerSimpleInfo search_result_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -104,12 +104,12 @@ public final class SearchPlayerScRspOuterClass {
      *
      * @return internal storage object for reading
      */
-    public RepeatedMessage<SimpleInfoOuterClass.SimpleInfo> getSearchResultList() {
+    public RepeatedMessage<PlayerSimpleInfoOuterClass.PlayerSimpleInfo> getSearchResultList() {
       return searchResultList;
     }
 
     /**
-     * <code>repeated .SimpleInfo search_result_list = 11;</code>
+     * <code>repeated .PlayerSimpleInfo search_result_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -117,29 +117,31 @@ public final class SearchPlayerScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedMessage<SimpleInfoOuterClass.SimpleInfo> getMutableSearchResultList() {
+    public RepeatedMessage<PlayerSimpleInfoOuterClass.PlayerSimpleInfo> getMutableSearchResultList(
+        ) {
       bitField0_ |= 0x00000002;
       return searchResultList;
     }
 
     /**
-     * <code>repeated .SimpleInfo search_result_list = 11;</code>
+     * <code>repeated .PlayerSimpleInfo search_result_list = 7;</code>
      * @param value the searchResultList to add
      * @return this
      */
-    public SearchPlayerScRsp addSearchResultList(final SimpleInfoOuterClass.SimpleInfo value) {
+    public SearchPlayerScRsp addSearchResultList(
+        final PlayerSimpleInfoOuterClass.PlayerSimpleInfo value) {
       bitField0_ |= 0x00000002;
       searchResultList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .SimpleInfo search_result_list = 11;</code>
+     * <code>repeated .PlayerSimpleInfo search_result_list = 7;</code>
      * @param values the searchResultList to add
      * @return this
      */
     public SearchPlayerScRsp addAllSearchResultList(
-        final SimpleInfoOuterClass.SimpleInfo... values) {
+        final PlayerSimpleInfoOuterClass.PlayerSimpleInfo... values) {
       bitField0_ |= 0x00000002;
       searchResultList.addAll(values);
       return this;
@@ -211,12 +213,12 @@ public final class SearchPlayerScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < searchResultList.length(); i++) {
-          output.writeRawByte((byte) 90);
+          output.writeRawByte((byte) 58);
           output.writeMessageNoTag(searchResultList.get(i));
         }
       }
@@ -241,16 +243,16 @@ public final class SearchPlayerScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 90) {
+            if (tag != 58) {
               break;
             }
           }
-          case 90: {
+          case 58: {
             // searchResultList
             tag = input.readRepeatedMessage(searchResultList, tag);
             bitField0_ |= 0x00000002;

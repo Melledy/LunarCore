@@ -4,15 +4,15 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
-import emu.lunarcore.data.ResourceType.LoadPriority;
 import emu.lunarcore.data.common.ItemParam;
+import emu.lunarcore.data.resource.MultiKeyGameResource;
+import emu.lunarcore.data.resource.ResourceType;
+import emu.lunarcore.data.resource.ResourceType.LoadPriority;
 import lombok.Getter;
 
 @Getter
 @ResourceType(name = {"EquipmentPromotionConfig.json"}, loadPriority = LoadPriority.HIGHEST)
-public class EquipmentPromotionExcel extends GameResource {
+public class EquipmentPromotionExcel extends MultiKeyGameResource {
     private int EquipmentID;
     private int Promotion;
 
@@ -30,8 +30,13 @@ public class EquipmentPromotionExcel extends GameResource {
     private double HPAdd;
 
     @Override
-    public int getId() {
-        return (EquipmentID << 8) + Promotion;
+    public int getPrimaryKey() {
+        return EquipmentID;
+    }
+
+    @Override
+    public int getSecondaryKey() {
+        return Promotion;
     }
 
     @Override

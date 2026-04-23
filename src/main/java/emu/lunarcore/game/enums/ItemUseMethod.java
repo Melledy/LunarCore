@@ -22,7 +22,8 @@ public enum ItemUseMethod {
     AutoConversionItem (801),
     TravelBrochureUse (901),
     TravelBrochurePasterUse (902),
-    PetSummonRecall (1001);
+    PetSummonRecall (1001),
+    FightFestMemorialPaper (2501);
     
     private int val;
 

@@ -1,6 +1,5 @@
 package emu.lunarcore.command.commands;
 
-import emu.lunarcore.GameConstants;
 import emu.lunarcore.command.Command;
 import emu.lunarcore.command.CommandArgs;
 import emu.lunarcore.command.CommandHandler;
@@ -10,7 +9,9 @@ public class RefillMPCommand implements CommandHandler {
 
     @Override
     public void execute(CommandArgs args) {
-        args.getTarget().getCurrentLineup().addMp(GameConstants.MAX_MP);
+        var lineup = args.getTarget().getCurrentLineup();
+        lineup.addMp(lineup.getMaxMp());
+        
         args.sendMessage("Successfully refilled skill points for " + args.getTarget().getName());
     }
 

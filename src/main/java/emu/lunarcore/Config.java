@@ -25,6 +25,7 @@ public class Config {
     public ServerTime serverTime = new ServerTime();
     public ServerRates serverRates = new ServerRates();
     public LogOptions logOptions = new LogOptions();
+    public LoginOptions loginOptions = new LoginOptions();
 
     public String resourceDir = "./resources";
     public String dataDir = "./data";
@@ -201,6 +202,11 @@ public class Config {
         public boolean connections = true;
         public boolean packets = false;
         public boolean filterLoopingPackets = false;
+    }
+    
+    @Getter
+    public static class LoginOptions {
+        public String accountName = "player";
     }
 
     public void validate() {

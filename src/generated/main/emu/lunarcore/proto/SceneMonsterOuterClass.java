@@ -19,19 +19,24 @@ public final class SceneMonsterOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 cur_hp = 2;</code>
-     */
-    private int curHp;
-
-    /**
      * <code>optional uint32 max_hp = 7;</code>
      */
     private int maxHp;
 
     /**
+     * <code>optional uint32 cur_hp = 11;</code>
+     */
+    private int curHp;
+
+    /**
      * <code>optional uint32 monster_id = 15;</code>
      */
     private int monsterId;
+
+    /**
+     * <code>optional .SceneMonsterExtraInfo extra_info = 8;</code>
+     */
+    private final SceneMonsterExtraInfoOuterClass.SceneMonsterExtraInfo extraInfo = SceneMonsterExtraInfoOuterClass.SceneMonsterExtraInfo.newInstance();
 
     private SceneMonster() {
     }
@@ -44,48 +49,11 @@ public final class SceneMonsterOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_hp = 2;</code>
-     * @return whether the curHp field is set
-     */
-    public boolean hasCurHp() {
-      return (bitField0_ & 0x00000001) != 0;
-    }
-
-    /**
-     * <code>optional uint32 cur_hp = 2;</code>
-     * @return this
-     */
-    public SceneMonster clearCurHp() {
-      bitField0_ &= ~0x00000001;
-      curHp = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 cur_hp = 2;</code>
-     * @return the curHp
-     */
-    public int getCurHp() {
-      return curHp;
-    }
-
-    /**
-     * <code>optional uint32 cur_hp = 2;</code>
-     * @param value the curHp to set
-     * @return this
-     */
-    public SceneMonster setCurHp(final int value) {
-      bitField0_ |= 0x00000001;
-      curHp = value;
-      return this;
-    }
-
-    /**
      * <code>optional uint32 max_hp = 7;</code>
      * @return whether the maxHp field is set
      */
     public boolean hasMaxHp() {
-      return (bitField0_ & 0x00000002) != 0;
+      return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
@@ -93,7 +61,7 @@ public final class SceneMonsterOuterClass {
      * @return this
      */
     public SceneMonster clearMaxHp() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       maxHp = 0;
       return this;
     }
@@ -112,8 +80,45 @@ public final class SceneMonsterOuterClass {
      * @return this
      */
     public SceneMonster setMaxHp(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       maxHp = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 cur_hp = 11;</code>
+     * @return whether the curHp field is set
+     */
+    public boolean hasCurHp() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 cur_hp = 11;</code>
+     * @return this
+     */
+    public SceneMonster clearCurHp() {
+      bitField0_ &= ~0x00000002;
+      curHp = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 cur_hp = 11;</code>
+     * @return the curHp
+     */
+    public int getCurHp() {
+      return curHp;
+    }
+
+    /**
+     * <code>optional uint32 cur_hp = 11;</code>
+     * @param value the curHp to set
+     * @return this
+     */
+    public SceneMonster setCurHp(final int value) {
+      bitField0_ |= 0x00000002;
+      curHp = value;
       return this;
     }
 
@@ -154,14 +159,73 @@ public final class SceneMonsterOuterClass {
       return this;
     }
 
+    /**
+     * <code>optional .SceneMonsterExtraInfo extra_info = 8;</code>
+     * @return whether the extraInfo field is set
+     */
+    public boolean hasExtraInfo() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional .SceneMonsterExtraInfo extra_info = 8;</code>
+     * @return this
+     */
+    public SceneMonster clearExtraInfo() {
+      bitField0_ &= ~0x00000008;
+      extraInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneMonsterExtraInfo extra_info = 8;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableExtraInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public SceneMonsterExtraInfoOuterClass.SceneMonsterExtraInfo getExtraInfo() {
+      return extraInfo;
+    }
+
+    /**
+     * <code>optional .SceneMonsterExtraInfo extra_info = 8;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public SceneMonsterExtraInfoOuterClass.SceneMonsterExtraInfo getMutableExtraInfo() {
+      bitField0_ |= 0x00000008;
+      return extraInfo;
+    }
+
+    /**
+     * <code>optional .SceneMonsterExtraInfo extra_info = 8;</code>
+     * @param value the extraInfo to set
+     * @return this
+     */
+    public SceneMonster setExtraInfo(
+        final SceneMonsterExtraInfoOuterClass.SceneMonsterExtraInfo value) {
+      bitField0_ |= 0x00000008;
+      extraInfo.copyFrom(value);
+      return this;
+    }
+
     @Override
     public SceneMonster copyFrom(final SceneMonster other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        curHp = other.curHp;
         maxHp = other.maxHp;
+        curHp = other.curHp;
         monsterId = other.monsterId;
+        extraInfo.copyFrom(other.extraInfo);
       }
       return this;
     }
@@ -172,14 +236,17 @@ public final class SceneMonsterOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasCurHp()) {
-        setCurHp(other.curHp);
-      }
       if (other.hasMaxHp()) {
         setMaxHp(other.maxHp);
       }
+      if (other.hasCurHp()) {
+        setCurHp(other.curHp);
+      }
       if (other.hasMonsterId()) {
         setMonsterId(other.monsterId);
+      }
+      if (other.hasExtraInfo()) {
+        getMutableExtraInfo().mergeFrom(other.extraInfo);
       }
       return this;
     }
@@ -191,9 +258,10 @@ public final class SceneMonsterOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      curHp = 0;
       maxHp = 0;
+      curHp = 0;
       monsterId = 0;
+      extraInfo.clear();
       return this;
     }
 
@@ -204,6 +272,7 @@ public final class SceneMonsterOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      extraInfo.clearQuick();
       return this;
     }
 
@@ -217,24 +286,29 @@ public final class SceneMonsterOuterClass {
       }
       SceneMonster other = (SceneMonster) o;
       return bitField0_ == other.bitField0_
-        && (!hasCurHp() || curHp == other.curHp)
         && (!hasMaxHp() || maxHp == other.maxHp)
-        && (!hasMonsterId() || monsterId == other.monsterId);
+        && (!hasCurHp() || curHp == other.curHp)
+        && (!hasMonsterId() || monsterId == other.monsterId)
+        && (!hasExtraInfo() || extraInfo.equals(other.extraInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(curHp);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(maxHp);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(curHp);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(monsterId);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRawByte((byte) 66);
+        output.writeMessageNoTag(extraInfo);
       }
     }
 
@@ -242,13 +316,16 @@ public final class SceneMonsterOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(curHp);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(maxHp);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(maxHp);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(curHp);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(monsterId);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += 1 + ProtoSink.computeMessageSizeNoTag(extraInfo);
       }
       return size;
     }
@@ -260,18 +337,18 @@ public final class SceneMonsterOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
-            // curHp
-            curHp = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 56) {
-              break;
-            }
-          }
           case 56: {
             // maxHp
             maxHp = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
+            // curHp
+            curHp = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 120) {
@@ -282,6 +359,15 @@ public final class SceneMonsterOuterClass {
             // monsterId
             monsterId = input.readUInt32();
             bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 66) {
+              break;
+            }
+          }
+          case 66: {
+            // extraInfo
+            input.readMessage(extraInfo);
+            bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -305,13 +391,16 @@ public final class SceneMonsterOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.curHp, curHp);
+        output.writeUInt32(FieldNames.maxHp, maxHp);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.maxHp, maxHp);
+        output.writeUInt32(FieldNames.curHp, curHp);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.monsterId, monsterId);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeMessage(FieldNames.extraInfo, extraInfo);
       }
       output.endObject();
     }
@@ -323,11 +412,11 @@ public final class SceneMonsterOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 95026024:
-          case -1349138585: {
-            if (input.isAtField(FieldNames.curHp)) {
+          case 103671180:
+          case -1081138749: {
+            if (input.isAtField(FieldNames.maxHp)) {
               if (!input.trySkipNullValue()) {
-                curHp = input.readUInt32();
+                maxHp = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -335,11 +424,11 @@ public final class SceneMonsterOuterClass {
             }
             break;
           }
-          case 103671180:
-          case -1081138749: {
-            if (input.isAtField(FieldNames.maxHp)) {
+          case 95026024:
+          case -1349138585: {
+            if (input.isAtField(FieldNames.curHp)) {
               if (!input.trySkipNullValue()) {
-                maxHp = input.readUInt32();
+                curHp = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -353,6 +442,18 @@ public final class SceneMonsterOuterClass {
               if (!input.trySkipNullValue()) {
                 monsterId = input.readUInt32();
                 bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -253631266:
+          case 747541373: {
+            if (input.isAtField(FieldNames.extraInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(extraInfo);
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -411,11 +512,13 @@ public final class SceneMonsterOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName curHp = FieldName.forField("curHp", "cur_hp");
-
       static final FieldName maxHp = FieldName.forField("maxHp", "max_hp");
 
+      static final FieldName curHp = FieldName.forField("curHp", "cur_hp");
+
       static final FieldName monsterId = FieldName.forField("monsterId", "monster_id");
+
+      static final FieldName extraInfo = FieldName.forField("extraInfo", "extra_info");
     }
   }
 }

@@ -10,15 +10,15 @@ public class PacketSyncHandleFriendScNotify extends BasePacket {
 
     public PacketSyncHandleFriendScNotify(Player friend, boolean result) {
         super(CmdId.SyncHandleFriendScNotify);
-        
+
         var data = SyncHandleFriendScNotify.newInstance()
                 .setUid(friend.getUid())
                 .setHandleResult(result);
-        
+
         if (result) {
             data.setHandleFriendInfo(FriendListInfo.newInstance().setSimpleInfo(friend.toSimpleInfo()));
         }
-        
+
         this.setData(data);
     }
 }

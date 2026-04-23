@@ -11,19 +11,19 @@ public class PacketTakeChallengeRewardScRsp extends BasePacket {
 
     public PacketTakeChallengeRewardScRsp(int groupId, Collection<TakenChallengeRewardInfo> rewards) {
         super(CmdId.TakeChallengeRewardScRsp);
-        
+
         var data = TakeChallengeRewardScRsp.newInstance();
-        
+
         if (rewards != null) {
             data.setGroupId(groupId);
-            
+
             for (var rewardInfo : rewards) {
                 data.getMutableTakenRewardList().add(rewardInfo);
             }
         } else {
             data.setRetcode(1);
-        }  
-        
+        }
+
         this.setData(data);
     }
 }

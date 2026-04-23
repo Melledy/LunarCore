@@ -7,7 +7,7 @@ import emu.lunarcore.util.Utils;
 import lombok.Getter;
 import lombok.Setter;
 
-@Getter @Setter 
+@Getter @Setter
 @Entity(useDiscriminator = false)
 public class GameItemSubAffix implements Comparable<GameItemSubAffix> {
     private int id; // Affix id
@@ -29,7 +29,7 @@ public class GameItemSubAffix implements Comparable<GameItemSubAffix> {
         this.count = count;
         this.step = Utils.randomRange(0, count * subAffix.getStepNum());
     }
-
+    
     public void incrementCount(int stepNum) {
         this.count += 1;
         this.step += Utils.randomRange(0, stepNum); 

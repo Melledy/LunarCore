@@ -13,7 +13,7 @@ public class HandlerSetSignatureCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetSignatureCsReq.parseFrom(data);
-        
+
         session.getPlayer().setSignature(req.getSignature());
         session.send(new PacketSetSignatureScRsp(session.getPlayer()));
     }

@@ -10,6 +10,7 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
+import us.hebi.quickbuf.RepeatedInt;
 
 public final class QuestOuterClass {
   /**
@@ -19,24 +20,29 @@ public final class QuestOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 finish_time = 13;</code>
+     * <code>optional int64 finish_time = 3;</code>
      */
     private long finishTime;
 
     /**
-     * <code>optional uint32 progress = 6;</code>
+     * <code>optional uint32 progress = 2;</code>
      */
     private int progress;
 
     /**
-     * <code>optional uint32 id = 10;</code>
+     * <code>optional uint32 id = 13;</code>
      */
     private int id;
 
     /**
-     * <code>optional .QuestStatus status = 15;</code>
+     * <code>optional .QuestStatus status = 8;</code>
      */
     private int status;
+
+    /**
+     * <code>repeated uint32 params = 1;</code>
+     */
+    private final RepeatedInt params = RepeatedInt.newEmptyInstance();
 
     private Quest() {
     }
@@ -49,7 +55,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 13;</code>
+     * <code>optional int64 finish_time = 3;</code>
      * @return whether the finishTime field is set
      */
     public boolean hasFinishTime() {
@@ -57,7 +63,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 13;</code>
+     * <code>optional int64 finish_time = 3;</code>
      * @return this
      */
     public Quest clearFinishTime() {
@@ -67,7 +73,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 13;</code>
+     * <code>optional int64 finish_time = 3;</code>
      * @return the finishTime
      */
     public long getFinishTime() {
@@ -75,7 +81,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional int64 finish_time = 13;</code>
+     * <code>optional int64 finish_time = 3;</code>
      * @param value the finishTime to set
      * @return this
      */
@@ -86,7 +92,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 6;</code>
+     * <code>optional uint32 progress = 2;</code>
      * @return whether the progress field is set
      */
     public boolean hasProgress() {
@@ -94,7 +100,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 6;</code>
+     * <code>optional uint32 progress = 2;</code>
      * @return this
      */
     public Quest clearProgress() {
@@ -104,7 +110,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 6;</code>
+     * <code>optional uint32 progress = 2;</code>
      * @return the progress
      */
     public int getProgress() {
@@ -112,7 +118,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 progress = 6;</code>
+     * <code>optional uint32 progress = 2;</code>
      * @param value the progress to set
      * @return this
      */
@@ -123,7 +129,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 10;</code>
+     * <code>optional uint32 id = 13;</code>
      * @return whether the id field is set
      */
     public boolean hasId() {
@@ -131,7 +137,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 10;</code>
+     * <code>optional uint32 id = 13;</code>
      * @return this
      */
     public Quest clearId() {
@@ -141,7 +147,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 10;</code>
+     * <code>optional uint32 id = 13;</code>
      * @return the id
      */
     public int getId() {
@@ -149,7 +155,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 10;</code>
+     * <code>optional uint32 id = 13;</code>
      * @param value the id to set
      * @return this
      */
@@ -160,7 +166,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 15;</code>
+     * <code>optional .QuestStatus status = 8;</code>
      * @return whether the status field is set
      */
     public boolean hasStatus() {
@@ -168,7 +174,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 15;</code>
+     * <code>optional .QuestStatus status = 8;</code>
      * @return this
      */
     public Quest clearStatus() {
@@ -178,7 +184,7 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 15;</code>
+     * <code>optional .QuestStatus status = 8;</code>
      * @return the status
      */
     public QuestStatusOuterClass.QuestStatus getStatus() {
@@ -211,13 +217,81 @@ public final class QuestOuterClass {
     }
 
     /**
-     * <code>optional .QuestStatus status = 15;</code>
+     * <code>optional .QuestStatus status = 8;</code>
      * @param value the status to set
      * @return this
      */
     public Quest setStatus(final QuestStatusOuterClass.QuestStatus value) {
       bitField0_ |= 0x00000008;
       status = value.getNumber();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 params = 1;</code>
+     * @return whether the params field is set
+     */
+    public boolean hasParams() {
+      return (bitField0_ & 0x00000010) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 params = 1;</code>
+     * @return this
+     */
+    public Quest clearParams() {
+      bitField0_ &= ~0x00000010;
+      params.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 params = 1;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableParams()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getParams() {
+      return params;
+    }
+
+    /**
+     * <code>repeated uint32 params = 1;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableParams() {
+      bitField0_ |= 0x00000010;
+      return params;
+    }
+
+    /**
+     * <code>repeated uint32 params = 1;</code>
+     * @param value the params to add
+     * @return this
+     */
+    public Quest addParams(final int value) {
+      bitField0_ |= 0x00000010;
+      params.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 params = 1;</code>
+     * @param values the params to add
+     * @return this
+     */
+    public Quest addAllParams(final int... values) {
+      bitField0_ |= 0x00000010;
+      params.addAll(values);
       return this;
     }
 
@@ -230,6 +304,7 @@ public final class QuestOuterClass {
         progress = other.progress;
         id = other.id;
         status = other.status;
+        params.copyFrom(other.params);
       }
       return this;
     }
@@ -252,6 +327,9 @@ public final class QuestOuterClass {
       if (other.hasStatus()) {
         setStatusValue(other.status);
       }
+      if (other.hasParams()) {
+        getMutableParams().addAll(other.params);
+      }
       return this;
     }
 
@@ -266,6 +344,7 @@ public final class QuestOuterClass {
       progress = 0;
       id = 0;
       status = 0;
+      params.clear();
       return this;
     }
 
@@ -276,6 +355,7 @@ public final class QuestOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      params.clear();
       return this;
     }
 
@@ -292,26 +372,33 @@ public final class QuestOuterClass {
         && (!hasFinishTime() || finishTime == other.finishTime)
         && (!hasProgress() || progress == other.progress)
         && (!hasId() || id == other.id)
-        && (!hasStatus() || status == other.status);
+        && (!hasStatus() || status == other.status)
+        && (!hasParams() || params.equals(other.params));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 24);
         output.writeInt64NoTag(finishTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 16);
         output.writeUInt32NoTag(progress);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(id);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 64);
         output.writeEnumNoTag(status);
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        for (int i = 0; i < params.length(); i++) {
+          output.writeRawByte((byte) 8);
+          output.writeUInt32NoTag(params.array()[i]);
+        }
       }
     }
 
@@ -330,6 +417,9 @@ public final class QuestOuterClass {
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeEnumSizeNoTag(status);
       }
+      if ((bitField0_ & 0x00000010) != 0) {
+        size += (1 * params.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(params);
+      }
       return size;
     }
 
@@ -340,40 +430,49 @@ public final class QuestOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 24: {
             // finishTime
             finishTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 16) {
               break;
             }
           }
-          case 48: {
+          case 16: {
             // progress
             progress = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 104) {
               break;
             }
           }
-          case 80: {
+          case 104: {
             // id
             id = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 64) {
               break;
             }
           }
-          case 120: {
+          case 64: {
             // status
             final int value = input.readInt32();
             if (QuestStatusOuterClass.QuestStatus.forNumber(value) != null) {
               status = value;
               bitField0_ |= 0x00000008;
             }
+            tag = input.readTag();
+            if (tag != 10) {
+              break;
+            }
+          }
+          case 10: {
+            // params [packed=true]
+            input.readPackedUInt32(params, tag);
+            bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -387,6 +486,12 @@ public final class QuestOuterClass {
               return this;
             }
             tag = input.readTag();
+            break;
+          }
+          case 8: {
+            // params [packed=false]
+            tag = input.readRepeatedUInt32(params, tag);
+            bitField0_ |= 0x00000010;
             break;
           }
         }
@@ -407,6 +512,9 @@ public final class QuestOuterClass {
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeEnum(FieldNames.status, status, QuestStatusOuterClass.QuestStatus.converter());
+      }
+      if ((bitField0_ & 0x00000010) != 0) {
+        output.writeRepeatedUInt32(FieldNames.params, params);
       }
       output.endObject();
     }
@@ -462,6 +570,17 @@ public final class QuestOuterClass {
                 } else {
                   input.skipUnknownEnumValue();
                 }
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -995427962: {
+            if (input.isAtField(FieldNames.params)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(params);
+                bitField0_ |= 0x00000010;
               }
             } else {
               input.skipUnknownField();
@@ -527,6 +646,8 @@ public final class QuestOuterClass {
       static final FieldName id = FieldName.forField("id");
 
       static final FieldName status = FieldName.forField("status");
+
+      static final FieldName params = FieldName.forField("params");
     }
   }
 }

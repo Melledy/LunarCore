@@ -19,7 +19,7 @@ public final class SummonPetCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 summoned_pet_id = 10;</code>
+     * <code>optional uint32 summoned_pet_id = 11;</code>
      */
     private int summonedPetId;
 
@@ -34,7 +34,7 @@ public final class SummonPetCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 summoned_pet_id = 10;</code>
+     * <code>optional uint32 summoned_pet_id = 11;</code>
      * @return whether the summonedPetId field is set
      */
     public boolean hasSummonedPetId() {
@@ -42,7 +42,7 @@ public final class SummonPetCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 summoned_pet_id = 10;</code>
+     * <code>optional uint32 summoned_pet_id = 11;</code>
      * @return this
      */
     public SummonPetCsReq clearSummonedPetId() {
@@ -52,7 +52,7 @@ public final class SummonPetCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 summoned_pet_id = 10;</code>
+     * <code>optional uint32 summoned_pet_id = 11;</code>
      * @return the summonedPetId
      */
     public int getSummonedPetId() {
@@ -60,7 +60,7 @@ public final class SummonPetCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 summoned_pet_id = 10;</code>
+     * <code>optional uint32 summoned_pet_id = 11;</code>
      * @param value the summonedPetId to set
      * @return this
      */
@@ -129,7 +129,7 @@ public final class SummonPetCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(summonedPetId);
       }
     }
@@ -150,7 +150,7 @@ public final class SummonPetCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 88: {
             // summonedPetId
             summonedPetId = input.readUInt32();
             bitField0_ |= 0x00000001;

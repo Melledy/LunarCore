@@ -1,9 +1,9 @@
 package emu.lunarcore.server.packet.send;
 
 import emu.lunarcore.proto.EnterMapRotationRegionScRspOuterClass.EnterMapRotationRegionScRsp;
+import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.server.packet.BasePacket;
-import emu.lunarcore.server.packet.CmdId;
-import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;;
+import emu.lunarcore.server.packet.CmdId;;
 
 public class PacketEnterMapRotationRegionScRsp extends BasePacket {
 
@@ -11,7 +11,7 @@ public class PacketEnterMapRotationRegionScRsp extends BasePacket {
         super(CmdId.EnterMapRotationRegionScRsp);
 
         var data = EnterMapRotationRegionScRsp.newInstance()
-            .setMotion(motionInfo);
+                .setMotion(motionInfo);
 
         this.setData(data);
     }

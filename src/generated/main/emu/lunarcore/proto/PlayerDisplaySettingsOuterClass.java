@@ -19,29 +19,29 @@ public final class PlayerDisplaySettingsOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool GGODAIOHJIF = 2;</code>
+     * <code>optional bool unk5 = 2;</code>
      */
-    private boolean gGODAIOHJIF;
+    private boolean unk5;
 
     /**
-     * <code>optional bool HHCGDEOCOMI = 3;</code>
+     * <code>optional bool unk3 = 3;</code>
      */
-    private boolean hHCGDEOCOMI;
+    private boolean unk3;
 
     /**
-     * <code>optional bool BKPACECKIIA = 6;</code>
+     * <code>optional bool unk1 = 6;</code>
      */
-    private boolean bKPACECKIIA;
+    private boolean unk1;
 
     /**
-     * <code>optional bool KMJDMEFGCCK = 13;</code>
+     * <code>optional bool unk2 = 13;</code>
      */
-    private boolean kMJDMEFGCCK;
+    private boolean unk2;
 
     /**
-     * <code>optional bool JCNINCCCAKL = 14;</code>
+     * <code>optional bool unk4 = 14;</code>
      */
-    private boolean jCNINCCCAKL;
+    private boolean unk4;
 
     private PlayerDisplaySettings() {
     }
@@ -54,187 +54,187 @@ public final class PlayerDisplaySettingsOuterClass {
     }
 
     /**
-     * <code>optional bool GGODAIOHJIF = 2;</code>
-     * @return whether the gGODAIOHJIF field is set
+     * <code>optional bool unk5 = 2;</code>
+     * @return whether the unk5 field is set
      */
-    public boolean hasGGODAIOHJIF() {
+    public boolean hasUnk5() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional bool GGODAIOHJIF = 2;</code>
+     * <code>optional bool unk5 = 2;</code>
      * @return this
      */
-    public PlayerDisplaySettings clearGGODAIOHJIF() {
+    public PlayerDisplaySettings clearUnk5() {
       bitField0_ &= ~0x00000001;
-      gGODAIOHJIF = false;
+      unk5 = false;
       return this;
     }
 
     /**
-     * <code>optional bool GGODAIOHJIF = 2;</code>
-     * @return the gGODAIOHJIF
+     * <code>optional bool unk5 = 2;</code>
+     * @return the unk5
      */
-    public boolean getGGODAIOHJIF() {
-      return gGODAIOHJIF;
+    public boolean getUnk5() {
+      return unk5;
     }
 
     /**
-     * <code>optional bool GGODAIOHJIF = 2;</code>
-     * @param value the gGODAIOHJIF to set
+     * <code>optional bool unk5 = 2;</code>
+     * @param value the unk5 to set
      * @return this
      */
-    public PlayerDisplaySettings setGGODAIOHJIF(final boolean value) {
+    public PlayerDisplaySettings setUnk5(final boolean value) {
       bitField0_ |= 0x00000001;
-      gGODAIOHJIF = value;
+      unk5 = value;
       return this;
     }
 
     /**
-     * <code>optional bool HHCGDEOCOMI = 3;</code>
-     * @return whether the hHCGDEOCOMI field is set
+     * <code>optional bool unk3 = 3;</code>
+     * @return whether the unk3 field is set
      */
-    public boolean hasHHCGDEOCOMI() {
+    public boolean hasUnk3() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional bool HHCGDEOCOMI = 3;</code>
+     * <code>optional bool unk3 = 3;</code>
      * @return this
      */
-    public PlayerDisplaySettings clearHHCGDEOCOMI() {
+    public PlayerDisplaySettings clearUnk3() {
       bitField0_ &= ~0x00000002;
-      hHCGDEOCOMI = false;
+      unk3 = false;
       return this;
     }
 
     /**
-     * <code>optional bool HHCGDEOCOMI = 3;</code>
-     * @return the hHCGDEOCOMI
+     * <code>optional bool unk3 = 3;</code>
+     * @return the unk3
      */
-    public boolean getHHCGDEOCOMI() {
-      return hHCGDEOCOMI;
+    public boolean getUnk3() {
+      return unk3;
     }
 
     /**
-     * <code>optional bool HHCGDEOCOMI = 3;</code>
-     * @param value the hHCGDEOCOMI to set
+     * <code>optional bool unk3 = 3;</code>
+     * @param value the unk3 to set
      * @return this
      */
-    public PlayerDisplaySettings setHHCGDEOCOMI(final boolean value) {
+    public PlayerDisplaySettings setUnk3(final boolean value) {
       bitField0_ |= 0x00000002;
-      hHCGDEOCOMI = value;
+      unk3 = value;
       return this;
     }
 
     /**
-     * <code>optional bool BKPACECKIIA = 6;</code>
-     * @return whether the bKPACECKIIA field is set
+     * <code>optional bool unk1 = 6;</code>
+     * @return whether the unk1 field is set
      */
-    public boolean hasBKPACECKIIA() {
+    public boolean hasUnk1() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional bool BKPACECKIIA = 6;</code>
+     * <code>optional bool unk1 = 6;</code>
      * @return this
      */
-    public PlayerDisplaySettings clearBKPACECKIIA() {
+    public PlayerDisplaySettings clearUnk1() {
       bitField0_ &= ~0x00000004;
-      bKPACECKIIA = false;
+      unk1 = false;
       return this;
     }
 
     /**
-     * <code>optional bool BKPACECKIIA = 6;</code>
-     * @return the bKPACECKIIA
+     * <code>optional bool unk1 = 6;</code>
+     * @return the unk1
      */
-    public boolean getBKPACECKIIA() {
-      return bKPACECKIIA;
+    public boolean getUnk1() {
+      return unk1;
     }
 
     /**
-     * <code>optional bool BKPACECKIIA = 6;</code>
-     * @param value the bKPACECKIIA to set
+     * <code>optional bool unk1 = 6;</code>
+     * @param value the unk1 to set
      * @return this
      */
-    public PlayerDisplaySettings setBKPACECKIIA(final boolean value) {
+    public PlayerDisplaySettings setUnk1(final boolean value) {
       bitField0_ |= 0x00000004;
-      bKPACECKIIA = value;
+      unk1 = value;
       return this;
     }
 
     /**
-     * <code>optional bool KMJDMEFGCCK = 13;</code>
-     * @return whether the kMJDMEFGCCK field is set
+     * <code>optional bool unk2 = 13;</code>
+     * @return whether the unk2 field is set
      */
-    public boolean hasKMJDMEFGCCK() {
+    public boolean hasUnk2() {
       return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional bool KMJDMEFGCCK = 13;</code>
+     * <code>optional bool unk2 = 13;</code>
      * @return this
      */
-    public PlayerDisplaySettings clearKMJDMEFGCCK() {
+    public PlayerDisplaySettings clearUnk2() {
       bitField0_ &= ~0x00000008;
-      kMJDMEFGCCK = false;
+      unk2 = false;
       return this;
     }
 
     /**
-     * <code>optional bool KMJDMEFGCCK = 13;</code>
-     * @return the kMJDMEFGCCK
+     * <code>optional bool unk2 = 13;</code>
+     * @return the unk2
      */
-    public boolean getKMJDMEFGCCK() {
-      return kMJDMEFGCCK;
+    public boolean getUnk2() {
+      return unk2;
     }
 
     /**
-     * <code>optional bool KMJDMEFGCCK = 13;</code>
-     * @param value the kMJDMEFGCCK to set
+     * <code>optional bool unk2 = 13;</code>
+     * @param value the unk2 to set
      * @return this
      */
-    public PlayerDisplaySettings setKMJDMEFGCCK(final boolean value) {
+    public PlayerDisplaySettings setUnk2(final boolean value) {
       bitField0_ |= 0x00000008;
-      kMJDMEFGCCK = value;
+      unk2 = value;
       return this;
     }
 
     /**
-     * <code>optional bool JCNINCCCAKL = 14;</code>
-     * @return whether the jCNINCCCAKL field is set
+     * <code>optional bool unk4 = 14;</code>
+     * @return whether the unk4 field is set
      */
-    public boolean hasJCNINCCCAKL() {
+    public boolean hasUnk4() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>optional bool JCNINCCCAKL = 14;</code>
+     * <code>optional bool unk4 = 14;</code>
      * @return this
      */
-    public PlayerDisplaySettings clearJCNINCCCAKL() {
+    public PlayerDisplaySettings clearUnk4() {
       bitField0_ &= ~0x00000010;
-      jCNINCCCAKL = false;
+      unk4 = false;
       return this;
     }
 
     /**
-     * <code>optional bool JCNINCCCAKL = 14;</code>
-     * @return the jCNINCCCAKL
+     * <code>optional bool unk4 = 14;</code>
+     * @return the unk4
      */
-    public boolean getJCNINCCCAKL() {
-      return jCNINCCCAKL;
+    public boolean getUnk4() {
+      return unk4;
     }
 
     /**
-     * <code>optional bool JCNINCCCAKL = 14;</code>
-     * @param value the jCNINCCCAKL to set
+     * <code>optional bool unk4 = 14;</code>
+     * @param value the unk4 to set
      * @return this
      */
-    public PlayerDisplaySettings setJCNINCCCAKL(final boolean value) {
+    public PlayerDisplaySettings setUnk4(final boolean value) {
       bitField0_ |= 0x00000010;
-      jCNINCCCAKL = value;
+      unk4 = value;
       return this;
     }
 
@@ -243,11 +243,11 @@ public final class PlayerDisplaySettingsOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        gGODAIOHJIF = other.gGODAIOHJIF;
-        hHCGDEOCOMI = other.hHCGDEOCOMI;
-        bKPACECKIIA = other.bKPACECKIIA;
-        kMJDMEFGCCK = other.kMJDMEFGCCK;
-        jCNINCCCAKL = other.jCNINCCCAKL;
+        unk5 = other.unk5;
+        unk3 = other.unk3;
+        unk1 = other.unk1;
+        unk2 = other.unk2;
+        unk4 = other.unk4;
       }
       return this;
     }
@@ -258,20 +258,20 @@ public final class PlayerDisplaySettingsOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasGGODAIOHJIF()) {
-        setGGODAIOHJIF(other.gGODAIOHJIF);
+      if (other.hasUnk5()) {
+        setUnk5(other.unk5);
       }
-      if (other.hasHHCGDEOCOMI()) {
-        setHHCGDEOCOMI(other.hHCGDEOCOMI);
+      if (other.hasUnk3()) {
+        setUnk3(other.unk3);
       }
-      if (other.hasBKPACECKIIA()) {
-        setBKPACECKIIA(other.bKPACECKIIA);
+      if (other.hasUnk1()) {
+        setUnk1(other.unk1);
       }
-      if (other.hasKMJDMEFGCCK()) {
-        setKMJDMEFGCCK(other.kMJDMEFGCCK);
+      if (other.hasUnk2()) {
+        setUnk2(other.unk2);
       }
-      if (other.hasJCNINCCCAKL()) {
-        setJCNINCCCAKL(other.jCNINCCCAKL);
+      if (other.hasUnk4()) {
+        setUnk4(other.unk4);
       }
       return this;
     }
@@ -283,11 +283,11 @@ public final class PlayerDisplaySettingsOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      gGODAIOHJIF = false;
-      hHCGDEOCOMI = false;
-      bKPACECKIIA = false;
-      kMJDMEFGCCK = false;
-      jCNINCCCAKL = false;
+      unk5 = false;
+      unk3 = false;
+      unk1 = false;
+      unk2 = false;
+      unk4 = false;
       return this;
     }
 
@@ -311,34 +311,34 @@ public final class PlayerDisplaySettingsOuterClass {
       }
       PlayerDisplaySettings other = (PlayerDisplaySettings) o;
       return bitField0_ == other.bitField0_
-        && (!hasGGODAIOHJIF() || gGODAIOHJIF == other.gGODAIOHJIF)
-        && (!hasHHCGDEOCOMI() || hHCGDEOCOMI == other.hHCGDEOCOMI)
-        && (!hasBKPACECKIIA() || bKPACECKIIA == other.bKPACECKIIA)
-        && (!hasKMJDMEFGCCK() || kMJDMEFGCCK == other.kMJDMEFGCCK)
-        && (!hasJCNINCCCAKL() || jCNINCCCAKL == other.jCNINCCCAKL);
+        && (!hasUnk5() || unk5 == other.unk5)
+        && (!hasUnk3() || unk3 == other.unk3)
+        && (!hasUnk1() || unk1 == other.unk1)
+        && (!hasUnk2() || unk2 == other.unk2)
+        && (!hasUnk4() || unk4 == other.unk4);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRawByte((byte) 16);
-        output.writeBoolNoTag(gGODAIOHJIF);
+        output.writeBoolNoTag(unk5);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 24);
-        output.writeBoolNoTag(hHCGDEOCOMI);
+        output.writeBoolNoTag(unk3);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 48);
-        output.writeBoolNoTag(bKPACECKIIA);
+        output.writeBoolNoTag(unk1);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 104);
-        output.writeBoolNoTag(kMJDMEFGCCK);
+        output.writeBoolNoTag(unk2);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRawByte((byte) 112);
-        output.writeBoolNoTag(jCNINCCCAKL);
+        output.writeBoolNoTag(unk4);
       }
     }
 
@@ -371,8 +371,8 @@ public final class PlayerDisplaySettingsOuterClass {
       while (true) {
         switch (tag) {
           case 16: {
-            // gGODAIOHJIF
-            gGODAIOHJIF = input.readBool();
+            // unk5
+            unk5 = input.readBool();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 24) {
@@ -380,8 +380,8 @@ public final class PlayerDisplaySettingsOuterClass {
             }
           }
           case 24: {
-            // hHCGDEOCOMI
-            hHCGDEOCOMI = input.readBool();
+            // unk3
+            unk3 = input.readBool();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 48) {
@@ -389,8 +389,8 @@ public final class PlayerDisplaySettingsOuterClass {
             }
           }
           case 48: {
-            // bKPACECKIIA
-            bKPACECKIIA = input.readBool();
+            // unk1
+            unk1 = input.readBool();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 104) {
@@ -398,8 +398,8 @@ public final class PlayerDisplaySettingsOuterClass {
             }
           }
           case 104: {
-            // kMJDMEFGCCK
-            kMJDMEFGCCK = input.readBool();
+            // unk2
+            unk2 = input.readBool();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 112) {
@@ -407,8 +407,8 @@ public final class PlayerDisplaySettingsOuterClass {
             }
           }
           case 112: {
-            // jCNINCCCAKL
-            jCNINCCCAKL = input.readBool();
+            // unk4
+            unk4 = input.readBool();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
             if (tag != 0) {
@@ -433,19 +433,19 @@ public final class PlayerDisplaySettingsOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeBool(FieldNames.gGODAIOHJIF, gGODAIOHJIF);
+        output.writeBool(FieldNames.unk5, unk5);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.hHCGDEOCOMI, hHCGDEOCOMI);
+        output.writeBool(FieldNames.unk3, unk3);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeBool(FieldNames.bKPACECKIIA, bKPACECKIIA);
+        output.writeBool(FieldNames.unk1, unk1);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeBool(FieldNames.kMJDMEFGCCK, kMJDMEFGCCK);
+        output.writeBool(FieldNames.unk2, unk2);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeBool(FieldNames.jCNINCCCAKL, jCNINCCCAKL);
+        output.writeBool(FieldNames.unk4, unk4);
       }
       output.endObject();
     }
@@ -457,10 +457,10 @@ public final class PlayerDisplaySettingsOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1413221105: {
-            if (input.isAtField(FieldNames.gGODAIOHJIF)) {
+          case 3594627: {
+            if (input.isAtField(FieldNames.unk5)) {
               if (!input.trySkipNullValue()) {
-                gGODAIOHJIF = input.readBool();
+                unk5 = input.readBool();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -468,10 +468,10 @@ public final class PlayerDisplaySettingsOuterClass {
             }
             break;
           }
-          case -1179279854: {
-            if (input.isAtField(FieldNames.hHCGDEOCOMI)) {
+          case 3594625: {
+            if (input.isAtField(FieldNames.unk3)) {
               if (!input.trySkipNullValue()) {
-                hHCGDEOCOMI = input.readBool();
+                unk3 = input.readBool();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -479,10 +479,10 @@ public final class PlayerDisplaySettingsOuterClass {
             }
             break;
           }
-          case -69431971: {
-            if (input.isAtField(FieldNames.bKPACECKIIA)) {
+          case 3594623: {
+            if (input.isAtField(FieldNames.unk1)) {
               if (!input.trySkipNullValue()) {
-                bKPACECKIIA = input.readBool();
+                unk1 = input.readBool();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -490,10 +490,10 @@ public final class PlayerDisplaySettingsOuterClass {
             }
             break;
           }
-          case -274115754: {
-            if (input.isAtField(FieldNames.kMJDMEFGCCK)) {
+          case 3594624: {
+            if (input.isAtField(FieldNames.unk2)) {
               if (!input.trySkipNullValue()) {
-                kMJDMEFGCCK = input.readBool();
+                unk2 = input.readBool();
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -501,10 +501,10 @@ public final class PlayerDisplaySettingsOuterClass {
             }
             break;
           }
-          case 1504591161: {
-            if (input.isAtField(FieldNames.jCNINCCCAKL)) {
+          case 3594626: {
+            if (input.isAtField(FieldNames.unk4)) {
               if (!input.trySkipNullValue()) {
-                jCNINCCCAKL = input.readBool();
+                unk4 = input.readBool();
                 bitField0_ |= 0x00000010;
               }
             } else {
@@ -565,15 +565,15 @@ public final class PlayerDisplaySettingsOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName gGODAIOHJIF = FieldName.forField("GGODAIOHJIF");
+      static final FieldName unk5 = FieldName.forField("unk5");
 
-      static final FieldName hHCGDEOCOMI = FieldName.forField("HHCGDEOCOMI");
+      static final FieldName unk3 = FieldName.forField("unk3");
 
-      static final FieldName bKPACECKIIA = FieldName.forField("BKPACECKIIA");
+      static final FieldName unk1 = FieldName.forField("unk1");
 
-      static final FieldName kMJDMEFGCCK = FieldName.forField("KMJDMEFGCCK");
+      static final FieldName unk2 = FieldName.forField("unk2");
 
-      static final FieldName jCNINCCCAKL = FieldName.forField("JCNINCCCAKL");
+      static final FieldName unk4 = FieldName.forField("unk4");
     }
   }
 }

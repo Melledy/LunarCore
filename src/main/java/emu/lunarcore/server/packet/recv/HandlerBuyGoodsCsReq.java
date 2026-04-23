@@ -13,7 +13,7 @@ public class HandlerBuyGoodsCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = BuyGoodsCsReq.parseFrom(data);
-        
+
         var items = session.getServer().getShopService().buyGoods(session.getPlayer(), req.getShopId(), req.getGoodsId(), req.getGoodsNum());
         session.send(new PacketBuyGoodsScRsp(req, items));
     }

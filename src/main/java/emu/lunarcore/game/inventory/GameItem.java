@@ -53,7 +53,8 @@ public class GameItem implements Syncable {
     
     @Setter private int mainAffix;
     private List<GameItemSubAffix> subAffixes;
-
+    private transient List<GameItemSubAffix> reforgedSubAffixes;
+    
     @Indexed private ObjectId equipAvatarId; // Object id of the avatar this item is equipped to
     private transient BaseAvatar equipAvatar;
     
@@ -78,44 +79,63 @@ public class GameItem implements Syncable {
     }
     
     public GameItem(ItemExcel excel, int count) {
-        this(excel, count, 0);
+        this(excel, count, 0, null);
+    }
+    
+    public GameItem(ItemExcel excel, int count, int mainAffix) {
+        this(excel, count, mainAffix, null);
     }
 
-    public GameItem(ItemExcel excel, int count, int overrideMainAffix) {
+    public GameItem(ItemExcel excel, int count, int mainAffix, IntSet subAffixes) {
         this.itemId = excel.getId();
         this.excel = excel;
 
         switch (excel.getItemMainType()) {
-        case Virtual:
-            this.count = count;
-            break;
-        case Equipment:
-            this.count = 1;
-            this.level = 1;
-            this.rank = 1;
-            break;
-        case Relic:
-            this.count = 1;
-            // Init affixes
-            if (getExcel().getRelicExcel() != null) {
-                // Main affix
-                if (overrideMainAffix > 0) {
-                    this.mainAffix = overrideMainAffix;
-                } else {
-                    var affix = GameDepot.getRandomRelicMainAffix(getExcel().getRelicExcel().getMainAffixGroup());
-                    if (affix != null) {
-                        this.mainAffix = affix.getAffixID();
+            case Virtual:
+                this.count = count;
+                break;
+            case Equipment:
+                this.count = 1;
+                this.level = 1;
+                this.rank = 1;
+                break;
+            case Relic:
+                this.count = 1;
+                // Init affixes
+                if (getExcel().getRelicExcel() != null) {
+                    // Main affix
+                    if (mainAffix > 0) {
+                        // Set custom main affix
+                        this.mainAffix = mainAffix;
+                    } else {
+                        // Randomly generate main affix
+                        var affix = GameDepot.getRandomRelicMainAffix(getExcel().getRelicExcel().getMainAffixGroup());
+                        if (affix != null) {
+                            this.mainAffix = affix.getAffixID();
+                        }
+                    } 
+                    // Sub affixes
+                    if (subAffixes != null) {
+                        // Set custom sub affixes
+                        for (int subAffixId : subAffixes) {
+                            // Get sub affix excel
+                            var subAffix = GameData.getRelicSubAffixExcelMap().get(excel.getRelicExcel().getSubAffixGroup(), subAffixId);
+                            if (subAffix == null) continue;
+                            
+                            // Set count
+                            this.addSubAffix(new GameItemSubAffix(subAffix, 1));
+                        }
                     }
+                    // Get base sub affixes
+                    int baseSubAffixes = Math.min(Math.max(getExcel().getRarity().getVal() - 2, 0), 3);
+                    int subAffixSize = Utils.randomRange(baseSubAffixes, baseSubAffixes + 1) - this.getSubAffixListSize();
+                    this.addRandomSubAffixes(subAffixSize);
+                    // Sort sub affixes
+                    this.sortSubAffixes();
                 }
-                // Sub affixes
-                int baseSubAffixes = Math.min(Math.max(getExcel().getRarity().getVal() - 2, 0), 3);
-                this.addSubAffixes(Utils.randomRange(baseSubAffixes, baseSubAffixes + 1));
-                // Sort sub affixes
-                this.sortSubAffixes();
-            }
-            break;
-        default:
-            this.count = Math.min(count, excel.getPileLimit());
+                break;
+            default:
+                this.count = Math.min(count, excel.getPileLimit());
         }
     }
 
@@ -178,33 +198,41 @@ public class GameItem implements Syncable {
             this.subAffixes = new ArrayList<>();
         }
     }
+    
+    public void addSubAffix(GameItemSubAffix subAffix) {
+        if (this.subAffixes == null) {
+            this.subAffixes = new ArrayList<>();
+        }
+        
+        this.subAffixes.add(subAffix);
+    }
 
-    public void addSubAffixes(int quantity) {
+    public void addRandomSubAffixes(int quantity) {
         for (int i = 0; i < quantity; i++) {
-            this.addSubAffix();
+            this.addRandomSubAffix();
         }
     }
 
-    public void addSubAffix() {
+    public void addRandomSubAffix() {
         if (this.subAffixes == null) {
             this.subAffixes = new ArrayList<>();
         }
 
         if (this.subAffixes.size() < 4) {
-            this.addNewSubAffix();
+            this.addNewRandomSubAffix();
         } else {
             this.upgradeRandomSubAffix();
         }
     }
 
-    private void addNewSubAffix() {
+    private void addNewRandomSubAffix() {
         // Get list of affixes to add
         List<RelicSubAffixExcel> affixList = GameDepot.getRelicSubAffixList(getExcel().getRelicExcel().getSubAffixGroup());
         if (affixList == null) return;
 
         // Blacklist main affix and any sub affixes
         AvatarPropertyType mainAffixProperty = AvatarPropertyType.Unknown;
-        RelicMainAffixExcel mainAffix = GameData.getRelicMainAffixExcel(getExcel().getRelicExcel().getMainAffixGroup(), this.mainAffix);
+        RelicMainAffixExcel mainAffix = GameData.getRelicMainAffixExcelMap().get(getExcel().getRelicExcel().getMainAffixGroup(), this.mainAffix);
         if (mainAffix != null) {
             mainAffixProperty = mainAffix.getProperty();
         }
@@ -229,13 +257,25 @@ public class GameItem implements Syncable {
 
         // Add random stat
         RelicSubAffixExcel subAffix = randomList.next();
-        this.subAffixes.add(new GameItemSubAffix(subAffix));
+        this.addSubAffix(new GameItemSubAffix(subAffix));
     }
 
-    private void upgradeRandomSubAffix() {
-        GameItemSubAffix subAffix = Utils.randomElement(this.subAffixes);
-        var subAffixExcel = GameData.getRelicSubAffixExcel(this.getExcel().getRelicExcel().getSubAffixGroup(), subAffix.getId());
+    public void upgradeRandomSubAffix() {
+        this.upgradeRandomSubAffix(this.subAffixes);
+    }
+    
+    private void upgradeRandomSubAffix(List<GameItemSubAffix> subAffixes) {
+        GameItemSubAffix subAffix = Utils.randomElement(subAffixes);
+        var subAffixExcel = GameData.getRelicSubAffixExcelMap().get(this.getExcel().getRelicExcel().getSubAffixGroup(), subAffix.getId());
         subAffix.incrementCount(subAffixExcel.getStepNum());
+    }
+    
+    /**
+     * Returns the amount of sub affixes this item has
+     */
+    public int getSubAffixListSize() {
+        if (this.subAffixes == null) return 0;
+        return this.subAffixes.size();
     }
     
     /**
@@ -262,6 +302,41 @@ public class GameItem implements Syncable {
         }
         
         Collections.sort(this.subAffixes);
+    }
+
+    public void reforgeSubAffixes() {
+        this.reforgedSubAffixes = new ArrayList<>();
+        
+        for (var subAffix : this.getSubAffixes()) {
+            @SuppressWarnings("deprecation")
+            var newAffix = new GameItemSubAffix();
+            
+            newAffix.setId(subAffix.getId());
+            newAffix.setCount(1);
+            newAffix.setStep(Utils.randomRange(0, 2));
+            
+            this.getReforgedSubAffixes().add(newAffix);
+        }
+        
+        int rerollCount = this.getCurrentSubAffixCount() - this.getSubAffixListSize();
+        for (int i = 0; i < rerollCount; i++) {
+            this.upgradeRandomSubAffix(this.getReforgedSubAffixes());
+        }
+    }
+
+    public void confirmReforge(boolean keep) {
+        // Sanity
+        if (this.reforgedSubAffixes == null) {
+            return;
+        }
+        
+        // Replace old affixes if the player confirmed
+        if (!keep) {
+            this.subAffixes = this.reforgedSubAffixes;
+        }
+        
+        // Clear reforged affixes
+        this.reforgedSubAffixes = null;
     }
 
     // Database
@@ -330,7 +405,13 @@ public class GameItem implements Syncable {
                 proto.addSubAffixList(subAffix.toProto());
             }
         }
-
+        
+        if (this.reforgedSubAffixes != null) {
+            for (var subAffix : this.reforgedSubAffixes) {
+                proto.addReforgeSubAffixList(subAffix.toProto());
+            }
+        }
+        
         return proto;
     }
 

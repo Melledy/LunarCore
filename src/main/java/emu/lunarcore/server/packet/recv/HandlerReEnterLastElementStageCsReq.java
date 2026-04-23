@@ -12,7 +12,7 @@ public class HandlerReEnterLastElementStageCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ReEnterLastElementStageCsReq.parseFrom(data);
-        
+
         session.getServer().getBattleService().reEnterBattle(session.getPlayer(), req.getStageId());
     }
 

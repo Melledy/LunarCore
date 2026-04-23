@@ -7,7 +7,6 @@ import emu.lunarcore.game.enums.MonsterRank;
 import emu.lunarcore.game.inventory.ItemParamMap;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.game.scene.entity.GameEntity;
-import emu.lunarcore.util.Utils;
 
 public class MazeSkillSetAttackTargetMonsterDie extends MazeSkillAction {
     
@@ -21,12 +20,6 @@ public class MazeSkillSetAttackTargetMonsterDie extends MazeSkillAction {
                 var drops = new ItemParamMap();
                 monster.calculateDrops(drops);
                 caster.getOwner().getInventory().addItems(drops.toItemList(), true);
-                
-                // Rogue TODO optimize
-                if (caster.getOwner().getRogueInstance() != null) {
-                    caster.getOwner().getRogueInstance().createBuffSelect(1);
-                    caster.getOwner().getRogueInstance().addCoin(Utils.randomRange(20, 40));
-                }
             }
         }
     }

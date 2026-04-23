@@ -11,11 +11,11 @@ public class PacketUpdateEnergyScNotify extends BasePacket {
         super(CmdId.UpdateEnergyScNotify);
 
         var temp = RotatorEnergyInfo.newInstance()
-            .setMaxNum(100)
-            .setCurNum(100);
+                .setMaxNum(100)
+                .setCurNum(100);
 
         var data = UpdateEnergyScNotify.newInstance()
-            .setEnergyInfo(temp);
+                .setEnergyInfo(temp);
 
         this.setData(data);
     }

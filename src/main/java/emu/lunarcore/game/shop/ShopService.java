@@ -30,7 +30,7 @@ public class ShopService extends BaseGameService {
         if (itemExcel == null) return null;
         
         // Verify item params
-        if (!player.getInventory().verifyItems(goods.getCostList(), count)) {
+        if (!player.getInventory().hasItems(goods.getCostList(), count)) {
             return null;
         }
         

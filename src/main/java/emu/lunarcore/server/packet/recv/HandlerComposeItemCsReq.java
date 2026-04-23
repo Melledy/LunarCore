@@ -19,19 +19,19 @@ public class HandlerComposeItemCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ComposeItemCsReq.parseFrom(data);
-        
+
         List<ItemParam> costItems = new ArrayList<>(req.getComposeItemList().getItemList().length());
         for (ItemCost cost : req.getComposeItemList().getItemList()) {
             costItems.add(new ItemParam(cost));
         }
-        
+
         List<GameItem> returnList = session.getServer().getInventoryService().composeItem(
                 session.getPlayer(),
                 req.getComposeId(),
                 req.getCount(),
                 costItems
-        );
-        
+                );
+
         session.send(new PacketComposeItemScRsp(req.getComposeId(), req.getCount(), returnList));
     }
 

@@ -14,6 +14,21 @@ public class GachaBanner {
     private int[] rateUpItems4;
     private int eventChance = 50;
 
+    public GachaBanner createBanner(int id, GachaType gachaType, int beginTime, int endTime, int[] rateUpItems5, int[] rateUpItems4) {
+        return createBanner(id, gachaType, beginTime, endTime, rateUpItems5, rateUpItems4, 50);
+    }
+
+    public GachaBanner createBanner(int id, GachaType gachaType, int beginTime, int endTime, int[] rateUpItems5, int[] rateUpItems4, int eventChance) {
+        this.id = id;
+        this.gachaType = gachaType;
+        this.beginTime = beginTime;
+        this.endTime = endTime;
+        this.rateUpItems5 = rateUpItems5;
+        this.rateUpItems4 = rateUpItems4;
+        this.eventChance = eventChance;
+        return this;
+    }
+
     public GachaInfo toProto(GachaService service, Player player) {
         var info = GachaInfo.newInstance()
                 .setGachaId(this.getId())

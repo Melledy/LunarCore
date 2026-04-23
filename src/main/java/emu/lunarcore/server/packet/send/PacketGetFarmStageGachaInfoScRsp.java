@@ -10,17 +10,17 @@ public class PacketGetFarmStageGachaInfoScRsp extends BasePacket {
 
     public PacketGetFarmStageGachaInfoScRsp(RepeatedInt idList) {
         super(CmdId.GetFarmStageGachaInfoScRsp);
-        
+
         var data = GetFarmStageGachaInfoScRsp.newInstance();
-        
+
         for (var id : idList) {
             var info = FarmStageGachaInfo.newInstance()
                     .setGachaId(id)
                     .setEndTime(Integer.MAX_VALUE);
-            
+
             data.addFarmStageGachaInfoList(info);
         }
-        
+
         this.setData(data);
     }
 }

@@ -10,7 +10,7 @@ public class HandlerGetAssistHistoryCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
-        session.send(CmdId.GetAssistHistoryScRsp);    
+        session.send(CmdId.GetAssistHistoryScRsp);
     }
-    
+
 }

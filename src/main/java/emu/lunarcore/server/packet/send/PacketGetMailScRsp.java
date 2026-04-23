@@ -10,15 +10,15 @@ public class PacketGetMailScRsp extends BasePacket {
 
     public PacketGetMailScRsp(Player player) {
         super(CmdId.GetMailScRsp);
-        
+
         var data = GetMailScRsp.newInstance()
                 .setIsEnd(true)
                 .setTotalNum(player.getMailbox().size());
-        
+
         for (Mail mail : player.getMailbox()) {
             data.addMailList(mail.toProto());
         }
-        
+
         this.setData(data);
     }
 }

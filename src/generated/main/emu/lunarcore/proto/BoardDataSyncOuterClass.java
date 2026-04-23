@@ -10,6 +10,7 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
+import us.hebi.quickbuf.RepeatedInt;
 import us.hebi.quickbuf.RepeatedMessage;
 import us.hebi.quickbuf.Utf8String;
 
@@ -21,12 +22,22 @@ public final class BoardDataSyncOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional string signature = 13;</code>
+     * <code>optional .HeadIconFrameInfo head_icon_frame_info = 7;</code>
+     */
+    private final HeadIconFrameInfoOuterClass.HeadIconFrameInfo headIconFrameInfo = HeadIconFrameInfoOuterClass.HeadIconFrameInfo.newInstance();
+
+    /**
+     * <code>optional string signature = 1;</code>
      */
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
+     * <code>repeated uint32 unlocked_head_icon_frame_id_list = 15;</code>
+     */
+    private final RepeatedInt unlockedHeadIconFrameIdList = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 3;</code>
      */
     private final RepeatedMessage<HeadIconOuterClass.HeadIcon> unlockedHeadIconList = RepeatedMessage.newEmptyInstance(HeadIconOuterClass.HeadIcon.getFactory());
 
@@ -41,25 +52,83 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 13;</code>
-     * @return whether the signature field is set
+     * <code>optional .HeadIconFrameInfo head_icon_frame_info = 7;</code>
+     * @return whether the headIconFrameInfo field is set
      */
-    public boolean hasSignature() {
+    public boolean hasHeadIconFrameInfo() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional string signature = 13;</code>
+     * <code>optional .HeadIconFrameInfo head_icon_frame_info = 7;</code>
+     * @return this
+     */
+    public BoardDataSync clearHeadIconFrameInfo() {
+      bitField0_ &= ~0x00000001;
+      headIconFrameInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .HeadIconFrameInfo head_icon_frame_info = 7;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableHeadIconFrameInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public HeadIconFrameInfoOuterClass.HeadIconFrameInfo getHeadIconFrameInfo() {
+      return headIconFrameInfo;
+    }
+
+    /**
+     * <code>optional .HeadIconFrameInfo head_icon_frame_info = 7;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public HeadIconFrameInfoOuterClass.HeadIconFrameInfo getMutableHeadIconFrameInfo() {
+      bitField0_ |= 0x00000001;
+      return headIconFrameInfo;
+    }
+
+    /**
+     * <code>optional .HeadIconFrameInfo head_icon_frame_info = 7;</code>
+     * @param value the headIconFrameInfo to set
+     * @return this
+     */
+    public BoardDataSync setHeadIconFrameInfo(
+        final HeadIconFrameInfoOuterClass.HeadIconFrameInfo value) {
+      bitField0_ |= 0x00000001;
+      headIconFrameInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional string signature = 1;</code>
+     * @return whether the signature field is set
+     */
+    public boolean hasSignature() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional string signature = 1;</code>
      * @return this
      */
     public BoardDataSync clearSignature() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       signature.clear();
       return this;
     }
 
     /**
-     * <code>optional string signature = 13;</code>
+     * <code>optional string signature = 1;</code>
      * @return the signature
      */
     public String getSignature() {
@@ -67,7 +136,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 13;</code>
+     * <code>optional string signature = 1;</code>
      * @return internal {@code Utf8String} representation of signature for reading
      */
     public Utf8String getSignatureBytes() {
@@ -75,56 +144,124 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>optional string signature = 13;</code>
+     * <code>optional string signature = 1;</code>
      * @return internal {@code Utf8String} representation of signature for modifications
      */
     public Utf8String getMutableSignatureBytes() {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return this.signature;
     }
 
     /**
-     * <code>optional string signature = 13;</code>
+     * <code>optional string signature = 1;</code>
      * @param value the signature to set
      * @return this
      */
     public BoardDataSync setSignature(final CharSequence value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       signature.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string signature = 13;</code>
+     * <code>optional string signature = 1;</code>
      * @param value the signature to set
      * @return this
      */
     public BoardDataSync setSignature(final Utf8String value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       signature.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
-     * @return whether the unlockedHeadIconList field is set
+     * <code>repeated uint32 unlocked_head_icon_frame_id_list = 15;</code>
+     * @return whether the unlockedHeadIconFrameIdList field is set
      */
-    public boolean hasUnlockedHeadIconList() {
-      return (bitField0_ & 0x00000002) != 0;
+    public boolean hasUnlockedHeadIconFrameIdList() {
+      return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
+     * <code>repeated uint32 unlocked_head_icon_frame_id_list = 15;</code>
+     * @return this
+     */
+    public BoardDataSync clearUnlockedHeadIconFrameIdList() {
+      bitField0_ &= ~0x00000004;
+      unlockedHeadIconFrameIdList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 unlocked_head_icon_frame_id_list = 15;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableUnlockedHeadIconFrameIdList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getUnlockedHeadIconFrameIdList() {
+      return unlockedHeadIconFrameIdList;
+    }
+
+    /**
+     * <code>repeated uint32 unlocked_head_icon_frame_id_list = 15;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableUnlockedHeadIconFrameIdList() {
+      bitField0_ |= 0x00000004;
+      return unlockedHeadIconFrameIdList;
+    }
+
+    /**
+     * <code>repeated uint32 unlocked_head_icon_frame_id_list = 15;</code>
+     * @param value the unlockedHeadIconFrameIdList to add
+     * @return this
+     */
+    public BoardDataSync addUnlockedHeadIconFrameIdList(final int value) {
+      bitField0_ |= 0x00000004;
+      unlockedHeadIconFrameIdList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 unlocked_head_icon_frame_id_list = 15;</code>
+     * @param values the unlockedHeadIconFrameIdList to add
+     * @return this
+     */
+    public BoardDataSync addAllUnlockedHeadIconFrameIdList(final int... values) {
+      bitField0_ |= 0x00000004;
+      unlockedHeadIconFrameIdList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 3;</code>
+     * @return whether the unlockedHeadIconList field is set
+     */
+    public boolean hasUnlockedHeadIconList() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 3;</code>
      * @return this
      */
     public BoardDataSync clearUnlockedHeadIconList() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000008;
       unlockedHeadIconList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 3;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -138,7 +275,7 @@ public final class BoardDataSyncOuterClass {
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 3;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -147,28 +284,28 @@ public final class BoardDataSyncOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<HeadIconOuterClass.HeadIcon> getMutableUnlockedHeadIconList() {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000008;
       return unlockedHeadIconList;
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 3;</code>
      * @param value the unlockedHeadIconList to add
      * @return this
      */
     public BoardDataSync addUnlockedHeadIconList(final HeadIconOuterClass.HeadIcon value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000008;
       unlockedHeadIconList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .HeadIcon unlocked_head_icon_list = 14;</code>
+     * <code>repeated .HeadIcon unlocked_head_icon_list = 3;</code>
      * @param values the unlockedHeadIconList to add
      * @return this
      */
     public BoardDataSync addAllUnlockedHeadIconList(final HeadIconOuterClass.HeadIcon... values) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000008;
       unlockedHeadIconList.addAll(values);
       return this;
     }
@@ -178,7 +315,9 @@ public final class BoardDataSyncOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        headIconFrameInfo.copyFrom(other.headIconFrameInfo);
         signature.copyFrom(other.signature);
+        unlockedHeadIconFrameIdList.copyFrom(other.unlockedHeadIconFrameIdList);
         unlockedHeadIconList.copyFrom(other.unlockedHeadIconList);
       }
       return this;
@@ -190,8 +329,14 @@ public final class BoardDataSyncOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasHeadIconFrameInfo()) {
+        getMutableHeadIconFrameInfo().mergeFrom(other.headIconFrameInfo);
+      }
       if (other.hasSignature()) {
         getMutableSignatureBytes().copyFrom(other.signature);
+      }
+      if (other.hasUnlockedHeadIconFrameIdList()) {
+        getMutableUnlockedHeadIconFrameIdList().addAll(other.unlockedHeadIconFrameIdList);
       }
       if (other.hasUnlockedHeadIconList()) {
         getMutableUnlockedHeadIconList().addAll(other.unlockedHeadIconList);
@@ -206,7 +351,9 @@ public final class BoardDataSyncOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      headIconFrameInfo.clear();
       signature.clear();
+      unlockedHeadIconFrameIdList.clear();
       unlockedHeadIconList.clear();
       return this;
     }
@@ -218,7 +365,9 @@ public final class BoardDataSyncOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      headIconFrameInfo.clearQuick();
       signature.clear();
+      unlockedHeadIconFrameIdList.clear();
       unlockedHeadIconList.clearQuick();
       return this;
     }
@@ -233,19 +382,31 @@ public final class BoardDataSyncOuterClass {
       }
       BoardDataSync other = (BoardDataSync) o;
       return bitField0_ == other.bitField0_
+        && (!hasHeadIconFrameInfo() || headIconFrameInfo.equals(other.headIconFrameInfo))
         && (!hasSignature() || signature.equals(other.signature))
+        && (!hasUnlockedHeadIconFrameIdList() || unlockedHeadIconFrameIdList.equals(other.unlockedHeadIconFrameIdList))
         && (!hasUnlockedHeadIconList() || unlockedHeadIconList.equals(other.unlockedHeadIconList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 106);
-        output.writeStringNoTag(signature);
+        output.writeRawByte((byte) 58);
+        output.writeMessageNoTag(headIconFrameInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 10);
+        output.writeStringNoTag(signature);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        for (int i = 0; i < unlockedHeadIconFrameIdList.length(); i++) {
+          output.writeRawByte((byte) 120);
+          output.writeUInt32NoTag(unlockedHeadIconFrameIdList.array()[i]);
+        }
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < unlockedHeadIconList.length(); i++) {
-          output.writeRawByte((byte) 114);
+          output.writeRawByte((byte) 26);
           output.writeMessageNoTag(unlockedHeadIconList.get(i));
         }
       }
@@ -255,9 +416,15 @@ public final class BoardDataSyncOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(signature);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(headIconFrameInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        size += 1 + ProtoSink.computeStringSizeNoTag(signature);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += (1 * unlockedHeadIconFrameIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(unlockedHeadIconFrameIdList);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         size += (1 * unlockedHeadIconList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(unlockedHeadIconList);
       }
       return size;
@@ -270,19 +437,37 @@ public final class BoardDataSyncOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 106: {
-            // signature
-            input.readString(signature);
+          case 58: {
+            // headIconFrameInfo
+            input.readMessage(headIconFrameInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 10) {
               break;
             }
           }
-          case 114: {
+          case 10: {
+            // signature
+            input.readString(signature);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 122) {
+              break;
+            }
+          }
+          case 122: {
+            // unlockedHeadIconFrameIdList [packed=true]
+            input.readPackedUInt32(unlockedHeadIconFrameIdList, tag);
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 26) {
+              break;
+            }
+          }
+          case 26: {
             // unlockedHeadIconList
             tag = input.readRepeatedMessage(unlockedHeadIconList, tag);
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000008;
             if (tag != 0) {
               break;
             }
@@ -297,6 +482,12 @@ public final class BoardDataSyncOuterClass {
             tag = input.readTag();
             break;
           }
+          case 120: {
+            // unlockedHeadIconFrameIdList [packed=false]
+            tag = input.readRepeatedUInt32(unlockedHeadIconFrameIdList, tag);
+            bitField0_ |= 0x00000004;
+            break;
+          }
         }
       }
     }
@@ -305,9 +496,15 @@ public final class BoardDataSyncOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeString(FieldNames.signature, signature);
+        output.writeMessage(FieldNames.headIconFrameInfo, headIconFrameInfo);
       }
       if ((bitField0_ & 0x00000002) != 0) {
+        output.writeString(FieldNames.signature, signature);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRepeatedUInt32(FieldNames.unlockedHeadIconFrameIdList, unlockedHeadIconFrameIdList);
+      }
+      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRepeatedMessage(FieldNames.unlockedHeadIconList, unlockedHeadIconList);
       }
       output.endObject();
@@ -320,11 +517,35 @@ public final class BoardDataSyncOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case 638045506:
+          case 240940903: {
+            if (input.isAtField(FieldNames.headIconFrameInfo)) {
+              if (!input.trySkipNullValue()) {
+                input.readMessage(headIconFrameInfo);
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 1073584312: {
             if (input.isAtField(FieldNames.signature)) {
               if (!input.trySkipNullValue()) {
                 input.readString(signature);
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1921266698:
+          case -1922067827: {
+            if (input.isAtField(FieldNames.unlockedHeadIconFrameIdList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(unlockedHeadIconFrameIdList);
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -336,7 +557,7 @@ public final class BoardDataSyncOuterClass {
             if (input.isAtField(FieldNames.unlockedHeadIconList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(unlockedHeadIconList);
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000008;
               }
             } else {
               input.skipUnknownField();
@@ -395,7 +616,11 @@ public final class BoardDataSyncOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName headIconFrameInfo = FieldName.forField("headIconFrameInfo", "head_icon_frame_info");
+
       static final FieldName signature = FieldName.forField("signature");
+
+      static final FieldName unlockedHeadIconFrameIdList = FieldName.forField("unlockedHeadIconFrameIdList", "unlocked_head_icon_frame_id_list");
 
       static final FieldName unlockedHeadIconList = FieldName.forField("unlockedHeadIconList", "unlocked_head_icon_list");
     }

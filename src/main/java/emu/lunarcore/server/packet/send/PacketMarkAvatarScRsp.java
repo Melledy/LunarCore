@@ -9,16 +9,16 @@ public class PacketMarkAvatarScRsp extends BasePacket {
 
     public PacketMarkAvatarScRsp(GameAvatar avatar) {
         super(CmdId.MarkAvatarScRsp);
-        
+
         var data = MarkAvatarScRsp.newInstance();
-        
+
         if (avatar != null) {
             data.setAvatarId(avatar.getAvatarId())
-                .setIsMarked(avatar.isMarked());
+            .setIsMarked(avatar.isMarked());
         } else {
             data.setRetcode(1);
         }
-        
+
         this.setData(data);
     }
 }

@@ -136,7 +136,7 @@ public class EntityMonster implements GameEntity, Tickable {
     }
     
     public void calculateDrops(ItemParamMap drops) {
-        var dropExcel = GameData.getMonsterDropExcel(this.getExcel().getId(), this.getWorldLevel());
+        var dropExcel = GameData.getMonsterDropExcelMap().get(this.getExcel().getId(), this.getWorldLevel());
         if (dropExcel == null) return;
         
         for (var dropParam : dropExcel.getDropList()) {

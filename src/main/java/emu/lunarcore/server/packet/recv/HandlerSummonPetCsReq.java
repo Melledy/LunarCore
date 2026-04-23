@@ -6,6 +6,7 @@ import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
 import emu.lunarcore.server.packet.send.PacketCurPetChangedScNotify;
+import emu.lunarcore.server.packet.send.PacketSummonPetScRsp;
 
 @Opcodes(CmdId.SummonPetCsReq)
 public class HandlerSummonPetCsReq extends PacketHandler {
@@ -13,14 +14,14 @@ public class HandlerSummonPetCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SummonPetCsReq.parseFrom(data);
-        
+
         if (session.getPlayer().getUnlocks().getPets().contains(req.getSummonedPetId())) {
             session.getPlayer().setPetId(req.getSummonedPetId());
             session.getPlayer().save();
             session.send(new PacketCurPetChangedScNotify(session.getPlayer()));
         }
-        
-        session.send(CmdId.SummonPetScRsp);
+
+        session.send(new PacketSummonPetScRsp(req.getSummonedPetId()));
     }
 
 }

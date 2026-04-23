@@ -20,12 +20,12 @@ public final class DisplayAvatarVecOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional bool is_display = 8;</code>
+     * <code>optional bool is_display = 1;</code>
      */
     private boolean isDisplay;
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 13;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 7;</code>
      */
     private final RepeatedMessage<DisplayAvatarOuterClass.DisplayAvatar> displayAvatarList = RepeatedMessage.newEmptyInstance(DisplayAvatarOuterClass.DisplayAvatar.getFactory());
 
@@ -40,7 +40,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 8;</code>
+     * <code>optional bool is_display = 1;</code>
      * @return whether the isDisplay field is set
      */
     public boolean hasIsDisplay() {
@@ -48,7 +48,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 8;</code>
+     * <code>optional bool is_display = 1;</code>
      * @return this
      */
     public DisplayAvatarVec clearIsDisplay() {
@@ -58,7 +58,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 8;</code>
+     * <code>optional bool is_display = 1;</code>
      * @return the isDisplay
      */
     public boolean getIsDisplay() {
@@ -66,7 +66,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>optional bool is_display = 8;</code>
+     * <code>optional bool is_display = 1;</code>
      * @param value the isDisplay to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 13;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 7;</code>
      * @return whether the displayAvatarList field is set
      */
     public boolean hasDisplayAvatarList() {
@@ -85,7 +85,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 13;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 7;</code>
      * @return this
      */
     public DisplayAvatarVec clearDisplayAvatarList() {
@@ -95,7 +95,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 13;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 7;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 13;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 7;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 13;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 7;</code>
      * @param value the displayAvatarList to add
      * @return this
      */
@@ -135,7 +135,7 @@ public final class DisplayAvatarVecOuterClass {
     }
 
     /**
-     * <code>repeated .DisplayAvatar display_avatar_list = 13;</code>
+     * <code>repeated .DisplayAvatar display_avatar_list = 7;</code>
      * @param values the displayAvatarList to add
      * @return this
      */
@@ -212,12 +212,12 @@ public final class DisplayAvatarVecOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 8);
         output.writeBoolNoTag(isDisplay);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < displayAvatarList.length(); i++) {
-          output.writeRawByte((byte) 106);
+          output.writeRawByte((byte) 58);
           output.writeMessageNoTag(displayAvatarList.get(i));
         }
       }
@@ -242,16 +242,16 @@ public final class DisplayAvatarVecOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 8: {
             // isDisplay
             isDisplay = input.readBool();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 58) {
               break;
             }
           }
-          case 106: {
+          case 58: {
             // displayAvatarList
             tag = input.readRepeatedMessage(displayAvatarList, tag);
             bitField0_ |= 0x00000002;

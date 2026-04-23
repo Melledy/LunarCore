@@ -10,12 +10,12 @@ public class PacketSceneEntityMoveScNotify extends BasePacket {
 
     public PacketSceneEntityMoveScNotify(Player player) {
         super(CmdId.SceneEntityMoveScNotify);
-        
+
         var data = SceneEntityMoveScNotify.newInstance()
                 .setEntryId(player.getEntryId())
                 .setMotion(MotionInfo.newInstance().setPos(player.getPos().toProto()).setRot(player.getRot().toProto()));
-        
+
         this.setData(data);
     }
-    
+
 }

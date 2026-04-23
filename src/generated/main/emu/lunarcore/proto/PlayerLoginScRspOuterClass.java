@@ -19,32 +19,32 @@ public final class PlayerLoginScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 login_random = 13;</code>
+     * <code>optional uint64 login_random = 4;</code>
      */
     private long loginRandom;
 
     /**
-     * <code>optional uint64 server_timestamp_ms = 15;</code>
+     * <code>optional uint64 server_timestamp_ms = 8;</code>
      */
     private long serverTimestampMs;
 
     /**
-     * <code>optional uint32 stamina = 6;</code>
+     * <code>optional uint32 stamina = 7;</code>
      */
     private int stamina;
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional sint32 cur_timezone = 3;</code>
+     * <code>optional sint32 cur_timezone = 11;</code>
      */
     private int curTimezone;
 
     /**
-     * <code>optional .PlayerBasicInfo basic_info = 5;</code>
+     * <code>optional .PlayerBasicInfo basic_info = 1;</code>
      */
     private final PlayerBasicInfoOuterClass.PlayerBasicInfo basicInfo = PlayerBasicInfoOuterClass.PlayerBasicInfo.newInstance();
 
@@ -59,7 +59,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 13;</code>
+     * <code>optional uint64 login_random = 4;</code>
      * @return whether the loginRandom field is set
      */
     public boolean hasLoginRandom() {
@@ -67,7 +67,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 13;</code>
+     * <code>optional uint64 login_random = 4;</code>
      * @return this
      */
     public PlayerLoginScRsp clearLoginRandom() {
@@ -77,7 +77,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 13;</code>
+     * <code>optional uint64 login_random = 4;</code>
      * @return the loginRandom
      */
     public long getLoginRandom() {
@@ -85,7 +85,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 login_random = 13;</code>
+     * <code>optional uint64 login_random = 4;</code>
      * @param value the loginRandom to set
      * @return this
      */
@@ -96,7 +96,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_timestamp_ms = 15;</code>
+     * <code>optional uint64 server_timestamp_ms = 8;</code>
      * @return whether the serverTimestampMs field is set
      */
     public boolean hasServerTimestampMs() {
@@ -104,7 +104,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_timestamp_ms = 15;</code>
+     * <code>optional uint64 server_timestamp_ms = 8;</code>
      * @return this
      */
     public PlayerLoginScRsp clearServerTimestampMs() {
@@ -114,7 +114,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_timestamp_ms = 15;</code>
+     * <code>optional uint64 server_timestamp_ms = 8;</code>
      * @return the serverTimestampMs
      */
     public long getServerTimestampMs() {
@@ -122,7 +122,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint64 server_timestamp_ms = 15;</code>
+     * <code>optional uint64 server_timestamp_ms = 8;</code>
      * @param value the serverTimestampMs to set
      * @return this
      */
@@ -133,7 +133,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 6;</code>
+     * <code>optional uint32 stamina = 7;</code>
      * @return whether the stamina field is set
      */
     public boolean hasStamina() {
@@ -141,7 +141,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 6;</code>
+     * <code>optional uint32 stamina = 7;</code>
      * @return this
      */
     public PlayerLoginScRsp clearStamina() {
@@ -151,7 +151,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 6;</code>
+     * <code>optional uint32 stamina = 7;</code>
      * @return the stamina
      */
     public int getStamina() {
@@ -159,7 +159,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 stamina = 6;</code>
+     * <code>optional uint32 stamina = 7;</code>
      * @param value the stamina to set
      * @return this
      */
@@ -170,7 +170,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -178,7 +178,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return this
      */
     public PlayerLoginScRsp clearRetcode() {
@@ -188,7 +188,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -196,7 +196,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 7;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -207,7 +207,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional sint32 cur_timezone = 3;</code>
+     * <code>optional sint32 cur_timezone = 11;</code>
      * @return whether the curTimezone field is set
      */
     public boolean hasCurTimezone() {
@@ -215,7 +215,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional sint32 cur_timezone = 3;</code>
+     * <code>optional sint32 cur_timezone = 11;</code>
      * @return this
      */
     public PlayerLoginScRsp clearCurTimezone() {
@@ -225,7 +225,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional sint32 cur_timezone = 3;</code>
+     * <code>optional sint32 cur_timezone = 11;</code>
      * @return the curTimezone
      */
     public int getCurTimezone() {
@@ -233,7 +233,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional sint32 cur_timezone = 3;</code>
+     * <code>optional sint32 cur_timezone = 11;</code>
      * @param value the curTimezone to set
      * @return this
      */
@@ -244,7 +244,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional .PlayerBasicInfo basic_info = 5;</code>
+     * <code>optional .PlayerBasicInfo basic_info = 1;</code>
      * @return whether the basicInfo field is set
      */
     public boolean hasBasicInfo() {
@@ -252,7 +252,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional .PlayerBasicInfo basic_info = 5;</code>
+     * <code>optional .PlayerBasicInfo basic_info = 1;</code>
      * @return this
      */
     public PlayerLoginScRsp clearBasicInfo() {
@@ -262,7 +262,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional .PlayerBasicInfo basic_info = 5;</code>
+     * <code>optional .PlayerBasicInfo basic_info = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -276,7 +276,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional .PlayerBasicInfo basic_info = 5;</code>
+     * <code>optional .PlayerBasicInfo basic_info = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -290,7 +290,7 @@ public final class PlayerLoginScRspOuterClass {
     }
 
     /**
-     * <code>optional .PlayerBasicInfo basic_info = 5;</code>
+     * <code>optional .PlayerBasicInfo basic_info = 1;</code>
      * @param value the basicInfo to set
      * @return this
      */
@@ -390,27 +390,27 @@ public final class PlayerLoginScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 32);
         output.writeUInt64NoTag(loginRandom);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 64);
         output.writeUInt64NoTag(serverTimestampMs);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 56);
         output.writeUInt32NoTag(stamina);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 88);
         output.writeSInt32NoTag(curTimezone);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(basicInfo);
       }
     }
@@ -446,52 +446,52 @@ public final class PlayerLoginScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 32: {
             // loginRandom
             loginRandom = input.readUInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 64) {
               break;
             }
           }
-          case 120: {
+          case 64: {
             // serverTimestampMs
             serverTimestampMs = input.readUInt64();
             bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 48) {
-              break;
-            }
-          }
-          case 48: {
-            // stamina
-            stamina = input.readUInt32();
-            bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 56) {
               break;
             }
           }
           case 56: {
+            // stamina
+            stamina = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 72) {
+              break;
+            }
+          }
+          case 72: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 24) {
+            if (tag != 88) {
               break;
             }
           }
-          case 24: {
+          case 88: {
             // curTimezone
             curTimezone = input.readSInt32();
             bitField0_ |= 0x00000010;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 10) {
               break;
             }
           }
-          case 42: {
+          case 10: {
             // basicInfo
             input.readMessage(basicInfo);
             bitField0_ |= 0x00000020;

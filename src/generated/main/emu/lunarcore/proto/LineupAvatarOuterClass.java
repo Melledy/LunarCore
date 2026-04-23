@@ -19,32 +19,32 @@ public final class LineupAvatarOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 slot = 5;</code>
+     * <code>optional uint32 slot = 4;</code>
      */
     private int slot;
 
     /**
-     * <code>optional uint32 hp = 6;</code>
-     */
-    private int hp;
-
-    /**
-     * <code>optional uint32 id = 8;</code>
+     * <code>optional uint32 id = 6;</code>
      */
     private int id;
 
     /**
-     * <code>optional uint32 satiety = 15;</code>
+     * <code>optional uint32 hp = 9;</code>
+     */
+    private int hp;
+
+    /**
+     * <code>optional uint32 satiety = 11;</code>
      */
     private int satiety;
 
     /**
-     * <code>optional .AvatarType avatar_type = 1;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      */
     private int avatarType;
 
     /**
-     * <code>optional .SpBarInfo sp_bar = 14;</code>
+     * <code>optional .SpBarInfo sp_bar = 15;</code>
      */
     private final SpBarInfoOuterClass.SpBarInfo spBar = SpBarInfoOuterClass.SpBarInfo.newInstance();
 
@@ -59,7 +59,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 5;</code>
+     * <code>optional uint32 slot = 4;</code>
      * @return whether the slot field is set
      */
     public boolean hasSlot() {
@@ -67,7 +67,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 5;</code>
+     * <code>optional uint32 slot = 4;</code>
      * @return this
      */
     public LineupAvatar clearSlot() {
@@ -77,7 +77,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 5;</code>
+     * <code>optional uint32 slot = 4;</code>
      * @return the slot
      */
     public int getSlot() {
@@ -85,7 +85,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 5;</code>
+     * <code>optional uint32 slot = 4;</code>
      * @param value the slot to set
      * @return this
      */
@@ -96,62 +96,25 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 hp = 6;</code>
-     * @return whether the hp field is set
+     * <code>optional uint32 id = 6;</code>
+     * @return whether the id field is set
      */
-    public boolean hasHp() {
+    public boolean hasId() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 hp = 6;</code>
-     * @return this
-     */
-    public LineupAvatar clearHp() {
-      bitField0_ &= ~0x00000002;
-      hp = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 hp = 6;</code>
-     * @return the hp
-     */
-    public int getHp() {
-      return hp;
-    }
-
-    /**
-     * <code>optional uint32 hp = 6;</code>
-     * @param value the hp to set
-     * @return this
-     */
-    public LineupAvatar setHp(final int value) {
-      bitField0_ |= 0x00000002;
-      hp = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 id = 8;</code>
-     * @return whether the id field is set
-     */
-    public boolean hasId() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional uint32 id = 8;</code>
+     * <code>optional uint32 id = 6;</code>
      * @return this
      */
     public LineupAvatar clearId() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       id = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 id = 8;</code>
+     * <code>optional uint32 id = 6;</code>
      * @return the id
      */
     public int getId() {
@@ -159,18 +122,55 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 id = 8;</code>
+     * <code>optional uint32 id = 6;</code>
      * @param value the id to set
      * @return this
      */
     public LineupAvatar setId(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       id = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 satiety = 15;</code>
+     * <code>optional uint32 hp = 9;</code>
+     * @return whether the hp field is set
+     */
+    public boolean hasHp() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 hp = 9;</code>
+     * @return this
+     */
+    public LineupAvatar clearHp() {
+      bitField0_ &= ~0x00000004;
+      hp = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 hp = 9;</code>
+     * @return the hp
+     */
+    public int getHp() {
+      return hp;
+    }
+
+    /**
+     * <code>optional uint32 hp = 9;</code>
+     * @param value the hp to set
+     * @return this
+     */
+    public LineupAvatar setHp(final int value) {
+      bitField0_ |= 0x00000004;
+      hp = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 satiety = 11;</code>
      * @return whether the satiety field is set
      */
     public boolean hasSatiety() {
@@ -178,7 +178,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 satiety = 15;</code>
+     * <code>optional uint32 satiety = 11;</code>
      * @return this
      */
     public LineupAvatar clearSatiety() {
@@ -188,7 +188,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 satiety = 15;</code>
+     * <code>optional uint32 satiety = 11;</code>
      * @return the satiety
      */
     public int getSatiety() {
@@ -196,7 +196,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional uint32 satiety = 15;</code>
+     * <code>optional uint32 satiety = 11;</code>
      * @param value the satiety to set
      * @return this
      */
@@ -207,7 +207,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 1;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @return whether the avatarType field is set
      */
     public boolean hasAvatarType() {
@@ -215,7 +215,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 1;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @return this
      */
     public LineupAvatar clearAvatarType() {
@@ -225,7 +225,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 1;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @return the avatarType
      */
     public AvatarTypeOuterClass.AvatarType getAvatarType() {
@@ -258,7 +258,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .AvatarType avatar_type = 1;</code>
+     * <code>optional .AvatarType avatar_type = 12;</code>
      * @param value the avatarType to set
      * @return this
      */
@@ -269,7 +269,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .SpBarInfo sp_bar = 14;</code>
+     * <code>optional .SpBarInfo sp_bar = 15;</code>
      * @return whether the spBar field is set
      */
     public boolean hasSpBar() {
@@ -277,7 +277,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .SpBarInfo sp_bar = 14;</code>
+     * <code>optional .SpBarInfo sp_bar = 15;</code>
      * @return this
      */
     public LineupAvatar clearSpBar() {
@@ -287,7 +287,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .SpBarInfo sp_bar = 14;</code>
+     * <code>optional .SpBarInfo sp_bar = 15;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -301,7 +301,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .SpBarInfo sp_bar = 14;</code>
+     * <code>optional .SpBarInfo sp_bar = 15;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -315,7 +315,7 @@ public final class LineupAvatarOuterClass {
     }
 
     /**
-     * <code>optional .SpBarInfo sp_bar = 14;</code>
+     * <code>optional .SpBarInfo sp_bar = 15;</code>
      * @param value the spBar to set
      * @return this
      */
@@ -331,8 +331,8 @@ public final class LineupAvatarOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         slot = other.slot;
-        hp = other.hp;
         id = other.id;
+        hp = other.hp;
         satiety = other.satiety;
         avatarType = other.avatarType;
         spBar.copyFrom(other.spBar);
@@ -349,11 +349,11 @@ public final class LineupAvatarOuterClass {
       if (other.hasSlot()) {
         setSlot(other.slot);
       }
-      if (other.hasHp()) {
-        setHp(other.hp);
-      }
       if (other.hasId()) {
         setId(other.id);
+      }
+      if (other.hasHp()) {
+        setHp(other.hp);
       }
       if (other.hasSatiety()) {
         setSatiety(other.satiety);
@@ -375,8 +375,8 @@ public final class LineupAvatarOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       slot = 0;
-      hp = 0;
       id = 0;
+      hp = 0;
       satiety = 0;
       avatarType = 0;
       spBar.clear();
@@ -405,8 +405,8 @@ public final class LineupAvatarOuterClass {
       LineupAvatar other = (LineupAvatar) o;
       return bitField0_ == other.bitField0_
         && (!hasSlot() || slot == other.slot)
-        && (!hasHp() || hp == other.hp)
         && (!hasId() || id == other.id)
+        && (!hasHp() || hp == other.hp)
         && (!hasSatiety() || satiety == other.satiety)
         && (!hasAvatarType() || avatarType == other.avatarType)
         && (!hasSpBar() || spBar.equals(other.spBar));
@@ -415,27 +415,27 @@ public final class LineupAvatarOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(hp);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(id);
       }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(hp);
+      }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(satiety);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 96);
         output.writeEnumNoTag(avatarType);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRawByte((byte) 114);
+        output.writeRawByte((byte) 122);
         output.writeMessageNoTag(spBar);
       }
     }
@@ -447,10 +447,10 @@ public final class LineupAvatarOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(hp);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(id);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(hp);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(satiety);
@@ -471,7 +471,7 @@ public final class LineupAvatarOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 32: {
             // slot
             slot = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -481,33 +481,33 @@ public final class LineupAvatarOuterClass {
             }
           }
           case 48: {
-            // hp
-            hp = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 64) {
-              break;
-            }
-          }
-          case 64: {
             // id
             id = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 72) {
               break;
             }
           }
-          case 120: {
+          case 72: {
+            // hp
+            hp = input.readUInt32();
+            bitField0_ |= 0x00000004;
+            tag = input.readTag();
+            if (tag != 88) {
+              break;
+            }
+          }
+          case 88: {
             // satiety
             satiety = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 8) {
+            if (tag != 96) {
               break;
             }
           }
-          case 8: {
+          case 96: {
             // avatarType
             final int value = input.readInt32();
             if (AvatarTypeOuterClass.AvatarType.forNumber(value) != null) {
@@ -515,11 +515,11 @@ public final class LineupAvatarOuterClass {
               bitField0_ |= 0x00000010;
             }
             tag = input.readTag();
-            if (tag != 114) {
+            if (tag != 122) {
               break;
             }
           }
-          case 114: {
+          case 122: {
             // spBar
             input.readMessage(spBar);
             bitField0_ |= 0x00000020;
@@ -549,10 +549,10 @@ public final class LineupAvatarOuterClass {
         output.writeUInt32(FieldNames.slot, slot);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.hp, hp);
+        output.writeUInt32(FieldNames.id, id);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.id, id);
+        output.writeUInt32(FieldNames.hp, hp);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeUInt32(FieldNames.satiety, satiety);
@@ -584,10 +584,10 @@ public final class LineupAvatarOuterClass {
             }
             break;
           }
-          case 3336: {
-            if (input.isAtField(FieldNames.hp)) {
+          case 3355: {
+            if (input.isAtField(FieldNames.id)) {
               if (!input.trySkipNullValue()) {
-                hp = input.readUInt32();
+                id = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -595,10 +595,10 @@ public final class LineupAvatarOuterClass {
             }
             break;
           }
-          case 3355: {
-            if (input.isAtField(FieldNames.id)) {
+          case 3336: {
+            if (input.isAtField(FieldNames.hp)) {
               if (!input.trySkipNullValue()) {
-                id = input.readUInt32();
+                hp = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -700,9 +700,9 @@ public final class LineupAvatarOuterClass {
     static class FieldNames {
       static final FieldName slot = FieldName.forField("slot");
 
-      static final FieldName hp = FieldName.forField("hp");
-
       static final FieldName id = FieldName.forField("id");
+
+      static final FieldName hp = FieldName.forField("hp");
 
       static final FieldName satiety = FieldName.forField("satiety");
 

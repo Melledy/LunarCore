@@ -5,10 +5,10 @@ import java.util.List;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
-import emu.lunarcore.data.ResourceType.LoadPriority;
 import emu.lunarcore.data.common.ItemParam;
+import emu.lunarcore.data.resource.MultiKeyGameResource;
+import emu.lunarcore.data.resource.ResourceType;
+import emu.lunarcore.data.resource.ResourceType.LoadPriority;
 import emu.lunarcore.game.drops.DropParam;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.enums.ItemSubType;
@@ -20,20 +20,25 @@ import lombok.Getter;
 
 @Getter
 @ResourceType(name = {"MappingInfo.json"}, loadPriority = LoadPriority.LOW)
-public class MappingInfoExcel extends GameResource {
+public class MappingInfoExcel extends MultiKeyGameResource {
     private int ID;
     private int WorldLevel;
     private String FarmType; // is enum
-    
+
     @Getter(AccessLevel.PRIVATE)
     private List<ItemParam> DisplayItemList;
-    
+
     // Temp solution for handling drop tables
     private transient List<DropParam> dropList;
-    
+
     @Override
-    public int getId() {
-        return (ID << 8) + WorldLevel;
+    public int getPrimaryKey() {
+        return ID;
+    }
+
+    @Override
+    public int getSecondaryKey() {
+        return WorldLevel;
     }
 
     @Override
@@ -43,19 +48,19 @@ public class MappingInfoExcel extends GameResource {
             this.dropList = new ArrayList<>(0);
             return;
         }
-        
+
         this.dropList = new ArrayList<>(DisplayItemList.size());
-        
+
         var equipmentDrops = new IntArrayList();
         var relicDrops = new Int2ObjectOpenHashMap<IntList>();
-        
+
         for (var itemParam : this.getDisplayItemList()) {
             // Add item param if the amount is already set in the excel
             if (itemParam.getCount() > 0) {
                 dropList.add(new DropParam(itemParam.getId(), itemParam.getCount()));
                 continue;
             }
-            
+
             // Multiplier. TODO drop rate is not correct
             int multiplier = 1;
             if (FarmType == null) {
@@ -67,7 +72,7 @@ public class MappingInfoExcel extends GameResource {
             } else if (FarmType.equals("ELEMENT")) {
                 multiplier = 3;
             }
-            
+
             // Random credits
             if (itemParam.getId() == GameConstants.MATERIAL_COIN_ID) {
                 // TODO drop rate is not correct
@@ -77,27 +82,27 @@ public class MappingInfoExcel extends GameResource {
                 dropList.add(drop);
                 continue;
             }
-            
+
             // Get item excel
             ItemExcel itemExcel = GameData.getItemExcelMap().get(itemParam.getId());
             if (itemExcel == null) continue;
-            
+
             // Hacky way of calculating drops
             if (itemExcel.getItemSubType() == ItemSubType.RelicSetShowOnly) {
                 // Get relic base id from relic display id
                 int baseRelicId = (itemParam.getId() / 10) % 1000;
                 int baseRarity = itemParam.getId() % 10;
-                
+
                 // Add relics from the set
                 int relicStart = 20001 + (baseRarity * 10000) + (baseRelicId * 10);
                 int relicEnd = relicStart + 3;
                 for (;relicStart <= relicEnd; relicStart++) {
                     ItemExcel relicExcel = GameData.getItemExcelMap().get(relicStart);
                     if (relicExcel == null) break;
-                    
+
                     relicDrops
-                        .computeIfAbsent(baseRarity, r -> new IntArrayList())
-                        .add(relicStart);
+                    .computeIfAbsent(baseRarity, x -> new IntArrayList())
+                    .add(relicStart);
                 }
             } else if (itemExcel.getItemMainType() == ItemMainType.Material) {
                 // Calculate amount to drop by purpose level
@@ -110,7 +115,7 @@ public class MappingInfoExcel extends GameResource {
                             case Rare -> getWorldLevel() < 3 ? getWorldLevel() + 3 : (getWorldLevel() * 2) - 3;
                             default -> 1;
                         };
-                        
+
                         yield new DropParam(itemParam.getId(), amount);
                     }
                     // Boss materials
@@ -118,7 +123,7 @@ public class MappingInfoExcel extends GameResource {
                     // Trace materials. Drop rate is guessed (with data)
                     case 3 -> {
                         var dropInfo = new DropParam(itemParam.getId(), 1);
-                        
+
                         switch (itemExcel.getRarity()) {
                             case NotNormal -> {
                                 double amount = getWorldLevel() >= 1 && getWorldLevel() <= 3 ? 2.5 : 1.5;
@@ -131,10 +136,10 @@ public class MappingInfoExcel extends GameResource {
                                 dropInfo.setChance((getWorldLevel() - 3) * 75);
                             }
                             default -> {
-                                
+
                             }
                         }
-                        
+
                         yield dropInfo;
                     }
                     // Boss Trace materials. Drop rate is guessed (with data)
@@ -145,9 +150,9 @@ public class MappingInfoExcel extends GameResource {
                         double amount = switch (itemExcel.getRarity()) {
                             case NotNormal -> Math.max(5 - getWorldLevel(), 2.5);
                             case Rare -> (getWorldLevel() % 3) + 1;
-                            default -> 1; 
+                            default -> 1;
                         };
-                        
+
                         yield new DropParam(itemParam.getId(), amount);
                     }
                     // Lucent afterglow
@@ -155,7 +160,7 @@ public class MappingInfoExcel extends GameResource {
                     // Unknown
                     default -> null;
                 };
-                
+
                 // Add to drop list
                 if (drop != null) {
                     dropList.add(drop);
@@ -165,7 +170,7 @@ public class MappingInfoExcel extends GameResource {
                 equipmentDrops.add(itemParam.getId());
             }
         }
-        
+
         // Add equipment drops
         if (equipmentDrops.size() > 0) {
             DropParam drop = new DropParam();
@@ -174,26 +179,26 @@ public class MappingInfoExcel extends GameResource {
             drop.setChance((this.getWorldLevel() * 10) + 40);
             dropList.add(drop);
         }
-        
+
         // Add relic drops
         if (relicDrops.size() > 0) {
             for (var entry : relicDrops.int2ObjectEntrySet()) {
                 // Add items to drop param
                 DropParam drop = new DropParam();
                 drop.getItems().addAll(entry.getValue());
-                
+
                 // Set count by rarity
                 double amount = switch (entry.getIntKey()) {
-                case 4:
-                    yield (this.getWorldLevel() * 0.5) - 0.5;
-                case 3:
-                    yield (this.getWorldLevel() * 0.5) + (this.getWorldLevel() == 2 ? 1.0 : 0);
-                case 2:
-                    yield (6 - this.getWorldLevel()) + 0.5 - (this.getWorldLevel() == 1 ? 3.75 : 0);
-                default:
-                    yield this.getWorldLevel() == 1 ? 6 : 2;
+                    case 4:
+                        yield (this.getWorldLevel() * 0.5) - 0.5;
+                    case 3:
+                        yield (this.getWorldLevel() * 0.5) + (this.getWorldLevel() == 2 ? 1.0 : 0);
+                    case 2:
+                        yield (6 - this.getWorldLevel()) + 0.5 - (this.getWorldLevel() == 1 ? 3.75 : 0);
+                    default:
+                        yield this.getWorldLevel() == 1 ? 6 : 2;
                 };
-                
+
                 // Set amount
                 if (amount > 0) {
                     drop.setCount(amount);
@@ -201,7 +206,7 @@ public class MappingInfoExcel extends GameResource {
                 }
             }
         }
-        
+
         // Clear list once were done with it to free some memory
         this.DisplayItemList = null;
     }

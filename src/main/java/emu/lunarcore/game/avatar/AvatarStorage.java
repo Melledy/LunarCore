@@ -12,10 +12,13 @@ import emu.lunarcore.data.excel.MultiplePathAvatarExcel;
 import emu.lunarcore.game.inventory.GameItem;
 import emu.lunarcore.game.player.BasePlayerManager;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.trial.TrialAvatar;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
+import it.unimi.dsi.fastutil.ints.IntSet;
 import it.unimi.dsi.fastutil.objects.Object2ObjectMap;
 import it.unimi.dsi.fastutil.objects.Object2ObjectOpenHashMap;
 import lombok.Getter;
@@ -28,12 +31,17 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
     private final Int2ObjectMap<AvatarMultiPath> multiPaths;
     private final Object2ObjectMap<ObjectId, AvatarMultiPath> multiPathsObjectIdMap;
     
+    private final Int2ObjectMap<GameAvatar> tempAvatars;
+    private final IntSet globalBuffAvatars;
+    
     public AvatarStorage(Player player) {
         super(player);
         this.avatars = new Int2ObjectOpenHashMap<>();
         this.avatarObjectIdMap = new Object2ObjectOpenHashMap<>();
         this.multiPaths = new Int2ObjectOpenHashMap<>();
         this.multiPathsObjectIdMap = new Object2ObjectOpenHashMap<>();
+        this.tempAvatars = new Int2ObjectOpenHashMap<>();
+        this.globalBuffAvatars = new IntOpenHashSet();
     }
 
     public int getAvatarCount() {
@@ -60,15 +68,21 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
         return baseAvatar;
     }
 
-    // Regular avatars
+    // Game avatars
     
     public GameAvatar getAvatarById(int id) {
+        // Check if we are trying to get a temporary avatar
+        if (this.tempAvatars.containsKey(id)) {
+            return this.tempAvatars.get(id);
+        }
+        
         // Check if we are trying to retrieve a multi path character
         var multiPathExcel = GameData.getMultiplePathAvatarExcelMap().get(id);
         if (multiPathExcel != null) {
             id = multiPathExcel.getBaseAvatarID();
         }
         
+        // Get from map
         return getAvatars().get(id);
     }
     
@@ -121,6 +135,14 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
 
         // Done
         return true;
+    }
+    
+    public void addTempAvatar(TrialAvatar avatar) {
+        this.tempAvatars.put(avatar.getSpecialAvatarExcel().getId(), avatar);
+    }
+    
+    public void removeTempAvatar(int avatarId) {
+        this.tempAvatars.remove(avatarId);
     }
     
     public AvatarMultiPath getMultiPathById(int id) {
@@ -187,6 +209,7 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
             
             path.setOwner(this.getPlayer());
             path.setExcel(excel);
+            path.getData().fixSkills();
             
             // Add
             getMultiPaths().put(path.getExcelId(), path);
@@ -230,10 +253,18 @@ public class AvatarStorage extends BasePlayerManager implements Iterable<GameAva
         
         // Set ownership
         avatar.setOwner(getPlayer());
+        
+        // Fix skills
+        avatar.getData().fixSkills();
 
         // Add to avatar storage
         this.avatars.put(avatar.getAvatarId(), avatar);
         this.avatarObjectIdMap.put(avatar.getId(), avatar);
+        
+        // Add to global buff avatar cache
+        if (GameData.getAvatarGlobalBuffExcelMap().containsKey(avatar.getAvatarId())) {
+            this.globalBuffAvatars.add(avatar.getAvatarId());
+        }
         
         // Done
         return true;

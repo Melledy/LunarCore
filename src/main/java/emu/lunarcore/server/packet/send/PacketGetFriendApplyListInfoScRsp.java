@@ -12,21 +12,21 @@ public class PacketGetFriendApplyListInfoScRsp extends BasePacket {
         super(CmdId.GetFriendApplyListInfoScRsp);
 
         var data = GetFriendApplyListInfoScRsp.newInstance();
-        
+
         for (var friendship : friendList.getPendingFriends().values()) {
             // Skip if we are the asker
             if (friendship.getAskerUid() == friendList.getPlayer().getUid()) continue;
-            
+
             // Get friend info from the server
             var friend = friendList.getServer().getPlayerByUid(friendship.getFriendUid(), true);
             if (friend == null) continue;
-            
+
             var friendInfo = FriendApplyInfo.newInstance()
                     .setSimpleInfo(friend.toSimpleInfo());
-            
+
             data.addFriendApplyList(friendInfo);
         }
-        
+
         this.setData(data);
     }
 }

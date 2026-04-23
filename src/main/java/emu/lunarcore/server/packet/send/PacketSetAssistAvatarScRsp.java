@@ -9,16 +9,16 @@ public class PacketSetAssistAvatarScRsp extends BasePacket {
 
     public PacketSetAssistAvatarScRsp(Player player) {
         super(CmdId.SetAssistAvatarScRsp);
-        
+
         var data = SetAssistAvatarScRsp.newInstance();
-        
+
         for (var objectId : player.getAssistAvatars()) {
             var avatar = player.getAvatarById(objectId);
             if (avatar == null) continue;
-            
+
             data.addAvatarIdList(avatar.getAvatarId());
         }
-        
+
         this.setData(data);
     }
 }

@@ -9,14 +9,14 @@ public class PacketGetPetDataScRsp extends BasePacket {
 
     public PacketGetPetDataScRsp(Player player) {
         super(CmdId.GetPetDataScRsp);
-        
+
         var data = GetPetDataScRsp.newInstance()
                 .setCurPetId(player.getPetId());
-        
+
         for (int id : player.getUnlocks().getPets()) {
             data.addPetIdList(id);
         }
-        
+
         this.setData(data);
     }
 }

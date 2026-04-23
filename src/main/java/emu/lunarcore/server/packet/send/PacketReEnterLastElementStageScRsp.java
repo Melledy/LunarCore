@@ -9,20 +9,20 @@ public class PacketReEnterLastElementStageScRsp extends BasePacket {
 
     public PacketReEnterLastElementStageScRsp() {
         super(CmdId.ReEnterLastElementStageScRsp);
-        
+
         var data = ReEnterLastElementStageScRsp.newInstance()
                 .setRetcode(1);
-        
+
         this.setData(data);
     }
-    
+
     public PacketReEnterLastElementStageScRsp(Battle battle) {
         super(CmdId.ReEnterLastElementStageScRsp);
-        
+
         var data = ReEnterLastElementStageScRsp.newInstance()
                 .setStageId(battle.getStage().getId())
                 .setBattleInfo(battle.toProto());
-        
+
         this.setData(data);
     }
 }

@@ -9,17 +9,17 @@ public class PacketChallengeSettleNotify extends BasePacket {
 
     public PacketChallengeSettleNotify(ChallengeInstance challenge) {
         super(CmdId.ChallengeSettleNotify);
-        
+
         var data = ChallengeSettleNotify.newInstance()
                 .setChallengeId(challenge.getExcel().getId())
                 .setIsWin(challenge.isWin())
                 .setChallengeScore(challenge.getScoreStage1())
                 .setScoreTwo(challenge.getScoreStage2())
                 .setStars(challenge.getStars());
-        
+
         // Set empty rewards
-        data.getMutableReward();
-        
+        data.getMutableRewardList();
+
         this.setData(data);
     }
 }

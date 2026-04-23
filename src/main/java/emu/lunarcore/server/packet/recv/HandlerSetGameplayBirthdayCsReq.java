@@ -13,7 +13,7 @@ public class HandlerSetGameplayBirthdayCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetGameplayBirthdayCsReq.parseFrom(data);
-        
+
         int birthday = session.getPlayer().setBirthday(req.getBirthday());
         if (birthday != 0) {
             session.send(new PacketSetGameplayBirthdayScRsp(birthday));

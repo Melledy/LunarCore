@@ -3,14 +3,13 @@ package emu.lunarcore.data;
 import java.io.*;
 import java.lang.reflect.Field;
 import java.nio.charset.StandardCharsets;
+import java.nio.file.Paths;
 import java.util.*;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
 import emu.lunarcore.data.config.*;
 
-import emu.lunarcore.data.config.rogue.RogueDialogueEventConfigInfo;
-import emu.lunarcore.data.config.rogue.RogueNPCConfigInfo;
 import org.reflections.Reflections;
 
 import com.google.gson.Gson;
@@ -23,15 +22,18 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.ResourceDeserializers.LunarCoreDoubleDeserializer;
 import emu.lunarcore.data.ResourceDeserializers.LunarCoreHashDeserializer;
 import emu.lunarcore.data.config.FloorInfo.FloorGroupSimpleInfo;
-import emu.lunarcore.data.custom.ActivityScheduleData;
+import emu.lunarcore.data.resource.ResourceBase;
+import emu.lunarcore.data.resource.ResourceMap;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.util.Utils;
-import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.IntArrayList;
+import lombok.Getter;
 
 public class ResourceLoader {
     private static boolean loaded = false;
 
     // Special gson factory we create for loading resources
-    private static final Gson gson = new GsonBuilder()
+    @Getter private static final Gson gson = new GsonBuilder()
             .registerTypeAdapter(double.class, new LunarCoreDoubleDeserializer())
             .registerTypeAdapter(long.class, new LunarCoreHashDeserializer())
             .create();
@@ -49,12 +51,9 @@ public class ResourceLoader {
         loadFloorInfos();
         // Load maze abilities
         loadMazeAbilities();
-        // Load rogue maps
-        loadRogueMapGen();
-        // Load activity schedule config
-        loadActivityScheduleConfig();
-        // Load rogue dialogue events
-        loadRogueDialogueEvent();
+        
+        // Load mission infos
+        loadMissionInfo();
         
         // Done
         loaded = true;
@@ -68,26 +67,30 @@ public class ResourceLoader {
         }
     }
     
-    private static Int2ObjectMap<?> getMapForExcel(Class<?> dataClass, Class<?> resourceDefinition) {
-        Int2ObjectMap<?> map = null;
-
+    @SuppressWarnings("unchecked")
+    private static <T> ResourceMap<T> getMapForExcel(Class<T> dataClass, Class<?> resourceDefinition) {
+        ResourceMap<T> table = null;
+        Field field = null;
+        
         try {
-            Field field = dataClass.getDeclaredField(Utils.lowerCaseFirstChar(resourceDefinition.getSimpleName()) + "Map");
+            field = dataClass.getDeclaredField(Utils.lowerCaseFirstChar(resourceDefinition.getSimpleName()) + "Map");
+            if (field == null) {
+                field = dataClass.getDeclaredField(resourceDefinition.getSimpleName() + "Map");
+            }
+            
             field.setAccessible(true);
-
-            map = (Int2ObjectMap<?>) field.get(null);
-
+            table = (ResourceMap<T>) field.get(null);
             field.setAccessible(false);
         } catch (Exception e) {
 
         }
 
-        return map;
+        return table;
     }
 
     private static List<Class<?>> getResourceDefClasses() {
-        Reflections reflections = new Reflections(ResourceLoader.class.getPackage().getName());
-        Set<?> classes = reflections.getSubTypesOf(GameResource.class);
+        Reflections reflections = new Reflections(LunarCore.class.getPackage().getName());
+        Set<?> classes = reflections.getSubTypesOf(ResourceBase.class);
 
         List<Class<?>> classList = new ArrayList<>(classes.size());
         classes.forEach(o -> {
@@ -102,19 +105,23 @@ public class ResourceLoader {
         return classList;
     }
 
-    private static void loadResources() {
+    @SuppressWarnings({"unchecked", "rawtypes"})
+    public static void loadResources() {
         for (Class<?> resourceDefinition : getResourceDefClasses()) {
+            // Get annotation
             ResourceType type = resourceDefinition.getAnnotation(ResourceType.class);
+            if (type == null) continue;
 
-            if (type == null) {
-                continue;
-            }
-
-            @SuppressWarnings("rawtypes")
-            Int2ObjectMap map = ResourceLoader.getMapForExcel(type.gameDataClass(), resourceDefinition);
+            // Get map for this excel
+            ResourceMap map = ResourceLoader.getMapForExcel(type.gameDataClass(), resourceDefinition);
 
             try {
-                loadFromResource(resourceDefinition, type, map);
+                int count = 0;
+                for (String name : type.name()) {
+                    count += loadFromResource(resourceDefinition, type, name, map);
+                }
+                
+                LunarCore.getLogger().info("Loaded " + count + " " + resourceDefinition.getSimpleName() + "s.");
             } catch (FileNotFoundException e) {
                 LunarCore.getLogger().error("Resource file not found: {}.", Arrays.toString(type.name()));
             } catch (Exception e) {
@@ -123,19 +130,8 @@ public class ResourceLoader {
         }
     }
 
-    @SuppressWarnings("rawtypes")
-    private static void loadFromResource(Class<?> c, ResourceType type, Int2ObjectMap map) throws Exception {
-        int count = 0;
-
-        for (String name : type.name()) {
-            count += loadFromResource(c, type, name, map);
-        }
-
-        LunarCore.getLogger().info("Loaded " + count + " " + c.getSimpleName() + "s.");
-    }
-
-    @SuppressWarnings({"rawtypes", "unchecked"})
-    private static <T> int loadFromResource(Class<T> c, ResourceType type, String fileName, Int2ObjectMap map) throws Exception {
+    private static <T> int loadFromResource(Class<T> c, ResourceType type, String fileName, ResourceMap<T> map) throws Exception {
+        // Get file name
         String file = LunarCore.getConfig().getResourceDir() + "/ExcelOutput/" + fileName;
 
         // Load reader from file
@@ -173,7 +169,7 @@ public class ResourceLoader {
                     stream = excels.values().stream();
                 } else {
                     // Nested Map
-                    Map<Integer, Map<Integer, T>> excels = gson.fromJson(json, TypeToken.getParameterized(Map.class, Integer.class, TypeToken.getParameterized(Map.class, Integer.class, c).getType()).getType());
+                    Map<String, Map<Integer, T>> excels = gson.fromJson(json, TypeToken.getParameterized(Map.class, String.class, TypeToken.getParameterized(Map.class, Integer.class, c).getType()).getType());
                     stream = excels.values().stream().flatMap(m -> m.values().stream());
                 }
             } else {
@@ -182,29 +178,32 @@ public class ResourceLoader {
 
             // Sanity check
             if (stream == null) return 0;
-
+            
             // Mutable integer
             AtomicInteger count = new AtomicInteger();
+            
+            // Put excels into 
+            stream.forEach(obj -> {
+                try {
+                    // Cast object to excel
+                    ResourceBase excel = (ResourceBase) obj;
+                    
+                    // Call onLoad event
+                    excel.onLoad();
 
-            stream.forEach(o -> {
-                GameResource res = (GameResource) o;
-                res.onLoad();
-
-                count.getAndIncrement();
-
-                if (map != null) {
-                    map.put(res.getId(), res);
+                    // Add to excel map
+                    if (map != null) {
+                        map.add(obj);
+                    }
+                    
+                    // Increment counter
+                    count.incrementAndGet();
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             });
-
-            if (map != null) {
-                map.forEach((k, v) -> {
-                    if (v instanceof GameResource) {
-                        ((GameResource) v).onFinalize();
-                    }
-                });
-            }
-
+            
+            // Return the amount of excels we loaded
             return count.get();
         }
     }
@@ -213,6 +212,9 @@ public class ResourceLoader {
     private static void loadFloorInfos() {
         // Load floor infos
         LunarCore.getLogger().info("Loading floor infos... this may take a while.");
+        long timestamp = System.currentTimeMillis();
+        
+        // Get floor directory
         File floorDir = new File(LunarCore.getConfig().getResourceDir() + "/Config/LevelOutput/RuntimeFloor/");
         boolean missingGroupInfos = false;
 
@@ -220,56 +222,118 @@ public class ResourceLoader {
             LunarCore.getLogger().warn("Floor infos are missing, please check your resources folder: {resources}/Config/LevelOutput/RuntimeFloor. Teleports and natural world spawns may not work!");
             return;
         }
+        
+        // Virtual thread list
+        List<Thread> threads = new ArrayList<>();
 
         // Load floor infos
         for (var excel : GameData.getMapEntranceExcelMap().values()) {
-            String name = "P" + excel.getPlaneID() + "_F" + excel.getFloorID();
-            File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/LevelOutput/RuntimeFloor/" + name + ".json");
+            Runnable task = () -> {
+                String name = "P" + excel.getPlaneID() + "_F" + excel.getFloorID();
+                File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/LevelOutput/RuntimeFloor/" + name + ".json");
+                
+                if (!file.exists()) {
+                    LunarCore.getLogger().warn("Missing floor info: " + name);
+                    return;
+                }
+                
+                try (FileReader reader = new FileReader(file)) {
+                    FloorInfo floor = gson.fromJson(reader, FloorInfo.class);
+                    
+                    synchronized (GameData.getFloorInfos()) {
+                        GameData.getFloorInfos().put(name, floor);
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            };
             
-            if (!file.exists()) {
-                LunarCore.getLogger().warn("Missing floor info: " + name);
-                continue;
-            }
-            
-            try (FileReader reader = new FileReader(file)) {
-                FloorInfo floor = gson.fromJson(reader, FloorInfo.class);
-                GameData.getFloorInfos().put(name, floor);
-            } catch (Exception e) {
+            // Start virtual thread
+            threads.add(Thread.ofVirtual().start(task));
+        }
+        
+        // Wait for floors to finish loading
+        for (var vt : threads) {
+            try {
+                vt.join();
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
                 e.printStackTrace();
             }
         }
+        
+        threads.clear();
 
-        // Load group infos
+        // Load floor + group infos
         for (FloorInfo floor : GameData.getFloorInfos().values()) {
-            for (FloorGroupSimpleInfo simpleGroup : floor.getSimpleGroupList()) {
+            // Get loadable groups
+            var loadableGroupList = new IntArrayList();
+            
+            var dimension = floor.getMainDimension();
+            if (dimension != null) {
+                loadableGroupList = dimension.getGroupIndexList();
+            }
+
+            // Load groups
+            for (int index : loadableGroupList) {
+                // Get group
+                FloorGroupSimpleInfo simpleGroup = floor.getSimpleGroupList().get(index);
+                
                 // Dont load "deprecated" groups
                 if (simpleGroup.isIsDelete()) {
                     continue;
                 }
                 
-                // Get file from resource directory
-                File file = new File(LunarCore.getConfig().getResourceDir() + "/" + simpleGroup.getGroupPath());
-                if (!file.exists()) continue;
-
-                // TODO optimize
-                try (FileReader reader = new FileReader(file)) {
-                    GroupInfo group = gson.fromJson(reader, GroupInfo.class);
-                    group.setId(simpleGroup.getID());
+                // Get group file from resource directory
+                Runnable task = () -> {
+                    File file = Paths.get(LunarCore.getConfig().getResourceDir(), simpleGroup.getGroupPath()).toFile();
                     
-                    // Load groups into the floor info
-                    floor.getGroupList().add(group);
-                    floor.getGroups().put(simpleGroup.getID(), group);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
+                    if (!file.exists()) {
+                        // temp fix
+                        file = Paths.get(LunarCore.getConfig().getResourceDir(), simpleGroup.getGroupPath().replace("/RuntimeGroup", "/SharedRuntimeGroup")).toFile();
+                        if (!file.exists()) {
+                            LunarCore.getLogger().warn("Group not found: " + simpleGroup.getGroupPath());
+                            return;
+                        }
+                    }
+        
+                    try (FileReader reader = new FileReader(file)) {
+                        // Parse group info
+                        GroupInfo group = gson.fromJson(reader, GroupInfo.class);
+                        group.setId(simpleGroup.getID());
+                        
+                        // Load groups into the floor info
+                        synchronized (floor.getGroups()) {
+                            floor.getGroups().put(simpleGroup.getID(), group);
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                };
+                
+                // Start virtual thread
+                threads.add(Thread.ofVirtual().start(task));
             }
-            
-            // Check if we are missing group infos
+        }
+        
+        // Wait for groups to finish loading
+        for (var vt : threads) {
+            try {
+                vt.join();
+            } catch (InterruptedException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+        }
+        
+        // Finish loading floors
+        for (FloorInfo floor : GameData.getFloorInfos().values()) {
+            // Check if we are missing group infos TODO broken
             if (floor.getGroups().size() == 0) {
                 LunarCore.getLogger().warn("Floor " + floor.getFloorID() + " is missing group infos.");
                 missingGroupInfos = true;
             }
-
+            
             // Post load callback to cache floor info
             floor.onLoad();
         }
@@ -280,7 +344,7 @@ public class ResourceLoader {
         }
         
         // Done
-        LunarCore.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " floor infos.");
+        LunarCore.getLogger().info("Loaded " + GameData.getFloorInfos().size() + " floor infos in " + (System.currentTimeMillis() - timestamp) + " ms.");
     }
 
     // Might be better to cache
@@ -300,6 +364,7 @@ public class ResourceLoader {
             if (!file.exists()) continue;
             
             try (FileReader reader = new FileReader(file)) {
+                //LunarCore.getLogger().info("Loading summon unit config: " + file.getName());
                 SummonUnitInfo info = gson.fromJson(reader, SummonUnitInfo.class);
                 info.buildMazeSkillActions();
                 
@@ -323,8 +388,12 @@ public class ResourceLoader {
         // Load maze abilities
         for (var avatarExcel : GameData.getAvatarExcelMap().values()) {
             // Get file
-            File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + avatarExcel.getNameKey() + "_Ability.json");
-            if (!file.exists()) continue;
+            String name = avatarExcel.getNameKey();
+            File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/ConfigAdventureAbility/LocalPlayer/LocalPlayer_" + name + "_Ability.json");
+            if (!file.exists()) {
+                LunarCore.getLogger().warn("Maze ability is missing for avatar: " + name);
+                continue;
+            }
 
             try (FileReader reader = new FileReader(file)) {
                 SkillAbilityInfo avatarSkills = gson.fromJson(reader, SkillAbilityInfo.class);
@@ -346,89 +415,32 @@ public class ResourceLoader {
         LunarCore.getLogger().info("Loaded " + count + " maze abilities for avatars.");
     }
     
-    // Might be better to cache
-    private static void loadRogueDialogueEvent() {
-        // Loaded configs count
+    private static void loadMissionInfo() {
         int count = 0;
-        
-        // Load dialogue event configs
-        for (var npcEventExcel : GameData.getRogueNPCExcelMap().values()) {
-            // Get file
-            if (npcEventExcel.getNPCJsonPath().isEmpty()) {
-                count++;
-                continue;
-            }
-            
-            File file = new File(LunarCore.getConfig().getResourceDir() + "/" + npcEventExcel.getNPCJsonPath());
-            if (!file.exists()) {
-                continue;
-            }
-
+        int countTask = 0;
+        for (Integer mMissionId : GameData.getMainMissionIds()) {
+            File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/Level/Mission/" + mMissionId + "/" + "MissionInfo_" + mMissionId + ".json");
+            if (!file.exists()) continue;
             try (FileReader reader = new FileReader(file)) {
-                RogueNPCConfigInfo info = gson.fromJson(reader, RogueNPCConfigInfo.class);
-                npcEventExcel.setRogueNpcConfig(info);
-                
-                // Load dialogue option
-                for (var dialogue : info.DialogueList) {
-                    if (dialogue.getOptionPath() == null) {
-                        continue;
-                    }
-                    
-                    File optionFile = new File(LunarCore.getConfig().getResourceDir() + "/" + dialogue.getOptionPath());
-                    if (!file.exists()) {
-                        continue;
-                    }
-                    
-                    try (FileReader optionFileReader = new FileReader(optionFile)) {
-                        RogueDialogueEventConfigInfo optionInfo = gson.fromJson(optionFileReader, RogueDialogueEventConfigInfo.class);
-                        dialogue.setOptionInfo(optionInfo);
-                    } catch (Exception e) {
-                        e.printStackTrace();
+                MissionInfo info = gson.fromJson(reader, MissionInfo.class);
+                for (MissionInfo.SubMissionInfo setme : info.getSubMissionList()) {
+                    File taskFile = new File(LunarCore.getConfig().getResourceDir() + "/Config/Level/Mission/" + setme.getMainMissionID() + "/" + "Mission_" + setme.getId() + ".json");
+                    if (!taskFile.exists()) continue;
+                    try (FileReader readerTask = new FileReader(taskFile)) {
+                        MissionTaskInfo infoTask = gson.fromJson(readerTask, MissionTaskInfo.class);
+                        setme.setTask(infoTask);
+                        countTask++;
+                    } catch (Exception ex) {
+                        LunarCore.getLogger().warn("Failed to load task mission info: " + taskFile.getName(), ex);
                     }
                 }
-                
+                // Update GameData with the modified MissionInfo object
+                GameData.getMissionInfos().put(info.getMainMissionID(), info);
                 count++;
             } catch (Exception e) {
-                e.printStackTrace();
+                LunarCore.getLogger().warn("Failed to load mission info: " + file.getName(), e);
             }
         }
-
-        // Notify the server owner if we are missing any files
-        if (count < GameData.getRogueNPCExcelMap().size()) {
-            LunarCore.getLogger().warn("Rogue dialogue event configs are missing, please check your resources folder: {resources}/Config/Level/Rogue/. Rogue event may not work!");
-        }
-        
-        // Done
-        LunarCore.getLogger().info("Loaded " + count + " rogue events.");
-    }
-
-    private static void loadRogueMapGen() {
-        File file = new File(LunarCore.getConfig().getDataDir() + "/RogueMapGen.json");
-        if (!file.exists()) {
-            LunarCore.getLogger().warn("RogueMapGen not found in data folder. Simulated universe will not work.");
-            return;
-        }
-
-        try (FileReader reader = new FileReader(file)) {
-            Map<Integer, int[]> rogue = gson.fromJson(reader, TypeToken.getParameterized(Map.class, Integer.class, int[].class).getType());
-
-            for (var entry : rogue.entrySet()) {
-                GameDepot.getRogueMapGen().put(entry.getKey().intValue(), entry.getValue());
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
-    
-    private static void loadActivityScheduleConfig() {
-        File file = new File(LunarCore.getConfig().getDataDir() + "/ActivityScheduling.json");
-        if (!file.exists()) return;
-
-        try (FileReader reader = new FileReader(file)) {
-            List<ActivityScheduleData> activityScheduleConfig = gson.fromJson(reader, TypeToken.getParameterized(List.class, ActivityScheduleData.class).getType());
-            GameDepot.getActivityScheduleExcels().addAll(activityScheduleConfig);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
+        LunarCore.getLogger().info("Loaded " + count + " mission infos (task " + countTask + ").");    
     }
 }

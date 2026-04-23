@@ -13,7 +13,7 @@ public class PacketEnterSceneByServerScNotify extends BasePacket {
         var data = EnterSceneByServerScNotify.newInstance()
                 .setLineup(player.getCurrentLineup().toProto())
                 .setScene(player.getScene().toProto());
-        
+
         this.setData(data);
     }
 }

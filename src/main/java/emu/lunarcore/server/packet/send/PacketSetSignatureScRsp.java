@@ -9,10 +9,10 @@ public class PacketSetSignatureScRsp extends BasePacket {
 
     public PacketSetSignatureScRsp(Player player) {
         super(CmdId.SetSignatureScRsp);
-        
+
         var data = SetSignatureScRsp.newInstance()
                 .setSignature(player.getSignature());
-        
+
         this.setData(data);
     }
 }

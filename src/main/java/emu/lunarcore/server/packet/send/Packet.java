@@ -7,7 +7,7 @@ public class Packet extends BasePacket {
 
     public Packet() {
         super(CmdId.NONE);
-        
+
         // Template - Do not delete!
     }
 }

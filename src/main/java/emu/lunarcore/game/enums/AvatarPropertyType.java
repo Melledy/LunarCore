@@ -65,7 +65,24 @@ public enum AvatarPropertyType {
     BreakDamageAddedRatioBase (59),
     MaxSP (60),
     Count (61),
-    SpecialMaxSP (62);
+    SpecialMaxSP (62),
+    ExtraAttackAddedRatio1 (63),
+    ExtraAttackAddedRatio2 (64),
+    ExtraAttackAddedRatio3 (65),
+    ExtraAttackAddedRatio4 (66),
+    ExtraDefenceAddedRatio1 (67),
+    ExtraDefenceAddedRatio2 (68),
+    ExtraDefenceAddedRatio3 (69),
+    ExtraDefenceAddedRatio4 (70),
+    ExtraHPAddedRatio1 (71),
+    ExtraHPAddedRatio2 (72),
+    ExtraHPAddedRatio3 (73),
+    ExtraHPAddedRatio4 (74),
+    ExtraHealAddedRadio (75),
+    ExtraAllDamageTypeAddedRatio1 (76),
+    ExtraAllDamageTypeAddedRatio2 (77),
+    ExtraAllDamageTypeAddedRatio3 (78),
+    ExtraAllDamageTypeAddedRatio4 (79);
 
     @Getter
     private int val;

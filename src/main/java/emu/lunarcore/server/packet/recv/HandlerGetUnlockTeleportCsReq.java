@@ -13,7 +13,7 @@ public class HandlerGetUnlockTeleportCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetUnlockTeleportCsReq.parseFrom(data);
-        
+
         session.send(new PacketGetUnlockTeleportScRsp(req.getEntryIdList()));
     }
 

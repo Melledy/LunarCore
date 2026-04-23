@@ -11,30 +11,30 @@ import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
 
-public final class PlayerHeartbeatCsReqOuterClass {
+public final class PlayerHeartBeatCsReqOuterClass {
   /**
-   * Protobuf type {@code PlayerHeartbeatCsReq}
+   * Protobuf type {@code PlayerHeartBeatCsReq}
    */
-  public static final class PlayerHeartbeatCsReq extends ProtoMessage<PlayerHeartbeatCsReq> implements Cloneable {
+  public static final class PlayerHeartBeatCsReq extends ProtoMessage<PlayerHeartBeatCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 3;</code>
      */
     private long clientTimeMs;
 
-    private PlayerHeartbeatCsReq() {
+    private PlayerHeartBeatCsReq() {
     }
 
     /**
-     * @return a new empty instance of {@code PlayerHeartbeatCsReq}
+     * @return a new empty instance of {@code PlayerHeartBeatCsReq}
      */
-    public static PlayerHeartbeatCsReq newInstance() {
-      return new PlayerHeartbeatCsReq();
+    public static PlayerHeartBeatCsReq newInstance() {
+      return new PlayerHeartBeatCsReq();
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 3;</code>
      * @return whether the clientTimeMs field is set
      */
     public boolean hasClientTimeMs() {
@@ -42,17 +42,17 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 3;</code>
      * @return this
      */
-    public PlayerHeartbeatCsReq clearClientTimeMs() {
+    public PlayerHeartBeatCsReq clearClientTimeMs() {
       bitField0_ &= ~0x00000001;
       clientTimeMs = 0L;
       return this;
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 3;</code>
      * @return the clientTimeMs
      */
     public long getClientTimeMs() {
@@ -60,18 +60,18 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint64 client_time_ms = 11;</code>
+     * <code>optional uint64 client_time_ms = 3;</code>
      * @param value the clientTimeMs to set
      * @return this
      */
-    public PlayerHeartbeatCsReq setClientTimeMs(final long value) {
+    public PlayerHeartBeatCsReq setClientTimeMs(final long value) {
       bitField0_ |= 0x00000001;
       clientTimeMs = value;
       return this;
     }
 
     @Override
-    public PlayerHeartbeatCsReq copyFrom(final PlayerHeartbeatCsReq other) {
+    public PlayerHeartBeatCsReq copyFrom(final PlayerHeartBeatCsReq other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
@@ -81,7 +81,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatCsReq mergeFrom(final PlayerHeartbeatCsReq other) {
+    public PlayerHeartBeatCsReq mergeFrom(final PlayerHeartBeatCsReq other) {
       if (other.isEmpty()) {
         return this;
       }
@@ -93,7 +93,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatCsReq clear() {
+    public PlayerHeartBeatCsReq clear() {
       if (isEmpty()) {
         return this;
       }
@@ -104,7 +104,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatCsReq clearQuick() {
+    public PlayerHeartBeatCsReq clearQuick() {
       if (isEmpty()) {
         return this;
       }
@@ -118,10 +118,10 @@ public final class PlayerHeartbeatCsReqOuterClass {
       if (o == this) {
         return true;
       }
-      if (!(o instanceof PlayerHeartbeatCsReq)) {
+      if (!(o instanceof PlayerHeartBeatCsReq)) {
         return false;
       }
-      PlayerHeartbeatCsReq other = (PlayerHeartbeatCsReq) o;
+      PlayerHeartBeatCsReq other = (PlayerHeartBeatCsReq) o;
       return bitField0_ == other.bitField0_
         && (!hasClientTimeMs() || clientTimeMs == other.clientTimeMs);
     }
@@ -129,7 +129,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 24);
         output.writeUInt64NoTag(clientTimeMs);
       }
     }
@@ -145,12 +145,12 @@ public final class PlayerHeartbeatCsReqOuterClass {
 
     @Override
     @SuppressWarnings("fallthrough")
-    public PlayerHeartbeatCsReq mergeFrom(final ProtoSource input) throws IOException {
+    public PlayerHeartBeatCsReq mergeFrom(final ProtoSource input) throws IOException {
       // Enabled Fall-Through Optimization (QuickBuffers)
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 24: {
             // clientTimeMs
             clientTimeMs = input.readUInt64();
             bitField0_ |= 0x00000001;
@@ -183,7 +183,7 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatCsReq mergeFrom(final JsonSource input) throws IOException {
+    public PlayerHeartBeatCsReq mergeFrom(final JsonSource input) throws IOException {
       if (!input.beginObject()) {
         return this;
       }
@@ -212,8 +212,8 @@ public final class PlayerHeartbeatCsReqOuterClass {
     }
 
     @Override
-    public PlayerHeartbeatCsReq clone() {
-      return new PlayerHeartbeatCsReq().copyFrom(this);
+    public PlayerHeartBeatCsReq clone() {
+      return new PlayerHeartBeatCsReq().copyFrom(this);
     }
 
     @Override
@@ -221,32 +221,32 @@ public final class PlayerHeartbeatCsReqOuterClass {
       return ((bitField0_) == 0);
     }
 
-    public static PlayerHeartbeatCsReq parseFrom(final byte[] data) throws
+    public static PlayerHeartBeatCsReq parseFrom(final byte[] data) throws
         InvalidProtocolBufferException {
-      return ProtoMessage.mergeFrom(new PlayerHeartbeatCsReq(), data).checkInitialized();
+      return ProtoMessage.mergeFrom(new PlayerHeartBeatCsReq(), data).checkInitialized();
     }
 
-    public static PlayerHeartbeatCsReq parseFrom(final ProtoSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new PlayerHeartbeatCsReq(), input).checkInitialized();
+    public static PlayerHeartBeatCsReq parseFrom(final ProtoSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new PlayerHeartBeatCsReq(), input).checkInitialized();
     }
 
-    public static PlayerHeartbeatCsReq parseFrom(final JsonSource input) throws IOException {
-      return ProtoMessage.mergeFrom(new PlayerHeartbeatCsReq(), input).checkInitialized();
+    public static PlayerHeartBeatCsReq parseFrom(final JsonSource input) throws IOException {
+      return ProtoMessage.mergeFrom(new PlayerHeartBeatCsReq(), input).checkInitialized();
     }
 
     /**
-     * @return factory for creating PlayerHeartbeatCsReq messages
+     * @return factory for creating PlayerHeartBeatCsReq messages
      */
-    public static MessageFactory<PlayerHeartbeatCsReq> getFactory() {
-      return PlayerHeartbeatCsReqFactory.INSTANCE;
+    public static MessageFactory<PlayerHeartBeatCsReq> getFactory() {
+      return PlayerHeartBeatCsReqFactory.INSTANCE;
     }
 
-    private enum PlayerHeartbeatCsReqFactory implements MessageFactory<PlayerHeartbeatCsReq> {
+    private enum PlayerHeartBeatCsReqFactory implements MessageFactory<PlayerHeartBeatCsReq> {
       INSTANCE;
 
       @Override
-      public PlayerHeartbeatCsReq create() {
-        return PlayerHeartbeatCsReq.newInstance();
+      public PlayerHeartBeatCsReq create() {
+        return PlayerHeartBeatCsReq.newInstance();
       }
     }
 

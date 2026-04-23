@@ -9,7 +9,7 @@ import emu.lunarcore.server.packet.send.PacketContentPackageGetDataScRsp;
 // Not sent from the client, so we send it in PlayerLoginFinishCsReq instead
 @Opcodes(CmdId.ContentPackageGetDataCsReq)
 public class HandlerContentPackageGetDataCsReq extends PacketHandler {
-    
+
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         session.send(new PacketContentPackageGetDataScRsp());

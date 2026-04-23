@@ -112,7 +112,7 @@ public class GachaService extends BaseGameService {
                 getGachaBanners().put(banner.getId(), banner);
             }
         } catch (Exception e) {
-            LunarCore.getLogger().warn("No gacha banners loaded!");
+            LunarCore.getLogger().warn("Error loading gacha banners: ", e);
         }
     }
 

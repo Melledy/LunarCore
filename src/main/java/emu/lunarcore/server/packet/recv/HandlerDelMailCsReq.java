@@ -14,9 +14,9 @@ public class HandlerDelMailCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = DelMailCsReq.parseFrom(data);
-        
+
         IntList deleted = session.getPlayer().getMailbox().deleteMail(req.getIdList());
-        
+
         session.send(new PacketDelMailScRsp(deleted));
     }
 

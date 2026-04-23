@@ -16,9 +16,9 @@ public class HandlerTakeMailAttachmentCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = TakeMailAttachmentCsReq.parseFrom(data);
-        
+
         List<Mail> attachments = session.getPlayer().getMailbox().takeMailAttachments(req.getMailIdList());
-        
+
         session.send(new PacketTakeMailAttachmentScRsp(attachments));
     }
 

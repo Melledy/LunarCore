@@ -21,7 +21,7 @@ public class PacketExpUpRelicScRsp extends BasePacket {
         } else {
             data.setRetcode(1);
         }
-        
+
         this.setData(data);
     }
 }

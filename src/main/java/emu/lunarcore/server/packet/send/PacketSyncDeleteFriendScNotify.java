@@ -8,10 +8,10 @@ public class PacketSyncDeleteFriendScNotify extends BasePacket {
 
     public PacketSyncDeleteFriendScNotify(int uid) {
         super(CmdId.SyncDeleteFriendScNotify);
-        
+
         var data = SyncDeleteFriendScNotify.newInstance()
                 .setUid(uid);
-        
+
         this.setData(data);
     }
 }

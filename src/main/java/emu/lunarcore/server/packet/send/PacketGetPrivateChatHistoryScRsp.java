@@ -11,16 +11,16 @@ public class PacketGetPrivateChatHistoryScRsp extends BasePacket {
 
     public PacketGetPrivateChatHistoryScRsp(int targetUid, Collection<ChatMessage> messages) {
         super(CmdId.GetPrivateChatHistoryScRsp);
-        
+
         var data = GetPrivateChatHistoryScRsp.newInstance()
                 .setToUid(targetUid);
-        
+
         if (messages != null) {
             for (var message : messages) {
                 data.addChatList(message.toProto());
             }
         }
-        
+
         this.setData(data);
     }
 }

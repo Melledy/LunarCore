@@ -8,10 +8,10 @@ public class PacketUpdateServerPrefsDataScRsp extends BasePacket {
 
     public PacketUpdateServerPrefsDataScRsp(int id) {
         super(CmdId.UpdateServerPrefsDataScRsp);
-        
+
         var data = UpdateServerPrefsDataScRsp.newInstance()
                 .setServerPrefsId(id);
-        
+
         this.setData(data);
     }
 }

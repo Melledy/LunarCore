@@ -13,7 +13,7 @@ public class PacketExpUpEquipmentScRsp extends BasePacket {
         super(CmdId.ExpUpEquipmentScRsp);
 
         var data = ExpUpEquipmentScRsp.newInstance();
-        
+
         if (returnItems != null) {
             for (GameItem item : returnItems) {
                 data.addReturnItemList(item.toPileProto());
@@ -21,8 +21,8 @@ public class PacketExpUpEquipmentScRsp extends BasePacket {
         } else {
             data.setRetcode(1);
         }
-        
+
         this.setData(data);
     }
-    
+
 }

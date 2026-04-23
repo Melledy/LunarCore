@@ -30,7 +30,7 @@ public class BattleService extends BaseGameService {
         super(server);
     }
 
-    public void startBattle(Player player, int casterId, int attackedGroupId, MazeSkill castedSkill, IntSet hitTargets, IntSet assistMonsters) {
+    public void attack(Player player, int casterId, int attackedGroupId, MazeSkill castedSkill, IntSet hitTargets, IntSet assistMonsters) {
         // Setup variables
         List<GameEntity> targets = new ArrayList<>();
         GameAvatar castingAvatar = null;
@@ -160,14 +160,9 @@ public class BattleService extends BaseGameService {
                 battle.addBuff(GameConstants.BATTLE_AMBUSH_BUFF_ID, -1, 1);
             }
             
-            // Challenge
-            if (player.getChallengeInstance() != null) {
-                player.getChallengeInstance().onBattleStart(battle);
-            }
-            
-            // Rogue
-            if (player.getRogueInstance() != null) {
-                player.getRogueInstance().onBattleStart(battle);
+            // Player game instance callback
+            if (player.getInstance() != null) {
+                player.getInstance().onBattleStart(battle);
             }
             
             // Set battle and send rsp packet
@@ -180,59 +175,56 @@ public class BattleService extends BaseGameService {
         player.sendPacket(new PacketSceneCastSkillScRsp(attackedGroupId));
     }
     
-    public void startBattle(Player player, int stageId) {
+    public Battle startBattle(Player player, int stageId, int worldLevel) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
-            player.sendPacket(new PacketSceneEnterStageScRsp(player.getBattle()));
-            return;
+            return null;
+        }
+        
+        // Use stage event if found
+        var configEvent = GameData.getPlaneEventExcelMap().get(stageId, worldLevel);
+        int battleStageId = stageId;
+        
+        if (configEvent != null) {
+            battleStageId = configEvent.getStageId();
         }
         
         // Get stage
-        StageExcel stage = GameData.getStageExcelMap().get(stageId);
-        if (stage == null) {
-            player.sendPacket(new PacketSceneCastSkillScRsp());
-            return;
-        }
-        
+        StageExcel stage = GameData.getStageExcelMap().get(battleStageId);
+        if (stage == null) return null;
+
         // Create new battle for player
         Battle battle = new Battle(player, player.getCurrentLineup(), stage);
-
-        // Challenge
-        if (player.getChallengeInstance() != null) {
-            player.getChallengeInstance().onBattleStart(battle);
-        }
-
-        // Rogue
-        if (player.getRogueInstance() != null) {
-            player.getRogueInstance().onBattleStart(battle);
-        }
-        
         player.setBattle(battle);
         
+        // Player game instance callback
+        if (player.getInstance() != null) {
+            player.getInstance().onBattleStart(battle);
+        }
+        
         // Send packet
-        player.sendPacket(new PacketSceneEnterStageScRsp(battle));
+        return battle;
     }
     
-    public void startCocoon(Player player, int cocoonId, int worldLevel, int wave) {
+    public Battle startCocoon(Player player, int cocoonId, int worldLevel, int wave) {
         // Sanity check to make sure player isnt in a battle
         if (player.isInBattle()) {
-            return;
+            return null;
         }
         
         // Get cocoon data
-        CocoonExcel cocoonExcel = GameData.getCocoonExcel(cocoonId, worldLevel);
+        CocoonExcel cocoonExcel = GameData.getCocoonExcelMap().get(cocoonId, worldLevel);
         if (cocoonExcel == null) {
-            player.sendPacket(new PacketStartCocoonStageScRsp());
-            return;
+            return null;
         }
         
         // Get waves
-        wave = Math.min(Math.max(1, wave), cocoonExcel.getMaxWave());
+        wave = Math.min(Math.max(1, wave), cocoonExcel.getMaxChallengeCnt());
         
         // Sanity check stamina
         int cost = cocoonExcel.getStaminaCost() * wave;
         if (player.getStamina() < cost) {
-            return;
+            return null;
         }
         
         // Get stages from cocoon
@@ -248,8 +240,7 @@ public class BattleService extends BaseGameService {
         
         // Sanity
         if (stages.size() <= 0) {
-            player.sendPacket(new PacketStartCocoonStageScRsp());
-            return;
+            return null;
         }
         
         // Build battle from cocoon data
@@ -260,9 +251,8 @@ public class BattleService extends BaseGameService {
         battle.setStaminaCost(cost);
         
         player.setBattle(battle);
-        
-        // Send packet
-        player.sendPacket(new PacketStartCocoonStageScRsp(battle, cocoonId, wave));
+
+        return battle;
     }
 
     public Battle finishBattle(Player player, BattleEndStatus result, BattleStatistics stats) {
@@ -271,11 +261,15 @@ public class BattleService extends BaseGameService {
             return null;
         }
         
-        // Get battle object and setup variables
+        // Get battle object
         Battle battle = player.getBattle();
-        battle.setResult(result);
-        int minimumHp = 0;
         
+        // Set results
+        battle.setResult(result);
+        battle.setStats(stats);
+        
+        // For handling battle result
+        int minimumHp = 0;
         boolean updateStatus = true;
         boolean teleportToAnchor = false;
         
@@ -350,19 +344,14 @@ public class BattleService extends BaseGameService {
             }
         }
         
-        // Challenge
-        if (player.getChallengeInstance() != null) {
-            player.getChallengeInstance().onBattleFinish(battle, result, stats);
-        }
-        
-        // Rogue
-        if (player.getRogueInstance() != null) {
-            player.getRogueInstance().onBattleFinish(battle, result, stats);
+        // Player game instance callback
+        if (player.getInstance() != null) {
+            player.getInstance().onBattleFinish(battle, result, stats);
         }
         
         // Battle callback
         if (battle.getOnFinish() != null) {
-            battle.getOnFinish().accept(stats);
+            battle.getOnFinish().accept(battle);
         }
         
         // Done - Clear battle object from player
@@ -392,7 +381,7 @@ public class BattleService extends BaseGameService {
         // Get mapping info id
         int mappingInfoId = ((stageId / 10) % 100) + 1100;
         int mappingInfoLevel = stageId % 10;
-        var mappingInfoExcel = GameData.getMappingInfoExcel(mappingInfoId, mappingInfoLevel);
+        var mappingInfoExcel = GameData.getMappingInfoExcelMap().get(mappingInfoId, mappingInfoLevel);
         if (mappingInfoExcel != null && mappingInfoExcel.getFarmType() != null && mappingInfoExcel.getFarmType().equals("ELEMENT")) {
             battle.setMappingInfoId(mappingInfoId);
             battle.setWorldLevel(mappingInfoLevel);

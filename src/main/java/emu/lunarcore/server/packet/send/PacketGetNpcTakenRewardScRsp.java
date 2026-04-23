@@ -8,10 +8,10 @@ public class PacketGetNpcTakenRewardScRsp extends BasePacket {
 
     public PacketGetNpcTakenRewardScRsp(int npcId) {
         super(CmdId.GetNpcTakenRewardScRsp);
-        
+
         var data = GetNpcTakenRewardScRsp.newInstance()
                 .setNpcId(npcId);
-        
+
         this.setData(data);
     }
 }

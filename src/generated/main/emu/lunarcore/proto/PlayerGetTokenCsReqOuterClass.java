@@ -20,19 +20,19 @@ public final class PlayerGetTokenCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 platform_type = 3;</code>
+     * <code>optional uint32 platform_type = 10;</code>
      */
     private int platformType;
 
     /**
-     * <code>optional string token = 4;</code>
-     */
-    private final Utf8String token = Utf8String.newEmptyInstance();
-
-    /**
-     * <code>optional string account_uid = 10;</code>
+     * <code>optional string account_uid = 2;</code>
      */
     private final Utf8String accountUid = Utf8String.newEmptyInstance();
+
+    /**
+     * <code>optional string token = 7;</code>
+     */
+    private final Utf8String token = Utf8String.newEmptyInstance();
 
     private PlayerGetTokenCsReq() {
     }
@@ -45,7 +45,7 @@ public final class PlayerGetTokenCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 platform_type = 3;</code>
+     * <code>optional uint32 platform_type = 10;</code>
      * @return whether the platformType field is set
      */
     public boolean hasPlatformType() {
@@ -53,7 +53,7 @@ public final class PlayerGetTokenCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 platform_type = 3;</code>
+     * <code>optional uint32 platform_type = 10;</code>
      * @return this
      */
     public PlayerGetTokenCsReq clearPlatformType() {
@@ -63,7 +63,7 @@ public final class PlayerGetTokenCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 platform_type = 3;</code>
+     * <code>optional uint32 platform_type = 10;</code>
      * @return the platformType
      */
     public int getPlatformType() {
@@ -71,7 +71,7 @@ public final class PlayerGetTokenCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 platform_type = 3;</code>
+     * <code>optional uint32 platform_type = 10;</code>
      * @param value the platformType to set
      * @return this
      */
@@ -82,90 +82,25 @@ public final class PlayerGetTokenCsReqOuterClass {
     }
 
     /**
-     * <code>optional string token = 4;</code>
-     * @return whether the token field is set
+     * <code>optional string account_uid = 2;</code>
+     * @return whether the accountUid field is set
      */
-    public boolean hasToken() {
+    public boolean hasAccountUid() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional string token = 4;</code>
-     * @return this
-     */
-    public PlayerGetTokenCsReq clearToken() {
-      bitField0_ &= ~0x00000002;
-      token.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional string token = 4;</code>
-     * @return the token
-     */
-    public String getToken() {
-      return token.getString();
-    }
-
-    /**
-     * <code>optional string token = 4;</code>
-     * @return internal {@code Utf8String} representation of token for reading
-     */
-    public Utf8String getTokenBytes() {
-      return this.token;
-    }
-
-    /**
-     * <code>optional string token = 4;</code>
-     * @return internal {@code Utf8String} representation of token for modifications
-     */
-    public Utf8String getMutableTokenBytes() {
-      bitField0_ |= 0x00000002;
-      return this.token;
-    }
-
-    /**
-     * <code>optional string token = 4;</code>
-     * @param value the token to set
-     * @return this
-     */
-    public PlayerGetTokenCsReq setToken(final CharSequence value) {
-      bitField0_ |= 0x00000002;
-      token.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string token = 4;</code>
-     * @param value the token to set
-     * @return this
-     */
-    public PlayerGetTokenCsReq setToken(final Utf8String value) {
-      bitField0_ |= 0x00000002;
-      token.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional string account_uid = 10;</code>
-     * @return whether the accountUid field is set
-     */
-    public boolean hasAccountUid() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional string account_uid = 10;</code>
+     * <code>optional string account_uid = 2;</code>
      * @return this
      */
     public PlayerGetTokenCsReq clearAccountUid() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       accountUid.clear();
       return this;
     }
 
     /**
-     * <code>optional string account_uid = 10;</code>
+     * <code>optional string account_uid = 2;</code>
      * @return the accountUid
      */
     public String getAccountUid() {
@@ -173,7 +108,7 @@ public final class PlayerGetTokenCsReqOuterClass {
     }
 
     /**
-     * <code>optional string account_uid = 10;</code>
+     * <code>optional string account_uid = 2;</code>
      * @return internal {@code Utf8String} representation of accountUid for reading
      */
     public Utf8String getAccountUidBytes() {
@@ -181,33 +116,98 @@ public final class PlayerGetTokenCsReqOuterClass {
     }
 
     /**
-     * <code>optional string account_uid = 10;</code>
+     * <code>optional string account_uid = 2;</code>
      * @return internal {@code Utf8String} representation of accountUid for modifications
      */
     public Utf8String getMutableAccountUidBytes() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       return this.accountUid;
     }
 
     /**
-     * <code>optional string account_uid = 10;</code>
+     * <code>optional string account_uid = 2;</code>
      * @param value the accountUid to set
      * @return this
      */
     public PlayerGetTokenCsReq setAccountUid(final CharSequence value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       accountUid.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string account_uid = 10;</code>
+     * <code>optional string account_uid = 2;</code>
      * @param value the accountUid to set
      * @return this
      */
     public PlayerGetTokenCsReq setAccountUid(final Utf8String value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       accountUid.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional string token = 7;</code>
+     * @return whether the token field is set
+     */
+    public boolean hasToken() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional string token = 7;</code>
+     * @return this
+     */
+    public PlayerGetTokenCsReq clearToken() {
+      bitField0_ &= ~0x00000004;
+      token.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional string token = 7;</code>
+     * @return the token
+     */
+    public String getToken() {
+      return token.getString();
+    }
+
+    /**
+     * <code>optional string token = 7;</code>
+     * @return internal {@code Utf8String} representation of token for reading
+     */
+    public Utf8String getTokenBytes() {
+      return this.token;
+    }
+
+    /**
+     * <code>optional string token = 7;</code>
+     * @return internal {@code Utf8String} representation of token for modifications
+     */
+    public Utf8String getMutableTokenBytes() {
+      bitField0_ |= 0x00000004;
+      return this.token;
+    }
+
+    /**
+     * <code>optional string token = 7;</code>
+     * @param value the token to set
+     * @return this
+     */
+    public PlayerGetTokenCsReq setToken(final CharSequence value) {
+      bitField0_ |= 0x00000004;
+      token.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional string token = 7;</code>
+     * @param value the token to set
+     * @return this
+     */
+    public PlayerGetTokenCsReq setToken(final Utf8String value) {
+      bitField0_ |= 0x00000004;
+      token.copyFrom(value);
       return this;
     }
 
@@ -217,8 +217,8 @@ public final class PlayerGetTokenCsReqOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         platformType = other.platformType;
-        token.copyFrom(other.token);
         accountUid.copyFrom(other.accountUid);
+        token.copyFrom(other.token);
       }
       return this;
     }
@@ -232,11 +232,11 @@ public final class PlayerGetTokenCsReqOuterClass {
       if (other.hasPlatformType()) {
         setPlatformType(other.platformType);
       }
-      if (other.hasToken()) {
-        getMutableTokenBytes().copyFrom(other.token);
-      }
       if (other.hasAccountUid()) {
         getMutableAccountUidBytes().copyFrom(other.accountUid);
+      }
+      if (other.hasToken()) {
+        getMutableTokenBytes().copyFrom(other.token);
       }
       return this;
     }
@@ -249,8 +249,8 @@ public final class PlayerGetTokenCsReqOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       platformType = 0;
-      token.clear();
       accountUid.clear();
+      token.clear();
       return this;
     }
 
@@ -261,8 +261,8 @@ public final class PlayerGetTokenCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      token.clear();
       accountUid.clear();
+      token.clear();
       return this;
     }
 
@@ -277,23 +277,23 @@ public final class PlayerGetTokenCsReqOuterClass {
       PlayerGetTokenCsReq other = (PlayerGetTokenCsReq) o;
       return bitField0_ == other.bitField0_
         && (!hasPlatformType() || platformType == other.platformType)
-        && (!hasToken() || token.equals(other.token))
-        && (!hasAccountUid() || accountUid.equals(other.accountUid));
+        && (!hasAccountUid() || accountUid.equals(other.accountUid))
+        && (!hasToken() || token.equals(other.token));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(platformType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 34);
-        output.writeStringNoTag(token);
+        output.writeRawByte((byte) 18);
+        output.writeStringNoTag(accountUid);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 82);
-        output.writeStringNoTag(accountUid);
+        output.writeRawByte((byte) 58);
+        output.writeStringNoTag(token);
       }
     }
 
@@ -304,10 +304,10 @@ public final class PlayerGetTokenCsReqOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(platformType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(token);
+        size += 1 + ProtoSink.computeStringSizeNoTag(accountUid);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeStringSizeNoTag(accountUid);
+        size += 1 + ProtoSink.computeStringSizeNoTag(token);
       }
       return size;
     }
@@ -319,27 +319,27 @@ public final class PlayerGetTokenCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 80: {
             // platformType
             platformType = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 18) {
               break;
             }
           }
-          case 34: {
-            // token
-            input.readString(token);
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
-            if (tag != 82) {
-              break;
-            }
-          }
-          case 82: {
+          case 18: {
             // accountUid
             input.readString(accountUid);
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 58) {
+              break;
+            }
+          }
+          case 58: {
+            // token
+            input.readString(token);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -367,10 +367,10 @@ public final class PlayerGetTokenCsReqOuterClass {
         output.writeUInt32(FieldNames.platformType, platformType);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeString(FieldNames.token, token);
+        output.writeString(FieldNames.accountUid, accountUid);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeString(FieldNames.accountUid, accountUid);
+        output.writeString(FieldNames.token, token);
       }
       output.endObject();
     }
@@ -394,10 +394,11 @@ public final class PlayerGetTokenCsReqOuterClass {
             }
             break;
           }
-          case 110541305: {
-            if (input.isAtField(FieldNames.token)) {
+          case -803342621:
+          case 866492222: {
+            if (input.isAtField(FieldNames.accountUid)) {
               if (!input.trySkipNullValue()) {
-                input.readString(token);
+                input.readString(accountUid);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -405,11 +406,10 @@ public final class PlayerGetTokenCsReqOuterClass {
             }
             break;
           }
-          case -803342621:
-          case 866492222: {
-            if (input.isAtField(FieldNames.accountUid)) {
+          case 110541305: {
+            if (input.isAtField(FieldNames.token)) {
               if (!input.trySkipNullValue()) {
-                input.readString(accountUid);
+                input.readString(token);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -472,9 +472,9 @@ public final class PlayerGetTokenCsReqOuterClass {
     static class FieldNames {
       static final FieldName platformType = FieldName.forField("platformType", "platform_type");
 
-      static final FieldName token = FieldName.forField("token");
-
       static final FieldName accountUid = FieldName.forField("accountUid", "account_uid");
+
+      static final FieldName token = FieldName.forField("token");
     }
   }
 }

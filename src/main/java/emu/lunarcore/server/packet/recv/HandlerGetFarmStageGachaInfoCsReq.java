@@ -13,7 +13,7 @@ public class HandlerGetFarmStageGachaInfoCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetFarmStageGachaInfoCsReq.parseFrom(data);
-        
+
         session.send(new PacketGetFarmStageGachaInfoScRsp(req.getFarmStageGachaIdList()));
     }
 

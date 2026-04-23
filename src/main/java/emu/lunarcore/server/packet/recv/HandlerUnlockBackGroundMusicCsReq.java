@@ -1,10 +1,11 @@
 package emu.lunarcore.server.packet.recv;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import emu.lunarcore.proto.UnlockBackGroundMusicCsReqOuterClass.UnlockBackGroundMusicCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
-import java.util.List;
-import java.util.ArrayList;
 import emu.lunarcore.server.packet.Opcodes;
 import emu.lunarcore.server.packet.PacketHandler;
 import emu.lunarcore.server.packet.send.PacketUnlockBackGroundMusicScRsp;
@@ -25,7 +26,7 @@ public class HandlerUnlockBackGroundMusicCsReq extends PacketHandler {
             session.send(new PacketUnlockBackGroundMusicScRsp());
         }
         else {
-            session.send(new PacketUnlockBackGroundMusicScRsp(unlockIdsList)); 
+            session.send(new PacketUnlockBackGroundMusicScRsp(unlockIdsList));
         }
     }
 }

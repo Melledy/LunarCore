@@ -12,22 +12,22 @@ public class PacketGetUnlockTeleportScRsp extends BasePacket {
 
     public PacketGetUnlockTeleportScRsp(RepeatedInt list) {
         super(CmdId.GetUnlockTeleportScRsp);
-        
+
         var data = GetUnlockTeleportScRsp.newInstance();
-        
+
         for (int entryId : list) {
             MapEntranceExcel excel = GameData.getMapEntranceExcelMap().get(entryId);
             if (excel == null) continue;
-            
+
             FloorInfo floorInfo = GameData.getFloorInfo(excel.getPlaneID(), excel.getFloorID());
             if (floorInfo == null) continue;
-            
+
             // Add unlocked teleport ids
             for (var teleport : floorInfo.getCachedTeleports().values()) {
                 data.addAllUnlockedTeleportList(teleport.getMappingInfoID());
             }
         }
-        
+
         this.setData(data);
     }
 }

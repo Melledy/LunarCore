@@ -8,15 +8,15 @@ public class PacketReserveStaminaExchangeScRsp extends BasePacket {
 
     public PacketReserveStaminaExchangeScRsp(int amount) {
         super(CmdId.ReserveStaminaExchangeScRsp);
-        
+
         var data = ReserveStaminaExchangeScRsp.newInstance();
-        
+
         if (amount > 0) {
             data.setNum(amount);
         } else {
             data.setRetcode(1);
         }
-        
+
         this.setData(data);
     }
 }

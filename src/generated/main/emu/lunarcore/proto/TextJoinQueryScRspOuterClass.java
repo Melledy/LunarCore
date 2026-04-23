@@ -14,18 +14,26 @@ import us.hebi.quickbuf.RepeatedMessage;
 
 public final class TextJoinQueryScRspOuterClass {
   /**
+   * <pre>
+   *  PPALKHLPBEJ
+   * </pre>
+   *
    * Protobuf type {@code TextJoinQueryScRsp}
    */
   public static final class TextJoinQueryScRsp extends ProtoMessage<TextJoinQueryScRsp> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 12;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
+     * <pre>
+     *  BIJKICFHCOB
+     * </pre>
+     *
+     * <code>repeated .TextJoinInfo text_join_list = 9;</code>
      */
     private final RepeatedMessage<TextJoinInfoOuterClass.TextJoinInfo> textJoinList = RepeatedMessage.newEmptyInstance(TextJoinInfoOuterClass.TextJoinInfo.getFactory());
 
@@ -33,6 +41,10 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
+     * <pre>
+     *  PPALKHLPBEJ
+     * </pre>
+     *
      * @return a new empty instance of {@code TextJoinQueryScRsp}
      */
     public static TextJoinQueryScRsp newInstance() {
@@ -40,7 +52,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +60,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return this
      */
     public TextJoinQueryScRsp clearRetcode() {
@@ -58,7 +70,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +78,7 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 12;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +89,11 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
+     * <pre>
+     *  BIJKICFHCOB
+     * </pre>
+     *
+     * <code>repeated .TextJoinInfo text_join_list = 9;</code>
      * @return whether the textJoinList field is set
      */
     public boolean hasTextJoinList() {
@@ -85,7 +101,11 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
+     * <pre>
+     *  BIJKICFHCOB
+     * </pre>
+     *
+     * <code>repeated .TextJoinInfo text_join_list = 9;</code>
      * @return this
      */
     public TextJoinQueryScRsp clearTextJoinList() {
@@ -95,7 +115,11 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
+     * <pre>
+     *  BIJKICFHCOB
+     * </pre>
+     *
+     * <code>repeated .TextJoinInfo text_join_list = 9;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +133,11 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
+     * <pre>
+     *  BIJKICFHCOB
+     * </pre>
+     *
+     * <code>repeated .TextJoinInfo text_join_list = 9;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +151,11 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
+     * <pre>
+     *  BIJKICFHCOB
+     * </pre>
+     *
+     * <code>repeated .TextJoinInfo text_join_list = 9;</code>
      * @param value the textJoinList to add
      * @return this
      */
@@ -134,7 +166,11 @@ public final class TextJoinQueryScRspOuterClass {
     }
 
     /**
-     * <code>repeated .TextJoinInfo text_join_list = 1;</code>
+     * <pre>
+     *  BIJKICFHCOB
+     * </pre>
+     *
+     * <code>repeated .TextJoinInfo text_join_list = 9;</code>
      * @param values the textJoinList to add
      * @return this
      */
@@ -211,12 +247,12 @@ public final class TextJoinQueryScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < textJoinList.length(); i++) {
-          output.writeRawByte((byte) 10);
+          output.writeRawByte((byte) 74);
           output.writeMessageNoTag(textJoinList.get(i));
         }
       }
@@ -241,16 +277,16 @@ public final class TextJoinQueryScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 96: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 10) {
+            if (tag != 74) {
               break;
             }
           }
-          case 10: {
+          case 74: {
             // textJoinList
             tag = input.readRepeatedMessage(textJoinList, tag);
             bitField0_ |= 0x00000002;

@@ -13,7 +13,7 @@ public class HandlerTakePromotionRewardCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = TakePromotionRewardCsReq.parseFrom(data);
-        
+
         var rewards = session.getServer().getInventoryService().takePromotionRewardAvatar(session.getPlayer(), req.getBaseAvatarId(), req.getPromotion());
         session.send(new PacketTakePromotionRewardScRsp(rewards));
     }

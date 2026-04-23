@@ -13,7 +13,7 @@ public class HandlerRecallPetCsReq extends PacketHandler {
     public void handle(GameSession session, byte[] data) throws Exception {
         session.getPlayer().setPetId(0);
         session.getPlayer().save();
-        
+
         session.send(new PacketCurPetChangedScNotify(session.getPlayer()));
         session.send(CmdId.RecallPetScRsp);
     }

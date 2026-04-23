@@ -10,16 +10,16 @@ public class PacketGetFirstTalkByPerformanceNpcScRsp extends BasePacket {
 
     public PacketGetFirstTalkByPerformanceNpcScRsp(GetFirstTalkByPerformanceNpcCsReq req) {
         super(CmdId.GetFirstTalkByPerformanceNpcScRsp);
-        
+
         var data = GetFirstTalkByPerformanceNpcScRsp.newInstance();
-        
+
         for (int id: req.getNpcTalkList()) {
             var info = NpcTalkInfo.newInstance()
                     .setNpcTalkId(id);
-            
+
             data.addNpcTalkInfoList(info);
         }
-        
+
         this.setData(data);
     }
 }

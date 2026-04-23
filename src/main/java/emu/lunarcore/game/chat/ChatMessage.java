@@ -1,7 +1,8 @@
 package emu.lunarcore.game.chat;
 
 import emu.lunarcore.LunarCore;
-import emu.lunarcore.proto.ChatOuterClass.Chat;
+import emu.lunarcore.proto.ChatContentInfoOuterClass.ChatContentInfo;
+import emu.lunarcore.proto.ChatInfoOuterClass.ChatInfo;
 import emu.lunarcore.proto.MsgTypeOuterClass.MsgType;
 import lombok.Getter;
 
@@ -33,16 +34,24 @@ public class ChatMessage {
         return this.getText() != null ? MsgType.MSG_TYPE_CUSTOM_TEXT : MsgType.MSG_TYPE_EMOJI;
     }
 
-    public Chat toProto() {
-        var proto = Chat.newInstance()
-                .setSenderUid(this.getFromUid())
-                .setSentTime(LunarCore.convertToServerTime(this.getTime()) / 1000)
-                .setMsgType(this.getType())
-                .setEmote(this.getEmote());
+    public ChatInfo toProto() {
+        var proto = ChatInfo.newInstance()
+                .setSentTime(LunarCore.convertToServerTime(this.getTime()) / 1000);
+        
+        proto.getMutableChatHeader()
+                .setUid(this.getFromUid());
+        
+        var content = ChatContentInfo.newInstance();
         
         if (this.getText() != null) {
-            proto.setText(text);
+            content.setMsgType(MsgType.MSG_TYPE_CUSTOM_TEXT);
+            content.getMutableChatMsg().setChatText(this.getText());
+        } else {
+            content.setMsgType(MsgType.MSG_TYPE_EMOJI);
+            content.getMutableChatMsg().setEmoteId(this.getEmote());
         }
+        
+        proto.addChatContentList(content);
         
         return proto;
     }

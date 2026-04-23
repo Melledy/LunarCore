@@ -25,7 +25,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>repeated .NpcTalkInfo npc_talk_info_list = 9;</code>
+     * <code>repeated .NpcTalkInfo npc_talk_info_list = 10;</code>
      */
     private final RepeatedMessage<NpcTalkInfoOuterClass.NpcTalkInfo> npcTalkInfoList = RepeatedMessage.newEmptyInstance(NpcTalkInfoOuterClass.NpcTalkInfo.getFactory());
 
@@ -77,7 +77,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
     }
 
     /**
-     * <code>repeated .NpcTalkInfo npc_talk_info_list = 9;</code>
+     * <code>repeated .NpcTalkInfo npc_talk_info_list = 10;</code>
      * @return whether the npcTalkInfoList field is set
      */
     public boolean hasNpcTalkInfoList() {
@@ -85,7 +85,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
     }
 
     /**
-     * <code>repeated .NpcTalkInfo npc_talk_info_list = 9;</code>
+     * <code>repeated .NpcTalkInfo npc_talk_info_list = 10;</code>
      * @return this
      */
     public GetFirstTalkByPerformanceNpcScRsp clearNpcTalkInfoList() {
@@ -95,7 +95,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
     }
 
     /**
-     * <code>repeated .NpcTalkInfo npc_talk_info_list = 9;</code>
+     * <code>repeated .NpcTalkInfo npc_talk_info_list = 10;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
     }
 
     /**
-     * <code>repeated .NpcTalkInfo npc_talk_info_list = 9;</code>
+     * <code>repeated .NpcTalkInfo npc_talk_info_list = 10;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
     }
 
     /**
-     * <code>repeated .NpcTalkInfo npc_talk_info_list = 9;</code>
+     * <code>repeated .NpcTalkInfo npc_talk_info_list = 10;</code>
      * @param value the npcTalkInfoList to add
      * @return this
      */
@@ -135,7 +135,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
     }
 
     /**
-     * <code>repeated .NpcTalkInfo npc_talk_info_list = 9;</code>
+     * <code>repeated .NpcTalkInfo npc_talk_info_list = 10;</code>
      * @param values the npcTalkInfoList to add
      * @return this
      */
@@ -219,7 +219,7 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < npcTalkInfoList.length(); i++) {
-          output.writeRawByte((byte) 74);
+          output.writeRawByte((byte) 82);
           output.writeMessageNoTag(npcTalkInfoList.get(i));
         }
       }
@@ -249,11 +249,11 @@ public final class GetFirstTalkByPerformanceNpcScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 82) {
               break;
             }
           }
-          case 74: {
+          case 82: {
             // npcTalkInfoList
             tag = input.readRepeatedMessage(npcTalkInfoList, tag);
             bitField0_ |= 0x00000002;

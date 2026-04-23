@@ -12,7 +12,7 @@ public class HandlerDeleteFriendCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = DeleteFriendCsReq.parseFrom(data);
-        
+
         session.getPlayer().getFriendList().deleteFriend(req.getUid());
         session.send(CmdId.DeleteFriendScRsp);
     }

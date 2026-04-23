@@ -2,15 +2,15 @@ package emu.lunarcore.data.excel;
 
 import java.util.List;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
-import emu.lunarcore.data.ResourceType.LoadPriority;
 import emu.lunarcore.data.common.ItemParam;
+import emu.lunarcore.data.resource.MultiKeyGameResource;
+import emu.lunarcore.data.resource.ResourceType;
+import emu.lunarcore.data.resource.ResourceType.LoadPriority;
 import lombok.Getter;
 
 @Getter
-@ResourceType(name = {"AvatarPromotionConfig.json"}, loadPriority = LoadPriority.HIGHEST)
-public class AvatarPromotionExcel extends GameResource {
+@ResourceType(name = {"AvatarPromotionConfig.json", "AvatarPromotionConfigLD.json"}, loadPriority = LoadPriority.HIGHEST)
+public class AvatarPromotionExcel extends MultiKeyGameResource {
     private int AvatarID;
     private int Promotion;
 
@@ -20,7 +20,12 @@ public class AvatarPromotionExcel extends GameResource {
     private List<ItemParam> PromotionCostList;
 
     @Override
-    public int getId() {
-        return (AvatarID << 8) + Promotion;
+    public int getPrimaryKey() {
+        return AvatarID;
+    }
+
+    @Override
+    public int getSecondaryKey() {
+        return Promotion;
     }
 }

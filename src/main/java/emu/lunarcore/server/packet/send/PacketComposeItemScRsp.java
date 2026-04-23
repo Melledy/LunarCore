@@ -15,7 +15,7 @@ public class PacketComposeItemScRsp extends BasePacket {
         var data = ComposeItemScRsp.newInstance()
                 .setComposeId(composeId)
                 .setCount(count);
-        
+
         if (returnList != null) {
             for (var item : returnList) {
                 data.getMutableReturnItemList().addItemList(item.toProto());
@@ -23,7 +23,7 @@ public class PacketComposeItemScRsp extends BasePacket {
         } else {
             data.getMutableReturnItemList();
         }
-        
+
         this.setData(data);
     }
 }

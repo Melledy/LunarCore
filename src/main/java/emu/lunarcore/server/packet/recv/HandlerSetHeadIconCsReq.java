@@ -13,7 +13,7 @@ public class HandlerSetHeadIconCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetHeadIconCsReq.parseFrom(data);
-        
+
         if (session.getPlayer().setHeadIcon(req.getId())) {
             // Success
             session.send(new PacketSetHeadIconScRsp(req.getId()));

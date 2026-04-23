@@ -12,11 +12,11 @@ public class HandlerSetNicknameCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetNicknameCsReq.parseFrom(data);
-        
+
         if (req.getNickname() != null) {
             session.getPlayer().setNickname(req.getNickname());
         }
-        
+
         session.send(CmdId.SetNicknameScRsp);
     }
 

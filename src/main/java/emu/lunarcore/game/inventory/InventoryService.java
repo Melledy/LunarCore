@@ -16,6 +16,7 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.game.BaseGameService;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.packet.send.*;
+import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import us.hebi.quickbuf.RepeatedInt;
 
 public class InventoryService extends BaseGameService {
@@ -31,7 +32,7 @@ public class InventoryService extends BaseGameService {
         GameAvatar avatar = player.getAvatarById(avatarId);
         if (avatar == null) return null;
 
-        AvatarPromotionExcel promoteData = GameData.getAvatarPromotionExcel(avatarId, avatar.getPromotion());
+        AvatarPromotionExcel promoteData = GameData.getAvatarPromotionExcelMap().get(avatarId, avatar.getPromotion());
         if (promoteData == null) return null;
 
         // Exp gain
@@ -113,14 +114,14 @@ public class InventoryService extends BaseGameService {
         GameAvatar avatar = player.getAvatarById(avatarId);
         if (avatar == null || avatar.getPromotion() >= avatar.getExcel().getMaxPromotion()) return false;
 
-        AvatarPromotionExcel promotion = GameData.getAvatarPromotionExcel(avatarId, avatar.getPromotion());
+        AvatarPromotionExcel promotion = GameData.getAvatarPromotionExcelMap().get(avatarId, avatar.getPromotion());
         // Sanity check
         if ((promotion == null) || avatar.getLevel() < promotion.getMaxLevel() || player.getLevel() < promotion.getPlayerLevelRequire() || player.getWorldLevel() < promotion.getWorldLevelRequire()) {
             return false;
         }
 
         // Verify item params
-        if (!player.getInventory().verifyItems(promotion.getPromotionCostList())) {
+        if (!player.getInventory().hasItems(promotion.getPromotionCostList())) {
             return false;
         }
 
@@ -138,28 +139,44 @@ public class InventoryService extends BaseGameService {
         return true;
     }
 
-    public boolean unlockSkillTreeAvatar(Player player, int avatarId, int pointId) {
+    public boolean unlockSkillTreeAvatar(Player player, int avatarId, int anchorId, int targetLevel) {
         // Get avatar + Skill Tree data
         GameAvatar avatar = player.getAvatarById(avatarId);
         if (avatar == null) return false;
 
-        int nextLevel = avatar.getSkills().getOrDefault(pointId, 0) + 1;
-
-        AvatarSkillTreeExcel skillTree = GameData.getAvatarSkillTreeExcel(pointId, nextLevel);
-        if (skillTree == null || skillTree.getAvatarID() != avatar.getExcel().getAvatarID()) {
+        // Get current level
+        int curLevel = avatar.getSkillTree().get(anchorId);
+        int level = curLevel + 1;
+        
+        // Sanity check
+        if (level > targetLevel) {
             return false;
         }
+        
+        // Setup item params
+        var cost = new ItemParamMap();
+        
+        for (; level <= targetLevel; level++) {
+            AvatarSkillTreeExcel skillTree = GameData.getAvatarSkilltree(avatarId, avatar.getEnhanceId(), anchorId, level);
+            if (skillTree == null) return false;
+            
+            // Add to item cost
+            cost.add(skillTree.getMaterialList());
+        }
+        
+        // Get cost list
+        var materialList = cost.toItemParamList();
 
         // Verify item params
-        if (!player.getInventory().verifyItems(skillTree.getMaterialList())) {
+        if (!player.getInventory().hasItems(materialList)) {
             return false;
         }
 
         // Pay items
-        player.getInventory().removeItemsByParams(skillTree.getMaterialList());
+        player.getInventory().removeItemsByParams(materialList);
 
-        // Add skill
-        avatar.getSkills().put(pointId, nextLevel);
+        // Set skill level
+        avatar.getSkillTree().put(anchorId, targetLevel);
 
         // Save player
         player.save();
@@ -167,11 +184,11 @@ public class InventoryService extends BaseGameService {
         // Save avatar and send packets
         if (avatar.getMultiPath() != null) {
             avatar.getMultiPath().save();
-            player.sendPacket(new PacketPlayerSyncScNotify(avatar.getMultiPath()));
         } else {
             avatar.save();
-            player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         }
+        
+        player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         
         return true;
     }
@@ -181,11 +198,12 @@ public class InventoryService extends BaseGameService {
         GameAvatar avatar = player.getAvatarById(avatarId);
         if (avatar == null || avatar.getRank() >= avatar.getExcel().getMaxRank()) return false;
         
-        AvatarRankExcel rankData = GameData.getAvatarRankExcel(avatar.getExcel().getRankId(avatar.getRank()));
+        int rankId = avatar.getExcel().getRankId(avatar.getRank());
+        AvatarRankExcel rankData = GameData.getAvatarRankExcelMap().get(rankId);
         if (rankData == null) return false;
         
         // Verify items
-        if (!player.getInventory().verifyItems(rankData.getUnlockCost())) {
+        if (!player.getInventory().hasItems(rankData.getUnlockCost())) {
             return false;
         }
         
@@ -198,11 +216,11 @@ public class InventoryService extends BaseGameService {
         // Save avatar and send packets
         if (avatar.getMultiPath() != null) {
             avatar.getMultiPath().save();
-            player.sendPacket(new PacketPlayerSyncScNotify(avatar.getMultiPath()));
         } else {
             avatar.save();
-            player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         }
+        
+        player.sendPacket(new PacketPlayerSyncScNotify(avatar));
         
         return true;
     }
@@ -264,7 +282,7 @@ public class InventoryService extends BaseGameService {
             return null;
         }
 
-        EquipmentPromotionExcel promoteData = GameData.getEquipmentPromotionExcel(equip.getItemId(), equip.getPromotion());
+        EquipmentPromotionExcel promoteData = GameData.getEquipmentPromotionExcelMap().get(equip.getItemId(), equip.getPromotion());
         if (promoteData == null) return null;
 
         // Exp gain
@@ -352,7 +370,7 @@ public class InventoryService extends BaseGameService {
             return false;
         }
 
-        EquipmentPromotionExcel promotion = GameData.getEquipmentPromotionExcel(equip.getItemId(), equip.getPromotion());
+        EquipmentPromotionExcel promotion = GameData.getEquipmentPromotionExcelMap().get(equip.getItemId(), equip.getPromotion());
         // Sanity check
         if ((promotion == null) || equip.getLevel() < promotion.getMaxLevel() || player.getLevel() < promotion.getPlayerLevelRequire() || player.getWorldLevel() < promotion.getWorldLevelRequire()) {
             return false;
@@ -489,7 +507,7 @@ public class InventoryService extends BaseGameService {
 
         // Add affixes
         if (upgrades > 0) {
-            equip.addSubAffixes(upgrades);
+            equip.addRandomSubAffixes(upgrades);
         }
 
         // Done
@@ -521,6 +539,54 @@ public class InventoryService extends BaseGameService {
         // Send packets
         player.sendPacket(new PacketPlayerSyncScNotify(equip));
         return returnItems;
+    }
+    
+    public void reforgeRelic(Player player, int relicUniqueId) {
+        // Get relic
+        GameItem equip = player.getInventory().getItemByUid(relicUniqueId);
+
+        if (equip == null || !equip.getExcel().isRelic()) {
+            return;
+        }
+        
+        // Sanity checks
+        if (equip.getLevel() != 15) {
+            return;
+        }
+        
+        // Verify material cost
+        if (player.getInventory().hasItems(GameConstants.RELIC_REFORGE_COST)) {
+            player.getInventory().removeItemsByParams(GameConstants.RELIC_REFORGE_COST);
+        } else {
+            return;
+        }
+        
+        // Reroll
+        equip.reforgeSubAffixes();
+        
+        // Send packet
+        player.sendPacket(new PacketPlayerSyncScNotify(equip));
+    }
+    
+    public void confirmReforgeRelic(Player player, int relicUniqueId, boolean keep) {
+        // Get relic
+        GameItem equip = player.getInventory().getItemByUid(relicUniqueId);
+
+        if (equip == null || !equip.getExcel().isRelic()) {
+            return;
+        }
+        
+        // Sanity checks
+        if (equip.getReforgedSubAffixes() == null) {
+            return;
+        }
+        
+        // Reroll
+        equip.confirmReforge(keep);
+        equip.save();
+        
+        // Send packet
+        player.sendPacket(new PacketPlayerSyncScNotify(equip));
     }
 
     // === Etc ===
@@ -585,11 +651,11 @@ public class InventoryService extends BaseGameService {
             // Add return items
             if (item.getExcel().getRarity() == ItemRarity.SuperRare && !toMaterials) {
                 // Relic remains
-                returnItems.addTo(GameConstants.RELIC_REMAINS_ID, 10);
+                returnItems.add(GameConstants.RELIC_REMAINS_ID, 10);
             } else {
                 // Add basic return items
                 for (ItemParam ret : item.getExcel().getReturnItemIDList()) {
-                    returnItems.addTo(ret.getId(), ret.getCount());
+                    returnItems.add(ret.getId(), ret.getCount());
                 }
             }
         }
@@ -626,7 +692,7 @@ public class InventoryService extends BaseGameService {
         
         if (excel.getFormulaType() == FormulaType.Normal) { // Material synthesis
             // Verify items + credits
-            if (!player.getInventory().verifyItems(excel.getMaterialCost(), count) || !player.getInventory().verifyScoin(excel.getCoinCost() * count)) {
+            if (!player.getInventory().hasItems(excel.getMaterialCost(), count) || !player.getInventory().hasScoin(excel.getCoinCost() * count)) {
                 return null;
             }
             
@@ -677,7 +743,7 @@ public class InventoryService extends BaseGameService {
         }
     }
     
-    public List<GameItem> composeRelic(Player player, int composeId, int relicId, int mainAffix, int count) {
+    public List<GameItem> composeRelic(Player player, int composeId, int relicId, int count, int mainAffix, RepeatedInt subAffixList) {
         // Sanity check
         if (count <= 0) return null;
         
@@ -704,13 +770,27 @@ public class InventoryService extends BaseGameService {
         if (mainAffix > 0) {
             // TODO verify main affix on item
             
+            // Add special material cost
             for (int specialId : excel.getSpecialMaterialCost()) {
                 costItems.add(new ItemParam(specialId, 1));
             }
         }
         
+        // Check sub affixes
+        var subAffixes = new IntOpenHashSet(subAffixList.array());
+        if (subAffixes.size() == 1) {
+            costItems.add(new ItemParam(GameConstants.RELIC_COMPOSE_SUB_AFFIX_ITEM, 1));
+        } else if (subAffixes.size() == 2) {
+            costItems.add(new ItemParam(GameConstants.RELIC_COMPOSE_SUB_AFFIX_ITEM, 4));
+        } else if (subAffixes.size() > 2) {
+            // Invalid request
+            return null;
+        }
+        
+        // TODO verify sub affixes on item
+        
         // Verify items + credits
-        if (!player.getInventory().verifyItems(costItems, count) || !player.getInventory().verifyScoin(excel.getCoinCost() * count)) {
+        if (!player.getInventory().hasItems(costItems, count) || !player.getInventory().hasScoin(excel.getCoinCost() * count)) {
             return null;
         }
         
@@ -718,11 +798,11 @@ public class InventoryService extends BaseGameService {
         player.getInventory().removeItemsByParams(costItems, count);
         player.addSCoin(-excel.getCoinCost() * count);
         
-        // Compose item
+        // Compose item(s)
         List<GameItem> items = new ArrayList<>();
         
         for (int i = 0; i < count; i++) {
-            GameItem item = new GameItem(itemExcel, 1, mainAffix);
+            GameItem item = new GameItem(itemExcel, 1, mainAffix, subAffixes);
             items.add(item);
         }
         

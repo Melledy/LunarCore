@@ -10,11 +10,11 @@ public class PacketAvatarPathChangedNotify extends BasePacket {
 
     public PacketAvatarPathChangedNotify(GameAvatar avatar, AvatarMultiPath path) {
         super(CmdId.AvatarPathChangedNotify);
-        
+
         var data = AvatarPathChangedNotify.newInstance()
                 .setBaseAvatarId(avatar.getAvatarId())
                 .setChangedAvatarTypeValue(path.getExcelId());
-        
+
         this.setData(data);
     }
 }

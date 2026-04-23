@@ -25,24 +25,34 @@ public final class GetPhoneDataScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional uint32 cur_phone_theme = 2;</code>
+     * <code>optional uint32 cur_phone_case = 3;</code>
+     */
+    private int curPhoneCase;
+
+    /**
+     * <code>optional uint32 cur_phone_theme = 5;</code>
      */
     private int curPhoneTheme;
 
     /**
-     * <code>optional uint32 cur_chat_bubble = 3;</code>
+     * <code>optional uint32 cur_chat_bubble = 9;</code>
      */
     private int curChatBubble;
 
     /**
-     * <code>repeated uint32 owned_phone_themes = 6;</code>
-     */
-    private final RepeatedInt ownedPhoneThemes = RepeatedInt.newEmptyInstance();
-
-    /**
-     * <code>repeated uint32 owned_chat_bubbles = 9;</code>
+     * <code>repeated uint32 owned_chat_bubbles = 2;</code>
      */
     private final RepeatedInt ownedChatBubbles = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated uint32 owned_phone_cases = 7;</code>
+     */
+    private final RepeatedInt ownedPhoneCases = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated uint32 owned_phone_themes = 8;</code>
+     */
+    private final RepeatedInt ownedPhoneThemes = RepeatedInt.newEmptyInstance();
 
     private GetPhoneDataScRsp() {
     }
@@ -92,25 +102,62 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 2;</code>
-     * @return whether the curPhoneTheme field is set
+     * <code>optional uint32 cur_phone_case = 3;</code>
+     * @return whether the curPhoneCase field is set
      */
-    public boolean hasCurPhoneTheme() {
+    public boolean hasCurPhoneCase() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 2;</code>
+     * <code>optional uint32 cur_phone_case = 3;</code>
+     * @return this
+     */
+    public GetPhoneDataScRsp clearCurPhoneCase() {
+      bitField0_ &= ~0x00000002;
+      curPhoneCase = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 cur_phone_case = 3;</code>
+     * @return the curPhoneCase
+     */
+    public int getCurPhoneCase() {
+      return curPhoneCase;
+    }
+
+    /**
+     * <code>optional uint32 cur_phone_case = 3;</code>
+     * @param value the curPhoneCase to set
+     * @return this
+     */
+    public GetPhoneDataScRsp setCurPhoneCase(final int value) {
+      bitField0_ |= 0x00000002;
+      curPhoneCase = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 cur_phone_theme = 5;</code>
+     * @return whether the curPhoneTheme field is set
+     */
+    public boolean hasCurPhoneTheme() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 cur_phone_theme = 5;</code>
      * @return this
      */
     public GetPhoneDataScRsp clearCurPhoneTheme() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000004;
       curPhoneTheme = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 2;</code>
+     * <code>optional uint32 cur_phone_theme = 5;</code>
      * @return the curPhoneTheme
      */
     public int getCurPhoneTheme() {
@@ -118,36 +165,36 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_phone_theme = 2;</code>
+     * <code>optional uint32 cur_phone_theme = 5;</code>
      * @param value the curPhoneTheme to set
      * @return this
      */
     public GetPhoneDataScRsp setCurPhoneTheme(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000004;
       curPhoneTheme = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 cur_chat_bubble = 3;</code>
+     * <code>optional uint32 cur_chat_bubble = 9;</code>
      * @return whether the curChatBubble field is set
      */
     public boolean hasCurChatBubble() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000008) != 0;
     }
 
     /**
-     * <code>optional uint32 cur_chat_bubble = 3;</code>
+     * <code>optional uint32 cur_chat_bubble = 9;</code>
      * @return this
      */
     public GetPhoneDataScRsp clearCurChatBubble() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000008;
       curChatBubble = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 cur_chat_bubble = 3;</code>
+     * <code>optional uint32 cur_chat_bubble = 9;</code>
      * @return the curChatBubble
      */
     public int getCurChatBubble() {
@@ -155,86 +202,18 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_chat_bubble = 3;</code>
+     * <code>optional uint32 cur_chat_bubble = 9;</code>
      * @param value the curChatBubble to set
      * @return this
      */
     public GetPhoneDataScRsp setCurChatBubble(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000008;
       curChatBubble = value;
       return this;
     }
 
     /**
-     * <code>repeated uint32 owned_phone_themes = 6;</code>
-     * @return whether the ownedPhoneThemes field is set
-     */
-    public boolean hasOwnedPhoneThemes() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 owned_phone_themes = 6;</code>
-     * @return this
-     */
-    public GetPhoneDataScRsp clearOwnedPhoneThemes() {
-      bitField0_ &= ~0x00000008;
-      ownedPhoneThemes.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 owned_phone_themes = 6;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableOwnedPhoneThemes()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getOwnedPhoneThemes() {
-      return ownedPhoneThemes;
-    }
-
-    /**
-     * <code>repeated uint32 owned_phone_themes = 6;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableOwnedPhoneThemes() {
-      bitField0_ |= 0x00000008;
-      return ownedPhoneThemes;
-    }
-
-    /**
-     * <code>repeated uint32 owned_phone_themes = 6;</code>
-     * @param value the ownedPhoneThemes to add
-     * @return this
-     */
-    public GetPhoneDataScRsp addOwnedPhoneThemes(final int value) {
-      bitField0_ |= 0x00000008;
-      ownedPhoneThemes.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 owned_phone_themes = 6;</code>
-     * @param values the ownedPhoneThemes to add
-     * @return this
-     */
-    public GetPhoneDataScRsp addAllOwnedPhoneThemes(final int... values) {
-      bitField0_ |= 0x00000008;
-      ownedPhoneThemes.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 owned_chat_bubbles = 9;</code>
+     * <code>repeated uint32 owned_chat_bubbles = 2;</code>
      * @return whether the ownedChatBubbles field is set
      */
     public boolean hasOwnedChatBubbles() {
@@ -242,7 +221,7 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 owned_chat_bubbles = 9;</code>
+     * <code>repeated uint32 owned_chat_bubbles = 2;</code>
      * @return this
      */
     public GetPhoneDataScRsp clearOwnedChatBubbles() {
@@ -252,7 +231,7 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 owned_chat_bubbles = 9;</code>
+     * <code>repeated uint32 owned_chat_bubbles = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -266,7 +245,7 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 owned_chat_bubbles = 9;</code>
+     * <code>repeated uint32 owned_chat_bubbles = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -280,7 +259,7 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 owned_chat_bubbles = 9;</code>
+     * <code>repeated uint32 owned_chat_bubbles = 2;</code>
      * @param value the ownedChatBubbles to add
      * @return this
      */
@@ -291,7 +270,7 @@ public final class GetPhoneDataScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 owned_chat_bubbles = 9;</code>
+     * <code>repeated uint32 owned_chat_bubbles = 2;</code>
      * @param values the ownedChatBubbles to add
      * @return this
      */
@@ -301,16 +280,154 @@ public final class GetPhoneDataScRspOuterClass {
       return this;
     }
 
+    /**
+     * <code>repeated uint32 owned_phone_cases = 7;</code>
+     * @return whether the ownedPhoneCases field is set
+     */
+    public boolean hasOwnedPhoneCases() {
+      return (bitField0_ & 0x00000020) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_cases = 7;</code>
+     * @return this
+     */
+    public GetPhoneDataScRsp clearOwnedPhoneCases() {
+      bitField0_ &= ~0x00000020;
+      ownedPhoneCases.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_cases = 7;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableOwnedPhoneCases()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getOwnedPhoneCases() {
+      return ownedPhoneCases;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_cases = 7;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableOwnedPhoneCases() {
+      bitField0_ |= 0x00000020;
+      return ownedPhoneCases;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_cases = 7;</code>
+     * @param value the ownedPhoneCases to add
+     * @return this
+     */
+    public GetPhoneDataScRsp addOwnedPhoneCases(final int value) {
+      bitField0_ |= 0x00000020;
+      ownedPhoneCases.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_cases = 7;</code>
+     * @param values the ownedPhoneCases to add
+     * @return this
+     */
+    public GetPhoneDataScRsp addAllOwnedPhoneCases(final int... values) {
+      bitField0_ |= 0x00000020;
+      ownedPhoneCases.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_themes = 8;</code>
+     * @return whether the ownedPhoneThemes field is set
+     */
+    public boolean hasOwnedPhoneThemes() {
+      return (bitField0_ & 0x00000040) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_themes = 8;</code>
+     * @return this
+     */
+    public GetPhoneDataScRsp clearOwnedPhoneThemes() {
+      bitField0_ &= ~0x00000040;
+      ownedPhoneThemes.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_themes = 8;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableOwnedPhoneThemes()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getOwnedPhoneThemes() {
+      return ownedPhoneThemes;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_themes = 8;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableOwnedPhoneThemes() {
+      bitField0_ |= 0x00000040;
+      return ownedPhoneThemes;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_themes = 8;</code>
+     * @param value the ownedPhoneThemes to add
+     * @return this
+     */
+    public GetPhoneDataScRsp addOwnedPhoneThemes(final int value) {
+      bitField0_ |= 0x00000040;
+      ownedPhoneThemes.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 owned_phone_themes = 8;</code>
+     * @param values the ownedPhoneThemes to add
+     * @return this
+     */
+    public GetPhoneDataScRsp addAllOwnedPhoneThemes(final int... values) {
+      bitField0_ |= 0x00000040;
+      ownedPhoneThemes.addAll(values);
+      return this;
+    }
+
     @Override
     public GetPhoneDataScRsp copyFrom(final GetPhoneDataScRsp other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
+        curPhoneCase = other.curPhoneCase;
         curPhoneTheme = other.curPhoneTheme;
         curChatBubble = other.curChatBubble;
-        ownedPhoneThemes.copyFrom(other.ownedPhoneThemes);
         ownedChatBubbles.copyFrom(other.ownedChatBubbles);
+        ownedPhoneCases.copyFrom(other.ownedPhoneCases);
+        ownedPhoneThemes.copyFrom(other.ownedPhoneThemes);
       }
       return this;
     }
@@ -324,17 +441,23 @@ public final class GetPhoneDataScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
+      if (other.hasCurPhoneCase()) {
+        setCurPhoneCase(other.curPhoneCase);
+      }
       if (other.hasCurPhoneTheme()) {
         setCurPhoneTheme(other.curPhoneTheme);
       }
       if (other.hasCurChatBubble()) {
         setCurChatBubble(other.curChatBubble);
       }
-      if (other.hasOwnedPhoneThemes()) {
-        getMutableOwnedPhoneThemes().addAll(other.ownedPhoneThemes);
-      }
       if (other.hasOwnedChatBubbles()) {
         getMutableOwnedChatBubbles().addAll(other.ownedChatBubbles);
+      }
+      if (other.hasOwnedPhoneCases()) {
+        getMutableOwnedPhoneCases().addAll(other.ownedPhoneCases);
+      }
+      if (other.hasOwnedPhoneThemes()) {
+        getMutableOwnedPhoneThemes().addAll(other.ownedPhoneThemes);
       }
       return this;
     }
@@ -347,10 +470,12 @@ public final class GetPhoneDataScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
+      curPhoneCase = 0;
       curPhoneTheme = 0;
       curChatBubble = 0;
-      ownedPhoneThemes.clear();
       ownedChatBubbles.clear();
+      ownedPhoneCases.clear();
+      ownedPhoneThemes.clear();
       return this;
     }
 
@@ -361,8 +486,9 @@ public final class GetPhoneDataScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      ownedPhoneThemes.clear();
       ownedChatBubbles.clear();
+      ownedPhoneCases.clear();
+      ownedPhoneThemes.clear();
       return this;
     }
 
@@ -377,10 +503,12 @@ public final class GetPhoneDataScRspOuterClass {
       GetPhoneDataScRsp other = (GetPhoneDataScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasCurPhoneCase() || curPhoneCase == other.curPhoneCase)
         && (!hasCurPhoneTheme() || curPhoneTheme == other.curPhoneTheme)
         && (!hasCurChatBubble() || curChatBubble == other.curChatBubble)
-        && (!hasOwnedPhoneThemes() || ownedPhoneThemes.equals(other.ownedPhoneThemes))
-        && (!hasOwnedChatBubbles() || ownedChatBubbles.equals(other.ownedChatBubbles));
+        && (!hasOwnedChatBubbles() || ownedChatBubbles.equals(other.ownedChatBubbles))
+        && (!hasOwnedPhoneCases() || ownedPhoneCases.equals(other.ownedPhoneCases))
+        && (!hasOwnedPhoneThemes() || ownedPhoneThemes.equals(other.ownedPhoneThemes));
     }
 
     @Override
@@ -390,23 +518,33 @@ public final class GetPhoneDataScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 16);
-        output.writeUInt32NoTag(curPhoneTheme);
+        output.writeRawByte((byte) 24);
+        output.writeUInt32NoTag(curPhoneCase);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 24);
-        output.writeUInt32NoTag(curChatBubble);
+        output.writeRawByte((byte) 40);
+        output.writeUInt32NoTag(curPhoneTheme);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        for (int i = 0; i < ownedPhoneThemes.length(); i++) {
-          output.writeRawByte((byte) 48);
-          output.writeUInt32NoTag(ownedPhoneThemes.array()[i]);
-        }
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(curChatBubble);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         for (int i = 0; i < ownedChatBubbles.length(); i++) {
-          output.writeRawByte((byte) 72);
+          output.writeRawByte((byte) 16);
           output.writeUInt32NoTag(ownedChatBubbles.array()[i]);
+        }
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        for (int i = 0; i < ownedPhoneCases.length(); i++) {
+          output.writeRawByte((byte) 56);
+          output.writeUInt32NoTag(ownedPhoneCases.array()[i]);
+        }
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        for (int i = 0; i < ownedPhoneThemes.length(); i++) {
+          output.writeRawByte((byte) 64);
+          output.writeUInt32NoTag(ownedPhoneThemes.array()[i]);
         }
       }
     }
@@ -418,16 +556,22 @@ public final class GetPhoneDataScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(curPhoneTheme);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(curPhoneCase);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(curChatBubble);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(curPhoneTheme);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += (1 * ownedPhoneThemes.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(ownedPhoneThemes);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(curChatBubble);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         size += (1 * ownedChatBubbles.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(ownedChatBubbles);
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        size += (1 * ownedPhoneCases.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(ownedPhoneCases);
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        size += (1 * ownedPhoneThemes.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(ownedPhoneThemes);
       }
       return size;
     }
@@ -444,41 +588,59 @@ public final class GetPhoneDataScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 16) {
-              break;
-            }
-          }
-          case 16: {
-            // curPhoneTheme
-            curPhoneTheme = input.readUInt32();
-            bitField0_ |= 0x00000002;
-            tag = input.readTag();
             if (tag != 24) {
               break;
             }
           }
           case 24: {
-            // curChatBubble
-            curChatBubble = input.readUInt32();
+            // curPhoneCase
+            curPhoneCase = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 40) {
+              break;
+            }
+          }
+          case 40: {
+            // curPhoneTheme
+            curPhoneTheme = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 72) {
               break;
             }
           }
-          case 50: {
-            // ownedPhoneThemes [packed=true]
-            input.readPackedUInt32(ownedPhoneThemes, tag);
+          case 72: {
+            // curChatBubble
+            curChatBubble = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 74) {
+            if (tag != 18) {
               break;
             }
           }
-          case 74: {
+          case 18: {
             // ownedChatBubbles [packed=true]
             input.readPackedUInt32(ownedChatBubbles, tag);
             bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 58) {
+              break;
+            }
+          }
+          case 58: {
+            // ownedPhoneCases [packed=true]
+            input.readPackedUInt32(ownedPhoneCases, tag);
+            bitField0_ |= 0x00000020;
+            tag = input.readTag();
+            if (tag != 66) {
+              break;
+            }
+          }
+          case 66: {
+            // ownedPhoneThemes [packed=true]
+            input.readPackedUInt32(ownedPhoneThemes, tag);
+            bitField0_ |= 0x00000040;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -494,16 +656,22 @@ public final class GetPhoneDataScRspOuterClass {
             tag = input.readTag();
             break;
           }
-          case 48: {
-            // ownedPhoneThemes [packed=false]
-            tag = input.readRepeatedUInt32(ownedPhoneThemes, tag);
-            bitField0_ |= 0x00000008;
-            break;
-          }
-          case 72: {
+          case 16: {
             // ownedChatBubbles [packed=false]
             tag = input.readRepeatedUInt32(ownedChatBubbles, tag);
             bitField0_ |= 0x00000010;
+            break;
+          }
+          case 56: {
+            // ownedPhoneCases [packed=false]
+            tag = input.readRepeatedUInt32(ownedPhoneCases, tag);
+            bitField0_ |= 0x00000020;
+            break;
+          }
+          case 64: {
+            // ownedPhoneThemes [packed=false]
+            tag = input.readRepeatedUInt32(ownedPhoneThemes, tag);
+            bitField0_ |= 0x00000040;
             break;
           }
         }
@@ -517,16 +685,22 @@ public final class GetPhoneDataScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.curPhoneTheme, curPhoneTheme);
+        output.writeUInt32(FieldNames.curPhoneCase, curPhoneCase);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.curChatBubble, curChatBubble);
+        output.writeUInt32(FieldNames.curPhoneTheme, curPhoneTheme);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRepeatedUInt32(FieldNames.ownedPhoneThemes, ownedPhoneThemes);
+        output.writeUInt32(FieldNames.curChatBubble, curChatBubble);
       }
       if ((bitField0_ & 0x00000010) != 0) {
         output.writeRepeatedUInt32(FieldNames.ownedChatBubbles, ownedChatBubbles);
+      }
+      if ((bitField0_ & 0x00000020) != 0) {
+        output.writeRepeatedUInt32(FieldNames.ownedPhoneCases, ownedPhoneCases);
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        output.writeRepeatedUInt32(FieldNames.ownedPhoneThemes, ownedPhoneThemes);
       }
       output.endObject();
     }
@@ -549,12 +723,24 @@ public final class GetPhoneDataScRspOuterClass {
             }
             break;
           }
+          case 151120734:
+          case -1679681856: {
+            if (input.isAtField(FieldNames.curPhoneCase)) {
+              if (!input.trySkipNullValue()) {
+                curPhoneCase = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 405670747:
           case -514634695: {
             if (input.isAtField(FieldNames.curPhoneTheme)) {
               if (!input.trySkipNullValue()) {
                 curPhoneTheme = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -566,18 +752,6 @@ public final class GetPhoneDataScRspOuterClass {
             if (input.isAtField(FieldNames.curChatBubble)) {
               if (!input.trySkipNullValue()) {
                 curChatBubble = input.readUInt32();
-                bitField0_ |= 0x00000004;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -512676109:
-          case -1128638699: {
-            if (input.isAtField(FieldNames.ownedPhoneThemes)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(ownedPhoneThemes);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -591,6 +765,30 @@ public final class GetPhoneDataScRspOuterClass {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(ownedChatBubbles);
                 bitField0_ |= 0x00000010;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -1417906438:
+          case 1748812440: {
+            if (input.isAtField(FieldNames.ownedPhoneCases)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(ownedPhoneCases);
+                bitField0_ |= 0x00000020;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case -512676109:
+          case -1128638699: {
+            if (input.isAtField(FieldNames.ownedPhoneThemes)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(ownedPhoneThemes);
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -652,13 +850,17 @@ public final class GetPhoneDataScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
+      static final FieldName curPhoneCase = FieldName.forField("curPhoneCase", "cur_phone_case");
+
       static final FieldName curPhoneTheme = FieldName.forField("curPhoneTheme", "cur_phone_theme");
 
       static final FieldName curChatBubble = FieldName.forField("curChatBubble", "cur_chat_bubble");
 
-      static final FieldName ownedPhoneThemes = FieldName.forField("ownedPhoneThemes", "owned_phone_themes");
-
       static final FieldName ownedChatBubbles = FieldName.forField("ownedChatBubbles", "owned_chat_bubbles");
+
+      static final FieldName ownedPhoneCases = FieldName.forField("ownedPhoneCases", "owned_phone_cases");
+
+      static final FieldName ownedPhoneThemes = FieldName.forField("ownedPhoneThemes", "owned_phone_themes");
     }
   }
 }

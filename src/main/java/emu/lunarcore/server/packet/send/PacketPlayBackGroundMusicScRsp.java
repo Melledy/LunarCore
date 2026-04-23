@@ -8,11 +8,11 @@ public class PacketPlayBackGroundMusicScRsp extends BasePacket {
 
     public PacketPlayBackGroundMusicScRsp(int musicId) {
         super(CmdId.PlayBackGroundMusicScRsp);
-        
+
         var data = PlayBackGroundMusicScRsp.newInstance()
-            .setPlayingId(musicId)
-            .setPlayMusicId(musicId);
-        
+                .setPlayingId(musicId)
+                .setPlayMusicId(musicId);
+
         this.setData(data);
     }
 }

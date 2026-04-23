@@ -87,6 +87,15 @@ public class Position {
         long z = this.getZ() - pos.getZ();
         return (x * x) + (z * z);
     }
+    
+    public long getFastDist(Position pos) {
+        long x = this.getX() - pos.getX();
+        long y = this.getY() - pos.getY();
+        long z = this.getZ() - pos.getZ();
+        return (x * x) + (y * y) + (z * z);
+    }
+    
+    // Serialization
 
     public Vector toProto() {
         return Vector.newInstance().setX(x).setY(y).setZ(z);
@@ -109,6 +118,6 @@ public class Position {
 
     @Override
     public String toString() {
-        return "[ " + this.getX() + " , " + this.getY() + " ]";
+        return "(" + this.getX() + ", " + this.getY() + ", " + this.getZ() + ")";
     }
 }

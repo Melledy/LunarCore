@@ -197,17 +197,20 @@ public class Inventory extends BasePlayerManager {
      * @return List of items that were added.
      */
     public List<GameItem> addItems(ItemParamMap map) {
-        return addItems(map.toItemList(), false);
+        return addItems(map, false);
     }
     
-    public List<GameItem> addItemParams(Collection<ItemParam> params) {
-        return addItemParams(params, 1);
-    }
-    
-    public List<GameItem> addItemParams(Collection<ItemParam> params, int modifier) {
-        // TODO handle params if they are equipment or relics
-        List<GameItem> items = params.stream().map(param -> new GameItem(param.getId(), param.getCount() * modifier)).toList();
-        return addItems(items, false);
+    public List<GameItem> addItems(ItemParamMap map, boolean showHint) {
+        // Convert player exp to coins if player is max level
+        if (this.getPlayer().getLevel() >= GameConstants.MAX_TRAILBLAZER_LEVEL) {
+            if (map.get(GameConstants.TRAILBLAZER_EXP_ID) > 0) {
+                int exp = map.get(GameConstants.TRAILBLAZER_EXP_ID);
+                map.add(GameConstants.MATERIAL_COIN_ID, exp * 10);
+                map.remove(GameConstants.TRAILBLAZER_EXP_ID);
+            }
+        }
+        
+        return addItems(map.toItemList(), showHint);
     }
 
     private synchronized GameItem putItem(GameItem item) {
@@ -223,81 +226,81 @@ public class Inventory extends BasePlayerManager {
 
         // Add
         switch (type) {
-        case Equipment:
-        case Relic:
-            if (tab.getSize() >= tab.getMaxCapacity()) {
-                return null;
-            }
-            // Duplicates cause problems
-            item.setCount(1);
-            // Adds to inventory
-            this.putItem(item, tab);
-            // Set ownership and save to database
-            item.save();
-            return item;
-        case Virtual:
-            // Handle
-            this.addVirtualItem(item.getItemId(), item.getCount());
-            return item;
-        case AvatarCard:
-            // Add avatar
-            AvatarExcel avatarExcel = GameData.getAvatarExcelMap().get(item.getItemId());
-            if (avatarExcel != null && !getPlayer().getAvatars().hasAvatar(avatarExcel.getId())) {
-                getPlayer().addAvatar(new GameAvatar(avatarExcel));
-            }
-            return null;
-        case Usable:
-            // Add usable
-            switch (subType) {
-                case HeadIcon -> {
-                    getPlayer().getUnlocks().addHeadIcon(item.getItemId());
-                    return item;
-                }
-                case ChatBubble -> {
-                    getPlayer().getUnlocks().addChatBubble(item.getItemId());
-                    return item;
-                }
-                case PhoneTheme -> {
-                    getPlayer().getUnlocks().addPhoneTheme(item.getItemId());
-                    return item;
-                }
-                default -> {
-                    // Skip
-                }
-            }
-            
-            // Skip if not food item
-            if (subType != ItemSubType.Food) {
-                return null;
-            }
-        case Pet:
-            getPlayer().getUnlocks().addPet(item.getItemId());
-            return item;
-        default:
-            if (tab == null) {
-                return null;
-            }
-            
-            GameItem existingItem = tab.getItemById(item.getItemId());
-            
-            if (existingItem == null) {
-                // Item type didnt exist before, we will add it to main inventory map if there is enough space
+            case Equipment:
+            case Relic:
                 if (tab.getSize() >= tab.getMaxCapacity()) {
                     return null;
                 }
-                // Put item to inventory
+                // Duplicates cause problems
+                item.setCount(1);
+                // Adds to inventory
                 this.putItem(item, tab);
-                // Set ownership and save to db
+                // Set ownership and save to database
                 item.save();
                 return item;
-            } else {
-                // Add count to item
-                int amount = Utils.safeAdd(existingItem.getCount(), item.getCount(), item.getExcel().getPileLimit(), 0);
-                if (existingItem.setCount(amount)) {
-                    existingItem.save();
+            case Virtual:
+                // Handle
+                this.addVirtualItem(item.getItemId(), item.getCount());
+                return item;
+            case AvatarCard:
+                // Add avatar
+                AvatarExcel avatarExcel = GameData.getAvatarExcelMap().get(item.getItemId());
+                if (avatarExcel != null && !getPlayer().getAvatars().hasAvatar(avatarExcel.getId())) {
+                    getPlayer().addAvatar(new GameAvatar(avatarExcel));
                 }
-                return existingItem;
-            }
+                return null;
+            case Usable:
+                // Add usable
+                switch (subType) {
+                    case HeadIcon -> {
+                        getPlayer().getUnlocks().addHeadIcon(item.getItemId());
+                        return item;
+                    }
+                    case ChatBubble -> {
+                        getPlayer().getUnlocks().addChatBubble(item.getItemId());
+                        return item;
+                    }
+                    case PhoneTheme -> {
+                        getPlayer().getUnlocks().addPhoneTheme(item.getItemId());
+                        return item;
+                    }
+                    default -> {
+                        // Skip
+                    }
+                }
+                
+                // Skip if not food item
+                if (subType != ItemSubType.Food) {
+                    return null;
+                }
+            case Pet:
+                getPlayer().getUnlocks().addPet(item.getItemId());
+                return item;
+            default:
+                if (tab == null) {
+                    return null;
+                }
+                
+                GameItem existingItem = tab.getItemById(item.getItemId());
+                
+                if (existingItem == null) {
+                    // Item type didnt exist before, we will add it to main inventory map if there is enough space
+                    if (tab.getSize() >= tab.getMaxCapacity()) {
+                        return null;
+                    }
+                    // Put item to inventory
+                    this.putItem(item, tab);
+                    // Set ownership and save to db
+                    item.save();
+                    return item;
+                } else {
+                    // Add count to item
+                    int amount = Utils.safeAdd(existingItem.getCount(), item.getCount(), item.getExcel().getPileLimit(), 0);
+                    if (existingItem.setCount(amount)) {
+                        existingItem.save();
+                    }
+                    return existingItem;
+                }
         }
     }
 
@@ -331,14 +334,6 @@ public class Inventory extends BasePlayerManager {
             case 22: // Trailblaze EXP
                 getPlayer().addExp(count);
                 break;
-            case GameConstants.ROGUE_TALENT_COIN_ID: // Rogue talent points
-                getPlayer().addTalentPoints(count);
-                break;
-            case GameConstants.ROGUE_COIN_ID:
-                if (getPlayer().getRogueInstance() != null) {
-                    getPlayer().getRogueInstance().setCoin(getPlayer().getRogueInstance().getCoin() + count);
-                }
-                break;
         }
     }
     
@@ -365,10 +360,6 @@ public class Inventory extends BasePlayerManager {
                 } else if (param.getId() == GameConstants.MATERIAL_HCOIN_ID) {
                     // Remove credits
                     getPlayer().addHCoin(-param.getCount() * multiplier);
-                    continue;
-                } else if (param.getId() == GameConstants.ROGUE_TALENT_COIN_ID) {
-                    // Remove credits
-                    getPlayer().addTalentPoints(-param.getCount() * multiplier);
                     continue;
                 }
             }
@@ -477,42 +468,78 @@ public class Inventory extends BasePlayerManager {
     
     // Verifying items
     
-    public boolean verifyItems(Collection<ItemParam> params) {
-        return verifyItems(params, 1);
+    public boolean hasItem(int itemId, int count) {
+        // Sanity check
+        if (count == 0) {
+            return true;
+        } else if (count < 0) {
+            // Return false if we are trying to check if the player has a negative amount of this item
+            return false;
+        }
+        
+        // Get item excel
+        var excel = GameData.getItemExcelMap().get(itemId);
+        
+        if (excel == null) {
+            return false;
+        }
+        
+        boolean result = switch (excel.getItemMainType()) {
+            case Virtual -> {
+                if (itemId == GameConstants.MATERIAL_COIN_ID) {
+                    // Check credits
+                    yield this.getPlayer().getScoin() >= count;
+                } else if (itemId == GameConstants.MATERIAL_HCOIN_ID) {
+                    // Check jades
+                    yield this.getPlayer().getHcoin() >= count;
+                } else if (itemId == GameConstants.ROGUE_TALENT_COIN_ID) {
+                    // Check rogue talents
+                    yield this.getPlayer().getTalentPoints() >= count;
+                }
+                
+                // Not supported
+                yield false;
+            }
+            case AvatarCard -> {
+                yield this.getPlayer().getAvatars().hasAvatar(itemId);
+            }
+            case Usable, Material, Mission -> {
+                GameItem item = this.getMaterialByItemId(itemId);
+                if (item == null) {
+                    yield false;
+                }
+                
+                yield item.getCount() >= count;
+            }
+            default -> {
+                yield false;
+            }
+        };
+        
+        // Player has enough of this item
+        return result;
     }
     
-    public boolean verifyItems(Collection<ItemParam> params, int multiplier) {
-        for (ItemParam param : params) {
-            // Check param type
-            if (param.getId() == GameConstants.MATERIAL_COIN_ID) {
-                // Check credits
-                if (!verifyScoin(param.getCount() * multiplier)) {
-                    return false;
-                }
-            } else if (param.getId() == GameConstants.MATERIAL_HCOIN_ID) {
-                // Check jades
-                if (!verifyHcoin(param.getCount() * multiplier)) {
-                    return false;
-                }
-            } else if (param.getId() == GameConstants.ROGUE_TALENT_COIN_ID) {
-                return this.getPlayer().getTalentPoints() >= param.getCount() * multiplier;
-            } else {
-                // Check param items
-                GameItem item = this.getItemByParam(param);
-                if (item == null || item.getCount() < param.getCount() * multiplier) {
-                    return false;
-                }
+    public boolean hasItems(List<ItemParam> items) {
+        return hasItems(items, 1);
+    }
+    
+    public boolean hasItems(List<ItemParam> items, int multiplier) {
+        for (var param : items) {
+            // Make sure we have enough of this item
+            if (!this.hasItem(param.getId(), param.getCount() * multiplier)) {
+                return false;
             }
         }
         
         return true;
     }
     
-    public boolean verifyScoin(int cost) {
+    public boolean hasScoin(int cost) {
         return this.getPlayer().getScoin() >= cost;
     }
     
-    public boolean verifyHcoin(int cost) {
+    public boolean hasHcoin(int cost) {
         return this.getPlayer().getHcoin() >= cost;
     }
     
@@ -531,8 +558,8 @@ public class Inventory extends BasePlayerManager {
         }
         
         // Get use excel
-        var itemUseExcel = GameData.getItemUseExcelMap().get(useItem.getExcel().getUseDataID());
-        if (itemUseExcel == null) return null; 
+        var itemUseExcel = GameData.getItemUseExcelMap().get(itemId);
+        if (itemUseExcel == null) return null;
         
         // Setup variables
         boolean usedItem = false;
@@ -540,10 +567,10 @@ public class Inventory extends BasePlayerManager {
         // Handle item useMethod
         // TODO write better handler for this later
         usedItem = switch (useItem.getExcel().getUseMethod()) {
-        case FixedRewardGift -> ItemUseHandler.handleFixedRewardGift(getPlayer(), itemUseExcel, avatarId, count);
-        case TeamSpecificFoodBenefit -> ItemUseHandler.handleTeamSpecificFoodBenefit(getPlayer(), itemUseExcel, avatarId, count);
-        case ExternalSystemFoodBenefit -> ItemUseHandler.handleExternalSystemFoodBenefit(getPlayer(), itemUseExcel, avatarId, count);
-        default -> false;
+            case FixedRewardGift -> ItemUseHandler.handleFixedRewardGift(getPlayer(), itemUseExcel, avatarId, count);
+            case TeamSpecificFoodBenefit -> ItemUseHandler.handleTeamSpecificFoodBenefit(getPlayer(), itemUseExcel, avatarId, count);
+            case ExternalSystemFoodBenefit -> ItemUseHandler.handleExternalSystemFoodBenefit(getPlayer(), itemUseExcel, avatarId, count);
+            default -> false;
         };
         
         // Remove item from inventory if we used it

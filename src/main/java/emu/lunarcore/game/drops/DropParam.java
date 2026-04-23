@@ -96,7 +96,7 @@ public class DropParam {
             if (excel.isEquippable()) {
                 // Add relic/equipment drop
                 if (rates.getEquip() > 0) {
-                    drops.addTo(itemId, 1);
+                    drops.add(itemId, 1);
                     count = count.subtract(BigDecimal.valueOf(1.0 / rates.getEquip()));
                 } else {
                     // To prevent a rate of 0 from freezing the server
@@ -105,15 +105,15 @@ public class DropParam {
             } else {
                 // Apply server rates to drop amount amount
                 int amount = switch (itemId) {
-                case GameConstants.TRAILBLAZER_EXP_ID -> (int) Math.floor(count.doubleValue() * rates.getExp());
-                case GameConstants.MATERIAL_COIN_ID -> (int) Math.floor(count.doubleValue() * rates.getCredit());
-                case GameConstants.MATERIAL_HCOIN_ID -> (int) Math.floor(count.doubleValue() * rates.getJade());
-                default -> (int) Math.floor(count.doubleValue() * rates.getMaterial());
+                    case GameConstants.TRAILBLAZER_EXP_ID -> (int) Math.floor(count.doubleValue() * rates.getExp());
+                    case GameConstants.MATERIAL_COIN_ID -> (int) Math.floor(count.doubleValue() * rates.getCredit());
+                    case GameConstants.MATERIAL_HCOIN_ID -> (int) Math.floor(count.doubleValue() * rates.getJade());
+                    default -> (int) Math.floor(count.doubleValue() * rates.getMaterial());
                 };
                 
                 // Add material/virtual drop
                 if (amount > 0) {
-                    drops.addTo(itemId, amount);
+                    drops.add(itemId, amount);
                 }
                 
                 // To prevent a rate of 0 from freezing the server

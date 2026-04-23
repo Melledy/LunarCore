@@ -22,11 +22,12 @@ import dev.morphia.Datastore;
 import dev.morphia.DeleteOptions;
 import dev.morphia.InsertOneOptions;
 import dev.morphia.Morphia;
+import dev.morphia.UpdateOptions;
 import dev.morphia.annotations.Entity;
 import dev.morphia.mapping.Mapper;
 import dev.morphia.mapping.MapperOptions;
 import dev.morphia.query.filters.Filters;
-
+import dev.morphia.query.updates.UpdateOperators;
 import emu.lunarcore.Config.DatabaseInfo;
 import emu.lunarcore.Config.InternalMongoInfo;
 import emu.lunarcore.LunarCore;
@@ -187,6 +188,26 @@ public final class DatabaseManager {
         } finally {
             getDatastore().save(counter);
         }
+    }
+    
+    public void update(Object obj, long uid, String field, Object item) {
+        update(obj, uid, field, item, false);
+    }
+    
+    public void update(Object obj, long uid, String field, Object value, boolean upsert) {
+        var opt = new UpdateOptions().upsert(upsert);
+        
+        getDatastore().find(obj.getClass())
+            .filter(Filters.eq("_id", uid))
+            .update(opt, UpdateOperators.set(field, value));
+    }
+    
+    public void addToSet(Object obj, long uid, String field, Object item) {
+        var opt = new UpdateOptions().upsert(false);
+        
+        getDatastore().find(obj.getClass())
+            .filter(Filters.eq("_id", uid))
+            .update(opt, UpdateOperators.addToSet(field, item));
     }
 
     // Internal MongoDB server

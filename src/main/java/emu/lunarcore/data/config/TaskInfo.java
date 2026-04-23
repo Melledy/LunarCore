@@ -21,6 +21,7 @@ public class TaskInfo {
     private String ModifierName;
     private boolean TriggerBattle = true;
     private DynamicFloat LifeTime;
+    private boolean IsClientOnly = false;
     
     private List<TaskInfo> OnAttack;
     private List<TaskInfo> OnBattle;
@@ -30,6 +31,10 @@ public class TaskInfo {
     
     public String getType() {
         return this.$type;
+    }
+
+    public boolean IsClientOnly() {
+        return this.IsClientOnly;
     }
     
     public int getLifeTime() {

@@ -20,22 +20,22 @@ public final class FriendListInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional .PlayingState playing_state = 3;</code>
+     * <code>optional .PlayingState playing_state = 11;</code>
      */
     private int playingState;
 
     /**
-     * <code>optional bool is_marked = 4;</code>
+     * <code>optional bool is_marked = 9;</code>
      */
     private boolean isMarked;
 
     /**
-     * <code>optional .SimpleInfo simple_info = 2;</code>
+     * <code>optional .PlayerSimpleInfo simple_info = 1;</code>
      */
-    private final SimpleInfoOuterClass.SimpleInfo simpleInfo = SimpleInfoOuterClass.SimpleInfo.newInstance();
+    private final PlayerSimpleInfoOuterClass.PlayerSimpleInfo simpleInfo = PlayerSimpleInfoOuterClass.PlayerSimpleInfo.newInstance();
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      */
     private final Utf8String remarkName = Utf8String.newEmptyInstance();
 
@@ -50,7 +50,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayingState playing_state = 3;</code>
+     * <code>optional .PlayingState playing_state = 11;</code>
      * @return whether the playingState field is set
      */
     public boolean hasPlayingState() {
@@ -58,7 +58,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayingState playing_state = 3;</code>
+     * <code>optional .PlayingState playing_state = 11;</code>
      * @return this
      */
     public FriendListInfo clearPlayingState() {
@@ -68,7 +68,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayingState playing_state = 3;</code>
+     * <code>optional .PlayingState playing_state = 11;</code>
      * @return the playingState
      */
     public PlayingStateOuterClass.PlayingState getPlayingState() {
@@ -101,7 +101,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .PlayingState playing_state = 3;</code>
+     * <code>optional .PlayingState playing_state = 11;</code>
      * @param value the playingState to set
      * @return this
      */
@@ -112,7 +112,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 4;</code>
+     * <code>optional bool is_marked = 9;</code>
      * @return whether the isMarked field is set
      */
     public boolean hasIsMarked() {
@@ -120,7 +120,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 4;</code>
+     * <code>optional bool is_marked = 9;</code>
      * @return this
      */
     public FriendListInfo clearIsMarked() {
@@ -130,7 +130,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 4;</code>
+     * <code>optional bool is_marked = 9;</code>
      * @return the isMarked
      */
     public boolean getIsMarked() {
@@ -138,7 +138,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional bool is_marked = 4;</code>
+     * <code>optional bool is_marked = 9;</code>
      * @param value the isMarked to set
      * @return this
      */
@@ -149,7 +149,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 2;</code>
+     * <code>optional .PlayerSimpleInfo simple_info = 1;</code>
      * @return whether the simpleInfo field is set
      */
     public boolean hasSimpleInfo() {
@@ -157,7 +157,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 2;</code>
+     * <code>optional .PlayerSimpleInfo simple_info = 1;</code>
      * @return this
      */
     public FriendListInfo clearSimpleInfo() {
@@ -167,7 +167,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 2;</code>
+     * <code>optional .PlayerSimpleInfo simple_info = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -176,12 +176,12 @@ public final class FriendListInfoOuterClass {
      *
      * @return internal storage object for reading
      */
-    public SimpleInfoOuterClass.SimpleInfo getSimpleInfo() {
+    public PlayerSimpleInfoOuterClass.PlayerSimpleInfo getSimpleInfo() {
       return simpleInfo;
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 2;</code>
+     * <code>optional .PlayerSimpleInfo simple_info = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -189,24 +189,24 @@ public final class FriendListInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public SimpleInfoOuterClass.SimpleInfo getMutableSimpleInfo() {
+    public PlayerSimpleInfoOuterClass.PlayerSimpleInfo getMutableSimpleInfo() {
       bitField0_ |= 0x00000004;
       return simpleInfo;
     }
 
     /**
-     * <code>optional .SimpleInfo simple_info = 2;</code>
+     * <code>optional .PlayerSimpleInfo simple_info = 1;</code>
      * @param value the simpleInfo to set
      * @return this
      */
-    public FriendListInfo setSimpleInfo(final SimpleInfoOuterClass.SimpleInfo value) {
+    public FriendListInfo setSimpleInfo(final PlayerSimpleInfoOuterClass.PlayerSimpleInfo value) {
       bitField0_ |= 0x00000004;
       simpleInfo.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      * @return whether the remarkName field is set
      */
     public boolean hasRemarkName() {
@@ -214,7 +214,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      * @return this
      */
     public FriendListInfo clearRemarkName() {
@@ -224,7 +224,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      * @return the remarkName
      */
     public String getRemarkName() {
@@ -232,7 +232,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      * @return internal {@code Utf8String} representation of remarkName for reading
      */
     public Utf8String getRemarkNameBytes() {
@@ -240,7 +240,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      * @return internal {@code Utf8String} representation of remarkName for modifications
      */
     public Utf8String getMutableRemarkNameBytes() {
@@ -249,7 +249,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      * @param value the remarkName to set
      * @return this
      */
@@ -260,7 +260,7 @@ public final class FriendListInfoOuterClass {
     }
 
     /**
-     * <code>optional string remark_name = 13;</code>
+     * <code>optional string remark_name = 7;</code>
      * @param value the remarkName to set
      * @return this
      */
@@ -349,19 +349,19 @@ public final class FriendListInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 88);
         output.writeEnumNoTag(playingState);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 72);
         output.writeBoolNoTag(isMarked);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 18);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(simpleInfo);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 106);
+        output.writeRawByte((byte) 58);
         output.writeStringNoTag(remarkName);
       }
     }
@@ -391,7 +391,7 @@ public final class FriendListInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 88: {
             // playingState
             final int value = input.readInt32();
             if (PlayingStateOuterClass.PlayingState.forNumber(value) != null) {
@@ -399,29 +399,29 @@ public final class FriendListInfoOuterClass {
               bitField0_ |= 0x00000001;
             }
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 72) {
               break;
             }
           }
-          case 32: {
+          case 72: {
             // isMarked
             isMarked = input.readBool();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 10) {
               break;
             }
           }
-          case 18: {
+          case 10: {
             // simpleInfo
             input.readMessage(simpleInfo);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 106) {
+            if (tag != 58) {
               break;
             }
           }
-          case 106: {
+          case 58: {
             // remarkName
             input.readString(remarkName);
             bitField0_ |= 0x00000008;

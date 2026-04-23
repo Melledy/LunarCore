@@ -5,6 +5,7 @@ import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.excel.ChallengeExcel;
 import emu.lunarcore.game.battle.Battle;
 import emu.lunarcore.game.player.Player;
+import emu.lunarcore.game.player.PlayerGameInstance;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.EntityMonster;
 import emu.lunarcore.proto.BattleEndReasonOuterClass.BattleEndReason;
@@ -13,8 +14,10 @@ import emu.lunarcore.proto.BattleStatisticsOuterClass.BattleStatistics;
 import emu.lunarcore.proto.ChallengeInfoOuterClass.ChallengeInfo;
 import emu.lunarcore.proto.ChallengeStatusOuterClass.ChallengeStatus;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
+import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.PacketChallengeLineupNotify;
 import emu.lunarcore.server.packet.send.PacketChallengeSettleNotify;
+import emu.lunarcore.server.packet.send.PacketEnterSceneByServerScNotify;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 import emu.lunarcore.util.Position;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -23,8 +26,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter @Entity(useDiscriminator = false)
-public class ChallengeInstance {
-    private transient Player player;
+public class ChallengeInstance extends PlayerGameInstance {
     private transient ChallengeExcel excel;
     private Position startPos;
     private Position startRot;
@@ -47,7 +49,7 @@ public class ChallengeInstance {
     public ChallengeInstance() {}
 
     public ChallengeInstance(Player player, ChallengeExcel excel) {
-        this.player = player;
+        this.setPlayer(player);
         this.excel = excel;
         this.challengeId = excel.getId();
         this.startPos = new Position();
@@ -60,10 +62,6 @@ public class ChallengeInstance {
     
     private Scene getScene() {
         return this.getPlayer().getScene();
-    }
-    
-    private int getChallengeId() {
-        return this.getExcel().getId();
     }
     
     public ChallengeType getType() {
@@ -103,9 +101,12 @@ public class ChallengeInstance {
         buffs.add(buff);
     }
     
+    // Battle events
+    
+    @Override
     public void onBattleStart(Battle battle) {
         // Set cycle limit
-        battle.setRoundsLimit(player.getChallengeInstance().getRoundsLeft());
+        battle.setRoundsLimit(this.getRoundsLeft());
         
         // Add story buffs
         if (this.getBuffs() != null) {
@@ -120,7 +121,7 @@ public class ChallengeInstance {
         // Add story battle targets
         if (this.getExcel().getType() == ChallengeType.STORY) {
             // Add base score counter
-            battle.addBattleTarget(1, 10002, this.getTotalScore());
+            battle.addBattleTarget(1, 10001, this.getTotalScore());
             // Add battle targets from story excel
             for (int id : getExcel().getStoryExcel().getBattleTargetID()) {
                 battle.addBattleTarget(5, id, this.getTotalScore());
@@ -132,6 +133,7 @@ public class ChallengeInstance {
         }
     }
     
+    @Override
     public void onBattleFinish(Battle battle, BattleEndStatus result, BattleStatistics stats) {
         // Add challenge score
         if (this.isStory()) {
@@ -156,7 +158,7 @@ public class ChallengeInstance {
                 });
                 
                 // Get monster count in stage
-                long monsters = player.getScene().getEntities().values().stream().filter(e -> e instanceof EntityMonster).count();
+                long monsters = getPlayer().getScene().getEntities().values().stream().filter(e -> e instanceof EntityMonster).count();
                 
                 if (monsters == 0) {
                     this.advanceStage();
@@ -168,14 +170,14 @@ public class ChallengeInstance {
                 }
                 
                 // Set saved technique points (This will be restored if the player resets the challenge)
-                this.savedMp = player.getCurrentLineup().getMp();
+                this.savedMp = getPlayer().getCurrentLineup().getMp();
                 break;
             case BATTLE_END_QUIT:
                 // Reset technique points and move back to start position
-                var lineup = player.getCurrentLineup();
+                var lineup = getPlayer().getCurrentLineup();
                 lineup.setMp(this.savedMp);
-                player.moveTo(this.getStartPos(), this.getStartRot());
-                player.sendPacket(new PacketSyncLineupNotify(lineup));
+                getPlayer().moveTo(this.getStartPos(), this.getStartRot());
+                getPlayer().sendPacket(new PacketSyncLineupNotify(lineup));
                 break;
             default:
                 // Determine challenge result
@@ -185,11 +187,13 @@ public class ChallengeInstance {
                     // Fail challenge
                     this.setStatus(ChallengeStatus.CHALLENGE_FAILED);
                     // Send challenge result data
-                    player.sendPacket(new PacketChallengeSettleNotify(this));
+                    getPlayer().sendPacket(new PacketChallengeSettleNotify(this));
                 }
                 break;
         }
     }
+    
+    // Challenge logic
     
     private void advanceStage() {
         // Progress to the next stage
@@ -198,9 +202,9 @@ public class ChallengeInstance {
             this.setStatus(ChallengeStatus.CHALLENGE_FINISH);
             this.stars = this.calculateStars();
             // Save history
-            player.getChallengeManager().addHistory(this.getChallengeId(), this.getStars(), this.getTotalScore(), this.getType() == ChallengeType.BOSS);
+            getPlayer().getChallengeManager().addHistory(this.getChallengeId(), this.getStars(), this.getTotalScore(), this.getType() == ChallengeType.BOSS);
             // Send challenge result data
-            player.sendPacket(new PacketChallengeSettleNotify(this));
+            getPlayer().sendPacket(new PacketChallengeSettleNotify(this));
         } else {
             // Increment and reset stage
             this.currentStage++;
@@ -208,18 +212,22 @@ public class ChallengeInstance {
             this.getScene().loadGroup(excel.getMazeGroupID2());
             // Change player line up
             this.setCurrentExtraLineup(ExtraLineupType.LINEUP_CHALLENGE_2);
-            player.getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), true);
-            player.sendPacket(new PacketChallengeLineupNotify(this.getCurrentExtraLineup()));
-            this.savedMp = player.getCurrentLineup().getMp();
-            // Move player
-            player.moveTo(this.getStartPos(), this.getStartRot());
+            getPlayer().getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), true);
+            getPlayer().sendPacket(new PacketChallengeLineupNotify(this.getCurrentExtraLineup()));
+            this.savedMp = getPlayer().getCurrentLineup().getMp();
+            // Move player TODO hacky
+            //getPlayer().moveTo(this.getStartPos(), this.getStartRot());
+            getPlayer().getPos().set(this.getStartPos());
+            getPlayer().getRot().set(this.getStartRot());
+            getPlayer().getSession().send(CmdId.SyncServerSceneChangeNotify);
+            getPlayer().getSession().send(new PacketEnterSceneByServerScNotify(this.getPlayer()));
         }
     }
 
     public void onUpdate() {
         // End challenge if its done
         if (status != ChallengeStatus.CHALLENGE_DOING_VALUE) {
-            getPlayer().setChallengeInstance(null);
+            getPlayer().setInstance(null);
         }
     }
     
@@ -254,17 +262,6 @@ public class ChallengeInstance {
         
         return Math.min(stars, 7);
     }
-
-    public boolean validate(Player player) {
-        if (this.player == null) {
-            this.player = player;
-            // Force extra lineup type to be set during login
-            this.player.getLineupManager().setCurrentExtraLineup(this.getCurrentExtraLineup(), false);
-        }
-        
-        this.excel = GameData.getChallengeExcelMap().get(this.challengeId);
-        return this.excel != null;
-    }
     
     public ChallengeInfo toProto() {
         var proto = ChallengeInfo.newInstance()
@@ -294,5 +291,10 @@ public class ChallengeInstance {
         }
         
         return proto;
+    }
+    
+    @Override
+    public void onLeave() {
+        
     }
 }

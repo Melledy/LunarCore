@@ -3,8 +3,8 @@ package emu.lunarcore.data.excel;
 import java.util.ArrayList;
 import java.util.List;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.game.battle.BattleStage;
 import emu.lunarcore.game.enums.StageType;
 import it.unimi.dsi.fastutil.ints.IntArrayList;
@@ -37,13 +37,13 @@ public class StageExcel extends GameResource implements BattleStage {
         if (this.StageType == null) {
             this.StageType = emu.lunarcore.game.enums.StageType.Unknown;
         }
-        
+
         // Cache monster list
         this.monsterWaves = new ArrayList<>();
-        
+
         for (StageMonsterWave wave : MonsterList) {
             var monsterIds = wave.toList();
-            
+
             if (!monsterIds.isEmpty()) {
                 this.monsterWaves.add(monsterIds);
             }

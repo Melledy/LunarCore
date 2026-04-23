@@ -13,8 +13,8 @@ public class HandlerGetSceneMapInfoCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetSceneMapInfoCsReq.parseFrom(data);
-
-        session.send(new PacketGetSceneMapInfoScRsp(req.getEntryIdList()));
+        
+        session.send(new PacketGetSceneMapInfoScRsp(req.getSceneIdentifierList()));
     }
 
 }

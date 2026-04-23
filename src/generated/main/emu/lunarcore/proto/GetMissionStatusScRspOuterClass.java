@@ -21,34 +21,39 @@ public final class GetMissionStatusScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 14;</code>
      */
     private int retcode;
 
     /**
-     * <code>repeated uint32 unfinished_main_mission_id_list = 1;</code>
+     * <code>repeated uint32 curversion_finished_main_mission_id_list = 1;</code>
      */
-    private final RepeatedInt unfinishedMainMissionIdList = RepeatedInt.newEmptyInstance();
+    private final RepeatedInt curversionFinishedMainMissionIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated uint32 finished_main_mission_id_list = 6;</code>
-     */
-    private final RepeatedInt finishedMainMissionIdList = RepeatedInt.newEmptyInstance();
-
-    /**
-     * <code>repeated uint32 disabled_main_mission_id_list = 13;</code>
+     * <code>repeated uint32 disabled_main_mission_id_list = 6;</code>
      */
     private final RepeatedInt disabledMainMissionIdList = RepeatedInt.newEmptyInstance();
 
     /**
-     * <code>repeated .Mission sub_mission_status_list = 8;</code>
+     * <code>repeated uint32 unfinished_main_mission_id_list = 7;</code>
+     */
+    private final RepeatedInt unfinishedMainMissionIdList = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated uint32 finished_main_mission_id_list = 9;</code>
+     */
+    private final RepeatedInt finishedMainMissionIdList = RepeatedInt.newEmptyInstance();
+
+    /**
+     * <code>repeated .Mission sub_mission_status_list = 2;</code>
      */
     private final RepeatedMessage<MissionOuterClass.Mission> subMissionStatusList = RepeatedMessage.newEmptyInstance(MissionOuterClass.Mission.getFactory());
 
     /**
-     * <code>repeated .Mission mission_event_status_list = 9;</code>
+     * <code>repeated .MainMissionCustomValue main_mission_mcv_list = 11;</code>
      */
-    private final RepeatedMessage<MissionOuterClass.Mission> missionEventStatusList = RepeatedMessage.newEmptyInstance(MissionOuterClass.Mission.getFactory());
+    private final RepeatedMessage<MainMissionCustomValueOuterClass.MainMissionCustomValue> mainMissionMcvList = RepeatedMessage.newEmptyInstance(MainMissionCustomValueOuterClass.MainMissionCustomValue.getFactory());
 
     private GetMissionStatusScRsp() {
     }
@@ -61,7 +66,7 @@ public final class GetMissionStatusScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -69,7 +74,7 @@ public final class GetMissionStatusScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return this
      */
     public GetMissionStatusScRsp clearRetcode() {
@@ -79,7 +84,7 @@ public final class GetMissionStatusScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -87,7 +92,7 @@ public final class GetMissionStatusScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 10;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -98,39 +103,39 @@ public final class GetMissionStatusScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 unfinished_main_mission_id_list = 1;</code>
-     * @return whether the unfinishedMainMissionIdList field is set
+     * <code>repeated uint32 curversion_finished_main_mission_id_list = 1;</code>
+     * @return whether the curversionFinishedMainMissionIdList field is set
      */
-    public boolean hasUnfinishedMainMissionIdList() {
+    public boolean hasCurversionFinishedMainMissionIdList() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>repeated uint32 unfinished_main_mission_id_list = 1;</code>
+     * <code>repeated uint32 curversion_finished_main_mission_id_list = 1;</code>
      * @return this
      */
-    public GetMissionStatusScRsp clearUnfinishedMainMissionIdList() {
+    public GetMissionStatusScRsp clearCurversionFinishedMainMissionIdList() {
       bitField0_ &= ~0x00000002;
-      unfinishedMainMissionIdList.clear();
+      curversionFinishedMainMissionIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 unfinished_main_mission_id_list = 1;</code>
+     * <code>repeated uint32 curversion_finished_main_mission_id_list = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableUnfinishedMainMissionIdList()} if you want to modify it.
+     * Use {@link #getMutableCurversionFinishedMainMissionIdList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getUnfinishedMainMissionIdList() {
-      return unfinishedMainMissionIdList;
+    public RepeatedInt getCurversionFinishedMainMissionIdList() {
+      return curversionFinishedMainMissionIdList;
     }
 
     /**
-     * <code>repeated uint32 unfinished_main_mission_id_list = 1;</code>
+     * <code>repeated uint32 curversion_finished_main_mission_id_list = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -138,121 +143,53 @@ public final class GetMissionStatusScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableUnfinishedMainMissionIdList() {
+    public RepeatedInt getMutableCurversionFinishedMainMissionIdList() {
       bitField0_ |= 0x00000002;
-      return unfinishedMainMissionIdList;
+      return curversionFinishedMainMissionIdList;
     }
 
     /**
-     * <code>repeated uint32 unfinished_main_mission_id_list = 1;</code>
-     * @param value the unfinishedMainMissionIdList to add
+     * <code>repeated uint32 curversion_finished_main_mission_id_list = 1;</code>
+     * @param value the curversionFinishedMainMissionIdList to add
      * @return this
      */
-    public GetMissionStatusScRsp addUnfinishedMainMissionIdList(final int value) {
+    public GetMissionStatusScRsp addCurversionFinishedMainMissionIdList(final int value) {
       bitField0_ |= 0x00000002;
-      unfinishedMainMissionIdList.add(value);
+      curversionFinishedMainMissionIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 unfinished_main_mission_id_list = 1;</code>
-     * @param values the unfinishedMainMissionIdList to add
+     * <code>repeated uint32 curversion_finished_main_mission_id_list = 1;</code>
+     * @param values the curversionFinishedMainMissionIdList to add
      * @return this
      */
-    public GetMissionStatusScRsp addAllUnfinishedMainMissionIdList(final int... values) {
+    public GetMissionStatusScRsp addAllCurversionFinishedMainMissionIdList(final int... values) {
       bitField0_ |= 0x00000002;
-      unfinishedMainMissionIdList.addAll(values);
+      curversionFinishedMainMissionIdList.addAll(values);
       return this;
     }
 
     /**
-     * <code>repeated uint32 finished_main_mission_id_list = 6;</code>
-     * @return whether the finishedMainMissionIdList field is set
+     * <code>repeated uint32 disabled_main_mission_id_list = 6;</code>
+     * @return whether the disabledMainMissionIdList field is set
      */
-    public boolean hasFinishedMainMissionIdList() {
+    public boolean hasDisabledMainMissionIdList() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>repeated uint32 finished_main_mission_id_list = 6;</code>
-     * @return this
-     */
-    public GetMissionStatusScRsp clearFinishedMainMissionIdList() {
-      bitField0_ &= ~0x00000004;
-      finishedMainMissionIdList.clear();
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 finished_main_mission_id_list = 6;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableFinishedMainMissionIdList()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RepeatedInt getFinishedMainMissionIdList() {
-      return finishedMainMissionIdList;
-    }
-
-    /**
-     * <code>repeated uint32 finished_main_mission_id_list = 6;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RepeatedInt getMutableFinishedMainMissionIdList() {
-      bitField0_ |= 0x00000004;
-      return finishedMainMissionIdList;
-    }
-
-    /**
-     * <code>repeated uint32 finished_main_mission_id_list = 6;</code>
-     * @param value the finishedMainMissionIdList to add
-     * @return this
-     */
-    public GetMissionStatusScRsp addFinishedMainMissionIdList(final int value) {
-      bitField0_ |= 0x00000004;
-      finishedMainMissionIdList.add(value);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 finished_main_mission_id_list = 6;</code>
-     * @param values the finishedMainMissionIdList to add
-     * @return this
-     */
-    public GetMissionStatusScRsp addAllFinishedMainMissionIdList(final int... values) {
-      bitField0_ |= 0x00000004;
-      finishedMainMissionIdList.addAll(values);
-      return this;
-    }
-
-    /**
-     * <code>repeated uint32 disabled_main_mission_id_list = 13;</code>
-     * @return whether the disabledMainMissionIdList field is set
-     */
-    public boolean hasDisabledMainMissionIdList() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>repeated uint32 disabled_main_mission_id_list = 13;</code>
+     * <code>repeated uint32 disabled_main_mission_id_list = 6;</code>
      * @return this
      */
     public GetMissionStatusScRsp clearDisabledMainMissionIdList() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000004;
       disabledMainMissionIdList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 disabled_main_mission_id_list = 13;</code>
+     * <code>repeated uint32 disabled_main_mission_id_list = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -266,7 +203,7 @@ public final class GetMissionStatusScRspOuterClass {
     }
 
     /**
-     * <code>repeated uint32 disabled_main_mission_id_list = 13;</code>
+     * <code>repeated uint32 disabled_main_mission_id_list = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -275,52 +212,188 @@ public final class GetMissionStatusScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedInt getMutableDisabledMainMissionIdList() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       return disabledMainMissionIdList;
     }
 
     /**
-     * <code>repeated uint32 disabled_main_mission_id_list = 13;</code>
+     * <code>repeated uint32 disabled_main_mission_id_list = 6;</code>
      * @param value the disabledMainMissionIdList to add
      * @return this
      */
     public GetMissionStatusScRsp addDisabledMainMissionIdList(final int value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       disabledMainMissionIdList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 disabled_main_mission_id_list = 13;</code>
+     * <code>repeated uint32 disabled_main_mission_id_list = 6;</code>
      * @param values the disabledMainMissionIdList to add
      * @return this
      */
     public GetMissionStatusScRsp addAllDisabledMainMissionIdList(final int... values) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       disabledMainMissionIdList.addAll(values);
       return this;
     }
 
     /**
-     * <code>repeated .Mission sub_mission_status_list = 8;</code>
-     * @return whether the subMissionStatusList field is set
+     * <code>repeated uint32 unfinished_main_mission_id_list = 7;</code>
+     * @return whether the unfinishedMainMissionIdList field is set
      */
-    public boolean hasSubMissionStatusList() {
+    public boolean hasUnfinishedMainMissionIdList() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>repeated uint32 unfinished_main_mission_id_list = 7;</code>
+     * @return this
+     */
+    public GetMissionStatusScRsp clearUnfinishedMainMissionIdList() {
+      bitField0_ &= ~0x00000008;
+      unfinishedMainMissionIdList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 unfinished_main_mission_id_list = 7;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableUnfinishedMainMissionIdList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getUnfinishedMainMissionIdList() {
+      return unfinishedMainMissionIdList;
+    }
+
+    /**
+     * <code>repeated uint32 unfinished_main_mission_id_list = 7;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableUnfinishedMainMissionIdList() {
+      bitField0_ |= 0x00000008;
+      return unfinishedMainMissionIdList;
+    }
+
+    /**
+     * <code>repeated uint32 unfinished_main_mission_id_list = 7;</code>
+     * @param value the unfinishedMainMissionIdList to add
+     * @return this
+     */
+    public GetMissionStatusScRsp addUnfinishedMainMissionIdList(final int value) {
+      bitField0_ |= 0x00000008;
+      unfinishedMainMissionIdList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 unfinished_main_mission_id_list = 7;</code>
+     * @param values the unfinishedMainMissionIdList to add
+     * @return this
+     */
+    public GetMissionStatusScRsp addAllUnfinishedMainMissionIdList(final int... values) {
+      bitField0_ |= 0x00000008;
+      unfinishedMainMissionIdList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 finished_main_mission_id_list = 9;</code>
+     * @return whether the finishedMainMissionIdList field is set
+     */
+    public boolean hasFinishedMainMissionIdList() {
       return (bitField0_ & 0x00000010) != 0;
     }
 
     /**
-     * <code>repeated .Mission sub_mission_status_list = 8;</code>
+     * <code>repeated uint32 finished_main_mission_id_list = 9;</code>
+     * @return this
+     */
+    public GetMissionStatusScRsp clearFinishedMainMissionIdList() {
+      bitField0_ &= ~0x00000010;
+      finishedMainMissionIdList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 finished_main_mission_id_list = 9;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableFinishedMainMissionIdList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedInt getFinishedMainMissionIdList() {
+      return finishedMainMissionIdList;
+    }
+
+    /**
+     * <code>repeated uint32 finished_main_mission_id_list = 9;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedInt getMutableFinishedMainMissionIdList() {
+      bitField0_ |= 0x00000010;
+      return finishedMainMissionIdList;
+    }
+
+    /**
+     * <code>repeated uint32 finished_main_mission_id_list = 9;</code>
+     * @param value the finishedMainMissionIdList to add
+     * @return this
+     */
+    public GetMissionStatusScRsp addFinishedMainMissionIdList(final int value) {
+      bitField0_ |= 0x00000010;
+      finishedMainMissionIdList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated uint32 finished_main_mission_id_list = 9;</code>
+     * @param values the finishedMainMissionIdList to add
+     * @return this
+     */
+    public GetMissionStatusScRsp addAllFinishedMainMissionIdList(final int... values) {
+      bitField0_ |= 0x00000010;
+      finishedMainMissionIdList.addAll(values);
+      return this;
+    }
+
+    /**
+     * <code>repeated .Mission sub_mission_status_list = 2;</code>
+     * @return whether the subMissionStatusList field is set
+     */
+    public boolean hasSubMissionStatusList() {
+      return (bitField0_ & 0x00000020) != 0;
+    }
+
+    /**
+     * <code>repeated .Mission sub_mission_status_list = 2;</code>
      * @return this
      */
     public GetMissionStatusScRsp clearSubMissionStatusList() {
-      bitField0_ &= ~0x00000010;
+      bitField0_ &= ~0x00000020;
       subMissionStatusList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .Mission sub_mission_status_list = 8;</code>
+     * <code>repeated .Mission sub_mission_status_list = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -334,7 +407,7 @@ public final class GetMissionStatusScRspOuterClass {
     }
 
     /**
-     * <code>repeated .Mission sub_mission_status_list = 8;</code>
+     * <code>repeated .Mission sub_mission_status_list = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -343,67 +416,68 @@ public final class GetMissionStatusScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<MissionOuterClass.Mission> getMutableSubMissionStatusList() {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       return subMissionStatusList;
     }
 
     /**
-     * <code>repeated .Mission sub_mission_status_list = 8;</code>
+     * <code>repeated .Mission sub_mission_status_list = 2;</code>
      * @param value the subMissionStatusList to add
      * @return this
      */
     public GetMissionStatusScRsp addSubMissionStatusList(final MissionOuterClass.Mission value) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       subMissionStatusList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .Mission sub_mission_status_list = 8;</code>
+     * <code>repeated .Mission sub_mission_status_list = 2;</code>
      * @param values the subMissionStatusList to add
      * @return this
      */
     public GetMissionStatusScRsp addAllSubMissionStatusList(
         final MissionOuterClass.Mission... values) {
-      bitField0_ |= 0x00000010;
+      bitField0_ |= 0x00000020;
       subMissionStatusList.addAll(values);
       return this;
     }
 
     /**
-     * <code>repeated .Mission mission_event_status_list = 9;</code>
-     * @return whether the missionEventStatusList field is set
+     * <code>repeated .MainMissionCustomValue main_mission_mcv_list = 11;</code>
+     * @return whether the mainMissionMcvList field is set
      */
-    public boolean hasMissionEventStatusList() {
-      return (bitField0_ & 0x00000020) != 0;
+    public boolean hasMainMissionMcvList() {
+      return (bitField0_ & 0x00000040) != 0;
     }
 
     /**
-     * <code>repeated .Mission mission_event_status_list = 9;</code>
+     * <code>repeated .MainMissionCustomValue main_mission_mcv_list = 11;</code>
      * @return this
      */
-    public GetMissionStatusScRsp clearMissionEventStatusList() {
-      bitField0_ &= ~0x00000020;
-      missionEventStatusList.clear();
+    public GetMissionStatusScRsp clearMainMissionMcvList() {
+      bitField0_ &= ~0x00000040;
+      mainMissionMcvList.clear();
       return this;
     }
 
     /**
-     * <code>repeated .Mission mission_event_status_list = 9;</code>
+     * <code>repeated .MainMissionCustomValue main_mission_mcv_list = 11;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableMissionEventStatusList()} if you want to modify it.
+     * Use {@link #getMutableMainMissionMcvList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedMessage<MissionOuterClass.Mission> getMissionEventStatusList() {
-      return missionEventStatusList;
+    public RepeatedMessage<MainMissionCustomValueOuterClass.MainMissionCustomValue> getMainMissionMcvList(
+        ) {
+      return mainMissionMcvList;
     }
 
     /**
-     * <code>repeated .Mission mission_event_status_list = 9;</code>
+     * <code>repeated .MainMissionCustomValue main_mission_mcv_list = 11;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -411,31 +485,33 @@ public final class GetMissionStatusScRspOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedMessage<MissionOuterClass.Mission> getMutableMissionEventStatusList() {
-      bitField0_ |= 0x00000020;
-      return missionEventStatusList;
+    public RepeatedMessage<MainMissionCustomValueOuterClass.MainMissionCustomValue> getMutableMainMissionMcvList(
+        ) {
+      bitField0_ |= 0x00000040;
+      return mainMissionMcvList;
     }
 
     /**
-     * <code>repeated .Mission mission_event_status_list = 9;</code>
-     * @param value the missionEventStatusList to add
+     * <code>repeated .MainMissionCustomValue main_mission_mcv_list = 11;</code>
+     * @param value the mainMissionMcvList to add
      * @return this
      */
-    public GetMissionStatusScRsp addMissionEventStatusList(final MissionOuterClass.Mission value) {
-      bitField0_ |= 0x00000020;
-      missionEventStatusList.add(value);
+    public GetMissionStatusScRsp addMainMissionMcvList(
+        final MainMissionCustomValueOuterClass.MainMissionCustomValue value) {
+      bitField0_ |= 0x00000040;
+      mainMissionMcvList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .Mission mission_event_status_list = 9;</code>
-     * @param values the missionEventStatusList to add
+     * <code>repeated .MainMissionCustomValue main_mission_mcv_list = 11;</code>
+     * @param values the mainMissionMcvList to add
      * @return this
      */
-    public GetMissionStatusScRsp addAllMissionEventStatusList(
-        final MissionOuterClass.Mission... values) {
-      bitField0_ |= 0x00000020;
-      missionEventStatusList.addAll(values);
+    public GetMissionStatusScRsp addAllMainMissionMcvList(
+        final MainMissionCustomValueOuterClass.MainMissionCustomValue... values) {
+      bitField0_ |= 0x00000040;
+      mainMissionMcvList.addAll(values);
       return this;
     }
 
@@ -445,11 +521,12 @@ public final class GetMissionStatusScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
+        curversionFinishedMainMissionIdList.copyFrom(other.curversionFinishedMainMissionIdList);
+        disabledMainMissionIdList.copyFrom(other.disabledMainMissionIdList);
         unfinishedMainMissionIdList.copyFrom(other.unfinishedMainMissionIdList);
         finishedMainMissionIdList.copyFrom(other.finishedMainMissionIdList);
-        disabledMainMissionIdList.copyFrom(other.disabledMainMissionIdList);
         subMissionStatusList.copyFrom(other.subMissionStatusList);
-        missionEventStatusList.copyFrom(other.missionEventStatusList);
+        mainMissionMcvList.copyFrom(other.mainMissionMcvList);
       }
       return this;
     }
@@ -463,20 +540,23 @@ public final class GetMissionStatusScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
+      if (other.hasCurversionFinishedMainMissionIdList()) {
+        getMutableCurversionFinishedMainMissionIdList().addAll(other.curversionFinishedMainMissionIdList);
+      }
+      if (other.hasDisabledMainMissionIdList()) {
+        getMutableDisabledMainMissionIdList().addAll(other.disabledMainMissionIdList);
+      }
       if (other.hasUnfinishedMainMissionIdList()) {
         getMutableUnfinishedMainMissionIdList().addAll(other.unfinishedMainMissionIdList);
       }
       if (other.hasFinishedMainMissionIdList()) {
         getMutableFinishedMainMissionIdList().addAll(other.finishedMainMissionIdList);
       }
-      if (other.hasDisabledMainMissionIdList()) {
-        getMutableDisabledMainMissionIdList().addAll(other.disabledMainMissionIdList);
-      }
       if (other.hasSubMissionStatusList()) {
         getMutableSubMissionStatusList().addAll(other.subMissionStatusList);
       }
-      if (other.hasMissionEventStatusList()) {
-        getMutableMissionEventStatusList().addAll(other.missionEventStatusList);
+      if (other.hasMainMissionMcvList()) {
+        getMutableMainMissionMcvList().addAll(other.mainMissionMcvList);
       }
       return this;
     }
@@ -489,11 +569,12 @@ public final class GetMissionStatusScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
+      curversionFinishedMainMissionIdList.clear();
+      disabledMainMissionIdList.clear();
       unfinishedMainMissionIdList.clear();
       finishedMainMissionIdList.clear();
-      disabledMainMissionIdList.clear();
       subMissionStatusList.clear();
-      missionEventStatusList.clear();
+      mainMissionMcvList.clear();
       return this;
     }
 
@@ -504,11 +585,12 @@ public final class GetMissionStatusScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      curversionFinishedMainMissionIdList.clear();
+      disabledMainMissionIdList.clear();
       unfinishedMainMissionIdList.clear();
       finishedMainMissionIdList.clear();
-      disabledMainMissionIdList.clear();
       subMissionStatusList.clearQuick();
-      missionEventStatusList.clearQuick();
+      mainMissionMcvList.clearQuick();
       return this;
     }
 
@@ -523,47 +605,54 @@ public final class GetMissionStatusScRspOuterClass {
       GetMissionStatusScRsp other = (GetMissionStatusScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasCurversionFinishedMainMissionIdList() || curversionFinishedMainMissionIdList.equals(other.curversionFinishedMainMissionIdList))
+        && (!hasDisabledMainMissionIdList() || disabledMainMissionIdList.equals(other.disabledMainMissionIdList))
         && (!hasUnfinishedMainMissionIdList() || unfinishedMainMissionIdList.equals(other.unfinishedMainMissionIdList))
         && (!hasFinishedMainMissionIdList() || finishedMainMissionIdList.equals(other.finishedMainMissionIdList))
-        && (!hasDisabledMainMissionIdList() || disabledMainMissionIdList.equals(other.disabledMainMissionIdList))
         && (!hasSubMissionStatusList() || subMissionStatusList.equals(other.subMissionStatusList))
-        && (!hasMissionEventStatusList() || missionEventStatusList.equals(other.missionEventStatusList));
+        && (!hasMainMissionMcvList() || mainMissionMcvList.equals(other.mainMissionMcvList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        for (int i = 0; i < unfinishedMainMissionIdList.length(); i++) {
+        for (int i = 0; i < curversionFinishedMainMissionIdList.length(); i++) {
           output.writeRawByte((byte) 8);
-          output.writeUInt32NoTag(unfinishedMainMissionIdList.array()[i]);
+          output.writeUInt32NoTag(curversionFinishedMainMissionIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        for (int i = 0; i < finishedMainMissionIdList.length(); i++) {
-          output.writeRawByte((byte) 48);
-          output.writeUInt32NoTag(finishedMainMissionIdList.array()[i]);
-        }
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         for (int i = 0; i < disabledMainMissionIdList.length(); i++) {
-          output.writeRawByte((byte) 104);
+          output.writeRawByte((byte) 48);
           output.writeUInt32NoTag(disabledMainMissionIdList.array()[i]);
         }
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        for (int i = 0; i < unfinishedMainMissionIdList.length(); i++) {
+          output.writeRawByte((byte) 56);
+          output.writeUInt32NoTag(unfinishedMainMissionIdList.array()[i]);
+        }
+      }
       if ((bitField0_ & 0x00000010) != 0) {
-        for (int i = 0; i < subMissionStatusList.length(); i++) {
-          output.writeRawByte((byte) 66);
-          output.writeMessageNoTag(subMissionStatusList.get(i));
+        for (int i = 0; i < finishedMainMissionIdList.length(); i++) {
+          output.writeRawByte((byte) 72);
+          output.writeUInt32NoTag(finishedMainMissionIdList.array()[i]);
         }
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        for (int i = 0; i < missionEventStatusList.length(); i++) {
-          output.writeRawByte((byte) 74);
-          output.writeMessageNoTag(missionEventStatusList.get(i));
+        for (int i = 0; i < subMissionStatusList.length(); i++) {
+          output.writeRawByte((byte) 18);
+          output.writeMessageNoTag(subMissionStatusList.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        for (int i = 0; i < mainMissionMcvList.length(); i++) {
+          output.writeRawByte((byte) 90);
+          output.writeMessageNoTag(mainMissionMcvList.get(i));
         }
       }
     }
@@ -575,19 +664,22 @@ public final class GetMissionStatusScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += (1 * unfinishedMainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(unfinishedMainMissionIdList);
+        size += (1 * curversionFinishedMainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(curversionFinishedMainMissionIdList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += (1 * finishedMainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(finishedMainMissionIdList);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         size += (1 * disabledMainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(disabledMainMissionIdList);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        size += (1 * unfinishedMainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(unfinishedMainMissionIdList);
+      }
       if ((bitField0_ & 0x00000010) != 0) {
-        size += (1 * subMissionStatusList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(subMissionStatusList);
+        size += (1 * finishedMainMissionIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(finishedMainMissionIdList);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        size += (1 * missionEventStatusList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(missionEventStatusList);
+        size += (1 * subMissionStatusList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(subMissionStatusList);
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        size += (1 * mainMissionMcvList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(mainMissionMcvList);
       }
       return size;
     }
@@ -599,7 +691,7 @@ public final class GetMissionStatusScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 112: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -609,8 +701,8 @@ public final class GetMissionStatusScRspOuterClass {
             }
           }
           case 10: {
-            // unfinishedMainMissionIdList [packed=true]
-            input.readPackedUInt32(unfinishedMainMissionIdList, tag);
+            // curversionFinishedMainMissionIdList [packed=true]
+            input.readPackedUInt32(curversionFinishedMainMissionIdList, tag);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 50) {
@@ -618,35 +710,44 @@ public final class GetMissionStatusScRspOuterClass {
             }
           }
           case 50: {
-            // finishedMainMissionIdList [packed=true]
-            input.readPackedUInt32(finishedMainMissionIdList, tag);
-            bitField0_ |= 0x00000004;
-            tag = input.readTag();
-            if (tag != 106) {
-              break;
-            }
-          }
-          case 106: {
             // disabledMainMissionIdList [packed=true]
             input.readPackedUInt32(disabledMainMissionIdList, tag);
-            bitField0_ |= 0x00000008;
+            bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 66) {
+            if (tag != 58) {
               break;
             }
           }
-          case 66: {
-            // subMissionStatusList
-            tag = input.readRepeatedMessage(subMissionStatusList, tag);
-            bitField0_ |= 0x00000010;
+          case 58: {
+            // unfinishedMainMissionIdList [packed=true]
+            input.readPackedUInt32(unfinishedMainMissionIdList, tag);
+            bitField0_ |= 0x00000008;
+            tag = input.readTag();
             if (tag != 74) {
               break;
             }
           }
           case 74: {
-            // missionEventStatusList
-            tag = input.readRepeatedMessage(missionEventStatusList, tag);
+            // finishedMainMissionIdList [packed=true]
+            input.readPackedUInt32(finishedMainMissionIdList, tag);
+            bitField0_ |= 0x00000010;
+            tag = input.readTag();
+            if (tag != 18) {
+              break;
+            }
+          }
+          case 18: {
+            // subMissionStatusList
+            tag = input.readRepeatedMessage(subMissionStatusList, tag);
             bitField0_ |= 0x00000020;
+            if (tag != 90) {
+              break;
+            }
+          }
+          case 90: {
+            // mainMissionMcvList
+            tag = input.readRepeatedMessage(mainMissionMcvList, tag);
+            bitField0_ |= 0x00000040;
             if (tag != 0) {
               break;
             }
@@ -662,21 +763,27 @@ public final class GetMissionStatusScRspOuterClass {
             break;
           }
           case 8: {
-            // unfinishedMainMissionIdList [packed=false]
-            tag = input.readRepeatedUInt32(unfinishedMainMissionIdList, tag);
+            // curversionFinishedMainMissionIdList [packed=false]
+            tag = input.readRepeatedUInt32(curversionFinishedMainMissionIdList, tag);
             bitField0_ |= 0x00000002;
             break;
           }
           case 48: {
-            // finishedMainMissionIdList [packed=false]
-            tag = input.readRepeatedUInt32(finishedMainMissionIdList, tag);
+            // disabledMainMissionIdList [packed=false]
+            tag = input.readRepeatedUInt32(disabledMainMissionIdList, tag);
             bitField0_ |= 0x00000004;
             break;
           }
-          case 104: {
-            // disabledMainMissionIdList [packed=false]
-            tag = input.readRepeatedUInt32(disabledMainMissionIdList, tag);
+          case 56: {
+            // unfinishedMainMissionIdList [packed=false]
+            tag = input.readRepeatedUInt32(unfinishedMainMissionIdList, tag);
             bitField0_ |= 0x00000008;
+            break;
+          }
+          case 72: {
+            // finishedMainMissionIdList [packed=false]
+            tag = input.readRepeatedUInt32(finishedMainMissionIdList, tag);
+            bitField0_ |= 0x00000010;
             break;
           }
         }
@@ -690,19 +797,22 @@ public final class GetMissionStatusScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRepeatedUInt32(FieldNames.unfinishedMainMissionIdList, unfinishedMainMissionIdList);
+        output.writeRepeatedUInt32(FieldNames.curversionFinishedMainMissionIdList, curversionFinishedMainMissionIdList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRepeatedUInt32(FieldNames.finishedMainMissionIdList, finishedMainMissionIdList);
-      }
-      if ((bitField0_ & 0x00000008) != 0) {
         output.writeRepeatedUInt32(FieldNames.disabledMainMissionIdList, disabledMainMissionIdList);
       }
+      if ((bitField0_ & 0x00000008) != 0) {
+        output.writeRepeatedUInt32(FieldNames.unfinishedMainMissionIdList, unfinishedMainMissionIdList);
+      }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRepeatedMessage(FieldNames.subMissionStatusList, subMissionStatusList);
+        output.writeRepeatedUInt32(FieldNames.finishedMainMissionIdList, finishedMainMissionIdList);
       }
       if ((bitField0_ & 0x00000020) != 0) {
-        output.writeRepeatedMessage(FieldNames.missionEventStatusList, missionEventStatusList);
+        output.writeRepeatedMessage(FieldNames.subMissionStatusList, subMissionStatusList);
+      }
+      if ((bitField0_ & 0x00000040) != 0) {
+        output.writeRepeatedMessage(FieldNames.mainMissionMcvList, mainMissionMcvList);
       }
       output.endObject();
     }
@@ -725,24 +835,12 @@ public final class GetMissionStatusScRspOuterClass {
             }
             break;
           }
-          case 61133057:
-          case 1704637629: {
-            if (input.isAtField(FieldNames.unfinishedMainMissionIdList)) {
+          case -1934239294:
+          case -2039670449: {
+            if (input.isAtField(FieldNames.curversionFinishedMainMissionIdList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(unfinishedMainMissionIdList);
+                input.readRepeatedUInt32(curversionFinishedMainMissionIdList);
                 bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case 104231290:
-          case -1929023306: {
-            if (input.isAtField(FieldNames.finishedMainMissionIdList)) {
-              if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(finishedMainMissionIdList);
-                bitField0_ |= 0x00000004;
               }
             } else {
               input.skipUnknownField();
@@ -754,7 +852,31 @@ public final class GetMissionStatusScRspOuterClass {
             if (input.isAtField(FieldNames.disabledMainMissionIdList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedUInt32(disabledMainMissionIdList);
+                bitField0_ |= 0x00000004;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 61133057:
+          case 1704637629: {
+            if (input.isAtField(FieldNames.unfinishedMainMissionIdList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(unfinishedMainMissionIdList);
                 bitField0_ |= 0x00000008;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 104231290:
+          case -1929023306: {
+            if (input.isAtField(FieldNames.finishedMainMissionIdList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedUInt32(finishedMainMissionIdList);
+                bitField0_ |= 0x00000010;
               }
             } else {
               input.skipUnknownField();
@@ -766,19 +888,19 @@ public final class GetMissionStatusScRspOuterClass {
             if (input.isAtField(FieldNames.subMissionStatusList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(subMissionStatusList);
-                bitField0_ |= 0x00000010;
+                bitField0_ |= 0x00000020;
               }
             } else {
               input.skipUnknownField();
             }
             break;
           }
-          case 582053566:
-          case 1494751923: {
-            if (input.isAtField(FieldNames.missionEventStatusList)) {
+          case 905073995:
+          case -1773053194: {
+            if (input.isAtField(FieldNames.mainMissionMcvList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedMessage(missionEventStatusList);
-                bitField0_ |= 0x00000020;
+                input.readRepeatedMessage(mainMissionMcvList);
+                bitField0_ |= 0x00000040;
               }
             } else {
               input.skipUnknownField();
@@ -840,15 +962,17 @@ public final class GetMissionStatusScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
+      static final FieldName curversionFinishedMainMissionIdList = FieldName.forField("curversionFinishedMainMissionIdList", "curversion_finished_main_mission_id_list");
+
+      static final FieldName disabledMainMissionIdList = FieldName.forField("disabledMainMissionIdList", "disabled_main_mission_id_list");
+
       static final FieldName unfinishedMainMissionIdList = FieldName.forField("unfinishedMainMissionIdList", "unfinished_main_mission_id_list");
 
       static final FieldName finishedMainMissionIdList = FieldName.forField("finishedMainMissionIdList", "finished_main_mission_id_list");
 
-      static final FieldName disabledMainMissionIdList = FieldName.forField("disabledMainMissionIdList", "disabled_main_mission_id_list");
-
       static final FieldName subMissionStatusList = FieldName.forField("subMissionStatusList", "sub_mission_status_list");
 
-      static final FieldName missionEventStatusList = FieldName.forField("missionEventStatusList", "mission_event_status_list");
+      static final FieldName mainMissionMcvList = FieldName.forField("mainMissionMcvList", "main_mission_mcv_list");
     }
   }
 }

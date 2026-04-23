@@ -1,15 +1,15 @@
 package emu.lunarcore.data.excel;
 
 import emu.lunarcore.data.GameDepot;
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
-import emu.lunarcore.data.ResourceType.LoadPriority;
+import emu.lunarcore.data.resource.MultiKeyGameResource;
+import emu.lunarcore.data.resource.ResourceType;
+import emu.lunarcore.data.resource.ResourceType.LoadPriority;
 import emu.lunarcore.game.enums.AvatarPropertyType;
 import lombok.Getter;
 
 @Getter
 @ResourceType(name = {"RelicMainAffixConfig.json"}, loadPriority = LoadPriority.NORMAL)
-public class RelicMainAffixExcel extends GameResource {
+public class RelicMainAffixExcel extends MultiKeyGameResource {
     private int GroupID;
     private int AffixID;
     private AvatarPropertyType Property;
@@ -20,8 +20,13 @@ public class RelicMainAffixExcel extends GameResource {
     private boolean IsAvailable;
 
     @Override
-    public int getId() {
-        return (GroupID << 16) + AffixID;
+    public int getPrimaryKey() {
+        return GroupID;
+    }
+
+    @Override
+    public int getSecondaryKey() {
+        return AffixID;
     }
 
     @Override

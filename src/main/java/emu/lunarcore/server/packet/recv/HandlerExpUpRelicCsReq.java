@@ -18,12 +18,12 @@ public class HandlerExpUpRelicCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ExpUpRelicCsReq.parseFrom(data);
-        
+
         List<ItemParam> items = new ArrayList<>(req.getItemCostList().getItemList().length());
         for (ItemCost cost : req.getItemCostList().getItemList()) {
             items.add(new ItemParam(cost));
         }
-        
+
         var returnItems = session.getServer().getInventoryService().levelUpRelic(session.getPlayer(), req.getRelicUniqueId(), items);
         session.send(new PacketExpUpRelicScRsp(returnItems));
     }

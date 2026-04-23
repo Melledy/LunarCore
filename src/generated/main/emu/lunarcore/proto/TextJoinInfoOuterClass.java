@@ -13,22 +13,22 @@ import us.hebi.quickbuf.ProtoSource;
 
 public final class TextJoinInfoOuterClass {
   /**
+   * <pre>
+   *  TODO: CHECK
+   * </pre>
+   *
    * Protobuf type {@code TextJoinInfo}
    */
   public static final class TextJoinInfo extends ProtoMessage<TextJoinInfo> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     *  could be 4, TODO: check
-     * </pre>
-     *
-     * <code>optional uint32 text_item_id = 11;</code>
+     * <code>optional uint32 text_item_id = 12;</code>
      */
     private int textItemId;
 
     /**
-     * <code>optional uint32 text_item_config_id = 13;</code>
+     * <code>optional uint32 text_item_config_id = 15;</code>
      */
     private int textItemConfigId;
 
@@ -36,6 +36,10 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
+     * <pre>
+     *  TODO: CHECK
+     * </pre>
+     *
      * @return a new empty instance of {@code TextJoinInfo}
      */
     public static TextJoinInfo newInstance() {
@@ -43,11 +47,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  could be 4, TODO: check
-     * </pre>
-     *
-     * <code>optional uint32 text_item_id = 11;</code>
+     * <code>optional uint32 text_item_id = 12;</code>
      * @return whether the textItemId field is set
      */
     public boolean hasTextItemId() {
@@ -55,11 +55,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  could be 4, TODO: check
-     * </pre>
-     *
-     * <code>optional uint32 text_item_id = 11;</code>
+     * <code>optional uint32 text_item_id = 12;</code>
      * @return this
      */
     public TextJoinInfo clearTextItemId() {
@@ -69,11 +65,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  could be 4, TODO: check
-     * </pre>
-     *
-     * <code>optional uint32 text_item_id = 11;</code>
+     * <code>optional uint32 text_item_id = 12;</code>
      * @return the textItemId
      */
     public int getTextItemId() {
@@ -81,11 +73,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <pre>
-     *  could be 4, TODO: check
-     * </pre>
-     *
-     * <code>optional uint32 text_item_id = 11;</code>
+     * <code>optional uint32 text_item_id = 12;</code>
      * @param value the textItemId to set
      * @return this
      */
@@ -96,7 +84,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 13;</code>
+     * <code>optional uint32 text_item_config_id = 15;</code>
      * @return whether the textItemConfigId field is set
      */
     public boolean hasTextItemConfigId() {
@@ -104,7 +92,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 13;</code>
+     * <code>optional uint32 text_item_config_id = 15;</code>
      * @return this
      */
     public TextJoinInfo clearTextItemConfigId() {
@@ -114,7 +102,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 13;</code>
+     * <code>optional uint32 text_item_config_id = 15;</code>
      * @return the textItemConfigId
      */
     public int getTextItemConfigId() {
@@ -122,7 +110,7 @@ public final class TextJoinInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 text_item_config_id = 13;</code>
+     * <code>optional uint32 text_item_config_id = 15;</code>
      * @param value the textItemConfigId to set
      * @return this
      */
@@ -197,11 +185,11 @@ public final class TextJoinInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(textItemId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(textItemConfigId);
       }
     }
@@ -225,16 +213,16 @@ public final class TextJoinInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 88: {
+          case 96: {
             // textItemId
             textItemId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 120) {
               break;
             }
           }
-          case 104: {
+          case 120: {
             // textItemConfigId
             textItemConfigId = input.readUInt32();
             bitField0_ |= 0x00000002;

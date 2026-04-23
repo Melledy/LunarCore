@@ -9,14 +9,14 @@ public class PacketInteractPropScRsp extends BasePacket {
 
     public PacketInteractPropScRsp(EntityProp prop) {
         super(CmdId.InteractPropScRsp);
-        
+
         var data = InteractPropScRsp.newInstance();
-        
+
         if (prop != null) {
             data.setPropEntityId(prop.getEntityId());
             data.setPropState(prop.getState().getVal());
         }
-        
+
         this.setData(data);
     }
 }

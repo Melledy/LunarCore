@@ -15,7 +15,7 @@ public class PacketDoGachaScRsp extends BasePacket {
     public PacketDoGachaScRsp() {
         this(Retcode.FAIL);
     }
-    
+
     public PacketDoGachaScRsp(Retcode retcode) {
         super(CmdId.DoGachaScRsp);
 
@@ -29,7 +29,7 @@ public class PacketDoGachaScRsp extends BasePacket {
                 .setGachaNum(num)
                 .setCeilingNum(player.getGachaInfo().getCeilingNum())
                 .setGachaId(banner.getId());
-        
+
         for (GachaItem item : items) {
             data.addGachaItemList(item);
         }

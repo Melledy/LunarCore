@@ -1,10 +1,8 @@
 package emu.lunarcore.game.scene;
 
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.config.GroupInfo;
-import emu.lunarcore.data.config.MonsterInfo;
-import emu.lunarcore.data.config.NpcInfo;
-import emu.lunarcore.data.config.PropInfo;
+import emu.lunarcore.data.config.*;
+import emu.lunarcore.game.enums.PlaneType;
 import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
 import emu.lunarcore.data.excel.PropExcel;
@@ -16,26 +14,35 @@ import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
 
 public class SceneEntityLoader {
-    
+
     public void onSceneLoad(Scene scene) {
         for (GroupInfo group : scene.getFloorInfo().getGroups().values()) {
-            // Skip non-server groups
-            if (group.getLoadSide() != GroupLoadSide.Server) {
-                continue;
-            }
-            //Avoid trigger some quest 
-            if (group.getOwnerMainMissionID() > 0) {
-                continue;
+            boolean isToLoad = true;
+
+            if (group.getCategory() == GroupInfo.GroupCategory.Mission) {
+                isToLoad = false;
             }
             
-            // Load group
-            scene.loadGroup(group);
+            // These cause the map to get stuck loading
+            if (group.getGroupName().contains("Bug") || group.getGroupName().contains("Book") || group.getGroupName().contains("AngryBlock") || group.getGroupName().contains("ShelfDoor")) {
+                isToLoad = false;
+            }
+            
+            // Bad groups
+            if (scene.getPlaneId() == 20501 && group.getId() >= 360) {
+                isToLoad = false;
+            }
+            
+            // Load groups
+            if (group.getLoadSide() == GroupLoadSide.Server && isToLoad) {
+                scene.loadGroup(group);
+            }
         }
     }
     
     public EntityMonster loadMonster(Scene scene, GroupInfo group, MonsterInfo monsterInfo) {
         // Don't spawn entity if they have certain flags in their info
-        if (monsterInfo.isIsDelete() || monsterInfo.isIsClientOnly()) {
+        if (monsterInfo.isIsDelete() || monsterInfo.isIsClientOnly() || !monsterInfo.isLoadOnInitial()) {
             return null;
         }
         
@@ -47,19 +54,24 @@ public class SceneEntityLoader {
         EntityMonster monster = new EntityMonster(scene, npcMonsterExcel, group, monsterInfo);
         monster.setEventId(monsterInfo.getEventID());
         monster.setWorldLevel(scene.getPlayer().getWorldLevel());
-        
+
         return monster;
     }
     
     public EntityProp loadProp(Scene scene, GroupInfo group, PropInfo propInfo) {
         // Don't spawn entity if they have certain flags in their info
-        if (propInfo.isIsDelete() || propInfo.isIsClientOnly()) {
+        if (propInfo.isIsDelete() /* || propInfo.isIsClientOnly() */ || !propInfo.isLoadOnInitial()) {
             return null;
         }
         
         // Get prop excel to make sure prop exists
         PropExcel propExcel = GameData.getPropExcelMap().get(propInfo.getPropID());
         if (propExcel == null) return null;
+        
+        // Remove these annoying props from the map
+        if (propExcel.isDisabled()) {
+            return null;
+        }
         
         // Create prop from group prop info
         EntityProp prop = new EntityProp(scene, propExcel, group, propInfo);
@@ -75,12 +87,23 @@ public class SceneEntityLoader {
                 // Skip tutorial simulated universe
                 return null;
             }
+        } else if (prop.getPropId() == 1025)  {
+            // Show divergent universe prop
+            prop.setState(PropState.Open, false);
+        } else if (prop.getPropId() == 104029) { // Era flippers
+            prop.setState(PropState.Open, false);
+        } else if (prop.getPropId() == 104022) { // Mirage orb
+            prop.setState(PropState.Closed, false);
         } else if (prop.getExcel().isDoor()) {
             // Hacky fix to always open doors
             prop.setState(PropState.Open, false);
         } else if (prop.getExcel().getPropType() == PropType.PROP_SPRING) {
             // Cache teleport anchors
             scene.getHealingSprings().add(prop);
+        }
+
+        if (scene.getPlaneType() != PlaneType.Raid && propExcel.getPropType() == PropType.PROP_ELEVATOR) {
+            prop.setState(PropState.Elevator1);
         }
         
         // Add trigger to scene
@@ -93,7 +116,7 @@ public class SceneEntityLoader {
     
     public EntityNpc loadNpc(Scene scene, GroupInfo group, NpcInfo npcInfo) {
         // Don't spawn entity if they have certain flags in their info
-        if (npcInfo.isIsDelete() || npcInfo.isIsClientOnly()) {
+        if (npcInfo.isIsDelete() || npcInfo.isIsClientOnly() || !npcInfo.isLoadOnInitial()) {
             return null;
         }
         

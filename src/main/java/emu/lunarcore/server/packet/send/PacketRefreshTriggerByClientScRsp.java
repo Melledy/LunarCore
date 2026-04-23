@@ -9,12 +9,12 @@ public class PacketRefreshTriggerByClientScRsp extends BasePacket {
 
     public PacketRefreshTriggerByClientScRsp(RefreshTriggerByClientCsReq req) {
         super(CmdId.RefreshTriggerByClientScRsp);
-        
+
         var data = RefreshTriggerByClientScRsp.newInstance()
                 .setTriggerEntityId(req.getTriggerEntityId())
                 .setTriggerName(req.getTriggerName())
                 .setRefreshTrigger(true);
-        
+
         this.setData(data);
     }
 }

@@ -1,6 +1,6 @@
 package emu.lunarcore.server.packet.recv;
 
-import emu.lunarcore.proto.PlayerHeartbeatCsReqOuterClass.PlayerHeartbeatCsReq;
+import emu.lunarcore.proto.PlayerHeartBeatCsReqOuterClass.PlayerHeartBeatCsReq;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
@@ -13,7 +13,7 @@ public class HandlerPlayerHeartBeatCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         // Parse req data
-        var req = PlayerHeartbeatCsReq.parseFrom(data);
+        var req = PlayerHeartBeatCsReq.parseFrom(data);
 
         // Send heartbeat response back
         session.send(new PacketPlayerHeartBeatScRsp(req.getClientTimeMs()));

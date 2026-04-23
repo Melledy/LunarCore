@@ -24,7 +24,7 @@ public final class MonsterArchiveOuterClass {
     private int num;
 
     /**
-     * <code>optional uint32 monster_id = 9;</code>
+     * <code>optional uint32 monster_id = 11;</code>
      */
     private int monsterId;
 
@@ -76,7 +76,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 9;</code>
+     * <code>optional uint32 monster_id = 11;</code>
      * @return whether the monsterId field is set
      */
     public boolean hasMonsterId() {
@@ -84,7 +84,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 9;</code>
+     * <code>optional uint32 monster_id = 11;</code>
      * @return this
      */
     public MonsterArchive clearMonsterId() {
@@ -94,7 +94,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 9;</code>
+     * <code>optional uint32 monster_id = 11;</code>
      * @return the monsterId
      */
     public int getMonsterId() {
@@ -102,7 +102,7 @@ public final class MonsterArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 monster_id = 9;</code>
+     * <code>optional uint32 monster_id = 11;</code>
      * @param value the monsterId to set
      * @return this
      */
@@ -181,7 +181,7 @@ public final class MonsterArchiveOuterClass {
         output.writeUInt32NoTag(num);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(monsterId);
       }
     }
@@ -210,11 +210,11 @@ public final class MonsterArchiveOuterClass {
             num = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 72) {
+            if (tag != 88) {
               break;
             }
           }
-          case 72: {
+          case 88: {
             // monsterId
             monsterId = input.readUInt32();
             bitField0_ |= 0x00000002;

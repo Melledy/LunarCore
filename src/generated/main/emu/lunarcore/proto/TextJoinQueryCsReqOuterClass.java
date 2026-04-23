@@ -14,13 +14,21 @@ import us.hebi.quickbuf.RepeatedInt;
 
 public final class TextJoinQueryCsReqOuterClass {
   /**
+   * <pre>
+   *  OMOMOOKDHNJ
+   * </pre>
+   *
    * Protobuf type {@code TextJoinQueryCsReq}
    */
   public static final class TextJoinQueryCsReq extends ProtoMessage<TextJoinQueryCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 text_join_id_list = 11;</code>
+     * <pre>
+     *  GEIEABFPHIG
+     * </pre>
+     *
+     * <code>repeated uint32 text_join_id_list = 4;</code>
      */
     private final RepeatedInt textJoinIdList = RepeatedInt.newEmptyInstance();
 
@@ -28,6 +36,10 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
+     * <pre>
+     *  OMOMOOKDHNJ
+     * </pre>
+     *
      * @return a new empty instance of {@code TextJoinQueryCsReq}
      */
     public static TextJoinQueryCsReq newInstance() {
@@ -35,7 +47,11 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 11;</code>
+     * <pre>
+     *  GEIEABFPHIG
+     * </pre>
+     *
+     * <code>repeated uint32 text_join_id_list = 4;</code>
      * @return whether the textJoinIdList field is set
      */
     public boolean hasTextJoinIdList() {
@@ -43,7 +59,11 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 11;</code>
+     * <pre>
+     *  GEIEABFPHIG
+     * </pre>
+     *
+     * <code>repeated uint32 text_join_id_list = 4;</code>
      * @return this
      */
     public TextJoinQueryCsReq clearTextJoinIdList() {
@@ -53,7 +73,11 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 11;</code>
+     * <pre>
+     *  GEIEABFPHIG
+     * </pre>
+     *
+     * <code>repeated uint32 text_join_id_list = 4;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +91,11 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 11;</code>
+     * <pre>
+     *  GEIEABFPHIG
+     * </pre>
+     *
+     * <code>repeated uint32 text_join_id_list = 4;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +109,11 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 11;</code>
+     * <pre>
+     *  GEIEABFPHIG
+     * </pre>
+     *
+     * <code>repeated uint32 text_join_id_list = 4;</code>
      * @param value the textJoinIdList to add
      * @return this
      */
@@ -92,7 +124,11 @@ public final class TextJoinQueryCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 text_join_id_list = 11;</code>
+     * <pre>
+     *  GEIEABFPHIG
+     * </pre>
+     *
+     * <code>repeated uint32 text_join_id_list = 4;</code>
      * @param values the textJoinIdList to add
      * @return this
      */
@@ -163,7 +199,7 @@ public final class TextJoinQueryCsReqOuterClass {
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < textJoinIdList.length(); i++) {
-          output.writeRawByte((byte) 88);
+          output.writeRawByte((byte) 32);
           output.writeUInt32NoTag(textJoinIdList.array()[i]);
         }
       }
@@ -185,7 +221,7 @@ public final class TextJoinQueryCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 90: {
+          case 34: {
             // textJoinIdList [packed=true]
             input.readPackedUInt32(textJoinIdList, tag);
             bitField0_ |= 0x00000001;
@@ -204,7 +240,7 @@ public final class TextJoinQueryCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 88: {
+          case 32: {
             // textJoinIdList [packed=false]
             tag = input.readRepeatedUInt32(textJoinIdList, tag);
             bitField0_ |= 0x00000001;

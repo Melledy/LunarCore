@@ -72,7 +72,12 @@ public final class DevelopmentTypeOuterClass {
     /**
      * <code>DEVELOPMENT_ROGUE_TOURN_WEEK = 12;</code>
      */
-    DEVELOPMENT_ROGUE_TOURN_WEEK("DEVELOPMENT_ROGUE_TOURN_WEEK", 12);
+    DEVELOPMENT_ROGUE_TOURN_WEEK("DEVELOPMENT_ROGUE_TOURN_WEEK", 12),
+
+    /**
+     * <code>DEVELOPMENT_ROGUE_MAGIC = 13;</code>
+     */
+    DEVELOPMENT_ROGUE_MAGIC("DEVELOPMENT_ROGUE_MAGIC", 13);
 
     /**
      * <code>DEVELOPMENT_NONE = 0;</code>
@@ -139,6 +144,11 @@ public final class DevelopmentTypeOuterClass {
      */
     public static final int DEVELOPMENT_ROGUE_TOURN_WEEK_VALUE = 12;
 
+    /**
+     * <code>DEVELOPMENT_ROGUE_MAGIC = 13;</code>
+     */
+    public static final int DEVELOPMENT_ROGUE_MAGIC_VALUE = 13;
+
     private final String name;
 
     private final int number;
@@ -192,7 +202,7 @@ public final class DevelopmentTypeOuterClass {
     enum DevelopmentTypeConverter implements ProtoEnum.EnumConverter<DevelopmentType> {
       INSTANCE;
 
-      private static final DevelopmentType[] lookup = new DevelopmentType[13];
+      private static final DevelopmentType[] lookup = new DevelopmentType[14];
 
       static {
         lookup[0] = DEVELOPMENT_NONE;
@@ -208,6 +218,7 @@ public final class DevelopmentTypeOuterClass {
         lookup[10] = DEVELOPMENT_BOSS_CHALLENGE;
         lookup[11] = DEVELOPMENT_ROGUE_TOURN;
         lookup[12] = DEVELOPMENT_ROGUE_TOURN_WEEK;
+        lookup[13] = DEVELOPMENT_ROGUE_MAGIC;
       }
 
       @Override
@@ -233,6 +244,9 @@ public final class DevelopmentTypeOuterClass {
             }
             if (ProtoUtil.isEqual("DEVELOPMENT_ROGUE_TOURN", value)) {
               return DEVELOPMENT_ROGUE_TOURN;
+            }
+            if (ProtoUtil.isEqual("DEVELOPMENT_ROGUE_MAGIC", value)) {
+              return DEVELOPMENT_ROGUE_MAGIC;
             }
             break;
           }

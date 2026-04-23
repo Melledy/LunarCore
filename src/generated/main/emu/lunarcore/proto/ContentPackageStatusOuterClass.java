@@ -27,7 +27,12 @@ public final class ContentPackageStatusOuterClass {
     /**
      * <code>ContentPackageStatus_Finished = 3;</code>
      */
-    ContentPackageStatus_Finished("ContentPackageStatus_Finished", 3);
+    ContentPackageStatus_Finished("ContentPackageStatus_Finished", 3),
+
+    /**
+     * <code>ContentPackageStatus_Release = 4;</code>
+     */
+    ContentPackageStatus_Release("ContentPackageStatus_Release", 4);
 
     /**
      * <code>ContentPackageStatus_None = 0;</code>
@@ -48,6 +53,11 @@ public final class ContentPackageStatusOuterClass {
      * <code>ContentPackageStatus_Finished = 3;</code>
      */
     public static final int ContentPackageStatus_Finished_VALUE = 3;
+
+    /**
+     * <code>ContentPackageStatus_Release = 4;</code>
+     */
+    public static final int ContentPackageStatus_Release_VALUE = 4;
 
     private final String name;
 
@@ -102,13 +112,14 @@ public final class ContentPackageStatusOuterClass {
     enum ContentPackageStatusConverter implements ProtoEnum.EnumConverter<ContentPackageStatus> {
       INSTANCE;
 
-      private static final ContentPackageStatus[] lookup = new ContentPackageStatus[4];
+      private static final ContentPackageStatus[] lookup = new ContentPackageStatus[5];
 
       static {
         lookup[0] = ContentPackageStatus_None;
         lookup[1] = ContentPackageStatus_Init;
         lookup[2] = ContentPackageStatus_Doing;
         lookup[3] = ContentPackageStatus_Finished;
+        lookup[4] = ContentPackageStatus_Release;
       }
 
       @Override
@@ -121,22 +132,33 @@ public final class ContentPackageStatusOuterClass {
 
       @Override
       public final ContentPackageStatus forName(final CharSequence value) {
-        if (value.length() == 25) {
-          if (ProtoUtil.isEqual("ContentPackageStatus_None", value)) {
-            return ContentPackageStatus_None;
+        switch (value.length()) {
+          case 25: {
+            if (ProtoUtil.isEqual("ContentPackageStatus_None", value)) {
+              return ContentPackageStatus_None;
+            }
+            if (ProtoUtil.isEqual("ContentPackageStatus_Init", value)) {
+              return ContentPackageStatus_Init;
+            }
+            break;
           }
-          if (ProtoUtil.isEqual("ContentPackageStatus_Init", value)) {
-            return ContentPackageStatus_Init;
+          case 26: {
+            if (ProtoUtil.isEqual("ContentPackageStatus_Doing", value)) {
+              return ContentPackageStatus_Doing;
+            }
+            break;
           }
-        }
-        if (value.length() == 26) {
-          if (ProtoUtil.isEqual("ContentPackageStatus_Doing", value)) {
-            return ContentPackageStatus_Doing;
+          case 28: {
+            if (ProtoUtil.isEqual("ContentPackageStatus_Release", value)) {
+              return ContentPackageStatus_Release;
+            }
+            break;
           }
-        }
-        if (value.length() == 29) {
-          if (ProtoUtil.isEqual("ContentPackageStatus_Finished", value)) {
-            return ContentPackageStatus_Finished;
+          case 29: {
+            if (ProtoUtil.isEqual("ContentPackageStatus_Finished", value)) {
+              return ContentPackageStatus_Finished;
+            }
+            break;
           }
         }
         return null;

@@ -12,7 +12,7 @@ public class HandlerActivateFarmElementCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ActivateFarmElementCsReq.parseFrom(data);
-        
+
         session.getPlayer().getScene().activateFarmElement(req.getEntityId(), req.getWorldLevel());
     }
 

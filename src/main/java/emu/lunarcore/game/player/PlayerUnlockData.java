@@ -11,7 +11,9 @@ import emu.lunarcore.proto.PlayerSyncScNotifyOuterClass.PlayerSyncScNotify;
 import emu.lunarcore.server.game.Syncable;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
+import emu.lunarcore.server.packet.send.PacketUnlockAvatarSkinScNotify;
 import emu.lunarcore.server.packet.send.PacketUnlockChatBubbleScNotify;
+import emu.lunarcore.server.packet.send.PacketUnlockPhoneCaseScNotify;
 import emu.lunarcore.server.packet.send.PacketUnlockPhoneThemeScNotify;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
@@ -25,8 +27,12 @@ public class PlayerUnlockData implements Syncable {
     @Id private int ownerUid;
     
     private IntSet headIcons;
+    private IntSet headIconFrames;
     private IntSet chatBubbles;
     private IntSet phoneThemes;
+    private IntSet phoneCases;
+    private IntSet avatarSkins;
+    private IntSet playerOutfits;
     private IntSet pets;
     
     @Deprecated // Morphia only
@@ -74,6 +80,13 @@ public class PlayerUnlockData implements Syncable {
         return this.headIcons;
     }
     
+    public IntSet getHeadIconFrames() {
+        if (this.headIconFrames == null) {
+            this.headIconFrames = new IntOpenHashSet();
+        }
+        return this.headIconFrames;
+    }
+    
     public IntSet getChatBubbles() {
         if (this.chatBubbles == null) {
             this.chatBubbles = new IntOpenHashSet();
@@ -88,6 +101,27 @@ public class PlayerUnlockData implements Syncable {
         return this.phoneThemes;
     }
     
+    public IntSet getPhoneCases() {
+        if (this.phoneCases == null) {
+            this.phoneCases = new IntOpenHashSet();
+        }
+        return this.phoneCases;
+    }
+    
+    public IntSet getAvatarSkins() {
+        if (this.avatarSkins == null) {
+            this.avatarSkins = new IntOpenHashSet();
+        }
+        return this.avatarSkins;
+    }
+    
+    public IntSet getPlayerOutfits() {
+        if (this.playerOutfits == null) {
+            this.playerOutfits = new IntOpenHashSet();
+        }
+        return this.playerOutfits;
+    }
+    
     public IntSet getPets() {
         if (this.pets == null) {
             this.pets = new IntOpenHashSet();
@@ -100,7 +134,16 @@ public class PlayerUnlockData implements Syncable {
         
         if (success && this.getOwner().isLoggedIn()) {
             this.sendPacket(new PacketPlayerSyncScNotify(this));
-            this.save();
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "headIcons", headIconId);
+        }
+    }
+    
+    public void addHeadIconFrame(int headIconFrameId) {
+        boolean success = this.getHeadIconFrames().add(headIconFrameId);
+        
+        if (success && this.getOwner().isLoggedIn()) {
+            this.sendPacket(new PacketPlayerSyncScNotify(this));
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "headIconFrames", headIconFrameId);
         }
     }
     
@@ -109,7 +152,7 @@ public class PlayerUnlockData implements Syncable {
         
         if (success && this.getOwner().isLoggedIn()) {
             this.sendPacket(new PacketUnlockChatBubbleScNotify(chatBubbleId));
-            this.save();
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "chatBubbles", chatBubbleId);
         }
     }
     
@@ -118,7 +161,34 @@ public class PlayerUnlockData implements Syncable {
         
         if (success && this.getOwner().isLoggedIn()) {
             this.sendPacket(new PacketUnlockPhoneThemeScNotify(phoneThemeId));
-            this.save();
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "phoneThemes", phoneThemeId);
+        }
+    }
+    
+    public void addPhoneCase(int phoneCaseId) {
+        boolean success = this.getPhoneCases().add(phoneCaseId);
+        
+        if (success && this.getOwner().isLoggedIn()) {
+            this.sendPacket(new PacketUnlockPhoneCaseScNotify(phoneCaseId));
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "phoneCases", phoneCaseId);
+        }
+    }
+    
+    public void addAvatarSkin(int avatarSkinId) {
+        boolean success = this.getAvatarSkins().add(avatarSkinId);
+        
+        if (success && this.getOwner().isLoggedIn()) {
+            this.sendPacket(new PacketUnlockAvatarSkinScNotify(avatarSkinId));
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "avatarSkins", avatarSkinId);
+        }
+    }
+    
+    public void addPlayerOutfit(int playerOutfitId) {
+        boolean success = this.getPlayerOutfits().add(playerOutfitId);
+        
+        if (success && this.getOwner().isLoggedIn()) {
+            // TODO packet
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "playerOutfits", playerOutfitId);
         }
     }
     
@@ -138,7 +208,7 @@ public class PlayerUnlockData implements Syncable {
         
         if (success && this.getOwner().isLoggedIn()) {
             // Pet sync packet TODO
-            this.save();
+            LunarCore.getGameDatabase().addToSet(this, this.getOwnerUid(), "pets", excel.getPetID());
         }
     }
     

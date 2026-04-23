@@ -15,10 +15,12 @@ public class HandlerSendMsgCsReq extends PacketHandler {
         var req = SendMsgCsReq.parseFrom(data);
 
         for (int targetUid : req.getToUidList()) {
-            if (req.getMsgType() == MsgType.MSG_TYPE_CUSTOM_TEXT) {
-                session.getPlayer().getChatManager().sendChat(targetUid, req.getText());
-            } else if (req.getMsgType() == MsgType.MSG_TYPE_EMOJI) {
-                session.getPlayer().getChatManager().sendChat(targetUid, req.getEmote());
+            var content = req.getChatContent();
+            
+            if (content.getMsgType() == MsgType.MSG_TYPE_CUSTOM_TEXT) {
+                session.getPlayer().getChatManager().sendChat(targetUid, content.getChatMsg().getChatText());
+            } else if (content.getMsgType() == MsgType.MSG_TYPE_EMOJI) {
+                session.getPlayer().getChatManager().sendChat(targetUid, content.getChatMsg().getEmoteId());
             }
         }
 

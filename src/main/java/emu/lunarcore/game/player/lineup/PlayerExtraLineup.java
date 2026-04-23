@@ -1,7 +1,6 @@
 package emu.lunarcore.game.player.lineup;
 
 import dev.morphia.annotations.Entity;
-import emu.lunarcore.GameConstants;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
 
@@ -33,7 +32,7 @@ public class PlayerExtraLineup extends PlayerLineup {
     
     @Override
     public void addMp(int i) {
-        this.mp = Math.min(this.mp + i, GameConstants.MAX_MP);
+        this.mp = Math.min(this.mp + i, this.getMaxMp());
         this.getOwner().sendPacket(new PacketSyncLineupNotify(this.getOwner().getCurrentLineup()));
     }
     

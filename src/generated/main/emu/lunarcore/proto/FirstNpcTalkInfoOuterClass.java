@@ -19,14 +19,9 @@ public final class FirstNpcTalkInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 npc_id = 10;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      */
     private int npcId;
-
-    /**
-     * <code>optional bool unk_bool = 1;</code>
-     */
-    private boolean unkBool;
 
     private FirstNpcTalkInfo() {
     }
@@ -39,7 +34,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 10;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @return whether the npcId field is set
      */
     public boolean hasNpcId() {
@@ -47,7 +42,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 10;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @return this
      */
     public FirstNpcTalkInfo clearNpcId() {
@@ -57,7 +52,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 10;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @return the npcId
      */
     public int getNpcId() {
@@ -65,7 +60,7 @@ public final class FirstNpcTalkInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 npc_id = 10;</code>
+     * <code>optional uint32 npc_id = 12;</code>
      * @param value the npcId to set
      * @return this
      */
@@ -75,50 +70,12 @@ public final class FirstNpcTalkInfoOuterClass {
       return this;
     }
 
-    /**
-     * <code>optional bool unk_bool = 1;</code>
-     * @return whether the unkBool field is set
-     */
-    public boolean hasUnkBool() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional bool unk_bool = 1;</code>
-     * @return this
-     */
-    public FirstNpcTalkInfo clearUnkBool() {
-      bitField0_ &= ~0x00000002;
-      unkBool = false;
-      return this;
-    }
-
-    /**
-     * <code>optional bool unk_bool = 1;</code>
-     * @return the unkBool
-     */
-    public boolean getUnkBool() {
-      return unkBool;
-    }
-
-    /**
-     * <code>optional bool unk_bool = 1;</code>
-     * @param value the unkBool to set
-     * @return this
-     */
-    public FirstNpcTalkInfo setUnkBool(final boolean value) {
-      bitField0_ |= 0x00000002;
-      unkBool = value;
-      return this;
-    }
-
     @Override
     public FirstNpcTalkInfo copyFrom(final FirstNpcTalkInfo other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         npcId = other.npcId;
-        unkBool = other.unkBool;
       }
       return this;
     }
@@ -132,9 +89,6 @@ public final class FirstNpcTalkInfoOuterClass {
       if (other.hasNpcId()) {
         setNpcId(other.npcId);
       }
-      if (other.hasUnkBool()) {
-        setUnkBool(other.unkBool);
-      }
       return this;
     }
 
@@ -146,7 +100,6 @@ public final class FirstNpcTalkInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       npcId = 0;
-      unkBool = false;
       return this;
     }
 
@@ -170,19 +123,14 @@ public final class FirstNpcTalkInfoOuterClass {
       }
       FirstNpcTalkInfo other = (FirstNpcTalkInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasNpcId() || npcId == other.npcId)
-        && (!hasUnkBool() || unkBool == other.unkBool);
+        && (!hasNpcId() || npcId == other.npcId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(npcId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 8);
-        output.writeBoolNoTag(unkBool);
       }
     }
 
@@ -191,9 +139,6 @@ public final class FirstNpcTalkInfoOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(npcId);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        size += 2;
       }
       return size;
     }
@@ -205,19 +150,10 @@ public final class FirstNpcTalkInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 80: {
+          case 96: {
             // npcId
             npcId = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 8) {
-              break;
-            }
-          }
-          case 8: {
-            // unkBool
-            unkBool = input.readBool();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -243,9 +179,6 @@ public final class FirstNpcTalkInfoOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeUInt32(FieldNames.npcId, npcId);
       }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeBool(FieldNames.unkBool, unkBool);
-      }
       output.endObject();
     }
 
@@ -262,18 +195,6 @@ public final class FirstNpcTalkInfoOuterClass {
               if (!input.trySkipNullValue()) {
                 npcId = input.readUInt32();
                 bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
-          case -286151940:
-          case -254380521: {
-            if (input.isAtField(FieldNames.unkBool)) {
-              if (!input.trySkipNullValue()) {
-                unkBool = input.readBool();
-                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -334,8 +255,6 @@ public final class FirstNpcTalkInfoOuterClass {
      */
     static class FieldNames {
       static final FieldName npcId = FieldName.forField("npcId", "npc_id");
-
-      static final FieldName unkBool = FieldName.forField("unkBool", "unk_bool");
     }
   }
 }

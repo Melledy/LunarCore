@@ -161,14 +161,14 @@ public class CommandArgs {
         
         // Try to set skill trees
         if (this.getStage() > 0) {
-            for (int pointId : avatar.getExcel().getSkillTreeIds()) {
-                var skillTree = GameData.getAvatarSkillTreeExcel(pointId, 1);
+            for (int anchorId : avatar.getSkillTree().values()) {
+                var skillTree = GameData.getAvatarSkilltree(avatar.getAvatarId(), avatar.getEnhanceId(), anchorId, 1);
                 if (skillTree == null) continue;
                 
                 int minLevel = skillTree.isDefaultUnlock() ? 1 : 0;
                 int pointLevel = Math.max(Math.min(this.getStage(), skillTree.getMaxLevel()), minLevel);
                 
-                avatar.getSkills().put(pointId, pointLevel);
+                avatar.getSkillTree().put(anchorId, pointLevel);
             }
             hasChanged = true;
         }
@@ -229,18 +229,19 @@ public class CommandArgs {
                 for (var entry : this.getMap().int2IntEntrySet()) {
                     if (entry.getIntValue() <= 0) continue;
                     
-                    var subAffix = GameData.getRelicSubAffixExcel(item.getExcel().getRelicExcel().getSubAffixGroup(), entry.getIntKey());
+                    // Get sub affix excel
+                    var subAffix = GameData.getRelicSubAffixExcelMap().get(item.getExcel().getRelicExcel().getSubAffixGroup(), entry.getIntKey());
                     if (subAffix == null) continue;
                     
                     // Set count
                     int count = Math.min(entry.getIntValue(), maxCount);
-                    item.getSubAffixes().add(new GameItemSubAffix(subAffix, count));
+                    item.addSubAffix(new GameItemSubAffix(subAffix, count));
                 }
             }
             
             // Main stat
             if (this.getStage() > 0) {
-                var mainAffix = GameData.getRelicMainAffixExcel(item.getExcel().getRelicExcel().getMainAffixGroup(), this.getStage());
+                var mainAffix = GameData.getRelicMainAffixExcelMap().get(item.getExcel().getRelicExcel().getMainAffixGroup(), this.getStage());
                 if (mainAffix != null) {
                     item.setMainAffix(mainAffix.getAffixID());
                     hasChanged = true;
@@ -255,7 +256,7 @@ public class CommandArgs {
                 // Apply sub stat upgrades to the relic
                 int upgrades = item.getMaxNormalSubAffixCount() - item.getCurrentSubAffixCount();
                 if (upgrades > 0) {
-                    item.addSubAffixes(upgrades);
+                    item.addRandomSubAffixes(upgrades);
                 }
                 
                 hasChanged = true;

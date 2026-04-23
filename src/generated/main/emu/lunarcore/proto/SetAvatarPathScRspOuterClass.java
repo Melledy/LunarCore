@@ -24,7 +24,7 @@ public final class SetAvatarPathScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 12;</code>
      */
     private int avatarId;
 
@@ -76,7 +76,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 12;</code>
      * @return whether the avatarId field is set
      */
     public boolean hasAvatarId() {
@@ -84,7 +84,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 12;</code>
      * @return this
      */
     public SetAvatarPathScRsp clearAvatarId() {
@@ -94,7 +94,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 12;</code>
      * @return the avatarId
      */
     public MultiPathAvatarTypeOuterClass.MultiPathAvatarType getAvatarId() {
@@ -127,7 +127,7 @@ public final class SetAvatarPathScRspOuterClass {
     }
 
     /**
-     * <code>optional .MultiPathAvatarType avatar_id = 14;</code>
+     * <code>optional .MultiPathAvatarType avatar_id = 12;</code>
      * @param value the avatarId to set
      * @return this
      */
@@ -207,7 +207,7 @@ public final class SetAvatarPathScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 96);
         output.writeEnumNoTag(avatarId);
       }
     }
@@ -236,11 +236,11 @@ public final class SetAvatarPathScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 96) {
               break;
             }
           }
-          case 112: {
+          case 96: {
             // avatarId
             final int value = input.readInt32();
             if (MultiPathAvatarTypeOuterClass.MultiPathAvatarType.forNumber(value) != null) {

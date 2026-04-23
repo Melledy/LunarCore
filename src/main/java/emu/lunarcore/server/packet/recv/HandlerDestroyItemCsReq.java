@@ -12,7 +12,7 @@ public class HandlerDestroyItemCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = DestroyItemCsReq.parseFrom(data);
-        
+
         session.getServer().getInventoryService().destroyItem(session.getPlayer(), req.getItemId(), req.getItemCount());
         session.send(CmdId.DestroyItemScRsp);
     }

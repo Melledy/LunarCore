@@ -9,11 +9,11 @@ public class PacketDelMailScRsp extends BasePacket {
 
     public PacketDelMailScRsp(IntList deleteList) {
         super(CmdId.DelMailScRsp);
-        
+
         var data = DelMailScRsp.newInstance();
-        
+
         deleteList.forEach(data::addIdList);
-        
+
         this.setData(data);
     }
 }

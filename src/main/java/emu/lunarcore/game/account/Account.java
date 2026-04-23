@@ -1,5 +1,7 @@
 package emu.lunarcore.game.account;
 
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 import java.util.*;
 import java.util.stream.Stream;
 
@@ -7,9 +9,10 @@ import dev.morphia.annotations.*;
 
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.database.AccountDatabaseOnly;
+import emu.lunarcore.proto.DispatchTokenOuterClass.DispatchToken;
 import emu.lunarcore.util.Crypto;
 import emu.lunarcore.util.Snowflake32;
-
+import emu.lunarcore.util.Utils;
 import lombok.Getter;
 
 @Getter
@@ -136,15 +139,42 @@ public class Account {
     }
     
     // Tokens
+    
+    private String generateTokenV2() {
+        // TODO
+        var proto = DispatchToken.newInstance()
+                .setUnkBool1(true)
+                .setUnkString1("aaa")
+                .setUnkString2("bbb")
+                .setTime((int) (LunarCore.currentServerTime() / 1000D))
+                .setUnkUint1(1_000_000)
+                .setAccountId(Integer.parseInt(this.getUid()))
+                .setUnkBool2(true)
+                .setRegion("hkrpg")
+                .setCountryCode("");
+        
+        byte[] unkLong = ByteBuffer.wrap(new byte[8]).order(ByteOrder.LITTLE_ENDIAN).putLong(1_000_000L).array();
+        String unkStr = Crypto.createSessionKey(this.getUid()); // ?
+        String token = "v2_" + Utils.base64Encode(proto.toByteArray()) + "." + Utils.base64Encode(unkLong) + "." + unkStr;
+        
+        return token;
+    }
 
     public String generateComboToken() {
-        this.comboToken = Crypto.createSessionKey(this.getUid());
+        this.comboToken = this.generateTokenV2();
         this.save();
         return this.comboToken;
     }
 
     public String generateDispatchToken() {
         this.dispatchToken = Crypto.createSessionKey(this.getUid());
+        this.save();
+        return this.dispatchToken;
+    }
+    
+    public String generateDispatchTokenV2() {
+
+        this.dispatchToken = this.generateTokenV2();
         this.save();
         return this.dispatchToken;
     }

@@ -1,9 +1,6 @@
 package emu.lunarcore.game.player;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.bson.types.ObjectId;
 
@@ -13,16 +10,14 @@ import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
 
+import emu.lunarcore.game.inventory.tabs.InventoryTabType;
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.data.config.AnchorInfo;
 import emu.lunarcore.data.config.FloorInfo;
 import emu.lunarcore.data.config.PropInfo;
-import emu.lunarcore.data.excel.InteractExcel;
-import emu.lunarcore.data.excel.ItemUseExcel;
-import emu.lunarcore.data.excel.MapEntranceExcel;
-import emu.lunarcore.data.excel.MazePlaneExcel;
+import emu.lunarcore.data.excel.*;
 import emu.lunarcore.game.account.Account;
 import emu.lunarcore.game.avatar.AvatarStorage;
 import emu.lunarcore.game.avatar.GameAvatar;
@@ -47,13 +42,15 @@ import emu.lunarcore.game.mail.Mailbox;
 import emu.lunarcore.game.player.lineup.LineupManager;
 import emu.lunarcore.game.player.lineup.PlayerExtraLineup;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
-import emu.lunarcore.game.rogue.RogueInstance;
-import emu.lunarcore.game.rogue.RogueManager;
-import emu.lunarcore.game.rogue.RogueTalentData;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneBuff;
 import emu.lunarcore.game.scene.entity.EntityProp;
 import emu.lunarcore.game.scene.entity.GameEntity;
+import emu.lunarcore.game.trial.TrialInstance;
+import emu.lunarcore.game.trial.TrialManager;
+import emu.lunarcore.proto.PlayerDisplayInfoOuterClass.PlayerDisplayInfo;
+import emu.lunarcore.proto.PlayerMocDisplayInfoOuterClass.PlayerMocDisplayInfo;
+import emu.lunarcore.proto.PlayerSimpleInfoOuterClass.PlayerSimpleInfo;
 import emu.lunarcore.proto.BoardDataSyncOuterClass.BoardDataSync;
 import emu.lunarcore.proto.DisplayAvatarOuterClass.DisplayAvatar;
 import emu.lunarcore.proto.FriendOnlineStatusOuterClass.FriendOnlineStatus;
@@ -62,8 +59,6 @@ import emu.lunarcore.proto.PlatformTypeOuterClass.PlatformType;
 import emu.lunarcore.proto.PlayerBasicInfoOuterClass.PlayerBasicInfo;
 import emu.lunarcore.proto.PlayerDetailInfoOuterClass.PlayerDetailInfo;
 import emu.lunarcore.proto.PlayerSyncScNotifyOuterClass.PlayerSyncScNotify;
-import emu.lunarcore.proto.RogueCurVirtualItemInfoOuterClass.RogueCurVirtualItemInfo;
-import emu.lunarcore.proto.SimpleInfoOuterClass.SimpleInfo;
 import emu.lunarcore.server.game.GameServer;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.game.Syncable;
@@ -71,6 +66,7 @@ import emu.lunarcore.server.game.Tickable;
 import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.send.*;
+import emu.lunarcore.util.Location;
 import emu.lunarcore.util.Position;
 import emu.lunarcore.util.Utils;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
@@ -89,9 +85,12 @@ public class Player implements Tickable, Syncable {
     private String signature;
     private int birthday;
     private int headIcon;
+    private int headIconFrame;
     private int phoneTheme;
+    private int phoneCase;
     private int chatBubble;
     private int currentBgm;
+    @Setter private int currentPamSkinId;
     @Setter private int petId;
     private Map<Integer, Integer> curAvatarPaths;
     private PlayerGender gender;
@@ -127,7 +126,9 @@ public class Player implements Tickable, Syncable {
     private transient final FriendList friendList;
     private transient final Mailbox mailbox;
     private transient final ChallengeManager challengeManager;
-    private transient final RogueManager rogueManager;
+    private transient final TrialManager trialManager;
+    
+    // Activity managers
     
     // Database persistent data
     private LineupManager lineupManager;
@@ -135,9 +136,8 @@ public class Player implements Tickable, Syncable {
     private List<ObjectId> assistAvatars;
     private List<ObjectId> displayAvatars;
 
-    // Instances
-    @Setter private ChallengeInstance challengeInstance;
-    @Setter private transient RogueInstance rogueInstance;
+    // Instance
+    private transient PlayerGameInstance instance;
     
     // Etc
     private transient boolean isNew;
@@ -163,7 +163,7 @@ public class Player implements Tickable, Syncable {
         this.friendList = new FriendList(this);
         this.mailbox = new Mailbox(this);
         this.challengeManager = new ChallengeManager(this);
-        this.rogueManager = new RogueManager(this);
+        this.trialManager = new TrialManager(this);
     }
 
     // Called when player is created
@@ -181,6 +181,7 @@ public class Player implements Tickable, Syncable {
         this.signature = "";
         this.phoneTheme = 221000;
         this.chatBubble = 220000;
+        this.currentPamSkinId = 25200;
         this.stamina = GameConstants.MAX_STAMINA;
         this.nextStaminaRecover = System.currentTimeMillis();
 
@@ -209,7 +210,7 @@ public class Player implements Tickable, Syncable {
     public GameServer getServer() {
         return session.getServer();
     }
-
+    
     public Account getAccount() {
         return session.getAccount();
     }
@@ -420,14 +421,6 @@ public class Player implements Tickable, Syncable {
         }
     }
     
-    public void addTalentPoints(int amount) {
-        int newAmount = Utils.safeAdd(this.talentPoints, amount);
-        if (this.talentPoints != newAmount) {
-            this.talentPoints = newAmount;
-            this.sendPacket(new PacketSyncRogueVirtualItemInfoScNotify(this));
-        }
-    }
-
     public void addExp(int amount) {
         // Setup
         int oldLevel = this.level;
@@ -524,6 +517,33 @@ public class Player implements Tickable, Syncable {
         }
     }
     
+    public synchronized void setInstance(PlayerGameInstance instance) {
+        // Sanity check 
+        if (this.instance == instance) return;
+        
+        // Handle event
+        if (this.instance != null) {
+            this.instance.onLeave();
+        }
+        
+        // Set new isntance
+        this.instance = instance;
+    }
+    
+    public synchronized <T extends PlayerGameInstance> T getInstance(Class<T> instanceType) {
+        // Make sure we have an object to cast to
+        if (this.instance == null) {
+            return null;
+        }
+        
+        // Cast to our activity type
+        if (instanceType.isInstance(this.instance)) {
+            return instanceType.cast(this.instance);
+        }
+        
+        return null;
+    }
+
     public void addStamina(int amount) {
         this.stamina = Utils.safeAdd(this.stamina, amount);
         this.sendPacket(new PacketStaminaInfoScNotify(this));
@@ -533,6 +553,7 @@ public class Player implements Tickable, Syncable {
         if (!LunarCore.getConfig().getServerOptions().spendStamina) {
             return;
         }
+        
         this.stamina = Math.max(this.stamina - amount, 0);
         this.sendPacket(new PacketStaminaInfoScNotify(this));
     }
@@ -548,6 +569,7 @@ public class Player implements Tickable, Syncable {
         
         // Update to client
         this.sendPacket(new PacketStaminaInfoScNotify(this));
+        
         return amount;
     }
     
@@ -584,7 +606,7 @@ public class Player implements Tickable, Syncable {
     
     public synchronized boolean addFoodBuff(int type, ItemUseExcel itemUseExcel) {
         // Get maze excel
-        var excel = GameData.getMazeBuffExcel(itemUseExcel.getMazeBuffID(), 1);
+        var excel = GameData.getMazeBuffExcelMap().get(itemUseExcel.getMazeBuffID(), 1);
         if (excel == null) return false;
         
         // Create new buff
@@ -647,9 +669,11 @@ public class Player implements Tickable, Syncable {
         }
         
         // Validate
+        /*
         if (interactExcel.getSrcState() != null && prop.getState() != interactExcel.getSrcState()) {
             return prop;
         }
+        */
         
         // Save old state
         PropState oldState = prop.getState();
@@ -672,7 +696,9 @@ public class Player implements Tickable, Syncable {
             case PROP_TREASURE_CHEST -> {
                 if (oldState == PropState.ChestClosed && newState == PropState.ChestUsed) {
                     // Handle drops
-                    var drops = this.getServer().getDropService().calculateDropsFromProp(prop.getPropId());
+                    var drops = this.getServer().getDropService().calculateChestDrops(getScene().getWorldId(), prop.getPropId());
+                    this.getScene().removeAllMapPropDefInfo();
+                    this.sendPacket(new PacketMarkChestChangedScNotify(new ArrayList<>()));
                     this.getInventory().addItems(drops, true);
                 }
             }
@@ -698,6 +724,12 @@ public class Player implements Tickable, Syncable {
                         .stream()
                         .filter(p -> p.getExcel().getPropType() == PropType.PROP_PLATFORM)
                         .forEach(p -> p.setState(newState));
+                } else if (prop.getPropId() == 104039) {
+                    // Purification prop
+                    getScene().getEntitiesByGroup(EntityProp.class, prop.getGroupId())
+                        .stream()
+                        .filter(p -> p.getPropId() == 104038)
+                        .forEach(p -> p.setState(newState));
                 }
             }
             default -> {
@@ -708,7 +740,7 @@ public class Player implements Tickable, Syncable {
         // Return prop when we are done
         return prop;
     }
-    
+
     public void onMove() {
         // Sanity
         if (this.getScene() == null) return;
@@ -728,12 +760,17 @@ public class Player implements Tickable, Syncable {
         this.entryId = entryId;
         this.moveTo(pos);
     }
+
+    public void moveTo(int entryId, Position pos, Position rot) {
+        this.entryId = entryId;
+        this.moveTo(pos, rot);
+    }
     
     public void moveTo(Position pos) {
         this.getPos().set(pos);
         this.sendPacket(new PacketSceneEntityMoveScNotify(this));
     }
-    
+     
     public void moveTo(Position pos, Position rot) {
         this.getPos().set(pos);
         this.getRot().set(rot);
@@ -778,20 +815,23 @@ public class Player implements Tickable, Syncable {
         // Get maze plane excel
         MazePlaneExcel planeExcel = GameData.getMazePlaneExcelMap().get(planeId);
         if (planeExcel == null) return false;
-
-        // Unstuck check
-        if (planeExcel.getPlaneType() == PlaneType.Challenge) {
-            if (this.getChallengeInstance() == null) {
-                return enterScene(GameConstants.CHALLENGE_ENTRANCE, 0, false);
-            }
-        } else {
-            this.setChallengeInstance(null);
-        }
         
-        if (planeExcel.getPlaneType() == PlaneType.Rogue) {
-            if (this.getRogueInstance() == null) {
-                return enterScene(GameConstants.ROGUE_ENTRANCE, 0, false);
-            }
+        // Unstuck check
+        switch (planeExcel.getPlaneType()) {
+            case Challenge:
+                if (this.getInstance(ChallengeInstance.class) == null) {
+                    return enterScene(GameConstants.CHALLENGE_ENTRANCE, 0, false);
+                }
+                break;
+            case Rogue:
+                break;
+            case TrialActivity:
+                if (this.getInstance(TrialInstance.class) == null) {
+                    return enterScene(GameConstants.START_ENTRY_ID, 0, false);
+                }
+                break;
+            default:
+                break;
         }
         
         // Get scene that we want to enter
@@ -802,6 +842,11 @@ public class Player implements Tickable, Syncable {
             nextScene = this.scene;
         } else {
             nextScene = new Scene(this, planeExcel, floorId);
+        }
+
+        // Set world id
+        if (planeExcel.getPlaneType() == PlaneType.Town || planeExcel.getPlaneType() == PlaneType.Maze) {
+            this.worldId = planeExcel.getWorldID();
         }
         
         // Set world id
@@ -827,11 +872,16 @@ public class Player implements Tickable, Syncable {
         
         // Send packet
         if (sendPacket) {
-            this.sendPacket(new PacketEnterSceneByServerScNotify(this));
+            this.getSession().send(CmdId.SyncServerSceneChangeNotify);
+            this.getSession().send(new PacketEnterSceneByServerScNotify(this));
         }
         
         // Done, return success
         return true;
+    }
+    
+    public boolean loadScene(Location location, boolean sendPacket) {
+        return loadScene(location.getPlaneId(), location.getFloorId(), location.getEntryId(), location.getPos(), location.getRot(), sendPacket);
     }
     
     public void setAssistAvatars(RepeatedInt avatars) {
@@ -913,7 +963,6 @@ public class Player implements Tickable, Syncable {
         this.getFriendList().loadFromDatabase();
         this.getMailbox().loadFromDatabase();
         this.getChallengeManager().loadFromDatabase();
-        this.getRogueManager().loadFromDatabase();
         
         // Load unlockables
         this.loadUnlocksFromDatabase();
@@ -921,10 +970,9 @@ public class Player implements Tickable, Syncable {
         // Update stamina
         this.updateStamina(System.currentTimeMillis());
 
-        // Check instances
-        if (this.getChallengeInstance() != null && !this.getChallengeInstance().validate(this)) {
-            // Delete instance if it failed to validate (example: missing an excel)
-            this.challengeInstance = null;
+        // Set default world id if we don't have it
+        if (this.worldId == 0) {
+            this.worldId = GameConstants.DEFAULT_WORLD_ID;
         }
         
         // Set default world id if we don't have it
@@ -972,6 +1020,7 @@ public class Player implements Tickable, Syncable {
         // Set logged in flag
         this.lastActiveTime = System.currentTimeMillis() / 1000;
         this.loggedIn = true;
+        // this.getMissionManager().onLogin();
     }
 
     public void onLogout() {
@@ -1009,7 +1058,6 @@ public class Player implements Tickable, Syncable {
         datastore.getCollection(PlayerLineup.class).deleteMany(filter);
         datastore.getCollection(PlayerExtraLineup.class).deleteMany(filter);
         datastore.getCollection(Mail.class).deleteMany(filter);
-        datastore.getCollection(RogueTalentData.class).deleteMany(filter);
         datastore.getCollection(PlayerUnlockData.class).deleteOne(filter);
         
         // Delete friendships
@@ -1051,6 +1099,34 @@ public class Player implements Tickable, Syncable {
         return proto;
     }
     
+    public PlayerMocDisplayInfo getMocDisplayInfo() {
+        // todo: get from DB
+        var mocDisplayInfo = PlayerMocDisplayInfo.newInstance()
+            .setFloorNum(12)
+            .setStarCount(36)
+            .setSeasonId(21)
+            .setInt1(1015); // from pcap
+        
+        return mocDisplayInfo;
+    }
+
+    public PlayerDisplayInfo getDisplayInfo() {
+        var playerDisplayInfo = PlayerDisplayInfo.newInstance()
+            .setBookCount(200) // idk how to get their amount
+            .setPhonographCount(60) // same with this field
+            .setAchievementCount(GameData.getQuestExcelMap().size()) // todo: set it to max amount of achievements in excel
+            .setInt2(1608)
+            .setSuWorld(8) // todo: get from DB
+            .setMocDisplayInfo(this.getMocDisplayInfo());
+        
+        if (this.isOnline()) {
+            playerDisplayInfo.setCharacterCount(this.getAvatars().getAvatarCount());
+            playerDisplayInfo.setLightconeCount(this.getInventory().getTab(InventoryTabType.EQUIPMENT).getSize());
+        }
+        
+        return playerDisplayInfo;
+    }
+    
     public PlayerDetailInfo toDetailInfo() {
         var proto = PlayerDetailInfo.newInstance()
                 .setUid(this.getUid())
@@ -1059,11 +1135,20 @@ public class Player implements Tickable, Syncable {
                 .setLevel(this.getLevel())
                 .setWorldLevel(this.getWorldLevel())
                 .setPlatformType(PlatformType.PC)
-                .setShowDisplayAvatars(true)
+                .setHeadIcon(this.getHeadIcon())
+                .setShowDisplayAvatars(false)
                 .setHeadIcon(this.getHeadIcon());
         
         proto.getMutableRecordInfo().getMutableCollectionInfo();
         proto.getMutableDisplaySettings();
+        proto.getMutableHeadIconFrameInfo();
+        proto.getMutablePlayerOutfitData();
+        proto.getMutableChallengeDetail()
+            .getMutableUnkInfo()
+            .getMutableUnkInfo()
+            .getMutableUnkInfo();
+        
+        proto.setUnkDetail("");
         
         for (int i = 0; i < this.getAssistAvatars().size(); i++) {
             ObjectId objectId = this.getAssistAvatars().get(i);
@@ -1101,16 +1186,16 @@ public class Player implements Tickable, Syncable {
         return proto;
     }
     
-    public SimpleInfo toSimpleInfo() {
-        var proto = SimpleInfo.newInstance()
+    public PlayerSimpleInfo toSimpleInfo() {
+        var proto = PlayerSimpleInfo.newInstance()
                 .setUid(this.getUid())
                 .setNickname(this.getName())
                 .setSignature(this.getSignature())
                 .setLevel(this.getLevel())
-                .setChatBubbleId(this.getChatBubble())
+                .setChatBubble(this.getChatBubble())
                 .setOnlineStatus(this.isOnline() ? FriendOnlineStatus.FRIEND_ONLINE_STATUS_ONLINE : FriendOnlineStatus.FRIEND_ONLINE_STATUS_OFFLINE)
-                .setPlatformType(PlatformType.PC)
-                .setLastActiveTime(this.getLastActiveTime())
+                .setPlatform(PlatformType.PC)
+                .setLogoutTime(this.getLastActiveTime())
                 .setHeadIcon(this.getHeadIcon());
         
         for (int i = 0; i < this.getAssistAvatars().size(); i++) {
@@ -1126,7 +1211,7 @@ public class Player implements Tickable, Syncable {
             var info = avatar.toAssistSimpleProto();
             info.setPos(i);
             
-            proto.addAssistSimpleInfo(info);
+            proto.addAssistInfoList(info);
         }
         
         return proto;
@@ -1140,16 +1225,12 @@ public class Player implements Tickable, Syncable {
             proto.addUnlockedHeadIconList(HeadIcon.newInstance().setId(id));
         }
         
-        return proto;
-    }
-    
-    public RogueCurVirtualItemInfo getCurRogueVirtualItem() {
-        var proto = RogueCurVirtualItemInfo.newInstance()
-                .setCurTalentCoin(this.getTalentPoints());
-        
-        if (this.getRogueInstance() != null) {
-            proto.setCurRogueCoin(this.getRogueInstance().getCoin());
+        for (int id : this.getUnlocks().getHeadIconFrames()) {
+            proto.addAllUnlockedHeadIconFrameIdList(id);
         }
+        
+        proto.getMutableHeadIconFrameInfo()
+            .setHeadIconFrameId(this.getHeadIconFrame());
         
         return proto;
     }

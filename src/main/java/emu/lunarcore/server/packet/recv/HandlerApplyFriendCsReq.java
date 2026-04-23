@@ -12,7 +12,7 @@ public class HandlerApplyFriendCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ApplyFriendCsReq.parseFrom(data);
-        
+
         session.getPlayer().getFriendList().sendFriendRequest(req.getUid());
         session.send(CmdId.ApplyFriendScRsp);
     }

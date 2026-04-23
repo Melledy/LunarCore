@@ -19,17 +19,17 @@ public final class RotateMapScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 client_pos_version = 5;</code>
-     */
-    private int clientPosVersion;
-
-    /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 4;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .MotionInfo motion = 4;</code>
+     * <code>optional uint32 client_pos_version = 9;</code>
+     */
+    private int clientPosVersion;
+
+    /**
+     * <code>optional .MotionInfo motion = 6;</code>
      */
     private final MotionInfoOuterClass.MotionInfo motion = MotionInfoOuterClass.MotionInfo.newInstance();
 
@@ -44,62 +44,25 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 5;</code>
-     * @return whether the clientPosVersion field is set
+     * <code>optional uint32 retcode = 4;</code>
+     * @return whether the retcode field is set
      */
-    public boolean hasClientPosVersion() {
+    public boolean hasRetcode() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 client_pos_version = 5;</code>
-     * @return this
-     */
-    public RotateMapScRsp clearClientPosVersion() {
-      bitField0_ &= ~0x00000001;
-      clientPosVersion = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 client_pos_version = 5;</code>
-     * @return the clientPosVersion
-     */
-    public int getClientPosVersion() {
-      return clientPosVersion;
-    }
-
-    /**
-     * <code>optional uint32 client_pos_version = 5;</code>
-     * @param value the clientPosVersion to set
-     * @return this
-     */
-    public RotateMapScRsp setClientPosVersion(final int value) {
-      bitField0_ |= 0x00000001;
-      clientPosVersion = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 11;</code>
-     * @return whether the retcode field is set
-     */
-    public boolean hasRetcode() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return this
      */
     public RotateMapScRsp clearRetcode() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -107,18 +70,55 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 11;</code>
+     * <code>optional uint32 retcode = 4;</code>
      * @param value the retcode to set
      * @return this
      */
     public RotateMapScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       retcode = value;
       return this;
     }
 
     /**
-     * <code>optional .MotionInfo motion = 4;</code>
+     * <code>optional uint32 client_pos_version = 9;</code>
+     * @return whether the clientPosVersion field is set
+     */
+    public boolean hasClientPosVersion() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>optional uint32 client_pos_version = 9;</code>
+     * @return this
+     */
+    public RotateMapScRsp clearClientPosVersion() {
+      bitField0_ &= ~0x00000002;
+      clientPosVersion = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 client_pos_version = 9;</code>
+     * @return the clientPosVersion
+     */
+    public int getClientPosVersion() {
+      return clientPosVersion;
+    }
+
+    /**
+     * <code>optional uint32 client_pos_version = 9;</code>
+     * @param value the clientPosVersion to set
+     * @return this
+     */
+    public RotateMapScRsp setClientPosVersion(final int value) {
+      bitField0_ |= 0x00000002;
+      clientPosVersion = value;
+      return this;
+    }
+
+    /**
+     * <code>optional .MotionInfo motion = 6;</code>
      * @return whether the motion field is set
      */
     public boolean hasMotion() {
@@ -126,7 +126,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 4;</code>
+     * <code>optional .MotionInfo motion = 6;</code>
      * @return this
      */
     public RotateMapScRsp clearMotion() {
@@ -136,7 +136,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 4;</code>
+     * <code>optional .MotionInfo motion = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -150,7 +150,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 4;</code>
+     * <code>optional .MotionInfo motion = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -164,7 +164,7 @@ public final class RotateMapScRspOuterClass {
     }
 
     /**
-     * <code>optional .MotionInfo motion = 4;</code>
+     * <code>optional .MotionInfo motion = 6;</code>
      * @param value the motion to set
      * @return this
      */
@@ -179,8 +179,8 @@ public final class RotateMapScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        clientPosVersion = other.clientPosVersion;
         retcode = other.retcode;
+        clientPosVersion = other.clientPosVersion;
         motion.copyFrom(other.motion);
       }
       return this;
@@ -192,11 +192,11 @@ public final class RotateMapScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasClientPosVersion()) {
-        setClientPosVersion(other.clientPosVersion);
-      }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasClientPosVersion()) {
+        setClientPosVersion(other.clientPosVersion);
       }
       if (other.hasMotion()) {
         getMutableMotion().mergeFrom(other.motion);
@@ -211,8 +211,8 @@ public final class RotateMapScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      clientPosVersion = 0;
       retcode = 0;
+      clientPosVersion = 0;
       motion.clear();
       return this;
     }
@@ -238,23 +238,23 @@ public final class RotateMapScRspOuterClass {
       }
       RotateMapScRsp other = (RotateMapScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasClientPosVersion() || clientPosVersion == other.clientPosVersion)
         && (!hasRetcode() || retcode == other.retcode)
+        && (!hasClientPosVersion() || clientPosVersion == other.clientPosVersion)
         && (!hasMotion() || motion.equals(other.motion));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(clientPosVersion);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 88);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(retcode);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 72);
+        output.writeUInt32NoTag(clientPosVersion);
+      }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 34);
+        output.writeRawByte((byte) 50);
         output.writeMessageNoTag(motion);
       }
     }
@@ -263,10 +263,10 @@ public final class RotateMapScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(clientPosVersion);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(clientPosVersion);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeMessageSizeNoTag(motion);
@@ -281,25 +281,25 @@ public final class RotateMapScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // clientPosVersion
-            clientPosVersion = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 88) {
-              break;
-            }
-          }
-          case 88: {
+          case 32: {
             // retcode
             retcode = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 34) {
+            if (tag != 72) {
               break;
             }
           }
-          case 34: {
+          case 72: {
+            // clientPosVersion
+            clientPosVersion = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 50) {
+              break;
+            }
+          }
+          case 50: {
             // motion
             input.readMessage(motion);
             bitField0_ |= 0x00000004;
@@ -326,10 +326,10 @@ public final class RotateMapScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.clientPosVersion, clientPosVersion);
+        output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.retcode, retcode);
+        output.writeUInt32(FieldNames.clientPosVersion, clientPosVersion);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeMessage(FieldNames.motion, motion);
@@ -344,11 +344,10 @@ public final class RotateMapScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1787644431:
-          case 1278860153: {
-            if (input.isAtField(FieldNames.clientPosVersion)) {
+          case 1097936398: {
+            if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
-                clientPosVersion = input.readUInt32();
+                retcode = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -356,10 +355,11 @@ public final class RotateMapScRspOuterClass {
             }
             break;
           }
-          case 1097936398: {
-            if (input.isAtField(FieldNames.retcode)) {
+          case 1787644431:
+          case 1278860153: {
+            if (input.isAtField(FieldNames.clientPosVersion)) {
               if (!input.trySkipNullValue()) {
-                retcode = input.readUInt32();
+                clientPosVersion = input.readUInt32();
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -431,9 +431,9 @@ public final class RotateMapScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName clientPosVersion = FieldName.forField("clientPosVersion", "client_pos_version");
-
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName clientPosVersion = FieldName.forField("clientPosVersion", "client_pos_version");
 
       static final FieldName motion = FieldName.forField("motion");
     }

@@ -19,14 +19,14 @@ public final class TakenChallengeRewardInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      */
     private int starCount;
 
     /**
-     * <code>optional .ItemList reward = 2;</code>
+     * <code>optional .ItemList reward_list = 5;</code>
      */
-    private final ItemListOuterClass.ItemList reward = ItemListOuterClass.ItemList.newInstance();
+    private final ItemListOuterClass.ItemList rewardList = ItemListOuterClass.ItemList.newInstance();
 
     private TakenChallengeRewardInfo() {
     }
@@ -39,7 +39,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      * @return whether the starCount field is set
      */
     public boolean hasStarCount() {
@@ -47,7 +47,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      * @return this
      */
     public TakenChallengeRewardInfo clearStarCount() {
@@ -57,7 +57,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      * @return the starCount
      */
     public int getStarCount() {
@@ -65,7 +65,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 star_count = 13;</code>
+     * <code>optional uint32 star_count = 8;</code>
      * @param value the starCount to set
      * @return this
      */
@@ -76,39 +76,39 @@ public final class TakenChallengeRewardInfoOuterClass {
     }
 
     /**
-     * <code>optional .ItemList reward = 2;</code>
-     * @return whether the reward field is set
+     * <code>optional .ItemList reward_list = 5;</code>
+     * @return whether the rewardList field is set
      */
-    public boolean hasReward() {
+    public boolean hasRewardList() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .ItemList reward = 2;</code>
+     * <code>optional .ItemList reward_list = 5;</code>
      * @return this
      */
-    public TakenChallengeRewardInfo clearReward() {
+    public TakenChallengeRewardInfo clearRewardList() {
       bitField0_ &= ~0x00000002;
-      reward.clear();
+      rewardList.clear();
       return this;
     }
 
     /**
-     * <code>optional .ItemList reward = 2;</code>
+     * <code>optional .ItemList reward_list = 5;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableReward()} if you want to modify it.
+     * Use {@link #getMutableRewardList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public ItemListOuterClass.ItemList getReward() {
-      return reward;
+    public ItemListOuterClass.ItemList getRewardList() {
+      return rewardList;
     }
 
     /**
-     * <code>optional .ItemList reward = 2;</code>
+     * <code>optional .ItemList reward_list = 5;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -116,19 +116,19 @@ public final class TakenChallengeRewardInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public ItemListOuterClass.ItemList getMutableReward() {
+    public ItemListOuterClass.ItemList getMutableRewardList() {
       bitField0_ |= 0x00000002;
-      return reward;
+      return rewardList;
     }
 
     /**
-     * <code>optional .ItemList reward = 2;</code>
-     * @param value the reward to set
+     * <code>optional .ItemList reward_list = 5;</code>
+     * @param value the rewardList to set
      * @return this
      */
-    public TakenChallengeRewardInfo setReward(final ItemListOuterClass.ItemList value) {
+    public TakenChallengeRewardInfo setRewardList(final ItemListOuterClass.ItemList value) {
       bitField0_ |= 0x00000002;
-      reward.copyFrom(value);
+      rewardList.copyFrom(value);
       return this;
     }
 
@@ -138,7 +138,7 @@ public final class TakenChallengeRewardInfoOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         starCount = other.starCount;
-        reward.copyFrom(other.reward);
+        rewardList.copyFrom(other.rewardList);
       }
       return this;
     }
@@ -152,8 +152,8 @@ public final class TakenChallengeRewardInfoOuterClass {
       if (other.hasStarCount()) {
         setStarCount(other.starCount);
       }
-      if (other.hasReward()) {
-        getMutableReward().mergeFrom(other.reward);
+      if (other.hasRewardList()) {
+        getMutableRewardList().mergeFrom(other.rewardList);
       }
       return this;
     }
@@ -166,7 +166,7 @@ public final class TakenChallengeRewardInfoOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       starCount = 0;
-      reward.clear();
+      rewardList.clear();
       return this;
     }
 
@@ -177,7 +177,7 @@ public final class TakenChallengeRewardInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      reward.clearQuick();
+      rewardList.clearQuick();
       return this;
     }
 
@@ -192,18 +192,18 @@ public final class TakenChallengeRewardInfoOuterClass {
       TakenChallengeRewardInfo other = (TakenChallengeRewardInfo) o;
       return bitField0_ == other.bitField0_
         && (!hasStarCount() || starCount == other.starCount)
-        && (!hasReward() || reward.equals(other.reward));
+        && (!hasRewardList() || rewardList.equals(other.rewardList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 18);
-        output.writeMessageNoTag(reward);
+        output.writeRawByte((byte) 42);
+        output.writeMessageNoTag(rewardList);
       }
     }
 
@@ -214,7 +214,7 @@ public final class TakenChallengeRewardInfoOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(reward);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rewardList);
       }
       return size;
     }
@@ -226,18 +226,18 @@ public final class TakenChallengeRewardInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 104: {
+          case 64: {
             // starCount
             starCount = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 18) {
+            if (tag != 42) {
               break;
             }
           }
-          case 18: {
-            // reward
-            input.readMessage(reward);
+          case 42: {
+            // rewardList
+            input.readMessage(rewardList);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
@@ -265,7 +265,7 @@ public final class TakenChallengeRewardInfoOuterClass {
         output.writeUInt32(FieldNames.starCount, starCount);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.reward, reward);
+        output.writeMessage(FieldNames.rewardList, rewardList);
       }
       output.endObject();
     }
@@ -289,10 +289,11 @@ public final class TakenChallengeRewardInfoOuterClass {
             }
             break;
           }
-          case -934326481: {
-            if (input.isAtField(FieldNames.reward)) {
+          case 1690977389:
+          case 898318254: {
+            if (input.isAtField(FieldNames.rewardList)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(reward);
+                input.readMessage(rewardList);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -355,7 +356,7 @@ public final class TakenChallengeRewardInfoOuterClass {
     static class FieldNames {
       static final FieldName starCount = FieldName.forField("starCount", "star_count");
 
-      static final FieldName reward = FieldName.forField("reward");
+      static final FieldName rewardList = FieldName.forField("rewardList", "reward_list");
     }
   }
 }

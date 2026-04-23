@@ -7,23 +7,20 @@ import emu.lunarcore.server.packet.CmdId;
 
 public class PacketStartCocoonStageScRsp extends BasePacket {
 
-    public PacketStartCocoonStageScRsp() {
+    public PacketStartCocoonStageScRsp(Battle battle) {
         super(CmdId.StartCocoonStageScRsp);
-        
-        var data = StartCocoonStageScRsp.newInstance()
-                .setRetcode(1);
-        
-        this.setData(data);
-    }
-    
-    public PacketStartCocoonStageScRsp(Battle battle, int cocoonId, int wave) {
-        super(CmdId.StartCocoonStageScRsp);
-        
-        var data = StartCocoonStageScRsp.newInstance()
-                .setBattleInfo(battle.toProto())
-                .setCocoonId(cocoonId)
-                .setWave(wave);
-        
+
+        var data = StartCocoonStageScRsp.newInstance();
+
+        if (battle != null) {
+            data.setBattleInfo(battle.toProto())
+            .setCocoonId(battle.getMappingInfoId())
+            .setWave(battle.getCocoonWave());
+        } else {
+            data.setRetcode(1);
+        }
+
+
         this.setData(data);
     }
 }

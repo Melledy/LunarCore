@@ -12,20 +12,20 @@ public class PacketUseItemScRsp extends BasePacket {
 
     public PacketUseItemScRsp(int itemId, int itemCount, List<GameItem> returnItems) {
         super(CmdId.UseItemScRsp);
-        
+
         var itemList = ItemList.newInstance();
-        
+
         if (returnItems != null && returnItems.size() > 0) {
             for (var item : returnItems) {
                 itemList.addItemList(item.toProto());
             }
         }
-        
+
         var data = UseItemScRsp.newInstance()
                 .setUseItemId(itemId)
                 .setUseItemCount(itemCount)
                 .setReturnData(itemList);
-        
+
         this.setData(data);
     }
 }

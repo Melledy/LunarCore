@@ -17,6 +17,10 @@ public class SummonUnitInfo {
     private SummonUnitTriggers TriggerConfig;
     
     public List<SummonUnitCustomTrigger> getCustomTriggers() {
+        if (TriggerConfig == null || TriggerConfig.getCustomTriggers() == null) {
+            return new ArrayList<>();
+        }
+        
         return TriggerConfig.getCustomTriggers();
     }
     
@@ -28,10 +32,6 @@ public class SummonUnitInfo {
     }
     
     public void buildMazeSkillActions() {
-        if (TriggerConfig == null) {
-            return;
-        }
-        
         for (var customTrigger : getCustomTriggers()) {
             customTrigger.buildMazeSkillActions();
         }

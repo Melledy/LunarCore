@@ -11,9 +11,9 @@ public class PacketSearchPlayerScRsp extends BasePacket {
 
     public PacketSearchPlayerScRsp(Collection<Player> players) {
         super(CmdId.SearchPlayerScRsp);
-        
+
         var data = SearchPlayerScRsp.newInstance();
-        
+
         if (players != null && players.size() > 0) {
             for (Player player : players) {
                 data.addSearchResultList(player.toSimpleInfo());
@@ -21,7 +21,7 @@ public class PacketSearchPlayerScRsp extends BasePacket {
         } else {
             data.setRetcode(3612);
         }
-        
+
         this.setData(data);
     }
 }

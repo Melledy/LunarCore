@@ -20,7 +20,12 @@ public final class SceneGroupRefreshScNotifyOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 12;</code>
+     * <code>optional uint32 floor_id = 11;</code>
+     */
+    private int floorId;
+
+    /**
+     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 2;</code>
      */
     private final RepeatedMessage<SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo> groupRefreshInfo = RepeatedMessage.newEmptyInstance(SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo.getFactory());
 
@@ -35,25 +40,62 @@ public final class SceneGroupRefreshScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 12;</code>
-     * @return whether the groupRefreshInfo field is set
+     * <code>optional uint32 floor_id = 11;</code>
+     * @return whether the floorId field is set
      */
-    public boolean hasGroupRefreshInfo() {
+    public boolean hasFloorId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 12;</code>
+     * <code>optional uint32 floor_id = 11;</code>
+     * @return this
+     */
+    public SceneGroupRefreshScNotify clearFloorId() {
+      bitField0_ &= ~0x00000001;
+      floorId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 floor_id = 11;</code>
+     * @return the floorId
+     */
+    public int getFloorId() {
+      return floorId;
+    }
+
+    /**
+     * <code>optional uint32 floor_id = 11;</code>
+     * @param value the floorId to set
+     * @return this
+     */
+    public SceneGroupRefreshScNotify setFloorId(final int value) {
+      bitField0_ |= 0x00000001;
+      floorId = value;
+      return this;
+    }
+
+    /**
+     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 2;</code>
+     * @return whether the groupRefreshInfo field is set
+     */
+    public boolean hasGroupRefreshInfo() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 2;</code>
      * @return this
      */
     public SceneGroupRefreshScNotify clearGroupRefreshInfo() {
-      bitField0_ &= ~0x00000001;
+      bitField0_ &= ~0x00000002;
       groupRefreshInfo.clear();
       return this;
     }
 
     /**
-     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 12;</code>
+     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -68,7 +110,7 @@ public final class SceneGroupRefreshScNotifyOuterClass {
     }
 
     /**
-     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 12;</code>
+     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -78,30 +120,30 @@ public final class SceneGroupRefreshScNotifyOuterClass {
      */
     public RepeatedMessage<SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo> getMutableGroupRefreshInfo(
         ) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       return groupRefreshInfo;
     }
 
     /**
-     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 12;</code>
+     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 2;</code>
      * @param value the groupRefreshInfo to add
      * @return this
      */
     public SceneGroupRefreshScNotify addGroupRefreshInfo(
         final SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo value) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       groupRefreshInfo.add(value);
       return this;
     }
 
     /**
-     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 12;</code>
+     * <code>repeated .SceneGroupRefreshInfo group_refresh_info = 2;</code>
      * @param values the groupRefreshInfo to add
      * @return this
      */
     public SceneGroupRefreshScNotify addAllGroupRefreshInfo(
         final SceneGroupRefreshInfoOuterClass.SceneGroupRefreshInfo... values) {
-      bitField0_ |= 0x00000001;
+      bitField0_ |= 0x00000002;
       groupRefreshInfo.addAll(values);
       return this;
     }
@@ -111,6 +153,7 @@ public final class SceneGroupRefreshScNotifyOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
+        floorId = other.floorId;
         groupRefreshInfo.copyFrom(other.groupRefreshInfo);
       }
       return this;
@@ -122,6 +165,9 @@ public final class SceneGroupRefreshScNotifyOuterClass {
         return this;
       }
       cachedSize = -1;
+      if (other.hasFloorId()) {
+        setFloorId(other.floorId);
+      }
       if (other.hasGroupRefreshInfo()) {
         getMutableGroupRefreshInfo().addAll(other.groupRefreshInfo);
       }
@@ -135,6 +181,7 @@ public final class SceneGroupRefreshScNotifyOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
+      floorId = 0;
       groupRefreshInfo.clear();
       return this;
     }
@@ -160,14 +207,19 @@ public final class SceneGroupRefreshScNotifyOuterClass {
       }
       SceneGroupRefreshScNotify other = (SceneGroupRefreshScNotify) o;
       return bitField0_ == other.bitField0_
+        && (!hasFloorId() || floorId == other.floorId)
         && (!hasGroupRefreshInfo() || groupRefreshInfo.equals(other.groupRefreshInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeRawByte((byte) 88);
+        output.writeUInt32NoTag(floorId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < groupRefreshInfo.length(); i++) {
-          output.writeRawByte((byte) 98);
+          output.writeRawByte((byte) 18);
           output.writeMessageNoTag(groupRefreshInfo.get(i));
         }
       }
@@ -177,6 +229,9 @@ public final class SceneGroupRefreshScNotifyOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(floorId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         size += (1 * groupRefreshInfo.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(groupRefreshInfo);
       }
       return size;
@@ -189,10 +244,19 @@ public final class SceneGroupRefreshScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 98: {
+          case 88: {
+            // floorId
+            floorId = input.readUInt32();
+            bitField0_ |= 0x00000001;
+            tag = input.readTag();
+            if (tag != 18) {
+              break;
+            }
+          }
+          case 18: {
             // groupRefreshInfo
             tag = input.readRepeatedMessage(groupRefreshInfo, tag);
-            bitField0_ |= 0x00000001;
+            bitField0_ |= 0x00000002;
             if (tag != 0) {
               break;
             }
@@ -215,6 +279,9 @@ public final class SceneGroupRefreshScNotifyOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
+        output.writeUInt32(FieldNames.floorId, floorId);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeRepeatedMessage(FieldNames.groupRefreshInfo, groupRefreshInfo);
       }
       output.endObject();
@@ -227,12 +294,24 @@ public final class SceneGroupRefreshScNotifyOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
+          case -766027193:
+          case 2022982190: {
+            if (input.isAtField(FieldNames.floorId)) {
+              if (!input.trySkipNullValue()) {
+                floorId = input.readUInt32();
+                bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case 618562090:
           case 851400018: {
             if (input.isAtField(FieldNames.groupRefreshInfo)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(groupRefreshInfo);
-                bitField0_ |= 0x00000001;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -292,6 +371,8 @@ public final class SceneGroupRefreshScNotifyOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
+      static final FieldName floorId = FieldName.forField("floorId", "floor_id");
+
       static final FieldName groupRefreshInfo = FieldName.forField("groupRefreshInfo", "group_refresh_info");
     }
   }

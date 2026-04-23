@@ -2,9 +2,9 @@ package emu.lunarcore.data.excel;
 
 import java.util.List;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
 import emu.lunarcore.data.common.ItemParam;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.enums.ItemRarity;
 import emu.lunarcore.game.enums.ItemSubType;
@@ -13,8 +13,9 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@ResourceType(name = {"ItemConfig.json", "ItemConfigAvatar.json", "ItemConfigAvatarPlayerIcon.json", "ItemConfigAvatarRank.json",
-        "ItemConfigBook.json", "ItemConfigDisk.json", "ItemConfigEquipment.json", "ItemConfigRelic.json", "ItemPlayerCard.json"})
+@ResourceType(name = {"ItemConfig.json", "ItemConfigAvatar.json", "ItemConfigAvatarLD.json", "ItemConfigAvatarPlayerIcon.json",
+        "ItemConfigAvatarPlayerIcLD.json", "ItemConfigAvatarRank.json", "ItemConfigAvatarRankLD.json", "ItemConfigBook.json",
+        "ItemConfigDisk.json", "ItemConfigEquipment.json", "ItemConfigRelic.json", "ItemPlayerCard.json"})
 public class ItemExcel extends GameResource {
     // General item data
     private int ID;
@@ -24,7 +25,7 @@ public class ItemExcel extends GameResource {
     private ItemRarity Rarity;
     private int PileLimit;
     private int PurposeType;
-    
+
     private int UseDataID;
     private ItemUseMethod UseMethod;
 
@@ -59,7 +60,7 @@ public class ItemExcel extends GameResource {
     public boolean isEquippable() {
         return ItemMainType == emu.lunarcore.game.enums.ItemMainType.Relic || ItemMainType == emu.lunarcore.game.enums.ItemMainType.Equipment;
     }
-    
+
     public int getRarityNum() {
         return this.getRarity().getVal();
     }
@@ -70,7 +71,7 @@ public class ItemExcel extends GameResource {
         }
         return this.relicExp;
     }
-    
+
     public int getRelicExpCost() {
         if (this.relicExcel != null) {
             return this.relicExcel.getCoinCost();

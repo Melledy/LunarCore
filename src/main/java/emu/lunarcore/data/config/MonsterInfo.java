@@ -11,4 +11,5 @@ public class MonsterInfo extends ObjectInfo {
     private int EventID;
     private int FarmElementID;
     private boolean IsClientOnly;
+    private boolean LoadOnInitial = true;
 }

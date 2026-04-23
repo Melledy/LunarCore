@@ -10,23 +10,23 @@ public class PacketGroupStateChangeScNotify extends BasePacket {
 
     public PacketGroupStateChangeScNotify(GroupStateInfo groupInfo) {
         super(CmdId.GroupStateChangeScNotify);
-        
-        var data = GroupStateChangeScNotify.newInstance();
-        data.setGroupStateInfo(groupInfo);
-        
+
+        var data = GroupStateChangeScNotify.newInstance()
+                .setGroupInfo(groupInfo);
+
         this.setData(data);
     }
-    
+
     public PacketGroupStateChangeScNotify(int entryId, int groupId, PropState state) {
         super(CmdId.GroupStateChangeScNotify);
-        
+
         var data = GroupStateChangeScNotify.newInstance();
-        
-        data.getMutableGroupStateInfo()
+
+        data.getMutableGroupInfo()
             .setEntryId(entryId)
             .setGroupId(groupId)
             .setGroupState(state.getVal());
-        
+
         this.setData(data);
     }
 }

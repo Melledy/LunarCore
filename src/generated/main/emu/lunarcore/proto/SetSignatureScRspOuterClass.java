@@ -20,12 +20,12 @@ public final class SetSignatureScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 5;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      */
     private final Utf8String signature = Utf8String.newEmptyInstance();
 
@@ -40,7 +40,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -48,7 +48,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return this
      */
     public SetSignatureScRsp clearRetcode() {
@@ -58,7 +58,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -66,7 +66,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 5;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      * @return whether the signature field is set
      */
     public boolean hasSignature() {
@@ -85,7 +85,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      * @return this
      */
     public SetSignatureScRsp clearSignature() {
@@ -95,7 +95,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      * @return the signature
      */
     public String getSignature() {
@@ -103,7 +103,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      * @return internal {@code Utf8String} representation of signature for reading
      */
     public Utf8String getSignatureBytes() {
@@ -111,7 +111,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      * @return internal {@code Utf8String} representation of signature for modifications
      */
     public Utf8String getMutableSignatureBytes() {
@@ -120,7 +120,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      * @param value the signature to set
      * @return this
      */
@@ -131,7 +131,7 @@ public final class SetSignatureScRspOuterClass {
     }
 
     /**
-     * <code>optional string signature = 10;</code>
+     * <code>optional string signature = 15;</code>
      * @param value the signature to set
      * @return this
      */
@@ -207,11 +207,11 @@ public final class SetSignatureScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 40);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 82);
+        output.writeRawByte((byte) 122);
         output.writeStringNoTag(signature);
       }
     }
@@ -235,16 +235,16 @@ public final class SetSignatureScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 40: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 82) {
+            if (tag != 122) {
               break;
             }
           }
-          case 82: {
+          case 122: {
             // signature
             input.readString(signature);
             bitField0_ |= 0x00000002;

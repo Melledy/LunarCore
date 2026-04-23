@@ -19,12 +19,20 @@ public final class RotatorEnergyInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 cur_num = 4;</code>
+     * <pre>
+     *  12
+     * </pre>
+     *
+     * <code>optional uint32 cur_num = 11;</code>
      */
     private int curNum;
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <pre>
+     *  11
+     * </pre>
+     *
+     * <code>optional uint32 max_num = 12;</code>
      */
     private int maxNum;
 
@@ -39,7 +47,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 4;</code>
+     * <pre>
+     *  12
+     * </pre>
+     *
+     * <code>optional uint32 cur_num = 11;</code>
      * @return whether the curNum field is set
      */
     public boolean hasCurNum() {
@@ -47,7 +59,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 4;</code>
+     * <pre>
+     *  12
+     * </pre>
+     *
+     * <code>optional uint32 cur_num = 11;</code>
      * @return this
      */
     public RotatorEnergyInfo clearCurNum() {
@@ -57,7 +73,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 4;</code>
+     * <pre>
+     *  12
+     * </pre>
+     *
+     * <code>optional uint32 cur_num = 11;</code>
      * @return the curNum
      */
     public int getCurNum() {
@@ -65,7 +85,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_num = 4;</code>
+     * <pre>
+     *  12
+     * </pre>
+     *
+     * <code>optional uint32 cur_num = 11;</code>
      * @param value the curNum to set
      * @return this
      */
@@ -76,7 +100,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <pre>
+     *  11
+     * </pre>
+     *
+     * <code>optional uint32 max_num = 12;</code>
      * @return whether the maxNum field is set
      */
     public boolean hasMaxNum() {
@@ -84,7 +112,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <pre>
+     *  11
+     * </pre>
+     *
+     * <code>optional uint32 max_num = 12;</code>
      * @return this
      */
     public RotatorEnergyInfo clearMaxNum() {
@@ -94,7 +126,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <pre>
+     *  11
+     * </pre>
+     *
+     * <code>optional uint32 max_num = 12;</code>
      * @return the maxNum
      */
     public int getMaxNum() {
@@ -102,7 +138,11 @@ public final class RotatorEnergyInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 max_num = 14;</code>
+     * <pre>
+     *  11
+     * </pre>
+     *
+     * <code>optional uint32 max_num = 12;</code>
      * @param value the maxNum to set
      * @return this
      */
@@ -177,11 +217,11 @@ public final class RotatorEnergyInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(curNum);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 112);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(maxNum);
       }
     }
@@ -205,16 +245,16 @@ public final class RotatorEnergyInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 32: {
+          case 88: {
             // curNum
             curNum = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 96) {
               break;
             }
           }
-          case 112: {
+          case 96: {
             // maxNum
             maxNum = input.readUInt32();
             bitField0_ |= 0x00000002;

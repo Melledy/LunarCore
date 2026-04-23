@@ -33,7 +33,7 @@ public class ChatManager extends BasePlayerManager {
         // Add to chat history
         if (GameConstants.MAX_CHAT_HISTORY > 0) {
             // Add to history list
-            var list = getHistory().computeIfAbsent(targetPlayerUid, id -> new ObjectArrayList<>());
+            var list = getHistory().computeIfAbsent(targetPlayerUid, x -> new ObjectArrayList<>());
             list.add(message);
             // Check max size
             while (list.size() >= GameConstants.MAX_CHAT_HISTORY) {
@@ -62,7 +62,7 @@ public class ChatManager extends BasePlayerManager {
         if (target == null) {
             return;
         }
-
+        
         // Create chat packet
         ChatMessage message = new ChatMessage(this.getPlayer().getUid(), targetUid, text);
         

@@ -23,24 +23,12 @@ public class CmdIdUtils {
         CmdId.PlayerHeartBeatCsReq,
         CmdId.PlayerHeartBeatScRsp,
         CmdId.SceneEntityMoveCsReq,
-        CmdId.SceneEntityMoveScRsp,
-        CmdId.GetQuestDataScRsp
-    );
-    
-    /**
-     * Packet ids that will NOT be caught by the spam filter
-     */
-    public static final IntSet ALLOWED_FILTER_PACKETS = IntOpenHashSet.of(
-        CmdId.PlayerHeartBeatCsReq,
-        CmdId.GetMissionStatusCsReq,
-        CmdId.GetMainMissionCustomValueCsReq
+        CmdId.SceneEntityMoveScRsp
     );
 
-    private static Int2ObjectMap<String> cmdIdMap;
+    private static Int2ObjectMap<String> cmdIdMap = new Int2ObjectOpenHashMap<>();
 
     static {
-        cmdIdMap = new Int2ObjectOpenHashMap<>();
-
         Field[] fields = CmdId.class.getFields();
 
         for (Field f : fields) {
@@ -59,6 +47,7 @@ public class CmdIdUtils {
         return cmdIdMap.getOrDefault(opcode, "UNKNOWN");
     }
 
+    @SuppressWarnings("unused")
     public static void dumpPacketIds() {
         try (FileWriter writer = new FileWriter("./PacketIds_" + GameConstants.VERSION + ".json")) {
             // Create sorted tree map

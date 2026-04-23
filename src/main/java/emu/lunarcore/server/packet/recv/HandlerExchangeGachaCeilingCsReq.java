@@ -13,7 +13,7 @@ public class HandlerExchangeGachaCeilingCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ExchangeGachaCeilingCsReq.parseFrom(data);
-        
+
         var items = session.getServer().getGachaService().exchangeGachaCeiling(session.getPlayer(), req.getAvatarId());
         session.send(new PacketExchangeGachaCeilingScRsp(session.getPlayer(), req.getGachaType(), req.getAvatarId(), items));
     }

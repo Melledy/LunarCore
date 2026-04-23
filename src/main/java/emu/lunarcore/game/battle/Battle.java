@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.function.Consumer;
-
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
 import emu.lunarcore.game.avatar.GameAvatar;
@@ -40,7 +39,6 @@ public class Battle {
     private Int2ObjectMap<BattleTargetList> battleTargets; // TODO use custom battle target object as value type in case we need to save battles to the db
     
     // Internal battle data
-    @Setter private BattleEndStatus result;
     @Setter private int staminaCost;
     @Setter private int roundsLimit;
     
@@ -49,8 +47,13 @@ public class Battle {
     @Setter private int worldLevel;
     @Setter private int cocoonWave;
     
-    // OnFinish Callback
-    @Setter private Consumer<BattleStatistics> onFinish;
+    // Results
+    @Setter private BattleEndStatus result;
+    @Setter private BattleStatistics stats;
+    
+    // Callbacks
+    @Setter private Consumer<SceneBattleInfo> onSerialize;
+    @Setter private Consumer<Battle> onFinish;
     
     private Battle(Player player, PlayerLineup lineup) {
         this.id = player.getNextBattleId();
@@ -102,8 +105,23 @@ public class Battle {
             
             // Get stage
             BattleStage stage = npcMonster.getCustomStage();
+            
             if (stage == null) {
-                stage = GameData.getStageExcelMap().get(npcMonster.getStageId());
+                // Get stage id from event id
+                var eventId = npcMonster.getEventId();
+                var configEvent = GameData.getPlaneEventExcelMap().get(eventId, npcMonster.getWorldLevel());
+                
+                if (configEvent != null) {
+                    var eventStageId = configEvent.getStageId();
+                    stage = GameData.getStageExcelMap().get(eventStageId);
+                }
+                
+                // Fallback - Old method of getting stage id from event id
+                if (stage == null) {
+                    stage = GameData.getStageExcelMap().get(npcMonster.getStageId());
+                }
+                
+                // Could'nt find any stage associated with this monster
                 if (stage == null) continue;
             }
             
@@ -130,7 +148,7 @@ public class Battle {
             
             // Add wave to battle
             this.getWaves().add(wave);
-            
+
             // Add buffs from npc monsters
             if (npcMonster != null) {
                 // Set wave custom level
@@ -157,7 +175,7 @@ public class Battle {
     }
     
     public void addBattleTarget(int key, int targetId, int progress) {
-        var list = getBattleTargets().computeIfAbsent(key, i -> BattleTargetList.newInstance());
+        var list = getBattleTargets().computeIfAbsent(key, x -> BattleTargetList.newInstance());
         var battleTarget = BattleTarget.newInstance()
                 .setId(targetId)
                 .setProgress(progress);
@@ -251,6 +269,15 @@ public class Battle {
             proto.addBuffList(buff.toProto());
         }
         
+        // Add global buffs
+        for (int avatarId : this.getPlayer().getAvatars().getGlobalBuffAvatars()) {
+            var globalBuffExcel = GameData.getAvatarGlobalBuffExcelMap().get(avatarId);
+            if (globalBuffExcel == null) continue;
+            
+            var globalBuff = new MazeBuff(globalBuffExcel.getMazeBuffID(), 1, -1, 0xffffffff);
+            proto.addBuffList(globalBuff.toProto());
+        }
+        
         // Client turn snapshots
         if (this.battleEvents != null) {
             for (int id : this.battleEvents) {
@@ -283,6 +310,12 @@ public class Battle {
             }
         }
         
+        // Callback
+        if (this.onSerialize != null) {
+            this.onSerialize.accept(proto);
+        }
+        
+        // Complete
         return proto;
     }
 }

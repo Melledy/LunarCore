@@ -8,10 +8,10 @@ public class PacketChallengeLineupNotify extends BasePacket {
 
     public PacketChallengeLineupNotify(int type) {
         super(CmdId.ChallengeLineupNotify);
-        
+
         var data = ChallengeLineupNotify.newInstance()
                 .setExtraLineupTypeValue(type);
-        
+
         this.setData(data);
     }
 }

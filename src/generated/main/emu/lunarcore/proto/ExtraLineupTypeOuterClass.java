@@ -72,7 +72,37 @@ public final class ExtraLineupTypeOuterClass {
     /**
      * <code>LINEUP_HELIOBUS = 13;</code>
      */
-    LINEUP_HELIOBUS("LINEUP_HELIOBUS", 13);
+    LINEUP_HELIOBUS("LINEUP_HELIOBUS", 13),
+
+    /**
+     * <code>LINEUP_TOURN_ROGUE = 14;</code>
+     */
+    LINEUP_TOURN_ROGUE("LINEUP_TOURN_ROGUE", 14),
+
+    /**
+     * <code>LINEUP_RELIC_ROGUE = 15;</code>
+     */
+    LINEUP_RELIC_ROGUE("LINEUP_RELIC_ROGUE", 15),
+
+    /**
+     * <code>LINEUP_ARCADE_ROGUE = 16;</code>
+     */
+    LINEUP_ARCADE_ROGUE("LINEUP_ARCADE_ROGUE", 16),
+
+    /**
+     * <code>LINEUP_MAGIC_ROGUE = 17;</code>
+     */
+    LINEUP_MAGIC_ROGUE("LINEUP_MAGIC_ROGUE", 17),
+
+    /**
+     * <code>LINEUP_FATE = 18;</code>
+     */
+    LINEUP_FATE("LINEUP_FATE", 18),
+
+    /**
+     * <code>LINEUP_GRID_FIGHT = 19;</code>
+     */
+    LINEUP_GRID_FIGHT("LINEUP_GRID_FIGHT", 19);
 
     /**
      * <code>LINEUP_NONE = 0;</code>
@@ -139,6 +169,36 @@ public final class ExtraLineupTypeOuterClass {
      */
     public static final int LINEUP_HELIOBUS_VALUE = 13;
 
+    /**
+     * <code>LINEUP_TOURN_ROGUE = 14;</code>
+     */
+    public static final int LINEUP_TOURN_ROGUE_VALUE = 14;
+
+    /**
+     * <code>LINEUP_RELIC_ROGUE = 15;</code>
+     */
+    public static final int LINEUP_RELIC_ROGUE_VALUE = 15;
+
+    /**
+     * <code>LINEUP_ARCADE_ROGUE = 16;</code>
+     */
+    public static final int LINEUP_ARCADE_ROGUE_VALUE = 16;
+
+    /**
+     * <code>LINEUP_MAGIC_ROGUE = 17;</code>
+     */
+    public static final int LINEUP_MAGIC_ROGUE_VALUE = 17;
+
+    /**
+     * <code>LINEUP_FATE = 18;</code>
+     */
+    public static final int LINEUP_FATE_VALUE = 18;
+
+    /**
+     * <code>LINEUP_GRID_FIGHT = 19;</code>
+     */
+    public static final int LINEUP_GRID_FIGHT_VALUE = 19;
+
     private final String name;
 
     private final int number;
@@ -192,7 +252,7 @@ public final class ExtraLineupTypeOuterClass {
     enum ExtraLineupTypeConverter implements ProtoEnum.EnumConverter<ExtraLineupType> {
       INSTANCE;
 
-      private static final ExtraLineupType[] lookup = new ExtraLineupType[14];
+      private static final ExtraLineupType[] lookup = new ExtraLineupType[20];
 
       static {
         lookup[0] = LINEUP_NONE;
@@ -208,6 +268,12 @@ public final class ExtraLineupTypeOuterClass {
         lookup[11] = LINEUP_TREASURE_DUNGEON;
         lookup[12] = LINEUP_CHESS_ROGUE;
         lookup[13] = LINEUP_HELIOBUS;
+        lookup[14] = LINEUP_TOURN_ROGUE;
+        lookup[15] = LINEUP_RELIC_ROGUE;
+        lookup[16] = LINEUP_ARCADE_ROGUE;
+        lookup[17] = LINEUP_MAGIC_ROGUE;
+        lookup[18] = LINEUP_FATE;
+        lookup[19] = LINEUP_GRID_FIGHT;
       }
 
       @Override
@@ -224,6 +290,9 @@ public final class ExtraLineupTypeOuterClass {
           case 11: {
             if (ProtoUtil.isEqual("LINEUP_NONE", value)) {
               return LINEUP_NONE;
+            }
+            if (ProtoUtil.isEqual("LINEUP_FATE", value)) {
+              return LINEUP_FATE;
             }
             break;
           }
@@ -248,6 +317,12 @@ public final class ExtraLineupTypeOuterClass {
             }
             break;
           }
+          case 17: {
+            if (ProtoUtil.isEqual("LINEUP_GRID_FIGHT", value)) {
+              return LINEUP_GRID_FIGHT;
+            }
+            break;
+          }
           case 18: {
             if (ProtoUtil.isEqual("LINEUP_CHALLENGE_2", value)) {
               return LINEUP_CHALLENGE_2;
@@ -266,6 +341,21 @@ public final class ExtraLineupTypeOuterClass {
             }
             if (ProtoUtil.isEqual("LINEUP_CHESS_ROGUE", value)) {
               return LINEUP_CHESS_ROGUE;
+            }
+            if (ProtoUtil.isEqual("LINEUP_TOURN_ROGUE", value)) {
+              return LINEUP_TOURN_ROGUE;
+            }
+            if (ProtoUtil.isEqual("LINEUP_RELIC_ROGUE", value)) {
+              return LINEUP_RELIC_ROGUE;
+            }
+            if (ProtoUtil.isEqual("LINEUP_MAGIC_ROGUE", value)) {
+              return LINEUP_MAGIC_ROGUE;
+            }
+            break;
+          }
+          case 19: {
+            if (ProtoUtil.isEqual("LINEUP_ARCADE_ROGUE", value)) {
+              return LINEUP_ARCADE_ROGUE;
             }
             break;
           }

@@ -18,7 +18,8 @@ public class ItemUseHandler {
             var rewardExcel = GameData.getRewardExcelMap().get(rewardId);
             if (rewardExcel == null) continue;
             
-            player.getInventory().addItemParams(rewardExcel.getRewards(), count);
+            var rewards = rewardExcel.getRewards().mulitply(count);
+            player.getInventory().addItems(rewards);
         }
         
         return true;

@@ -1,7 +1,7 @@
 package emu.lunarcore.data.excel;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.util.Utils;
 import lombok.Getter;
 
@@ -13,7 +13,7 @@ public class MapEntranceExcel extends GameResource {
     private int FloorID;
     private int StartGroupID;
     private int StartAnchorID;
-    
+
     private int[] FinishMainMissionList = Utils.EMPTY_INT_ARRAY;
     private int[] FinishSubMissionList = Utils.EMPTY_INT_ARRAY;
 

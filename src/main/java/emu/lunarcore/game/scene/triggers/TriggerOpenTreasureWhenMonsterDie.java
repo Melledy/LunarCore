@@ -31,6 +31,7 @@ public class TriggerOpenTreasureWhenMonsterDie extends PropTrigger {
             if (prop.getExcel().getPropType() == PropType.PROP_TREASURE_CHEST) {
                 prop.setState(PropState.ChestClosed);
             }
+            // TODO: update mssion state here
         }
     }
 }

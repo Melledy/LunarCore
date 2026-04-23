@@ -12,7 +12,7 @@ public class HandlerStartChallengeCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = StartChallengeCsReq.parseFrom(data);
-        
+
         // Parse buff ids
         int firstHalfBuff = 0;
         int secondHalfBuff = 0;
@@ -26,7 +26,7 @@ public class HandlerStartChallengeCsReq extends PacketHandler {
             firstHalfBuff = storyBuffs.getStoryBuffOne();
             secondHalfBuff = storyBuffs.getStoryBuffTwo();
         }
-        
+
         // Start challenge
         session.getPlayer().getChallengeManager().startChallenge(req.getChallengeId(), req.getFirstHalfLineup(), req.getSecondHalfLineup(), firstHalfBuff, secondHalfBuff);
     }

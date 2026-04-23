@@ -20,12 +20,12 @@ public final class SetAssistAvatarCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 avatar_id = 1;</code>
+     * <code>optional uint32 avatar_id = 11;</code>
      */
     private int avatarId;
 
     /**
-     * <code>repeated uint32 avatar_id_list = 15;</code>
+     * <code>repeated uint32 avatar_id_list = 2;</code>
      */
     private final RepeatedInt avatarIdList = RepeatedInt.newEmptyInstance();
 
@@ -40,7 +40,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 1;</code>
+     * <code>optional uint32 avatar_id = 11;</code>
      * @return whether the avatarId field is set
      */
     public boolean hasAvatarId() {
@@ -48,7 +48,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 1;</code>
+     * <code>optional uint32 avatar_id = 11;</code>
      * @return this
      */
     public SetAssistAvatarCsReq clearAvatarId() {
@@ -58,7 +58,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 1;</code>
+     * <code>optional uint32 avatar_id = 11;</code>
      * @return the avatarId
      */
     public int getAvatarId() {
@@ -66,7 +66,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 avatar_id = 1;</code>
+     * <code>optional uint32 avatar_id = 11;</code>
      * @param value the avatarId to set
      * @return this
      */
@@ -77,7 +77,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 15;</code>
+     * <code>repeated uint32 avatar_id_list = 2;</code>
      * @return whether the avatarIdList field is set
      */
     public boolean hasAvatarIdList() {
@@ -85,7 +85,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 15;</code>
+     * <code>repeated uint32 avatar_id_list = 2;</code>
      * @return this
      */
     public SetAssistAvatarCsReq clearAvatarIdList() {
@@ -95,7 +95,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 15;</code>
+     * <code>repeated uint32 avatar_id_list = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -109,7 +109,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 15;</code>
+     * <code>repeated uint32 avatar_id_list = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -123,7 +123,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 15;</code>
+     * <code>repeated uint32 avatar_id_list = 2;</code>
      * @param value the avatarIdList to add
      * @return this
      */
@@ -134,7 +134,7 @@ public final class SetAssistAvatarCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 avatar_id_list = 15;</code>
+     * <code>repeated uint32 avatar_id_list = 2;</code>
      * @param values the avatarIdList to add
      * @return this
      */
@@ -210,12 +210,12 @@ public final class SetAssistAvatarCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 8);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(avatarId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         for (int i = 0; i < avatarIdList.length(); i++) {
-          output.writeRawByte((byte) 120);
+          output.writeRawByte((byte) 16);
           output.writeUInt32NoTag(avatarIdList.array()[i]);
         }
       }
@@ -240,16 +240,16 @@ public final class SetAssistAvatarCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 8: {
+          case 88: {
             // avatarId
             avatarId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 122) {
+            if (tag != 18) {
               break;
             }
           }
-          case 122: {
+          case 18: {
             // avatarIdList [packed=true]
             input.readPackedUInt32(avatarIdList, tag);
             bitField0_ |= 0x00000002;
@@ -268,7 +268,7 @@ public final class SetAssistAvatarCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 120: {
+          case 16: {
             // avatarIdList [packed=false]
             tag = input.readRepeatedUInt32(avatarIdList, tag);
             bitField0_ |= 0x00000002;

@@ -129,6 +129,7 @@ public class HttpServer {
             this.addDispatchRoutes();
             this.addLogServerRoutes();
         }
+        
         if (this.getType().runGame()) {
             this.addGateServerRoutes();
         }
@@ -149,12 +150,22 @@ public class HttpServer {
 
         // Username & Password login (from client). Returns a session key to the client.
         getApp().post("/hkrpg_global/mdk/shield/api/login", new UsernameLoginHandler());
+        
         // Cached session key verify (from registry). Returns a session key to the client.
         getApp().post("/hkrpg_global/mdk/shield/api/verify", new TokenLoginHandler());
 
         // Exchange session key for login token (combo token)
         getApp().post("/hkrpg_global/combo/granter/login/v2/login", new ComboTokenGranterHandler());
-
+        
+        // === AUTHENTICATION v2 === hkrpg-sdk-os-static.hoyoverse.com
+        
+        // Username & Password login (from client). Returns a session key to the client.
+        getApp().post("/hkrpg_global/account/ma-passport/api/appLoginByPassword", new AppLoginHandler());
+        getApp().post("/hkrpg_global/account/ma-passport/token/verifySToken", new HttpJsonResponse("{}"));
+        
+        // Config
+        getApp().post("/hkrpg_global/account/ma-passport/api/getConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"ip\":null,\"tick_marketing_email\":true,\"area_wl\":[],\"realname_wl\":[],\"show_birthday\":false,\"age_gate_enabled\":false,\"age_gate_country_wl\":[]}}"));
+        
         // Config
         getApp().get("/hkrpg_global/combo/granter/api/getConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"protocol\":true,\"qr_enabled\":false,\"log_level\":\"INFO\",\"announce_url\":\"\",\"push_alias_type\":0,\"disable_ysdk_guard\":true,\"enable_announce_pic_popup\":false,\"app_name\":\"崩�??RPG\",\"qr_enabled_apps\":{\"bbs\":false,\"cloud\":false},\"qr_app_icons\":{\"app\":\"\",\"bbs\":\"\",\"cloud\":\"\"},\"qr_cloud_display_name\":\"\",\"enable_user_center\":true,\"functional_switch_configs\":{}}}"));
         getApp().get("/hkrpg_global/mdk/shield/api/loadConfig", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"id\":24,\"game_key\":\"hkrpg_global\",\"client\":\"PC\",\"identity\":\"I_IDENTITY\",\"guest\":false,\"ignore_versions\":\"\",\"scene\":\"S_NORMAL\",\"name\":\"崩�??RPG\",\"disable_regist\":false,\"enable_email_captcha\":false,\"thirdparty\":[\"fb\",\"tw\",\"gl\",\"ap\"],\"disable_mmt\":false,\"server_guest\":false,\"thirdparty_ignore\":{},\"enable_ps_bind_account\":false,\"thirdparty_login_configs\":{\"tw\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":2592000},\"ap\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":604800},\"fb\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":2592000},\"gl\":{\"token_type\":\"TK_GAME_TOKEN\",\"game_token_expires_in\":604800}},\"initialize_firebase\":false,\"bbs_auth_login\":false,\"bbs_auth_login_ignore\":[],\"fetch_instance_id\":false,\"enable_flash_login\":false}}"));
@@ -166,7 +177,7 @@ public class HttpServer {
         getApp().get("/hkrpg_global/mdk/agreement/api/getAgreementInfos", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"marketing_agreements\":[]}}"));
 
         // sdk-os-static.hoyoverse.com
-        getApp().get("/combo/box/api/config/sdk/combo", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"vals\":{\"kibana_pc_config\":\"{ \\\"enable\\\": 0, \\\"level\\\": \\\"Info\\\",\\\"modules\\\": [\\\"download\\\"] }\\n\",\"network_report_config\":\"{ \\\"enable\\\": 0, \\\"status_codes\\\": [206], \\\"url_paths\\\": [\\\"dataUpload\\\", \\\"red_dot\\\"] }\\n\",\"list_price_tierv2_enable\":\"false\\n\",\"pay_payco_centered_host\":\"bill.payco.com\",\"telemetry_config\":\"{\\n \\\"dataupload_enable\\\": 0,\\n}\",\"enable_web_dpi\":\"true\"}}}"));
+        getApp().get("/combo/box/api/config/sdk/combo", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"vals\":{\"kibana_pc_config\":\"{ \\\"enable\\\": 0, \\\"level\\\": \\\"Info\\\",\\\"modules\\\": [\\\"download\\\"] }\\n\",\"network_report_config\":\"{ \\\"enable\\\": 0, \\\"status_codes\\\": [206], \\\"url_paths\\\": [\\\"dataUpload\\\", \\\"red_dot\\\"] }\\n\",\"list_price_tierv2_enable\":\"true\\n\",\"pay_payco_centered_host\":\"bill.payco.com\",\"telemetry_config\":\"{\\n \\\"dataupload_enable\\\": 0,\\n}\",\"enable_web_dpi\":\"true\"}}}"));
         getApp().get("/combo/box/api/config/sw/precache", new HttpJsonResponse("{\"retcode\":0,\"message\":\"OK\",\"data\":{\"vals\":{\"url\":\"\",\"enable\":\"false\"}}}"));
 
         // sg-public-data-api.hoyoverse.com
@@ -176,6 +187,10 @@ public class HttpServer {
         // abtest-api-data-sg.hoyoverse.com
         getApp().post("/data_abtest_api/config/experiment/list", new HttpJsonResponse("{\"retcode\":0,\"success\":true,\"message\":\"\",\"data\":[{\"code\":1000,\"type\":2,\"config_id\":\"14\",\"period_id\":\"6125_197\",\"version\":\"1\",\"configs\":{\"cardType\":\"direct\"}}]}"));
     
+        // webstatic.hoyoverse.com
+        getApp().get("/admin/mi18n/plat_oversea/*/*.json", new HttpJsonResponse("{\"version\":134}"));
+        getApp().get("/admin/mi18n/plat_os/*/*.json", new HttpJsonResponse("{\"version\":16}"));
+        
         // Add mode
         this.modes.add("DISPATCH");
     }

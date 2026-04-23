@@ -48,15 +48,6 @@ public class GameServerPacketHandler {
         PacketHandler handler = this.handlers.get(cmdId);
 
         if (handler != null) {
-            // Check cooldown to prevent packet spam
-            long timestamp = System.currentTimeMillis();
-            if (session.getPacketCooldown().get(cmdId) >= timestamp && !CmdIdUtils.ALLOWED_FILTER_PACKETS.contains(cmdId)) {
-                //LunarCore.getLogger().warn("Dropped a packet " + CmdIdUtils.getCmdIdName(cmdId));
-                return;
-            } else {
-                session.getPacketCooldown().put(cmdId, timestamp + 5);
-            }
-
             try {
                 // Make sure session is ready for packets
                 SessionState state = session.getState();
@@ -85,6 +76,6 @@ public class GameServerPacketHandler {
         }
 
         // Log unhandled packets
-        //LunarCore.getLogger().info("Unhandled packet (" + cmdId + "): " + CmdIdUtils.getOpcodeName(cmdId));
+        //LunarCore.getLogger().info("Unhandled packet (" + cmdId + "): " + CmdIdUtils.getCmdIdName(cmdId));
     }
 }

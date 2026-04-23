@@ -19,14 +19,9 @@ public final class SelectChatBubbleScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      */
     private int retcode;
-
-    /**
-     * <code>optional uint32 BDDJODIMMGO = 6;</code>
-     */
-    private int bDDJODIMMGO;
 
     /**
      * <code>optional uint32 cur_chat_bubble = 15;</code>
@@ -44,7 +39,7 @@ public final class SelectChatBubbleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -52,7 +47,7 @@ public final class SelectChatBubbleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return this
      */
     public SelectChatBubbleScRsp clearRetcode() {
@@ -62,7 +57,7 @@ public final class SelectChatBubbleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -70,7 +65,7 @@ public final class SelectChatBubbleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 2;</code>
+     * <code>optional uint32 retcode = 14;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -81,48 +76,11 @@ public final class SelectChatBubbleScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 BDDJODIMMGO = 6;</code>
-     * @return whether the bDDJODIMMGO field is set
-     */
-    public boolean hasBDDJODIMMGO() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 BDDJODIMMGO = 6;</code>
-     * @return this
-     */
-    public SelectChatBubbleScRsp clearBDDJODIMMGO() {
-      bitField0_ &= ~0x00000002;
-      bDDJODIMMGO = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 BDDJODIMMGO = 6;</code>
-     * @return the bDDJODIMMGO
-     */
-    public int getBDDJODIMMGO() {
-      return bDDJODIMMGO;
-    }
-
-    /**
-     * <code>optional uint32 BDDJODIMMGO = 6;</code>
-     * @param value the bDDJODIMMGO to set
-     * @return this
-     */
-    public SelectChatBubbleScRsp setBDDJODIMMGO(final int value) {
-      bitField0_ |= 0x00000002;
-      bDDJODIMMGO = value;
-      return this;
-    }
-
-    /**
      * <code>optional uint32 cur_chat_bubble = 15;</code>
      * @return whether the curChatBubble field is set
      */
     public boolean hasCurChatBubble() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
@@ -130,7 +88,7 @@ public final class SelectChatBubbleScRspOuterClass {
      * @return this
      */
     public SelectChatBubbleScRsp clearCurChatBubble() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       curChatBubble = 0;
       return this;
     }
@@ -149,7 +107,7 @@ public final class SelectChatBubbleScRspOuterClass {
      * @return this
      */
     public SelectChatBubbleScRsp setCurChatBubble(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       curChatBubble = value;
       return this;
     }
@@ -160,7 +118,6 @@ public final class SelectChatBubbleScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        bDDJODIMMGO = other.bDDJODIMMGO;
         curChatBubble = other.curChatBubble;
       }
       return this;
@@ -174,9 +131,6 @@ public final class SelectChatBubbleScRspOuterClass {
       cachedSize = -1;
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
-      }
-      if (other.hasBDDJODIMMGO()) {
-        setBDDJODIMMGO(other.bDDJODIMMGO);
       }
       if (other.hasCurChatBubble()) {
         setCurChatBubble(other.curChatBubble);
@@ -192,7 +146,6 @@ public final class SelectChatBubbleScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      bDDJODIMMGO = 0;
       curChatBubble = 0;
       return this;
     }
@@ -218,21 +171,16 @@ public final class SelectChatBubbleScRspOuterClass {
       SelectChatBubbleScRsp other = (SelectChatBubbleScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasBDDJODIMMGO() || bDDJODIMMGO == other.bDDJODIMMGO)
         && (!hasCurChatBubble() || curChatBubble == other.curChatBubble);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 16);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
-        output.writeUInt32NoTag(bDDJODIMMGO);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 120);
         output.writeUInt32NoTag(curChatBubble);
       }
@@ -245,9 +193,6 @@ public final class SelectChatBubbleScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(bDDJODIMMGO);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(curChatBubble);
       }
       return size;
@@ -260,19 +205,10 @@ public final class SelectChatBubbleScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 16: {
+          case 112: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 48) {
-              break;
-            }
-          }
-          case 48: {
-            // bDDJODIMMGO
-            bDDJODIMMGO = input.readUInt32();
-            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 120) {
               break;
@@ -281,7 +217,7 @@ public final class SelectChatBubbleScRspOuterClass {
           case 120: {
             // curChatBubble
             curChatBubble = input.readUInt32();
-            bitField0_ |= 0x00000004;
+            bitField0_ |= 0x00000002;
             tag = input.readTag();
             if (tag != 0) {
               break;
@@ -308,9 +244,6 @@ public final class SelectChatBubbleScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeUInt32(FieldNames.bDDJODIMMGO, bDDJODIMMGO);
-      }
-      if ((bitField0_ & 0x00000004) != 0) {
         output.writeUInt32(FieldNames.curChatBubble, curChatBubble);
       }
       output.endObject();
@@ -334,23 +267,12 @@ public final class SelectChatBubbleScRspOuterClass {
             }
             break;
           }
-          case 2063288404: {
-            if (input.isAtField(FieldNames.bDDJODIMMGO)) {
-              if (!input.trySkipNullValue()) {
-                bDDJODIMMGO = input.readUInt32();
-                bitField0_ |= 0x00000002;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 94167140:
           case 1828957140: {
             if (input.isAtField(FieldNames.curChatBubble)) {
               if (!input.trySkipNullValue()) {
                 curChatBubble = input.readUInt32();
-                bitField0_ |= 0x00000004;
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -411,8 +333,6 @@ public final class SelectChatBubbleScRspOuterClass {
      */
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
-
-      static final FieldName bDDJODIMMGO = FieldName.forField("BDDJODIMMGO");
 
       static final FieldName curChatBubble = FieldName.forField("curChatBubble", "cur_chat_bubble");
     }

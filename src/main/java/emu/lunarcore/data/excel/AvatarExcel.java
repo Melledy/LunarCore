@@ -1,24 +1,24 @@
 package emu.lunarcore.data.excel;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import emu.lunarcore.data.GameData;
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.game.battle.skills.MazeSkill;
 import emu.lunarcore.game.enums.AvatarBaseType;
 import emu.lunarcore.game.enums.DamageType;
 import it.unimi.dsi.fastutil.ints.IntOpenHashSet;
 import it.unimi.dsi.fastutil.ints.IntSet;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 
 @Getter
-@ResourceType(name = {"AvatarConfig.json"})
+@ResourceType(name = {"AvatarConfig.json", "AvatarConfigLD.json"})
 public class AvatarExcel extends GameResource {
     private int AvatarID;
     private long AvatarName;
@@ -45,7 +45,7 @@ public class AvatarExcel extends GameResource {
     private static Pattern namePattern = Pattern.compile("(?<=Avatar_)(.*?)(?=_Config)");
 
     public AvatarExcel() {
-        this.defaultSkillTrees = new ArrayList<>();
+        this.defaultSkillTrees = new ObjectArrayList<>();
         this.skillTreeIds = new IntOpenHashSet();
     }
 
@@ -53,7 +53,7 @@ public class AvatarExcel extends GameResource {
     public int getId() {
         return AvatarID;
     }
-    
+
     public int getRankUpItemId() {
         // Hacky fix so we dont have to fetch data from an excel
         return this.AvatarID + 10000;
@@ -67,13 +67,22 @@ public class AvatarExcel extends GameResource {
         return RankIDList[Math.min(rank, RankIDList.length - 1)];
     }
 
+    public boolean isMultiPathAvatar() {
+        var excel = GameData.getMultiplePathAvatarExcelMap().get(AvatarID);
+        if (excel == null) {
+            return false;
+        }
+
+        return excel.getAvatarID() != excel.getBaseAvatarID();
+    }
+
     @Override
     public void onLoad() {
         // Load promotion data
         this.promotionData = new AvatarPromotionExcel[MaxPromotion + 1];
 
         for (int i = 0; i <= MaxPromotion; i++) {
-            this.promotionData[i] = GameData.getAvatarPromotionExcel(getId(), i);
+            this.promotionData[i] = GameData.getAvatarPromotionExcelMap().get(getId(), i);
         }
 
         // Get name key

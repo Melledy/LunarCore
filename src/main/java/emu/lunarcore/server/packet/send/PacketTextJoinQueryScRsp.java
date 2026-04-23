@@ -12,16 +12,15 @@ public class PacketTextJoinQueryScRsp extends BasePacket {
     public PacketTextJoinQueryScRsp(Player player, int[] textJoinIdList) {
         super(CmdId.TextJoinQueryScRsp);
 
-        
         var data = TextJoinQueryScRsp.newInstance();
 
         for (int joinId : textJoinIdList) {
             TextJoinInfo joinInfo = TextJoinInfo.newInstance()
-                .setTextItemId(joinId)
-                .setTextItemConfigId(GameData.TextJoinItemFromId(joinId));
+                    .setTextItemId(joinId)
+                    .setTextItemConfigId(GameData.TextJoinItemFromId(joinId));
             data.addTextJoinList(joinInfo);
         }
-        
+
         this.setData(data);
     }
 }

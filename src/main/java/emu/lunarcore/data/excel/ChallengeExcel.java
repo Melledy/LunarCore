@@ -1,7 +1,8 @@
 package emu.lunarcore.data.excel;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.data.common.ExcelMonsterParam;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.game.challenge.ChallengeType;
 import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
 import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
@@ -29,18 +30,18 @@ public class ChallengeExcel extends GameResource {
     private int[] NpcMonsterIDList2;
     private int[] EventIDList2;
 
-    private transient Int2ObjectMap<ChallengeMonsterInfo> challengeMonsters1;
-    private transient Int2ObjectMap<ChallengeMonsterInfo> challengeMonsters2;
-    
+    private transient Int2ObjectMap<ExcelMonsterParam> challengeMonsters1;
+    private transient Int2ObjectMap<ExcelMonsterParam> challengeMonsters2;
+
     private transient ChallengeType type = ChallengeType.MEMORY;
     private transient ChallengeStoryExtraExcel storyExcel;
     private transient ChallengeBossExtraExcel bossExcel;
-    
+
     @Override
     public int getId() {
         return ID;
     }
-    
+
     public boolean isStory() {
         return this.storyExcel != null;
     }
@@ -50,7 +51,7 @@ public class ChallengeExcel extends GameResource {
         this.storyExcel = excel;
         this.ChallengeCountDown = storyExcel.getTurnLimit();
     }
-    
+
     public void setBossExcel(ChallengeBossExtraExcel excel) {
         this.type = ChallengeType.BOSS;
         this.bossExcel = excel;
@@ -64,7 +65,7 @@ public class ChallengeExcel extends GameResource {
         for (int i = 0; i < ConfigList1.length; i++) {
             if (ConfigList1[i] == 0) break;
 
-            var monster = new ChallengeMonsterInfo(ConfigList1[i], NpcMonsterIDList1[i], EventIDList1[i]);
+            var monster = new ExcelMonsterParam(ConfigList1[i], NpcMonsterIDList1[i], EventIDList1[i]);
             this.challengeMonsters1.put(monster.getConfigId(), monster);
         }
 
@@ -72,10 +73,10 @@ public class ChallengeExcel extends GameResource {
         for (int i = 0; i < ConfigList2.length; i++) {
             if (ConfigList2[i] == 0) break;
 
-            var monster = new ChallengeMonsterInfo(ConfigList2[i], NpcMonsterIDList2[i], EventIDList2[i]);
+            var monster = new ExcelMonsterParam(ConfigList2[i], NpcMonsterIDList2[i], EventIDList2[i]);
             this.challengeMonsters2.put(monster.getConfigId(), monster);
         }
-        
+
         // Clear arrays to save memory
         this.ConfigList1 = null;
         this.NpcMonsterIDList1 = null;
@@ -83,19 +84,5 @@ public class ChallengeExcel extends GameResource {
         this.ConfigList2 = null;
         this.NpcMonsterIDList2 = null;
         this.EventIDList2 = null;
-    }
-
-    @Getter
-    public static class ChallengeMonsterInfo {
-        private int configId;
-        private int npcMonsterId;
-        private int eventId;
-
-        public ChallengeMonsterInfo(int configId, int npcMonsterId, int eventId) {
-            this.configId = configId;
-            this.npcMonsterId = npcMonsterId;
-            this.eventId = eventId;
-        }
-
     }
 }

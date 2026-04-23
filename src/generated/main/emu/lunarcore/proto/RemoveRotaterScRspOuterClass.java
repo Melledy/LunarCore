@@ -19,19 +19,19 @@ public final class RemoveRotaterScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional .RotatorEnergyInfo energy_info = 6;</code>
-     */
-    private final RotatorEnergyInfoOuterClass.RotatorEnergyInfo energyInfo = RotatorEnergyInfoOuterClass.RotatorEnergyInfo.newInstance();
-
-    /**
-     * <code>optional .RotaterData rotater_data = 7;</code>
+     * <code>optional .RotaterData rotater_data = 6;</code>
      */
     private final RotaterDataOuterClass.RotaterData rotaterData = RotaterDataOuterClass.RotaterData.newInstance();
+
+    /**
+     * <code>optional .RotatorEnergyInfo energy_info = 9;</code>
+     */
+    private final RotatorEnergyInfoOuterClass.RotatorEnergyInfo energyInfo = RotatorEnergyInfoOuterClass.RotatorEnergyInfo.newInstance();
 
     private RemoveRotaterScRsp() {
     }
@@ -44,7 +44,7 @@ public final class RemoveRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -52,7 +52,7 @@ public final class RemoveRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return this
      */
     public RemoveRotaterScRsp clearRetcode() {
@@ -62,7 +62,7 @@ public final class RemoveRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -70,7 +70,7 @@ public final class RemoveRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 15;</code>
+     * <code>optional uint32 retcode = 3;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -81,83 +81,25 @@ public final class RemoveRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional .RotatorEnergyInfo energy_info = 6;</code>
-     * @return whether the energyInfo field is set
+     * <code>optional .RotaterData rotater_data = 6;</code>
+     * @return whether the rotaterData field is set
      */
-    public boolean hasEnergyInfo() {
+    public boolean hasRotaterData() {
       return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional .RotatorEnergyInfo energy_info = 6;</code>
-     * @return this
-     */
-    public RemoveRotaterScRsp clearEnergyInfo() {
-      bitField0_ &= ~0x00000002;
-      energyInfo.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .RotatorEnergyInfo energy_info = 6;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableEnergyInfo()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public RotatorEnergyInfoOuterClass.RotatorEnergyInfo getEnergyInfo() {
-      return energyInfo;
-    }
-
-    /**
-     * <code>optional .RotatorEnergyInfo energy_info = 6;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public RotatorEnergyInfoOuterClass.RotatorEnergyInfo getMutableEnergyInfo() {
-      bitField0_ |= 0x00000002;
-      return energyInfo;
-    }
-
-    /**
-     * <code>optional .RotatorEnergyInfo energy_info = 6;</code>
-     * @param value the energyInfo to set
-     * @return this
-     */
-    public RemoveRotaterScRsp setEnergyInfo(
-        final RotatorEnergyInfoOuterClass.RotatorEnergyInfo value) {
-      bitField0_ |= 0x00000002;
-      energyInfo.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .RotaterData rotater_data = 7;</code>
-     * @return whether the rotaterData field is set
-     */
-    public boolean hasRotaterData() {
-      return (bitField0_ & 0x00000004) != 0;
-    }
-
-    /**
-     * <code>optional .RotaterData rotater_data = 7;</code>
+     * <code>optional .RotaterData rotater_data = 6;</code>
      * @return this
      */
     public RemoveRotaterScRsp clearRotaterData() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       rotaterData.clear();
       return this;
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 7;</code>
+     * <code>optional .RotaterData rotater_data = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -171,7 +113,7 @@ public final class RemoveRotaterScRspOuterClass {
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 7;</code>
+     * <code>optional .RotaterData rotater_data = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -180,18 +122,76 @@ public final class RemoveRotaterScRspOuterClass {
      * @return internal storage object for modifications
      */
     public RotaterDataOuterClass.RotaterData getMutableRotaterData() {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       return rotaterData;
     }
 
     /**
-     * <code>optional .RotaterData rotater_data = 7;</code>
+     * <code>optional .RotaterData rotater_data = 6;</code>
      * @param value the rotaterData to set
      * @return this
      */
     public RemoveRotaterScRsp setRotaterData(final RotaterDataOuterClass.RotaterData value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       rotaterData.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .RotatorEnergyInfo energy_info = 9;</code>
+     * @return whether the energyInfo field is set
+     */
+    public boolean hasEnergyInfo() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional .RotatorEnergyInfo energy_info = 9;</code>
+     * @return this
+     */
+    public RemoveRotaterScRsp clearEnergyInfo() {
+      bitField0_ &= ~0x00000004;
+      energyInfo.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .RotatorEnergyInfo energy_info = 9;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableEnergyInfo()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RotatorEnergyInfoOuterClass.RotatorEnergyInfo getEnergyInfo() {
+      return energyInfo;
+    }
+
+    /**
+     * <code>optional .RotatorEnergyInfo energy_info = 9;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RotatorEnergyInfoOuterClass.RotatorEnergyInfo getMutableEnergyInfo() {
+      bitField0_ |= 0x00000004;
+      return energyInfo;
+    }
+
+    /**
+     * <code>optional .RotatorEnergyInfo energy_info = 9;</code>
+     * @param value the energyInfo to set
+     * @return this
+     */
+    public RemoveRotaterScRsp setEnergyInfo(
+        final RotatorEnergyInfoOuterClass.RotatorEnergyInfo value) {
+      bitField0_ |= 0x00000004;
+      energyInfo.copyFrom(value);
       return this;
     }
 
@@ -201,8 +201,8 @@ public final class RemoveRotaterScRspOuterClass {
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
-        energyInfo.copyFrom(other.energyInfo);
         rotaterData.copyFrom(other.rotaterData);
+        energyInfo.copyFrom(other.energyInfo);
       }
       return this;
     }
@@ -216,11 +216,11 @@ public final class RemoveRotaterScRspOuterClass {
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
       }
-      if (other.hasEnergyInfo()) {
-        getMutableEnergyInfo().mergeFrom(other.energyInfo);
-      }
       if (other.hasRotaterData()) {
         getMutableRotaterData().mergeFrom(other.rotaterData);
+      }
+      if (other.hasEnergyInfo()) {
+        getMutableEnergyInfo().mergeFrom(other.energyInfo);
       }
       return this;
     }
@@ -233,8 +233,8 @@ public final class RemoveRotaterScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       retcode = 0;
-      energyInfo.clear();
       rotaterData.clear();
+      energyInfo.clear();
       return this;
     }
 
@@ -245,8 +245,8 @@ public final class RemoveRotaterScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      energyInfo.clearQuick();
       rotaterData.clearQuick();
+      energyInfo.clearQuick();
       return this;
     }
 
@@ -261,23 +261,23 @@ public final class RemoveRotaterScRspOuterClass {
       RemoveRotaterScRsp other = (RemoveRotaterScRsp) o;
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
-        && (!hasEnergyInfo() || energyInfo.equals(other.energyInfo))
-        && (!hasRotaterData() || rotaterData.equals(other.rotaterData));
+        && (!hasRotaterData() || rotaterData.equals(other.rotaterData))
+        && (!hasEnergyInfo() || energyInfo.equals(other.energyInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(energyInfo);
+        output.writeMessageNoTag(rotaterData);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 58);
-        output.writeMessageNoTag(rotaterData);
+        output.writeRawByte((byte) 74);
+        output.writeMessageNoTag(energyInfo);
       }
     }
 
@@ -288,10 +288,10 @@ public final class RemoveRotaterScRspOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(energyInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(rotaterData);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rotaterData);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(energyInfo);
       }
       return size;
     }
@@ -303,7 +303,7 @@ public final class RemoveRotaterScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 120: {
+          case 24: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
@@ -313,17 +313,17 @@ public final class RemoveRotaterScRspOuterClass {
             }
           }
           case 50: {
-            // energyInfo
-            input.readMessage(energyInfo);
+            // rotaterData
+            input.readMessage(rotaterData);
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 58) {
+            if (tag != 74) {
               break;
             }
           }
-          case 58: {
-            // rotaterData
-            input.readMessage(rotaterData);
+          case 74: {
+            // energyInfo
+            input.readMessage(energyInfo);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -351,10 +351,10 @@ public final class RemoveRotaterScRspOuterClass {
         output.writeUInt32(FieldNames.retcode, retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeMessage(FieldNames.energyInfo, energyInfo);
+        output.writeMessage(FieldNames.rotaterData, rotaterData);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeMessage(FieldNames.rotaterData, rotaterData);
+        output.writeMessage(FieldNames.energyInfo, energyInfo);
       }
       output.endObject();
     }
@@ -377,11 +377,11 @@ public final class RemoveRotaterScRspOuterClass {
             }
             break;
           }
-          case 1464698710:
-          case -1818804219: {
-            if (input.isAtField(FieldNames.energyInfo)) {
+          case 1880563393:
+          case -1807070094: {
+            if (input.isAtField(FieldNames.rotaterData)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(energyInfo);
+                input.readMessage(rotaterData);
                 bitField0_ |= 0x00000002;
               }
             } else {
@@ -389,11 +389,11 @@ public final class RemoveRotaterScRspOuterClass {
             }
             break;
           }
-          case 1880563393:
-          case -1807070094: {
-            if (input.isAtField(FieldNames.rotaterData)) {
+          case 1464698710:
+          case -1818804219: {
+            if (input.isAtField(FieldNames.energyInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rotaterData);
+                input.readMessage(energyInfo);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -456,9 +456,9 @@ public final class RemoveRotaterScRspOuterClass {
     static class FieldNames {
       static final FieldName retcode = FieldName.forField("retcode");
 
-      static final FieldName energyInfo = FieldName.forField("energyInfo", "energy_info");
-
       static final FieldName rotaterData = FieldName.forField("rotaterData", "rotater_data");
+
+      static final FieldName energyInfo = FieldName.forField("energyInfo", "energy_info");
     }
   }
 }

@@ -24,11 +24,24 @@ public class QueryGatewayHandler implements Handler {
                 .setRegionName(LunarCore.getConfig().getGameServer().getId())
                 .setIp(LunarCore.getConfig().getGameServer().getPublicAddress())
                 .setPort(LunarCore.getConfig().getGameServer().getPublicPort())
-                .setMsg("Access verification failed. Please check if you have logged in to the correct account and server.") // in case there is some error idk
+                .setLoginWhiteMsg("Access verification failed. Please check if you have logged in to the correct account and server.") // in case there is some error idk
+                
+                .setUnk1(true)
+                .setUnk2(true)
+                .setUnk3(true)
+                .setUnk4(true)
+                .setUnk5(true)
+                .setUnk6(true)
+                .setUnk7(true)
+                .setUnk8(true)
+                .setUnk9(true);
+        
+                /*
                 .setEnableVersionUpdate(true)
-                .setEnableDesignDataBundleVersionUpdate(true)
+                .setEnableDesignDataVersionUpdate(true)
                 .setEventTrackingOpen(true)
-                .setNetworkDiagnostic(true);
+                .setNetworkDiagnostic(true)
+                */
         
         // Set hotfix urls
         if (data.assetBundleUrl != null && !data.assetBundleUrl.isBlank()) {

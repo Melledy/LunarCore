@@ -12,19 +12,19 @@ public class PacketTakeMailAttachmentScRsp extends BasePacket {
 
     public PacketTakeMailAttachmentScRsp(Collection<Mail> mailList) {
         super(CmdId.TakeMailAttachmentScRsp);
-        
+
         var data = TakeMailAttachmentScRsp.newInstance();
-        
+
         for (Mail mail : mailList) {
             data.addSuccMailIdList(mail.getUniqueId());
-            
+
             if (mail.getAttachments() != null) {
                 for (GameItem item : mail.getAttachments()) {
                     data.getMutableAttachment().addItemList(item.toProto());
                 }
             }
         }
-        
+
         this.setData(data);
     }
 }

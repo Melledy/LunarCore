@@ -9,10 +9,10 @@ public class PacketGetFriendLoginInfoScRsp extends BasePacket {
 
     public PacketGetFriendLoginInfoScRsp(Player player) {
         super(CmdId.GetFriendLoginInfoScRsp);
-        
+
         var data = GetFriendLoginInfoScRsp.newInstance()
                 .addAllFriendUidList(player.getFriendList().toFriendUidArray());
-        
+
         this.setData(data);
     }
 }

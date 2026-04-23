@@ -8,10 +8,10 @@ public class PacketUnlockPhoneThemeScNotify extends BasePacket {
 
     public PacketUnlockPhoneThemeScNotify(int id) {
         super(CmdId.UnlockPhoneThemeScNotify);
-        
+
         var data = UnlockPhoneThemeScNotify.newInstance()
                 .setThemeId(id);
-        
+
         this.setData(data);
     }
 }

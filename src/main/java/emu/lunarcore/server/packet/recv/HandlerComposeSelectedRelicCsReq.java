@@ -16,15 +16,16 @@ public class HandlerComposeSelectedRelicCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = ComposeSelectedRelicCsReq.parseFrom(data);
-        
+
         List<GameItem> returnList = session.getServer().getInventoryService().composeRelic(
-                session.getPlayer(), 
-                req.getComposeId(), 
+                session.getPlayer(),
+                req.getComposeId(),
                 req.getComposeRelicId(),
+                req.getCount(),
                 req.getMainAffixId(),
-                req.getCount()
-        );
-        
+                req.getComposeSubAffixList()
+                );
+
         session.send(new PacketComposeSelectedRelicScRsp(req.getComposeId(), returnList));
     }
 

@@ -19,17 +19,17 @@ public final class MazeChestOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 total_amount_list = 9;</code>
+     * <code>optional uint32 total_amount_list = 12;</code>
      */
     private int totalAmountList;
 
     /**
-     * <code>optional uint32 unlocked_amount_list = 12;</code>
+     * <code>optional uint32 unlocked_amount_list = 14;</code>
      */
     private int unlockedAmountList;
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 10;</code>
      */
     private int mapInfoChestType;
 
@@ -44,7 +44,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_amount_list = 9;</code>
+     * <code>optional uint32 total_amount_list = 12;</code>
      * @return whether the totalAmountList field is set
      */
     public boolean hasTotalAmountList() {
@@ -52,7 +52,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_amount_list = 9;</code>
+     * <code>optional uint32 total_amount_list = 12;</code>
      * @return this
      */
     public MazeChest clearTotalAmountList() {
@@ -62,7 +62,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_amount_list = 9;</code>
+     * <code>optional uint32 total_amount_list = 12;</code>
      * @return the totalAmountList
      */
     public int getTotalAmountList() {
@@ -70,7 +70,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 total_amount_list = 9;</code>
+     * <code>optional uint32 total_amount_list = 12;</code>
      * @param value the totalAmountList to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 unlocked_amount_list = 12;</code>
+     * <code>optional uint32 unlocked_amount_list = 14;</code>
      * @return whether the unlockedAmountList field is set
      */
     public boolean hasUnlockedAmountList() {
@@ -89,7 +89,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 unlocked_amount_list = 12;</code>
+     * <code>optional uint32 unlocked_amount_list = 14;</code>
      * @return this
      */
     public MazeChest clearUnlockedAmountList() {
@@ -99,7 +99,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 unlocked_amount_list = 12;</code>
+     * <code>optional uint32 unlocked_amount_list = 14;</code>
      * @return the unlockedAmountList
      */
     public int getUnlockedAmountList() {
@@ -107,7 +107,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional uint32 unlocked_amount_list = 12;</code>
+     * <code>optional uint32 unlocked_amount_list = 14;</code>
      * @param value the unlockedAmountList to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 10;</code>
      * @return whether the mapInfoChestType field is set
      */
     public boolean hasMapInfoChestType() {
@@ -126,7 +126,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 10;</code>
      * @return this
      */
     public MazeChest clearMapInfoChestType() {
@@ -136,7 +136,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 10;</code>
      * @return the mapInfoChestType
      */
     public MapInfoChestTypeOuterClass.MapInfoChestType getMapInfoChestType() {
@@ -169,7 +169,7 @@ public final class MazeChestOuterClass {
     }
 
     /**
-     * <code>optional .MapInfoChestType map_info_chest_type = 4;</code>
+     * <code>optional .MapInfoChestType map_info_chest_type = 10;</code>
      * @param value the mapInfoChestType to set
      * @return this
      */
@@ -250,15 +250,15 @@ public final class MazeChestOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 72);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(totalAmountList);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 112);
         output.writeUInt32NoTag(unlockedAmountList);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 80);
         output.writeEnumNoTag(mapInfoChestType);
       }
     }
@@ -285,25 +285,25 @@ public final class MazeChestOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 72: {
+          case 96: {
             // totalAmountList
             totalAmountList = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 112) {
               break;
             }
           }
-          case 96: {
+          case 112: {
             // unlockedAmountList
             unlockedAmountList = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 80) {
               break;
             }
           }
-          case 32: {
+          case 80: {
             // mapInfoChestType
             final int value = input.readInt32();
             if (MapInfoChestTypeOuterClass.MapInfoChestType.forNumber(value) != null) {

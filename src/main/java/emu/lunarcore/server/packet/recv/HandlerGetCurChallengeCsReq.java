@@ -1,5 +1,6 @@
 package emu.lunarcore.server.packet.recv;
 
+import emu.lunarcore.game.challenge.ChallengeInstance;
 import emu.lunarcore.server.game.GameSession;
 import emu.lunarcore.server.packet.CmdId;
 import emu.lunarcore.server.packet.Opcodes;
@@ -14,8 +15,9 @@ public class HandlerGetCurChallengeCsReq extends PacketHandler {
         // Send packet first
         session.send(new PacketGetCurChallengeScRsp(session.getPlayer()));
         // Update challenge details for client
-        if (session.getPlayer().getChallengeInstance() != null) {
-            session.getPlayer().getChallengeInstance().onUpdate();
+        ChallengeInstance instance = session.getPlayer().getInstance(ChallengeInstance.class);
+        if (instance != null) {
+            instance.onUpdate();
         }
     }
 

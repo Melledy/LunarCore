@@ -11,7 +11,7 @@ public class PacketGetPlayerDetailInfoScRsp extends BasePacket {
         super(CmdId.GetPlayerDetailInfoScRsp);
 
         var data = GetPlayerDetailInfoScRsp.newInstance();
-        
+
         if (player != null) {
             data.setPlayerDetailInfo(player.toDetailInfo());
         } else {

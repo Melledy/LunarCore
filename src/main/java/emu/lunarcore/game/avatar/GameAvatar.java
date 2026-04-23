@@ -1,11 +1,11 @@
 package emu.lunarcore.game.avatar;
 
-import java.util.Map;
-
 import org.bson.types.ObjectId;
+
 import dev.morphia.annotations.Entity;
 import dev.morphia.annotations.Id;
 import dev.morphia.annotations.Indexed;
+
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.GameData;
@@ -17,6 +17,8 @@ import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.entity.GameEntity;
 import emu.lunarcore.proto.AssistSimpleInfoOuterClass.AssistSimpleInfo;
 import emu.lunarcore.proto.AvatarOuterClass.Avatar;
+import emu.lunarcore.proto.AvatarPathInfoOuterClass.AvatarPathInfo;
+import emu.lunarcore.proto.AvatarPathSkillTreeOuterClass.AvatarPathSkillTree;
 import emu.lunarcore.proto.AvatarSkillTreeOuterClass.AvatarSkillTree;
 import emu.lunarcore.proto.AvatarTypeOuterClass.AvatarType;
 import emu.lunarcore.proto.BattleAvatarOuterClass.BattleAvatar;
@@ -32,6 +34,7 @@ import emu.lunarcore.proto.PlayerSyncScNotifyOuterClass.PlayerSyncScNotify;
 import emu.lunarcore.proto.SceneActorInfoOuterClass.SceneActorInfo;
 import emu.lunarcore.proto.SceneEntityInfoOuterClass.SceneEntityInfo;
 import emu.lunarcore.proto.SpBarInfoOuterClass.SpBarInfo;
+import emu.lunarcore.server.packet.send.PacketPlayerSyncScNotify;
 import emu.lunarcore.util.Position;
 
 import it.unimi.dsi.fastutil.ints.*;
@@ -48,8 +51,8 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
     private transient Player owner;
     private transient AvatarExcel excel;
     
-    private int avatarId; // Id of avatar in the excels
     private AvatarData data;
+    protected int avatarId; // Id of avatar in the excels
     @Setter private int level;
     @Setter private int exp;
     @Setter private int promotion;
@@ -58,10 +61,10 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
     private int rewards; // Previously known as "taken rewards"
     private long timestamp;
     
-    @Getter(AccessLevel.NONE) private int currentHp;
-    @Getter(AccessLevel.NONE) private int currentSp;
-    @Getter(AccessLevel.NONE) private int extraLineupHp;
-    @Getter(AccessLevel.NONE) private int extraLineupSp;
+    @Getter(AccessLevel.NONE) protected int currentHp;
+    @Getter(AccessLevel.NONE) protected int currentSp;
+    @Getter(AccessLevel.NONE) protected int extraLineupHp;
+    @Getter(AccessLevel.NONE) protected int extraLineupSp;
 
     private transient int entityId;
     private transient Int2LongMap buffs;
@@ -91,8 +94,19 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
         return this.getOwner().getScene();
     }
     
+    @Override
     public int getExcelId() {
         return this.avatarId;
+    }
+    
+    // Avatar id that is used in scenes
+    public int getActorId() {
+        return this.avatarId;
+    }
+    
+    // Avatar id that is used in battles
+    public int getBattleAvatarId() {
+        return this.getExcel().getAvatarID();
     }
     
     public void setExcel(AvatarExcel excel) {
@@ -129,12 +143,24 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
         return 200000 + this.getAvatarId();
     }
     
+    public AvatarType getAvatarType() {
+        return AvatarType.AVATAR_FORMAL_TYPE;
+    }
+    
     public boolean isHero() {
         return this.getAvatarId() == GameConstants.TRAILBLAZER_AVATAR_ID;
     }
     
     public boolean hasMultiPath() {
         return GameData.getMultiplePathAvatarExcelMap().containsKey(this.getAvatarId());
+    }
+    
+    public int getEnhanceId() {
+        return this.getData().getEnhanceId();
+    }
+    
+    public int getMaxHp() {
+        return 10000;
     }
 
     public int getMaxSp() {
@@ -150,7 +176,7 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
     }
     
     public void setCurrentHp(PlayerLineup lineup, int amount) {
-        amount = Math.max(Math.min(amount, 10000), 0);
+        amount = Math.max(Math.min(amount, this.getMaxHp()), 0);
         if (!lineup.isExtraLineup()) {
             this.currentHp = amount; 
         } else {
@@ -183,8 +209,13 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
         this.getData().setRank(rank);
     }
     
-    public Map<Integer, Integer> getSkills() {
+    @SuppressWarnings("deprecation")
+    public Int2IntMap getSkills() {
         return this.getData().getSkills();
+    }
+    
+    public Int2IntMap getSkillTree() {
+        return this.getData().getSkillTree();
     }
     
     public void setMultiPath(AvatarMultiPath multiPath) {
@@ -218,6 +249,35 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
         this.rewards |= 1 << promotion;
     }
     
+    // Skin
+    
+    public void setSkin(int skinId) {
+        // Sanity
+        if (skinId == this.getData().getSkinId()) {
+            return;
+        }
+        
+        // Verify skin excel
+        if (skinId != 0) {
+            var excel = GameData.getAvatarSkinExcelMap().get(skinId);
+            if (excel == null || excel.getAvatarID() != this.getExcelId()) {
+                return;
+            }
+        }
+        
+        // Set skin
+        this.getData().setSkinId(skinId);
+        
+        if (this.getMultiPath() != null) {
+            this.getMultiPath().save();
+        } else {
+            this.save(); 
+        }
+        
+        // Update avatar to client
+        this.getOwner().sendPacket(new PacketPlayerSyncScNotify(this));
+    }
+    
     // Buffs
     
     public void addBuff(int buffId, int duration) {
@@ -230,9 +290,11 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
         // Add to avatar sync
         proto.getMutableAvatarSync().addAvatarList(this.toProto());
         
-        // Also update multipath info
-        if (this.getMultiPath() != null) {
-            proto.addMultiPathAvatarInfoList(this.getMultiPath().toProto());
+        // Add multi path
+        if (this.hasMultiPath()) {
+            proto.getMutableAvatarSync().addAvatarPathInfoList(this.getMultiPath().toPathInfoProto());
+        } else {
+            proto.getMutableAvatarSync().addAvatarPathInfoList(this.toPathInfoProto());
         }
     }
     
@@ -245,21 +307,8 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
                 .setLevel(this.getLevel())
                 .setExp(this.getExp())
                 .setPromotion(this.getPromotion())
-                .setRank(this.getRank())
-                .setIsMarked(this.isMarked())
+                .setIsMarked(this.isMarked()) 
                 .setFirstMetTimestamp(this.getTimestamp());
-
-        for (var equip : this.getEquips().values()) {
-            if (equip.getItemMainType() == ItemMainType.Relic) {
-                proto.addEquipRelicList(EquipRelic.newInstance().setSlot(equip.getEquipSlot()).setRelicUniqueId(equip.getInternalUid()));
-            } else if (equip.getItemMainType() == ItemMainType.Equipment) {
-                proto.setEquipmentUniqueId(equip.getInternalUid());
-            }
-        }
-        
-        for (var skill : getSkills().entrySet()) {
-            proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
-        }
         
         for (int i = 0; i < this.getPromotion(); i++) {
             if (this.hasTakenReward(i)) {
@@ -267,12 +316,45 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
             }
         }
         
+        if (this.isHero()) {
+            proto.setChangedAvatarType(this.getMultiPath().getExcelId());
+        } else {
+            proto.setChangedAvatarType(this.getAvatarId());
+        }
+        
+        return proto;
+    }
+    
+    public AvatarPathInfo toPathInfoProto() {
+        var proto = AvatarPathInfo.newInstance()
+                .setAvatarId(this.getAvatarId())
+                .setRank(this.getRank())
+                .setAvatarSkin(this.getData().getSkinId())
+                .setEnhanceId(this.getEnhanceId());
+
+        for (var equip : this.getEquips().values()) {
+            if (equip.getItemMainType() == ItemMainType.Relic) {
+                proto.addEquipRelicList(EquipRelic.newInstance().setSlot(equip.getEquipSlot()).setRelicUniqueId(equip.getInternalUid()));
+            } else if (equip.getItemMainType() == ItemMainType.Equipment) {
+                proto.setPathEquipmentId(equip.getInternalUid());
+            }
+        }
+        
+        for (var skill : this.getSkillTree().int2IntEntrySet()) {
+            // Set skill point proto
+            var info = AvatarPathSkillTree.newInstance()
+                    .setAnchorPointId(skill.getIntKey())
+                    .setLevel(skill.getIntValue());
+            
+            proto.addSkilltreeList(info);
+        }
+        
         return proto;
     }
 
     public LineupAvatar toLineupAvatarProto(PlayerLineup lineup, int slot) {
         var proto = LineupAvatar.newInstance()
-                .setAvatarType(AvatarType.AVATAR_FORMAL_TYPE)
+                .setAvatarType(this.getAvatarType())
                 .setId(this.getAvatarId())
                 .setSpBar(SpBarInfo.newInstance().setCurSp(this.getCurrentSp(lineup)).setMaxSp(this.getMaxSp()))
                 .setHp(this.getCurrentHp(lineup))
@@ -286,26 +368,43 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
         var proto = SceneEntityInfo.newInstance()
                 .setEntityId(this.getEntityId())
                 .setMotion(MotionInfo.newInstance().setPos(this.getPos().toProto()).setRot(this.getRot().toProto()))
-                .setActor(SceneActorInfo.newInstance().setBaseAvatarId(this.getAvatarId()).setAvatarType(AvatarType.AVATAR_FORMAL_TYPE));
+                .setActor(SceneActorInfo.newInstance().setBaseAvatarId(this.getActorId()).setAvatarType(this.getAvatarType()));
 
         return proto;
     }
 
     public BattleAvatar toBattleProto(PlayerLineup lineup, int index) {
         var proto = BattleAvatar.newInstance()
-                .setAvatarType(AvatarType.AVATAR_FORMAL_TYPE)
-                .setId(this.getExcel().getAvatarID())
+                .setAvatarType(this.getAvatarType())
+                .setId(this.getBattleAvatarId())
                 .setLevel(this.getLevel())
                 .setPromotion(this.getPromotion())
                 .setRank(this.getRank())
                 .setIndex(index)
-                .setHp(this.getCurrentHp(lineup))
-                .setSpBar(SpBarInfo.newInstance().setCurSp(this.getCurrentSp(lineup)).setMaxSp(this.getMaxSp()))
+                .setAvatarEnhanceId(this.getEnhanceId())
                 .setWorldLevel(this.getOwner().getWorldLevel());
+        
+        // Set Hp/Sp
+        if (lineup != null) {
+            proto.setHp(this.getCurrentHp(lineup))
+                .setSpBar(SpBarInfo.newInstance().setCurSp(this.getCurrentSp(lineup)).setMaxSp(this.getMaxSp()));
+        } else {
+            proto.setHp(this.getMaxHp())
+                .setSpBar(SpBarInfo.newInstance().setCurSp(this.getMaxSp()).setMaxSp(this.getMaxSp()));
+        }
 
-        // Skill tree
-        for (var skill : getSkills().entrySet()) {
-            proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
+        // Skills
+        for (var skill : this.getSkillTree().int2IntEntrySet()) {
+            // Get current skill excel with enhance id
+            var skillExcel = GameData.getAvatarSkilltree(this.getExcelId(), this.getEnhanceId(), skill.getIntKey(), skill.getIntValue());
+            if (skillExcel == null) continue;
+            
+            // Encode skilltree info
+            var info = AvatarSkillTree.newInstance()
+                    .setPointId(skillExcel.getPointID())
+                    .setLevel(skill.getIntValue());
+            
+            proto.addSkilltreeList(info);
         }
 
         // Build equips
@@ -349,8 +448,17 @@ public class GameAvatar extends BaseAvatar implements GameEntity {
                 .setRank(this.getRank());
         
         // Skills
-        for (var skill : getSkills().entrySet()) {
-            proto.addSkilltreeList(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
+        for (var skill : this.getSkillTree().int2IntEntrySet()) {
+            // Get current skill excel with enhance id
+            var skillExcel = GameData.getAvatarSkilltree(this.getExcelId(), this.getEnhanceId(), skill.getIntKey(), skill.getIntValue());
+            if (skillExcel == null) continue;
+            
+            // Encode skilltree info
+            var info = AvatarSkillTree.newInstance()
+                    .setPointId(skillExcel.getPointID())
+                    .setLevel(skill.getIntValue());
+            
+            proto.addSkilltreeList(info);
         }
         
         // Build equips

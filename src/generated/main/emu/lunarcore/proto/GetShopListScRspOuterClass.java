@@ -20,12 +20,12 @@ public final class GetShopListScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 1;</code>
      */
     private int retcode;
 
     /**
-     * <code>optional uint32 shop_type = 13;</code>
+     * <code>optional uint32 shop_type = 3;</code>
      */
     private int shopType;
 
@@ -45,7 +45,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
@@ -53,7 +53,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return this
      */
     public GetShopListScRsp clearRetcode() {
@@ -63,7 +63,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -71,7 +71,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 3;</code>
+     * <code>optional uint32 retcode = 1;</code>
      * @param value the retcode to set
      * @return this
      */
@@ -82,7 +82,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 13;</code>
+     * <code>optional uint32 shop_type = 3;</code>
      * @return whether the shopType field is set
      */
     public boolean hasShopType() {
@@ -90,7 +90,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 13;</code>
+     * <code>optional uint32 shop_type = 3;</code>
      * @return this
      */
     public GetShopListScRsp clearShopType() {
@@ -100,7 +100,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 13;</code>
+     * <code>optional uint32 shop_type = 3;</code>
      * @return the shopType
      */
     public int getShopType() {
@@ -108,7 +108,7 @@ public final class GetShopListScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 shop_type = 13;</code>
+     * <code>optional uint32 shop_type = 3;</code>
      * @param value the shopType to set
      * @return this
      */
@@ -258,11 +258,11 @@ public final class GetShopListScRspOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 8);
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 24);
         output.writeUInt32NoTag(shopType);
       }
       if ((bitField0_ & 0x00000004) != 0) {
@@ -295,16 +295,16 @@ public final class GetShopListScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 8: {
             // retcode
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 104) {
+            if (tag != 24) {
               break;
             }
           }
-          case 104: {
+          case 24: {
             // shopType
             shopType = input.readUInt32();
             bitField0_ |= 0x00000002;

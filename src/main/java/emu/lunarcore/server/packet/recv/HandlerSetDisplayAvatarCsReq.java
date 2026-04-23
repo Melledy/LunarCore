@@ -13,7 +13,7 @@ public class HandlerSetDisplayAvatarCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = SetDisplayAvatarCsReq.parseFrom(data);
-        
+
         session.getPlayer().setDisplayAvatars(req.getDisplayAvatarList());
         session.send(new PacketSetDisplayAvatarScRsp(session.getPlayer()));
     }

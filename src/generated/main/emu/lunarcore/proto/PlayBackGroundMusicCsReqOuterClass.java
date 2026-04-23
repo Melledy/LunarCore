@@ -13,13 +13,21 @@ import us.hebi.quickbuf.ProtoSource;
 
 public final class PlayBackGroundMusicCsReqOuterClass {
   /**
+   * <pre>
+   *  KHABGPOLCAP
+   * </pre>
+   *
    * Protobuf type {@code PlayBackGroundMusicCsReq}
    */
   public static final class PlayBackGroundMusicCsReq extends ProtoMessage<PlayBackGroundMusicCsReq> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 play_music_id = 12;</code>
+     * <pre>
+     *  PFLDAPJLJCD
+     * </pre>
+     *
+     * <code>optional uint32 play_music_id = 10;</code>
      */
     private int playMusicId;
 
@@ -27,6 +35,10 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
+     * <pre>
+     *  KHABGPOLCAP
+     * </pre>
+     *
      * @return a new empty instance of {@code PlayBackGroundMusicCsReq}
      */
     public static PlayBackGroundMusicCsReq newInstance() {
@@ -34,7 +46,11 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 12;</code>
+     * <pre>
+     *  PFLDAPJLJCD
+     * </pre>
+     *
+     * <code>optional uint32 play_music_id = 10;</code>
      * @return whether the playMusicId field is set
      */
     public boolean hasPlayMusicId() {
@@ -42,7 +58,11 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 12;</code>
+     * <pre>
+     *  PFLDAPJLJCD
+     * </pre>
+     *
+     * <code>optional uint32 play_music_id = 10;</code>
      * @return this
      */
     public PlayBackGroundMusicCsReq clearPlayMusicId() {
@@ -52,7 +72,11 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 12;</code>
+     * <pre>
+     *  PFLDAPJLJCD
+     * </pre>
+     *
+     * <code>optional uint32 play_music_id = 10;</code>
      * @return the playMusicId
      */
     public int getPlayMusicId() {
@@ -60,7 +84,11 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 play_music_id = 12;</code>
+     * <pre>
+     *  PFLDAPJLJCD
+     * </pre>
+     *
+     * <code>optional uint32 play_music_id = 10;</code>
      * @param value the playMusicId to set
      * @return this
      */
@@ -129,7 +157,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 80);
         output.writeUInt32NoTag(playMusicId);
       }
     }
@@ -150,7 +178,7 @@ public final class PlayBackGroundMusicCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 96: {
+          case 80: {
             // playMusicId
             playMusicId = input.readUInt32();
             bitField0_ |= 0x00000001;

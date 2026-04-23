@@ -24,19 +24,19 @@ public final class StartPartialChallengeScRspOuterClass {
     private int retcode;
 
     /**
-     * <code>optional .LineupInfo lineup = 5;</code>
+     * <code>optional .LineupInfo lineup = 1;</code>
      */
     private final LineupInfoOuterClass.LineupInfo lineup = LineupInfoOuterClass.LineupInfo.newInstance();
 
     /**
-     * <code>optional .SceneInfo scene = 6;</code>
-     */
-    private final SceneInfoOuterClass.SceneInfo scene = SceneInfoOuterClass.SceneInfo.newInstance();
-
-    /**
-     * <code>optional .ChallengeInfo challenge_info = 9;</code>
+     * <code>optional .ChallengeInfo challenge_info = 6;</code>
      */
     private final ChallengeInfoOuterClass.ChallengeInfo challengeInfo = ChallengeInfoOuterClass.ChallengeInfo.newInstance();
+
+    /**
+     * <code>optional .SceneInfo scene = 9;</code>
+     */
+    private final SceneInfoOuterClass.SceneInfo scene = SceneInfoOuterClass.SceneInfo.newInstance();
 
     private StartPartialChallengeScRsp() {
     }
@@ -86,7 +86,7 @@ public final class StartPartialChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 5;</code>
+     * <code>optional .LineupInfo lineup = 1;</code>
      * @return whether the lineup field is set
      */
     public boolean hasLineup() {
@@ -94,7 +94,7 @@ public final class StartPartialChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 5;</code>
+     * <code>optional .LineupInfo lineup = 1;</code>
      * @return this
      */
     public StartPartialChallengeScRsp clearLineup() {
@@ -104,7 +104,7 @@ public final class StartPartialChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 5;</code>
+     * <code>optional .LineupInfo lineup = 1;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -118,7 +118,7 @@ public final class StartPartialChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 5;</code>
+     * <code>optional .LineupInfo lineup = 1;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -132,7 +132,7 @@ public final class StartPartialChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .LineupInfo lineup = 5;</code>
+     * <code>optional .LineupInfo lineup = 1;</code>
      * @param value the lineup to set
      * @return this
      */
@@ -143,82 +143,25 @@ public final class StartPartialChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .SceneInfo scene = 6;</code>
-     * @return whether the scene field is set
+     * <code>optional .ChallengeInfo challenge_info = 6;</code>
+     * @return whether the challengeInfo field is set
      */
-    public boolean hasScene() {
+    public boolean hasChallengeInfo() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional .SceneInfo scene = 6;</code>
-     * @return this
-     */
-    public StartPartialChallengeScRsp clearScene() {
-      bitField0_ &= ~0x00000004;
-      scene.clear();
-      return this;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 6;</code>
-     *
-     * This method returns the internal storage object without modifying any has state.
-     * The returned object should not be modified and be treated as read-only.
-     *
-     * Use {@link #getMutableScene()} if you want to modify it.
-     *
-     * @return internal storage object for reading
-     */
-    public SceneInfoOuterClass.SceneInfo getScene() {
-      return scene;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 6;</code>
-     *
-     * This method returns the internal storage object and sets the corresponding
-     * has state. The returned object will become part of this message and its
-     * contents may be modified as long as the has state is not cleared.
-     *
-     * @return internal storage object for modifications
-     */
-    public SceneInfoOuterClass.SceneInfo getMutableScene() {
-      bitField0_ |= 0x00000004;
-      return scene;
-    }
-
-    /**
-     * <code>optional .SceneInfo scene = 6;</code>
-     * @param value the scene to set
-     * @return this
-     */
-    public StartPartialChallengeScRsp setScene(final SceneInfoOuterClass.SceneInfo value) {
-      bitField0_ |= 0x00000004;
-      scene.copyFrom(value);
-      return this;
-    }
-
-    /**
-     * <code>optional .ChallengeInfo challenge_info = 9;</code>
-     * @return whether the challengeInfo field is set
-     */
-    public boolean hasChallengeInfo() {
-      return (bitField0_ & 0x00000008) != 0;
-    }
-
-    /**
-     * <code>optional .ChallengeInfo challenge_info = 9;</code>
+     * <code>optional .ChallengeInfo challenge_info = 6;</code>
      * @return this
      */
     public StartPartialChallengeScRsp clearChallengeInfo() {
-      bitField0_ &= ~0x00000008;
+      bitField0_ &= ~0x00000004;
       challengeInfo.clear();
       return this;
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 9;</code>
+     * <code>optional .ChallengeInfo challenge_info = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -232,7 +175,7 @@ public final class StartPartialChallengeScRspOuterClass {
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 9;</code>
+     * <code>optional .ChallengeInfo challenge_info = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -241,19 +184,76 @@ public final class StartPartialChallengeScRspOuterClass {
      * @return internal storage object for modifications
      */
     public ChallengeInfoOuterClass.ChallengeInfo getMutableChallengeInfo() {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       return challengeInfo;
     }
 
     /**
-     * <code>optional .ChallengeInfo challenge_info = 9;</code>
+     * <code>optional .ChallengeInfo challenge_info = 6;</code>
      * @param value the challengeInfo to set
      * @return this
      */
     public StartPartialChallengeScRsp setChallengeInfo(
         final ChallengeInfoOuterClass.ChallengeInfo value) {
-      bitField0_ |= 0x00000008;
+      bitField0_ |= 0x00000004;
       challengeInfo.copyFrom(value);
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 9;</code>
+     * @return whether the scene field is set
+     */
+    public boolean hasScene() {
+      return (bitField0_ & 0x00000008) != 0;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 9;</code>
+     * @return this
+     */
+    public StartPartialChallengeScRsp clearScene() {
+      bitField0_ &= ~0x00000008;
+      scene.clear();
+      return this;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 9;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableScene()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public SceneInfoOuterClass.SceneInfo getScene() {
+      return scene;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 9;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public SceneInfoOuterClass.SceneInfo getMutableScene() {
+      bitField0_ |= 0x00000008;
+      return scene;
+    }
+
+    /**
+     * <code>optional .SceneInfo scene = 9;</code>
+     * @param value the scene to set
+     * @return this
+     */
+    public StartPartialChallengeScRsp setScene(final SceneInfoOuterClass.SceneInfo value) {
+      bitField0_ |= 0x00000008;
+      scene.copyFrom(value);
       return this;
     }
 
@@ -264,8 +264,8 @@ public final class StartPartialChallengeScRspOuterClass {
         bitField0_ = other.bitField0_;
         retcode = other.retcode;
         lineup.copyFrom(other.lineup);
-        scene.copyFrom(other.scene);
         challengeInfo.copyFrom(other.challengeInfo);
+        scene.copyFrom(other.scene);
       }
       return this;
     }
@@ -282,11 +282,11 @@ public final class StartPartialChallengeScRspOuterClass {
       if (other.hasLineup()) {
         getMutableLineup().mergeFrom(other.lineup);
       }
-      if (other.hasScene()) {
-        getMutableScene().mergeFrom(other.scene);
-      }
       if (other.hasChallengeInfo()) {
         getMutableChallengeInfo().mergeFrom(other.challengeInfo);
+      }
+      if (other.hasScene()) {
+        getMutableScene().mergeFrom(other.scene);
       }
       return this;
     }
@@ -300,8 +300,8 @@ public final class StartPartialChallengeScRspOuterClass {
       bitField0_ = 0;
       retcode = 0;
       lineup.clear();
-      scene.clear();
       challengeInfo.clear();
+      scene.clear();
       return this;
     }
 
@@ -313,8 +313,8 @@ public final class StartPartialChallengeScRspOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       lineup.clearQuick();
-      scene.clearQuick();
       challengeInfo.clearQuick();
+      scene.clearQuick();
       return this;
     }
 
@@ -330,8 +330,8 @@ public final class StartPartialChallengeScRspOuterClass {
       return bitField0_ == other.bitField0_
         && (!hasRetcode() || retcode == other.retcode)
         && (!hasLineup() || lineup.equals(other.lineup))
-        && (!hasScene() || scene.equals(other.scene))
-        && (!hasChallengeInfo() || challengeInfo.equals(other.challengeInfo));
+        && (!hasChallengeInfo() || challengeInfo.equals(other.challengeInfo))
+        && (!hasScene() || scene.equals(other.scene));
     }
 
     @Override
@@ -341,16 +341,16 @@ public final class StartPartialChallengeScRspOuterClass {
         output.writeUInt32NoTag(retcode);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 42);
+        output.writeRawByte((byte) 10);
         output.writeMessageNoTag(lineup);
       }
       if ((bitField0_ & 0x00000004) != 0) {
         output.writeRawByte((byte) 50);
-        output.writeMessageNoTag(scene);
+        output.writeMessageNoTag(challengeInfo);
       }
       if ((bitField0_ & 0x00000008) != 0) {
         output.writeRawByte((byte) 74);
-        output.writeMessageNoTag(challengeInfo);
+        output.writeMessageNoTag(scene);
       }
     }
 
@@ -364,10 +364,10 @@ public final class StartPartialChallengeScRspOuterClass {
         size += 1 + ProtoSink.computeMessageSizeNoTag(lineup);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(scene);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(challengeInfo);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(challengeInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(scene);
       }
       return size;
     }
@@ -384,11 +384,11 @@ public final class StartPartialChallengeScRspOuterClass {
             retcode = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 42) {
+            if (tag != 10) {
               break;
             }
           }
-          case 42: {
+          case 10: {
             // lineup
             input.readMessage(lineup);
             bitField0_ |= 0x00000002;
@@ -398,8 +398,8 @@ public final class StartPartialChallengeScRspOuterClass {
             }
           }
           case 50: {
-            // scene
-            input.readMessage(scene);
+            // challengeInfo
+            input.readMessage(challengeInfo);
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 74) {
@@ -407,8 +407,8 @@ public final class StartPartialChallengeScRspOuterClass {
             }
           }
           case 74: {
-            // challengeInfo
-            input.readMessage(challengeInfo);
+            // scene
+            input.readMessage(scene);
             bitField0_ |= 0x00000008;
             tag = input.readTag();
             if (tag != 0) {
@@ -439,10 +439,10 @@ public final class StartPartialChallengeScRspOuterClass {
         output.writeMessage(FieldNames.lineup, lineup);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeMessage(FieldNames.scene, scene);
+        output.writeMessage(FieldNames.challengeInfo, challengeInfo);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeMessage(FieldNames.challengeInfo, challengeInfo);
+        output.writeMessage(FieldNames.scene, scene);
       }
       output.endObject();
     }
@@ -476,10 +476,11 @@ public final class StartPartialChallengeScRspOuterClass {
             }
             break;
           }
-          case 109254796: {
-            if (input.isAtField(FieldNames.scene)) {
+          case -812487759:
+          case 602859274: {
+            if (input.isAtField(FieldNames.challengeInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(scene);
+                input.readMessage(challengeInfo);
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -487,11 +488,10 @@ public final class StartPartialChallengeScRspOuterClass {
             }
             break;
           }
-          case -812487759:
-          case 602859274: {
-            if (input.isAtField(FieldNames.challengeInfo)) {
+          case 109254796: {
+            if (input.isAtField(FieldNames.scene)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(challengeInfo);
+                input.readMessage(scene);
                 bitField0_ |= 0x00000008;
               }
             } else {
@@ -556,9 +556,9 @@ public final class StartPartialChallengeScRspOuterClass {
 
       static final FieldName lineup = FieldName.forField("lineup");
 
-      static final FieldName scene = FieldName.forField("scene");
-
       static final FieldName challengeInfo = FieldName.forField("challengeInfo", "challenge_info");
+
+      static final FieldName scene = FieldName.forField("scene");
     }
   }
 }

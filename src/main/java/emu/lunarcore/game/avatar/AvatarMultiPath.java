@@ -1,7 +1,5 @@
 package emu.lunarcore.game.avatar;
 
-import java.util.Map;
-
 import org.bson.types.ObjectId;
 
 import dev.morphia.annotations.Entity;
@@ -12,10 +10,11 @@ import emu.lunarcore.LunarCore;
 import emu.lunarcore.data.excel.AvatarExcel;
 import emu.lunarcore.game.enums.ItemMainType;
 import emu.lunarcore.game.player.Player;
-import emu.lunarcore.proto.AvatarSkillTreeOuterClass.AvatarSkillTree;
+import emu.lunarcore.proto.AvatarPathInfoOuterClass.AvatarPathInfo;
+import emu.lunarcore.proto.AvatarPathSkillTreeOuterClass.AvatarPathSkillTree;
 import emu.lunarcore.proto.EquipRelicOuterClass.EquipRelic;
-import emu.lunarcore.proto.MultiPathAvatarInfoOuterClass.MultiPathAvatarInfo;
 import emu.lunarcore.proto.PlayerSyncScNotifyOuterClass.PlayerSyncScNotify;
+import it.unimi.dsi.fastutil.ints.Int2IntMap;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -59,36 +58,49 @@ public class AvatarMultiPath extends BaseAvatar {
         return this.getData().getRank();
     }
     
-    public Map<Integer, Integer> getSkills() {
+    public int getEnhanceId() {
+        return this.getData().getEnhanceId();
+    }
+    
+    @SuppressWarnings("deprecation")
+    public Int2IntMap getSkills() {
         return this.getData().getSkills();
     }
     
-    // Player sync
+    public Int2IntMap getSkillTree() {
+        return this.getData().getSkillTree();
+    }
     
     // Player sync
     
     public void onSync(PlayerSyncScNotify proto) {
-        proto.addMultiPathAvatarInfoList(this.toProto());
+        // TODO
     }
     
     // Proto
     
-    public MultiPathAvatarInfo toProto() {
-        var proto = MultiPathAvatarInfo.newInstance()
-                .setAvatarIdValue(this.getExcelId())
-                .setPathEquipmentId(0)
-                .setRank(this.getRank());
-        
-        for (var skill : getSkills().entrySet()) {
-            proto.addMultiPathSkillTree(AvatarSkillTree.newInstance().setPointId(skill.getKey()).setLevel(skill.getValue()));
-        }
-        
-        for (var equip : getEquips().values()) {
+    public AvatarPathInfo toPathInfoProto() {
+        var proto = AvatarPathInfo.newInstance()
+                .setAvatarId(this.getExcelId())
+                .setRank(this.getRank())
+                .setAvatarSkin(this.getData().getSkinId())
+                .setEnhanceId(this.getEnhanceId());
+
+        for (var equip : this.getEquips().values()) {
             if (equip.getItemMainType() == ItemMainType.Relic) {
                 proto.addEquipRelicList(EquipRelic.newInstance().setSlot(equip.getEquipSlot()).setRelicUniqueId(equip.getInternalUid()));
             } else if (equip.getItemMainType() == ItemMainType.Equipment) {
                 proto.setPathEquipmentId(equip.getInternalUid());
             }
+        }
+        
+        for (var skill : this.getSkillTree().int2IntEntrySet()) {
+            // Set skill point proto
+            var info = AvatarPathSkillTree.newInstance()
+                    .setAnchorPointId(skill.getIntKey())
+                    .setLevel(skill.getIntValue());
+            
+            proto.addSkilltreeList(info);
         }
         
         return proto;

@@ -10,15 +10,15 @@ public class PacketHandleFriendScRsp extends BasePacket {
 
     public PacketHandleFriendScRsp(Player friend, boolean result) {
         super(CmdId.HandleFriendScRsp);
-        
+
         var data = HandleFriendScRsp.newInstance()
                 .setUid(friend.getUid())
                 .setHandleResult(result);
-        
+
         if (result) {
             data.setHandleFriendInfo(FriendListInfo.newInstance().setSimpleInfo(friend.toSimpleInfo()));
         }
-        
+
         this.setData(data);
     }
 }

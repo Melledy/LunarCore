@@ -9,10 +9,10 @@ public class PacketNewMailScNotify extends BasePacket {
 
     public PacketNewMailScNotify(Mail mail) {
         super(CmdId.NewMailScNotify);
-        
+
         var data = NewMailScNotify.newInstance()
                 .addMailIdList(mail.getUniqueId());
-        
+
         this.setData(data);
     }
 }

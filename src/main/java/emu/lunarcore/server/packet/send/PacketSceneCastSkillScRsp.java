@@ -18,7 +18,7 @@ public class PacketSceneCastSkillScRsp extends BasePacket {
 
         this.setData(data);
     }
-    
+
     /**
      * No battle was started, but we still want to send the attacked group id to the client
      * @param attackedGroupId

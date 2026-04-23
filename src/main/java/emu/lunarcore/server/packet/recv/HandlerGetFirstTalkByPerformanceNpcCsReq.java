@@ -13,7 +13,7 @@ public class HandlerGetFirstTalkByPerformanceNpcCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetFirstTalkByPerformanceNpcCsReq.parseFrom(data);
-        
+
         session.send(new PacketGetFirstTalkByPerformanceNpcScRsp(req));
     }
 

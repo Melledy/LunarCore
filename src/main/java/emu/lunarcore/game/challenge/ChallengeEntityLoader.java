@@ -2,12 +2,12 @@ package emu.lunarcore.game.challenge;
 
 import emu.lunarcore.GameConstants;
 import emu.lunarcore.data.GameData;
+import emu.lunarcore.data.common.ExcelMonsterParam;
 import emu.lunarcore.data.config.GroupInfo;
 import emu.lunarcore.data.config.MonsterInfo;
 import emu.lunarcore.data.config.NpcInfo;
 import emu.lunarcore.data.config.GroupInfo.GroupLoadSide;
 import emu.lunarcore.data.excel.NpcMonsterExcel;
-import emu.lunarcore.data.excel.ChallengeExcel.ChallengeMonsterInfo;
 import emu.lunarcore.game.scene.Scene;
 import emu.lunarcore.game.scene.SceneEntityLoader;
 import emu.lunarcore.game.scene.entity.EntityMonster;
@@ -19,7 +19,7 @@ public class ChallengeEntityLoader extends SceneEntityLoader {
     @Override
     public void onSceneLoad(Scene scene) {
         // Get challenge instance
-        ChallengeInstance instance = scene.getPlayer().getChallengeInstance();
+        ChallengeInstance instance = scene.getPlayer().getInstance(ChallengeInstance.class);
         if (instance == null) return;
         
         // Setup first stage
@@ -51,11 +51,11 @@ public class ChallengeEntityLoader extends SceneEntityLoader {
     @Override
     public EntityMonster loadMonster(Scene scene, GroupInfo group, MonsterInfo monsterInfo) {
         // Get challenge instance
-        ChallengeInstance instance = scene.getPlayer().getChallengeInstance();
+        ChallengeInstance instance = scene.getPlayer().getInstance(ChallengeInstance.class);
         if (instance == null) return null;
         
         // Get current stage monster infos
-        Int2ObjectMap<ChallengeMonsterInfo> challengeMonsters = null;
+        Int2ObjectMap<ExcelMonsterParam> challengeMonsters = null;
         if (instance.getExcel().getMazeGroupID1() == group.getId()) {
             challengeMonsters = instance.getExcel().getChallengeMonsters1();
         } else if (instance.getExcel().getMazeGroupID2() == group.getId()) {

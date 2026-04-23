@@ -19,6 +19,8 @@ public abstract class BaseAvatar implements Syncable {
     
     public abstract AvatarData getData();
     
+    public abstract int getEnhanceId();
+    
     // Excels
     
     public abstract int getExcelId();

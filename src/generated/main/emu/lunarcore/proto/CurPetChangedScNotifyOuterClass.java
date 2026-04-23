@@ -13,13 +13,21 @@ import us.hebi.quickbuf.ProtoSource;
 
 public final class CurPetChangedScNotifyOuterClass {
   /**
+   * <pre>
+   *  KIHOKPMBJHH
+   * </pre>
+   *
    * Protobuf type {@code CurPetChangedScNotify}
    */
   public static final class CurPetChangedScNotify extends ProtoMessage<CurPetChangedScNotify> implements Cloneable {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 cur_pet_id = 8;</code>
+     * <pre>
+     *  OEFEKNEOAAA
+     * </pre>
+     *
+     * <code>optional uint32 cur_pet_id = 9;</code>
      */
     private int curPetId;
 
@@ -27,6 +35,10 @@ public final class CurPetChangedScNotifyOuterClass {
     }
 
     /**
+     * <pre>
+     *  KIHOKPMBJHH
+     * </pre>
+     *
      * @return a new empty instance of {@code CurPetChangedScNotify}
      */
     public static CurPetChangedScNotify newInstance() {
@@ -34,7 +46,11 @@ public final class CurPetChangedScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_pet_id = 8;</code>
+     * <pre>
+     *  OEFEKNEOAAA
+     * </pre>
+     *
+     * <code>optional uint32 cur_pet_id = 9;</code>
      * @return whether the curPetId field is set
      */
     public boolean hasCurPetId() {
@@ -42,7 +58,11 @@ public final class CurPetChangedScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_pet_id = 8;</code>
+     * <pre>
+     *  OEFEKNEOAAA
+     * </pre>
+     *
+     * <code>optional uint32 cur_pet_id = 9;</code>
      * @return this
      */
     public CurPetChangedScNotify clearCurPetId() {
@@ -52,7 +72,11 @@ public final class CurPetChangedScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_pet_id = 8;</code>
+     * <pre>
+     *  OEFEKNEOAAA
+     * </pre>
+     *
+     * <code>optional uint32 cur_pet_id = 9;</code>
      * @return the curPetId
      */
     public int getCurPetId() {
@@ -60,7 +84,11 @@ public final class CurPetChangedScNotifyOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_pet_id = 8;</code>
+     * <pre>
+     *  OEFEKNEOAAA
+     * </pre>
+     *
+     * <code>optional uint32 cur_pet_id = 9;</code>
      * @param value the curPetId to set
      * @return this
      */
@@ -129,7 +157,7 @@ public final class CurPetChangedScNotifyOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(curPetId);
       }
     }
@@ -150,7 +178,7 @@ public final class CurPetChangedScNotifyOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 64: {
+          case 72: {
             // curPetId
             curPetId = input.readUInt32();
             bitField0_ |= 0x00000001;

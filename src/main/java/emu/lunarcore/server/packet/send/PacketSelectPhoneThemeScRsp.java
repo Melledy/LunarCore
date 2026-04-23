@@ -5,13 +5,13 @@ import emu.lunarcore.server.packet.BasePacket;
 import emu.lunarcore.server.packet.CmdId;
 
 public class PacketSelectPhoneThemeScRsp extends BasePacket {
-    
+
     public PacketSelectPhoneThemeScRsp() {
         super(CmdId.SelectPhoneThemeScRsp);
 
         var data = SelectPhoneThemeScRsp.newInstance()
-            .setRetcode(1);
-        
+                .setRetcode(1);
+
         this.setData(data);
     }
 
@@ -19,8 +19,8 @@ public class PacketSelectPhoneThemeScRsp extends BasePacket {
         super(CmdId.SelectPhoneThemeScRsp);
 
         var data = SelectPhoneThemeScRsp.newInstance()
-            .setCurPhoneTheme(themeId); 
-        
+                .setCurPhoneTheme(themeId);
+
         this.setData(data);
     }
 }

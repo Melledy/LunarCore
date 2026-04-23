@@ -13,13 +13,13 @@ public class PacketBuyGoodsScRsp extends BasePacket {
 
     public PacketBuyGoodsScRsp(BuyGoodsCsReq req, List<GameItem> items) {
         super(CmdId.BuyGoodsScRsp);
-        
+
         var data = BuyGoodsScRsp.newInstance();
-        
+
         if (items != null) {
             ItemList returnItems = ItemList.newInstance();
             items.stream().map(GameItem::toProto).forEach(returnItems::addItemList);
-            
+
             data.setShopId(req.getShopId());
             data.setGoodsId(req.getGoodsId());
             data.setGoodsBuyTimes(req.getGoodsNum());
@@ -27,7 +27,7 @@ public class PacketBuyGoodsScRsp extends BasePacket {
         } else {
             data.setRetcode(1);
         }
-        
+
         this.setData(data);
     }
 }

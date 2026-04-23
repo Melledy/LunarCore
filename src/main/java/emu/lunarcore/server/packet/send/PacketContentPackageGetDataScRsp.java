@@ -11,24 +11,24 @@ public class PacketContentPackageGetDataScRsp extends BasePacket {
 
     public PacketContentPackageGetDataScRsp() {
         super(CmdId.ContentPackageGetDataScRsp);
-        
+
         var proto = ContentPackageGetDataScRsp.newInstance();
         var data = proto.getMutableData();
-        
+
         // Add content packages from excels
         for (var excel : GameData.getContentPackageExcelMap().values()) {
             var contentPackage = ContentPackageInfo.newInstance()
                     .setContentId(excel.getId())
                     .setStatus(ContentPackageStatus.ContentPackageStatus_Finished);
-            
+
             data.addContentPackageList(contentPackage);
-            
+
             // Hacky way to set current content
             if (data.getCurContentId() == 0) {
                 data.setCurContentId(excel.getId());
             }
         }
-        
+
         this.setData(proto);
     }
 }

@@ -1,7 +1,7 @@
 package emu.lunarcore.data.excel;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.game.enums.PropState;
 import lombok.Getter;
 
@@ -9,7 +9,7 @@ import lombok.Getter;
 @ResourceType(name = {"InteractConfig.json"})
 public class InteractExcel extends GameResource {
     private int InteractID;
-    private PropState SrcState;
+    private PropState SrcState = PropState.Closed;
     private PropState TargetState = PropState.Closed;
 
     @Override
@@ -20,6 +20,9 @@ public class InteractExcel extends GameResource {
     @Override
     public void onLoad() {
         // Just in case we forget to update the prop state enum
+        if (this.SrcState == null) {
+            this.SrcState = PropState.Closed;
+        }
         if (this.TargetState == null) {
             this.TargetState = PropState.Closed;
         }

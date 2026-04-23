@@ -24,22 +24,22 @@ public final class DisplayEquipmentInfoOuterClass {
     private int exp;
 
     /**
-     * <code>optional uint32 rank = 4;</code>
+     * <code>optional uint32 rank = 8;</code>
      */
     private int rank;
 
     /**
-     * <code>optional uint32 level = 5;</code>
+     * <code>optional uint32 level = 9;</code>
      */
     private int level;
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 11;</code>
      */
     private int tid;
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
+     * <code>optional uint32 promotion = 13;</code>
      */
     private int promotion;
 
@@ -91,7 +91,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 4;</code>
+     * <code>optional uint32 rank = 8;</code>
      * @return whether the rank field is set
      */
     public boolean hasRank() {
@@ -99,7 +99,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 4;</code>
+     * <code>optional uint32 rank = 8;</code>
      * @return this
      */
     public DisplayEquipmentInfo clearRank() {
@@ -109,7 +109,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 4;</code>
+     * <code>optional uint32 rank = 8;</code>
      * @return the rank
      */
     public int getRank() {
@@ -117,7 +117,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 rank = 4;</code>
+     * <code>optional uint32 rank = 8;</code>
      * @param value the rank to set
      * @return this
      */
@@ -128,7 +128,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 5;</code>
+     * <code>optional uint32 level = 9;</code>
      * @return whether the level field is set
      */
     public boolean hasLevel() {
@@ -136,7 +136,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 5;</code>
+     * <code>optional uint32 level = 9;</code>
      * @return this
      */
     public DisplayEquipmentInfo clearLevel() {
@@ -146,7 +146,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 5;</code>
+     * <code>optional uint32 level = 9;</code>
      * @return the level
      */
     public int getLevel() {
@@ -154,7 +154,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 level = 5;</code>
+     * <code>optional uint32 level = 9;</code>
      * @param value the level to set
      * @return this
      */
@@ -165,7 +165,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 11;</code>
      * @return whether the tid field is set
      */
     public boolean hasTid() {
@@ -173,7 +173,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 11;</code>
      * @return this
      */
     public DisplayEquipmentInfo clearTid() {
@@ -183,7 +183,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 11;</code>
      * @return the tid
      */
     public int getTid() {
@@ -191,7 +191,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 tid = 12;</code>
+     * <code>optional uint32 tid = 11;</code>
      * @param value the tid to set
      * @return this
      */
@@ -202,7 +202,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
+     * <code>optional uint32 promotion = 13;</code>
      * @return whether the promotion field is set
      */
     public boolean hasPromotion() {
@@ -210,7 +210,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
+     * <code>optional uint32 promotion = 13;</code>
      * @return this
      */
     public DisplayEquipmentInfo clearPromotion() {
@@ -220,7 +220,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
+     * <code>optional uint32 promotion = 13;</code>
      * @return the promotion
      */
     public int getPromotion() {
@@ -228,7 +228,7 @@ public final class DisplayEquipmentInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 promotion = 15;</code>
+     * <code>optional uint32 promotion = 13;</code>
      * @param value the promotion to set
      * @return this
      */
@@ -325,19 +325,19 @@ public final class DisplayEquipmentInfoOuterClass {
         output.writeUInt32NoTag(exp);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 32);
+        output.writeRawByte((byte) 64);
         output.writeUInt32NoTag(rank);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(level);
       }
       if ((bitField0_ & 0x00000008) != 0) {
-        output.writeRawByte((byte) 96);
+        output.writeRawByte((byte) 88);
         output.writeUInt32NoTag(tid);
       }
       if ((bitField0_ & 0x00000010) != 0) {
-        output.writeRawByte((byte) 120);
+        output.writeRawByte((byte) 104);
         output.writeUInt32NoTag(promotion);
       }
     }
@@ -375,38 +375,38 @@ public final class DisplayEquipmentInfoOuterClass {
             exp = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 32) {
+            if (tag != 64) {
               break;
             }
           }
-          case 32: {
+          case 64: {
             // rank
             rank = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 40) {
+            if (tag != 72) {
               break;
             }
           }
-          case 40: {
+          case 72: {
             // level
             level = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
-            if (tag != 96) {
+            if (tag != 88) {
               break;
             }
           }
-          case 96: {
+          case 88: {
             // tid
             tid = input.readUInt32();
             bitField0_ |= 0x00000008;
             tag = input.readTag();
-            if (tag != 120) {
+            if (tag != 104) {
               break;
             }
           }
-          case 120: {
+          case 104: {
             // promotion
             promotion = input.readUInt32();
             bitField0_ |= 0x00000010;

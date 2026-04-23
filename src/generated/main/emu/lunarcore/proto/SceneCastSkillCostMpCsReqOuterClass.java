@@ -19,19 +19,19 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
+     * <code>optional uint32 caster_id = 8;</code>
      */
-    private int attackedGroupId;
+    private int casterId;
 
     /**
-     * <code>optional uint32 skill_index = 10;</code>
+     * <code>optional uint32 skill_index = 9;</code>
      */
     private int skillIndex;
 
     /**
-     * <code>optional uint32 caster_id = 11;</code>
+     * <code>optional uint32 attacked_group_id = 15;</code>
      */
-    private int casterId;
+    private int attackedGroupId;
 
     private SceneCastSkillCostMpCsReq() {
     }
@@ -44,44 +44,44 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
-     * @return whether the attackedGroupId field is set
+     * <code>optional uint32 caster_id = 8;</code>
+     * @return whether the casterId field is set
      */
-    public boolean hasAttackedGroupId() {
+    public boolean hasCasterId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
+     * <code>optional uint32 caster_id = 8;</code>
      * @return this
      */
-    public SceneCastSkillCostMpCsReq clearAttackedGroupId() {
+    public SceneCastSkillCostMpCsReq clearCasterId() {
       bitField0_ &= ~0x00000001;
-      attackedGroupId = 0;
+      casterId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
-     * @return the attackedGroupId
+     * <code>optional uint32 caster_id = 8;</code>
+     * @return the casterId
      */
-    public int getAttackedGroupId() {
-      return attackedGroupId;
+    public int getCasterId() {
+      return casterId;
     }
 
     /**
-     * <code>optional uint32 attacked_group_id = 5;</code>
-     * @param value the attackedGroupId to set
+     * <code>optional uint32 caster_id = 8;</code>
+     * @param value the casterId to set
      * @return this
      */
-    public SceneCastSkillCostMpCsReq setAttackedGroupId(final int value) {
+    public SceneCastSkillCostMpCsReq setCasterId(final int value) {
       bitField0_ |= 0x00000001;
-      attackedGroupId = value;
+      casterId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 skill_index = 10;</code>
+     * <code>optional uint32 skill_index = 9;</code>
      * @return whether the skillIndex field is set
      */
     public boolean hasSkillIndex() {
@@ -89,7 +89,7 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 skill_index = 10;</code>
+     * <code>optional uint32 skill_index = 9;</code>
      * @return this
      */
     public SceneCastSkillCostMpCsReq clearSkillIndex() {
@@ -99,7 +99,7 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 skill_index = 10;</code>
+     * <code>optional uint32 skill_index = 9;</code>
      * @return the skillIndex
      */
     public int getSkillIndex() {
@@ -107,7 +107,7 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 skill_index = 10;</code>
+     * <code>optional uint32 skill_index = 9;</code>
      * @param value the skillIndex to set
      * @return this
      */
@@ -118,39 +118,39 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     }
 
     /**
-     * <code>optional uint32 caster_id = 11;</code>
-     * @return whether the casterId field is set
+     * <code>optional uint32 attacked_group_id = 15;</code>
+     * @return whether the attackedGroupId field is set
      */
-    public boolean hasCasterId() {
+    public boolean hasAttackedGroupId() {
       return (bitField0_ & 0x00000004) != 0;
     }
 
     /**
-     * <code>optional uint32 caster_id = 11;</code>
+     * <code>optional uint32 attacked_group_id = 15;</code>
      * @return this
      */
-    public SceneCastSkillCostMpCsReq clearCasterId() {
+    public SceneCastSkillCostMpCsReq clearAttackedGroupId() {
       bitField0_ &= ~0x00000004;
-      casterId = 0;
+      attackedGroupId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 caster_id = 11;</code>
-     * @return the casterId
+     * <code>optional uint32 attacked_group_id = 15;</code>
+     * @return the attackedGroupId
      */
-    public int getCasterId() {
-      return casterId;
+    public int getAttackedGroupId() {
+      return attackedGroupId;
     }
 
     /**
-     * <code>optional uint32 caster_id = 11;</code>
-     * @param value the casterId to set
+     * <code>optional uint32 attacked_group_id = 15;</code>
+     * @param value the attackedGroupId to set
      * @return this
      */
-    public SceneCastSkillCostMpCsReq setCasterId(final int value) {
+    public SceneCastSkillCostMpCsReq setAttackedGroupId(final int value) {
       bitField0_ |= 0x00000004;
-      casterId = value;
+      attackedGroupId = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        attackedGroupId = other.attackedGroupId;
-        skillIndex = other.skillIndex;
         casterId = other.casterId;
+        skillIndex = other.skillIndex;
+        attackedGroupId = other.attackedGroupId;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasAttackedGroupId()) {
-        setAttackedGroupId(other.attackedGroupId);
+      if (other.hasCasterId()) {
+        setCasterId(other.casterId);
       }
       if (other.hasSkillIndex()) {
         setSkillIndex(other.skillIndex);
       }
-      if (other.hasCasterId()) {
-        setCasterId(other.casterId);
+      if (other.hasAttackedGroupId()) {
+        setAttackedGroupId(other.attackedGroupId);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      attackedGroupId = 0;
-      skillIndex = 0;
       casterId = 0;
+      skillIndex = 0;
+      attackedGroupId = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
       }
       SceneCastSkillCostMpCsReq other = (SceneCastSkillCostMpCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasAttackedGroupId() || attackedGroupId == other.attackedGroupId)
+        && (!hasCasterId() || casterId == other.casterId)
         && (!hasSkillIndex() || skillIndex == other.skillIndex)
-        && (!hasCasterId() || casterId == other.casterId);
+        && (!hasAttackedGroupId() || attackedGroupId == other.attackedGroupId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
-        output.writeUInt32NoTag(attackedGroupId);
+        output.writeRawByte((byte) 64);
+        output.writeUInt32NoTag(casterId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 80);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(skillIndex);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 88);
-        output.writeUInt32NoTag(casterId);
+        output.writeRawByte((byte) 120);
+        output.writeUInt32NoTag(attackedGroupId);
       }
     }
 
@@ -242,13 +242,13 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(attackedGroupId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(casterId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(skillIndex);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(casterId);
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(attackedGroupId);
       }
       return size;
     }
@@ -260,27 +260,27 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
-            // attackedGroupId
-            attackedGroupId = input.readUInt32();
+          case 64: {
+            // casterId
+            casterId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 80) {
+            if (tag != 72) {
               break;
             }
           }
-          case 80: {
+          case 72: {
             // skillIndex
             skillIndex = input.readUInt32();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 88) {
+            if (tag != 120) {
               break;
             }
           }
-          case 88: {
-            // casterId
-            casterId = input.readUInt32();
+          case 120: {
+            // attackedGroupId
+            attackedGroupId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.attackedGroupId, attackedGroupId);
+        output.writeUInt32(FieldNames.casterId, casterId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.skillIndex, skillIndex);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeUInt32(FieldNames.casterId, casterId);
+        output.writeUInt32(FieldNames.attackedGroupId, attackedGroupId);
       }
       output.endObject();
     }
@@ -323,11 +323,11 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1725961965:
-          case -715836621: {
-            if (input.isAtField(FieldNames.attackedGroupId)) {
+          case 35676775:
+          case 1106001422: {
+            if (input.isAtField(FieldNames.casterId)) {
               if (!input.trySkipNullValue()) {
-                attackedGroupId = input.readUInt32();
+                casterId = input.readUInt32();
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -347,11 +347,11 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
             }
             break;
           }
-          case 35676775:
-          case 1106001422: {
-            if (input.isAtField(FieldNames.casterId)) {
+          case -1725961965:
+          case -715836621: {
+            if (input.isAtField(FieldNames.attackedGroupId)) {
               if (!input.trySkipNullValue()) {
-                casterId = input.readUInt32();
+                attackedGroupId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -412,11 +412,11 @@ public final class SceneCastSkillCostMpCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName attackedGroupId = FieldName.forField("attackedGroupId", "attacked_group_id");
+      static final FieldName casterId = FieldName.forField("casterId", "caster_id");
 
       static final FieldName skillIndex = FieldName.forField("skillIndex", "skill_index");
 
-      static final FieldName casterId = FieldName.forField("casterId", "caster_id");
+      static final FieldName attackedGroupId = FieldName.forField("attackedGroupId", "attacked_group_id");
     }
   }
 }

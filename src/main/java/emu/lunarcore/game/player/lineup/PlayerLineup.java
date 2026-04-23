@@ -87,6 +87,16 @@ public class PlayerLineup {
         return this.getOwner().getLineupManager().getMp();
     }
     
+    public int getMaxMp() {
+        int mp = GameConstants.MAX_MP;
+        
+        for (int avatarId : this.getAvatars()) {
+            mp += GameConstants.BONUS_MAX_MP.get(avatarId);
+        }
+        
+        return mp;
+    }
+    
     public void heal(int heal, boolean allowRevive) {
         // Flag to set if at least one avatar in the team has been healed
         boolean hasHealed = false;
@@ -187,7 +197,7 @@ public class PlayerLineup {
                 .setIndex(this.getIndex())
                 .setLeaderSlot(this.getLeader())
                 .setMp(this.getMp())
-                .setMaxMp(GameConstants.MAX_MP)
+                .setMaxMp(this.getMaxMp())
                 .setExtraLineupTypeValue(this.getExtraLineupType());
         
         if (this.getName() != null) {

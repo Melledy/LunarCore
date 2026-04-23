@@ -19,17 +19,17 @@ public final class FarmStageGachaInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional int64 begin_time = 5;</code>
+     * <code>optional int64 begin_time = 8;</code>
      */
     private long beginTime;
 
     /**
-     * <code>optional int64 end_time = 6;</code>
+     * <code>optional int64 end_time = 11;</code>
      */
     private long endTime;
 
     /**
-     * <code>optional uint32 gacha_id = 7;</code>
+     * <code>optional uint32 gacha_id = 4;</code>
      */
     private int gachaId;
 
@@ -44,7 +44,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 5;</code>
+     * <code>optional int64 begin_time = 8;</code>
      * @return whether the beginTime field is set
      */
     public boolean hasBeginTime() {
@@ -52,7 +52,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 5;</code>
+     * <code>optional int64 begin_time = 8;</code>
      * @return this
      */
     public FarmStageGachaInfo clearBeginTime() {
@@ -62,7 +62,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 5;</code>
+     * <code>optional int64 begin_time = 8;</code>
      * @return the beginTime
      */
     public long getBeginTime() {
@@ -70,7 +70,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 begin_time = 5;</code>
+     * <code>optional int64 begin_time = 8;</code>
      * @param value the beginTime to set
      * @return this
      */
@@ -81,7 +81,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 6;</code>
+     * <code>optional int64 end_time = 11;</code>
      * @return whether the endTime field is set
      */
     public boolean hasEndTime() {
@@ -89,7 +89,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 6;</code>
+     * <code>optional int64 end_time = 11;</code>
      * @return this
      */
     public FarmStageGachaInfo clearEndTime() {
@@ -99,7 +99,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 6;</code>
+     * <code>optional int64 end_time = 11;</code>
      * @return the endTime
      */
     public long getEndTime() {
@@ -107,7 +107,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional int64 end_time = 6;</code>
+     * <code>optional int64 end_time = 11;</code>
      * @param value the endTime to set
      * @return this
      */
@@ -118,7 +118,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_id = 7;</code>
+     * <code>optional uint32 gacha_id = 4;</code>
      * @return whether the gachaId field is set
      */
     public boolean hasGachaId() {
@@ -126,7 +126,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_id = 7;</code>
+     * <code>optional uint32 gacha_id = 4;</code>
      * @return this
      */
     public FarmStageGachaInfo clearGachaId() {
@@ -136,7 +136,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_id = 7;</code>
+     * <code>optional uint32 gacha_id = 4;</code>
      * @return the gachaId
      */
     public int getGachaId() {
@@ -144,7 +144,7 @@ public final class FarmStageGachaInfoOuterClass {
     }
 
     /**
-     * <code>optional uint32 gacha_id = 7;</code>
+     * <code>optional uint32 gacha_id = 4;</code>
      * @param value the gachaId to set
      * @return this
      */
@@ -225,15 +225,15 @@ public final class FarmStageGachaInfoOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 40);
+        output.writeRawByte((byte) 64);
         output.writeInt64NoTag(beginTime);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 48);
+        output.writeRawByte((byte) 88);
         output.writeInt64NoTag(endTime);
       }
       if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 56);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(gachaId);
       }
     }
@@ -260,25 +260,25 @@ public final class FarmStageGachaInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 40: {
+          case 64: {
             // beginTime
             beginTime = input.readInt64();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 48) {
+            if (tag != 88) {
               break;
             }
           }
-          case 48: {
+          case 88: {
             // endTime
             endTime = input.readInt64();
             bitField0_ |= 0x00000002;
             tag = input.readTag();
-            if (tag != 56) {
+            if (tag != 32) {
               break;
             }
           }
-          case 56: {
+          case 32: {
             // gachaId
             gachaId = input.readUInt32();
             bitField0_ |= 0x00000004;

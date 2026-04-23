@@ -17,8 +17,10 @@ import emu.lunarcore.game.player.Player;
 import emu.lunarcore.game.player.lineup.PlayerLineup;
 import emu.lunarcore.proto.MotionInfoOuterClass.MotionInfo;
 import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo;
+import emu.lunarcore.proto.SceneEntityGroupInfoOuterClass.SceneEntityGroupInfo.GroupPropertyMapEntry;
 import emu.lunarcore.proto.SceneGroupStateOuterClass.SceneGroupState;
 import emu.lunarcore.proto.SceneInfoOuterClass.SceneInfo;
+import emu.lunarcore.proto.MapPropDefInfoOuterClass.MapPropDefInfo;
 import emu.lunarcore.server.game.Tickable;
 import emu.lunarcore.server.packet.send.PacketActivateFarmElementScRsp;
 import emu.lunarcore.server.packet.send.PacketRefreshTriggerByClientScNotify;
@@ -49,14 +51,19 @@ public class Scene implements Tickable {
     private final IntSet avatarEntityIds;
     private final Int2ObjectMap<GameAvatar> avatars;
     private EntitySummonUnit playerSummon;
-
+    
     // Other entities
     private final Int2ObjectMap<GameEntity> entities;
-    private final Int2IntMap groupStates;
+    private final Int2ObjectMap<SceneGroup> groups;
+
+    // Marked chests
+    private Int2ObjectMap<List<MapPropDefInfo>> markedChests;
     
     // Cache
     private List<PropTrigger> triggers;
     private List<EntityProp> healingSprings;
+    private List<Integer> sceneSubMissions;
+    private List<Integer> sceneMainMissions;
     
     public Scene(Player player, MazePlaneExcel excel, int floorId) {
         this.player = player;
@@ -68,11 +75,16 @@ public class Scene implements Tickable {
         this.avatarEntityIds = new IntOpenHashSet();
         this.avatars = new Int2ObjectOpenHashMap<>();
         this.entities = new Int2ObjectOpenHashMap<>();
-        this.groupStates = new Int2IntOpenHashMap();
+        this.groups = new Int2ObjectOpenHashMap<>();
         
         this.healingSprings = new ObjectArrayList<>();
         this.triggers = new ObjectArrayList<>();
-        
+
+        this.markedChests = new Int2ObjectOpenHashMap<>();
+
+        this.sceneSubMissions = new ObjectArrayList<>();
+        this.sceneMainMissions = new ObjectArrayList<>();
+
         // Set world id
         if (this.getExcel().getPlaneType() == PlaneType.Train) {
             this.worldId = player.getWorldId();
@@ -152,6 +164,15 @@ public class Scene implements Tickable {
                 }
             }
         }
+        
+        // Add group properties
+        if (group.getGroupPropertyMap() != null && group.getGroupPropertyMap().size() > 0) {
+            var sceneGroup = this.getGroups().computeIfAbsent(group.getId(), i -> new SceneGroup(i));
+            
+            for (var property : group.getGroupPropertyMap().values()) {
+                sceneGroup.getProperties().put(property.getName(), property.getDefaultValue());
+            }
+        }
     }
 
     public void setEntryId(int entryId) {
@@ -164,6 +185,14 @@ public class Scene implements Tickable {
     
     public synchronized GameEntity getEntityById(int id) {
         return this.getEntities().get(id);
+    }
+    
+    public synchronized <T extends GameEntity> List<T> getEntities(Class<T> entityType) {
+        return this.getEntities().values()
+                .stream()
+                .filter(e -> entityType.isInstance(e))
+                .map(entityType::cast)
+                .toList();
     }
     
     public synchronized <T extends GameEntity> List<T> getEntitiesByGroup(Class<T> entityType, int groupId) {
@@ -215,7 +244,7 @@ public class Scene implements Tickable {
         }
 
         // Sync packet
-        getPlayer().sendPacket(new PacketSceneGroupRefreshScNotify(toAdd, toRemove));
+        getPlayer().sendPacket(new PacketSceneGroupRefreshScNotify(this, toAdd, toRemove));
     }
     
     public boolean activateFarmElement(int entityId, int worldLevel) {
@@ -339,6 +368,13 @@ public class Scene implements Tickable {
             return;
         }
         
+        // Check if any of the this.getEntities() is the entity to avoid dupes
+        for (GameEntity e : this.getEntities().values()) {
+            if (e.equals(entity)) {
+                return;
+            }
+        }
+        
         // Set entity id and add monster to entity map
         entity.setEntityId(this.getNextEntityId());
         this.getEntities().put(entity.getEntityId(), entity);
@@ -348,7 +384,7 @@ public class Scene implements Tickable {
         
         // Send packet
         if (sendPacket) {
-            player.sendPacket(new PacketSceneGroupRefreshScNotify(entity, null));
+            player.sendPacket(new PacketSceneGroupRefreshScNotify(this, entity, null));
         }
     }
     
@@ -363,7 +399,7 @@ public class Scene implements Tickable {
             // Run event
             entity.onRemove();
             // Send packet
-            player.sendPacket(new PacketSceneGroupRefreshScNotify(null, entity));
+            player.sendPacket(new PacketSceneGroupRefreshScNotify(this, null, entity));
             // Reset entity id
             entity.setEntityId(0);
         }
@@ -393,6 +429,54 @@ public class Scene implements Tickable {
             this.removeSummonUnit();
         }
     }
+
+    private boolean isExistingExtraData(SceneInfo scenedata, String key) {
+        for (var entry : scenedata.getFloorSavedValueMap()) {
+            if (entry.getKey().equals(key)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    private void enableExtraData(SceneInfo scenedata, String key, int value) {
+        if (!isExistingExtraData(scenedata, key)) {
+            var entry = SceneInfo.FloorSavedValueMapEntry.newInstance()
+                    .setKey(key)
+                    .setValue(value);
+            
+            scenedata.addFloorSavedValueMap(entry);
+        }
+    }
+    
+    // Marked chests
+    
+    public void addMapPropDefInfo(MapPropDefInfo defInfo, int funcId) {
+        if (!this.markedChests.containsKey(funcId)) {
+            this.markedChests.put(funcId, new ArrayList<>());
+        }
+        this.markedChests.get(funcId).add(defInfo);
+    }
+
+    public void resetMapPropDefInfo(int funcId) {
+        this.markedChests.remove(funcId);
+    }
+
+    public void removeAllMapPropDefInfo() {
+        this.markedChests.clear();
+    }
+
+    public void setMapPropDefInfoForFuncId(int funcId, List<MapPropDefInfo> defInfos) {
+        this.markedChests.put(funcId, defInfos);
+    }
+
+    public List<MapPropDefInfo> getMapPropDefInfo(int funcId) {
+        return this.markedChests.get(funcId);
+    }
+
+    public List<Integer> getFuncIdsForMapPropDef() {
+        return this.markedChests.keySet().intStream().boxed().toList();
+    }
     
     // Proto serialization
     
@@ -407,7 +491,13 @@ public class Scene implements Tickable {
                 .setPlaneId(this.getPlaneId())
                 .setFloorId(this.getFloorId())
                 .setEntryId(this.getEntryId());
-
+                //.setSceneMissionInfo(this.getSceneMissionInfos());
+        
+        for (var extradata : this.getFloorInfo().getExtraDatas()) {
+            //LunarCore.getLogger().warn("[Saved Value] " + extradata.getName() + " : " + extradata.getMaxValue());
+            this.enableExtraData(proto, extradata.getName(), extradata.getMaxValue());
+        }
+        
         // Get current lineup
         PlayerLineup lineup = getPlayer().getCurrentLineup();
         int leaderAvatarId = lineup.getAvatars().get(lineup.getLeader());
@@ -419,35 +509,65 @@ public class Scene implements Tickable {
         var playerGroup = SceneEntityGroupInfo.newInstance();
 
         for (var avatar : avatars.values()) {
-            playerGroup.addEntityList(avatar.toSceneEntityProto());
+            // Serialize lineup avatar to proto
+            var avatarInfo = avatar.toSceneEntityProto();
 
+            // Set leader avatar id and map layer for main avatar
             if (leaderAvatarId == avatar.getAvatarId()) {
                 proto.setLeaderEntityId(avatar.getEntityId());
+                avatarInfo.getMutableActor().setMapLayer(1);
             }
+            
+            playerGroup.addEntityList(avatarInfo);
         }
 
         groups.put(0, playerGroup);
 
         // Add rest of the entities to groups
         for (var entity : getEntities().values()) {
+            // Get scene group
             var group = groups.computeIfAbsent(entity.getGroupId(), i -> SceneEntityGroupInfo.newInstance().setGroupId(i));
+            
+            // Add to group
             group.addEntityList(entity.toSceneEntityProto());
         }
+        
+        // Add groups
+        for (var sceneGroup : this.getGroups().values()) {
+            // Get group
+            var group = groups.get(sceneGroup.getId());
+            
+            if (group != null && sceneGroup.getProperties().size() > 0) {
+                // Add group properties
+                for (var entry : sceneGroup.getProperties().object2IntEntrySet()) {
+                    var property = GroupPropertyMapEntry.newInstance()
+                            .setKey(entry.getKey())
+                            .setValue(entry.getIntValue());
+                    
+                    group.addGroupPropertyMap(property);
+                }
+            }
+            
+            // Add group states 
+            if (sceneGroup.getState() != 0) {
+                var state = SceneGroupState.newInstance()
+                        .setGroupId(sceneGroup.getId())
+                        .setState(sceneGroup.getState())
+                        .setIsDefault(true);
+                
+                proto.addGroupStateList(state);  
+            }
+        }
 
+        // Add group to proto
         for (var group : groups.values()) {
             proto.addEntityGroupList(group);
         }
         
-        // Add group states
-        for (var entry : this.getGroupStates().int2IntEntrySet()) {
-            var state = SceneGroupState.newInstance()
-                    .setGroupId(entry.getIntKey())
-                    .setState(entry.getIntValue())
-                    .setIsDefault(true);
-            
-            proto.addGroupStateList(state);
-        }
-
+        // Scene identifier
+        proto.getMutableSceneIdentifier()
+            .setFloorId(this.getFloorId());
+        
         // Done
         return proto;
     }

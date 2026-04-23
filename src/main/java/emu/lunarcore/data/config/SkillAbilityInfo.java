@@ -68,7 +68,9 @@ public class SkillAbilityInfo {
             // TODO get sp increase value from params, also handle target alias
             actionList.add(new MazeSkillModifySP(50));
         } else if (task.getType().contains("CreateSummonUnit")) {
-            skill.setTriggerBattle(false);
+            if (!task.IsClientOnly()) {
+                skill.setTriggerBattle(false);
+            }
         } else if (task.getType().contains("AddAdventureModifier")) {
             skill.addAdventureModifier(task.getModifierName());
         } else if (task.getType().contains("AdventureSetAttackTargetMonsterDie")) {

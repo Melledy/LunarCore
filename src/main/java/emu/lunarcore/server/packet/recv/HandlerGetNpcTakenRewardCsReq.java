@@ -13,7 +13,7 @@ public class HandlerGetNpcTakenRewardCsReq extends PacketHandler {
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
         var req = GetNpcTakenRewardCsReq.parseFrom(data);
-        
+
         session.send(new PacketGetNpcTakenRewardScRsp(req.getNpcId()));
     }
 

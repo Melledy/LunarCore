@@ -9,10 +9,10 @@ public class PacketCurPetChangedScNotify extends BasePacket {
 
     public PacketCurPetChangedScNotify(Player player) {
         super(CmdId.CurPetChangedScNotify);
-        
+
         var data = CurPetChangedScNotify.newInstance()
                 .setCurPetId(player.getPetId());
-        
+
         this.setData(data);
     }
 }

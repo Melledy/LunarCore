@@ -27,10 +27,16 @@ public class ResourceDeserializers {
         public Long deserialize(JsonElement json, Type typeOfT, JsonDeserializationContext context) throws JsonParseException {
             if (json.isJsonPrimitive()) {
                 return json.getAsLong();
-            } else {
+            } else if (json.isJsonObject()) {
                 // TextID
                 var obj = json.getAsJsonObject();
-                return obj.get("Hash").getAsLong();
+                if (obj.has("hash")) {
+                    return obj.get("hash").getAsLong();
+                } else {
+                    return obj.get("Hash").getAsLong();
+                }
+            } else {
+                return 0L;
             }
         }
     }

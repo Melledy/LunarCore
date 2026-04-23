@@ -10,7 +10,7 @@ import us.hebi.quickbuf.MessageFactory;
 import us.hebi.quickbuf.ProtoMessage;
 import us.hebi.quickbuf.ProtoSink;
 import us.hebi.quickbuf.ProtoSource;
-import us.hebi.quickbuf.RepeatedInt;
+import us.hebi.quickbuf.RepeatedMessage;
 
 public final class GetSceneMapInfoCsReqOuterClass {
   /**
@@ -20,9 +20,9 @@ public final class GetSceneMapInfoCsReqOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated uint32 entry_id_list = 1;</code>
+     * <code>repeated .SceneIdentifierInfo scene_identifier_list = 2;</code>
      */
-    private final RepeatedInt entryIdList = RepeatedInt.newEmptyInstance();
+    private final RepeatedMessage<SceneIdentifierInfoOuterClass.SceneIdentifierInfo> sceneIdentifierList = RepeatedMessage.newEmptyInstance(SceneIdentifierInfoOuterClass.SceneIdentifierInfo.getFactory());
 
     private GetSceneMapInfoCsReq() {
     }
@@ -35,39 +35,40 @@ public final class GetSceneMapInfoCsReqOuterClass {
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 1;</code>
-     * @return whether the entryIdList field is set
+     * <code>repeated .SceneIdentifierInfo scene_identifier_list = 2;</code>
+     * @return whether the sceneIdentifierList field is set
      */
-    public boolean hasEntryIdList() {
+    public boolean hasSceneIdentifierList() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 1;</code>
+     * <code>repeated .SceneIdentifierInfo scene_identifier_list = 2;</code>
      * @return this
      */
-    public GetSceneMapInfoCsReq clearEntryIdList() {
+    public GetSceneMapInfoCsReq clearSceneIdentifierList() {
       bitField0_ &= ~0x00000001;
-      entryIdList.clear();
+      sceneIdentifierList.clear();
       return this;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 1;</code>
+     * <code>repeated .SceneIdentifierInfo scene_identifier_list = 2;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableEntryIdList()} if you want to modify it.
+     * Use {@link #getMutableSceneIdentifierList()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public RepeatedInt getEntryIdList() {
-      return entryIdList;
+    public RepeatedMessage<SceneIdentifierInfoOuterClass.SceneIdentifierInfo> getSceneIdentifierList(
+        ) {
+      return sceneIdentifierList;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 1;</code>
+     * <code>repeated .SceneIdentifierInfo scene_identifier_list = 2;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -75,30 +76,33 @@ public final class GetSceneMapInfoCsReqOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public RepeatedInt getMutableEntryIdList() {
+    public RepeatedMessage<SceneIdentifierInfoOuterClass.SceneIdentifierInfo> getMutableSceneIdentifierList(
+        ) {
       bitField0_ |= 0x00000001;
-      return entryIdList;
+      return sceneIdentifierList;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 1;</code>
-     * @param value the entryIdList to add
+     * <code>repeated .SceneIdentifierInfo scene_identifier_list = 2;</code>
+     * @param value the sceneIdentifierList to add
      * @return this
      */
-    public GetSceneMapInfoCsReq addEntryIdList(final int value) {
+    public GetSceneMapInfoCsReq addSceneIdentifierList(
+        final SceneIdentifierInfoOuterClass.SceneIdentifierInfo value) {
       bitField0_ |= 0x00000001;
-      entryIdList.add(value);
+      sceneIdentifierList.add(value);
       return this;
     }
 
     /**
-     * <code>repeated uint32 entry_id_list = 1;</code>
-     * @param values the entryIdList to add
+     * <code>repeated .SceneIdentifierInfo scene_identifier_list = 2;</code>
+     * @param values the sceneIdentifierList to add
      * @return this
      */
-    public GetSceneMapInfoCsReq addAllEntryIdList(final int... values) {
+    public GetSceneMapInfoCsReq addAllSceneIdentifierList(
+        final SceneIdentifierInfoOuterClass.SceneIdentifierInfo... values) {
       bitField0_ |= 0x00000001;
-      entryIdList.addAll(values);
+      sceneIdentifierList.addAll(values);
       return this;
     }
 
@@ -107,7 +111,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        entryIdList.copyFrom(other.entryIdList);
+        sceneIdentifierList.copyFrom(other.sceneIdentifierList);
       }
       return this;
     }
@@ -118,8 +122,8 @@ public final class GetSceneMapInfoCsReqOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasEntryIdList()) {
-        getMutableEntryIdList().addAll(other.entryIdList);
+      if (other.hasSceneIdentifierList()) {
+        getMutableSceneIdentifierList().addAll(other.sceneIdentifierList);
       }
       return this;
     }
@@ -131,7 +135,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      entryIdList.clear();
+      sceneIdentifierList.clear();
       return this;
     }
 
@@ -142,7 +146,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      entryIdList.clear();
+      sceneIdentifierList.clearQuick();
       return this;
     }
 
@@ -156,15 +160,15 @@ public final class GetSceneMapInfoCsReqOuterClass {
       }
       GetSceneMapInfoCsReq other = (GetSceneMapInfoCsReq) o;
       return bitField0_ == other.bitField0_
-        && (!hasEntryIdList() || entryIdList.equals(other.entryIdList));
+        && (!hasSceneIdentifierList() || sceneIdentifierList.equals(other.sceneIdentifierList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        for (int i = 0; i < entryIdList.length(); i++) {
-          output.writeRawByte((byte) 8);
-          output.writeUInt32NoTag(entryIdList.array()[i]);
+        for (int i = 0; i < sceneIdentifierList.length(); i++) {
+          output.writeRawByte((byte) 18);
+          output.writeMessageNoTag(sceneIdentifierList.get(i));
         }
       }
     }
@@ -173,7 +177,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += (1 * entryIdList.length()) + ProtoSink.computeRepeatedUInt32SizeNoTag(entryIdList);
+        size += (1 * sceneIdentifierList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(sceneIdentifierList);
       }
       return size;
     }
@@ -185,11 +189,10 @@ public final class GetSceneMapInfoCsReqOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 10: {
-            // entryIdList [packed=true]
-            input.readPackedUInt32(entryIdList, tag);
+          case 18: {
+            // sceneIdentifierList
+            tag = input.readRepeatedMessage(sceneIdentifierList, tag);
             bitField0_ |= 0x00000001;
-            tag = input.readTag();
             if (tag != 0) {
               break;
             }
@@ -204,12 +207,6 @@ public final class GetSceneMapInfoCsReqOuterClass {
             tag = input.readTag();
             break;
           }
-          case 8: {
-            // entryIdList [packed=false]
-            tag = input.readRepeatedUInt32(entryIdList, tag);
-            bitField0_ |= 0x00000001;
-            break;
-          }
         }
       }
     }
@@ -218,7 +215,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRepeatedUInt32(FieldNames.entryIdList, entryIdList);
+        output.writeRepeatedMessage(FieldNames.sceneIdentifierList, sceneIdentifierList);
       }
       output.endObject();
     }
@@ -230,11 +227,11 @@ public final class GetSceneMapInfoCsReqOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case -1441102997:
-          case -1413189003: {
-            if (input.isAtField(FieldNames.entryIdList)) {
+          case 2084721811:
+          case -601025343: {
+            if (input.isAtField(FieldNames.sceneIdentifierList)) {
               if (!input.trySkipNullValue()) {
-                input.readRepeatedUInt32(entryIdList);
+                input.readRepeatedMessage(sceneIdentifierList);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -295,7 +292,7 @@ public final class GetSceneMapInfoCsReqOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName entryIdList = FieldName.forField("entryIdList", "entry_id_list");
+      static final FieldName sceneIdentifierList = FieldName.forField("sceneIdentifierList", "scene_identifier_list");
     }
   }
 }

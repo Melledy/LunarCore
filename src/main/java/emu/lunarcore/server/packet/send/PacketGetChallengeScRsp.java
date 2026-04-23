@@ -15,27 +15,28 @@ public class PacketGetChallengeScRsp extends BasePacket {
         super(CmdId.GetChallengeScRsp);
 
         var data = GetChallengeScRsp.newInstance();
-        
+
         if (LunarCore.getConfig().getServerOptions().unlockAllChallenges) {
             // Add all challenge excels to our challenge list
             // TODO find out which challenge groups are active so we dont have to send old challenge ids to the client
             for (var challengeExcel : GameData.getChallengeExcelMap().values()) {
                 // Get challenge history
                 var history = player.getChallengeManager().getHistory().get(challengeExcel.getId());
-                
+
                 if (history != null) {
                     data.addChallengeList(history.toProto());
                 } else {
                     // Create fake completed challenge proto
-                    var proto = Challenge.newInstance().setChallengeId(challengeExcel.getId());
-                    
+                    var proto = Challenge.newInstance()
+                            .setChallengeId(challengeExcel.getId());
+
                     // Skip boss challenges for now TODO
                     if (challengeExcel.getType() == ChallengeType.BOSS) {
                         var boss = proto.getMutableExtInfo().getMutableBossInfo();
                         boss.getMutableFirstNode();
                         boss.getMutableSecondNode();
                     }
-                    
+
                     data.addChallengeList(proto);
                 }
             }
@@ -44,11 +45,11 @@ public class PacketGetChallengeScRsp extends BasePacket {
                 data.addChallengeList(history.toProto());
             }
         }
-        
+
         for (var reward : player.getChallengeManager().getTakenRewards().values()) {
             data.addChallengeRewardList(reward.toProto());
         }
-        
+
         this.setData(data);
     }
 }

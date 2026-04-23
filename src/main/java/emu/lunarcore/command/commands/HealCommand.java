@@ -11,10 +11,12 @@ public class HealCommand implements CommandHandler {
     @Override
     public void execute(CommandArgs args) {
         PlayerLineup lineup = args.getTarget().getCurrentLineup();
+        
         lineup.forEachAvatar(avatar -> {
             avatar.setCurrentHp(lineup, 10000);
             avatar.save();
         });
+        
         lineup.refreshLineup();
 
         args.sendMessage("Healed all avatars for " + args.getTarget().getName());

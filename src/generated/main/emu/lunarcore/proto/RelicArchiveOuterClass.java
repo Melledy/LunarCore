@@ -19,12 +19,12 @@ public final class RelicArchiveOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 relic_id = 3;</code>
+     * <code>optional uint32 relic_id = 9;</code>
      */
     private int relicId;
 
     /**
-     * <code>optional uint32 slot = 8;</code>
+     * <code>optional uint32 slot = 12;</code>
      */
     private int slot;
 
@@ -39,7 +39,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 3;</code>
+     * <code>optional uint32 relic_id = 9;</code>
      * @return whether the relicId field is set
      */
     public boolean hasRelicId() {
@@ -47,7 +47,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 3;</code>
+     * <code>optional uint32 relic_id = 9;</code>
      * @return this
      */
     public RelicArchive clearRelicId() {
@@ -57,7 +57,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 3;</code>
+     * <code>optional uint32 relic_id = 9;</code>
      * @return the relicId
      */
     public int getRelicId() {
@@ -65,7 +65,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 relic_id = 3;</code>
+     * <code>optional uint32 relic_id = 9;</code>
      * @param value the relicId to set
      * @return this
      */
@@ -76,7 +76,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 8;</code>
+     * <code>optional uint32 slot = 12;</code>
      * @return whether the slot field is set
      */
     public boolean hasSlot() {
@@ -84,7 +84,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 8;</code>
+     * <code>optional uint32 slot = 12;</code>
      * @return this
      */
     public RelicArchive clearSlot() {
@@ -94,7 +94,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 8;</code>
+     * <code>optional uint32 slot = 12;</code>
      * @return the slot
      */
     public int getSlot() {
@@ -102,7 +102,7 @@ public final class RelicArchiveOuterClass {
     }
 
     /**
-     * <code>optional uint32 slot = 8;</code>
+     * <code>optional uint32 slot = 12;</code>
      * @param value the slot to set
      * @return this
      */
@@ -177,11 +177,11 @@ public final class RelicArchiveOuterClass {
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 24);
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(relicId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 64);
+        output.writeRawByte((byte) 96);
         output.writeUInt32NoTag(slot);
       }
     }
@@ -205,16 +205,16 @@ public final class RelicArchiveOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 24: {
+          case 72: {
             // relicId
             relicId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 64) {
+            if (tag != 96) {
               break;
             }
           }
-          case 64: {
+          case 96: {
             // slot
             slot = input.readUInt32();
             bitField0_ |= 0x00000002;

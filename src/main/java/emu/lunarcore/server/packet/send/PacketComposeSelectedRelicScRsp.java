@@ -11,10 +11,10 @@ public class PacketComposeSelectedRelicScRsp extends BasePacket {
 
     public PacketComposeSelectedRelicScRsp(int composeId, Collection<GameItem> returnList) {
         super(CmdId.ComposeSelectedRelicScRsp);
-        
+
         var data = ComposeSelectedRelicScRsp.newInstance()
                 .setComposeId(composeId);
-        
+
         if (returnList != null) {
             for (var item : returnList) {
                 data.getMutableReturnItemList().addItemList(item.toProto());
@@ -22,7 +22,7 @@ public class PacketComposeSelectedRelicScRsp extends BasePacket {
         } else {
             data.getMutableReturnItemList();
         }
-        
+
         this.setData(data);
     }
 }

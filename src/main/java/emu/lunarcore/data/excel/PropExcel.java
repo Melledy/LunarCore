@@ -2,8 +2,8 @@ package emu.lunarcore.data.excel;
 
 import java.util.Set;
 
-import emu.lunarcore.data.GameResource;
-import emu.lunarcore.data.ResourceType;
+import emu.lunarcore.data.resource.GameResource;
+import emu.lunarcore.data.resource.ResourceType;
 import emu.lunarcore.game.enums.PropState;
 import emu.lunarcore.game.enums.PropType;
 import lombok.Getter;
@@ -20,7 +20,8 @@ public class PropExcel extends GameResource {
     private transient boolean recoverHp;
     private transient boolean recoverMp;
     private transient boolean isDoor;
-    
+    private transient boolean disabled;
+
     @Override
     public int getId() {
         return ID;
@@ -36,9 +37,11 @@ public class PropExcel extends GameResource {
                 this.recoverHp = true;
             } else if (getJsonPath().contains("_Door_")) {
                 this.isDoor = true;
+            } else if (getJsonPath().contains("TRBall_")) {
+                this.disabled = true;
             }
         }
-        
+
         // Sanity
         if (this.PropStateList == null) {
             this.PropStateList = Set.of();

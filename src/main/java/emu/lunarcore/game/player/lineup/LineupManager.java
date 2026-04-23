@@ -9,7 +9,8 @@ import emu.lunarcore.game.avatar.GameAvatar;
 import emu.lunarcore.game.player.Player;
 import emu.lunarcore.proto.ExtraLineupTypeOuterClass.ExtraLineupType;
 import emu.lunarcore.server.packet.send.PacketSyncLineupNotify;
-
+import it.unimi.dsi.fastutil.ints.Int2ObjectMap;
+import it.unimi.dsi.fastutil.ints.Int2ObjectOpenHashMap;
 import lombok.Getter;
 
 @Entity(useDiscriminator = false) @Getter
@@ -22,12 +23,12 @@ public class LineupManager {
     private transient int currentExtraIndex;
     
     private transient PlayerLineup[] lineups;
-    private transient PlayerExtraLineup[] extraLineups;
+    private transient Int2ObjectMap<PlayerExtraLineup> extraLineups;
 
     @Deprecated // Morphia only!
     public LineupManager() {
         this.lineups = new PlayerLineup[GameConstants.DEFAULT_TEAMS];
-        this.extraLineups = new PlayerExtraLineup[ExtraLineupType.values().length];
+        this.extraLineups = new Int2ObjectOpenHashMap<>();
     }
 
     public LineupManager(Player player) {
@@ -43,8 +44,9 @@ public class LineupManager {
     }
     
     protected void addMp(int i) {
-        this.mp = Math.min(this.mp + i, GameConstants.MAX_MP);
-        this.getPlayer().sendPacket(new PacketSyncLineupNotify(player.getCurrentLineup()));
+        var lineup = player.getCurrentLineup();
+        this.mp = Math.min(this.mp + i, lineup.getMaxMp());
+        this.getPlayer().sendPacket(new PacketSyncLineupNotify(lineup));
     }
     
     protected void setMp(int i) {
@@ -113,20 +115,7 @@ public class LineupManager {
      * @param type ExtraLineupType
      */
     public PlayerLineup getExtraLineupByType(int type) {
-        // Sanity check to make sure the extra lineup type actually exists
-        if (type <= 0 || type >= this.extraLineups.length) {
-            return null;
-        }
-        
-        // Actually get the lineup
-        PlayerExtraLineup lineup = this.extraLineups[type];
-        
-        if (lineup == null) {
-            lineup = new PlayerExtraLineup(this.getPlayer(), type);
-            this.extraLineups[type] = lineup;
-        }
-        
-        return lineup;
+        return this.extraLineups.computeIfAbsent(type, x -> new PlayerExtraLineup(this.getPlayer(), type));
     }
     
     /**
@@ -306,33 +295,10 @@ public class LineupManager {
             return false;
         }
 
-        // Clear
-        lineup.getAvatars().clear();
+        // Replace
+        lineup.replace(lineupList);
 
-        // Add
-        for (int avatarId : lineupList) {
-            GameAvatar avatar = getPlayer().getAvatarById(avatarId);
-            if (avatar != null) {
-                lineup.getAvatars().add(avatarId);
-            }
-        }
-
-        // Validate leader slot
-        if (lineup.getLeader() >= lineup.size()) {
-            lineup.setLeader(0);
-        }
-
-        // Save
-        lineup.save();
-
-        // Sync lineup with scene
-        if (lineup == getCurrentLineup()) {
-            player.getScene().syncLineup();
-        }
-
-        // Sync lineup data
-        player.sendPacket(new PacketSyncLineupNotify(lineup));
-
+        // Success
         return true;
     }
 
@@ -421,7 +387,7 @@ public class LineupManager {
             
             // Add to lineups
             try {
-                this.extraLineups[lineup.getExtraLineupType()] = lineup; 
+                this.extraLineups.put(lineup.getExtraLineupType(), lineup);
             } catch (Exception e) {
                 lineup.delete();
             }

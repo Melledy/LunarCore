@@ -11,7 +11,6 @@ public class HandlerGetJukeboxDataCsReq extends PacketHandler {
 
     @Override
     public void handle(GameSession session, byte[] data) throws Exception {
-        // var req = GetJukeboxDataCsReq.parseFrom(data);
         session.send(new PacketGetJukeboxDataScRsp(session.getPlayer()));
     }
 

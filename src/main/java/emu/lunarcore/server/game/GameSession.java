@@ -16,6 +16,7 @@ import it.unimi.dsi.fastutil.ints.Int2LongOpenHashMap;
 import kcp.highway.Ukcp;
 import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.Setter;
 import us.hebi.quickbuf.ProtoMessage;
 
 @Getter
@@ -26,6 +27,8 @@ public class GameSession {
 
     private Account account;
     private Player player;
+
+    @Setter private boolean sendHello = false;
 
     // Network
     @Getter(AccessLevel.PRIVATE) private Ukcp ukcp;
@@ -150,7 +153,9 @@ public class GameSession {
     public void send(BasePacket packet) {
         // Test
         if (packet.getCmdId() <= 0) {
-            LunarCore.getLogger().warn("Tried to send packet with missing cmd id!");
+            if (LunarCore.getConfig().getLogOptions().packets) {
+                LunarCore.getLogger().warn("Tried to send packet with missing cmd id!");
+            }
             return;
         }
 
@@ -170,6 +175,14 @@ public class GameSession {
      * @param cmdId
      */
     public void send(int cmdId) {
+        // Test
+        if (cmdId <= 0) {
+            if (LunarCore.getConfig().getLogOptions().packets) {
+                LunarCore.getLogger().warn("Tried to send packet with missing cmd id!");
+            }
+            return;
+        }
+        
         // Get packet from the server's packet cache. This will allow us to reuse empty packets if needed.
         if (this.ukcp != null) {
             this.ukcp.write(getServer().getPacketCache().getCachedPacket(cmdId));

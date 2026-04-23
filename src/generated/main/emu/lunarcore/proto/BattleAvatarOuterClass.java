@@ -60,6 +60,11 @@ public final class BattleAvatarOuterClass {
     private int assistUid;
 
     /**
+     * <code>optional uint32 avatar_enhance_id = 19;</code>
+     */
+    private int avatarEnhanceId;
+
+    /**
      * <code>optional .AvatarType avatar_type = 1;</code>
      */
     private int avatarType;
@@ -391,11 +396,48 @@ public final class BattleAvatarOuterClass {
     }
 
     /**
+     * <code>optional uint32 avatar_enhance_id = 19;</code>
+     * @return whether the avatarEnhanceId field is set
+     */
+    public boolean hasAvatarEnhanceId() {
+      return (bitField0_ & 0x00000100) != 0;
+    }
+
+    /**
+     * <code>optional uint32 avatar_enhance_id = 19;</code>
+     * @return this
+     */
+    public BattleAvatar clearAvatarEnhanceId() {
+      bitField0_ &= ~0x00000100;
+      avatarEnhanceId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 avatar_enhance_id = 19;</code>
+     * @return the avatarEnhanceId
+     */
+    public int getAvatarEnhanceId() {
+      return avatarEnhanceId;
+    }
+
+    /**
+     * <code>optional uint32 avatar_enhance_id = 19;</code>
+     * @param value the avatarEnhanceId to set
+     * @return this
+     */
+    public BattleAvatar setAvatarEnhanceId(final int value) {
+      bitField0_ |= 0x00000100;
+      avatarEnhanceId = value;
+      return this;
+    }
+
+    /**
      * <code>optional .AvatarType avatar_type = 1;</code>
      * @return whether the avatarType field is set
      */
     public boolean hasAvatarType() {
-      return (bitField0_ & 0x00000100) != 0;
+      return (bitField0_ & 0x00000200) != 0;
     }
 
     /**
@@ -403,7 +445,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar clearAvatarType() {
-      bitField0_ &= ~0x00000100;
+      bitField0_ &= ~0x00000200;
       avatarType = 0;
       return this;
     }
@@ -436,7 +478,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar setAvatarTypeValue(final int value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       avatarType = value;
       return this;
     }
@@ -447,7 +489,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar setAvatarType(final AvatarTypeOuterClass.AvatarType value) {
-      bitField0_ |= 0x00000100;
+      bitField0_ |= 0x00000200;
       avatarType = value.getNumber();
       return this;
     }
@@ -457,7 +499,7 @@ public final class BattleAvatarOuterClass {
      * @return whether the spBar field is set
      */
     public boolean hasSpBar() {
-      return (bitField0_ & 0x00000200) != 0;
+      return (bitField0_ & 0x00000400) != 0;
     }
 
     /**
@@ -465,7 +507,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar clearSpBar() {
-      bitField0_ &= ~0x00000200;
+      bitField0_ &= ~0x00000400;
       spBar.clear();
       return this;
     }
@@ -494,7 +536,7 @@ public final class BattleAvatarOuterClass {
      * @return internal storage object for modifications
      */
     public SpBarInfoOuterClass.SpBarInfo getMutableSpBar() {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       return spBar;
     }
 
@@ -504,7 +546,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar setSpBar(final SpBarInfoOuterClass.SpBarInfo value) {
-      bitField0_ |= 0x00000200;
+      bitField0_ |= 0x00000400;
       spBar.copyFrom(value);
       return this;
     }
@@ -514,7 +556,7 @@ public final class BattleAvatarOuterClass {
      * @return whether the skilltreeList field is set
      */
     public boolean hasSkilltreeList() {
-      return (bitField0_ & 0x00000400) != 0;
+      return (bitField0_ & 0x00000800) != 0;
     }
 
     /**
@@ -522,7 +564,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar clearSkilltreeList() {
-      bitField0_ &= ~0x00000400;
+      bitField0_ &= ~0x00000800;
       skilltreeList.clear();
       return this;
     }
@@ -551,7 +593,7 @@ public final class BattleAvatarOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<AvatarSkillTreeOuterClass.AvatarSkillTree> getMutableSkilltreeList() {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       return skilltreeList;
     }
 
@@ -561,7 +603,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar addSkilltreeList(final AvatarSkillTreeOuterClass.AvatarSkillTree value) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       skilltreeList.add(value);
       return this;
     }
@@ -573,7 +615,7 @@ public final class BattleAvatarOuterClass {
      */
     public BattleAvatar addAllSkilltreeList(
         final AvatarSkillTreeOuterClass.AvatarSkillTree... values) {
-      bitField0_ |= 0x00000400;
+      bitField0_ |= 0x00000800;
       skilltreeList.addAll(values);
       return this;
     }
@@ -583,7 +625,7 @@ public final class BattleAvatarOuterClass {
      * @return whether the equipmentList field is set
      */
     public boolean hasEquipmentList() {
-      return (bitField0_ & 0x00000800) != 0;
+      return (bitField0_ & 0x00001000) != 0;
     }
 
     /**
@@ -591,7 +633,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar clearEquipmentList() {
-      bitField0_ &= ~0x00000800;
+      bitField0_ &= ~0x00001000;
       equipmentList.clear();
       return this;
     }
@@ -620,7 +662,7 @@ public final class BattleAvatarOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<BattleEquipmentOuterClass.BattleEquipment> getMutableEquipmentList() {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       return equipmentList;
     }
 
@@ -630,7 +672,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar addEquipmentList(final BattleEquipmentOuterClass.BattleEquipment value) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       equipmentList.add(value);
       return this;
     }
@@ -642,7 +684,7 @@ public final class BattleAvatarOuterClass {
      */
     public BattleAvatar addAllEquipmentList(
         final BattleEquipmentOuterClass.BattleEquipment... values) {
-      bitField0_ |= 0x00000800;
+      bitField0_ |= 0x00001000;
       equipmentList.addAll(values);
       return this;
     }
@@ -652,7 +694,7 @@ public final class BattleAvatarOuterClass {
      * @return whether the relicList field is set
      */
     public boolean hasRelicList() {
-      return (bitField0_ & 0x00001000) != 0;
+      return (bitField0_ & 0x00002000) != 0;
     }
 
     /**
@@ -660,7 +702,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar clearRelicList() {
-      bitField0_ &= ~0x00001000;
+      bitField0_ &= ~0x00002000;
       relicList.clear();
       return this;
     }
@@ -689,7 +731,7 @@ public final class BattleAvatarOuterClass {
      * @return internal storage object for modifications
      */
     public RepeatedMessage<BattleRelicOuterClass.BattleRelic> getMutableRelicList() {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       return relicList;
     }
 
@@ -699,7 +741,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar addRelicList(final BattleRelicOuterClass.BattleRelic value) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       relicList.add(value);
       return this;
     }
@@ -710,7 +752,7 @@ public final class BattleAvatarOuterClass {
      * @return this
      */
     public BattleAvatar addAllRelicList(final BattleRelicOuterClass.BattleRelic... values) {
-      bitField0_ |= 0x00001000;
+      bitField0_ |= 0x00002000;
       relicList.addAll(values);
       return this;
     }
@@ -728,6 +770,7 @@ public final class BattleAvatarOuterClass {
         promotion = other.promotion;
         worldLevel = other.worldLevel;
         assistUid = other.assistUid;
+        avatarEnhanceId = other.avatarEnhanceId;
         avatarType = other.avatarType;
         spBar.copyFrom(other.spBar);
         skilltreeList.copyFrom(other.skilltreeList);
@@ -767,6 +810,9 @@ public final class BattleAvatarOuterClass {
       if (other.hasAssistUid()) {
         setAssistUid(other.assistUid);
       }
+      if (other.hasAvatarEnhanceId()) {
+        setAvatarEnhanceId(other.avatarEnhanceId);
+      }
       if (other.hasAvatarType()) {
         setAvatarTypeValue(other.avatarType);
       }
@@ -800,6 +846,7 @@ public final class BattleAvatarOuterClass {
       promotion = 0;
       worldLevel = 0;
       assistUid = 0;
+      avatarEnhanceId = 0;
       avatarType = 0;
       spBar.clear();
       skilltreeList.clear();
@@ -840,6 +887,7 @@ public final class BattleAvatarOuterClass {
         && (!hasPromotion() || promotion == other.promotion)
         && (!hasWorldLevel() || worldLevel == other.worldLevel)
         && (!hasAssistUid() || assistUid == other.assistUid)
+        && (!hasAvatarEnhanceId() || avatarEnhanceId == other.avatarEnhanceId)
         && (!hasAvatarType() || avatarType == other.avatarType)
         && (!hasSpBar() || spBar.equals(other.spBar))
         && (!hasSkilltreeList() || skilltreeList.equals(other.skilltreeList))
@@ -882,26 +930,30 @@ public final class BattleAvatarOuterClass {
         output.writeUInt32NoTag(assistUid);
       }
       if ((bitField0_ & 0x00000100) != 0) {
+        output.writeRawLittleEndian16((short) 408);
+        output.writeUInt32NoTag(avatarEnhanceId);
+      }
+      if ((bitField0_ & 0x00000200) != 0) {
         output.writeRawByte((byte) 8);
         output.writeEnumNoTag(avatarType);
       }
-      if ((bitField0_ & 0x00000200) != 0) {
+      if ((bitField0_ & 0x00000400) != 0) {
         output.writeRawLittleEndian16((short) 386);
         output.writeMessageNoTag(spBar);
       }
-      if ((bitField0_ & 0x00000400) != 0) {
+      if ((bitField0_ & 0x00000800) != 0) {
         for (int i = 0; i < skilltreeList.length(); i++) {
           output.writeRawByte((byte) 50);
           output.writeMessageNoTag(skilltreeList.get(i));
         }
       }
-      if ((bitField0_ & 0x00000800) != 0) {
+      if ((bitField0_ & 0x00001000) != 0) {
         for (int i = 0; i < equipmentList.length(); i++) {
           output.writeRawByte((byte) 58);
           output.writeMessageNoTag(equipmentList.get(i));
         }
       }
-      if ((bitField0_ & 0x00001000) != 0) {
+      if ((bitField0_ & 0x00002000) != 0) {
         for (int i = 0; i < relicList.length(); i++) {
           output.writeRawByte((byte) 90);
           output.writeMessageNoTag(relicList.get(i));
@@ -937,18 +989,21 @@ public final class BattleAvatarOuterClass {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(assistUid);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        size += 1 + ProtoSink.computeEnumSizeNoTag(avatarType);
+        size += 2 + ProtoSink.computeUInt32SizeNoTag(avatarEnhanceId);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        size += 2 + ProtoSink.computeMessageSizeNoTag(spBar);
+        size += 1 + ProtoSink.computeEnumSizeNoTag(avatarType);
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        size += (1 * skilltreeList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(skilltreeList);
+        size += 2 + ProtoSink.computeMessageSizeNoTag(spBar);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        size += (1 * equipmentList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(equipmentList);
+        size += (1 * skilltreeList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(skilltreeList);
       }
       if ((bitField0_ & 0x00001000) != 0) {
+        size += (1 * equipmentList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(equipmentList);
+      }
+      if ((bitField0_ & 0x00002000) != 0) {
         size += (1 * relicList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(relicList);
       }
       return size;
@@ -1029,6 +1084,15 @@ public final class BattleAvatarOuterClass {
             assistUid = input.readUInt32();
             bitField0_ |= 0x00000080;
             tag = input.readTag();
+            if (tag != 152) {
+              break;
+            }
+          }
+          case 152: {
+            // avatarEnhanceId
+            avatarEnhanceId = input.readUInt32();
+            bitField0_ |= 0x00000100;
+            tag = input.readTag();
             if (tag != 8) {
               break;
             }
@@ -1038,7 +1102,7 @@ public final class BattleAvatarOuterClass {
             final int value = input.readInt32();
             if (AvatarTypeOuterClass.AvatarType.forNumber(value) != null) {
               avatarType = value;
-              bitField0_ |= 0x00000100;
+              bitField0_ |= 0x00000200;
             }
             tag = input.readTag();
             if (tag != 130) {
@@ -1048,7 +1112,7 @@ public final class BattleAvatarOuterClass {
           case 130: {
             // spBar
             input.readMessage(spBar);
-            bitField0_ |= 0x00000200;
+            bitField0_ |= 0x00000400;
             tag = input.readTag();
             if (tag != 50) {
               break;
@@ -1057,7 +1121,7 @@ public final class BattleAvatarOuterClass {
           case 50: {
             // skilltreeList
             tag = input.readRepeatedMessage(skilltreeList, tag);
-            bitField0_ |= 0x00000400;
+            bitField0_ |= 0x00000800;
             if (tag != 58) {
               break;
             }
@@ -1065,7 +1129,7 @@ public final class BattleAvatarOuterClass {
           case 58: {
             // equipmentList
             tag = input.readRepeatedMessage(equipmentList, tag);
-            bitField0_ |= 0x00000800;
+            bitField0_ |= 0x00001000;
             if (tag != 90) {
               break;
             }
@@ -1073,7 +1137,7 @@ public final class BattleAvatarOuterClass {
           case 90: {
             // relicList
             tag = input.readRepeatedMessage(relicList, tag);
-            bitField0_ |= 0x00001000;
+            bitField0_ |= 0x00002000;
             if (tag != 0) {
               break;
             }
@@ -1120,18 +1184,21 @@ public final class BattleAvatarOuterClass {
         output.writeUInt32(FieldNames.assistUid, assistUid);
       }
       if ((bitField0_ & 0x00000100) != 0) {
-        output.writeEnum(FieldNames.avatarType, avatarType, AvatarTypeOuterClass.AvatarType.converter());
+        output.writeUInt32(FieldNames.avatarEnhanceId, avatarEnhanceId);
       }
       if ((bitField0_ & 0x00000200) != 0) {
-        output.writeMessage(FieldNames.spBar, spBar);
+        output.writeEnum(FieldNames.avatarType, avatarType, AvatarTypeOuterClass.AvatarType.converter());
       }
       if ((bitField0_ & 0x00000400) != 0) {
-        output.writeRepeatedMessage(FieldNames.skilltreeList, skilltreeList);
+        output.writeMessage(FieldNames.spBar, spBar);
       }
       if ((bitField0_ & 0x00000800) != 0) {
-        output.writeRepeatedMessage(FieldNames.equipmentList, equipmentList);
+        output.writeRepeatedMessage(FieldNames.skilltreeList, skilltreeList);
       }
       if ((bitField0_ & 0x00001000) != 0) {
+        output.writeRepeatedMessage(FieldNames.equipmentList, equipmentList);
+      }
+      if ((bitField0_ & 0x00002000) != 0) {
         output.writeRepeatedMessage(FieldNames.relicList, relicList);
       }
       output.endObject();
@@ -1234,6 +1301,18 @@ public final class BattleAvatarOuterClass {
             }
             break;
           }
+          case -94590192:
+          case 306903794: {
+            if (input.isAtField(FieldNames.avatarEnhanceId)) {
+              if (!input.trySkipNullValue()) {
+                avatarEnhanceId = input.readUInt32();
+                bitField0_ |= 0x00000100;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
           case -403148749:
           case 397309536: {
             if (input.isAtField(FieldNames.avatarType)) {
@@ -1241,7 +1320,7 @@ public final class BattleAvatarOuterClass {
                 final AvatarTypeOuterClass.AvatarType value = input.readEnum(AvatarTypeOuterClass.AvatarType.converter());
                 if (value != null) {
                   avatarType = value.getNumber();
-                  bitField0_ |= 0x00000100;
+                  bitField0_ |= 0x00000200;
                 } else {
                   input.skipUnknownEnumValue();
                 }
@@ -1256,7 +1335,7 @@ public final class BattleAvatarOuterClass {
             if (input.isAtField(FieldNames.spBar)) {
               if (!input.trySkipNullValue()) {
                 input.readMessage(spBar);
-                bitField0_ |= 0x00000200;
+                bitField0_ |= 0x00000400;
               }
             } else {
               input.skipUnknownField();
@@ -1268,7 +1347,7 @@ public final class BattleAvatarOuterClass {
             if (input.isAtField(FieldNames.skilltreeList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(skilltreeList);
-                bitField0_ |= 0x00000400;
+                bitField0_ |= 0x00000800;
               }
             } else {
               input.skipUnknownField();
@@ -1280,7 +1359,7 @@ public final class BattleAvatarOuterClass {
             if (input.isAtField(FieldNames.equipmentList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(equipmentList);
-                bitField0_ |= 0x00000800;
+                bitField0_ |= 0x00001000;
               }
             } else {
               input.skipUnknownField();
@@ -1292,7 +1371,7 @@ public final class BattleAvatarOuterClass {
             if (input.isAtField(FieldNames.relicList)) {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(relicList);
-                bitField0_ |= 0x00001000;
+                bitField0_ |= 0x00002000;
               }
             } else {
               input.skipUnknownField();
@@ -1366,6 +1445,8 @@ public final class BattleAvatarOuterClass {
       static final FieldName worldLevel = FieldName.forField("worldLevel", "world_level");
 
       static final FieldName assistUid = FieldName.forField("assistUid", "assist_uid");
+
+      static final FieldName avatarEnhanceId = FieldName.forField("avatarEnhanceId", "avatar_enhance_id");
 
       static final FieldName avatarType = FieldName.forField("avatarType", "avatar_type");
 

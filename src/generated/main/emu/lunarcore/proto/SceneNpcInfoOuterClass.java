@@ -24,7 +24,7 @@ public final class SceneNpcInfoOuterClass {
     private int npcId;
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 12;</code>
      */
     private final NpcExtraInfoOuterClass.NpcExtraInfo extraInfo = NpcExtraInfoOuterClass.NpcExtraInfo.newInstance();
 
@@ -76,7 +76,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 12;</code>
      * @return whether the extraInfo field is set
      */
     public boolean hasExtraInfo() {
@@ -84,7 +84,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 12;</code>
      * @return this
      */
     public SceneNpcInfo clearExtraInfo() {
@@ -94,7 +94,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -108,7 +108,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -122,7 +122,7 @@ public final class SceneNpcInfoOuterClass {
     }
 
     /**
-     * <code>optional .NpcExtraInfo extra_info = 6;</code>
+     * <code>optional .NpcExtraInfo extra_info = 12;</code>
      * @param value the extraInfo to set
      * @return this
      */
@@ -202,7 +202,7 @@ public final class SceneNpcInfoOuterClass {
         output.writeUInt32NoTag(npcId);
       }
       if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 50);
+        output.writeRawByte((byte) 98);
         output.writeMessageNoTag(extraInfo);
       }
     }
@@ -231,11 +231,11 @@ public final class SceneNpcInfoOuterClass {
             npcId = input.readUInt32();
             bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 50) {
+            if (tag != 98) {
               break;
             }
           }
-          case 50: {
+          case 98: {
             // extraInfo
             input.readMessage(extraInfo);
             bitField0_ |= 0x00000002;

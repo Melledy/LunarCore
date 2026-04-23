@@ -19,14 +19,9 @@ public final class PropExtraInfoOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     *  PropAeonInfo aeon_info = 7;
-     *  PropChessInfo chess_rogue_info = 8;
-     * </pre>
-     *
-     * <code>optional .PropRogueInfo rogue_info = 10;</code>
+     * <code>optional .PropTimelineInfo prop_timeline_info = 12;</code>
      */
-    private final PropRogueInfoOuterClass.PropRogueInfo rogueInfo = PropRogueInfoOuterClass.PropRogueInfo.newInstance();
+    private final PropTimelineInfoOuterClass.PropTimelineInfo propTimelineInfo = PropTimelineInfoOuterClass.PropTimelineInfo.newInstance();
 
     private PropExtraInfo() {
     }
@@ -38,71 +33,40 @@ public final class PropExtraInfoOuterClass {
       return new PropExtraInfo();
     }
 
-    public boolean hasInfo() {
-      return (((bitField0_ & 0x00000001)) != 0);
-    }
-
-    public PropExtraInfo clearInfo() {
-      if (hasInfo()) {
-        clearRogueInfo();
-      }
-      return this;
-    }
-
     /**
-     * <pre>
-     *  PropAeonInfo aeon_info = 7;
-     *  PropChessInfo chess_rogue_info = 8;
-     * </pre>
-     *
-     * <code>optional .PropRogueInfo rogue_info = 10;</code>
-     * @return whether the rogueInfo field is set
+     * <code>optional .PropTimelineInfo prop_timeline_info = 12;</code>
+     * @return whether the propTimelineInfo field is set
      */
-    public boolean hasRogueInfo() {
+    public boolean hasPropTimelineInfo() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <pre>
-     *  PropAeonInfo aeon_info = 7;
-     *  PropChessInfo chess_rogue_info = 8;
-     * </pre>
-     *
-     * <code>optional .PropRogueInfo rogue_info = 10;</code>
+     * <code>optional .PropTimelineInfo prop_timeline_info = 12;</code>
      * @return this
      */
-    public PropExtraInfo clearRogueInfo() {
+    public PropExtraInfo clearPropTimelineInfo() {
       bitField0_ &= ~0x00000001;
-      rogueInfo.clear();
+      propTimelineInfo.clear();
       return this;
     }
 
     /**
-     * <pre>
-     *  PropAeonInfo aeon_info = 7;
-     *  PropChessInfo chess_rogue_info = 8;
-     * </pre>
-     *
-     * <code>optional .PropRogueInfo rogue_info = 10;</code>
+     * <code>optional .PropTimelineInfo prop_timeline_info = 12;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
      *
-     * Use {@link #getMutableRogueInfo()} if you want to modify it.
+     * Use {@link #getMutablePropTimelineInfo()} if you want to modify it.
      *
      * @return internal storage object for reading
      */
-    public PropRogueInfoOuterClass.PropRogueInfo getRogueInfo() {
-      return rogueInfo;
+    public PropTimelineInfoOuterClass.PropTimelineInfo getPropTimelineInfo() {
+      return propTimelineInfo;
     }
 
     /**
-     * <pre>
-     *  PropAeonInfo aeon_info = 7;
-     *  PropChessInfo chess_rogue_info = 8;
-     * </pre>
-     *
-     * <code>optional .PropRogueInfo rogue_info = 10;</code>
+     * <code>optional .PropTimelineInfo prop_timeline_info = 12;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -110,24 +74,20 @@ public final class PropExtraInfoOuterClass {
      *
      * @return internal storage object for modifications
      */
-    public PropRogueInfoOuterClass.PropRogueInfo getMutableRogueInfo() {
+    public PropTimelineInfoOuterClass.PropTimelineInfo getMutablePropTimelineInfo() {
       bitField0_ |= 0x00000001;
-      return rogueInfo;
+      return propTimelineInfo;
     }
 
     /**
-     * <pre>
-     *  PropAeonInfo aeon_info = 7;
-     *  PropChessInfo chess_rogue_info = 8;
-     * </pre>
-     *
-     * <code>optional .PropRogueInfo rogue_info = 10;</code>
-     * @param value the rogueInfo to set
+     * <code>optional .PropTimelineInfo prop_timeline_info = 12;</code>
+     * @param value the propTimelineInfo to set
      * @return this
      */
-    public PropExtraInfo setRogueInfo(final PropRogueInfoOuterClass.PropRogueInfo value) {
+    public PropExtraInfo setPropTimelineInfo(
+        final PropTimelineInfoOuterClass.PropTimelineInfo value) {
       bitField0_ |= 0x00000001;
-      rogueInfo.copyFrom(value);
+      propTimelineInfo.copyFrom(value);
       return this;
     }
 
@@ -136,7 +96,7 @@ public final class PropExtraInfoOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        rogueInfo.copyFrom(other.rogueInfo);
+        propTimelineInfo.copyFrom(other.propTimelineInfo);
       }
       return this;
     }
@@ -147,8 +107,8 @@ public final class PropExtraInfoOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasRogueInfo()) {
-        getMutableRogueInfo().mergeFrom(other.rogueInfo);
+      if (other.hasPropTimelineInfo()) {
+        getMutablePropTimelineInfo().mergeFrom(other.propTimelineInfo);
       }
       return this;
     }
@@ -160,7 +120,7 @@ public final class PropExtraInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueInfo.clear();
+      propTimelineInfo.clear();
       return this;
     }
 
@@ -171,7 +131,7 @@ public final class PropExtraInfoOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      rogueInfo.clearQuick();
+      propTimelineInfo.clearQuick();
       return this;
     }
 
@@ -185,14 +145,14 @@ public final class PropExtraInfoOuterClass {
       }
       PropExtraInfo other = (PropExtraInfo) o;
       return bitField0_ == other.bitField0_
-        && (!hasRogueInfo() || rogueInfo.equals(other.rogueInfo));
+        && (!hasPropTimelineInfo() || propTimelineInfo.equals(other.propTimelineInfo));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 82);
-        output.writeMessageNoTag(rogueInfo);
+        output.writeRawByte((byte) 98);
+        output.writeMessageNoTag(propTimelineInfo);
       }
     }
 
@@ -200,7 +160,7 @@ public final class PropExtraInfoOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeMessageSizeNoTag(rogueInfo);
+        size += 1 + ProtoSink.computeMessageSizeNoTag(propTimelineInfo);
       }
       return size;
     }
@@ -212,9 +172,9 @@ public final class PropExtraInfoOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 82: {
-            // rogueInfo
-            input.readMessage(rogueInfo);
+          case 98: {
+            // propTimelineInfo
+            input.readMessage(propTimelineInfo);
             bitField0_ |= 0x00000001;
             tag = input.readTag();
             if (tag != 0) {
@@ -239,7 +199,7 @@ public final class PropExtraInfoOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeMessage(FieldNames.rogueInfo, rogueInfo);
+        output.writeMessage(FieldNames.propTimelineInfo, propTimelineInfo);
       }
       output.endObject();
     }
@@ -251,11 +211,11 @@ public final class PropExtraInfoOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 655808936:
-          case -1124583437: {
-            if (input.isAtField(FieldNames.rogueInfo)) {
+          case 1563729810:
+          case 1904612880: {
+            if (input.isAtField(FieldNames.propTimelineInfo)) {
               if (!input.trySkipNullValue()) {
-                input.readMessage(rogueInfo);
+                input.readMessage(propTimelineInfo);
                 bitField0_ |= 0x00000001;
               }
             } else {
@@ -315,7 +275,7 @@ public final class PropExtraInfoOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName rogueInfo = FieldName.forField("rogueInfo", "rogue_info");
+      static final FieldName propTimelineInfo = FieldName.forField("propTimelineInfo", "prop_timeline_info");
     }
   }
 }

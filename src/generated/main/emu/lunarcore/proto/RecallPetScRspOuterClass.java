@@ -19,19 +19,19 @@ public final class RecallPetScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     */
-    private int bMCOIJCMNNC;
-
-    /**
-     * <code>optional uint32 cur_pet_id = 13;</code>
+     * <code>optional uint32 cur_pet_id = 4;</code>
      */
     private int curPetId;
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 9;</code>
      */
     private int retcode;
+
+    /**
+     * <code>optional uint32 new_pet_id = 10;</code>
+     */
+    private int newPetId;
 
     private RecallPetScRsp() {
     }
@@ -44,62 +44,25 @@ public final class RecallPetScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     * @return whether the bMCOIJCMNNC field is set
+     * <code>optional uint32 cur_pet_id = 4;</code>
+     * @return whether the curPetId field is set
      */
-    public boolean hasBMCOIJCMNNC() {
+    public boolean hasCurPetId() {
       return (bitField0_ & 0x00000001) != 0;
     }
 
     /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     * @return this
-     */
-    public RecallPetScRsp clearBMCOIJCMNNC() {
-      bitField0_ &= ~0x00000001;
-      bMCOIJCMNNC = 0;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     * @return the bMCOIJCMNNC
-     */
-    public int getBMCOIJCMNNC() {
-      return bMCOIJCMNNC;
-    }
-
-    /**
-     * <code>optional uint32 BMCOIJCMNNC = 7;</code>
-     * @param value the bMCOIJCMNNC to set
-     * @return this
-     */
-    public RecallPetScRsp setBMCOIJCMNNC(final int value) {
-      bitField0_ |= 0x00000001;
-      bMCOIJCMNNC = value;
-      return this;
-    }
-
-    /**
-     * <code>optional uint32 cur_pet_id = 13;</code>
-     * @return whether the curPetId field is set
-     */
-    public boolean hasCurPetId() {
-      return (bitField0_ & 0x00000002) != 0;
-    }
-
-    /**
-     * <code>optional uint32 cur_pet_id = 13;</code>
+     * <code>optional uint32 cur_pet_id = 4;</code>
      * @return this
      */
     public RecallPetScRsp clearCurPetId() {
-      bitField0_ &= ~0x00000002;
+      bitField0_ &= ~0x00000001;
       curPetId = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 cur_pet_id = 13;</code>
+     * <code>optional uint32 cur_pet_id = 4;</code>
      * @return the curPetId
      */
     public int getCurPetId() {
@@ -107,36 +70,36 @@ public final class RecallPetScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 cur_pet_id = 13;</code>
+     * <code>optional uint32 cur_pet_id = 4;</code>
      * @param value the curPetId to set
      * @return this
      */
     public RecallPetScRsp setCurPetId(final int value) {
-      bitField0_ |= 0x00000002;
+      bitField0_ |= 0x00000001;
       curPetId = value;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return whether the retcode field is set
      */
     public boolean hasRetcode() {
-      return (bitField0_ & 0x00000004) != 0;
+      return (bitField0_ & 0x00000002) != 0;
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return this
      */
     public RecallPetScRsp clearRetcode() {
-      bitField0_ &= ~0x00000004;
+      bitField0_ &= ~0x00000002;
       retcode = 0;
       return this;
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @return the retcode
      */
     public int getRetcode() {
@@ -144,13 +107,50 @@ public final class RecallPetScRspOuterClass {
     }
 
     /**
-     * <code>optional uint32 retcode = 14;</code>
+     * <code>optional uint32 retcode = 9;</code>
      * @param value the retcode to set
      * @return this
      */
     public RecallPetScRsp setRetcode(final int value) {
-      bitField0_ |= 0x00000004;
+      bitField0_ |= 0x00000002;
       retcode = value;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 new_pet_id = 10;</code>
+     * @return whether the newPetId field is set
+     */
+    public boolean hasNewPetId() {
+      return (bitField0_ & 0x00000004) != 0;
+    }
+
+    /**
+     * <code>optional uint32 new_pet_id = 10;</code>
+     * @return this
+     */
+    public RecallPetScRsp clearNewPetId() {
+      bitField0_ &= ~0x00000004;
+      newPetId = 0;
+      return this;
+    }
+
+    /**
+     * <code>optional uint32 new_pet_id = 10;</code>
+     * @return the newPetId
+     */
+    public int getNewPetId() {
+      return newPetId;
+    }
+
+    /**
+     * <code>optional uint32 new_pet_id = 10;</code>
+     * @param value the newPetId to set
+     * @return this
+     */
+    public RecallPetScRsp setNewPetId(final int value) {
+      bitField0_ |= 0x00000004;
+      newPetId = value;
       return this;
     }
 
@@ -159,9 +159,9 @@ public final class RecallPetScRspOuterClass {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
-        bMCOIJCMNNC = other.bMCOIJCMNNC;
         curPetId = other.curPetId;
         retcode = other.retcode;
+        newPetId = other.newPetId;
       }
       return this;
     }
@@ -172,14 +172,14 @@ public final class RecallPetScRspOuterClass {
         return this;
       }
       cachedSize = -1;
-      if (other.hasBMCOIJCMNNC()) {
-        setBMCOIJCMNNC(other.bMCOIJCMNNC);
-      }
       if (other.hasCurPetId()) {
         setCurPetId(other.curPetId);
       }
       if (other.hasRetcode()) {
         setRetcode(other.retcode);
+      }
+      if (other.hasNewPetId()) {
+        setNewPetId(other.newPetId);
       }
       return this;
     }
@@ -191,9 +191,9 @@ public final class RecallPetScRspOuterClass {
       }
       cachedSize = -1;
       bitField0_ = 0;
-      bMCOIJCMNNC = 0;
       curPetId = 0;
       retcode = 0;
+      newPetId = 0;
       return this;
     }
 
@@ -217,24 +217,24 @@ public final class RecallPetScRspOuterClass {
       }
       RecallPetScRsp other = (RecallPetScRsp) o;
       return bitField0_ == other.bitField0_
-        && (!hasBMCOIJCMNNC() || bMCOIJCMNNC == other.bMCOIJCMNNC)
         && (!hasCurPetId() || curPetId == other.curPetId)
-        && (!hasRetcode() || retcode == other.retcode);
+        && (!hasRetcode() || retcode == other.retcode)
+        && (!hasNewPetId() || newPetId == other.newPetId);
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeRawByte((byte) 56);
-        output.writeUInt32NoTag(bMCOIJCMNNC);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
-        output.writeRawByte((byte) 104);
+        output.writeRawByte((byte) 32);
         output.writeUInt32NoTag(curPetId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
-        output.writeRawByte((byte) 112);
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRawByte((byte) 72);
         output.writeUInt32NoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeRawByte((byte) 80);
+        output.writeUInt32NoTag(newPetId);
       }
     }
 
@@ -242,13 +242,13 @@ public final class RecallPetScRspOuterClass {
     protected int computeSerializedSize() {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
-        size += 1 + ProtoSink.computeUInt32SizeNoTag(bMCOIJCMNNC);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(curPetId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         size += 1 + ProtoSink.computeUInt32SizeNoTag(retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        size += 1 + ProtoSink.computeUInt32SizeNoTag(newPetId);
       }
       return size;
     }
@@ -260,27 +260,27 @@ public final class RecallPetScRspOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 56: {
-            // bMCOIJCMNNC
-            bMCOIJCMNNC = input.readUInt32();
-            bitField0_ |= 0x00000001;
-            tag = input.readTag();
-            if (tag != 104) {
-              break;
-            }
-          }
-          case 104: {
+          case 32: {
             // curPetId
             curPetId = input.readUInt32();
-            bitField0_ |= 0x00000002;
+            bitField0_ |= 0x00000001;
             tag = input.readTag();
-            if (tag != 112) {
+            if (tag != 72) {
               break;
             }
           }
-          case 112: {
+          case 72: {
             // retcode
             retcode = input.readUInt32();
+            bitField0_ |= 0x00000002;
+            tag = input.readTag();
+            if (tag != 80) {
+              break;
+            }
+          }
+          case 80: {
+            // newPetId
+            newPetId = input.readUInt32();
             bitField0_ |= 0x00000004;
             tag = input.readTag();
             if (tag != 0) {
@@ -305,13 +305,13 @@ public final class RecallPetScRspOuterClass {
     public void writeTo(final JsonSink output) throws IOException {
       output.beginObject();
       if ((bitField0_ & 0x00000001) != 0) {
-        output.writeUInt32(FieldNames.bMCOIJCMNNC, bMCOIJCMNNC);
-      }
-      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.curPetId, curPetId);
       }
-      if ((bitField0_ & 0x00000004) != 0) {
+      if ((bitField0_ & 0x00000002) != 0) {
         output.writeUInt32(FieldNames.retcode, retcode);
+      }
+      if ((bitField0_ & 0x00000004) != 0) {
+        output.writeUInt32(FieldNames.newPetId, newPetId);
       }
       output.endObject();
     }
@@ -323,23 +323,12 @@ public final class RecallPetScRspOuterClass {
       }
       while (!input.isAtEnd()) {
         switch (input.readFieldHash()) {
-          case 1362418561: {
-            if (input.isAtField(FieldNames.bMCOIJCMNNC)) {
-              if (!input.trySkipNullValue()) {
-                bMCOIJCMNNC = input.readUInt32();
-                bitField0_ |= 0x00000001;
-              }
-            } else {
-              input.skipUnknownField();
-            }
-            break;
-          }
           case 544007226:
           case -465065190: {
             if (input.isAtField(FieldNames.curPetId)) {
               if (!input.trySkipNullValue()) {
                 curPetId = input.readUInt32();
-                bitField0_ |= 0x00000002;
+                bitField0_ |= 0x00000001;
               }
             } else {
               input.skipUnknownField();
@@ -350,6 +339,18 @@ public final class RecallPetScRspOuterClass {
             if (input.isAtField(FieldNames.retcode)) {
               if (!input.trySkipNullValue()) {
                 retcode = input.readUInt32();
+                bitField0_ |= 0x00000002;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1363040474:
+          case 646870970: {
+            if (input.isAtField(FieldNames.newPetId)) {
+              if (!input.trySkipNullValue()) {
+                newPetId = input.readUInt32();
                 bitField0_ |= 0x00000004;
               }
             } else {
@@ -410,11 +411,11 @@ public final class RecallPetScRspOuterClass {
      * Contains name constants used for serializing JSON
      */
     static class FieldNames {
-      static final FieldName bMCOIJCMNNC = FieldName.forField("BMCOIJCMNNC");
-
       static final FieldName curPetId = FieldName.forField("curPetId", "cur_pet_id");
 
       static final FieldName retcode = FieldName.forField("retcode");
+
+      static final FieldName newPetId = FieldName.forField("newPetId", "new_pet_id");
     }
   }
 }

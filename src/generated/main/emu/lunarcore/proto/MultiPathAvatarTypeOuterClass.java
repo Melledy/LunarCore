@@ -52,7 +52,27 @@ public final class MultiPathAvatarTypeOuterClass {
     /**
      * <code>GirlShamanType = 8006;</code>
      */
-    GirlShamanType("GirlShamanType", 8006);
+    GirlShamanType("GirlShamanType", 8006),
+
+    /**
+     * <code>BoyMemoryType = 8007;</code>
+     */
+    BoyMemoryType("BoyMemoryType", 8007),
+
+    /**
+     * <code>GirlMemoryType = 8008;</code>
+     */
+    GirlMemoryType("GirlMemoryType", 8008),
+
+    /**
+     * <code>BoyElationType = 8009;</code>
+     */
+    BoyElationType("BoyElationType", 8009),
+
+    /**
+     * <code>GirlElationType = 8010;</code>
+     */
+    GirlElationType("GirlElationType", 8010);
 
     /**
      * <code>MultiPathAvatarTypeNone = 0;</code>
@@ -98,6 +118,26 @@ public final class MultiPathAvatarTypeOuterClass {
      * <code>GirlShamanType = 8006;</code>
      */
     public static final int GirlShamanType_VALUE = 8006;
+
+    /**
+     * <code>BoyMemoryType = 8007;</code>
+     */
+    public static final int BoyMemoryType_VALUE = 8007;
+
+    /**
+     * <code>GirlMemoryType = 8008;</code>
+     */
+    public static final int GirlMemoryType_VALUE = 8008;
+
+    /**
+     * <code>BoyElationType = 8009;</code>
+     */
+    public static final int BoyElationType_VALUE = 8009;
+
+    /**
+     * <code>GirlElationType = 8010;</code>
+     */
+    public static final int GirlElationType_VALUE = 8010;
 
     private final String name;
 
@@ -164,6 +204,10 @@ public final class MultiPathAvatarTypeOuterClass {
           case 8004: return GirlKnightType;
           case 8005: return BoyShamanType;
           case 8006: return GirlShamanType;
+          case 8007: return BoyMemoryType;
+          case 8008: return GirlMemoryType;
+          case 8009: return BoyElationType;
+          case 8010: return GirlElationType;
           default: return null;
         }
       }
@@ -178,6 +222,9 @@ public final class MultiPathAvatarTypeOuterClass {
             if (ProtoUtil.isEqual("BoyShamanType", value)) {
               return BoyShamanType;
             }
+            if (ProtoUtil.isEqual("BoyMemoryType", value)) {
+              return BoyMemoryType;
+            }
             break;
           }
           case 14: {
@@ -190,11 +237,20 @@ public final class MultiPathAvatarTypeOuterClass {
             if (ProtoUtil.isEqual("GirlShamanType", value)) {
               return GirlShamanType;
             }
+            if (ProtoUtil.isEqual("GirlMemoryType", value)) {
+              return GirlMemoryType;
+            }
+            if (ProtoUtil.isEqual("BoyElationType", value)) {
+              return BoyElationType;
+            }
             break;
           }
           case 15: {
             if (ProtoUtil.isEqual("GirlWarriorType", value)) {
               return GirlWarriorType;
+            }
+            if (ProtoUtil.isEqual("GirlElationType", value)) {
+              return GirlElationType;
             }
             break;
           }

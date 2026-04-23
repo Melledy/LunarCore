@@ -193,6 +193,36 @@ public class Utils {
         return false;
     }
 
+    public static boolean arrayContains(Integer[] array, int value) {
+        for (Integer element : array) {
+            if (element != null && element.equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static boolean arrayContains(List<Integer> list, int value) {
+        for (Integer element : list) {
+            if (element.equals(value)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static int[] convertListToIntArray(List<Integer> list) {
+        // Create an int array with the same size as the list
+        int[] intArray = new int[list.size()];
+
+        // Iterate over the list and populate the int array
+        for (int i = 0; i < list.size(); i++) {
+            intArray[i] = list.get(i);
+        }
+
+        return intArray;
+    }
+
     /**
      * Base64 encodes a given byte array.
      * @param toEncode An array of bytes.

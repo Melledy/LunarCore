@@ -20,9 +20,14 @@ public final class AvatarSyncOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <code>repeated .Avatar avatar_list = 10;</code>
+     * <code>repeated .Avatar avatar_list = 6;</code>
      */
     private final RepeatedMessage<AvatarOuterClass.Avatar> avatarList = RepeatedMessage.newEmptyInstance(AvatarOuterClass.Avatar.getFactory());
+
+    /**
+     * <code>repeated .AvatarPathInfo avatar_path_info_list = 14;</code>
+     */
+    private final RepeatedMessage<AvatarPathInfoOuterClass.AvatarPathInfo> avatarPathInfoList = RepeatedMessage.newEmptyInstance(AvatarPathInfoOuterClass.AvatarPathInfo.getFactory());
 
     private AvatarSync() {
     }
@@ -35,7 +40,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 10;</code>
+     * <code>repeated .Avatar avatar_list = 6;</code>
      * @return whether the avatarList field is set
      */
     public boolean hasAvatarList() {
@@ -43,7 +48,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 10;</code>
+     * <code>repeated .Avatar avatar_list = 6;</code>
      * @return this
      */
     public AvatarSync clearAvatarList() {
@@ -53,7 +58,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 10;</code>
+     * <code>repeated .Avatar avatar_list = 6;</code>
      *
      * This method returns the internal storage object without modifying any has state.
      * The returned object should not be modified and be treated as read-only.
@@ -67,7 +72,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 10;</code>
+     * <code>repeated .Avatar avatar_list = 6;</code>
      *
      * This method returns the internal storage object and sets the corresponding
      * has state. The returned object will become part of this message and its
@@ -81,7 +86,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 10;</code>
+     * <code>repeated .Avatar avatar_list = 6;</code>
      * @param value the avatarList to add
      * @return this
      */
@@ -92,7 +97,7 @@ public final class AvatarSyncOuterClass {
     }
 
     /**
-     * <code>repeated .Avatar avatar_list = 10;</code>
+     * <code>repeated .Avatar avatar_list = 6;</code>
      * @param values the avatarList to add
      * @return this
      */
@@ -102,12 +107,82 @@ public final class AvatarSyncOuterClass {
       return this;
     }
 
+    /**
+     * <code>repeated .AvatarPathInfo avatar_path_info_list = 14;</code>
+     * @return whether the avatarPathInfoList field is set
+     */
+    public boolean hasAvatarPathInfoList() {
+      return (bitField0_ & 0x00000002) != 0;
+    }
+
+    /**
+     * <code>repeated .AvatarPathInfo avatar_path_info_list = 14;</code>
+     * @return this
+     */
+    public AvatarSync clearAvatarPathInfoList() {
+      bitField0_ &= ~0x00000002;
+      avatarPathInfoList.clear();
+      return this;
+    }
+
+    /**
+     * <code>repeated .AvatarPathInfo avatar_path_info_list = 14;</code>
+     *
+     * This method returns the internal storage object without modifying any has state.
+     * The returned object should not be modified and be treated as read-only.
+     *
+     * Use {@link #getMutableAvatarPathInfoList()} if you want to modify it.
+     *
+     * @return internal storage object for reading
+     */
+    public RepeatedMessage<AvatarPathInfoOuterClass.AvatarPathInfo> getAvatarPathInfoList() {
+      return avatarPathInfoList;
+    }
+
+    /**
+     * <code>repeated .AvatarPathInfo avatar_path_info_list = 14;</code>
+     *
+     * This method returns the internal storage object and sets the corresponding
+     * has state. The returned object will become part of this message and its
+     * contents may be modified as long as the has state is not cleared.
+     *
+     * @return internal storage object for modifications
+     */
+    public RepeatedMessage<AvatarPathInfoOuterClass.AvatarPathInfo> getMutableAvatarPathInfoList() {
+      bitField0_ |= 0x00000002;
+      return avatarPathInfoList;
+    }
+
+    /**
+     * <code>repeated .AvatarPathInfo avatar_path_info_list = 14;</code>
+     * @param value the avatarPathInfoList to add
+     * @return this
+     */
+    public AvatarSync addAvatarPathInfoList(final AvatarPathInfoOuterClass.AvatarPathInfo value) {
+      bitField0_ |= 0x00000002;
+      avatarPathInfoList.add(value);
+      return this;
+    }
+
+    /**
+     * <code>repeated .AvatarPathInfo avatar_path_info_list = 14;</code>
+     * @param values the avatarPathInfoList to add
+     * @return this
+     */
+    public AvatarSync addAllAvatarPathInfoList(
+        final AvatarPathInfoOuterClass.AvatarPathInfo... values) {
+      bitField0_ |= 0x00000002;
+      avatarPathInfoList.addAll(values);
+      return this;
+    }
+
     @Override
     public AvatarSync copyFrom(final AvatarSync other) {
       cachedSize = other.cachedSize;
       if ((bitField0_ | other.bitField0_) != 0) {
         bitField0_ = other.bitField0_;
         avatarList.copyFrom(other.avatarList);
+        avatarPathInfoList.copyFrom(other.avatarPathInfoList);
       }
       return this;
     }
@@ -121,6 +196,9 @@ public final class AvatarSyncOuterClass {
       if (other.hasAvatarList()) {
         getMutableAvatarList().addAll(other.avatarList);
       }
+      if (other.hasAvatarPathInfoList()) {
+        getMutableAvatarPathInfoList().addAll(other.avatarPathInfoList);
+      }
       return this;
     }
 
@@ -132,6 +210,7 @@ public final class AvatarSyncOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       avatarList.clear();
+      avatarPathInfoList.clear();
       return this;
     }
 
@@ -143,6 +222,7 @@ public final class AvatarSyncOuterClass {
       cachedSize = -1;
       bitField0_ = 0;
       avatarList.clearQuick();
+      avatarPathInfoList.clearQuick();
       return this;
     }
 
@@ -156,15 +236,22 @@ public final class AvatarSyncOuterClass {
       }
       AvatarSync other = (AvatarSync) o;
       return bitField0_ == other.bitField0_
-        && (!hasAvatarList() || avatarList.equals(other.avatarList));
+        && (!hasAvatarList() || avatarList.equals(other.avatarList))
+        && (!hasAvatarPathInfoList() || avatarPathInfoList.equals(other.avatarPathInfoList));
     }
 
     @Override
     public void writeTo(final ProtoSink output) throws IOException {
       if ((bitField0_ & 0x00000001) != 0) {
         for (int i = 0; i < avatarList.length(); i++) {
-          output.writeRawByte((byte) 82);
+          output.writeRawByte((byte) 50);
           output.writeMessageNoTag(avatarList.get(i));
+        }
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        for (int i = 0; i < avatarPathInfoList.length(); i++) {
+          output.writeRawByte((byte) 114);
+          output.writeMessageNoTag(avatarPathInfoList.get(i));
         }
       }
     }
@@ -174,6 +261,9 @@ public final class AvatarSyncOuterClass {
       int size = 0;
       if ((bitField0_ & 0x00000001) != 0) {
         size += (1 * avatarList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(avatarList);
+      }
+      if ((bitField0_ & 0x00000002) != 0) {
+        size += (1 * avatarPathInfoList.length()) + ProtoSink.computeRepeatedMessageSizeNoTag(avatarPathInfoList);
       }
       return size;
     }
@@ -185,10 +275,18 @@ public final class AvatarSyncOuterClass {
       int tag = input.readTag();
       while (true) {
         switch (tag) {
-          case 82: {
+          case 50: {
             // avatarList
             tag = input.readRepeatedMessage(avatarList, tag);
             bitField0_ |= 0x00000001;
+            if (tag != 114) {
+              break;
+            }
+          }
+          case 114: {
+            // avatarPathInfoList
+            tag = input.readRepeatedMessage(avatarPathInfoList, tag);
+            bitField0_ |= 0x00000002;
             if (tag != 0) {
               break;
             }
@@ -213,6 +311,9 @@ public final class AvatarSyncOuterClass {
       if ((bitField0_ & 0x00000001) != 0) {
         output.writeRepeatedMessage(FieldNames.avatarList, avatarList);
       }
+      if ((bitField0_ & 0x00000002) != 0) {
+        output.writeRepeatedMessage(FieldNames.avatarPathInfoList, avatarPathInfoList);
+      }
       output.endObject();
     }
 
@@ -229,6 +330,18 @@ public final class AvatarSyncOuterClass {
               if (!input.trySkipNullValue()) {
                 input.readRepeatedMessage(avatarList);
                 bitField0_ |= 0x00000001;
+              }
+            } else {
+              input.skipUnknownField();
+            }
+            break;
+          }
+          case 1918381482:
+          case 11642267: {
+            if (input.isAtField(FieldNames.avatarPathInfoList)) {
+              if (!input.trySkipNullValue()) {
+                input.readRepeatedMessage(avatarPathInfoList);
+                bitField0_ |= 0x00000002;
               }
             } else {
               input.skipUnknownField();
@@ -288,6 +401,8 @@ public final class AvatarSyncOuterClass {
      */
     static class FieldNames {
       static final FieldName avatarList = FieldName.forField("avatarList", "avatar_list");
+
+      static final FieldName avatarPathInfoList = FieldName.forField("avatarPathInfoList", "avatar_path_info_list");
     }
   }
 }
