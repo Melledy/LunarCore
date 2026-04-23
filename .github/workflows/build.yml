@@ -7,6 +7,7 @@ on:
     branches:
       - main
       - development
+      - lite
   pull_request:
     paths:
       - "**.java"
