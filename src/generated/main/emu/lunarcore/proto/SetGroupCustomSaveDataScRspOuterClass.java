@@ -23,28 +23,16 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     private static final long serialVersionUID = 0L;
 
     /**
-     * <pre>
-     *  JODPMEDMPJK
-     * </pre>
-     *
      * <code>optional uint32 entry_id = 4;</code>
      */
     private int entryId;
 
     /**
-     * <pre>
-     *  HEDLHGFPCGG
-     * </pre>
-     *
      * <code>optional uint32 group_id = 11;</code>
      */
     private int groupId;
 
     /**
-     * <pre>
-     *  JDLHKMNFDBD
-     * </pre>
-     *
      * <code>optional uint32 retcode = 15;</code>
      */
     private int retcode;
@@ -64,10 +52,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JODPMEDMPJK
-     * </pre>
-     *
      * <code>optional uint32 entry_id = 4;</code>
      * @return whether the entryId field is set
      */
@@ -76,10 +60,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JODPMEDMPJK
-     * </pre>
-     *
      * <code>optional uint32 entry_id = 4;</code>
      * @return this
      */
@@ -90,10 +70,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JODPMEDMPJK
-     * </pre>
-     *
      * <code>optional uint32 entry_id = 4;</code>
      * @return the entryId
      */
@@ -102,10 +78,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JODPMEDMPJK
-     * </pre>
-     *
      * <code>optional uint32 entry_id = 4;</code>
      * @param value the entryId to set
      * @return this
@@ -117,10 +89,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  HEDLHGFPCGG
-     * </pre>
-     *
      * <code>optional uint32 group_id = 11;</code>
      * @return whether the groupId field is set
      */
@@ -129,10 +97,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  HEDLHGFPCGG
-     * </pre>
-     *
      * <code>optional uint32 group_id = 11;</code>
      * @return this
      */
@@ -143,10 +107,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  HEDLHGFPCGG
-     * </pre>
-     *
      * <code>optional uint32 group_id = 11;</code>
      * @return the groupId
      */
@@ -155,10 +115,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  HEDLHGFPCGG
-     * </pre>
-     *
      * <code>optional uint32 group_id = 11;</code>
      * @param value the groupId to set
      * @return this
@@ -170,10 +126,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JDLHKMNFDBD
-     * </pre>
-     *
      * <code>optional uint32 retcode = 15;</code>
      * @return whether the retcode field is set
      */
@@ -182,10 +134,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JDLHKMNFDBD
-     * </pre>
-     *
      * <code>optional uint32 retcode = 15;</code>
      * @return this
      */
@@ -196,10 +144,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JDLHKMNFDBD
-     * </pre>
-     *
      * <code>optional uint32 retcode = 15;</code>
      * @return the retcode
      */
@@ -208,10 +152,6 @@ public final class SetGroupCustomSaveDataScRspOuterClass {
     }
 
     /**
-     * <pre>
-     *  JDLHKMNFDBD
-     * </pre>
-     *
      * <code>optional uint32 retcode = 15;</code>
      * @param value the retcode to set
      * @return this

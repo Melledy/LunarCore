@@ -147,6 +147,14 @@ public class GiveAllCommand implements CommandHandler {
                 // Send message
                 args.sendMessage("Giving " + target.getName() + " all avatars");
             }
+            case "skins" -> {
+                for (var excel : GameData.getAvatarSkinExcelMap().values()) {
+                    target.getUnlocks().addAvatarSkin(excel.getId());
+                }
+                
+                // Send message
+                args.sendMessage("Giving " + target.getName() + " all avatar skins");
+            }
             case "unlocks", "usables", "icons" -> {
                 // Add head icons - Duplicates are handled automatically
                 for (var excel : GameData.getPlayerIconExcelMap().values()) {

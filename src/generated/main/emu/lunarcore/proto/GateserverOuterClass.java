@@ -115,9 +115,9 @@ public final class GateserverOuterClass {
     private final Utf8String mdkResVersion = Utf8String.newEmptyInstance();
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
+     * <code>optional string base_asset_bundle_url = 1417;</code>
      */
-    private final Utf8String assetBundleUrl2 = Utf8String.newEmptyInstance();
+    private final Utf8String baseAssetBundleUrl = Utf8String.newEmptyInstance();
 
     /**
      * <code>optional string ifix_url = 1488;</code>
@@ -1090,67 +1090,67 @@ public final class GateserverOuterClass {
     }
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
-     * @return whether the assetBundleUrl2 field is set
+     * <code>optional string base_asset_bundle_url = 1417;</code>
+     * @return whether the baseAssetBundleUrl field is set
      */
-    public boolean hasAssetBundleUrl2() {
+    public boolean hasBaseAssetBundleUrl() {
       return (bitField0_ & 0x00080000) != 0;
     }
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
+     * <code>optional string base_asset_bundle_url = 1417;</code>
      * @return this
      */
-    public Gateserver clearAssetBundleUrl2() {
+    public Gateserver clearBaseAssetBundleUrl() {
       bitField0_ &= ~0x00080000;
-      assetBundleUrl2.clear();
+      baseAssetBundleUrl.clear();
       return this;
     }
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
-     * @return the assetBundleUrl2
+     * <code>optional string base_asset_bundle_url = 1417;</code>
+     * @return the baseAssetBundleUrl
      */
-    public String getAssetBundleUrl2() {
-      return assetBundleUrl2.getString();
+    public String getBaseAssetBundleUrl() {
+      return baseAssetBundleUrl.getString();
     }
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
-     * @return internal {@code Utf8String} representation of assetBundleUrl2 for reading
+     * <code>optional string base_asset_bundle_url = 1417;</code>
+     * @return internal {@code Utf8String} representation of baseAssetBundleUrl for reading
      */
-    public Utf8String getAssetBundleUrl2Bytes() {
-      return this.assetBundleUrl2;
+    public Utf8String getBaseAssetBundleUrlBytes() {
+      return this.baseAssetBundleUrl;
     }
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
-     * @return internal {@code Utf8String} representation of assetBundleUrl2 for modifications
+     * <code>optional string base_asset_bundle_url = 1417;</code>
+     * @return internal {@code Utf8String} representation of baseAssetBundleUrl for modifications
      */
-    public Utf8String getMutableAssetBundleUrl2Bytes() {
+    public Utf8String getMutableBaseAssetBundleUrlBytes() {
       bitField0_ |= 0x00080000;
-      return this.assetBundleUrl2;
+      return this.baseAssetBundleUrl;
     }
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
-     * @param value the assetBundleUrl2 to set
+     * <code>optional string base_asset_bundle_url = 1417;</code>
+     * @param value the baseAssetBundleUrl to set
      * @return this
      */
-    public Gateserver setAssetBundleUrl2(final CharSequence value) {
+    public Gateserver setBaseAssetBundleUrl(final CharSequence value) {
       bitField0_ |= 0x00080000;
-      assetBundleUrl2.copyFrom(value);
+      baseAssetBundleUrl.copyFrom(value);
       return this;
     }
 
     /**
-     * <code>optional string asset_bundle_url_2 = 1417;</code>
-     * @param value the assetBundleUrl2 to set
+     * <code>optional string base_asset_bundle_url = 1417;</code>
+     * @param value the baseAssetBundleUrl to set
      * @return this
      */
-    public Gateserver setAssetBundleUrl2(final Utf8String value) {
+    public Gateserver setBaseAssetBundleUrl(final Utf8String value) {
       bitField0_ |= 0x00080000;
-      assetBundleUrl2.copyFrom(value);
+      baseAssetBundleUrl.copyFrom(value);
       return this;
     }
 
@@ -1243,7 +1243,7 @@ public final class GateserverOuterClass {
         clientSecretKey.copyFrom(other.clientSecretKey);
         ifixVersion.copyFrom(other.ifixVersion);
         mdkResVersion.copyFrom(other.mdkResVersion);
-        assetBundleUrl2.copyFrom(other.assetBundleUrl2);
+        baseAssetBundleUrl.copyFrom(other.baseAssetBundleUrl);
         ifixUrl.copyFrom(other.ifixUrl);
       }
       return this;
@@ -1312,8 +1312,8 @@ public final class GateserverOuterClass {
       if (other.hasMdkResVersion()) {
         getMutableMdkResVersionBytes().copyFrom(other.mdkResVersion);
       }
-      if (other.hasAssetBundleUrl2()) {
-        getMutableAssetBundleUrl2Bytes().copyFrom(other.assetBundleUrl2);
+      if (other.hasBaseAssetBundleUrl()) {
+        getMutableBaseAssetBundleUrlBytes().copyFrom(other.baseAssetBundleUrl);
       }
       if (other.hasIfixUrl()) {
         getMutableIfixUrlBytes().copyFrom(other.ifixUrl);
@@ -1347,7 +1347,7 @@ public final class GateserverOuterClass {
       clientSecretKey.clear();
       ifixVersion.clear();
       mdkResVersion.clear();
-      assetBundleUrl2.clear();
+      baseAssetBundleUrl.clear();
       ifixUrl.clear();
       return this;
     }
@@ -1368,7 +1368,7 @@ public final class GateserverOuterClass {
       clientSecretKey.clear();
       ifixVersion.clear();
       mdkResVersion.clear();
-      assetBundleUrl2.clear();
+      baseAssetBundleUrl.clear();
       ifixUrl.clear();
       return this;
     }
@@ -1402,7 +1402,7 @@ public final class GateserverOuterClass {
         && (!hasClientSecretKey() || clientSecretKey.equals(other.clientSecretKey))
         && (!hasIfixVersion() || ifixVersion.equals(other.ifixVersion))
         && (!hasMdkResVersion() || mdkResVersion.equals(other.mdkResVersion))
-        && (!hasAssetBundleUrl2() || assetBundleUrl2.equals(other.assetBundleUrl2))
+        && (!hasBaseAssetBundleUrl() || baseAssetBundleUrl.equals(other.baseAssetBundleUrl))
         && (!hasIfixUrl() || ifixUrl.equals(other.ifixUrl));
     }
 
@@ -1486,7 +1486,7 @@ public final class GateserverOuterClass {
       }
       if ((bitField0_ & 0x00080000) != 0) {
         output.writeRawLittleEndian16((short) 22730);
-        output.writeStringNoTag(assetBundleUrl2);
+        output.writeStringNoTag(baseAssetBundleUrl);
       }
       if ((bitField0_ & 0x00100000) != 0) {
         output.writeRawLittleEndian16((short) 23938);
@@ -1555,7 +1555,7 @@ public final class GateserverOuterClass {
         size += 2 + ProtoSink.computeStringSizeNoTag(mdkResVersion);
       }
       if ((bitField0_ & 0x00080000) != 0) {
-        size += 2 + ProtoSink.computeStringSizeNoTag(assetBundleUrl2);
+        size += 2 + ProtoSink.computeStringSizeNoTag(baseAssetBundleUrl);
       }
       if ((bitField0_ & 0x00100000) != 0) {
         size += 2 + ProtoSink.computeStringSizeNoTag(ifixUrl);
@@ -1742,8 +1742,8 @@ public final class GateserverOuterClass {
             }
           }
           case 11338: {
-            // assetBundleUrl2
-            input.readString(assetBundleUrl2);
+            // baseAssetBundleUrl
+            input.readString(baseAssetBundleUrl);
             bitField0_ |= 0x00080000;
             tag = input.readTag();
             if (tag != 11906) {
@@ -1834,7 +1834,7 @@ public final class GateserverOuterClass {
         output.writeString(FieldNames.mdkResVersion, mdkResVersion);
       }
       if ((bitField0_ & 0x00080000) != 0) {
-        output.writeString(FieldNames.assetBundleUrl2, assetBundleUrl2);
+        output.writeString(FieldNames.baseAssetBundleUrl, baseAssetBundleUrl);
       }
       if ((bitField0_ & 0x00100000) != 0) {
         output.writeString(FieldNames.ifixUrl, ifixUrl);
@@ -2066,11 +2066,11 @@ public final class GateserverOuterClass {
             }
             break;
           }
-          case -247376043:
-          case -1775001516: {
-            if (input.isAtField(FieldNames.assetBundleUrl2)) {
+          case 436849070:
+          case -324796273: {
+            if (input.isAtField(FieldNames.baseAssetBundleUrl)) {
               if (!input.trySkipNullValue()) {
-                input.readString(assetBundleUrl2);
+                input.readString(baseAssetBundleUrl);
                 bitField0_ |= 0x00080000;
               }
             } else {
@@ -2180,7 +2180,7 @@ public final class GateserverOuterClass {
 
       static final FieldName mdkResVersion = FieldName.forField("mdkResVersion", "mdk_res_version");
 
-      static final FieldName assetBundleUrl2 = FieldName.forField("assetBundleUrl2", "asset_bundle_url_2");
+      static final FieldName baseAssetBundleUrl = FieldName.forField("baseAssetBundleUrl", "base_asset_bundle_url");
 
       static final FieldName ifixUrl = FieldName.forField("ifixUrl", "ifix_url");
     }

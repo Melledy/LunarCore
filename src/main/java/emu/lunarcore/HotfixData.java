@@ -2,6 +2,7 @@ package emu.lunarcore;
 
 public class HotfixData {
     public String assetBundleUrl = "";
+    public String baseAssetBundleUrl = "";
     public String exResourceUrl = "";
     public String luaUrl = "";
     public String ifixUrl = "";

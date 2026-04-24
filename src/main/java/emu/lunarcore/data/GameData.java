@@ -52,6 +52,7 @@ public class GameData {
     @Getter private static ExcelMap<TextJoinExcel> textJoinExcelMap = new ExcelMap<>();
     @Getter private static ExcelMap<ChatBubbleExcel> chatBubbleExcelMap = new ExcelMap<>();
     @Getter private static ExcelMap<PhoneThemeExcel> phoneThemeExcelMap = new ExcelMap<>();
+    @Getter private static ExcelMap<PlayerOutfitBaseExcel> playerOutfitBaseExcelMap = new ExcelMap<>();
     @Getter private static ExcelMap<PetExcel> petExcelMap = new ExcelMap<>();
     @Getter private static ExcelMap<ContentPackageExcel> contentPackageExcelMap = new ExcelMap<>();
     @Getter private static ExcelMap<OfferingTypeExcel> offeringTypeExcelMap = new ExcelMap<>();

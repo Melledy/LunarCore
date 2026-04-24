@@ -256,12 +256,20 @@ public class Inventory extends BasePlayerManager {
                         getPlayer().getUnlocks().addHeadIcon(item.getItemId());
                         return item;
                     }
+                    case HeadIconFrame -> {
+                        getPlayer().getUnlocks().addHeadIconFrame(item.getItemId());
+                        return item;
+                    }
                     case ChatBubble -> {
                         getPlayer().getUnlocks().addChatBubble(item.getItemId());
                         return item;
                     }
                     case PhoneTheme -> {
                         getPlayer().getUnlocks().addPhoneTheme(item.getItemId());
+                        return item;
+                    }
+                    case AvatarSkin -> {
+                        getPlayer().getUnlocks().addAvatarSkin(item.getItemId());
                         return item;
                     }
                     default -> {

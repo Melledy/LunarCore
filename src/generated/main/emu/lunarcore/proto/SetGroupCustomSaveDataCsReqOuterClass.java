@@ -29,10 +29,6 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     private int entryId;
 
     /**
-     * <pre>
-     *  FJNHDHOHBCL
-     * </pre>
-     *
      * <code>optional uint32 group_id = 13;</code>
      */
     private int groupId;
@@ -106,10 +102,6 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  FJNHDHOHBCL
-     * </pre>
-     *
      * <code>optional uint32 group_id = 13;</code>
      * @return whether the groupId field is set
      */
@@ -118,10 +110,6 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  FJNHDHOHBCL
-     * </pre>
-     *
      * <code>optional uint32 group_id = 13;</code>
      * @return this
      */
@@ -132,10 +120,6 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  FJNHDHOHBCL
-     * </pre>
-     *
      * <code>optional uint32 group_id = 13;</code>
      * @return the groupId
      */
@@ -144,10 +128,6 @@ public final class SetGroupCustomSaveDataCsReqOuterClass {
     }
 
     /**
-     * <pre>
-     *  FJNHDHOHBCL
-     * </pre>
-     *
      * <code>optional uint32 group_id = 13;</code>
      * @param value the groupId to set
      * @return this

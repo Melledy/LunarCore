@@ -52,9 +52,6 @@ public class ResourceLoader {
         // Load maze abilities
         loadMazeAbilities();
         
-        // Load mission infos
-        loadMissionInfo();
-        
         // Done
         loaded = true;
         LunarCore.getLogger().info("Resource loading complete");
@@ -414,33 +411,5 @@ public class ResourceLoader {
         // Done
         LunarCore.getLogger().info("Loaded " + count + " maze abilities for avatars.");
     }
-    
-    private static void loadMissionInfo() {
-        int count = 0;
-        int countTask = 0;
-        for (Integer mMissionId : GameData.getMainMissionIds()) {
-            File file = new File(LunarCore.getConfig().getResourceDir() + "/Config/Level/Mission/" + mMissionId + "/" + "MissionInfo_" + mMissionId + ".json");
-            if (!file.exists()) continue;
-            try (FileReader reader = new FileReader(file)) {
-                MissionInfo info = gson.fromJson(reader, MissionInfo.class);
-                for (MissionInfo.SubMissionInfo setme : info.getSubMissionList()) {
-                    File taskFile = new File(LunarCore.getConfig().getResourceDir() + "/Config/Level/Mission/" + setme.getMainMissionID() + "/" + "Mission_" + setme.getId() + ".json");
-                    if (!taskFile.exists()) continue;
-                    try (FileReader readerTask = new FileReader(taskFile)) {
-                        MissionTaskInfo infoTask = gson.fromJson(readerTask, MissionTaskInfo.class);
-                        setme.setTask(infoTask);
-                        countTask++;
-                    } catch (Exception ex) {
-                        LunarCore.getLogger().warn("Failed to load task mission info: " + taskFile.getName(), ex);
-                    }
-                }
-                // Update GameData with the modified MissionInfo object
-                GameData.getMissionInfos().put(info.getMainMissionID(), info);
-                count++;
-            } catch (Exception e) {
-                LunarCore.getLogger().warn("Failed to load mission info: " + file.getName(), e);
-            }
-        }
-        LunarCore.getLogger().info("Loaded " + count + " mission infos (task " + countTask + ").");    
-    }
+
 }

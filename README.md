@@ -33,8 +33,8 @@
 ### Compiling the server
 1. Open your system terminal, and compile the server with `./gradlew jar`
 2. Create a folder named `resources` in your server directory
-3. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) and place them into your resources folder.
-4. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway. 
+3. Download the `Config`, `TextMap`, and `ExcelBin` folders from [https://github.com/Dimbreath/StarRailData](https://gitlab.com/Dimbreath/turnbasedgamedata) and place them into your resources folder.
+4. Run the server with `java -jar LunarCore.jar` from your system terminal. Lunar Core comes with a built-in internal MongoDB server for its database, so no Mongodb installation is required. However, it is highly recommended to install Mongodb anyway.
 
 ### Connecting with the client (Fiddler method)
 1. **Log in with the client to an official server and Hoyoverse account at least once to download game data.**
@@ -66,21 +66,27 @@ Server commands can be run in the server console or in-game. There is a dummy us
 
 ```
 /account {create | delete} [username] (reserved player uid). Creates or deletes an account.
-/avatar lv(level) p(ascension) r(eidolon) s(skill levels). Sets the current avatar's properties.
-/clear {relics | lightcones | materials | items}. Removes filtered items from the player inventory.
-/gender {male | female}. Sets the player's gender.
-/give [item id] x[amount] lv[number]. Gives the targetted player an item.
-/giveall {materials | avatars | lightcones | relics}. Gives the targeted player items.
+/avatar {cur | all | lineup} lv(level) p(ascension) e(eidolon) s(skill levels). Sets the current avatar's properties
+/buildavatar [{avatar id} | cur | all | lineup]. Creates a set of relics for the selected avatars
+/clear {relics | lightcones | materials | items} lv(filter level). Removes filter items from the targeted player's inventory.
+/energy. Refills all characters energy in current lineup.
+/gender {male | female}. Sets the player gender.
+/give [item id] x(amount) lv(level) r(rank) p(promotion). Gives the targeted player an item.
+/giveall {materials | avatars | lightcones | relics | usables} lv(level). Gives the targeted player items.
 /heal. Heals your avatars.
 /help. Displays a list of available commands.
 /kick @[player id]. Kicks a player from the server.
+/lineup [avatar ids]. USE AT YOUR OWN RISK. Sets your current lineup with the specified avatar ids.
 /mail [content]. Sends the targeted player a system mail.
 /permission {add | remove | clear} [permission]. Gives/removes a permission from the targeted player.
-/refill. Refill your skill points in open world.
+/refill - refill your skill points in open world.
 /reload. Reloads the server config.
 /scene [scene id] [floor id]. Teleports the player to the specified scene.
+/setlevel [level] - Sets the targeted player's trailblazer level.
 /spawn [npc monster id/prop id] s[stage id] x[amount] lv[level] r[radius] <battle monster ids...>. Spawns a monster or prop near the targeted player.
-/stop. Stops the server
-/unstuck @[player id]. Unstucks an offline player if they're in a scene that doesn't load.
+/status. Displays the status of the server.
+/stop - Stops the server
+/tp [x] [y] [z]. Teleports the player to the specified coordinates.
+/unstuck @[player id]. Unstucks an offline player if theyre in a scene that doesnt load.
 /worldlevel [world level]. Sets the targeted player's equilibrium level.
 ```
