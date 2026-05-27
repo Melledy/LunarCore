@@ -16,23 +16,23 @@
 - 祈愿系统
 - 邮件系统
 - 好友系统（好友支援尚未实现）
-- 忘却之庭（带有1.4.0功能）
-- 模拟宇宙（可以运行，但缺少许多功能）
+- 忘却之庭（暂时无法运行）
+- 模拟宇宙（暂时无法运行）
 
 # 运行服务端和客户端
 
 ### 必需条件
-* [Java 17 JDK](https://www.oracle.com/java/technologies/javase/jdk17-archive-downloads.html)
+* [Java 21 JDK](https://www.oracle.com/java/technologies/javase/jdk21-archive-downloads.html)
 
 ### 推荐安装
+* [Java 25 JDK](https://www.oracle.com/java/technologies/javase/jdk25-archive-downloads.html)
 * [MongoDB 4.0+](https://www.mongodb.com/try/download/community)
 
 ### 编译服务端核心
 1. 打开系统终端，使用 `./gradlew jar` 编译服务端核心
 2. 在服务器目录中创建一个名为 `resources` 的文件夹
-3. 从 [https://github.com/Dimbreath/StarRailData](https://github.com/Dimbreath/StarRailData) 下载 `Config`、`TextMap` 和 `ExcelBin` 文件夹，并将它们放入资源文件夹
-4. 从 [https://gitlab.com/Melledy/LunarCore-Configs](https://gitlab.com/Melledy/LunarCore-Configs) 下载 `Config` 文件夹，并将其放入资源文件夹。替换系统询问的任何文件。这些文件用于世界生成，对服务器非常重要。
-5. 从系统终端使用 `java -jar LunarCore.jar` 运行服务端。Lunar Core带有一个内置的MongoDB数据库服务，因此不需要安装MongoDB。但是，强烈建议安装MongoDB。
+3. 从 [https://github.com/Dimbreath/StarRailData](https://github.com/DimbreathBot/TurnBasedGameData) 下载 `Config`、`TextMap` 和 `ExcelOutput` 文件夹，并将它们放入资源文件夹
+5. 从系统终端使用 `java -jar LunarCore.jar` 运行服务端。Lunar Core带有一个内置的MongoDB数据库服务，因此不需要安装MongoDB。但是，还是强烈建议安装MongoDB。
 6. 如果在配置中将 `autoCreateAccount` 设置为true，则可以跳过创建帐户的步骤。否则，需要在服务器控制台使用 `/account` 命令创建一个帐户。
 
 ### 与客户端（Fiddler）连接
@@ -65,6 +65,7 @@ class Handlers
 ```
 /account {create | delete} [username] (保留玩家uid). 创建或删除一个帐户。
 /avatar lv(level) p(ascension) r(eidolon) s(skill levels). 设置当前角色的属性。
+/buildavatar [{avatar id} | cur | all | lineup]. 为选定的角色创建一套遗器。
 /clear {relics | lightcones | materials | items}. 从玩家库存中删除过滤的物品。
 /gender {male | female}. 设置玩家性别。
 /give [item id] x[amount] lv[number]. 给予目标玩家一个物品。
